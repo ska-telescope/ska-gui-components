@@ -87,6 +87,7 @@ distribution:
   tags:
   - k8srunner
   script:
+    - yarn
     - yarn rollup
   artifacts:
     paths:
