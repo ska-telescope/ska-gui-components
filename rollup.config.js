@@ -28,7 +28,10 @@ export default [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({
+        exclude: ['cypress.config.ts', '**/*.cy.ts'],
+        tsconfig: './tsconfig.json',
+      }),
       postcss(),
       terser(),
     ],
