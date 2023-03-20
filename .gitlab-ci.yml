@@ -97,8 +97,10 @@ distribution:
   stage: build
   tags:
   - k8srunner
+  before_script:
+    - npm config set registry https://registry.npmjs.org/
+    - yarn install
   script:
-    - yarn
     - yarn rollup
   artifacts:
     paths:
