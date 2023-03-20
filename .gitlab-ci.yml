@@ -100,6 +100,7 @@ distribution:
   before_script:
     - npm config set registry https://registry.npmjs.org/
     - yarn install
+    - mkdir -p dist/esm/types
   script:
     - yarn rollup
   artifacts:
