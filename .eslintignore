@@ -13,4 +13,4 @@ build
 **/stories/*
 *.json
 *.ico
-**/constants/*.js
+*.js
