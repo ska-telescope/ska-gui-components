@@ -4,7 +4,7 @@ import { Box, Divider, IconButton, Paper, Tooltip } from '@mui/material';
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
 // eslint-disable-next-line import/no-unresolved, import/extensions
-import MenuMap from '../MenuMap/MenuMap';
+import MenuMap from '../MenuMap/menuMap';
 
 const PREFIX = 'Menu';
 const classes = {
