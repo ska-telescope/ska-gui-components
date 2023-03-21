@@ -46,16 +46,16 @@ code_analysis:
 
 # run the test coverage reports
 test_and_coverage:
+  image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
   tags:
   - k8srunner
   before_script:
     - mkdir -p build/reports
     - npm config set registry https://registry.npmjs.org/
-    - yarn install
-    - yarn add xvfb
+    - yarn install --frozen-lockfile
   script:
-    - yarn cypress:headless
+    - yarn cypress:headless:chrome
 
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:
