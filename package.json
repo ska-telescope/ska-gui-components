@@ -12,7 +12,7 @@
   "scripts": {
     "build": "react-scripts build",
     "cypress": "cypress open",
-    "cypress:headless:chrome": "cypress run --parallel --browser chrome",
+    "cypress:headless:chrome": "cypress run --browser chrome",
     "code-analysis": "eslint \"src/**\" --ignore-path .eslintignore -f junit -o linting.xml",
     "lint:fix": "eslint src/**/*.{js,jsx,ts,tsx} --fix",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
