@@ -51,10 +51,10 @@ test_and_coverage:
   - k8srunner
   before_script:
     - mkdir -p build/reports
-  script:
     - npm config set registry https://registry.npmjs.org/
     - yarn install
-    - npx cypress run --browser firefox
+  script:
+    - npx cypress run --headless
 
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:
