@@ -124,6 +124,7 @@
     "@mui/material": "^5.11.12",
     "@ska-telescope/ska-javascript-components": "^0.1.13",
     "@types/react-router-dom": "^5.3.3",
+    "clsx": "^1.2.1",
     "cypress": "^12.5.1",
     "react": "^18.2.0",
     "react-router-dom": "^6.9.0"
