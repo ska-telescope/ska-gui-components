@@ -53,6 +53,7 @@ test_and_coverage:
     - mkdir -p build/reports
     - npm config set registry https://registry.npmjs.org/
     - yarn install
+    - yarn add xvfb
   script:
     - npx cypress run --headless
 
