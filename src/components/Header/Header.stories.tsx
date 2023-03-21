@@ -1,9 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Header from './Header';
-import theme from '../../services/theme/theme';
 
-function handleToggle() {};
 function handleThemeToggle() {};
 
 export default {
@@ -23,7 +21,5 @@ HeaderDisplay.parameters = {
 };
 
 HeaderDisplay.args = {
-    handleToggleDrawer: handleToggle,
-    open: false,
     themeToggle: handleThemeToggle,
 };

@@ -1,8 +1,7 @@
 import React from 'react';
-import clsx from 'clsx';
 import { styled } from '@mui/material/styles';
 
-import { AppBar, Grid, IconButton, Toolbar, Typography, useTheme } from '@mui/material';
+import { AppBar, Grid, IconButton, Toolbar, useTheme } from '@mui/material';
 import { Logo } from '@ska-telescope/ska-javascript-components';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -41,26 +40,17 @@ const Root = styled('div')(({ theme }) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  [`& .${classes.menuButton}`]: {
-    marginRight: theme.spacing(2),
-  },
 }));
 
 export interface HeaderProps {
   // eslint-disable-next-line @typescript-eslint/ban-types
-  handleToggleDrawer: Function;
-  open: boolean;
-  // eslint-disable-next-line @typescript-eslint/ban-types
   themeToggle: Function;
+  // eslint-disable-next-line no-undef
+  children?: JSX.Element;
 }
 
-export function Header({ handleToggleDrawer, open, themeToggle }: HeaderProps) {
+export function Header({ themeToggle, children }: HeaderProps) {
   const isDarkTheme = useTheme().palette.mode === 'dark';
-  const username: String = '';
-
-  const handleClick = () => {
-    handleToggleDrawer();
-  };
 
   const handleThemeToggle = () => {
     themeToggle();
@@ -68,56 +58,35 @@ export function Header({ handleToggleDrawer, open, themeToggle }: HeaderProps) {
 
   return (
     <Root className={classes.root}>
-      <AppBar
-        id="headerId"
-        color="primary"
-        position="fixed"
-        enableColorOnDark
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
+      <AppBar id="headerId" color="primary" position="fixed" enableColorOnDark>
         <Toolbar>
           <Grid container direction="row" justifyContent="space-between">
-            <Grid item xs={1}>
-              <div title="skaWebsite">
-                <IconButton
-                  aria-label="skaWebsite"
-                  sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
-                  color="inherit"
-                  onClick={() => openLink(SKAO_URL)}
-                >
-                  <Logo dark={!isDarkTheme} height={LOGO_HEIGHT} />
-                </IconButton>
-              </div>
-            </Grid>
-            <Grid item xs={3} />
-            <Grid item xs={2}>
-              <IconButton
-                aria-label="light/dark mode"
-                sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
-                onClick={handleThemeToggle}
-                color="inherit"
-              >
-                {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
-              </IconButton>
-              {username && (
-                <IconButton
-                  sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
-                  color="inherit"
-                  aria-label="user name"
-                  onClick={handleClick}
-                  size="small"
-                >
-                  <Typography variant="h6">{username.substring(0, 10)}</Typography>
-                </IconButton>
-              )}
-            </Grid>
+            <IconButton
+              aria-label="skaWebsite"
+              sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+              color="inherit"
+              onClick={() => openLink(SKAO_URL)}
+            >
+              <Logo dark={!isDarkTheme} height={LOGO_HEIGHT} />
+            </IconButton>
+            {children}
+            <IconButton
+              aria-label="light/dark mode"
+              sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+              onClick={handleThemeToggle}
+              color="inherit"
+            >
+              {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
+            </IconButton>
           </Grid>
         </Toolbar>
       </AppBar>
     </Root>
   );
 }
+
+Header.defaultProps = {
+  children: null,
+};
 
 export default Header;
