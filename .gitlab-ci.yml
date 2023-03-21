@@ -55,7 +55,7 @@ test_and_coverage:
     - yarn install
     - yarn add xvfb
   script:
-    - npx cypress run --headless
+    - yarn cypress:headless
 
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:
