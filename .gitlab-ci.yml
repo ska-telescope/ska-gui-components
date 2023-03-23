@@ -28,9 +28,9 @@ install_dependencies:
       files:
         - yarn.lock
     policy: push
-    rules:
-      - changes:
-          - yarn.lock
+  rules:
+    - changes:
+        - yarn.lock
 
 #Run the static code analysis
 code_analysis:
