@@ -41,6 +41,7 @@ code_analysis:
   - k8srunner
   before_script:
     - mkdir -p build/reports
+    - yarn
   script:
     - yarn run code-analysis
     - mv linting.xml build/reports/linting.xml
