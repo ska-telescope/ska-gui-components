@@ -1,5 +1,5 @@
 default:
-  image: node:alpine
+  image: node:debian 
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -18,15 +18,19 @@ install_dependencies:
   stage: dependencies
   tags:
     - k8srunner
-  before_script:
-    - rm -rf node_modules
   script:
     - npm config set registry https://registry.npmjs.org/
     - yarn install
   cache:
     paths:
       - node_modules/
+    key:
+      files:
+        - yarn.lock
     policy: push
+    rules:
+      - changes:
+          - yarn.lock
 
 #Run the static code analysis
 code_analysis:
@@ -174,32 +178,3 @@ include:
   - project: 'ska-telescope/templates-repository'
     file: 'gitlab-ci/includes/release.gitlab-ci.yml'
     
-
-
-code_quality:
-  # https://docs.gitlab.com/ee/user/project/merge_requests/code_quality.html#generate-an-html-report
-  artifacts:
-    paths: [gl-code-quality-report.json]
-  # disable dind service as it's not needed for k8srunner runners
-  script:
-    echo 'code quality does not need a script'
-  services: []
-  tags:
-  - k8srunner
-  # We need to merge the rules with what we have here on template rules
-  # https://gitlab.com/ska-telescope/templates-repository/-/blob/master/gitlab-ci/includes/rules.gitlab-ci.yml 
-  # https://docs.gitlab.com/ee/user/project/merge_requests/code_quality.html#using-with-merge-request-pipelines
-  rules:
-    - if: '$CODE_QUALITY_DISABLED'
-      when: never
-    # don't run branch pipeline if there are open MRs
-    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS && $CI_PIPELINE_SOURCE == "push"
-      when: never
-    # run on MRs
-    - if: $CI_MERGE_REQUEST_IID
-    # For `$CI_DEFAULT_BRANCH` branch, create a pipeline (this includes on schedules, pushes, merges, etc.).
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-    # For tags, create a pipeline.
-    - if: '$CI_COMMIT_TAG'
-    # run on branches
-    - if: '$CI_COMMIT_BRANCH'
