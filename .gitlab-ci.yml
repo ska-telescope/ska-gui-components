@@ -19,7 +19,7 @@ install_dependencies:
   tags:
     - k8srunner
   script:
-    - yarn install
+    - yarn install --frozen-lockfile
     #- npm config set registry https://artefact.skao.int/repository/npm-internal/
     #- yarn add @ska-telescope/ska-javascript-components
     #- npm config set registry https://registry.npmjs.org/
@@ -42,8 +42,6 @@ code_analysis:
   before_script:
     - mkdir -p build/reports
   script:
-    - npm config set registry https://registry.npmjs.org/
-    - yarn install
     - yarn run code-analysis
     - mv linting.xml build/reports/linting.xml
   artifacts:
@@ -60,6 +58,9 @@ test_and_coverage:
     - mkdir -p build/reports
     - npm config set registry https://registry.npmjs.org/
     - yarn install --frozen-lockfile
+    #- npm config set registry https://artefact.skao.int/repository/npm-internal/
+    #- yarn add @ska-telescope/ska-javascript-components
+    #- npm config set registry https://registry.npmjs.org/
   script:
     - yarn cypress:headless:chrome
 
@@ -74,9 +75,6 @@ list_dependencies:
   tags:
   - k8srunner
   allow_failure: true
-  before_script:
-    - npm config set registry https://registry.npmjs.org/
-    - yarn install
   script:
     - npm list --depth=0 --json >> npm_deps.json
     - npm list --depth=0  >> npm_deps.txt
@@ -97,8 +95,6 @@ build:
       - node_modules/
     policy: pull
   script:
-    - npm config set registry https://registry.npmjs.org/
-    - yarn install
     - yarn build
 
 # Roll up the application
@@ -106,9 +102,6 @@ distribution:
   stage: build
   tags:
   - k8srunner
-  before_script:
-    - npm config set registry https://registry.npmjs.org/
-    - yarn install
   script:
     - yarn rollup
   artifacts:
