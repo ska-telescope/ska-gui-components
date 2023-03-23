@@ -19,6 +19,7 @@ install_dependencies:
   tags:
     - k8srunner
   script:
+    - npm install --global yarn
     - yarn install
     - npm config set registry https://artefact.skao.int/repository/npm-internal/
     - yarn add @ska-telescope/ska-gui-components
