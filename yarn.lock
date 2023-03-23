@@ -1466,11 +1466,6 @@
   resolved "https://registry.yarnpkg.com/@cypress/react18/-/react18-2.0.0.tgz#9923928328a1a775bc10b7046747d4d90452c754"
   integrity sha512-I4iEzyPvSmADPUFT7fuihuo21zu5j5OdgB73KnuCI7VjFT6RaYnag8zBeSkXuwSBO1fbD4jeJWoDyPNLqwLspg==
 
-"@cypress/react@^7.0.2":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@cypress/react/-/react-7.0.2.tgz#175a57c8e5b80c9a7a051f62bd058fa27ad692b3"
-  integrity sha512-TTV7XNMDOO9mZUFWiGbd44Od/jqMVX/QbHYKQmK1XT3nIVFs0EvKJuHJmwN7wxLOR/+6twtyX6vTD8z8XBTliQ==
-
 "@cypress/request@^2.88.10":
   version "2.88.11"
   resolved "https://registry.yarnpkg.com/@cypress/request/-/request-2.88.11.tgz#5a4c7399bc2d7e7ed56e92ce5acb620c8b187047"
@@ -3768,6 +3763,13 @@
   version "18.0.6"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.6.tgz#36652900024842b74607a17786b6662dd1e103a1"
   integrity sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-dom@^18.0.11":
+  version "18.0.11"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.11.tgz#321351c1459bc9ca3d216aefc8a167beec334e33"
+  integrity sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==
   dependencies:
     "@types/react" "*"
 
