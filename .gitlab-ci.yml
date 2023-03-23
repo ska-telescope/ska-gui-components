@@ -103,6 +103,7 @@ distribution:
   stage: build
   tags:
   - k8srunner
+  - yarn
   script:
     - yarn rollup
   artifacts:
