@@ -1,5 +1,5 @@
 default:
-  image: debian 
+  image: node:alpine 
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -19,8 +19,6 @@ install_dependencies:
   tags:
     - k8srunner
   script:
-    - apt-get install npm
-    - npm install --global yarn
     - yarn install
     - npm config set registry https://artefact.skao.int/repository/npm-internal/
     - yarn add @ska-telescope/ska-gui-components
