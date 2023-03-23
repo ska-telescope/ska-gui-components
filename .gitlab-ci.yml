@@ -41,7 +41,7 @@ code_analysis:
   - k8srunner
   before_script:
     - mkdir -p build/reports
-    - yarn
+    - yarn install --frozen-lockfile
   script:
     - yarn run code-analysis
     - mv linting.xml build/reports/linting.xml
@@ -103,7 +103,7 @@ distribution:
   stage: build
   tags:
   - k8srunner
-  - yarn
+  - yarn install --frozen-lockfile
   script:
     - yarn rollup
   artifacts:
