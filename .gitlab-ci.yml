@@ -1,5 +1,5 @@
 default:
-  image: node:alpine 
+  image: node:lts-alpine 
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -112,7 +112,6 @@ distribution:
 # Publish the artifacts to CAR
 publish-to-car:
   stage: publish
-  image: node:lts-alpine
   tags:
   - k8srunner
   before_script:
@@ -128,7 +127,6 @@ publish-to-car:
     
 # Publish the artifacts to gitlab registry
 publish-to-gitlab:
-  image: node:lts-alpine
   stage: publish
   tags:
   - k8srunner
@@ -151,7 +149,6 @@ pages:
   dependencies:
     - test_and_coverage
     - list_dependencies
-    - code_quality
   script:
     - mv public/* .
     - cp -r build/* public
