@@ -1,0 +1,22 @@
+
+# dependancies
+dist
+node_modules
+
+# production
+/build
+
+# misc
+*.log
+
+# built docs
+/docs/build
+
+/.vs
+/.vscode
+junit.xml
+linting.xml
+
+package-lock.json
+
+PrivateRules.mak

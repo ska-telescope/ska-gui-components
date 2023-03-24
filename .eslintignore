@@ -1,0 +1,16 @@
+node_modules
+build
+**/*.css
+**/*.scss
+**/*.ttf
+**/*.svg
+**/*.html
+**/index.ts
+**.json
+**.yml
+**.lock
+**./*.stories.*
+**/stories/*
+*.json
+*.ico
+*.js
