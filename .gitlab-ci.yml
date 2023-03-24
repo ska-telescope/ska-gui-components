@@ -1,5 +1,5 @@
 default:
-  image: node:lts-alpine 
+  image: node:alpine
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -19,10 +19,8 @@ install_dependencies:
   tags:
     - k8srunner
   script:
-    - yarn install --frozen-lockfile
-    #- npm config set registry https://artefact.skao.int/repository/npm-internal/
-    #- yarn add @ska-telescope/ska-javascript-components
-    #- npm config set registry https://registry.npmjs.org/
+    - npm config set registry https://registry.npmjs.org/
+    - yarn install
   cache:
     paths:
       - node_modules/
@@ -31,8 +29,9 @@ install_dependencies:
         - yarn.lock
     policy: push
   rules:
-    - changes:
-        - yarn.lock
+  - changes:
+    - yarn.lock
+
 
 #Run the static code analysis
 code_analysis:
@@ -41,8 +40,8 @@ code_analysis:
   - k8srunner
   before_script:
     - mkdir -p build/reports
-    - yarn install
   script:
+    - yarn install
     - yarn run code-analysis
     - mv linting.xml build/reports/linting.xml
   artifacts:
@@ -57,11 +56,7 @@ test_and_coverage:
   - k8srunner
   before_script:
     - mkdir -p build/reports
-    - npm config set registry https://registry.npmjs.org/
-    - yarn install
-    #- npm config set registry https://artefact.skao.int/repository/npm-internal/
-    #- yarn add @ska-telescope/ska-javascript-components
-    #- npm config set registry https://registry.npmjs.org/
+    - yarn install --frozen-lockfile
   script:
     - yarn cypress:headless:chrome
 
@@ -76,6 +71,9 @@ list_dependencies:
   tags:
   - k8srunner
   allow_failure: true
+  before_script:
+    - npm config set registry https://registry.npmjs.org/
+    - yarn install
   script:
     - npm list --depth=0 --json >> npm_deps.json
     - npm list --depth=0  >> npm_deps.txt
@@ -96,6 +94,8 @@ build:
       - node_modules/
     policy: pull
   script:
+    - npm config set registry https://registry.npmjs.org/
+    - yarn install
     - yarn build
 
 # Roll up the application
@@ -103,7 +103,8 @@ distribution:
   stage: build
   tags:
   - k8srunner
-  - yarn install
+  before_script:
+    - yarn install
   script:
     - yarn rollup
   artifacts:
@@ -113,6 +114,7 @@ distribution:
 # Publish the artifacts to CAR
 publish-to-car:
   stage: publish
+  image: node:lts-alpine
   tags:
   - k8srunner
   before_script:
@@ -128,6 +130,7 @@ publish-to-car:
     
 # Publish the artifacts to gitlab registry
 publish-to-gitlab:
+  image: node:lts-alpine
   stage: publish
   tags:
   - k8srunner
