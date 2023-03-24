@@ -58,7 +58,7 @@ test_and_coverage:
     - mkdir -p build/reports
     - yarn install --frozen-lockfile
   script:
-    - yarn cypress:headless:chrome
+    - yarn cypress:component:chrome
 
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:
