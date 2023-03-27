@@ -42,7 +42,7 @@ code_analysis:
     - mkdir -p build/reports
   script:
     - yarn install
-    - yarn run code-analysis
+    - yarn code-analysis
     - mv linting.xml build/reports/linting.xml
   artifacts:
     paths:
