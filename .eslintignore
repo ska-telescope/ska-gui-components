@@ -9,6 +9,7 @@ build
 **.json
 **.yml
 **.lock
+**/*.cy.tsx
 **./*.stories.*
 **/stories/*
 *.json

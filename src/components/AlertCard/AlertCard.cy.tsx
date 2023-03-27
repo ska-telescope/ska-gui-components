@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'cypress/react18';
-// eslint-disable-next-line import/extensions, import/no-unresolved
 import AlertCard from './AlertCard';
 
 const DUMMY_DATA = [
