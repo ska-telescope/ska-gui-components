@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Alert,
-  AlertColor,
   Box,
   Button,
   Card,
@@ -58,7 +57,7 @@ function AlertFilled(
   return (
     <Box key={`AlertFilledBox${index}`} m={1}>
       <Button key={`AlertFilledButton${index}`} onClick={buttonClick}>
-        <Alert key={`AlertFilled${index}`} icon={false} severity={SEVERITY[level] as AlertColor}>
+        <Alert key={`AlertFilled${index}`} icon={false} severity={SEVERITY[level]}>
           <Box key={`AlertFilledBoxInner${index}`} m={1}>
             {content(level, title, value, hideValue)}
           </Box>
@@ -97,7 +96,7 @@ export function AlertCard({ title, filled, array, clickFunction }: AlertCardProp
         result = SEVERITY[array[i].level];
       }
     }
-    return result as AlertColor;
+    return result;
   };
 
   return (
