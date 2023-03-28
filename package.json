@@ -93,6 +93,6 @@
   "dependencies": {
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.14",
-    "@ska-telescope/ska-javascript-components": "^0.1.14"
+    "@ska-telescope/ska-javascript-components": "^0.1.15"
   }
 }
