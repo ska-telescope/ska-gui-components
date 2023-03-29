@@ -1,6 +1,5 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
-
+// import { styled } from '@mui/material/styles';
 import { AppBar, Grid, IconButton, Toolbar, useTheme } from '@mui/material';
 import { Logo } from '@ska-telescope/ska-javascript-components';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
@@ -13,6 +12,7 @@ function openLink(link: string) {
   window.open(link, '_blank');
 }
 
+/*
 const PREFIX = 'Header';
 const classes = {
   root: `${PREFIX}-root`,
@@ -20,6 +20,8 @@ const classes = {
   appBarShift: `${PREFIX}-appBarShift`,
   menuButton: `${PREFIX}-menuButton`,
 };
+*/
+/*
 const Root = styled('div')(({ theme }) => ({
   [`&.${classes.root}`]: {
     display: 'flex',
@@ -41,7 +43,7 @@ const Root = styled('div')(({ theme }) => ({
     }),
   },
 }));
-
+*/
 export interface HeaderProps {
   themeToggle: Function;
   children?: JSX.Element;
