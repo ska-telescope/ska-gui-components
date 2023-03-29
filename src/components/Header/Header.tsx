@@ -43,9 +43,7 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 export interface HeaderProps {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   themeToggle: Function;
-  // eslint-disable-next-line no-undef
   children?: JSX.Element;
 }
 
@@ -57,31 +55,29 @@ export function Header({ themeToggle, children }: HeaderProps) {
   };
 
   return (
-    <Root className={classes.root}>
-      <AppBar id="headerId" color="primary" position="fixed" enableColorOnDark>
-        <Toolbar>
-          <Grid container direction="row" justifyContent="space-between">
-            <IconButton
-              aria-label="skaWebsite"
-              sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
-              color="inherit"
-              onClick={() => openLink(SKAO_URL)}
-            >
-              <Logo dark={!isDarkTheme} height={LOGO_HEIGHT} />
-            </IconButton>
-            {children}
-            <IconButton
-              aria-label="light/dark mode"
-              sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
-              onClick={handleThemeToggle}
-              color="inherit"
-            >
-              {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
-            </IconButton>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-    </Root>
+    <AppBar id="headerId" color="primary" position="fixed" enableColorOnDark>
+      <Toolbar>
+        <Grid container alignItems="center" direction="row" justifyContent="space-between">
+          <IconButton
+            aria-label="skaWebsite"
+            sx={{ '&:hover': { backgroundColor: 'primary.dark' }, m: 0 }}
+            color="inherit"
+            onClick={() => openLink(SKAO_URL)}
+          >
+            <Logo dark={!isDarkTheme} height={LOGO_HEIGHT} />
+          </IconButton>
+          {children}
+          <IconButton
+            aria-label="light/dark mode"
+            sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+            onClick={handleThemeToggle}
+            color="inherit"
+          >
+            {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
+          </IconButton>
+        </Grid>
+      </Toolbar>
+    </AppBar>
   );
 }
 

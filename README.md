@@ -5,28 +5,23 @@ Their usage is able to be viewed by use of Storybook
 They have been tested using Cypress
 SKAO Theme has been implemented and has been imported from ska-javascript-components
 
-## Adding the library to your application
+## Adding library to your application
 
 This repository is available from the Central Artefact Repository ( CAR ), so the following needs to
 be executed from the repository that needs to use this library
 
-> npm config set registry https://artefact.skao.int/repository/npm-internal/
+```
+npm config set @ska-telescope:registry https://artefact.skao.int/repository/npm-internal/
 
-> yarn add @ska-telescope/ska-gui-components   ( npm can be used as an alternative )
-
-Once this has run successfully, then you should run the following, so that the default
-registry usage is restored.
-
-> npm config set registry https://registry.npmjs.org/
+yarn add @ska-telescope/ska-gui-components   ( npm can be used as an alternative )
 
 ## Updating the Ci/CD processor
 
 As the library is in an SKAO location, the .gitlab-ci.yml should be amended to the following so that the Ci/CD build will complete
 
   script:
-    - npm config set registry https://artefact.skao.int/repository/npm-internal/
+    - npm config set @ska-telescope:registry https://artefact.skao.int/repository/npm-internal/
     - yarn build  ( npm can be used here as an alternative )
-    - npm config set registry https://registry.npmjs.org/
 
 ## Using a component from the library
 
@@ -44,12 +39,16 @@ This is now able to be used like any other component; below is an illustrative e
 1. Add the component in the normal way; using storybook should help with this
 2. Update the version number within package.json
 3. Tag the version ( example below )
+4. Merge as usual, with a passing pipeline.
+5. Once the merge has completed, the tag will need to be added in git.
+  5a. Locate and select the 'Tags' submenu item
+  5b. Click on New Tag, located towards the top-right of the page.
+  5c. Enter the tag name in the form n.n.n  ( eg. 0.1.2 )
+  5d. Ensure that the 'Create from' is set to 'master'.
+  5e. Enter an appropriate Message
+  5f. Click 'Create tag'.
 
-> git tag -a v1.4 -m 'version 1.4'
-
-NB: I have found that you will need to tag within the git website, so I recommend that both are done
-
-4. Merge as usual, with a passing pipeline
+This will run the CI/CD process again, and once complete the executable will be associated by the version
 
 ## Components available within this library
 ### AlertCard

@@ -9,6 +9,7 @@
   "plugins": ["prettier"],
   "ignorePatterns": ["**/*.stories.tsx"],
   "rules": {
+    "no-undef": "off",
     "import/no-unresolved": [2, { "ignore": ["@mui", "@ska-", "react-router-dom"] }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "prettier/prettier": ["error"]
