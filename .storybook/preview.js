@@ -6,20 +6,20 @@ import '@fontsource/roboto/700.css';
 import '@fontsource/material-icons';
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import theme from '../src/services/theme/theme';
+import { THEME_DARK, THEME_LIGHT, theme } from '../src/services/theme/theme';
 
 export const globalTypes = {
   theme: {
     name: "Theme",
     title: "Theme",
     description: "Theme for your components",
-    defaultValue: "light",
+    defaultValue: THEME_LIGHT,
     toolbar: {
       icon: "paintbrush",
       dynamicTitle: true,
       items: [
-        { value: "light", left: "☀️", title: "Light mode" },
-        { value: "dark", left: "🌙", title: "Dark mode" },
+        { value: THEME_LIGHT, left: "☀️", title: "Light mode" },
+        { value: THEME_DARK, left: "🌙", title: "Dark mode" },
       ],
     },
   },
