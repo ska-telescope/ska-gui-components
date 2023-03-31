@@ -11,17 +11,6 @@ const SKAO_URL = 'https://www.skao.int/';
 function openLink(link: string) {
   window.open(link, '_blank');
 }
-
-/*
-const PREFIX = 'Header';
-const classes = {
-  root: `${PREFIX}-root`,
-  appBar: `${PREFIX}-appBar`,
-  appBarShift: `${PREFIX}-appBarShift`,
-  menuButton: `${PREFIX}-menuButton`,
-};
-*/
-/*
 const Root = styled('div')(({ theme }) => ({
   [`&.${classes.root}`]: {
     display: 'flex',
@@ -49,7 +38,7 @@ export interface HeaderProps {
   children?: JSX.Element;
 }
 
-export function Header({ themeToggle, children }: HeaderProps) {
+export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
   const isDarkTheme = useTheme().palette.mode === 'dark';
 
   const handleThemeToggle = () => {
@@ -57,7 +46,7 @@ export function Header({ themeToggle, children }: HeaderProps) {
   };
 
   return (
-    <AppBar id="headerId" color="primary" position="fixed" enableColorOnDark>
+    <AppBar id="headerId" color="primary" position="sticky" enableColorOnDark>
       <Toolbar>
         <Grid container alignItems="center" direction="row" justifyContent="space-between">
           <IconButton
