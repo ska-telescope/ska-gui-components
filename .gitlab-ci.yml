@@ -92,6 +92,8 @@ build:
     - npm config set registry https://registry.npmjs.org/
     - yarn install
     - yarn build
+  after_script:
+    - cp -r build/* public
 
 # Roll up the application
 distribution:
@@ -145,11 +147,9 @@ pages:
   - k8srunner
   dependencies:
     - test_and_coverage
-
     - list_dependencies
   script:
     - mv public/* .
-    - cp -r build/* public
     - cp -r .public/* public
   artifacts:
     paths:
