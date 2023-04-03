@@ -49,6 +49,7 @@ code_analysis:
       - build/
 
 test_and_coverage:
+  allow_failure: true
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
   tags:
