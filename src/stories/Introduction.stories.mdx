@@ -114,98 +114,42 @@ import StackAlt from './assets/stackalt.svg';
   
 `}</style>
 
-# Welcome to Storybook
+# Welcome to SKA-GUI-COMPONENTS within Storybook
 
 Storybook helps you build UI components in isolation from your app's business logic, data, and context.
 That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
 
-Browse example stories now by navigating to them in the sidebar.
-View their code in the `src/stories` directory to learn how they work.
-We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
+This library also provides direct usage of the components and styling available from <strong>ska-javascript-components</strong>
+* Theme....... Used directly to provide a stand theme for use by <strong>MUI</strong>
+* Colors....... Theme colors, should use of the Theme component not be viable
+* Styling....... Theme styling, should use of the Theme component not be viable
+* Logo.......... Standard SKAO Logo, supporting light & dark modes
+* Spacer...... Component so that vertical and horizontal spacing can be set if needed
+* Status....... Component providing a Engineering shape that is fully accessible depending upon property provided
 
-<div className="subheading">Configure</div>
-
-<div className="link-list">
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/addons/addon-types"
-    target="_blank"
-  >
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>Presets for popular tools</strong>
-      Easy setup for TypeScript, SCSS and more.
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/webpack"
-    target="_blank"
-  >
-    <img src={StackAlt} alt="Build" />
-    <span>
-      <strong>Build configuration</strong>
-      How to customize webpack and Babel
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/styling-and-css"
-    target="_blank"
-  >
-    <img src={Colors} alt="colors" />
-    <span>
-      <strong>Styling</strong>
-      How to load and configure CSS libraries
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/get-started/setup#configure-storybook-for-your-stack"
-    target="_blank"
-  >
-    <img src={Flow} alt="flow" />
-    <span>
-      <strong>Data</strong>
-      Providers and mocking for data libraries
-    </span>
-  </a>
-</div>
-
-<div className="subheading">Learn</div>
+Below is a short summary of the components available via this library, with examples provided via the left menu
+<div className="subheading">Components</div>
 
 <div className="link-list">
-  <a className="link-item" href="https://storybook.js.org/docs" target="_blank">
-    <img src={Repo} alt="repo" />
+  <a className="link-item" >
+    <img src={Code} alt="Code" />
     <span>
-      <strong>Storybook documentation</strong>
-      Configure, customize, and extend
+      <strong>AlertCard</strong>
+      Panel that provides a colored border/fill dependant upon the provided array as a property
     </span>
   </a>
-  <a className="link-item" href="https://storybook.js.org/tutorials/" target="_blank">
-    <img src={Direction} alt="direction" />
+  <a className="link-item" >
+    <img src={Code} alt="Code" />
     <span>
-      <strong>In-depth guides</strong>
-      Best practices from leading teams
+      <strong>Footer</strong>
+      Standard Footer wrapper component that even spaces it's child components
     </span>
   </a>
-  <a className="link-item" href="https://github.com/storybookjs/storybook" target="_blank">
-    <img src={Code} alt="code" />
+  <a className="link-item" >
+    <img src={Code} alt="Code" />
     <span>
-      <strong>GitHub project</strong>
-      View the source and add issues
+      <strong>Header</strong>
+      Standard Header wrapper component that even spaces it's child components.  Also contains SKAO Logo and button for Theme toggling
     </span>
   </a>
-  <a className="link-item" href="https://discord.gg/storybook" target="_blank">
-    <img src={Comments} alt="comments" />
-    <span>
-      <strong>Discord chat</strong>
-      Chat with maintainers and the community
-    </span>
-  </a>
-</div>
-
-<div className="tip-wrapper">
-  <span className="tip">Tip</span>Edit the Markdown in{' '}
-  <code>src/stories/Introduction.stories.mdx</code>
 </div>

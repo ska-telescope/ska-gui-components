@@ -12,7 +12,7 @@ const Root = styled('div')(({ theme }) => ({
     display: 'flex',
   },
   [`& .${classes.appBar}`]: {
-    top: '90vh',
+    top: '95vh',
     bottom: 0,
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['margin', 'width'], {

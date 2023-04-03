@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Header from './Header';
 
-function handleThemeToggle() {};
+function handleThemeToggle() {}
 
 export default {
   title: 'Example/Header',
@@ -21,5 +21,5 @@ HeaderDisplay.parameters = {
 };
 
 HeaderDisplay.args = {
-    themeToggle: handleThemeToggle,
+  themeToggle: handleThemeToggle,
 };
