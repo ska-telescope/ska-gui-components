@@ -58,7 +58,7 @@ test_and_coverage:
     - mkdir -p build/reports
     - yarn install --frozen-lockfile
   script:
-    - yarn cypress:headless:chrome
+    - yarn cypress:component:chrome
 
 # list the current top level dependencies for the project
 list_dependencies:
