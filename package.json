@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -36,8 +36,13 @@
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^11.0.0",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
     "@storybook/builder-webpack5": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.16",
     "@types/react": "^17.0.34",
     "cypress": "^12.8.1",
@@ -91,11 +96,6 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@ska-telescope/ska-javascript-components": "^0.1.19",
-    "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-interactions": "^6.5.16",
-    "@storybook/addon-links": "^6.5.16",
-    "@storybook/preset-create-react-app": "^4.1.2",
-    "@storybook/preset-scss": "^1.0.3"
+    "@ska-telescope/ska-javascript-components": "^0.1.20"
   }
 }

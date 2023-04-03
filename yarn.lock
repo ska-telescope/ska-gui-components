@@ -2276,10 +2276,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@ska-telescope/ska-javascript-components@^0.1.19":
-  version "0.1.19"
-  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-0.1.19.tgz#18b5f3cbcbd1d745b022259c1ff33f33c227f2b8"
-  integrity sha512-wJFkIuEzlahmjOj3BtMWnJ6Pq6X+zN5fBrqEUwudKL++KzqJNgh6uYlcXVNGWgKNIV7UEbjUUOx3Dft3mFx38Q==
+"@ska-telescope/ska-javascript-components@^0.1.20":
+  version "0.1.20"
+  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-0.1.20.tgz#7deb287d5fed383c77e0f74004dbb9e6219c0084"
+  integrity sha512-xw2X5PHNblcKZ2JUo15RrZyZlIjWsrPEywLpTUqkHtRXzF9rmG+JLFASULu/LBriX7xfE+nD/ZxAsHXZmfPknA==
 
 "@storybook/addon-actions@6.5.16":
   version "6.5.16"
