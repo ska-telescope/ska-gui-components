@@ -2,11 +2,14 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import AlertCard from './AlertCard';
 
-const mockArray = [
-  { level: 1, title: 'Errors', value: 1, hideValue: false },
-  { level: 3, title: 'Warnings', value: 0, hideValue: false },
-  { level: 5, title: 'Offline', value: 0, hideValue: false },
-  { level: 0, title: 'Ok', value: 55, hideValue: false },
+const DUMMY_DATA = [
+  { level: 0, title: 'alertCard.0', value: 1, hideValue: true },
+  { level: 1, title: 'alertCard.1', value: 1, hideValue: true },
+  { level: 2, title: 'alertCard.2', value: 1, hideValue: true },
+  { level: 3, title: 'alertCard.3', value: 1, hideValue: true },
+  { level: 4, title: 'alertCard.4', value: 1, hideValue: true },
+  { level: 5, title: 'alertCard.5', value: 1, hideValue: true },
+  { level: 6, title: 'alertCard.6', value: 1, hideValue: true },
 ];
 
 export default {
@@ -26,7 +29,7 @@ AlertCardDisplay.parameters = {
 };
 
 AlertCardDisplay.args = {
-  title: 'title',
+  title: 'alertCard.title',
   filled: false,
-  array: mockArray,
+  array: DUMMY_DATA,
 };

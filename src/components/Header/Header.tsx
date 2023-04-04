@@ -13,7 +13,7 @@ function openLink(link: string) {
 
 export interface HeaderProps {
   themeToggle: Function;
-  children?: JSX.Element;
+  children?: JSX.Element[];
 }
 
 export function Header({ themeToggle, children }: HeaderProps): JSX.Element {

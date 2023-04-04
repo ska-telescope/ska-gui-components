@@ -10,10 +10,11 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import { Status } from '@ska-telescope/ska-javascript-components';
 
 const STATE_SIZE = 30;
-const SEVERITY = ['success', 'error', '', 'warning', '', 'info'];
+const SEVERITY = ['success', 'error', 'warning', 'warning', 'warning', 'info'];
 
 export interface AlertCardProps {
   title: string;
@@ -21,6 +22,11 @@ export interface AlertCardProps {
   array: { level: number; title: string; value: number; hideValue: boolean }[];
   clickFunction?: Function;
 }
+
+const translate = (inValue: string): string => {
+  const { t } = useTranslation();
+  return t(inValue);
+};
 
 const content = (level: number, theTitle: string, value: number, hideValue: boolean) => (
   <Grid
@@ -33,7 +39,7 @@ const content = (level: number, theTitle: string, value: number, hideValue: bool
     <Grid item>
       <Status level={level} size={STATE_SIZE} />
       <Typography variant="body2" component="div">
-        {theTitle}
+        {translate(theTitle)}
       </Typography>
     </Grid>
     <Grid item>
@@ -89,6 +95,8 @@ function AlertOutlined(
 }
 
 export function AlertCard({ title, filled, array, clickFunction }: AlertCardProps) {
+  const { t } = useTranslation();
+
   const setSeverity = () => {
     let result = SEVERITY[0];
     for (let i = 0; result === SEVERITY[0] && i < array.length; i += 1) {
@@ -117,7 +125,7 @@ export function AlertCard({ title, filled, array, clickFunction }: AlertCardProp
         >
           <Stack sx={{ height: '95%' }} spacing={2}>
             <Typography variant="h6" component="div">
-              {title}
+              {t(title)}
             </Typography>
             <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
               {filled &&

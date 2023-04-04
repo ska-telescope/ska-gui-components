@@ -12,7 +12,7 @@ const Root = styled('div')(({ theme }) => ({
     display: 'flex',
   },
   [`& .${classes.appBar}`]: {
-    top: '95vh',
+    top: '92vh',
     bottom: 0,
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['margin', 'width'], {
@@ -24,7 +24,7 @@ const Root = styled('div')(({ theme }) => ({
 
 export interface FooterProps {
   // eslint-disable-next-line no-undef
-  children?: JSX.Element;
+  children?: JSX.Element[];
 }
 
 export function Footer({ children }: FooterProps) {

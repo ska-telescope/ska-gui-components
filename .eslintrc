@@ -5,13 +5,11 @@
     "jest": true,
     "node": true
   },
-  "extends": ["react-app", "airbnb", "prettier"],
-  "plugins": ["prettier"],
-  "ignorePatterns": ["**/*.stories.tsx"],
+  "extends": ["prettier", "plugin:cypress/recommended"],
+  "plugins": ["prettier", "cypress"],
   "rules": {
-    "no-undef": "off",
-    "import/no-unresolved": [2, { "ignore": ["@mui", "@ska-", "react-router-dom"] }],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "linebreak-style": 0,
+    "jest/expect-expect": "off"
   }
 }
