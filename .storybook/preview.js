@@ -1,9 +1,10 @@
-
+import React from 'react';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/material-icons';
+import '../src/services/i18n/i18n';
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { THEME_DARK, THEME_LIGHT, theme } from '../src/services/theme/theme';
@@ -32,7 +33,9 @@ export const withMuiTheme = (Story, context) => {
   return (
     <ThemeProvider theme={theme(themeKey)}>
       <CssBaseline />
-      <Story />
+      <React.Suspense fallback="...is loading">
+        <Story />
+      </React.Suspense>
     </ThemeProvider>
   );
 };

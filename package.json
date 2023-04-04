@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -14,9 +14,9 @@
     "build": "react-scripts build",
     "cypress": "cypress open",
     "cypress:component:chrome": "cypress run --component --browser chrome",
-    "code-analysis": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore -f junit -o linting.xml",
-    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "code-analysis": "eslint --ignore-path .eslintignore -f junit -o linting.xml",
+    "lint:fix": "eslint  --ignore-path .eslintignore --fix",
+    "lint": "eslint --ignore-path .eslintignore",
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/plugin-syntax-flow": "^7.21.4",
+    "@babel/plugin-transform-react-jsx": "^7.21.0",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
@@ -41,19 +43,30 @@
     "@storybook/addon-links": "^6.5.16",
     "@storybook/builder-webpack5": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/node-logger": "^7.0.2",
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.16",
     "@types/react": "^17.0.34",
+    "autoprefixer": "^10.4.14",
+    "css-loader": "^6.7.3",
     "cypress": "^12.8.1",
+    "eslint": "^8.37.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-cypress": "^2.13.2",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "junit": "^1.4.9",
     "postcss": "^8.4.12",
     "prettier": "^2.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-refresh": "^0.14.0",
     "react-scripts": "^5.0.0",
     "require-from-string": "^2.0.2",
     "rollup": "^2.60.0",
@@ -61,7 +74,10 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^4.4.4"
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2",
+    "typescript": "^4.4.4",
+    "webpack": "^5.77.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -96,6 +112,11 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@ska-telescope/ska-javascript-components": "^0.1.20"
+    "@ska-telescope/ska-javascript-components": "^0.1.20",
+    "i18next": "^22.4.14",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.2.0",
+    "moment": "^2.29.4",
+    "react-i18next": "^12.2.0"
   }
 }
