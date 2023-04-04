@@ -14,9 +14,9 @@
     "build": "react-scripts build",
     "cypress": "cypress open",
     "cypress:component:chrome": "cypress run --component --browser chrome",
-    "code-analysis": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore -f junit -o linting.xml",
-    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "code-analysis": "eslint --ignore-path .eslintignore -f junit -o linting.xml",
+    "lint:fix": "eslint  --ignore-path .eslintignore --fix",
+    "lint": "eslint --ignore-path .eslintignore",
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -109,14 +109,14 @@
   "peerDependencies": {
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.14",
-    "react": "^18.2.0"
-  },
-  "dependencies": {
-    "@ska-telescope/ska-javascript-components": "^0.1.20",
     "i18next": "^22.4.14",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.2.0",
-    "moment": "^2.29.4",
+    "react": "^18.2.0",
     "react-i18next": "^12.2.0"
+  },
+  "dependencies": {
+    "@ska-telescope/ska-javascript-components": "^0.1.20",
+    "moment": "^2.29.4"
   }
 }

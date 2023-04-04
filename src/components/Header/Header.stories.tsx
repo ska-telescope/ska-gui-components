@@ -13,13 +13,14 @@ export default {
   },
 } as ComponentMeta<typeof Header>;
 
-const Template: ComponentStory<typeof Header> = (args) => 
-<Header {...args}>
-<Grid item>THIS</Grid>
-<Grid item>IS</Grid>
-<Grid item>THE</Grid>
-<Grid item>Header</Grid>
-</Header>;
+const Template: ComponentStory<typeof Header> = (args) => (
+  <Header {...args}>
+    <Grid item>THIS</Grid>
+    <Grid item>IS</Grid>
+    <Grid item>THE</Grid>
+    <Grid item>Header</Grid>
+  </Header>
+);
 
 export const HeaderDisplay = Template.bind({});
 

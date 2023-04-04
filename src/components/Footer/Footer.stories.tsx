@@ -11,13 +11,14 @@ export default {
   },
 } as ComponentMeta<typeof Footer>;
 
-const Template: ComponentStory<typeof Footer> = () => 
+const Template: ComponentStory<typeof Footer> = () => (
   <Footer>
     <Grid item>THIS</Grid>
     <Grid item>IS</Grid>
     <Grid item>THE</Grid>
     <Grid item>FOOTER</Grid>
-  </Footer>;
+  </Footer>
+);
 
 export const FooterDisplay = Template.bind({});
 

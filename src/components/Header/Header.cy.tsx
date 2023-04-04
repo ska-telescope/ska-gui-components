@@ -11,7 +11,7 @@ describe('<Header />', () => {
     mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
-        <Header themeToggle={themeToggle} >
+        <Header themeToggle={themeToggle}>
           <Grid item>THIS</Grid>
           <Grid item>IS</Grid>
           <Grid item>THE</Grid>
@@ -25,7 +25,7 @@ describe('<Header />', () => {
     mount(
       <ThemeProvider theme={theme(THEME_DARK)}>
         <CssBaseline />
-        <Header themeToggle={themeToggle} >
+        <Header themeToggle={themeToggle}>
           <Grid item>THIS</Grid>
           <Grid item>IS</Grid>
           <Grid item>THE</Grid>

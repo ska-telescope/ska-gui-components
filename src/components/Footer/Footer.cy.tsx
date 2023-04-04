@@ -14,7 +14,8 @@ describe('<Footer />', () => {
           <Grid item>IS</Grid>
           <Grid item>THE</Grid>
           <Grid item>FOOTER</Grid>
-        </Footer>;
+        </Footer>
+        ;
       </ThemeProvider>
     );
   });
@@ -28,7 +29,8 @@ describe('<Footer />', () => {
           <Grid item>IS</Grid>
           <Grid item>THE</Grid>
           <Grid item>FOOTER</Grid>
-        </Footer>;
+        </Footer>
+        ;
       </ThemeProvider>
     );
   });
