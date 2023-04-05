@@ -117,17 +117,18 @@ import StackAlt from './assets/stackalt.svg';
 # Welcome to SKA-GUI-COMPONENTS within Storybook
 
 Storybook helps you build UI components in isolation from your app's business logic, data, and context.
-That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
+That makes it easy to develop hard-to-reach states. 
+Save these UI states as **stories** to revisit during development, testing, or QA.
 
-This library also provides direct usage of the components and styling available from <strong>ska-javascript-components</strong>
-* Theme....... Used directly to provide a stand theme for use by <strong>MUI</strong>
-* Colors....... Theme colors, should use of the Theme component not be viable
-* Styling....... Theme styling, should use of the Theme component not be viable
-* Logo.......... Standard SKAO Logo, supporting light & dark modes
-* Spacer...... Component so that vertical and horizontal spacing can be set if needed
-* Status....... Component providing a Engineering shape that is fully accessible depending upon property provided
+This library provides direct usage of the components and styling available from <strong>ska-javascript-components</strong>
+* <strong>Theme</strong>....... Used directly to provide a standard theme for use by Material-UI. ( <strong>THEME_DARK</strong> & <strong>THEME_LIGHT</strong> constants available )
+* <strong>Colors</strong>....... Theme colors, should use of the <strong>Theme</strong> component not be viable
+* <strong>Styling</strong>....... Theme styling, should use of the <strong>Theme</strong> component not be viable
+* <strong>Logo</strong>.......... Standard SKAO Logo, supporting light & dark modes. ( <strong>LOGO_DEFAULT_HEIGHT</strong>) available )
+* <strong>Spacer</strong>...... Component so that spacing can be set if needed  ( <strong>SPACER_HORIZONTAL</strong> & <strong>SPACER_VERTICAL</strong> avaiable )
+* <strong>Status</strong>....... Component providing a Engineering shape that is fully accessible depending upon property provided
 
-Below is a short summary of the components available via this library, with examples provided via the left menu
+Below is a short summary of the components contained directly via this library, with examples provided via the left menu
 <div className="subheading">Components</div>
 
 <div className="link-list">
@@ -142,14 +143,14 @@ Below is a short summary of the components available via this library, with exam
     <img src={Code} alt="Code" />
     <span>
       <strong>Footer</strong>
-      Standard Footer wrapper component that even spaces it's child components
+      Standard Footer wrapper component that spaces evenly it's child components
     </span>
   </a>
   <a className="link-item" >
     <img src={Code} alt="Code" />
     <span>
       <strong>Header</strong>
-      Standard Header wrapper component that even spaces it's child components.  Also contains SKAO Logo and button for Theme toggling
+      Standard Header wrapper component that spaces evenly it's child components.  Also contains SKAO Logo and button for Theme toggling
     </span>
   </a>
 </div>
