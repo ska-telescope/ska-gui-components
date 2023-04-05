@@ -2361,23 +2361,6 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@ska-telescope/ska-gui-components@^0.1.14":
-  version "0.1.14"
-  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-gui-components/-/ska-gui-components-0.1.14.tgz#5f71a38e7f2e46296282fda403b045756c7935a7"
-  integrity sha512-NBAOJR99trSX1PjHBT//948zcNeBpKwZueuEE+SCTZ+PxUetvIiOhKt+xxwP7O29QPtuYcrAUcKKLqqhw9pIdA==
-  dependencies:
-    "@ska-telescope/ska-javascript-components" "^0.1.20"
-    i18next "^22.4.14"
-    i18next-browser-languagedetector "^7.0.1"
-    i18next-http-backend "^2.2.0"
-    moment "^2.29.4"
-    react-i18next "^12.2.0"
-
-"@ska-telescope/ska-javascript-components@^0.1.20":
-  version "0.1.20"
-  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-0.1.20.tgz#7deb287d5fed383c77e0f74004dbb9e6219c0084"
-  integrity sha512-xw2X5PHNblcKZ2JUo15RrZyZlIjWsrPEywLpTUqkHtRXzF9rmG+JLFASULu/LBriX7xfE+nD/ZxAsHXZmfPknA==
-
 "@ska-telescope/ska-javascript-components@^0.1.21":
   version "0.1.21"
   resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-0.1.21.tgz#66e4b59a6afabb9c2dfd52cc122fd89efc5ac6c0"

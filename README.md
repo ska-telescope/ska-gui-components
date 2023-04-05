@@ -31,12 +31,12 @@ yarn build  ( npm can be used here as an alternative )
 2. Update the version number within package.json.
 3. Merge as usual, with a passing pipeline.
 4. Once the merge has completed, the tag will need to be added in git.
-4a. Locate and select the 'Tags' submenu item.
-4b. Click on New Tag, located towards the top-right of the page.
-4c. Enter the tag name in the form n.n.n  ( eg. 0.1.2 ).
-4d. Ensure that the 'Create from' is set to 'master'.
-4e. Enter an appropriate Message.
-4f. Click 'Create tag'.
+5. Locate and select the 'Tags' submenu item.
+6. Click on New Tag, located towards the top-right of the page.
+7. Enter the tag name in the form n.n.n  ( eg. 0.1.2 ).
+8. Ensure that the 'Create from' is set to the default branch of the repository.
+9. Enter an appropriate Message.
+10. Click 'Create tag'.
 
 This will run the CI/CD process again, and once complete the executable will be associated by the version
 
