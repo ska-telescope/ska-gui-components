@@ -18,7 +18,7 @@ const Template: ComponentStory<typeof Header> = (args) => (
     <Grid item>THIS</Grid>
     <Grid item>IS</Grid>
     <Grid item>THE</Grid>
-    <Grid item>Header</Grid>
+    <Grid item>HEADER</Grid>
   </Header>
 );
 

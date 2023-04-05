@@ -15,7 +15,7 @@ describe('<Header />', () => {
           <Grid item>THIS</Grid>
           <Grid item>IS</Grid>
           <Grid item>THE</Grid>
-          <Grid item>Header</Grid>
+          <Grid item>HEADER</Grid>
         </Header>
       </ThemeProvider>
     );
@@ -29,7 +29,7 @@ describe('<Header />', () => {
           <Grid item>THIS</Grid>
           <Grid item>IS</Grid>
           <Grid item>THE</Grid>
-          <Grid item>Header</Grid>
+          <Grid item>HEADER</Grid>
         </Header>
       </ThemeProvider>
     );
