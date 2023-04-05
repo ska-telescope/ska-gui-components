@@ -19,7 +19,7 @@ export interface HeaderProps {
 export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
   const isDarkTheme = useTheme().palette.mode === 'dark';
 
-  const showThemeToggle = () => (typeof themeToggle !== 'undefined');
+  const showThemeToggle = () => typeof themeToggle !== 'undefined';
 
   const handleThemeToggle = () => {
     themeToggle();
@@ -38,7 +38,7 @@ export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
             <Logo dark={!isDarkTheme} height={LOGO_HEIGHT} />
           </IconButton>
           {children}
-          {showThemeToggle() && 
+          {showThemeToggle() && (
             <IconButton
               aria-label="light/dark mode"
               sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
@@ -47,7 +47,7 @@ export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
             >
               {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
             </IconButton>
-          }
+          )}
         </Grid>
       </Toolbar>
     </AppBar>
