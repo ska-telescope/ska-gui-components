@@ -4,6 +4,7 @@ export { default as Header } from './Header/Header';
 export {
   Colors,
   Logo,
+  LOGO_DEFAULT_HEIGHT,
   SPACER_HORIZONTAL,
   SPACER_VERTICAL,
   Spacer,
