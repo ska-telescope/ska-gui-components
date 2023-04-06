@@ -9,6 +9,7 @@ node_modules
 # misc
 .npmrc
 *.log
+*.mp4
 
 # built docs
 /docs/build
