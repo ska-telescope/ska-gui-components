@@ -61,7 +61,7 @@ array element values
 
 | Property  | Type    | Required | Default             | Notes                                                   | 
 | --------- | ------- | -------- | ------------------- | ------------------------------------------------------- |
-| level     | number  |    Yes   | ''                  | Title that is placed top-left of the Component          |
+| level     | number  |    Yes   | ''                  | Symbol that is placed top-left of the Component         |
 | title     | string  |    No    | ''                  | Title that is used for the element                      |
 | value     | number  |    Yes   | 9                   | Value that is used to determine the coloring to be used |
 | hideValue | boolean |    No    | false               | IF true, display of <strong>value<strong> is suppressed |
@@ -98,5 +98,22 @@ import { Header } from '@ska-telescope/ska-gui-components';
   <Grid item>THE</Grid>
   <Grid item>HEADER</Grid>
 </Header>
+
+```
+### InfoCard
+
+Component that provides a standard delivery of information/errors/warnings
+```
+import { InfoCard } from '@ska-telescope/ska-gui-components';
+
+<InfoCard level={INFO_LEVEL} message={INFO_MESSAGE} filled={INFO_FILLED} />
+
+| Property      | Type     | Required | Default             | Notes                                                   | 
+| ------------- | -------- | -------- | ------------------- | ------------------------------------------------------- |
+| level         | number   |    Yes   | ''                  | Symbol that is placed top-left of the Component         |
+| message       | string   |    Yes   | ''                  | Title that is used for the element                      |
+| filled        | boolean  |    No    | false               | Determines if component is filled or outlined           |
+| fontSize      | number   |    No    | 35                  | Determines the size of the displayed text/symbol        |
+| clickFunction | Function |    No    |                     | Executed if the component is clicked                    |
 
 ```

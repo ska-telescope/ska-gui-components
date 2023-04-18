@@ -15,5 +15,8 @@
     "5": "Level 5",
     "6": "Level 6",
     "title": "AlertCard Title"
+  },
+  "infoCard": {
+    "message": "This is the InfoCard message"
   }
 }

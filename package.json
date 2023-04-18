@@ -18,6 +18,7 @@
     "lint:fix": "eslint  --ignore-path .eslintignore --fix",
     "lint": "eslint --ignore-path .eslintignore",
     "rollup": "rollup -c",
+    "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prettify": "prettier src/**/*.{ts,tsx} --write"
@@ -112,6 +113,7 @@
     "react": "^18.2.0"
   },
   "dependencies": {
+    "@ska-telescope/ska-gui-components": "^0.1.16",
     "@ska-telescope/ska-javascript-components": "^0.1.21",
     "i18next": "^22.4.14",
     "i18next-browser-languagedetector": "^7.0.1",
