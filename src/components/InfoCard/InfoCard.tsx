@@ -37,7 +37,7 @@ export function InfoCard({ level, message, fontSize, filled, clickFunction }: In
         severity={SEVERITY[level]}
         onClick={buttonClick}
       >
-        <Stack direction="row" spacing={1}>
+        <Stack alignItems="center" direction="row" justifyContent="center" spacing={1}>
           {level > 0 && level < 6 && (
             <Box m={1}>
               <Status level={level} size={statusSize()} />
