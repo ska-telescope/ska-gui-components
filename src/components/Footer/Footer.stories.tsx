@@ -20,6 +20,6 @@ const Template: ComponentStory<typeof Footer> = () => (
   </Footer>
 );
 
-export const FooterDisplay = Template.bind({});
+export const Component = Template.bind({});
 
-FooterDisplay.args = {};
+Component.args = {};
