@@ -7,7 +7,7 @@ import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 describe('<Header />', () => {
   const themeToggle = () => {};
 
-  it('renders: light', () => {
+  it('renders: light and verifies external link to SKAO site', () => {
     mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
@@ -19,9 +19,10 @@ describe('<Header />', () => {
         </Header>
       </ThemeProvider>
     );
+      cy.get('[id="skaWebsite"]').click()
   });
 
-  it('renders: dark', () => {
+  it('renders: dark and verifies external link to SKAO site', () => {
     mount(
       <ThemeProvider theme={theme(THEME_DARK)}>
         <CssBaseline />
@@ -33,5 +34,6 @@ describe('<Header />', () => {
         </Header>
       </ThemeProvider>
     );
+      cy.get('[id="skaWebsite"]').click()
   });
 });
