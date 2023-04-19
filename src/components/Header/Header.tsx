@@ -30,7 +30,7 @@ export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
       <Toolbar>
         <Grid container alignItems="center" direction="row" justifyContent="space-between">
           <IconButton
-            id={"skaWebsite"}
+            id={'skaWebsite'}
             aria-label="skaWebsite"
             sx={{ '&:hover': { backgroundColor: 'primary.dark' }, m: 0 }}
             color="inherit"
