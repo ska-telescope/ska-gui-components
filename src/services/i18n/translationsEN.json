@@ -18,5 +18,11 @@
   },
   "infoCard": {
     "message": "This is the InfoCard message"
+  },
+  "toolTip": {
+    "button": {
+      "mode": "Light/Dark Mode",
+      "skao": "SKAO WebSite"
+    }
   }
 }

@@ -19,7 +19,7 @@ describe('<Header />', () => {
         </Header>
       </ThemeProvider>
     );
-      cy.get('[id="skaWebsite"]').click()
+    cy.get('[id="skaWebsite"]').click();
   });
 
   it('renders: dark and verifies external link to SKAO site', () => {
@@ -34,6 +34,6 @@ describe('<Header />', () => {
         </Header>
       </ThemeProvider>
     );
-      cy.get('[id="skaWebsite"]').click()
+    cy.get('[id="skaWebsite"]').click();
   });
 });
