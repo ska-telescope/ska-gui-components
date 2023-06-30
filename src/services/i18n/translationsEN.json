@@ -19,6 +19,9 @@
   "entryField": {
     "required": "Entry required"
   },
+  "infoCard": {
+    "message": "This is the InfoCard message"
+  },
   "tooltip": {
     "button": {
       "mode": "Light / Dark color mode",

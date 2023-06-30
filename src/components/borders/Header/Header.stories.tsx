@@ -22,8 +22,8 @@ const Template: ComponentStory<typeof Header> = (args) => (
   </Header>
 );
 
-export const HeaderDisplay = Template.bind({});
+export const Component = Template.bind({});
 
-HeaderDisplay.args = {
+Component.args = {
   themeToggle: handleThemeToggle,
 };
