@@ -31,7 +31,7 @@ export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
     <AppBar id="headerId" color="primary" position="fixed" enableColorOnDark>
       <Toolbar>
         <Grid container alignItems="center" direction="row" justifyContent="space-between">
-        <Tooltip title={t("tooltip.button.skao")} arrow >
+          <Tooltip title={t('tooltip.button.skao')} arrow>
             <IconButton
               id={'skaWebsite'}
               aria-label="skaWebsite"
@@ -41,10 +41,10 @@ export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
             >
               <Logo dark={!isDarkTheme} height={LOGO_HEIGHT} />
             </IconButton>
-        </Tooltip>
+          </Tooltip>
           {children}
           {showThemeToggle() && (
-            <Tooltip title={t("tooltip.button.mode")} arrow >
+            <Tooltip title={t('tooltip.button.mode')} arrow>
               <IconButton
                 aria-label="light/dark mode"
                 sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
