@@ -10,7 +10,7 @@ build
 **.yml
 **.lock
 **/*.cy.tsx
-**./*.stories.*
+**/*.stories.*
 **/stories/*
 *.json
 *.ico

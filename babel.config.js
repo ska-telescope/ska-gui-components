@@ -1,5 +1,5 @@
 const targets = {
-  node: 16
+  node: 16,
 };
 
 module.exports = {

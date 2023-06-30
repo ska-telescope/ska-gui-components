@@ -29,15 +29,14 @@ install_dependencies:
         - yarn.lock
     policy: push
   rules:
-  - changes:
-    - yarn.lock
-
+    - changes:
+        - yarn.lock
 
 #Run the static code analysis
 code_analysis:
   stage: lint
   tags:
-  - k8srunner
+    - k8srunner
   before_script:
     - mkdir -p build/reports
   script:
@@ -64,7 +63,7 @@ test_and_coverage:
 list_dependencies:
   stage: test
   tags:
-  - k8srunner
+    - k8srunner
   allow_failure: true
   before_script:
     - npm config set registry https://registry.npmjs.org/
@@ -99,7 +98,7 @@ build:
 distribution:
   stage: build
   tags:
-  - k8srunner
+    - k8srunner
   before_script:
     - yarn install
   script:
@@ -112,7 +111,7 @@ distribution:
 publish-to-car:
   stage: publish
   tags:
-  - k8srunner
+    - k8srunner
   before_script:
     - npm config set registry $CAR_NPM_REPOSITORY_URL
     # npm config set always-auth true
@@ -123,12 +122,12 @@ publish-to-car:
   rules:
     # Publish from a tag for a release
     - if: $CI_COMMIT_TAG
-    
+
 # Publish the artifacts to gitlab registry
 publish-to-gitlab:
   stage: publish
   tags:
-  - k8srunner
+    - k8srunner
   before_script:
     - npm config set @ska-telescope:registry https://${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/
     - npm config set -- '//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken' "${CI_JOB_TOKEN}"
@@ -144,7 +143,7 @@ publish-to-gitlab:
 pages:
   stage: pages
   tags:
-  - k8srunner
+    - k8srunner
   dependencies:
     - test_and_coverage
     - list_dependencies
@@ -158,14 +157,13 @@ pages:
 
 include:
   - template: Code-Quality.gitlab-ci.yml
-  
-# .post step finalizers eg: badges
+
+  # .post step finalizers eg: badges
   - project: 'ska-telescope/templates-repository'
     file: 'gitlab-ci/includes/finaliser.gitlab-ci.yml'
-# .post step finalizers eg: badges
+  # .post step finalizers eg: badges
   - project: 'ska-telescope/templates-repository'
     file: 'gitlab-ci/includes/docs.gitlab-ci.yml'
-# deploy
+  # deploy
   - project: 'ska-telescope/templates-repository'
     file: 'gitlab-ci/includes/release.gitlab-ci.yml'
-    

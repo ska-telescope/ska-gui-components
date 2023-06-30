@@ -2,7 +2,7 @@
   "language": "English",
   "date_format_one": "{{-date, YYYY/MM/DD}}",
   "date_format_two": "{{date, DD-MM-YYYY}}",
-  "date_input_format": "dd/mm/yyyy", 
+  "date_input_format": "dd/mm/yyyy",
   "intlNumber": "{{val, number}}",
 
   "isLoading": "...loading",
@@ -15,5 +15,14 @@
     "5": "Level 5",
     "6": "Level 6",
     "title": "AlertCard Title"
+  },
+  "entryField": {
+    "required": "Entry required"
+  },
+  "tooltip": {
+    "button": {
+      "mode": "Light / Dark color mode",
+      "skao": "SKAO Website"
+    }
   }
 }

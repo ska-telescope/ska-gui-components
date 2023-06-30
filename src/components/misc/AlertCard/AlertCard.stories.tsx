@@ -24,10 +24,6 @@ const Template: ComponentStory<typeof AlertCard> = (args) => <AlertCard {...args
 
 export const AlertCardDisplay = Template.bind({});
 
-AlertCardDisplay.parameters = {
-  backgrounds: { default: 'light' },
-};
-
 AlertCardDisplay.args = {
   title: 'alertCard.title',
   filled: false,

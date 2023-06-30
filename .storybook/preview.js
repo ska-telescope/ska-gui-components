@@ -6,48 +6,32 @@ import '@fontsource/roboto/700.css';
 import '@fontsource/material-icons';
 import '../src/services/i18n/i18n';
 
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { useDarkMode } from 'storybook-dark-mode';
+import { ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../src/services/theme/theme';
+import { Theme } from '@ska-telescope/ska-javascript-components';
 
-export const globalTypes = {
-  theme: {
-    name: "Theme",
-    title: "Theme",
-    description: "Theme for your components",
-    defaultValue: THEME_LIGHT,
-    toolbar: {
-      icon: "paintbrush",
-      dynamicTitle: true,
-      items: [
-        { value: THEME_LIGHT, left: "☀️", title: "Light mode" },
-        { value: THEME_DARK, left: "🌙", title: "Dark mode" },
-      ],
-    },
-  },
-};
+export const decorators = [
+  (Story) => {
+    const mode = useDarkMode() ? THEME_DARK : THEME_LIGHT;
+    const thisTheme = theme(mode);
 
-export const withMuiTheme = (Story, context) => {
-
-  const { theme: themeKey } = context.globals;
-
-  return (
-    <ThemeProvider theme={theme(themeKey)}>
-      <CssBaseline />
-      <React.Suspense fallback="...is loading">
+    return (
+      <ThemeProvider theme={thisTheme}>
         <Story />
-      </React.Suspense>
-    </ThemeProvider>
-  );
-};
-
-export const decorators = [withMuiTheme];
+      </ThemeProvider>
+    );
+  },
+];
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
     },
   },
-}
+  // appContentBg: '#202020', // override main story view frame
+  // barBg: '#202020'         // override top toolbar
+};

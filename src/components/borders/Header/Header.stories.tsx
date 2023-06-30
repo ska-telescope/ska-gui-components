@@ -24,10 +24,6 @@ const Template: ComponentStory<typeof Header> = (args) => (
 
 export const HeaderDisplay = Template.bind({});
 
-HeaderDisplay.parameters = {
-  backgrounds: { default: 'light' },
-};
-
 HeaderDisplay.args = {
   themeToggle: handleThemeToggle,
 };

@@ -1,22 +1,21 @@
 import React from 'react';
 import { mount } from 'cypress/react18';
-import Header from './Header';
+import Footer from './Footer';
 import { CssBaseline, Grid, ThemeProvider } from '@mui/material';
-import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
+import { THEME_DARK, THEME_LIGHT, theme } from '../../../services/theme/theme';
 
-describe('<Header />', () => {
-  const themeToggle = () => {};
-
+describe('<Footer />', () => {
   it('renders: light', () => {
     mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
-        <Header themeToggle={themeToggle}>
+        <Footer>
           <Grid item>THIS</Grid>
           <Grid item>IS</Grid>
           <Grid item>THE</Grid>
-          <Grid item>HEADER</Grid>
-        </Header>
+          <Grid item>FOOTER</Grid>
+        </Footer>
+        ;
       </ThemeProvider>
     );
   });
@@ -25,12 +24,13 @@ describe('<Header />', () => {
     mount(
       <ThemeProvider theme={theme(THEME_DARK)}>
         <CssBaseline />
-        <Header themeToggle={themeToggle}>
+        <Footer>
           <Grid item>THIS</Grid>
           <Grid item>IS</Grid>
           <Grid item>THE</Grid>
-          <Grid item>HEADER</Grid>
-        </Header>
+          <Grid item>FOOTER</Grid>
+        </Footer>
+        ;
       </ThemeProvider>
     );
   });

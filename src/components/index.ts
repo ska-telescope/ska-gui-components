@@ -1,6 +1,10 @@
-export { default as AlertCard } from './AlertCard/AlertCard';
-export { default as Footer } from './Footer/Footer';
-export { default as Header } from './Header/Header';
+export { default as AlertCard } from './misc/AlertCard/AlertCard';
+export { default as Footer } from './borders/Footer/Footer';
+export { default as Header } from './borders/Header/Header';
+export { default as DateEntry } from './entry//DateEntry/DateEntry';
+export { default as NumberEntry } from './entry//NumberEntry/NumberEntry';
+export { default as TimeEntry } from './entry/TimeEntry/TimeEntry';
+export { default as TextEntry } from './entry/TextEntry/TextEntry';
 export {
   Colors,
   Logo,
