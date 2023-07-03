@@ -117,43 +117,100 @@ import StackAlt from './assets/stackalt.svg';
 # Welcome to SKA-GUI-COMPONENTS within Storybook
 
 Storybook helps you build UI components in isolation from your app's business logic, data, and context.
-That makes it easy to develop hard-to-reach states. 
+That makes it easy to develop hard-to-reach states.
 Save these UI states as **stories** to revisit during development, testing, or QA.
 
 This library provides direct usage of the components and styling available from <strong>ska-javascript-components</strong>
-* <strong>Theme</strong>....... Used directly to provide a standard theme for use by Material-UI. ( <strong>THEME_DARK</strong> & <strong>THEME_LIGHT</strong> constants available )
-* <strong>Colors</strong>....... Theme colors, should use of the <strong>Theme</strong> component not be viable
-* <strong>Styling</strong>....... Theme styling, should use of the <strong>Theme</strong> component not be viable
-* <strong>Logo</strong>.......... Standard SKAO Logo, supporting light & dark modes. ( <strong>LOGO_DEFAULT_HEIGHT</strong>) available )
-* <strong>Spacer</strong>...... Component so that spacing can be set if needed  ( <strong>SPACER_HORIZONTAL</strong> & <strong>SPACER_VERTICAL</strong> avaiable )
-* <strong>Status</strong>....... Component providing a Engineering shape that is fully accessible depending upon property provided
+
+- <strong>Theme</strong>....... Used directly to provide a standard theme for use by Material-UI. ( <strong>
+    THEME_DARK
+  </strong> & <strong>THEME_LIGHT</strong> constants available )
+- <strong>Colors</strong>....... Theme colors, should use of the <strong>Theme</strong> component
+  not be viable
+- <strong>Styling</strong>....... Theme styling, should use of the <strong>Theme</strong> component
+  not be viable
+- <strong>Logo</strong>.......... Standard SKAO Logo, supporting light & dark modes. ( <strong>
+    LOGO_DEFAULT_HEIGHT
+  </strong>) available )
+- <strong>Spacer</strong>...... Component so that spacing can be set if needed ( <strong>
+    SPACER_HORIZONTAL
+  </strong> & <strong>SPACER_VERTICAL</strong> available )
+- <strong>Status</strong>....... Component providing a Engineering shape that is fully accessible
+  depending upon property provided
 
 Below is a short summary of the components contained directly via this library, with examples provided via the left menu
-<div className="subheading">Components</div>
 
-<div className="link-list">
-  <a className="link-item" >
+<div className="subheading">Entry Components</div>
+
+<div>
+  <a className="link-item">
+    <img src={Code} alt="Code" />
+    <span>
+      <strong>DateEntry</strong>
+      Field allowing for the entry of a date into the application. Icon provides calendar functionality
+    </span>
+  </a>
+  <a className="link-item">
+    <img src={Code} alt="Code" />
+    <span>
+      <strong>EntryField</strong>
+      Base component for all other Entry components. Should not be used directly
+    </span>
+  </a>
+  <a className="link-item">
+    <img src={Code} alt="Code" />
+    <span>
+      <strong>NumberEntry</strong>
+      Field allowing for the entry of a number into the application
+    </span>
+  </a>
+  <a className="link-item">
+    <img src={Code} alt="Code" />
+    <span>
+      <strong>TextEntry</strong>
+      Field allowing for the entry of text into the application. Able to provide multi-line entry
+    </span>
+  </a>
+  <a className="link-item">
+    <img src={Code} alt="Code" />
+    <span>
+      <strong>TimeEntry</strong>
+      Field allowing for the entry of a time into the application. Icon provides spin wheel functionality
+    </span>
+  </a>
+</div>
+
+<div className="subheading">Border Components</div>
+
+<div>
+  <a className="link-item">
+    <img src={Code} alt="Code" />
+    <span>
+      <strong>Footer</strong>
+      Container at the bottom of the page that spaces evenly it's child components
+    </span>
+  </a>
+  <a className="link-item">
+    <img src={Code} alt="Code" />
+    <span>
+      <strong>Header</strong>
+      Container at the top of the page that spaces evenly it's child components. SKAO Logo and light/dark
+      toggle built in
+    </span>
+  </a>
+</div>
+
+<div className="subheading">Other Components</div>
+
+<div>
+  <a className="link-item">
     <img src={Code} alt="Code" />
     <span>
       <strong>AlertCard</strong>
       Panel that provides a colored border/fill dependant upon the provided array as a property
     </span>
   </a>
-  <a className="link-item" >
-    <img src={Code} alt="Code" />
-    <span>
-      <strong>Footer</strong>
-      Standard Footer wrapper component that spaces evenly it's child components
-    </span>
-  </a>
-  <a className="link-item" >
-    <img src={Code} alt="Code" />
-    <span>
-      <strong>Header</strong>
-      Standard Header wrapper component that spaces evenly it's child components.  Also contains SKAO Logo and button for Theme toggling
-    </span>
-  </a>
-  <a className="link-item" >
+  <a className="link-item">
     <img src={Code} alt="Code" />
     <span>
       <strong>InfoCard</strong>
