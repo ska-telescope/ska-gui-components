@@ -28,10 +28,17 @@ export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
   };
 
   return (
-    <AppBar id="headerId" color="primary" position="fixed" enableColorOnDark>
+    <AppBar
+      id="headerId"
+      color="primary"
+      position="fixed"
+      enableColorOnDark
+      elevation={0}
+      sx={{ borderBottom: '1px solid darkgrey' }}
+    >
       <Toolbar>
         <Grid container alignItems="center" direction="row" justifyContent="space-between">
-          <Tooltip title={t('tooltip.button.skao')} arrow>
+          <Tooltip title={t('toolTip.button.skao')} arrow>
             <IconButton
               id={'skaWebsite'}
               aria-label="skaWebsite"
@@ -44,7 +51,7 @@ export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
           </Tooltip>
           {children}
           {showThemeToggle() && (
-            <Tooltip title={t('tooltip.button.mode')} arrow>
+            <Tooltip title={t('toolTip.button.mode')} arrow>
               <IconButton
                 aria-label="light/dark mode"
                 sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}

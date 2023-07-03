@@ -1,6 +1,6 @@
 # SKA GUI Components
 
-This library contains standard GUI components, written in TypeScript.   
+This library contains standard GUI components, written in TypeScript.  
 Their usage is able to be viewed by use of Storybook.
 They have been tested using Cypress.
 SKAO Theme has been implemented and has been imported from ska-javascript-components.
@@ -25,6 +25,7 @@ npm config set @ska-telescope:registry https://artefact.skao.int/repository/npm-
 
 yarn build  ( npm can be used here as an alternative )
 ```
+
 ## Adding a component to the library
 
 1. Add the component in the normal way; using storybook should help with this.
@@ -33,7 +34,7 @@ yarn build  ( npm can be used here as an alternative )
 4. Once the merge has completed, the tag will need to be added in git.
 5. Locate and select the 'Tags' submenu item.
 6. Click on New Tag, located towards the top-right of the page.
-7. Enter the tag name in the form n.n.n  ( eg. 0.1.2 ).
+7. Enter the tag name in the form n.n.n ( eg. 0.1.2 ).
 8. Ensure that the 'Create from' is set to the default branch of the repository.
 9. Enter an appropriate Message.
 10. Click 'Create tag'.
@@ -45,12 +46,13 @@ This will run the CI/CD process again, and once complete the executable will be 
 ### AlertCard
 
 Component that is colored dependant upon the most-urgent status value provided
+
 ```
 import { AlertCard } from '@ska-telescope/ska-gui-components';
 
 <AlertCard title={ALERT_CARD_TITLE} array={ALERT_CARD_DATA} filled={ALERT_CARD_FILLED} />
 
-| Property      | Type     | Required | Default        | Notes                                                   | 
+| Property      | Type     | Required | Default        | Notes                                                   |
 | ------------- | -------- | -------- | -------------- | ------------------------------------------------------- |
 | title         | string   |    Yes   | ''             | Title that is placed top-left of the Component          |
 | filled        | boolean  |    No    | false          | Determines if component is filled or outlined           |
@@ -59,7 +61,7 @@ import { AlertCard } from '@ska-telescope/ska-gui-components';
 
 array element values
 
-| Property  | Type    | Required | Default             | Notes                                                   | 
+| Property  | Type    | Required | Default             | Notes                                                   |
 | --------- | ------- | -------- | ------------------- | ------------------------------------------------------- |
 | level     | number  |    Yes   | ''                  | Symbol that is placed top-left of the Component         |
 | title     | string  |    No    | ''                  | Title that is used for the element                      |
@@ -67,9 +69,102 @@ array element values
 | hideValue | boolean |    No    | false               | IF true, display of <strong>value<strong> is suppressed |
 
 ```
+
+### DateEntry
+
+Field for entering Dates into the application. Clicking on the icon opens up a date picker
+
+```
+import { DateEntry } from '@ska-telescope/ska-gui-components';
+
+<DateEntry label={ENTRY_FIELD_LABEL} value={ENTRY_FIELD_VALUE} />
+
+| Property        | Type     | Required | Default        | Notes                                                   |
+| --------------- | -------- | -------- | -------------- | ------------------------------------------------------- |
+| label           | string   |    Yes   | ''             | Label displayed for the Component                       |
+| value           | string   |    Yes   | n/a            | Value that is displayed within the component            |
+| disabled        | boolean  |    No    | false          | Disables the component if true                          |
+| errorText       | string   |    No    | ''             | Displayed if there is a value and component is coloured |
+| helperText      | string   |    No    | ''             | Displayed is there is a value                           |
+| required        | boolean  |    No    | false          | Asterisk is added to the label if true                  |
+| setValue        | function |    No    | null           | Used to update the value onChange                       |
+| validationState | enum     |    No    | 'none'         | 'ok', 'error', 'none', 'unknown'                        |
+```
+
+### NumberEntry
+
+Field for entering numbers into the application. Provides a spinner
+
+```
+import { NumberEntry } from '@ska-telescope/ska-gui-components';
+
+<NumberEntry label={ENTRY_FIELD_LABEL} value={ENTRY_FIELD_VALUE} />
+
+| Property        | Type     | Required | Default        | Notes                                                   |
+| --------------- | -------- | -------- | -------------- | ------------------------------------------------------- |
+| label           | string   |    Yes   | ''             | Label displayed for the Component                       |
+| value           | string   |    Yes   | n/a            | Value that is displayed within the component            |
+| disabled        | boolean  |    No    | false          | Disables the component if true                          |
+| errorText       | string   |    No    | ''             | Displayed if there is a value and component is coloured |
+| helperText      | string   |    No    | ''             | Displayed is there is a value                           |
+| password        | boolean  |    No    | false          | Value entered is obscured                               |
+| prefix          | string   |    No    | ''             | Allows for the addition of characters before the number |
+| required        | boolean  |    No    | false          | Asterisk is added to the label if true                  |
+| setValue        | function |    No    | null           | Used to update the value onChange                       |
+| suffix          | string   |    No    | ''             | Allows for the addition of characters after the number  |
+| validationState | enum     |    No    | 'none'         | 'ok', 'error', 'none', 'unknown'                        |
+```
+
+### TextEntry
+
+Field for entering text into the application
+
+```
+import { TextEntry } from '@ska-telescope/ska-gui-components';
+
+<TextEntry label={ENTRY_FIELD_LABEL} value={ENTRY_FIELD_VALUE} />
+
+| Property        | Type     | Required | Default        | Notes                                                   |
+| --------------- | -------- | -------- | -------------- | ------------------------------------------------------- |
+| label           | string   |    Yes   | ''             | Label displayed for the Component                       |
+| value           | string   |    Yes   | n/a            | Value that is displayed within the component            |
+| disabled        | boolean  |    No    | false          | Disables the component if true                          |
+| errorText       | string   |    No    | ''             | Displayed if there is a value and component is coloured |
+| helperText      | string   |    No    | ''             | Displayed is there is a value                           |
+| password        | boolean  |    No    | false          | Value entered is obscured                               |
+| prefix          | string   |    No    | ''             | Allows for the addition of characters before the number |
+| required        | boolean  |    No    | false          | Asterisk is added to the label if true                  |
+| rows            | number   |    No    | 1              | TEXT ONLY.  text area when value is above 1             |
+| setValue        | function |    No    | null           | Used to update the value onChange                       |
+| suffix          | string   |    No    | ''             | Allows for the addition of characters after the number  |
+| validationState | enum     |    No    | 'none'         | 'ok', 'error', 'none', 'unknown'                        |
+```
+
+### TimeEntry
+
+Field for entering time into the application. Has an icon providing a Picker
+
+```
+import { TimeEntry } from '@ska-telescope/ska-gui-components';
+
+<TimeEntry label={ENTRY_FIELD_LABEL} value={ENTRY_FIELD_VALUE} />
+
+| Property        | Type     | Required | Default        | Notes                                                   |
+| --------------- | -------- | -------- | -------------- | ------------------------------------------------------- |
+| label           | string   |    Yes   | ''             | Label displayed for the Component                       |
+| value           | string   |    Yes   | n/a            | Value that is displayed within the component            |
+| disabled        | boolean  |    No    | false          | Disables the component if true                          |
+| errorText       | string   |    No    | ''             | Displayed if there is a value and component is coloured |
+| helperText      | string   |    No    | ''             | Displayed is there is a value                           |
+| required        | boolean  |    No    | false          | Asterisk is added to the label if true                  |
+| setValue        | function |    No    | null           | Used to update the value onChange                       |
+| validationState | enum     |    No    | 'none'         | 'ok', 'error', 'none', 'unknown'                        |
+```
+
 ### Footer
 
 Standard Footer wrapper component that spaces evenly it's child components
+
 ```
 import { Footer } from '@ska-telescope/ska-gui-components';
 
@@ -81,14 +176,16 @@ import { Footer } from '@ska-telescope/ska-gui-components';
 </Footer>
 
 ```
+
 ### Header
 
 Standard Header wrapper component that spaces evenly it's child components.  
 Also contains SKAO Logo and button for Theme toggling
+
 ```
 import { Header } from '@ska-telescope/ska-gui-components';
 
-| Property      | Type     | Required | Default        | Notes                                                   | 
+| Property      | Type     | Required | Default        | Notes                                                   |
 | ------------- | -------- | -------- | -------------- | ------------------------------------------------------- |
 | themeToggle   | Function |    No    | null           | If provided, the theme toggling button is displayed     |
 
@@ -98,17 +195,18 @@ import { Header } from '@ska-telescope/ska-gui-components';
   <Grid item>THE</Grid>
   <Grid item>HEADER</Grid>
 </Header>
-
 ```
+
 ### InfoCard
 
 Component that provides a standard delivery of information/errors/warnings
+
 ```
 import { InfoCard } from '@ska-telescope/ska-gui-components';
 
 <InfoCard level={INFO_LEVEL} message={INFO_MESSAGE} filled={INFO_FILLED} />
 
-| Property      | Type     | Required | Default             | Notes                                                   | 
+| Property      | Type     | Required | Default             | Notes                                                   |
 | ------------- | -------- | -------- | ------------------- | ------------------------------------------------------- |
 | level         | number   |    Yes   | ''                  | Symbol that is placed top-left of the Component         |
 | message       | string   |    Yes   | ''                  | Title that is used for the element                      |

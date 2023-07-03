@@ -7,18 +7,13 @@ const classes = {
   root: `${PREFIX}-root`,
   appBar: `${PREFIX}-appBar`,
 };
-const Root = styled('div')(({ theme }) => ({
+const Root = styled('div')(({}) => ({
   [`&.${classes.root}`]: {
     display: 'flex',
   },
   [`& .${classes.appBar}`]: {
     top: '92vh',
     bottom: 0,
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
   },
 }));
 
@@ -36,6 +31,7 @@ export function Footer({ children }: FooterProps) {
         position="fixed"
         enableColorOnDark
         className={classes.appBar}
+        sx={{ borderTop: '1px solid darkgrey' }}
       >
         <Toolbar>
           <Grid container direction="row" justifyContent="space-between">
