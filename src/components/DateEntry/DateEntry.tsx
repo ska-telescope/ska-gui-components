@@ -24,7 +24,6 @@ export function DateEntry({
   required,
   validationState,
 }: DateEntryProps): JSX.Element {
-
   return (
     <EntryField
       disabled={disabled}
