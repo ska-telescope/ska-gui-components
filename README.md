@@ -139,28 +139,6 @@ import { TextEntry } from '@ska-telescope/ska-gui-components';
 | suffix          | string   |    No    | ''             | Allows for the addition of characters after the number  |
 | validationState | enum     |    No    | 'none'         | 'ok', 'error', 'none', 'unknown'                        |
 ```
-
-### TimeEntry
-
-Field for entering time into the application. Has an icon providing a Picker
-
-```
-import { TimeEntry } from '@ska-telescope/ska-gui-components';
-
-<TimeEntry label={ENTRY_FIELD_LABEL} value={ENTRY_FIELD_VALUE} />
-
-| Property        | Type     | Required | Default        | Notes                                                   |
-| --------------- | -------- | -------- | -------------- | ------------------------------------------------------- |
-| label           | string   |    Yes   | ''             | Label displayed for the Component                       |
-| value           | string   |    Yes   | n/a            | Value that is displayed within the component            |
-| disabled        | boolean  |    No    | false          | Disables the component if true                          |
-| errorText       | string   |    No    | ''             | Displayed if there is a value and component is coloured |
-| helperText      | string   |    No    | ''             | Displayed is there is a value                           |
-| required        | boolean  |    No    | false          | Asterisk is added to the label if true                  |
-| setValue        | function |    No    | null           | Used to update the value onChange                       |
-| validationState | enum     |    No    | 'none'         | 'ok', 'error', 'none', 'unknown'                        |
-```
-
 ### Footer
 
 Standard Footer wrapper component that spaces evenly it's child components
@@ -188,6 +166,15 @@ import { Header } from '@ska-telescope/ska-gui-components';
 | Property      | Type     | Required | Default        | Notes                                                   |
 | ------------- | -------- | -------- | -------------- | ------------------------------------------------------- |
 | themeToggle   | Function |    No    | null           | If provided, the theme toggling button is displayed     |
+| toolTip       | Object   |    No    | all values ''  | Contains toolTip text for display (See below)           |
+
+ToolTip values  ( Translated values should be passed in as an override )
+
+| Property      | Type     | Required | Default              | Notes                                             |
+| ------------- | -------- | -------- | -------------------- | ------------------------------------------------- |
+! skao          | string   | No       | 'SKAO WebSite'       | ToolTip for the SKAO Logo                         |
+| mode          | string   | No       | 'Light / Dark Mode'  | ToolRip for the Theme mode                        |
+
 
 <Header id="theHeader" themeToggle={themeToggle}>
   <Grid item>THIS</Grid>

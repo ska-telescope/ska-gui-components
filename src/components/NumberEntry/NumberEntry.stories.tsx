@@ -10,7 +10,14 @@ export default {
   },
 } as ComponentMeta<typeof NumberEntry>;
 
-const Template: ComponentStory<typeof NumberEntry> = (args) => <NumberEntry {...args} />;
+const Template: ComponentStory<typeof NumberEntry> = (args) => {
+  const [value, setValue] = React.useState(0);
+
+  args.value = value;
+  args.setValue = setValue;
+
+  return <NumberEntry {...args} />;
+};
 
 export const NumberEntryDisplay = Template.bind({});
 
@@ -24,4 +31,5 @@ NumberEntryDisplay.args = {
   required: false,
   suffix: '',
   value: 0,
+  setValue: undefined,
 };

@@ -3,7 +3,6 @@ import { AppBar, Grid, IconButton, Toolbar, Tooltip, useTheme } from '@mui/mater
 import { Logo } from '@ska-telescope/ska-javascript-components';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { useTranslation } from 'react-i18next';
 
 const LOGO_HEIGHT = 30;
 const SKAO_URL = 'https://www.skao.int/';
@@ -14,11 +13,11 @@ function openLink(link: string) {
 
 export interface HeaderProps {
   themeToggle: Function;
+  toolTip?: { skao: string; mode: string };
   children?: JSX.Element[];
 }
 
-export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
-  const { t } = useTranslation();
+export function Header({ themeToggle, toolTip, children }: HeaderProps): JSX.Element {
   const isDarkTheme = useTheme().palette.mode === 'dark';
 
   const showThemeToggle = () => typeof themeToggle !== 'undefined';
@@ -38,7 +37,7 @@ export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
     >
       <Toolbar>
         <Grid container alignItems="center" direction="row" justifyContent="space-between">
-          <Tooltip title={t('toolTip.button.skao')} arrow>
+          <Tooltip title={toolTip?.skao} arrow>
             <IconButton
               id={'skaWebsite'}
               aria-label="skaWebsite"
@@ -51,7 +50,7 @@ export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
           </Tooltip>
           {children}
           {showThemeToggle() && (
-            <Tooltip title={t('toolTip.button.mode')} arrow>
+            <Tooltip title={toolTip?.mode} arrow>
               <IconButton
                 aria-label="light/dark mode"
                 sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
@@ -69,6 +68,7 @@ export function Header({ themeToggle, children }: HeaderProps): JSX.Element {
 }
 
 Header.defaultProps = {
+  toolTip: { skao: 'SKAO', mode: '' },
   children: null,
 };
 

@@ -24,10 +24,7 @@ const Template: ComponentStory<typeof Header> = (args) => (
 
 export const Component = Template.bind({});
 
-Component.parameters = {
-  backgrounds: { default: 'light' },
-};
-
 Component.args = {
+  toolTip: { skao: 'SKAO WebSite', mode: ' Light / Dark Mode' },
   themeToggle: handleThemeToggle,
 };
