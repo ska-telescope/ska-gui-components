@@ -4,7 +4,6 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/material-icons';
-import '../src/services/i18n/i18n';
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { THEME_DARK, THEME_LIGHT, theme } from '../src/services/theme/theme';

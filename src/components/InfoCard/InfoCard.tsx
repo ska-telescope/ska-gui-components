@@ -1,6 +1,5 @@
 import React from 'react';
 import { Alert, Box, Paper, Stack, Typography } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import { Status } from '@ska-telescope/ska-javascript-components';
 
 const SEVERITY = ['success', 'error', 'warning', 'warning', 'warning', 'info'];
@@ -18,11 +17,6 @@ InfoCard.defaultProps = {
   fontSize: 35,
   filled: false,
   clickFunction: 'undefined',
-};
-
-const translate = (inValue: string): string => {
-  const { t } = useTranslation();
-  return t(inValue);
 };
 
 export function InfoCard({ level, message, fontSize, filled, clickFunction }: InfoCardProps) {
@@ -45,7 +39,7 @@ export function InfoCard({ level, message, fontSize, filled, clickFunction }: In
           )}
           {message && message.length && (
             <Typography sx={{ fontSize: { fontSize }, display: 'flex', justifyContent: 'center' }}>
-              {translate(message)}
+              {message}
             </Typography>
           )}
         </Stack>

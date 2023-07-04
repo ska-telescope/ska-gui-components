@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'cypress/react18';
 import AlertCard from './AlertCard';
-import '../../services/i18n/i18n';
 
 const DUMMY_DATA = [
   { level: 0, title: 'alertCard.0', filled: true, value: 1, hideValue: true },

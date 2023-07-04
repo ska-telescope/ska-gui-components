@@ -10,7 +10,14 @@ export default {
   },
 } as ComponentMeta<typeof TextEntry>;
 
-const Template: ComponentStory<typeof TextEntry> = (args) => <TextEntry {...args} />;
+const Template: ComponentStory<typeof TextEntry> = (args) => {
+  const [value, setValue] = React.useState('');
+
+  args.value = value;
+  args.setValue = setValue;
+
+  return <TextEntry {...args} />;
+};
 
 export const TextEntryDisplay = Template.bind({});
 
@@ -23,5 +30,6 @@ TextEntryDisplay.args = {
   prefix: '',
   required: false,
   suffix: '',
-  value: 'Value',
+  value: '',
+  setValue: undefined,
 };

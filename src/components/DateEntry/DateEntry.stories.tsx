@@ -10,7 +10,14 @@ export default {
   },
 } as ComponentMeta<typeof DateEntry>;
 
-const Template: ComponentStory<typeof DateEntry> = (args) => <DateEntry {...args} />;
+const Template: ComponentStory<typeof DateEntry> = (args) => {
+  const [value, setValue] = React.useState('');
+
+  args.value = value;
+  args.setValue = setValue;
+
+  return <DateEntry {...args} />;
+};
 
 export const DateEntryDisplay = Template.bind({});
 
@@ -20,5 +27,5 @@ DateEntryDisplay.args = {
   helperText: 'HELPER TEXT',
   label: 'LABEL',
   required: false,
-  value: 'Value',
+  value: '',
 };

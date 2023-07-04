@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -84,7 +84,6 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/{!(i18n),}.{js,jsx,ts,tsx}",
       "!src/**/*.stories.{js,jsx,ts,tsx}",
       "!src/**/index.{js,jsx,ts,tsx}",
       "!<rootDir>/node_modules/",
@@ -115,11 +114,6 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@ska-telescope/ska-javascript-components": "^0.1.21",
-    "i18next": "^22.4.14",
-    "i18next-browser-languagedetector": "^7.0.1",
-    "i18next-http-backend": "^2.2.0",
-    "moment": "^2.29.4",
-    "react-i18next": "^12.2.0"
+    "@ska-telescope/ska-javascript-components": "^0.1.21"
   }
 }

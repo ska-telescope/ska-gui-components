@@ -10,7 +10,6 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import { Status } from '@ska-telescope/ska-javascript-components';
 
 const STATE_SIZE = 30;
@@ -23,17 +22,12 @@ export interface AlertCardProps {
   clickFunction?: Function;
 }
 
-const translate = (inValue: string): string => {
-  const { t } = useTranslation();
-  return t(inValue);
-};
-
 const content = (level: number, theTitle: string, value: number, hideValue: boolean) => (
   <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
     <Grid item>
       <Status level={level} size={STATE_SIZE} />
       <Typography variant="body2" component="div">
-        {translate(theTitle)}
+        {theTitle}
       </Typography>
     </Grid>
     {!hideValue && (
@@ -76,8 +70,6 @@ function AlertElement(
 }
 
 export function AlertCard({ title, filled, array, clickFunction }: AlertCardProps) {
-  const { t } = useTranslation();
-
   const setSeverity = () => {
     let result = SEVERITY[0];
     for (let i = 0; result === SEVERITY[0] && i < array.length; i += 1) {
@@ -106,7 +98,7 @@ export function AlertCard({ title, filled, array, clickFunction }: AlertCardProp
         >
           <Stack sx={{ height: '95%' }} spacing={2}>
             <Typography variant="h6" component="div">
-              {t(title)}
+              {title}
             </Typography>
             <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
               {array.map((arr, index) =>

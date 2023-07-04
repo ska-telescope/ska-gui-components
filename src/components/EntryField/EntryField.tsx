@@ -1,6 +1,5 @@
 import React from 'react';
 import { CssBaseline, InputAdornment, Grid, TextField } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import { Status } from '@ska-telescope/ska-javascript-components';
 
 export enum STATE {
@@ -14,7 +13,6 @@ export enum TYPE {
   DATE = 'date',
   NUMBER = 'number',
   TEXT = 'text',
-  TIME = 'time',
 }
 
 export interface EntryFieldProps {
@@ -31,7 +29,7 @@ export interface EntryFieldProps {
   rows?: number;
   setValue?: Function;
   suffix?: string;
-  type?: TYPE.DATE | TYPE.NUMBER | TYPE.TEXT | TYPE.TIME;
+  type?: TYPE.DATE | TYPE.NUMBER | TYPE.TEXT;
   validationState?: STATE.OK | STATE.ERROR | STATE.UNKNOWN | STATE.NONE;
 }
 
@@ -49,7 +47,6 @@ export function EntryField({
   type,
   validationState,
 }: EntryFieldProps): JSX.Element {
-  const { t } = useTranslation();
   const theSuffix = suffix ? suffix : '';
   const thePrefix = prefix ? prefix : '';
   const updateValue = (e: any) => (typeof setValue !== 'undefined' ? setValue(e) : null);
@@ -89,12 +86,12 @@ export function EntryField({
             disabled={disabled}
             error={errorText && errorText.length > 0}
             fullWidth
-            helperText={errorText ? t(errorText) : helperText ? t(helperText) : ''}
+            helperText={errorText ? errorText : helperText ? helperText : ''}
             InputProps={{
-              startAdornment: <InputAdornment position="start">{t(thePrefix)}</InputAdornment>,
-              endAdornment: <InputAdornment position="end">{t(theSuffix)}</InputAdornment>,
+              startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
+              endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
             }}
-            label={t(label)}
+            label={label}
             margin="normal"
             minRows="1"
             maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
