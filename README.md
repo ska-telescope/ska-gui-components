@@ -202,3 +202,19 @@ import { InfoCard } from '@ska-telescope/ska-gui-components';
 | clickFunction | Function |    No    |                     | Executed if the component is clicked                    |
 
 ```
+### 
+JSONView
+Passing data out of a JSON.parse() will produce an expandable TreeView of the data
+
+```
+import { JSONView } from '@ska-telescope/ska-gui-components';
+
+<JSONView l data={data} />
+
+| Property      | Type     | Required | Default             | Notes                                                   |
+| ------------- | -------- | -------- | ------------------- | ------------------------------------------------------- |
+| data          | number   |    Yes   | ''                  | Symbol that is placed top-left of the Component         |
+| height        | number   |    No    | 264                 | Determines the height that the component will use       |
+| maxWidth      | number   |    No    | 400                 | Determines the width that the component will use        |
+
+```

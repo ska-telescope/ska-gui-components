@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-  Alert,
-  Box,
-  Button,
-  Card,
-  CardContent,
-  Grid,
-  Paper,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Alert, Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
 import { Status } from '@ska-telescope/ska-javascript-components';
 
 const STATE_SIZE = 30;
