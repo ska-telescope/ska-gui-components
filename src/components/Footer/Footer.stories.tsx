@@ -13,7 +13,7 @@ export default {
 
 const Template: ComponentStory<typeof Footer> = () => (
   <Footer>
-    <Grid item>THIS</Grid>
+    <Grid item>{screen.height}</Grid>
     <Grid item>IS</Grid>
     <Grid item>THE</Grid>
     <Grid item>FOOTER</Grid>
