@@ -80,7 +80,8 @@ export function JSONView({ data, height, maxWidth }: JSONViewProps): JSX.Element
 
   const generateContent = (treeItems: any[]) => {
     return Object.keys(treeItems).map((treeItemData) => {
-      const el = typeof treeItems[treeItemData];
+      const keyObj:any = treeItemData;
+      const el = typeof treeItems[keyObj];
       return (
         <StyledTreeItem
           aria-label={treeItemData}
@@ -88,8 +89,8 @@ export function JSONView({ data, height, maxWidth }: JSONViewProps): JSX.Element
           nodeId={treeItemData}
           label={treeItemData}
         >
-          {el === 'string' && treeItems[treeItemData]}
-          {el === 'object' && generateContent(treeItems[treeItemData])}
+          {el === 'string' && treeItems[keyObj]}
+          {el === 'object' && generateContent(treeItems[keyObj])}
         </StyledTreeItem>
       );
     });
