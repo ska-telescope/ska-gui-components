@@ -80,7 +80,7 @@ export function JSONView({ data, height, maxWidth }: JSONViewProps): JSX.Element
 
   const generateContent = (treeItems: any[]) => {
     return Object.keys(treeItems).map((treeItemData) => {
-      const keyObj:any = treeItemData;
+      const keyObj: any = treeItemData;
       const el = typeof treeItems[keyObj];
       return (
         <StyledTreeItem
