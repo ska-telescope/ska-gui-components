@@ -28,6 +28,7 @@ export function Header({ themeToggle, toolTip, children }: HeaderProps): JSX.Ele
 
   return (
     <AppBar
+      aria-label="SKAO Header"
       id="headerId"
       color="primary"
       position="fixed"

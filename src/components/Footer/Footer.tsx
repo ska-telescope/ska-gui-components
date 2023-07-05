@@ -9,6 +9,7 @@ export interface FooterProps {
 export function Footer({ children }: FooterProps) {
   return (
     <AppBar
+      aria-label="SKAO Footer"
       id="footerId"
       color="primary"
       position="fixed"
