@@ -11,10 +11,6 @@ export default {
 } as ComponentMeta<typeof TextEntry>;
 
 const Template: ComponentStory<typeof TextEntry> = (args) => {
-  const [value, setValue] = React.useState('');
-
-  args.value = value;
-  args.setValue = setValue;
 
   return <TextEntry {...args} />;
 };
