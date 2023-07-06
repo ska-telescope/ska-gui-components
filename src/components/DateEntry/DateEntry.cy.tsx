@@ -5,13 +5,14 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 describe('<DateEntry />', () => {
-  const [theValue, setTheValue] = React.useState('');
+
+  const theValue = "";
 
   it('renders: light', () => {
     mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
-        <DateEntry label="Label" setValue={setTheValue} value={theValue} />
+        <DateEntry label="Label" value={theValue} />
       </ThemeProvider>
     );
   });
@@ -20,7 +21,7 @@ describe('<DateEntry />', () => {
     mount(
       <ThemeProvider theme={theme(THEME_DARK)}>
         <CssBaseline />
-        <DateEntry label="Label" setValue={setTheValue} value={theValue} />
+        <DateEntry label="Label" value={theValue} />
       </ThemeProvider>
     );
   });
