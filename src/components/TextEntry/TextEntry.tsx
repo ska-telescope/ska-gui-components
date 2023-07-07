@@ -39,20 +39,18 @@ export function TextEntry({
   };
 
   return (
-    <>
-      <EntryField
-        disabled={disabled}
-        errorText={errText()}
-        helperText={helperText}
-        label={label}
-        rows={rows}
-        value={value}
-        required={required}
-        type={TYPE.TEXT}
-        setValue={setValue}
-        validationState={validationState}
-      />
-    </>
+    <EntryField
+      disabled={disabled}
+      errorText={errText()}
+      helperText={helperText}
+      label={label}
+      rows={rows}
+      value={value}
+      required={required}
+      type={TYPE.TEXT}
+      setValue={setValue}
+      validationState={validationState}
+    />
   );
 }
 
@@ -61,7 +59,6 @@ export function TextEntry({
 
 TextEntry.defaultProps = {
   disabled: false,
-  error: false,
   helperText: '',
   password: false,
   required: false,
