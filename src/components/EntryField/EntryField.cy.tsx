@@ -5,13 +5,13 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 describe('<EntryField />', () => {
-  const [theValue, setTheValue] = React.useState('');
+  const theValue = '';
 
   it('renders: light', () => {
     mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
-        <EntryField label="Label" setValue={setTheValue} value={theValue} />
+        <EntryField label="Label" value={theValue} />
       </ThemeProvider>
     );
   });
@@ -20,7 +20,7 @@ describe('<EntryField />', () => {
     mount(
       <ThemeProvider theme={theme(THEME_DARK)}>
         <CssBaseline />
-        <EntryField label="Label" setValue={setTheValue} value={theValue} />
+        <EntryField label="Label" value={theValue} />
       </ThemeProvider>
     );
   });

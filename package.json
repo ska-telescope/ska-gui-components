@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -13,7 +13,7 @@
     "browserList": "npx browserslist@latest --update-db",
     "build": "react-scripts build",
     "cypress": "cypress open",
-    "cypress:component:chrome": "cypress run --component --browser chrome",
+    "cypress:component:chrome": "cypress run --component --browser chrome --config video=false",
     "code-analysis": "eslint --ignore-path .eslintignore -f junit -o linting.xml",
     "lint:fix": "eslint  --ignore-path .eslintignore --fix",
     "lint": "eslint --ignore-path .eslintignore",
