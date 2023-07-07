@@ -5,7 +5,8 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 describe('<EntryField />', () => {
-  const theValue = '';
+
+  const theValue = "";
 
   it('renders: light', () => {
     mount(

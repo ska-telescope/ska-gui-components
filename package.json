@@ -115,6 +115,7 @@
   },
   "dependencies": {
     "@mui/lab": "^5.0.0-alpha.135",
+    "@mui/x-data-grid": "^6.9.2",
     "@react-spring/web": "^9.7.3",
     "@ska-telescope/ska-javascript-components": "^0.1.21"
   }
