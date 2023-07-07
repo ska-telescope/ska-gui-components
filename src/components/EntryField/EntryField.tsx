@@ -68,49 +68,31 @@ export function EntryField({
     }
   };
 
-  const STATE_SIZE = 20;
-
   return (
-    <>
-      <CssBaseline enableColorScheme />
-      <Grid
-        container
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        spacing={2}
-      >
-        <Grid item>
-          <TextField
-            id={'textField' + label + 'Id'}
-            disabled={disabled}
-            error={errorText && errorText.length > 0}
-            fullWidth
-            helperText={errorText ? errorText : helperText ? helperText : ''}
-            InputProps={{
-              startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
-              endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-            }}
-            label={label}
-            margin="normal"
-            minRows="1"
-            maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-            multiline={type === TYPE.TEXT && rows && rows > 1}
-            name={'textField' + label}
-            onChange={(e: { target: { value: any } }) => {
-              updateValue(e.target.value);
-            }}
-            value={value}
-            variant="outlined"
-            required={required}
-            type={type}
-          />
-        </Grid>
-        <Grid item>
-          <Status level={level()} size={STATE_SIZE} />
-        </Grid>
-      </Grid>
-    </>
+    <TextField
+      id={'textField' + label + 'Id'}
+      disabled={disabled}
+      error={errorText && errorText.length > 0}
+      fullWidth
+      helperText={errorText ? errorText : helperText ? helperText : ''}
+      InputProps={{
+        startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
+        endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+      }}
+      label={label}
+      margin="normal"
+      minRows="1"
+      maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
+      multiline={type === TYPE.TEXT && rows && rows > 1}
+      name={'textField' + label}
+      onChange={(e: { target: { value: any } }) => {
+        updateValue(e.target.value);
+      }}
+      value={value}
+      variant="outlined"
+      required={required}
+      type={type}
+    />
   );
 }
 
@@ -119,7 +101,6 @@ export function EntryField({
 
 EntryField.defaultProps = {
   disabled: false,
-  error: false,
   helperText: '',
   password: false,
   prefix: '',

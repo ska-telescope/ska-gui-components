@@ -37,21 +37,19 @@ export function NumberEntry({
   };
 
   return (
-    <>
-      <EntryField
-        disabled={disabled}
-        errorText={errText()}
-        helperText={helperText}
-        label={label}
-        prefix={prefix}
-        value={value}
-        required={required}
-        setValue={setValue}
-        suffix={suffix}
-        type={TYPE.NUMBER}
-        validationState={validationState}
-      />
-    </>
+    <EntryField
+      disabled={disabled}
+      errorText={errText()}
+      helperText={helperText}
+      label={label}
+      prefix={prefix}
+      value={value}
+      required={required}
+      setValue={setValue}
+      suffix={suffix}
+      type={TYPE.NUMBER}
+      validationState={validationState}
+    />
   );
 }
 
@@ -60,7 +58,6 @@ export function NumberEntry({
 
 NumberEntry.defaultProps = {
   disabled: false,
-  error: false,
   helperText: '',
   password: false,
   prefix: '',

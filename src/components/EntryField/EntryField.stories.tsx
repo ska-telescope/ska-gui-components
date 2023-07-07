@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { EntryField } from './EntryField';
+import Box from '@mui/material/Box';
 
 export default {
   title: 'Example/EntryField',
@@ -10,7 +11,12 @@ export default {
   },
 } as ComponentMeta<typeof EntryField>;
 
-const Template: ComponentStory<typeof EntryField> = (args) => <EntryField {...args} />;
+const Template: ComponentStory<typeof EntryField> = (args) => { 
+  return (
+    <Box sx={{ width: 500, maxWidth: '100%' }}>
+      <EntryField {...args} />
+    </Box>)
+}
 
 export const EntryFieldDisplay = Template.bind({});
 
