@@ -11,12 +11,13 @@ export default {
   },
 } as ComponentMeta<typeof EntryField>;
 
-const Template: ComponentStory<typeof EntryField> = (args) => { 
+const Template: ComponentStory<typeof EntryField> = (args) => {
   return (
     <Box sx={{ width: 500, maxWidth: '100%' }}>
       <EntryField {...args} />
-    </Box>)
-}
+    </Box>
+  );
+};
 
 export const EntryFieldDisplay = Template.bind({});
 

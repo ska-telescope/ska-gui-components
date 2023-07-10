@@ -18,7 +18,15 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   },
 }));
 
-function StylingRowsGrid({ ariaLabel, columns, height, onRowClick, rows }) {
+export interface DataGridProps {
+  ariaLabel: string;
+  columns: any;
+  height: number;
+  onRowClick?: any;
+  rows: any;
+}
+
+export function StylingRowsGrid({ ariaLabel, columns, height, onRowClick, rows }: DataGridProps) {
   return (
     <Paper sx={{ backgroundColor: 'secondary.contrastText' }}>
       <Box sx={{ height, width: '100%' }}>

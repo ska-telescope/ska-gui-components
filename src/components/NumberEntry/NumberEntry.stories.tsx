@@ -11,7 +11,6 @@ export default {
 } as ComponentMeta<typeof NumberEntry>;
 
 const Template: ComponentStory<typeof NumberEntry> = (args) => {
-
   return <NumberEntry {...args} />;
 };
 
