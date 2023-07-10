@@ -1,6 +1,5 @@
 import React from 'react';
-import { CssBaseline, InputAdornment, Grid, TextField } from '@mui/material';
-import { Status } from '@ska-telescope/ska-javascript-components';
+import { InputAdornment, TextField } from '@mui/material';
 
 export enum STATE {
   OK = 'ok',
@@ -45,28 +44,10 @@ export function EntryField({
   rows,
   suffix,
   type,
-  validationState,
 }: EntryFieldProps): JSX.Element {
   const theSuffix = suffix ? suffix : '';
   const thePrefix = prefix ? prefix : '';
   const updateValue = (e: any) => (typeof setValue !== 'undefined' ? setValue(e) : null);
-
-  const hasError = () => {
-    return errorText ? 1 : 0;
-  };
-
-  const level = () => {
-    switch (validationState) {
-      case STATE.OK:
-        return hasError();
-      case STATE.ERROR:
-        return 1;
-      case STATE.UNKNOWN:
-        return hasError() ? 1 : 3;
-      default:
-        return 9;
-    }
-  };
 
   return (
     <TextField
@@ -95,9 +76,6 @@ export function EntryField({
     />
   );
 }
-
-//type="password"
-//autoComplete="current-password"
 
 EntryField.defaultProps = {
   disabled: false,
