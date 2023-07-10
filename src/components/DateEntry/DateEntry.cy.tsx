@@ -5,8 +5,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 describe('<DateEntry />', () => {
-
-  const theValue = "";
+  const theValue = '';
 
   it('renders: light', () => {
     mount(

@@ -11,7 +11,6 @@ export default {
 } as ComponentMeta<typeof DateEntry>;
 
 const Template: ComponentStory<typeof DateEntry> = (args) => {
-
   return <DateEntry {...args} />;
 };
 

@@ -5,7 +5,6 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 describe('<NumberEntry />', () => {
-
   const theValue = 0;
 
   it('renders: light', () => {
