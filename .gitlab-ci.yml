@@ -58,7 +58,29 @@ test_and_coverage:
     - mkdir -p build/reports
     - yarn install --frozen-lockfile
   script:
-    - yarn cypress:component:chrome
+    - yarn storybook &
+    - yarn test:component:headless
+    - yarn test:coverage:report:ci
+    - cp build/reports/cobertura-coverage.xml build/reports/code-coverage.xml
+
+test-counts:
+  image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+  stage: scan
+  tags:
+    - k8srunner
+  cache:
+    paths:
+      - node_modules/
+    policy: pull
+  before_script:
+    - mkdir -p build/tests
+    - yarn install --immutable
+  script:
+    - yarn test:cypress:component:ci
+    - yarn merge-reports
+  artifacts:
+    paths:
+      - build/
 
 # list the current top level dependencies for the project
 list_dependencies:
@@ -147,6 +169,7 @@ pages:
   - k8srunner
   dependencies:
     - test_and_coverage
+    - test-counts
     - list_dependencies
   script:
     - mv public/* .
