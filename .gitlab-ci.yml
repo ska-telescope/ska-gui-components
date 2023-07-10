@@ -65,7 +65,7 @@ test_and_coverage:
 
 test-counts:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
-  stage: scan
+  stage: test
   tags:
     - k8srunner
   cache:
