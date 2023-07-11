@@ -1,7 +1,7 @@
 export { default as AlertCard } from './AlertCard/AlertCard';
 export { default as DataGrid } from './DataGrid/DataGrid';
 export { default as InfoCard } from './InfoCard/InfoCard';
-export { default as JSONView } from './JSONView/JSONView';
+export { default as DataTree } from './DataTree/DataTree';
 //
 export { default as Header } from './Header/Header';
 export { default as Footer } from './Footer/Footer';

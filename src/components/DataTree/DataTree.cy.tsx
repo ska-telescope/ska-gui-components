@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'cypress/react18';
-import JSONView from './JSONView';
+import DataTree from './DataTree';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
@@ -29,12 +29,12 @@ const mockData = {
   ],
 };
 
-describe('<JSONView />', () => {
+describe('<DataTree />', () => {
   it('renders: light', () => {
     mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
-        <JSONView data={mockData} />
+        <DataTree data={mockData} />
       </ThemeProvider>
     );
   });
@@ -43,7 +43,7 @@ describe('<JSONView />', () => {
     mount(
       <ThemeProvider theme={theme(THEME_DARK)}>
         <CssBaseline />
-        <JSONView data={mockData} />
+        <DataTree data={mockData} />
       </ThemeProvider>
     );
   });
