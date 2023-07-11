@@ -8,7 +8,7 @@ import Collapse from '@mui/material/Collapse';
 import { useSpring, animated } from '@react-spring/web';
 import { TransitionProps } from '@mui/material/transitions';
 
-export interface JSONViewProps {
+export interface DataTreeProps {
   // required
   data: any;
   // optional
@@ -16,7 +16,7 @@ export interface JSONViewProps {
   maxWidth?: number;
 }
 
-export function JSONView({ data, height, maxWidth }: JSONViewProps): JSX.Element {
+export function DataTree({ data, height, maxWidth }: DataTreeProps): JSX.Element {
   function MinusSquare(props: SvgIconProps) {
     return (
       <SvgIcon fontSize="inherit" style={{ width: 14, height: 14 }} {...props}>
@@ -81,7 +81,9 @@ export function JSONView({ data, height, maxWidth }: JSONViewProps): JSX.Element
   const generateContent = (treeItems: any[]) => {
     return Object.keys(treeItems).map((treeItemData) => {
       const keyObj: any = treeItemData;
-      const el = typeof treeItems[keyObj];
+      console.log('keyObj :', keyObj);
+      const el = treeItems[keyObj] === null ? 'null' : typeof treeItems[keyObj];
+      console.log(treeItems[keyObj], el);
       return (
         <StyledTreeItem
           aria-label={treeItemData}
@@ -89,8 +91,9 @@ export function JSONView({ data, height, maxWidth }: JSONViewProps): JSX.Element
           nodeId={treeItemData}
           label={treeItemData}
         >
+          {el === 'null' && 'null'}
           {el === 'string' && treeItems[keyObj]}
-          {el === 'object' && generateContent(treeItems[keyObj])}
+          {el === 'object' && el !== null && generateContent(treeItems[keyObj])}
         </StyledTreeItem>
       );
     });
@@ -111,9 +114,9 @@ export function JSONView({ data, height, maxWidth }: JSONViewProps): JSX.Element
   );
 }
 
-JSONView.defaultProps = {
+DataTree.defaultProps = {
   height: 264,
   maxWidth: 400,
 };
 
-export default JSONView;
+export default DataTree;

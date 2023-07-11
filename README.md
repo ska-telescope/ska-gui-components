@@ -203,13 +203,13 @@ import { InfoCard } from '@ska-telescope/ska-gui-components';
 
 ```
 ### 
-JSONView
+DataTree
 Passing data out of a JSON.parse() will produce an expandable TreeView of the data
 
 ```
-import { JSONView } from '@ska-telescope/ska-gui-components';
+import { DataTree } from '@ska-telescope/ska-gui-components';
 
-<JSONView l data={data} />
+<DataTree l data={data} />
 
 | Property      | Type     | Required | Default             | Notes                                                   |
 | ------------- | -------- | -------- | ------------------- | ------------------------------------------------------- |
