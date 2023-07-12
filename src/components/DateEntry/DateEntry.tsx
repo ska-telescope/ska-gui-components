@@ -1,5 +1,5 @@
 import React from 'react';
-import { EntryField, STATE, TYPE } from '../EntryField/EntryField';
+import { EntryField, TYPE } from '../EntryField/EntryField';
 
 export interface DateEntryProps {
   // required
@@ -11,7 +11,6 @@ export interface DateEntryProps {
   helperText?: string;
   required?: boolean;
   setValue?: Function;
-  validationState?: STATE;
 }
 
 export function DateEntry({
@@ -22,7 +21,6 @@ export function DateEntry({
   disabled,
   errorText,
   required,
-  validationState,
 }: DateEntryProps): JSX.Element {
   return (
     <EntryField
@@ -34,13 +32,9 @@ export function DateEntry({
       setValue={setValue}
       type={TYPE.DATE}
       value={value}
-      validationState={validationState}
     />
   );
 }
-
-//type="password"
-//autoComplete="current-password"
 
 DateEntry.defaultProps = {
   disabled: false,
@@ -49,7 +43,6 @@ DateEntry.defaultProps = {
   password: false,
   required: false,
   setValue: null,
-  validationState: STATE.NONE,
 };
 
 export default DateEntry;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { EntryField, STATE, TYPE } from '../EntryField/EntryField';
+import { EntryField, TYPE } from '../EntryField/EntryField';
 
 export interface NumberEntryProps {
   // required
@@ -14,7 +14,6 @@ export interface NumberEntryProps {
   required?: boolean;
   setValue?: Function;
   suffix?: string;
-  validationState?: STATE;
 }
 
 export function NumberEntry({
@@ -27,7 +26,6 @@ export function NumberEntry({
   prefix,
   setValue,
   suffix,
-  validationState,
 }: NumberEntryProps): JSX.Element {
   const errText = () => {
     if (required && typeof value !== 'number') {
@@ -48,7 +46,6 @@ export function NumberEntry({
       setValue={setValue}
       suffix={suffix}
       type={TYPE.NUMBER}
-      validationState={validationState}
     />
   );
 }
@@ -65,7 +62,6 @@ NumberEntry.defaultProps = {
   rows: 1,
   setValue: null,
   suffix: '',
-  validationState: 'none',
 };
 
 export default NumberEntry;

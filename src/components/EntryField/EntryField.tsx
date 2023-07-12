@@ -29,7 +29,6 @@ export interface EntryFieldProps {
   setValue?: Function;
   suffix?: string;
   type?: TYPE.DATE | TYPE.NUMBER | TYPE.TEXT;
-  validationState?: STATE.OK | STATE.ERROR | STATE.UNKNOWN | STATE.NONE;
 }
 
 export function EntryField({
