@@ -88,7 +88,6 @@ import { DateEntry } from '@ska-telescope/ska-gui-components';
 | helperText      | string   |    No    | ''             | Displayed is there is a value                           |
 | required        | boolean  |    No    | false          | Asterisk is added to the label if true                  |
 | setValue        | function |    No    | null           | Used to update the value onChange                       |
-| validationState | enum     |    No    | 'none'         | 'ok', 'error', 'none', 'unknown'                        |
 ```
 
 ### NumberEntry
@@ -112,7 +111,6 @@ import { NumberEntry } from '@ska-telescope/ska-gui-components';
 | required        | boolean  |    No    | false          | Asterisk is added to the label if true                  |
 | setValue        | function |    No    | null           | Used to update the value onChange                       |
 | suffix          | string   |    No    | ''             | Allows for the addition of characters after the number  |
-| validationState | enum     |    No    | 'none'         | 'ok', 'error', 'none', 'unknown'                        |
 ```
 
 ### TextEntry
@@ -137,7 +135,6 @@ import { TextEntry } from '@ska-telescope/ska-gui-components';
 | rows            | number   |    No    | 1              | TEXT ONLY.  text area when value is above 1             |
 | setValue        | function |    No    | null           | Used to update the value onChange                       |
 | suffix          | string   |    No    | ''             | Allows for the addition of characters after the number  |
-| validationState | enum     |    No    | 'none'         | 'ok', 'error', 'none', 'unknown'                        |
 ```
 ### Footer
 
@@ -202,19 +199,37 @@ import { InfoCard } from '@ska-telescope/ska-gui-components';
 | clickFunction | Function |    No    |                     | Executed if the component is clicked                    |
 
 ```
-### 
-DataTree
+### DataTree
+
 Passing data out of a JSON.parse() will produce an expandable TreeView of the data
 
 ```
 import { DataTree } from '@ska-telescope/ska-gui-components';
 
-<DataTree l data={data} />
+<DataTree data={data} />
 
 | Property      | Type     | Required | Default             | Notes                                                   |
 | ------------- | -------- | -------- | ------------------- | ------------------------------------------------------- |
 | data          | number   |    Yes   | ''                  | Symbol that is placed top-left of the Component         |
 | height        | number   |    No    | 264                 | Determines the height that the component will use       |
 | maxWidth      | number   |    No    | 400                 | Determines the width that the component will use        |
+```
+### ButtonToggle  TREVOR TODO
+
+Button group showing 2 options, one of which must be active.
+
+```
+import { ButtonToggle } from '@ska-telescope/ska-gui-components';
+
+<ButtonToggle data={data} />
+
+| Property      | Type     | Required | Default             | Notes                                                   |
+| ------------- | -------- | -------- | ------------------- | ------------------------------------------------------- |
+| current       | string   |    Yes   |                     | Value of the currently active element                   |
+| label         | string   |    Yes   |                     | aria-label value                                        |
+| options       | object   |    Yes   |                     | { id: string, label: string, value: any}[]  Max 2       |
+| setValue      | function |    Yes   |                     | Function to update the value when clicked               |
+| toolTip       | string   |    No    | ''                  | Optional toolTip for the toggle                         |
+| value         | object   |    Yes   |                     | Object of the currently active element                  |
 
 ```

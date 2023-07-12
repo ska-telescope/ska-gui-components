@@ -104,6 +104,7 @@ export function DataTree({ data, height, maxWidth }: DataTreeProps): JSX.Element
       <TreeView
         aria-label="SKAO JSON View"
         defaultCollapseIcon={<MinusSquare />}
+        defaultExpanded={['3']}
         defaultExpandIcon={<PlusSquare />}
         defaultEndIcon={<CloseSquare />}
         sx={{ maxHeight: height, flexGrow: 1, maxWidth: maxWidth, overflowY: 'auto' }}
