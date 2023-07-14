@@ -1737,7 +1737,7 @@
 
 "@cypress/code-coverage@^3.11.0":
   version "3.11.0"
-  resolved "https://registry.npmjs.org/@cypress/code-coverage/-/code-coverage-3.11.0.tgz"
+  resolved "https://registry.yarnpkg.com/@cypress/code-coverage/-/code-coverage-3.11.0.tgz#f695b53f5e2b89144ca418fd6608a63720e2880f"
   integrity sha512-ihSO1s03gmLRE224oIjrbdG1ey63vw/UY+VSqQ5m/TKkAvyz6GIiniq6juk3AV/+0vQC1Eb4UWFu8ndtji4M1g==
   dependencies:
     "@cypress/webpack-preprocessor" "^5.11.0"

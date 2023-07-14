@@ -28,10 +28,6 @@
     "merge-reports": "jrm build/reports/unit-tests.xml \"build/tests/*.xml\""
   },
   "devDependencies": {
-    "babel-jest": "^29.5.0",
-    "babel-plugin-import": "^1.13.5",
-    "babel-plugin-istanbul": "^6.1.1",
-    "@cypress/instrument-cra": "^1.4.0",
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.22.7",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -40,6 +36,7 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
+    "@cypress/instrument-cra": "^1.4.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@fontsource/material-icons": "^4.5.4",
@@ -60,6 +57,9 @@
     "@storybook/react": "^6.5.16",
     "@types/react": "^17.0.34",
     "autoprefixer": "^10.4.14",
+    "babel-jest": "^29.5.0",
+    "babel-plugin-import": "^1.13.5",
+    "babel-plugin-istanbul": "^6.1.1",
     "css-loader": "^6.7.3",
     "cypress": "^12.8.1",
     "eslint": "^8.37.0",
@@ -123,6 +123,7 @@
     "react": "^18.2.0"
   },
   "dependencies": {
+    "@cypress/code-coverage": "^3.11.0",
     "@mui/lab": "^5.0.0-alpha.135",
     "@mui/system": "^5.13.7",
     "@mui/x-data-grid": "^6.9.2",
