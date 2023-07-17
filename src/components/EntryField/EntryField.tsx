@@ -52,7 +52,7 @@ export function EntryField({
     <TextField
       id={'textField' + label + 'Id'}
       disabled={disabled}
-      error={errorText && errorText.length > 0}
+      error={errorText && errorText.length > 0 ? true : false}
       fullWidth
       helperText={errorText ? errorText : helperText ? helperText : ''}
       InputProps={{
