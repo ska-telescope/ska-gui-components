@@ -30,7 +30,7 @@ export function DropDown({
     <TextField
       color="secondary"
       disabled={disabled}
-      error={errorText && errorText.length > 0}
+      error={errorText && errorText.length > 0 ? true : false}
       fullWidth
       helperText={errorText ? errorText : helperText ? helperText : ''}
       id={'dropDown' + label + 'Id'}
