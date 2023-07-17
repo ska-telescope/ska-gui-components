@@ -214,7 +214,7 @@ import { DataTree } from '@ska-telescope/ska-gui-components';
 | height        | number   |    No    | 264                 | Determines the height that the component will use       |
 | maxWidth      | number   |    No    | 400                 | Determines the width that the component will use        |
 ```
-### ButtonToggle  TREVOR TODO
+### ButtonToggle
 
 Button group showing 2 options, one of which must be active.
 

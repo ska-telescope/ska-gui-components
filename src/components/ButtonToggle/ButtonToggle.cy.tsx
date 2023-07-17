@@ -5,7 +5,6 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 describe('<ButtonToggle />', () => {
-  const theValue = '';
   const telescope = { id: 'low', Label: 'SKA LOW' };
   const telescopeList = [
     { id: 'low', label: 'SKA LOW', value: null },
