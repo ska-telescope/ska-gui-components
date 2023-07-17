@@ -54,6 +54,10 @@ test_and_coverage:
   stage: test
   tags:
     - k8srunner
+  cache:
+    paths:
+      - node_modules/
+    policy: pull
   before_script:
     - mkdir -p build/reports
     - mkdir -p build/.nyc_output
@@ -63,6 +67,9 @@ test_and_coverage:
     - yarn test:component:headless
     - yarn test:coverage:report:ci
     - cp build/reports/cobertura-coverage.xml build/reports/code-coverage.xml
+  artifacts:
+        paths:
+          - build/
 
 test-counts:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
