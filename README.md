@@ -136,6 +136,33 @@ import { TextEntry } from '@ska-telescope/ska-gui-components';
 | setValue        | function |    No    | null           | Used to update the value onChange                       |
 | suffix          | string   |    No    | ''             | Allows for the addition of characters after the number  |
 ```
+### DropDown
+
+Field for selecting an option from a possible list
+
+```
+import { DropDown } from '@ska-telescope/ska-gui-components';
+
+<DropDown label={DROP_DOWN_LABEL} options={DROP_DOWN_OPTIONS} value={DROP_DOWN_VALUE} />
+
+| Property        | Type     | Required | Default        | Notes                                                   |
+| --------------- | -------- | -------- | -------------- | ------------------------------------------------------- |
+| disabled        | boolean  |    No    | false          | Disables the component if true                          |
+| errorText       | string   |    No    | ''             | Displayed if there is a value and component is coloured |
+| helperText      | string   |    No    | ''             | Displayed is there is a value                           |
+| label           | string   |    Yes   | ''             | Label displayed for the Component                       |
+| options         | BELOW    |    Yes   | ''             | Options to be displayed for selection.  See below       |
+| required        | boolean  |    No    | false          | Asterisk is added to the label if true                  |
+| setValue        | function |    No    | null           | Used to update the value onChange                       |
+| value           | string   |    Yes   | n/a            | Value that is displayed within the component            |
+
+OPTIONS 
+
+| Property        | Type              |  Notes                                                   |
+| --------------- | ----------------- | -------------------------------------------------------- |
+| label           | string            | Label displayed within the list of options               |
+| value           | string / number   | Value associated to the displayed label                  |
+```
 ### Footer
 
 Standard Footer wrapper component that spaces evenly it's child components
