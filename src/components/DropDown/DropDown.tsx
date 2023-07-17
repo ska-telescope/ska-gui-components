@@ -34,7 +34,7 @@ export function DropDown({
       fullWidth
       helperText={errorText ? errorText : helperText ? helperText : ''}
       id={'dropDown' + label + 'Id'}
-      label="Select"
+      label={label}
       name={'dropDown' + label}
       onChange={(e: { target: { value: string | number } }) => {
         updateValue(e.target.value);
