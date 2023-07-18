@@ -4,12 +4,12 @@ import SKAOButton from './Button';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
-describe('<ButtonToggle />', () => {
+describe('<SKAOButton />', () => {
   it('renders: light', () => {
     mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
-        <SKAOButton label="ButtonToggle Label" toolTip={'Tool tip'} />
+        <SKAOButton label="Button Label" toolTip={'Tool tip'} />
       </ThemeProvider>
     );
   });
@@ -18,7 +18,7 @@ describe('<ButtonToggle />', () => {
     mount(
       <ThemeProvider theme={theme(THEME_DARK)}>
         <CssBaseline />
-        <SKAOButton label="ButtonToggle Label" toolTip={'Tool tip'} />
+        <SKAOButton label="Button Label" toolTip={'Tool tip'} />
       </ThemeProvider>
     );
   });
