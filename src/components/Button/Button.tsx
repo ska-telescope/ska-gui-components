@@ -25,7 +25,7 @@ export function SKAOButton({
   return (
     <Tooltip title={toolTip} arrow>
       <Button
-        data-testId={label + 'Id'}
+        data-testid={label + 'Id'}
         role="button"
         type="submit"
         aria-label={label}
@@ -44,6 +44,7 @@ export function SKAOButton({
 }
 
 SKAOButton.defaultProps = {
+  color: 'success',
   disabled: false,
   icon: null,
   toolTip: '',
