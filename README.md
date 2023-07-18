@@ -260,3 +260,23 @@ import { ButtonToggle } from '@ska-telescope/ska-gui-components';
 | value         | object   |    Yes   |                     | Object of the currently active element                  |
 
 ```
+### SKAOButton
+
+Button for use with all applications,  Note that this is accessed via 'Button' externally.
+
+```
+import { Button } from '@ska-telescope/ska-gui-components';
+
+<Button data={data} />
+
+| Property      | Type        | Required | Default             | Notes                                                       |
+| ------------- | ----------- | -------- | ------------------- | ----------------------------------------------------------- |
+| color         | string      |    No    |                     | 'error' | 'inherit' | 'secondary' | 'success' | 'warning'   |
+| disabled      | boolean     |    No    | false               | Disabled when true                                          |
+| icon          | JSX.Element |    No    | null                | Prefixes the label when present                             |
+| label         | string      |    Yes   |                     | Test displayed upon the button                              |
+| onClick       | Function    |    No    | null                | Determines actions to be taken when the button is clicked   |
+| toolTip       | string      |    No    | ''                  | Text displayed when the cursor is hovered over the button   |
+| variant       | string      |    No    | 'outlined'          | Styling options : 'contained' | 'outlined' | 'text'         |
+
+```
