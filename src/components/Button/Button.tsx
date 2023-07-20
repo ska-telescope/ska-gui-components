@@ -25,16 +25,16 @@ export function SKAOButton({
   return (
     <Tooltip title={toolTip} arrow>
       <Button
-        data-testid={label + 'Id'}
-        role="button"
-        type="submit"
         aria-label={label}
-        fullWidth
         color={color}
+        data-testid={label + 'Id'}
         disabled={disabled}
-        sx={{ mt: 3, mb: 2 }}
+        fullWidth
         onClick={(e: any) => clicked(e)}
+        role="button"
         startIcon={icon}
+        sx={{ mt: 3, mb: 2 }}
+        type="submit"
         variant={variant}
       >
         {label}

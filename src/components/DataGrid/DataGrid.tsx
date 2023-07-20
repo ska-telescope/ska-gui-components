@@ -32,9 +32,9 @@ export function StylingRowsGrid({ ariaLabel, columns, height, onRowClick, rows }
       <Box sx={{ height, width: '100%' }}>
         <StyledDataGrid
           aria-label={ariaLabel}
+          getRowClassName={() => `super-app-theme`}
           onRowClick={onRowClick}
           {...{ rows, columns }}
-          getRowClassName={() => `super-app-theme`}
         />
       </Box>
     </Paper>
