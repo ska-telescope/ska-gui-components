@@ -31,20 +31,19 @@ export function ButtonToggle({
   return (
     <Tooltip title={toolTip} arrow>
       <ToggleButtonGroup
+        aria-label={label}
         color="secondary"
-        value={value}
         exclusive
         onChange={updateValue}
-        aria-label={label}
+        value={value}
       >
         {options.map((option: { id: string; label: string; value: any }): JSX.Element => {
           return (
             <ToggleButton
-              id={option.id}
               aria-label={option.id}
+              id={option.id}
               key={option.id}
               selected={option.id === current}
-              value={option.id}
               sx={{
                 '&.Mui-selected': {
                   color: 'primary.main',
@@ -60,6 +59,7 @@ export function ButtonToggle({
                   backgroundColor: 'secondary.dark',
                 },
               }}
+              value={option.id}
             >
               {option.label}
             </ToggleButton>
