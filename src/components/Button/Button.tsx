@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Tooltip } from '@mui/material';
 
 export interface ButtonProps {
+  ariaDescription?: string;
   color?: 'error' | 'inherit' | 'secondary' | 'success' | 'warning';
   disabled?: boolean;
   icon?: JSX.Element;
@@ -12,6 +13,7 @@ export interface ButtonProps {
 }
 
 export function SKAOButton({
+  ariaDescription,
   color,
   disabled,
   icon,
@@ -26,8 +28,10 @@ export function SKAOButton({
     <Tooltip title={toolTip} arrow>
       <Button
         aria-label={label}
+        aria-describedBy={ariaDescription}
+        aria-description={ariaDescription}
         color={color}
-        data-testid={label + 'Id'}
+        data-testid={label + 'ButtonId'}
         disabled={disabled}
         fullWidth
         onClick={(e: any) => clicked(e)}
@@ -44,6 +48,7 @@ export function SKAOButton({
 }
 
 SKAOButton.defaultProps = {
+  ariaDescription: 'Button',
   color: 'success',
   disabled: false,
   icon: null,

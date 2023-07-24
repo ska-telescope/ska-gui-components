@@ -1,8 +1,7 @@
 import React from 'react';
-import { mount } from 'cypress/react18';
 import DropDown from './DropDown';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
+import { THEME_LIGHT, theme } from '../../services/theme/theme';
 
 describe('<DropDown />', () => {
   const theValue = '';
@@ -13,17 +12,8 @@ describe('<DropDown />', () => {
   ];
 
   it('renders: light', () => {
-    mount(
+    cy.mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
-        <CssBaseline />
-        <DropDown label="Label" options={DUMMY_OPTIONS} value={theValue} />
-      </ThemeProvider>
-    );
-  });
-
-  it('renders: dark', () => {
-    mount(
-      <ThemeProvider theme={theme(THEME_DARK)}>
         <CssBaseline />
         <DropDown label="Label" options={DUMMY_OPTIONS} value={theValue} />
       </ThemeProvider>

@@ -45,7 +45,7 @@ This will run the CI/CD process again, and once complete the executable will be 
 
 ### AlertCard
 
-Component that is colored dependant upon the most-urgent status value provided
+Panel that is colored dependant upon the most-urgent status valued element provided
 
 ```
 import { AlertCard } from '@ska-telescope/ska-gui-components';

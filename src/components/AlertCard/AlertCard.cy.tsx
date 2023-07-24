@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'cypress/react18';
 import AlertCard from './AlertCard';
 
 const DUMMY_DATA = [
@@ -21,9 +20,21 @@ const DUMMY_DATA = [
 
 describe('<AlertCard />', () => {
   it('renders : pastel', () => {
-    mount(<AlertCard title="alertCard.title" array={DUMMY_DATA} filled={false} />);
+    cy.mount(<AlertCard title="alertCard.title" array={DUMMY_DATA} />);
   });
   it('renders : filled', () => {
-    mount(<AlertCard title="alertCard.title" array={DUMMY_DATA} filled />);
+    cy.mount(<AlertCard title="alertCard.title" array={DUMMY_DATA} filled />);
+  });
+  it('renders : with a provided function', () => {
+    cy.mount(
+      <AlertCard
+        title="alertCard.title"
+        array={DUMMY_DATA}
+        clickFunction={cy.stub().as('clicked')}
+      />
+    );
+    // TODO : Why is this not found ?
+    cy.findByTestId('AlertCard').click();
+    cy.get('@clicked').should('have.been.called')
   });
 });

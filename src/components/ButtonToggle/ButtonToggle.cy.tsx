@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'cypress/react18';
 import ButtonToggle from './ButtonToggle';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
@@ -12,7 +11,7 @@ describe('<ButtonToggle />', () => {
   ];
 
   it('renders: light', () => {
-    mount(
+    cy.mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
         <ButtonToggle
@@ -27,7 +26,7 @@ describe('<ButtonToggle />', () => {
   });
 
   it('renders: dark', () => {
-    mount(
+    cy.mount(
       <ThemeProvider theme={theme(THEME_DARK)}>
         <CssBaseline />
         <ButtonToggle

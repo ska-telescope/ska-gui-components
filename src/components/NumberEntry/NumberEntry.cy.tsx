@@ -1,26 +1,24 @@
 import React from 'react';
-import { mount } from 'cypress/react18';
 import NumberEntry from './NumberEntry';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
+import { THEME_LIGHT, theme } from '../../services/theme/theme';
 
 describe('<NumberEntry />', () => {
   const theValue = 0;
 
-  it('renders: light', () => {
-    mount(
+  it('renders', () => {
+    cy.mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
         <NumberEntry label="Label" value={theValue} />
       </ThemeProvider>
     );
   });
-
-  it('renders: dark', () => {
-    mount(
-      <ThemeProvider theme={theme(THEME_DARK)}>
+  it('renders, required', () => {
+    cy.mount(
+      <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
-        <NumberEntry label="Label" value={theValue} />
+        <NumberEntry label="Label" value={theValue} required />
       </ThemeProvider>
     );
   });

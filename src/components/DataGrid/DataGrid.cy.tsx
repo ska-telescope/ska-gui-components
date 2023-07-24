@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'cypress/react18';
 import StylingRowsGrid from './DataGrid';
 
 const DUMMY_COLUMNS = [
@@ -28,10 +27,9 @@ const DUMMY_ROWS = [
 ];
 
 describe('<SKAODataGrid />', () => {
-  it('renders : pastel', () => {
-    mount(<StylingRowsGrid ariaLabel="Dummy DataGrid" columns={DUMMY_COLUMNS} rows={DUMMY_ROWS} />);
-  });
-  it('renders : filled', () => {
-    mount(<StylingRowsGrid ariaLabel="Dummy DataGrid" columns={DUMMY_COLUMNS} rows={DUMMY_ROWS} />);
+  it('renders', () => {
+    cy.mount(
+      <StylingRowsGrid ariaLabel="Dummy DataGrid" columns={DUMMY_COLUMNS} rows={DUMMY_ROWS} />
+    );
   });
 });

@@ -37,6 +37,7 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
+    "@cypress/code-coverage": "^3.11.0",
     "@cypress/instrument-cra": "^1.4.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -56,6 +57,9 @@
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.16",
+    "@testing-library/cypress": "^9.0.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
     "@types/react": "^17.0.34",
     "autoprefixer": "^10.4.14",
     "babel-core": "^6.26.3",
@@ -126,12 +130,11 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@cypress/code-coverage": "^3.11.0",
     "@mui/lab": "^5.0.0-alpha.135",
     "@mui/system": "^5.13.7",
     "@mui/x-data-grid": "^6.9.2",
     "@react-spring/web": "^9.7.3",
-    "@ska-telescope/ska-javascript-components": "^0.1.23",
+    "@ska-telescope/ska-javascript-components": "^0.1.24",
     "junit-report-merger": "^6.0.2"
   }
 }

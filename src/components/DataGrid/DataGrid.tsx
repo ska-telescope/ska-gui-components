@@ -20,18 +20,28 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
 
 export interface DataGridProps {
   ariaLabel: string;
+  ariaDescription?: string;
   columns: any;
   height: number;
   onRowClick?: any;
   rows: any;
 }
 
-export function StylingRowsGrid({ ariaLabel, columns, height, onRowClick, rows }: DataGridProps) {
+export function StylingRowsGrid({
+  ariaLabel,
+  ariaDescription,
+  columns,
+  height,
+  onRowClick,
+  rows,
+}: DataGridProps) {
   return (
     <Paper sx={{ backgroundColor: 'secondary.contrastText' }}>
       <Box sx={{ height, width: '100%' }}>
         <StyledDataGrid
           aria-label={ariaLabel}
+          aria-describedBy={ariaDescription}
+          aria-description={ariaDescription}
           getRowClassName={() => `super-app-theme`}
           onRowClick={onRowClick}
           {...{ rows, columns }}
@@ -42,6 +52,8 @@ export function StylingRowsGrid({ ariaLabel, columns, height, onRowClick, rows }
 }
 
 StylingRowsGrid.defaultProps = {
+  ariaDescription: 'Information provided in a tabular form',
+  ariaTitle: 'DataGrid',
   height: 400,
   onRowClick: null,
 };
