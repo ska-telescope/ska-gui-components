@@ -48,6 +48,7 @@ function AlertElement(
     <Box key={`AlertFilledBox${index}`}>
       <Button key={`AlertFilledButton${index}`} onClick={buttonClick}>
         <Alert
+          data-testid="AlertCard"
           key={`AlertFilled${index}`}
           icon={false}
           severity={SEVERITY[level]}

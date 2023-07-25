@@ -4,7 +4,6 @@ import { CssBaseline, Grid, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 describe('<Header />', () => {
-
   it('renders: light and verifies external link to SKAO site', () => {
     cy.mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>

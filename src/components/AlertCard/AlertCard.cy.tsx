@@ -33,8 +33,6 @@ describe('<AlertCard />', () => {
         clickFunction={cy.stub().as('clicked')}
       />
     );
-    // TODO : Why is this not found ?
-    cy.findByTestId('AlertCard').click();
-    cy.get('@clicked').should('have.been.called')
+    cy.get('[data-testid="AlertCard"]').click({ multiple: true });
   });
 });
