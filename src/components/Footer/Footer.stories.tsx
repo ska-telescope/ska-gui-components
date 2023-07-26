@@ -22,4 +22,7 @@ const Template: ComponentStory<typeof Footer> = () => (
 
 export const Component = Template.bind({});
 
-Component.args = {};
+Component.args = {
+  ariaTitle: 'aria Title',
+  ariaDescription: 'aria Description',
+};

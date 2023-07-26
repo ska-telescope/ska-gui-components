@@ -1,17 +1,32 @@
 import React from 'react';
 import { Button, Tooltip } from '@mui/material';
 
+export enum ButtonColorTypes {
+  Error = 'error',
+  Inherit = 'inherit',
+  Secondary = 'secondary',
+  Success = 'success',
+  Warning = 'warning',
+}
+
+export enum ButtonVariantTypes {
+  Contained = 'contained',
+  Outlined = 'outlined',
+  Text = 'text',
+}
 export interface ButtonProps {
-  color?: 'error' | 'inherit' | 'secondary' | 'success' | 'warning';
+  ariaDescription?: string;
+  color?: ButtonColorTypes;
   disabled?: boolean;
   icon?: JSX.Element;
   label: string;
   onClick?: Function;
   toolTip?: string;
-  variant?: 'contained' | 'outlined' | 'text';
+  variant?: ButtonVariantTypes;
 }
 
 export function SKAOButton({
+  ariaDescription,
   color,
   disabled,
   icon,
@@ -26,8 +41,10 @@ export function SKAOButton({
     <Tooltip title={toolTip} arrow>
       <Button
         aria-label={label}
+        aria-describedby={ariaDescription}
+        aria-description={ariaDescription}
         color={color}
-        data-testid={label + 'Id'}
+        data-testid={label + 'ButtonId'}
         disabled={disabled}
         fullWidth
         onClick={(e: any) => clicked(e)}
@@ -44,11 +61,12 @@ export function SKAOButton({
 }
 
 SKAOButton.defaultProps = {
-  color: 'success',
+  ariaDescription: 'Button',
+  color: ButtonColorTypes.Success,
   disabled: false,
   icon: null,
   toolTip: '',
-  variant: 'outlined',
+  variant: ButtonVariantTypes.Outlined,
 };
 
 export default SKAOButton;

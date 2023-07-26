@@ -1,43 +1,80 @@
 import React from 'react';
-import { mount } from 'cypress/react18';
 import ButtonToggle from './ButtonToggle';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
+const THEME = [THEME_DARK, THEME_LIGHT];
+
+const telescope = { id: 'low', Label: 'SKA LOW' };
+const telescopeList = [
+  { id: 'low', label: 'SKA LOW', value: null },
+  { id: 'mid', label: 'SKA MID', value: null },
+];
+
 describe('<ButtonToggle />', () => {
-  const telescope = { id: 'low', Label: 'SKA LOW' };
-  const telescopeList = [
-    { id: 'low', label: 'SKA LOW', value: null },
-    { id: 'mid', label: 'SKA MID', value: null },
-  ];
+  for (const theTheme of THEME) {
+    it('Theme ' + theTheme + '', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <ButtonToggle
+            current={telescope.id}
+            label="Label"
+            options={telescopeList}
+            value={telescope}
+          />
+        </ThemeProvider>
+      );
+      cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
+      // TODO Validate that the button was clicked
+    });
+    it('Theme ' + theTheme + ', toolTips', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <ButtonToggle
+            current={telescope.id}
+            label="Label"
+            options={telescopeList}
+            value={telescope}
+            toolTip={'ToolTip'}
+          />
+        </ThemeProvider>
+      );
+      // TODO : Test that there is a tooltip  ?
+    });
+  }
 
-  it('renders: light', () => {
-    mount(
-      <ThemeProvider theme={theme(THEME_LIGHT)}>
-        <CssBaseline />
+  it('renders : with a provided function.', () => {
+    it('Enabled', () => {
+      cy.mount(
         <ButtonToggle
           current={telescope.id}
-          label="ButtonToggle Label"
+          label="Label"
           options={telescopeList}
+          setValue={cy.stub().as('setValue')}
           value={telescope}
-          toolTip={'Tool tip'}
+          toolTip={'ToolTip'}
         />
-      </ThemeProvider>
-    );
-  });
+      );
+      cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
+      // TODO Validate that the button was clicked
+    });
 
-  it('renders: dark', () => {
-    mount(
-      <ThemeProvider theme={theme(THEME_DARK)}>
-        <CssBaseline />
+    it('Disabled', () => {
+      cy.mount(
         <ButtonToggle
           current={telescope.id}
-          label="ButtonToggle Label"
+          disabled
+          label="Label"
           options={telescopeList}
+          setValue={cy.stub().as('setValue')}
           value={telescope}
-          toolTip={'Tool tip'}
+          toolTip={'ToolTip'}
         />
-      </ThemeProvider>
-    );
+      );
+      cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
+      // TODO Validate that the button was unable to be clicked
+    });
   });
 });

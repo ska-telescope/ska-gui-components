@@ -23,6 +23,8 @@ const Template: ComponentStory<typeof ButtonToggle> = (args) => {
 export const ButtonToggleDisplay = Template.bind({});
 
 ButtonToggleDisplay.args = {
+  ariaTitle: 'aria Title',
+  ariaDescription: 'aria Description',
   current: telescope.id,
   label: 'ButtonToggle Label',
   value: telescope,

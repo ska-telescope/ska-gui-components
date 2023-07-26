@@ -23,6 +23,8 @@ const Template: ComponentStory<typeof DropDown> = (args) => {
 export const DropDownDisplay = Template.bind({});
 
 DropDownDisplay.args = {
+  ariaTitle: 'aria Title',
+  ariaDescription: 'aria Description',
   disabled: false,
   helperText: 'HELPER TEXT',
   errorText: '',

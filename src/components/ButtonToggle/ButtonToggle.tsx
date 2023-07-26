@@ -9,11 +9,16 @@ export interface ButtonToggleProps {
   setValue?: Function;
   value: any;
   // optional
+  ariaDescription?: string;
+  ariaTitle?: string;
+  disabled: boolean;
   toolTip: string;
 }
 
 export function ButtonToggle({
+  ariaDescription,
   current,
+  disabled,
   label,
   setValue,
   value,
@@ -32,7 +37,11 @@ export function ButtonToggle({
     <Tooltip title={toolTip} arrow>
       <ToggleButtonGroup
         aria-label={label}
+        aria-describedby={ariaDescription}
+        aria-description={ariaDescription}
         color="secondary"
+        data-testid={label + 'ToggleButtonId'}
+        disabled={disabled}
         exclusive
         onChange={updateValue}
         value={value}
@@ -74,6 +83,8 @@ export function ButtonToggle({
 //autoComplete="current-password"
 
 ButtonToggle.defaultProps = {
+  ariaDescription: 'Button',
+  disabled: false,
   toolTip: '',
 };
 

@@ -19,6 +19,8 @@ Component.parameters = {
 };
 
 Component.args = {
+  ariaTitle: 'aria Title',
+  ariaDescription: 'aria Description',
   message: 'infoCard.message',
   filled: false,
   level: 1,

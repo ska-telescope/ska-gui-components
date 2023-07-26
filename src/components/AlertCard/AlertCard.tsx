@@ -6,13 +6,15 @@ const STATE_SIZE = 30;
 const SEVERITY = ['success', 'error', 'warning', 'warning', 'warning', 'info'];
 
 export interface AlertCardProps {
-  title: string;
-  filled?: boolean;
+  ariaDescription?: string;
+  ariaTitle?: string;
   array: { level: number; title: string; filled: boolean; value: number; hideValue: boolean }[];
   clickFunction?: Function;
+  filled?: boolean;
+  title: string;
 }
 
-const content = (level: number, theTitle: string, value: number, hideValue: boolean) => (
+const content = (hideValue: boolean, level: number, theTitle: string, value: number) => (
   <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
     <Grid item>
       <Status level={level} size={STATE_SIZE} />
@@ -31,12 +33,13 @@ const content = (level: number, theTitle: string, value: number, hideValue: bool
 );
 
 function AlertElement(
+  filled: boolean,
+  hideValue: boolean,
   index: number,
   level: number,
   title: string,
-  filled: boolean,
   value: number,
-  hideValue: boolean,
+  // optional
   clickFunction?: Function
 ) {
   const buttonClick = () => (typeof clickFunction !== 'undefined' ? clickFunction : null);
@@ -45,13 +48,14 @@ function AlertElement(
     <Box key={`AlertFilledBox${index}`}>
       <Button key={`AlertFilledButton${index}`} onClick={buttonClick}>
         <Alert
+          data-testid="AlertCard"
           key={`AlertFilled${index}`}
           icon={false}
           severity={SEVERITY[level]}
           variant={filled ? 'filled' : 'outlined'}
         >
           <Box key={`AlertFilledBoxInner${index}`} m={1}>
-            {content(level, title, value, hideValue)}
+            {content(hideValue, level, title, value)}
           </Box>
         </Alert>
       </Button>
@@ -59,7 +63,14 @@ function AlertElement(
   );
 }
 
-export function AlertCard({ title, filled, array, clickFunction }: AlertCardProps) {
+export function AlertCard({
+  ariaDescription,
+  ariaTitle,
+  array,
+  clickFunction,
+  filled,
+  title,
+}: AlertCardProps) {
   const setSeverity = () => {
     let result = SEVERITY[0];
     for (let i = 0; result === SEVERITY[0] && i < array.length; i += 1) {
@@ -81,10 +92,14 @@ export function AlertCard({ title, filled, array, clickFunction }: AlertCardProp
         }}
       >
         <Alert
-          key="alerts"
-          variant={filled ? 'filled' : 'outlined'}
+          aria-label={ariaTitle}
+          aria-describedby={ariaDescription}
+          aria-description={ariaDescription}
+          data-testId={ariaTitle + title}
           icon={false}
+          key="alerts"
           severity={setSeverity()}
+          variant={filled ? 'filled' : 'outlined'}
         >
           <Stack sx={{ height: '95%' }} spacing={2}>
             <Typography variant="h6" component="div">
@@ -93,12 +108,12 @@ export function AlertCard({ title, filled, array, clickFunction }: AlertCardProp
             <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
               {array.map((arr, index) =>
                 AlertElement(
+                  arr.filled,
+                  arr.hideValue,
                   index,
                   arr.level,
                   arr.title,
-                  arr.filled,
                   arr.value,
-                  arr.hideValue,
                   clickFunction
                 )
               )}
@@ -111,8 +126,12 @@ export function AlertCard({ title, filled, array, clickFunction }: AlertCardProp
 }
 
 AlertCard.defaultProps = {
-  filled: false,
+  ariaDescription:
+    'Panel that is colored dependant upon the most-urgent status valued element provided',
+  ariaTitle: 'AlertCard',
   clickFunction: 'undefined',
+  filled: false,
+  title: '',
 };
 
 export default AlertCard;

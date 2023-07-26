@@ -6,6 +6,8 @@ export interface DateEntryProps {
   label: string;
   value: string | number;
   // optional
+  ariaDescription?: string;
+  ariaTitle?: string;
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
@@ -14,16 +16,22 @@ export interface DateEntryProps {
 }
 
 export function DateEntry({
-  label,
-  setValue,
-  value,
-  helperText,
+  ariaDescription,
+  ariaTitle,
   disabled,
   errorText,
+  label,
+  helperText,
   required,
+  setValue,
+  value,
 }: DateEntryProps): JSX.Element {
   return (
     <EntryField
+      aria-label={ariaTitle}
+      aria-describedby={ariaDescription}
+      aria-description={ariaDescription}
+      data-testId={label + ariaTitle}
       disabled={disabled}
       errorText={errorText}
       helperText={helperText}
@@ -37,6 +45,8 @@ export function DateEntry({
 }
 
 DateEntry.defaultProps = {
+  ariaDescription: 'Entry of a valid date',
+  ariaTitle: 'DateEntry',
   disabled: false,
   errorText: '',
   helperText: '',

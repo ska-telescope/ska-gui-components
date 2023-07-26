@@ -19,6 +19,8 @@ export interface EntryFieldProps {
   label: string;
   value: string | number;
   // optional
+  ariaDescription?: string;
+  ariaTitle?: string;
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
@@ -32,17 +34,19 @@ export interface EntryFieldProps {
 }
 
 export function EntryField({
-  label,
-  setValue,
-  value,
-  helperText,
+  ariaDescription,
+  ariaTitle,
   disabled,
   errorText,
+  helperText,
+  label,
   prefix,
   required,
   rows,
+  setValue,
   suffix,
   type,
+  value,
 }: EntryFieldProps): JSX.Element {
   const theSuffix = suffix ? suffix : '';
   const thePrefix = prefix ? prefix : '';
@@ -50,7 +54,10 @@ export function EntryField({
 
   return (
     <TextField
-      id={'textField' + label + 'Id'}
+      aria-label={ariaTitle}
+      aria-describedby={ariaDescription}
+      aria-description={ariaDescription}
+      data-testId={label + ariaTitle}
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}
       fullWidth
@@ -77,6 +84,8 @@ export function EntryField({
 }
 
 EntryField.defaultProps = {
+  ariaDescription: 'Entry of a value',
+  ariaTitle: 'EntryField',
   disabled: false,
   helperText: '',
   password: false,
@@ -87,3 +96,5 @@ EntryField.defaultProps = {
   suffix: '',
   type: TYPE.TEXT,
 };
+
+export default EntryField;

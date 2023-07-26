@@ -1,8 +1,9 @@
 import React from 'react';
-import { mount } from 'cypress/react18';
 import DataTree from './DataTree';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
+
+const THEME = [THEME_DARK, THEME_LIGHT];
 
 const mockData = {
   interface: 'http://schema.skao.int/ska-data-product-meta/0.1',
@@ -30,21 +31,14 @@ const mockData = {
 };
 
 describe('<DataTree />', () => {
-  it('renders: light', () => {
-    mount(
-      <ThemeProvider theme={theme(THEME_LIGHT)}>
-        <CssBaseline />
-        <DataTree data={mockData} />
-      </ThemeProvider>
-    );
-  });
-
-  it('renders: dark', () => {
-    mount(
-      <ThemeProvider theme={theme(THEME_DARK)}>
-        <CssBaseline />
-        <DataTree data={mockData} />
-      </ThemeProvider>
-    );
-  });
+  for (const theTheme of THEME) {
+    it('Theme ' + theTheme, () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <DataTree data={mockData} />
+        </ThemeProvider>
+      );
+    });
+  }
 });

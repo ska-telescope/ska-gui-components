@@ -17,6 +17,8 @@ const Template: ComponentStory<typeof TextEntry> = (args) => {
 export const TextEntryDisplay = Template.bind({});
 
 TextEntryDisplay.args = {
+  ariaTitle: 'aria Title',
+  ariaDescription: 'aria Description',
   disabled: false,
   errorText: '',
   helperText: 'HELPER TEXT',

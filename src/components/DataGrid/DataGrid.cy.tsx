@@ -1,6 +1,9 @@
 import React from 'react';
-import { mount } from 'cypress/react18';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 import StylingRowsGrid from './DataGrid';
+
+const THEME = [THEME_DARK, THEME_LIGHT];
 
 const DUMMY_COLUMNS = [
   { field: 'execution_block', headerName: 'HEADER 1', width: 200 },
@@ -28,10 +31,14 @@ const DUMMY_ROWS = [
 ];
 
 describe('<SKAODataGrid />', () => {
-  it('renders : pastel', () => {
-    mount(<StylingRowsGrid ariaLabel="Dummy DataGrid" columns={DUMMY_COLUMNS} rows={DUMMY_ROWS} />);
-  });
-  it('renders : filled', () => {
-    mount(<StylingRowsGrid ariaLabel="Dummy DataGrid" columns={DUMMY_COLUMNS} rows={DUMMY_ROWS} />);
-  });
+  for (const theTheme of THEME) {
+    it('Theme ' + theTheme, () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <StylingRowsGrid columns={DUMMY_COLUMNS} rows={DUMMY_ROWS} />
+        </ThemeProvider>
+      );
+    });
+  }
 });

@@ -1,27 +1,57 @@
 import React from 'react';
-import { mount } from 'cypress/react18';
-import { EntryField } from './EntryField';
+import EntryField from './EntryField';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
-describe('<EntryField />', () => {
-  const theValue = '';
+const THEME = [THEME_DARK, THEME_LIGHT];
 
-  it('renders: light', () => {
-    mount(
-      <ThemeProvider theme={theme(THEME_LIGHT)}>
-        <CssBaseline />
-        <EntryField label="Label" value={theValue} />
-      </ThemeProvider>
-    );
-  });
+const theValue = '';
 
-  it('renders: dark', () => {
-    mount(
-      <ThemeProvider theme={theme(THEME_DARK)}>
-        <CssBaseline />
-        <EntryField label="Label" value={theValue} />
-      </ThemeProvider>
-    );
-  });
+describe('<DateEntry />', () => {
+  for (const theTheme of THEME) {
+    it('Theme ' + theTheme, () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <EntryField label="Label" value={theValue} />
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ' : Disabled ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <EntryField label="Label" value={theValue} disabled />
+        </ThemeProvider>
+      );
+      // TODO : Check it is disabled
+    });
+    it('Theme ' + theTheme + ' : Required ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <EntryField label="Label" value={theValue} required />
+        </ThemeProvider>
+      );
+      // TODO : Check it is required
+    });
+    it('Theme ' + theTheme + ' : HelperText ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <EntryField label="Label" value={theValue} helperText="HELPER TEXT" />
+        </ThemeProvider>
+      );
+      // TODO : Check that helperText is visible
+    });
+    it('Theme ' + theTheme + ' : ErrorText ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <EntryField label="Label" value={theValue} errorText="ERROR TEXT" />
+        </ThemeProvider>
+      );
+      // TODO : Check that errorText is shown and the colouring is correct
+    });
+  }
 });
