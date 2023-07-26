@@ -11,7 +11,7 @@ export { default as DropDown } from './DropDown/DropDown';
 export { default as NumberEntry } from './NumberEntry/NumberEntry';
 export { default as TextEntry } from './TextEntry/TextEntry';
 //
-export { default as Button } from './Button/Button';
+export { default as Button, ButtonColorTypes, ButtonVariantTypes } from './Button/Button';
 export { default as ButtonToggle } from './ButtonToggle/ButtonToggle';
 
 export {

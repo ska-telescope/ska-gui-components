@@ -62,11 +62,11 @@ export function SKAOButton({
 
 SKAOButton.defaultProps = {
   ariaDescription: 'Button',
-  color: 'success',
+  color: ButtonColorTypes.Success,
   disabled: false,
   icon: null,
   toolTip: '',
-  variant: 'outlined',
+  variant: ButtonVariantTypes.Outlined,
 };
 
 export default SKAOButton;

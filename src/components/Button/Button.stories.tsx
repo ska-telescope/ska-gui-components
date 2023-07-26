@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
-import SKAOButton from './Button';
+import SKAOButton, { ButtonColorTypes, ButtonVariantTypes } from './Button';
 
 export default {
   title: 'Example/SKAOButton',
@@ -18,9 +18,9 @@ const Template: ComponentStory<typeof SKAOButton> = (args) => {
 export const SKAOButtonDisplay = Template.bind({});
 
 SKAOButtonDisplay.args = {
-  color: 'success',
+  color: ButtonColorTypes.Success,
   label: 'SKAOButton Label',
   icon: <DoneOutlinedIcon />,
   toolTip: 'Tool tip',
-  variant: 'outlined',
+  variant: ButtonVariantTypes.Outlined,
 };
