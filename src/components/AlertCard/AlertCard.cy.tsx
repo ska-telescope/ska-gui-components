@@ -34,5 +34,6 @@ describe('<AlertCard />', () => {
       />
     );
     cy.get('[data-testid="AlertCard"]').click({ multiple: true });
+    // TODO Validate that the button was clicked
   });
 });

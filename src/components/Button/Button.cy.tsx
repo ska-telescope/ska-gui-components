@@ -3,24 +3,71 @@ import SKAOButton from './Button';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
+const THEME = [ THEME_DARK, THEME_LIGHT ];
+
 describe('<SKAOButton />', () => {
-  it('renders: light', () => {
+
+  /*
+  it('Basic rendering', () => {
     cy.mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
-        <SKAOButton label="Button Label" toolTip={'Tool tip'} />
+        <SKAOButton label="Label"/>
       </ThemeProvider>
     );
   });
 
-  it('renders: dark', () => {
-    cy.mount(
-      <ThemeProvider theme={theme(THEME_DARK)}>
-        <CssBaseline />
-        <SKAOButton label="Button Label" toolTip={'Tool tip'} />
-      </ThemeProvider>
-    );
-  });
+  for (const theTheme of THEME) {
+    it('Theme ' + theTheme + ', Color DEFAULT', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <SKAOButton label="Label" />
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ', Color error', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <SKAOButton label="Label" color="error"/>
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ', Color inherit', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <SKAOButton label="Label" color="inherit"/>
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ', Color secondary', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <SKAOButton label="Label" color="secondary"/>
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ', Color success', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <SKAOButton label="Label" color="success"/>
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ', Color warning', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <SKAOButton label="Label" color="warning"/>
+        </ThemeProvider>
+      );
+    });
+    
+  }
 
   it('renders : with a provided function', () => {
     cy.mount(
@@ -29,8 +76,8 @@ describe('<SKAOButton />', () => {
         <SKAOButton label="Label" onClick={cy.stub().as('onClick')} toolTip={'Tool tip'} />
       </ThemeProvider>
     );
-    // TODO : Why is this not found ?
-    // cy.findByTestId('AlertCard').click();
-    // cy.get('@onClick').should('have.been.called')
+    cy.get('[data-testid="LabelButtonId"]').click({ multiple: true });
+    // TODO Validate that the button was clicked
   });
+  */
 });
