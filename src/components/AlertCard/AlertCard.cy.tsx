@@ -1,5 +1,7 @@
 import React from 'react';
 import AlertCard from './AlertCard';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 const DUMMY_DATA = [
   { level: 0, title: 'alertCard.0', filled: true, value: 1, hideValue: true },
@@ -18,13 +20,43 @@ const DUMMY_DATA = [
   { level: 6, title: 'alertCard.6', filled: false, value: 1, hideValue: false },
 ];
 
+const THEME = [THEME_DARK, THEME_LIGHT];
+
 describe('<AlertCard />', () => {
-  it('renders : pastel', () => {
-    cy.mount(<AlertCard title="alertCard.title" array={DUMMY_DATA} />);
-  });
-  it('renders : filled', () => {
-    cy.mount(<AlertCard title="alertCard.title" array={DUMMY_DATA} filled />);
-  });
+  for (const theTheme of THEME) {
+    it('Theme ' + theTheme + ': Pastel with no title', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <AlertCard array={DUMMY_DATA} />
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ': Filled with no title', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <AlertCard array={DUMMY_DATA} filled />
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ': Pastel with title', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <AlertCard title="TITLE" array={DUMMY_DATA} />
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ': Filled with title', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <AlertCard title="TITLE" array={DUMMY_DATA} filled />
+        </ThemeProvider>
+      );
+    });
+  }
   it('renders : with a provided function', () => {
     cy.mount(
       <AlertCard

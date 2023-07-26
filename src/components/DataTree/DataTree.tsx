@@ -12,11 +12,19 @@ export interface DataTreeProps {
   // required
   data: any;
   // optional
+  ariaTitle?: string;
+  ariaDescription?: string;
   height?: number;
   maxWidth?: number;
 }
 
-export function DataTree({ data, height, maxWidth }: DataTreeProps): JSX.Element {
+export function DataTree({
+  ariaTitle,
+  ariaDescription,
+  data,
+  height,
+  maxWidth,
+}: DataTreeProps): JSX.Element {
   function MinusSquare(props: SvgIconProps) {
     return (
       <SvgIcon fontSize="inherit" style={{ width: 14, height: 14 }} {...props}>
@@ -111,7 +119,10 @@ export function DataTree({ data, height, maxWidth }: DataTreeProps): JSX.Element
   return (
     <Box m={1}>
       <TreeView
-        aria-label="SKAO JSON View"
+        aria-label={ariaTitle}
+        aria-describedby={ariaDescription}
+        aria-description={ariaDescription}
+        data-testId={ariaTitle}
         defaultCollapseIcon={<MinusSquare />}
         defaultExpanded={['3']}
         defaultExpandIcon={<PlusSquare />}
@@ -125,6 +136,8 @@ export function DataTree({ data, height, maxWidth }: DataTreeProps): JSX.Element
 }
 
 DataTree.defaultProps = {
+  ariaDescription: 'Produces an expandable TreeView of the data',
+  ariaTitle: 'DataTree',
   height: 264,
   maxWidth: 400,
 };

@@ -1,18 +1,16 @@
 import React from 'react';
-import SKAOButton from './Button';
+import { SKAOButton, ButtonColorTypes, ButtonVariantTypes } from './Button';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
-const THEME = [ THEME_DARK, THEME_LIGHT ];
+const THEME = [THEME_DARK, THEME_LIGHT];
 
 describe('<SKAOButton />', () => {
-
-  /*
   it('Basic rendering', () => {
     cy.mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
-        <SKAOButton label="Label"/>
+        <SKAOButton label="Label" />
       </ThemeProvider>
     );
   });
@@ -30,7 +28,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color="error"/>
+          <SKAOButton label="Label" color={ButtonColorTypes.Error} />
         </ThemeProvider>
       );
     });
@@ -38,7 +36,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color="inherit"/>
+          <SKAOButton label="Label" color={ButtonColorTypes.Inherit} />
         </ThemeProvider>
       );
     });
@@ -46,7 +44,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color="secondary"/>
+          <SKAOButton label="Label" color={ButtonColorTypes.Secondary} />
         </ThemeProvider>
       );
     });
@@ -54,7 +52,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color="success"/>
+          <SKAOButton label="Label" color={ButtonColorTypes.Success} />
         </ThemeProvider>
       );
     });
@@ -62,22 +60,61 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color="warning"/>
+          <SKAOButton label="Label" color={ButtonColorTypes.Warning} />
         </ThemeProvider>
       );
     });
-    
   }
 
-  it('renders : with a provided function', () => {
-    cy.mount(
-      <ThemeProvider theme={theme(THEME_DARK)}>
-        <CssBaseline />
-        <SKAOButton label="Label" onClick={cy.stub().as('onClick')} toolTip={'Tool tip'} />
-      </ThemeProvider>
-    );
-    cy.get('[data-testid="LabelButtonId"]').click({ multiple: true });
-    // TODO Validate that the button was clicked
+  it('renders : Checking the variants.', () => {
+    it(ButtonVariantTypes.Contained, () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_DARK)}>
+          <CssBaseline />
+          <SKAOButton label="Label" variant={ButtonVariantTypes.Contained} />
+        </ThemeProvider>
+      );
+    });
+    it(ButtonVariantTypes.Outlined, () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_DARK)}>
+          <CssBaseline />
+          <SKAOButton label="Label" variant={ButtonVariantTypes.Outlined} />
+        </ThemeProvider>
+      );
+    });
+    it(ButtonVariantTypes.Text, () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_DARK)}>
+          <CssBaseline />
+          <SKAOButton label="Label" variant={ButtonVariantTypes.Text} />
+        </ThemeProvider>
+      );
+    });
   });
-  */
+
+  it('renders : with a provided function.', () => {
+    it('Enabled', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_DARK)}>
+          <CssBaseline />
+          <SKAOButton label="Label" onClick={cy.stub().as('onClick')} toolTip={'Tool tip'} />
+        </ThemeProvider>
+      );
+      cy.get('[data-testid="LabelButtonId"]').click({ multiple: true });
+      // TODO Validate that the button was clicked
+      // TODO Need to click a few times to ensure that both buttons work
+    });
+
+    it('Disabled', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_DARK)}>
+          <CssBaseline />
+          <SKAOButton label="Label" onClick={cy.stub().as('onClick')} toolTip={'Tool tip'} />
+        </ThemeProvider>
+      );
+      cy.get('[data-testid="LabelButtonId"]').click({ multiple: true });
+      // TODO Validate that the button was unable to be clicked
+    });
+  });
 });
