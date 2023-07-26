@@ -7,25 +7,32 @@ const SEVERITY = ['success', 'error', 'warning', 'warning', 'warning', 'info'];
 export interface InfoCardProps {
   level: number;
   message: string;
+  ariaDescription?: string;
+  ariaTitle?: string;
   fontSize?: number;
   filled?: boolean;
   clickFunction?: Function;
 }
 
-InfoCard.defaultProps = {
-  level: 1,
-  fontSize: 35,
-  filled: false,
-  clickFunction: 'undefined',
-};
-
-export function InfoCard({ level, message, fontSize, filled, clickFunction }: InfoCardProps) {
+export function InfoCard({
+  ariaDescription,
+  ariaTitle,
+  clickFunction,
+  fontSize,
+  filled,
+  level,
+  message,
+}: InfoCardProps) {
   const buttonClick = () => (typeof clickFunction !== 'undefined' ? clickFunction : null);
   const statusSize = () => (typeof fontSize !== 'undefined' ? fontSize * 1.15 : fontSize);
 
   return (
     <Paper sx={{ backgroundColor: 'secondary.contrastText' }}>
       <Alert
+        aria-label={ariaTitle}
+        aria-describedby={ariaDescription}
+        aria-description={ariaDescription}
+        data-testId={ariaTitle}
         variant={filled ? 'filled' : 'outlined'}
         icon={false}
         severity={SEVERITY[level]}
@@ -47,5 +54,14 @@ export function InfoCard({ level, message, fontSize, filled, clickFunction }: In
     </Paper>
   );
 }
+
+InfoCard.defaultProps = {
+  ariaDescription: 'Entry of a valid numeric value',
+  ariaTitle: 'NumberEntry',
+  clickFunction: 'undefined',
+  fontSize: 35,
+  filled: false,
+  level: 1,
+};
 
 export default InfoCard;

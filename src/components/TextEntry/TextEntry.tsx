@@ -6,6 +6,8 @@ export interface TextEntryProps {
   label: string;
   value: string;
   // optional
+  ariaDescription?: string;
+  ariaTitle?: string;
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
@@ -18,14 +20,16 @@ export interface TextEntryProps {
 }
 
 export function TextEntry({
-  label,
-  setValue,
-  value,
-  helperText,
+  ariaDescription,
+  ariaTitle,
   disabled,
   errorText,
+  helperText,
+  label,
   required,
   rows,
+  setValue,
+  value,
 }: TextEntryProps): JSX.Element {
   const errText = () => {
     if (required) {
@@ -38,6 +42,10 @@ export function TextEntry({
 
   return (
     <EntryField
+      aria-label={ariaTitle}
+      aria-describedby={ariaDescription}
+      aria-description={ariaDescription}
+      data-testId={label + ariaTitle}
       disabled={disabled}
       errorText={errText()}
       helperText={helperText}
@@ -55,6 +63,8 @@ export function TextEntry({
 //autoComplete="current-password"
 
 TextEntry.defaultProps = {
+  ariaDescription: 'Entry of a textual value',
+  ariaTitle: 'TextEntry',
   disabled: false,
   helperText: '',
   password: false,

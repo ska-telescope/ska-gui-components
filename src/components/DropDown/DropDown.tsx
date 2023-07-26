@@ -6,6 +6,8 @@ export interface DropDownProps {
   options: { label: string; value: string | number }[];
   value: string | number;
   // optional
+  ariaDescription?: string;
+  ariaTitle?: string;
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
@@ -15,6 +17,8 @@ export interface DropDownProps {
 }
 
 export function DropDown({
+  ariaDescription,
+  ariaTitle,
   disabled,
   errorText,
   helperText,
@@ -28,7 +32,11 @@ export function DropDown({
 
   return (
     <TextField
+      aria-label={ariaTitle}
+      aria-describedby={ariaDescription}
+      aria-description={ariaDescription}
       color="secondary"
+      data-testId={label + ariaTitle}
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}
       fullWidth
@@ -54,6 +62,8 @@ export function DropDown({
 }
 
 DropDown.defaultProps = {
+  ariaDescription: 'Selection of a value from a list of possible values',
+  ariaTitle: 'DropDown',
   disabled: false,
   errorText: '',
   helperText: '',

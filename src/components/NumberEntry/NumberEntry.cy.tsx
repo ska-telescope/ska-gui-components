@@ -1,25 +1,57 @@
 import React from 'react';
 import NumberEntry from './NumberEntry';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { THEME_LIGHT, theme } from '../../services/theme/theme';
+import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
-describe('<NumberEntry />', () => {
-  const theValue = 0;
+const THEME = [THEME_DARK, THEME_LIGHT];
 
-  it('renders', () => {
-    cy.mount(
-      <ThemeProvider theme={theme(THEME_LIGHT)}>
-        <CssBaseline />
-        <NumberEntry label="Label" value={theValue} />
-      </ThemeProvider>
-    );
-  });
-  it('renders, required', () => {
-    cy.mount(
-      <ThemeProvider theme={theme(THEME_LIGHT)}>
-        <CssBaseline />
-        <NumberEntry label="Label" value={theValue} required />
-      </ThemeProvider>
-    );
-  });
+const theValue = '';
+
+describe('<DateEntry />', () => {
+  for (const theTheme of THEME) {
+    it('Theme ' + theTheme, () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <NumberEntry label="Label" value={theValue} />
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ' : Disabled ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <NumberEntry label="Label" value={theValue} disabled />
+        </ThemeProvider>
+      );
+      // TODO : Check it is disabled
+    });
+    it('Theme ' + theTheme + ' : Required ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <NumberEntry label="Label" value={theValue} required />
+        </ThemeProvider>
+      );
+      // TODO : Check it is required
+    });
+    it('Theme ' + theTheme + ' : HelperText ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <NumberEntry label="Label" value={theValue} helperText="HELPER TEXT" />
+        </ThemeProvider>
+      );
+      // TODO : Check that helperText is visible
+    });
+    it('Theme ' + theTheme + ' : ErrorText ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <NumberEntry label="Label" value={theValue} errorText="ERROR TEXT" />
+        </ThemeProvider>
+      );
+      // TODO : Check that errorText is shown and the colouring is correct
+    });
+  }
 });

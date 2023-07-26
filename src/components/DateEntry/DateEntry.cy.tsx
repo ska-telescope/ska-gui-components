@@ -1,17 +1,57 @@
 import React from 'react';
 import DateEntry from './DateEntry';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { THEME_LIGHT, theme } from '../../services/theme/theme';
+import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
+
+const THEME = [THEME_DARK, THEME_LIGHT];
+
+const theValue = '';
 
 describe('<DateEntry />', () => {
-  const theValue = '';
-
-  it('renders: light', () => {
-    cy.mount(
-      <ThemeProvider theme={theme(THEME_LIGHT)}>
-        <CssBaseline />
-        <DateEntry label="Label" value={theValue} />
-      </ThemeProvider>
-    );
-  });
+  for (const theTheme of THEME) {
+    it('Theme ' + theTheme, () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <DateEntry label="Label" value={theValue} />
+        </ThemeProvider>
+      );
+    });
+    it('Theme ' + theTheme + ' : Disabled ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <DateEntry label="Label" value={theValue} disabled />
+        </ThemeProvider>
+      );
+      // TODO : Check it is disabled
+    });
+    it('Theme ' + theTheme + ' : Required ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <DateEntry label="Label" value={theValue} required />
+        </ThemeProvider>
+      );
+      // TODO : Check it is required
+    });
+    it('Theme ' + theTheme + ' : HelperText ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <DateEntry label="Label" value={theValue} helperText="HELPER TEXT" />
+        </ThemeProvider>
+      );
+      // TODO : Check that helperText is visible
+    });
+    it('Theme ' + theTheme + ' : ErrorText ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <CssBaseline />
+          <DateEntry label="Label" value={theValue} errorText="ERROR TEXT" />
+        </ThemeProvider>
+      );
+      // TODO : Check that errorText is shown and the colouring is correct
+    });
+  }
 });

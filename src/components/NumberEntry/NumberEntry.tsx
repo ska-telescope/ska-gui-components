@@ -6,6 +6,8 @@ export interface NumberEntryProps {
   label: string;
   value: string | number;
   // optional
+  ariaDescription?: string;
+  ariaTitle?: string;
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
@@ -17,15 +19,17 @@ export interface NumberEntryProps {
 }
 
 export function NumberEntry({
-  label,
-  value,
-  helperText,
+  ariaDescription,
+  ariaTitle,
   disabled,
   errorText,
-  required,
+  helperText,
+  label,
   prefix,
+  required,
   setValue,
   suffix,
+  value,
 }: NumberEntryProps): JSX.Element {
   const errText = () => {
     if (required && typeof value !== 'number') {
@@ -36,6 +40,10 @@ export function NumberEntry({
 
   return (
     <EntryField
+      aria-label={ariaTitle}
+      aria-describedby={ariaDescription}
+      aria-description={ariaDescription}
+      data-testId={label + ariaTitle}
       disabled={disabled}
       errorText={errText()}
       helperText={helperText}
@@ -54,6 +62,8 @@ export function NumberEntry({
 //autoComplete="current-password"
 
 NumberEntry.defaultProps = {
+  ariaDescription: 'Entry of a valid numeric value',
+  ariaTitle: 'NumberEntry',
   disabled: false,
   helperText: '',
   password: false,
