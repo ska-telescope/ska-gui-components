@@ -18,6 +18,7 @@ const Template: ComponentStory<typeof SKAOButton> = (args) => {
 export const SKAOButtonDisplay = Template.bind({});
 
 SKAOButtonDisplay.args = {
+  ariaDescription: 'aria Description',
   color: ButtonColorTypes.Success,
   label: 'SKAOButton Label',
   icon: <DoneOutlinedIcon />,

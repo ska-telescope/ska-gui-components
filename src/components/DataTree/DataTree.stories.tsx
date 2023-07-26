@@ -41,6 +41,8 @@ const Template: ComponentStory<typeof DataTree> = (args) => {
 export const DataTreeDisplay = Template.bind({});
 
 DataTreeDisplay.args = {
+  ariaTitle: 'aria Title',
+  ariaDescription: 'aria Description',
   data: mockData,
   height: 500,
   maxWidth: 600,

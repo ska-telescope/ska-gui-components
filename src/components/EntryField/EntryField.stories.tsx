@@ -22,6 +22,8 @@ const Template: ComponentStory<typeof EntryField> = (args) => {
 export const EntryFieldDisplay = Template.bind({});
 
 EntryFieldDisplay.args = {
+  ariaTitle: 'aria Title',
+  ariaDescription: 'aria Description',
   disabled: false,
   errorText: '',
   helperText: 'HELPER TEXT',

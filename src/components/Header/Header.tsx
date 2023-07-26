@@ -12,12 +12,20 @@ function openLink(link: string) {
 }
 
 export interface HeaderProps {
+  ariaDescription?: string;
+  ariaTitle?: string;
   themeToggle: Function;
   toolTip?: { skao: string; mode: string };
   children?: JSX.Element[];
 }
 
-export function Header({ themeToggle, toolTip, children }: HeaderProps): JSX.Element {
+export function Header({
+  ariaDescription,
+  ariaTitle,
+  themeToggle,
+  toolTip,
+  children,
+}: HeaderProps): JSX.Element {
   const isDarkTheme = useTheme().palette.mode === 'dark';
 
   const showThemeToggle = () => typeof themeToggle !== 'undefined';
@@ -28,8 +36,10 @@ export function Header({ themeToggle, toolTip, children }: HeaderProps): JSX.Ele
 
   return (
     <AppBar
-      aria-label="SKAO Header"
-      id="headerId"
+      aria-label={ariaTitle}
+      aria-describedby={ariaDescription}
+      aria-description={ariaDescription}
+      data-testId={ariaTitle}
       color="primary"
       position="fixed"
       enableColorOnDark
@@ -69,6 +79,8 @@ export function Header({ themeToggle, toolTip, children }: HeaderProps): JSX.Ele
 }
 
 Header.defaultProps = {
+  ariaDescription: 'Sticky Panel at the top of the page',
+  ariaTitle: 'SKAOHeader',
   toolTip: { skao: 'SKAO', mode: '' },
   children: null,
 };

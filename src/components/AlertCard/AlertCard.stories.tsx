@@ -36,6 +36,8 @@ Component.parameters = {
 };
 
 Component.args = {
+  ariaTitle: 'aria Title',
+  ariaDescription: 'aria Description',
   title: 'alertCard.title',
   filled: false,
   array: DUMMY_DATA,

@@ -2,15 +2,19 @@ import React from 'react';
 import { AppBar, Grid, Toolbar } from '@mui/material';
 
 export interface FooterProps {
+  ariaDescription?: string;
+  ariaTitle?: string;
   // eslint-disable-next-line no-undef
   children?: JSX.Element[];
 }
 
-export function Footer({ children }: FooterProps) {
+export function Footer({ ariaDescription, ariaTitle, children }: FooterProps) {
   return (
     <AppBar
-      aria-label="SKAO Footer"
-      id="footerId"
+      aria-label={ariaTitle}
+      aria-describedby={ariaDescription}
+      aria-description={ariaDescription}
+      data-testId={ariaTitle}
       color="primary"
       position="fixed"
       enableColorOnDark
@@ -26,6 +30,8 @@ export function Footer({ children }: FooterProps) {
 }
 
 Footer.defaultProps = {
+  ariaDescription: 'Sticky Panel at the bottom of the page',
+  ariaTitle: 'SKAOFooter',
   children: null,
 };
 

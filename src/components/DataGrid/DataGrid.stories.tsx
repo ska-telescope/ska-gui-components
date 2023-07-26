@@ -44,7 +44,8 @@ Component.parameters = {
 };
 
 Component.args = {
-  ariaLabel: 'Dummy DataGrid',
+  ariaTitle: 'aria Title',
+  ariaDescription: 'aria Description',
   columns: DUMMY_COLUMNS,
   height: 400,
   onRowClick: null,
