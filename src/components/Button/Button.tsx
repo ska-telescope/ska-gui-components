@@ -28,7 +28,7 @@ export function SKAOButton({
     <Tooltip title={toolTip} arrow>
       <Button
         aria-label={label}
-        aria-describedBy={ariaDescription}
+        aria-describedby={ariaDescription}
         aria-description={ariaDescription}
         color={color}
         data-testid={label + 'ButtonId'}

@@ -35,7 +35,7 @@ export function ButtonToggle({
     <Tooltip title={toolTip} arrow>
       <ToggleButtonGroup
         aria-label={label}
-        aria-describedBy={ariaDescription}
+        aria-describedby={ariaDescription}
         aria-description={ariaDescription}
         color="secondary"
         exclusive

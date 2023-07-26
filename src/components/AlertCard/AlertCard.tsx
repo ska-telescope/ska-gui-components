@@ -92,7 +92,7 @@ export function AlertCard({
       >
         <Alert
           aria-label={ariaTitle}
-          aria-describedBy={ariaDescription}
+          aria-describedby={ariaDescription}
           aria-description={ariaDescription}
           data-testId={ariaTitle + title}
           icon={false}

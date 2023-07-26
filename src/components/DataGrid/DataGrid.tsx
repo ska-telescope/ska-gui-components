@@ -40,7 +40,7 @@ export function StylingRowsGrid({
       <Box sx={{ height, width: '100%' }}>
         <StyledDataGrid
           aria-label={ariaLabel}
-          aria-describedBy={ariaDescription}
+          aria-describedby={ariaDescription}
           aria-description={ariaDescription}
           getRowClassName={() => `super-app-theme`}
           onRowClick={onRowClick}
