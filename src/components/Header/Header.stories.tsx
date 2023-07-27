@@ -25,6 +25,8 @@ const Template: ComponentStory<typeof Header> = (args) => (
 export const Component = Template.bind({});
 
 Component.args = {
+  ariaTitle: 'aria Title',
+  ariaDescription: 'aria Description',
   toolTip: { skao: 'SKAO WebSite', mode: ' Light / Dark Mode' },
   themeToggle: handleThemeToggle,
 };
