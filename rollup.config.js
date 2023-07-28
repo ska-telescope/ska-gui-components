@@ -28,16 +28,13 @@ export default [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({
-        exclude: ['cypress.config.ts', '**/*.cy.ts'],
-        tsconfig: './tsconfig.json',
-      }),
+      typescript({ tsconfig: './tsconfig.json' }),
       postcss(),
       terser(),
     ],
   },
   {
-    input: 'dist/esm/types/src/index.d.ts',
+    input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
     external: [/\.css$/, /\.scss$/],
