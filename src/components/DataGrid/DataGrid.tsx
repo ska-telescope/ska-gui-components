@@ -42,7 +42,7 @@ export function StylingRowsGrid({
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           aria-description={ariaDescription}
-          data-testId={ariaTitle}
+          data-testid={ariaTitle}
           getRowClassName={() => `super-app-theme`}
           onRowClick={onRowClick}
           {...{ rows, columns }}

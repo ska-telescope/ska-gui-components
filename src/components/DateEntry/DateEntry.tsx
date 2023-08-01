@@ -31,7 +31,7 @@ export function DateEntry({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
-      data-testId={label + ariaTitle}
+      data-testid={label + ariaTitle}
       disabled={disabled}
       errorText={errorText}
       helperText={helperText}

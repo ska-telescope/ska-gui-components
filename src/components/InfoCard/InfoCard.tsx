@@ -32,7 +32,7 @@ export function InfoCard({
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
         aria-description={ariaDescription}
-        data-testId={ariaTitle}
+        data-testid={ariaTitle}
         variant={filled ? 'filled' : 'outlined'}
         icon={false}
         severity={SEVERITY[level]}

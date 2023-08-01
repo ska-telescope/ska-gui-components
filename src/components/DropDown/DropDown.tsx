@@ -36,7 +36,7 @@ export function DropDown({
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
       color="secondary"
-      data-testId={label + ariaTitle}
+      data-testid={label + ariaTitle}
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}
       fullWidth

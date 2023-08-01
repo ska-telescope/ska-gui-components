@@ -95,7 +95,7 @@ export function AlertCard({
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           aria-description={ariaDescription}
-          data-testId={ariaTitle + title}
+          data-testid={ariaTitle + title}
           icon={false}
           key="alerts"
           severity={setSeverity()}

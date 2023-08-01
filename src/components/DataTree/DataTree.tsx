@@ -122,7 +122,7 @@ export function DataTree({
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
         aria-description={ariaDescription}
-        data-testId={ariaTitle}
+        data-testid={ariaTitle}
         defaultCollapseIcon={<MinusSquare />}
         defaultExpanded={['3']}
         defaultExpandIcon={<PlusSquare />}

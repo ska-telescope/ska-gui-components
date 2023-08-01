@@ -43,7 +43,7 @@ export function NumberEntry({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
-      data-testId={label + ariaTitle}
+      data-testid={label + ariaTitle}
       disabled={disabled}
       errorText={errText()}
       helperText={helperText}
