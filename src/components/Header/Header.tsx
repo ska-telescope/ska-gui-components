@@ -39,7 +39,7 @@ export function Header({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
-      data-testId={ariaTitle}
+      data-testid={ariaTitle}
       color="primary"
       position="fixed"
       enableColorOnDark
