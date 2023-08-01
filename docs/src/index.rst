@@ -1,20 +1,16 @@
-.. ska-web-apps-documentation documentation master file, created by
-   sphinx-quickstart on Thu Dec 27 19:20:54 2018.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to ska-gui-components documentation!
+===================================================
 
-Welcome to ska-web-apps-documentation's documentation!
-======================================================
+This is a JavaScript library contained low level components and utilities for use within SKAO GUI applications
+It makes available all functionality that is present within the `ska-javascript-components` library, and uses Material-UI
+to ensure that the SKAO theme is implemented in a consistent manner.  
+
+Every effort has been made to ensure that all components have a unique means of identification for testing purposes,
+as well as implementation of standard properties to allow for maximum accessibility for those that have access limitations
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   usage
+   functionality
