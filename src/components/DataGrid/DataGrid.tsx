@@ -25,6 +25,7 @@ export interface DataGridProps {
   height?: number;
   onRowClick?: any;
   rows: any;
+  testId: string;
 }
 
 export function StylingRowsGrid({
@@ -34,6 +35,7 @@ export function StylingRowsGrid({
   height,
   onRowClick,
   rows,
+  testId,
 }: DataGridProps) {
   return (
     <Paper sx={{ backgroundColor: 'secondary.contrastText' }}>
@@ -42,7 +44,7 @@ export function StylingRowsGrid({
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           aria-description={ariaDescription}
-          data-testid={ariaTitle}
+          data-testid={testId}
           getRowClassName={() => `super-app-theme`}
           onRowClick={onRowClick}
           {...{ rows, columns }}

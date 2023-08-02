@@ -21,6 +21,7 @@ describe('<ButtonToggle />', () => {
             current={telescope.id}
             label="Label"
             options={telescopeList}
+            testId="LabelToggleButtonId"
             value={telescope}
           />
         </ThemeProvider>
@@ -37,6 +38,7 @@ describe('<ButtonToggle />', () => {
             label="Label"
             options={telescopeList}
             value={telescope}
+            testId="LabelToggleButtonId"
             toolTip={'ToolTip'}
           />
         </ThemeProvider>
@@ -53,6 +55,7 @@ describe('<ButtonToggle />', () => {
           label="Label"
           options={telescopeList}
           setValue={cy.stub().as('setValue')}
+          testId="LabelToggleButtonId"
           value={telescope}
           toolTip={'ToolTip'}
         />
@@ -69,6 +72,7 @@ describe('<ButtonToggle />', () => {
           label="Label"
           options={telescopeList}
           setValue={cy.stub().as('setValue')}
+          testId="LabelToggleButtonId"
           value={telescope}
           toolTip={'ToolTip'}
         />

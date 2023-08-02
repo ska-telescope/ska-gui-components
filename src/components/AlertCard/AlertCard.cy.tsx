@@ -63,6 +63,7 @@ describe('<AlertCard />', () => {
         title="alertCard.title"
         array={DUMMY_DATA}
         clickFunction={cy.stub().as('clicked')}
+        testId="AlertCard"
       />
     );
     cy.get('[data-testid="AlertCard"]').click({ multiple: true });

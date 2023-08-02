@@ -7,6 +7,7 @@ export interface ButtonToggleProps {
   label: string;
   options: { id: string; label: string; value: any }[];
   setValue?: Function;
+  testId: string;
   value: any;
   // optional
   ariaDescription?: string;
@@ -23,6 +24,7 @@ export function ButtonToggle({
   setValue,
   value,
   options,
+  testId,
   toolTip,
 }: ButtonToggleProps): JSX.Element {
   // MOTE: this will need to be changed should we want to extend to more than 2 options
@@ -40,7 +42,7 @@ export function ButtonToggle({
         aria-describedby={ariaDescription}
         aria-description={ariaDescription}
         color="secondary"
-        data-testid={label + 'ToggleButtonId'}
+        data-testid={testId}
         disabled={disabled}
         exclusive
         onChange={updateValue}

@@ -4,6 +4,7 @@ import { EntryField, TYPE } from '../EntryField/EntryField';
 export interface DateEntryProps {
   // required
   label: string;
+  testId: string;
   value: string | number;
   // optional
   ariaDescription?: string;
@@ -24,6 +25,7 @@ export function DateEntry({
   helperText,
   required,
   setValue,
+  testId,
   value,
 }: DateEntryProps): JSX.Element {
   return (
@@ -31,13 +33,14 @@ export function DateEntry({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
-      data-testid={label + ariaTitle}
+      data-testid={testId}
       disabled={disabled}
       errorText={errorText}
       helperText={helperText}
       label={label}
       required={required}
       setValue={setValue}
+      testId={testId}
       type={TYPE.DATE}
       value={value}
     />

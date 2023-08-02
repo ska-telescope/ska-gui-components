@@ -17,6 +17,7 @@ export enum TYPE {
 export interface EntryFieldProps {
   // required
   label: string;
+  testId: string;
   value: string | number;
   // optional
   ariaDescription?: string;
@@ -45,6 +46,7 @@ export function EntryField({
   rows,
   setValue,
   suffix,
+  testId,
   type,
   value,
 }: EntryFieldProps): JSX.Element {
@@ -57,7 +59,7 @@ export function EntryField({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
-      data-testid={label + ariaTitle}
+      data-testid={testId}
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}
       fullWidth

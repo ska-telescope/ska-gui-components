@@ -11,6 +11,7 @@ export interface AlertCardProps {
   array: { level: number; title: string; filled: boolean; value: number; hideValue: boolean }[];
   clickFunction?: Function;
   filled?: boolean;
+  testId: string;
   title: string;
 }
 
@@ -37,6 +38,7 @@ function AlertElement(
   hideValue: boolean,
   index: number,
   level: number,
+  testId: string,
   title: string,
   value: number,
   // optional
@@ -48,7 +50,7 @@ function AlertElement(
     <Box key={`AlertFilledBox${index}`}>
       <Button key={`AlertFilledButton${index}`} onClick={buttonClick}>
         <Alert
-          data-testid="AlertCard"
+          data-testid={testId + 'Element'}
           key={`AlertFilled${index}`}
           icon={false}
           severity={SEVERITY[level]}
@@ -69,6 +71,7 @@ export function AlertCard({
   array,
   clickFunction,
   filled,
+  testId,
   title,
 }: AlertCardProps) {
   const setSeverity = () => {
@@ -95,7 +98,7 @@ export function AlertCard({
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           aria-description={ariaDescription}
-          data-testid={ariaTitle + title}
+          data-testid={testId}
           icon={false}
           key="alerts"
           severity={setSeverity()}
@@ -112,6 +115,7 @@ export function AlertCard({
                   arr.hideValue,
                   index,
                   arr.level,
+                  testId,
                   arr.title,
                   arr.value,
                   clickFunction
