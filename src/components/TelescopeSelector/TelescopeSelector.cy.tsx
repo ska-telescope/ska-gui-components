@@ -15,12 +15,11 @@ describe('<TelescopeSelector />', () => {
           <CssBaseline />
           <TelescopeSelector
             current={telescope.id}
-            testId="LabelToggleButtonId"
             value={telescope}
           />
         </ThemeProvider>
       );
-      cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
+      cy.get('[data-testid="telescopeSelectorId"]').click({ multiple: true });
       // TODO Validate that the button was clicked
     });
     it('Theme ' + theTheme + ', toolTips', () => {
@@ -30,7 +29,6 @@ describe('<TelescopeSelector />', () => {
           <TelescopeSelector
             current={telescope.id}
             value={telescope}
-            testId="LabelToggleButtonId"
             toolTip={'ToolTip'}
           />
         </ThemeProvider>
@@ -45,12 +43,11 @@ describe('<TelescopeSelector />', () => {
         <TelescopeSelector
           current={telescope.id}
           setValue={cy.stub().as('setValue')}
-          testId="LabelToggleButtonId"
           value={telescope}
           toolTip={'ToolTip'}
         />
       );
-      cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
+      cy.get('[data-testid="telescopeSelectorId"]').click({ multiple: true });
       // TODO Validate that the button was clicked
     });
 
@@ -60,12 +57,11 @@ describe('<TelescopeSelector />', () => {
           current={telescope.id}
           disabled
           setValue={cy.stub().as('setValue')}
-          testId="LabelToggleButtonId"
           value={telescope}
           toolTip={'ToolTip'}
         />
       );
-      cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
+      cy.get('[data-testid="telescopeSelectorId"]').click({ multiple: true });
       // TODO Validate that the button was unable to be clicked
     });
   });

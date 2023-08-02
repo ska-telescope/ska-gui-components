@@ -17,7 +17,6 @@ export interface TelescopeSelectorProps {
   // required
   current: string;
   setValue?: Function;
-  testId: string;
   value: any;
   // optional
   ariaDescription?: string;

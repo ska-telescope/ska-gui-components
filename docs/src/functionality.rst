@@ -403,7 +403,7 @@ Note that the elements need to be provided as Grid items
 | label         | string   |    Yes   |                | aria-label value                                        |
 | options       | object   |    Yes   |                | { id: string, label: string, value: any}[]  Max 2       |
 | setValue      | function |    Yes   |                | Function to update the value when clicked               |
-| testId        | string   |    Yes   |                | Identifier for testing purposes                         |
+| testId        | string   |    No    | SPECIAL        | Value is "telescopeSelectorId" for this component       |
 | toolTip       | string   |    No    | ''             | Optional toolTip for the toggle                         |
 | value         | object   |    Yes   |                | Object of the currently active element                  |
 
@@ -411,6 +411,7 @@ Note that the elements need to be provided as Grid items
 *---------*
 
 n/a
+
 **TelescopeSelection**
 ~~~~~~~~~
 
