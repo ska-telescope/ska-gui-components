@@ -1,25 +1,20 @@
 import React from 'react';
-import ButtonToggle from './ButtonToggle';
+import TelescopeSelector from './TelescopeSelector';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
 
 const telescope = { id: 'low', Label: 'SKA LOW' };
-const optionList = [
-  { id: 'low', label: 'SKA LOW', value: null },
-  { id: 'mid', label: 'SKA MID', value: null },
-];
 
-describe('<ButtonToggle />', () => {
+describe('<TelescopeSelector />', () => {
   for (const theTheme of THEME) {
     it('Theme ' + theTheme + '', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <ButtonToggle
+          <TelescopeSelector
             current={telescope.id}
-            options={optionList}
             testId="LabelToggleButtonId"
             value={telescope}
           />
@@ -32,9 +27,8 @@ describe('<ButtonToggle />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <ButtonToggle
+          <TelescopeSelector
             current={telescope.id}
-            options={optionList}
             value={telescope}
             testId="LabelToggleButtonId"
             toolTip={'ToolTip'}
@@ -48,9 +42,8 @@ describe('<ButtonToggle />', () => {
   it('renders : with a provided function.', () => {
     it('Enabled', () => {
       cy.mount(
-        <ButtonToggle
+        <TelescopeSelector
           current={telescope.id}
-          options={optionList}
           setValue={cy.stub().as('setValue')}
           testId="LabelToggleButtonId"
           value={telescope}
@@ -63,10 +56,9 @@ describe('<ButtonToggle />', () => {
 
     it('Disabled', () => {
       cy.mount(
-        <ButtonToggle
+        <TelescopeSelector
           current={telescope.id}
           disabled
-          options={optionList}
           setValue={cy.stub().as('setValue')}
           testId="LabelToggleButtonId"
           value={telescope}

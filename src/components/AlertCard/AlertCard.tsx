@@ -18,7 +18,7 @@ export interface AlertCardProps {
 const content = (hideValue: boolean, level: number, theTitle: string, value: number) => (
   <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
     <Grid item>
-      <Status level={level} size={STATE_SIZE} />
+      <Status level={level} size={STATE_SIZE} testId="testId" />
       <Typography variant="body2" component="div">
         {theTitle}
       </Typography>
@@ -54,6 +54,7 @@ function AlertElement(
           key={`AlertFilled${index}`}
           icon={false}
           severity={SEVERITY[level]}
+          testId="testId"
           variant={filled ? 'filled' : 'outlined'}
         >
           <Box key={`AlertFilledBoxInner${index}`} m={1}>

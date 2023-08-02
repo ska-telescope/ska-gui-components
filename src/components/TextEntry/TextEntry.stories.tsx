@@ -27,6 +27,7 @@ TextEntryDisplay.args = {
   prefix: '',
   required: false,
   suffix: '',
+  testId: 'testId',
   value: '',
   setValue: undefined,
 };

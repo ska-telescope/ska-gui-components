@@ -25,4 +25,5 @@ Component.args = {
   filled: false,
   level: 1,
   fontSize: 35,
+  testId: 'testId',
 };

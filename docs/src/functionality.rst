@@ -411,6 +411,42 @@ Note that the elements need to be provided as Grid items
 *---------*
 
 n/a
+**TelescopeSelection**
+~~~~~~~~~
+
+*Overview*
+*--------*
+
+Specialized selection of a specific telescope from all available
+
+*Example Usage*
+*-------------*
+
+`import { TelescopeSelection } from '@ska-telescope/ska-gui-components';`
+Needs to be placed at the top of the source file
+```
+
+`<TelescopeSelection data={data} testId="testId" />`
+```
+
+*Properties*
+*----------*
+
+| Property        | Type     | Required | Default        | Notes                                                   |
+| --------------- | -------- | -------- | -------------- | ------------------------------------------------------- |
+| ariaDescription | string   |    No    | ''             | Description that is used by screen readers              | 
+| ariaTitle       | string   |    No    | ''             | Title that is used by screen readers                    |
+| current         | string   |    Yes   |                | Value of the currently active element                   |
+| disabled        | boolean  |    No    | false          | disable/enable the component                            |
+| setValue        | function |    Yes   |                | Function to update the value when clicked               |
+| testId          | string   |    Yes   |                | Identifier for testing purposes                         |
+| toolTip         | string   |    No    | ''             | Optional toolTip for the toggle                         |
+| value           | object   |    Yes   |                | Object of the currently active element                  |
+
+*Constants*
+*---------*
+
+n/a
 
 **Button**
 ~~~~~

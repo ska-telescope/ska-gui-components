@@ -11,7 +11,7 @@ describe('<InfoCard />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <InfoCard level={1} message="infoCard.message" />
+          <InfoCard level={1} message="infoCard.message" testId="testId" />
         </ThemeProvider>
       );
     });
@@ -20,7 +20,7 @@ describe('<InfoCard />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <InfoCard level={1} message="infoCard.message" filled />
+          <InfoCard level={1} message="infoCard.message" testId="testId" filled />
         </ThemeProvider>
       );
     });

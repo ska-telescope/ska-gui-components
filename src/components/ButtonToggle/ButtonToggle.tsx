@@ -4,7 +4,6 @@ import { ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
 export interface ButtonToggleProps {
   // required
   current: string;
-  label: string;
   options: { id: string; label: string; value: any }[];
   setValue?: Function;
   testId: string;
@@ -18,9 +17,9 @@ export interface ButtonToggleProps {
 
 export function ButtonToggle({
   ariaDescription,
+  ariaTitle,
   current,
   disabled,
-  label,
   setValue,
   value,
   options,
@@ -38,7 +37,7 @@ export function ButtonToggle({
   return (
     <Tooltip title={toolTip} arrow>
       <ToggleButtonGroup
-        aria-label={label}
+        aria-label={ariaTitle}
         aria-describedby={ariaDescription}
         aria-description={ariaDescription}
         color="secondary"
@@ -80,9 +79,6 @@ export function ButtonToggle({
     </Tooltip>
   );
 }
-
-//type="password"
-//autoComplete="current-password"
 
 ButtonToggle.defaultProps = {
   ariaDescription: 'Button',

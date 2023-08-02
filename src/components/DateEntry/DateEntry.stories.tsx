@@ -24,5 +24,6 @@ DateEntryDisplay.args = {
   helperText: 'HELPER TEXT',
   label: 'LABEL',
   required: false,
+  testId: 'testId',
   value: '',
 };

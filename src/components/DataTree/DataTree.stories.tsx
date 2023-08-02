@@ -46,4 +46,5 @@ DataTreeDisplay.args = {
   data: mockData,
   height: 500,
   maxWidth: 600,
+  testId: 'testId',
 };

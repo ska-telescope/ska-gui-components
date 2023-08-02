@@ -30,6 +30,7 @@ EntryFieldDisplay.args = {
   label: 'LABEL',
   prefix: '',
   required: false,
+  testId: 'testId',
   suffix: '',
   value: 'Value',
 };

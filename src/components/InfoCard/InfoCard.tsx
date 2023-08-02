@@ -43,7 +43,7 @@ export function InfoCard({
         <Stack alignItems="center" direction="row" justifyContent="center" spacing={1}>
           {level > 0 && level < 6 && (
             <Box m={1}>
-              <Status level={level} size={statusSize()} />
+              <Status level={level} size={statusSize()} testId={testId + 'Status'} />
             </Box>
           )}
           {message && message.length && (
