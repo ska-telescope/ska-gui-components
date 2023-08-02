@@ -13,7 +13,7 @@ export { default as TextEntry } from './TextEntry/TextEntry';
 //
 export { default as Button, ButtonColorTypes, ButtonVariantTypes } from './Button/Button';
 export { default as ButtonToggle } from './ButtonToggle/ButtonToggle';
-export { default as TelescopeSelector } from './TelescopeSelector/TelescopeSelector';
+export { Telescope, TelescopeSelector } from './TelescopeSelector/TelescopeSelector';
 
 export {
   Colors,
