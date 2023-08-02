@@ -13,7 +13,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <DateEntry label="Label" value={theValue} />
+          <DateEntry label="Label" testId="testId" value={theValue} />
         </ThemeProvider>
       );
     });
@@ -21,7 +21,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <DateEntry label="Label" value={theValue} disabled />
+          <DateEntry label="Label" testId="testId" value={theValue} disabled />
         </ThemeProvider>
       );
       // TODO : Check it is disabled
@@ -30,7 +30,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <DateEntry label="Label" value={theValue} required />
+          <DateEntry label="Label" testId="testId" value={theValue} required />
         </ThemeProvider>
       );
       // TODO : Check it is required
@@ -39,7 +39,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <DateEntry label="Label" value={theValue} helperText="HELPER TEXT" />
+          <DateEntry label="Label" testId="testId" value={theValue} helperText="HELPER TEXT" />
         </ThemeProvider>
       );
       // TODO : Check that helperText is visible
@@ -48,7 +48,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <DateEntry label="Label" value={theValue} errorText="ERROR TEXT" />
+          <DateEntry label="Label" testId="testId" value={theValue} errorText="ERROR TEXT" />
         </ThemeProvider>
       );
       // TODO : Check that errorText is shown and the colouring is correct

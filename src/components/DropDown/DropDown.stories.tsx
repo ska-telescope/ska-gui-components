@@ -33,4 +33,5 @@ DropDownDisplay.args = {
   required: false,
   value: '',
   setValue: undefined,
+  testId: 'testId',
 };

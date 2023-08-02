@@ -4,9 +4,9 @@ import { ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
 export interface ButtonToggleProps {
   // required
   current: string;
-  label: string;
   options: { id: string; label: string; value: any }[];
   setValue?: Function;
+  testId: string;
   value: any;
   // optional
   ariaDescription?: string;
@@ -17,12 +17,13 @@ export interface ButtonToggleProps {
 
 export function ButtonToggle({
   ariaDescription,
+  ariaTitle,
   current,
   disabled,
-  label,
   setValue,
   value,
   options,
+  testId,
   toolTip,
 }: ButtonToggleProps): JSX.Element {
   // MOTE: this will need to be changed should we want to extend to more than 2 options
@@ -36,11 +37,11 @@ export function ButtonToggle({
   return (
     <Tooltip title={toolTip} arrow>
       <ToggleButtonGroup
-        aria-label={label}
+        aria-label={ariaTitle}
         aria-describedby={ariaDescription}
         aria-description={ariaDescription}
         color="secondary"
-        data-testid={label + 'ToggleButtonId'}
+        data-testid={testId}
         disabled={disabled}
         exclusive
         onChange={updateValue}
@@ -78,9 +79,6 @@ export function ButtonToggle({
     </Tooltip>
   );
 }
-
-//type="password"
-//autoComplete="current-password"
 
 ButtonToggle.defaultProps = {
   ariaDescription: 'Button',

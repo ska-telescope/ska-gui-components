@@ -11,7 +11,7 @@ describe('<Header />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <Header themeToggle={cy.stub().as('clicked')}>
+          <Header themeToggle={cy.stub().as('clicked')} testId="testId">
             <Grid item>THIS</Grid>
             <Grid item>IS</Grid>
             <Grid item>THE</Grid>

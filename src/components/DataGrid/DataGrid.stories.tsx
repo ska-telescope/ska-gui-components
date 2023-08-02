@@ -50,4 +50,5 @@ Component.args = {
   height: 400,
   onRowClick: null,
   rows: DUMMY_ROWS,
+  testId: 'testId',
 };

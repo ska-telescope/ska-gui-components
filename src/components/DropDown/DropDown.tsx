@@ -4,6 +4,7 @@ import { MenuItem, TextField } from '@mui/material';
 export interface DropDownProps {
   // required
   options: { label: string; value: string | number }[];
+  testId: string;
   value: string | number;
   // optional
   ariaDescription?: string;
@@ -26,6 +27,7 @@ export function DropDown({
   options,
   required,
   setValue,
+  testId,
   value,
 }: DropDownProps): JSX.Element {
   const updateValue = (e: any) => (typeof setValue !== 'undefined' ? setValue(e) : null);
@@ -36,7 +38,7 @@ export function DropDown({
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
       color="secondary"
-      data-testid={label + ariaTitle}
+      data-testid={testId}
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}
       fullWidth

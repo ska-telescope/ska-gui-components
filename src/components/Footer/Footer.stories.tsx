@@ -11,8 +11,8 @@ export default {
   },
 } as ComponentMeta<typeof Footer>;
 
-const Template: ComponentStory<typeof Footer> = () => (
-  <Footer>
+const Template: ComponentStory<typeof Footer> = (args) => (
+  <Footer {...args}>
     <Grid item>{screen.height}</Grid>
     <Grid item>IS</Grid>
     <Grid item>THE</Grid>
@@ -25,4 +25,5 @@ export const Component = Template.bind({});
 Component.args = {
   ariaTitle: 'aria Title',
   ariaDescription: 'aria Description',
+  testId: 'testId',
 };

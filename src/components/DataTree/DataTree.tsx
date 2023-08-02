@@ -11,6 +11,7 @@ import { TransitionProps } from '@mui/material/transitions';
 export interface DataTreeProps {
   // required
   data: any;
+  testId: string;
   // optional
   ariaTitle?: string;
   ariaDescription?: string;
@@ -24,6 +25,7 @@ export function DataTree({
   data,
   height,
   maxWidth,
+  testId,
 }: DataTreeProps): JSX.Element {
   function MinusSquare(props: SvgIconProps) {
     return (
@@ -122,7 +124,7 @@ export function DataTree({
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
         aria-description={ariaDescription}
-        data-testid={ariaTitle}
+        data-testid={testId}
         defaultCollapseIcon={<MinusSquare />}
         defaultExpanded={['3']}
         defaultExpandIcon={<PlusSquare />}

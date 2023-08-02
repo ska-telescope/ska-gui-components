@@ -14,6 +14,7 @@ function openLink(link: string) {
 export interface HeaderProps {
   ariaDescription?: string;
   ariaTitle?: string;
+  testId: string;
   themeToggle: Function;
   toolTip?: { skao: string; mode: string };
   children?: JSX.Element[];
@@ -22,6 +23,7 @@ export interface HeaderProps {
 export function Header({
   ariaDescription,
   ariaTitle,
+  testId,
   themeToggle,
   toolTip,
   children,
@@ -39,7 +41,7 @@ export function Header({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
-      data-testid={ariaTitle}
+      data-testid={testId}
       color="primary"
       position="fixed"
       enableColorOnDark

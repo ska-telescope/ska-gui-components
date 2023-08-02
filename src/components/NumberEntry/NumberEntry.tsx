@@ -16,6 +16,7 @@ export interface NumberEntryProps {
   required?: boolean;
   setValue?: Function;
   suffix?: string;
+  testId: string;
 }
 
 export function NumberEntry({
@@ -29,6 +30,7 @@ export function NumberEntry({
   required,
   setValue,
   suffix,
+  testId,
   value,
 }: NumberEntryProps): JSX.Element {
   const errText = () => {
@@ -43,7 +45,7 @@ export function NumberEntry({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
-      data-testid={label + ariaTitle}
+      data-testid={testId}
       disabled={disabled}
       errorText={errText()}
       helperText={helperText}
@@ -53,6 +55,7 @@ export function NumberEntry({
       required={required}
       setValue={setValue}
       suffix={suffix}
+      testId={testId}
       type={TYPE.NUMBER}
     />
   );

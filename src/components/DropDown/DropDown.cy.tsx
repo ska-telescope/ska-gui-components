@@ -1,6 +1,6 @@
 import React from 'react';
 import DropDown from './DropDown';
-import { CssBaseline, Grid, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
@@ -18,7 +18,7 @@ describe('<DropDown />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <DropDown label="Label" options={DUMMY_OPTIONS} value={theValue} />
+          <DropDown label="Label" options={DUMMY_OPTIONS} testId="testId" value={theValue} />
         </ThemeProvider>
       );
     });
@@ -26,7 +26,13 @@ describe('<DropDown />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <DropDown label="Label" options={DUMMY_OPTIONS} value={theValue} disabled />
+          <DropDown
+            label="Label"
+            options={DUMMY_OPTIONS}
+            testId="testId"
+            value={theValue}
+            disabled
+          />
         </ThemeProvider>
       );
       // TODO : Check it is disabled
@@ -35,7 +41,13 @@ describe('<DropDown />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <DropDown label="Label" options={DUMMY_OPTIONS} value={theValue} required />
+          <DropDown
+            label="Label"
+            options={DUMMY_OPTIONS}
+            testId="testId"
+            value={theValue}
+            required
+          />
         </ThemeProvider>
       );
       // TODO : Check it is required
@@ -47,6 +59,7 @@ describe('<DropDown />', () => {
           <DropDown
             label="Label"
             options={DUMMY_OPTIONS}
+            testId="testId"
             value={theValue}
             helperText="HELPER TEXT"
           />
@@ -58,7 +71,13 @@ describe('<DropDown />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <DropDown label="Label" options={DUMMY_OPTIONS} value={theValue} errorText="ERROR TEXT" />
+          <DropDown
+            label="Label"
+            options={DUMMY_OPTIONS}
+            testId="testId"
+            value={theValue}
+            errorText="ERROR TEXT"
+          />
         </ThemeProvider>
       );
       // TODO : Check that errorText is shown and the colouring is correct

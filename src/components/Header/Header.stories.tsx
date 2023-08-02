@@ -27,6 +27,7 @@ export const Component = Template.bind({});
 Component.args = {
   ariaTitle: 'aria Title',
   ariaDescription: 'aria Description',
+  testId: 'testId',
   toolTip: { skao: 'SKAO WebSite', mode: ' Light / Dark Mode' },
   themeToggle: handleThemeToggle,
 };

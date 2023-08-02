@@ -11,13 +11,14 @@ export interface AlertCardProps {
   array: { level: number; title: string; filled: boolean; value: number; hideValue: boolean }[];
   clickFunction?: Function;
   filled?: boolean;
+  testId: string;
   title: string;
 }
 
 const content = (hideValue: boolean, level: number, theTitle: string, value: number) => (
   <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
     <Grid item>
-      <Status level={level} size={STATE_SIZE} />
+      <Status level={level} size={STATE_SIZE} testId="testId" />
       <Typography variant="body2" component="div">
         {theTitle}
       </Typography>
@@ -37,6 +38,7 @@ function AlertElement(
   hideValue: boolean,
   index: number,
   level: number,
+  testId: string,
   title: string,
   value: number,
   // optional
@@ -48,10 +50,11 @@ function AlertElement(
     <Box key={`AlertFilledBox${index}`}>
       <Button key={`AlertFilledButton${index}`} onClick={buttonClick}>
         <Alert
-          data-testid="AlertCard"
+          data-testid={testId + 'Element'}
           key={`AlertFilled${index}`}
           icon={false}
           severity={SEVERITY[level]}
+          testId="testId"
           variant={filled ? 'filled' : 'outlined'}
         >
           <Box key={`AlertFilledBoxInner${index}`} m={1}>
@@ -69,6 +72,7 @@ export function AlertCard({
   array,
   clickFunction,
   filled,
+  testId,
   title,
 }: AlertCardProps) {
   const setSeverity = () => {
@@ -95,7 +99,7 @@ export function AlertCard({
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           aria-description={ariaDescription}
-          data-testid={ariaTitle + title}
+          data-testid={testId}
           icon={false}
           key="alerts"
           severity={setSeverity()}
@@ -112,6 +116,7 @@ export function AlertCard({
                   arr.hideValue,
                   index,
                   arr.level,
+                  testId,
                   arr.title,
                   arr.value,
                   clickFunction

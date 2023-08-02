@@ -11,7 +11,7 @@ describe('<Footer />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <Footer>
+          <Footer testId="testId">
             <Grid item>THIS</Grid>
             <Grid item>IS</Grid>
             <Grid item>THE</Grid>

@@ -6,15 +6,16 @@ export interface FooterProps {
   ariaTitle?: string;
   // eslint-disable-next-line no-undef
   children?: JSX.Element[];
+  testId: string;
 }
 
-export function Footer({ ariaDescription, ariaTitle, children }: FooterProps) {
+export function Footer({ ariaDescription, ariaTitle, children, testId }: FooterProps) {
   return (
     <AppBar
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
-      data-testid={ariaTitle}
+      data-testid={testId}
       color="primary"
       position="fixed"
       enableColorOnDark

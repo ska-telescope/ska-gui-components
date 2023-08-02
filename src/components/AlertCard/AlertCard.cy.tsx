@@ -28,7 +28,7 @@ describe('<AlertCard />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <AlertCard array={DUMMY_DATA} />
+          <AlertCard array={DUMMY_DATA} testId="testId" />
         </ThemeProvider>
       );
     });
@@ -36,7 +36,7 @@ describe('<AlertCard />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <AlertCard array={DUMMY_DATA} filled />
+          <AlertCard array={DUMMY_DATA} filled testId="testId" />
         </ThemeProvider>
       );
     });
@@ -44,7 +44,7 @@ describe('<AlertCard />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <AlertCard title="TITLE" array={DUMMY_DATA} />
+          <AlertCard title="TITLE" array={DUMMY_DATA} testId="testId" />
         </ThemeProvider>
       );
     });
@@ -52,7 +52,7 @@ describe('<AlertCard />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <AlertCard title="TITLE" array={DUMMY_DATA} filled />
+          <AlertCard title="TITLE" array={DUMMY_DATA} testId="testId" filled />
         </ThemeProvider>
       );
     });
@@ -63,6 +63,7 @@ describe('<AlertCard />', () => {
         title="alertCard.title"
         array={DUMMY_DATA}
         clickFunction={cy.stub().as('clicked')}
+        testId="AlertCard"
       />
     );
     cy.get('[data-testid="AlertCard"]').click({ multiple: true });

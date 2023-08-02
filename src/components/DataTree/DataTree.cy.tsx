@@ -36,7 +36,7 @@ describe('<DataTree />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <DataTree data={mockData} />
+          <DataTree data={mockData} testId="testId" />
         </ThemeProvider>
       );
     });

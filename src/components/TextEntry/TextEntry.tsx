@@ -17,6 +17,7 @@ export interface TextEntryProps {
   rows?: number;
   setValue?: Function;
   suffix?: string;
+  testId: string;
 }
 
 export function TextEntry({
@@ -29,6 +30,7 @@ export function TextEntry({
   required,
   rows,
   setValue,
+  testId,
   value,
 }: TextEntryProps): JSX.Element {
   const errText = () => {
@@ -45,7 +47,7 @@ export function TextEntry({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
-      data-testid={label + ariaTitle}
+      data-testid={testId}
       disabled={disabled}
       errorText={errText()}
       helperText={helperText}
@@ -53,6 +55,7 @@ export function TextEntry({
       rows={rows}
       value={value}
       required={required}
+      testId={testId}
       type={TYPE.TEXT}
       setValue={setValue}
     />

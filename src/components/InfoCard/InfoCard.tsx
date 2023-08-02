@@ -12,6 +12,7 @@ export interface InfoCardProps {
   fontSize?: number;
   filled?: boolean;
   clickFunction?: Function;
+  testId: string;
 }
 
 export function InfoCard({
@@ -22,6 +23,7 @@ export function InfoCard({
   filled,
   level,
   message,
+  testId,
 }: InfoCardProps) {
   const buttonClick = () => (typeof clickFunction !== 'undefined' ? clickFunction : null);
   const statusSize = () => (typeof fontSize !== 'undefined' ? fontSize * 1.15 : fontSize);
@@ -32,7 +34,7 @@ export function InfoCard({
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
         aria-description={ariaDescription}
-        data-testid={ariaTitle}
+        data-testid={testId}
         variant={filled ? 'filled' : 'outlined'}
         icon={false}
         severity={SEVERITY[level]}
@@ -41,7 +43,7 @@ export function InfoCard({
         <Stack alignItems="center" direction="row" justifyContent="center" spacing={1}>
           {level > 0 && level < 6 && (
             <Box m={1}>
-              <Status level={level} size={statusSize()} />
+              <Status level={level} size={statusSize()} testId={testId + 'Status'} />
             </Box>
           )}
           {message && message.length && (

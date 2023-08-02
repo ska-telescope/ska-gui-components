@@ -21,6 +21,7 @@ export interface ButtonProps {
   icon?: JSX.Element;
   label: string;
   onClick?: Function;
+  testId: string;
   toolTip?: string;
   variant?: ButtonVariantTypes;
 }
@@ -32,6 +33,7 @@ export function SKAOButton({
   icon,
   label,
   onClick,
+  testId,
   toolTip,
   variant,
 }: ButtonProps): JSX.Element {
@@ -44,7 +46,7 @@ export function SKAOButton({
         aria-describedby={ariaDescription}
         aria-description={ariaDescription}
         color={color}
-        data-testid={label + 'ButtonId'}
+        data-testid={testId}
         disabled={disabled}
         fullWidth
         onClick={(e: any) => clicked(e)}
