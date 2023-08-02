@@ -2,17 +2,6 @@ import React from 'react';
 import { ButtonToggle } from '../ButtonToggle/ButtonToggle';
 import { TelescopeList } from '@ska-telescope/ska-javascript-components';
 
-export type Telescope = {
-  code: string;
-  name: string;
-  location: string;
-  position: {
-    lat: number;
-    lon: number;
-  };
-  image: string;
-};
-
 export interface TelescopeSelectorProps {
   // required
   current: string;
