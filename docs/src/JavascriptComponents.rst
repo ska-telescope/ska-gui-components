@@ -5,9 +5,11 @@ All of the functionality that has built into the `ska-javascript-components` lib
 this library for convenience as many of them have been used within this library as a basis.
 
 To see the functionality provided, please refer to the ska-javascript-components library documentation
-THe URL for it will be in this form : https://developer.skao.int/projects/ska-javascript-components/en/latest/index.html
+The URL for it will be in this form : 
 
-.. csv-table:: Example :rst:dir:`Summary`
+`https://developer.skao.int/projects/ska-javascript-components/en/latest/index.html``
+
+.. csv-table::
    :header: "Functionality", "Type", "Summary"
 
     "Colors", "function", "SKAO Theme colors"
@@ -17,7 +19,7 @@ THe URL for it will be in this form : https://developer.skao.int/projects/ska-ja
     "SPACER_VERTICAL", "Constant", "For use with Spacer component"
     "Spacer", "Component", "Used to push spacing into the application"
     "Status", "Component", "Provides standard colored shapes to indicate status"
-    "Styling", "function", SKAO Theme styling"
+    "Styling", "function", SKAO Theme styling
     "TelescopeList", "Constant", "List of available Telescopes"
     "TELESCOPE_LOW", "Constant", "Telescope constants including location"
     "TELESCOPE_MID", "Constant", "Telescope constants including location"
