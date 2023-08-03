@@ -5,8 +5,6 @@
 
 Specialized selection of a specific telescope from all available
 
-*Example*
-
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -19,7 +17,7 @@ Specialized selection of a specific telescope from all available
 *Properties*
 
 .. csv-table:: Example :rst:dir:
-   :header: "Property", "Type", "Required"
+   :header: "Property", "Type", "Required", "default", ""
    "ariaDescription", "string", "No", "''", "Description that is used by screen readers"
    "ariaTitle", "string", "No", "''", "Title that is used by screen readers"
    "current", "string", "Yes", "", "Value of the currently active element"
@@ -29,6 +27,8 @@ Specialized selection of a specific telescope from all available
    "toolTip", "string", "No", "''", "Optional toolTip for the toggle"
    "value", "object", "Yes", "", "Object of the currently active element"
 
-*Constants*
+.. admonition:: Constants
 
-n/a
+.. admonition:: Testing Identifier
+
+   Provided by the property *testId*

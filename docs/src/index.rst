@@ -12,9 +12,9 @@ as well as implementation of standard properties to allow for maximum accessibil
    :maxdepth: 2
    :caption: Contents:
 
-   usage
-   functionality
-   javascriptComponents
+   Usage
+   Functionality
+   JavascriptComponents
    AlertCard
    Button
    ButtonToggle
@@ -25,5 +25,5 @@ as well as implementation of standard properties to allow for maximum accessibil
    Header
    InfoCard
    NumberEntry
-   telescopeSelector
+   TelescopeSelector
    TestEntry

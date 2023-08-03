@@ -5,8 +5,6 @@
 
 Panel that is colored dependant upon the most-urgent status valued element provided
 
-*Example*
-
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -19,7 +17,7 @@ Panel that is colored dependant upon the most-urgent status valued element provi
 *Properties*
 
 .. csv-table::
-   :header: "Property", "Type", "Required", ""
+   :header: "Property", "Type", "Required", "default", ""
    "size","number", "No", "90", "Defines the size of the space in pixels"
    "axis","string", "No", "SPACER_HORIZONTAL", "SPACER_HORIZONTAL or SPACER_VERTICAL permitted"
 
@@ -39,6 +37,8 @@ Panel that is colored dependant upon the most-urgent status valued element provi
     "title", "string", "No", "''", "Title that is used for the element"
     "value", "number", "Yes", "", "Value that is used to determine the coloring to be used"
 
-*Constants*
+.. admonition:: Constants
 
-n/a
+.. admonition:: Testing Identifier
+
+   Provided by the property *testId*

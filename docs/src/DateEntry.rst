@@ -5,7 +5,6 @@
 
 Field for entering Dates into the application. Clicking on the icon opens up a date picker
 
-*Example*
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -26,6 +25,8 @@ Field for entering Dates into the application. Clicking on the icon opens up a d
    "testId", " string", "Yes", "", "Identifier for testing purposes"
    "value", " string", "Yes", "", "Value that is displayed within the component"
 
-Constants
----------
-n/a
+.. admonition:: Constants
+
+.. admonition:: Testing Identifier
+
+   Provided by the property *testId*

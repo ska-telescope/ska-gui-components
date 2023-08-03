@@ -5,8 +5,6 @@
 
 Button for use with all applications
 
-*Example*
-
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -19,7 +17,7 @@ Button for use with all applications
 *Properties*
 
 .. csv-table:: Example :rst:dir:
-   :header: "Property", "Type", "Required"
+   :header: "Property", "Type", "Required", "default", ""
    "color", "string", "No", "", "Color options : ButtonColorType"
    "disabled", "boolean", "No", "false", "Disabled when true"
    "icon", "JSX.Element", "No", "null", "Prefixes the label when present"
@@ -29,6 +27,8 @@ Button for use with all applications
    "toolTip", "string", "No", "''", "Text displayed when the cursor is hovered over the button"
    "variant", "string", "No", "'outlined'", "Styling options : ButtonVariantType"
 
-*Constants*
+.. admonition:: Constants
 
-n/a
+.. admonition:: Testing Identifier
+
+   Provided by the property *testId*

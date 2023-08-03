@@ -5,8 +5,6 @@
 
 Field for selecting an option from a possible list
 
-*Example*
-
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -30,6 +28,8 @@ Field for selecting an option from a possible list
    "testId", "string", "Yes", "", "Identifier for testing purposes"
    "value", "string", "Yes", "", "Value that is displayed within the component"
 
-*Constants*
+.. admonition:: Constants
 
-n/a
+.. admonition:: Testing Identifier
+
+   Provided by the property *testId*

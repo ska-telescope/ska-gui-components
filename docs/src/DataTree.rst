@@ -5,8 +5,6 @@
 
 Passing data out of a JSON.parse() will produce an expandable TreeView of the data
 
-*Example*
-
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -25,6 +23,8 @@ Passing data out of a JSON.parse() will produce an expandable TreeView of the da
    "maxWidth", "number", "No", "400", "Determines the width that the component will use"
    "testId", "string", "Yes", "", "Identifier for testing purposes"
 
-*Constants*
+.. admonition:: Constants
 
-n/a
+.. admonition:: Testing Identifier
+
+   Provided by the property *testId*
