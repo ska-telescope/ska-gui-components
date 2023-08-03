@@ -19,21 +19,19 @@ Standard Header wrapper component that spaces evenly it's child components
       <Grid item>FOOTER</Grid>
    </Header>
 
-.. admonition:: Properties
-   .. csv-table::
-      :header: "Property", "Type", "Required", "default", ""
+.. csv-table:: Properties
+   :header: "Property", "Type", "Required", "default", ""
 
-        "testId", "string", "Yes", "", "Identifier for testing purposes"
-        "themeToggle", " Function", "    No", " null", " If provided, the theme toggling button is displayed"
-        "toolTip", " Object", "    No", " all values ''", " Contains toolTip text for display (See below)"
+    "testId", "string", "Yes", "", "Identifier for testing purposes"
+    "themeToggle", " Function", "    No", " null", " If provided, the theme toggling button is displayed"
+    "toolTip", " Object", "    No", " all values ''", " Contains toolTip text for display (See below)"
 
 
-.. admonition:: *ToolTip values*  ( Translated values should be passed in as an override )
-   .. csv-table::
-
-      :header: "Property", "Type", "Required", "default", ""
-        "skao", "string", "No", "'SKAO WebSite'", "ToolTip for the SKAO Logo"
-        "mode", "string", "No", "'Light / Dark Mode'", "ToolRip for the Theme mode"
+.. csv-table:: *ToolTip values*  ( Translated values should be passed in as an override )
+    :header: "Property", "Type", "Required", "default", ""
+    
+    "skao", "string", "No", "'SKAO WebSite'", "ToolTip for the SKAO Logo"
+    "mode", "string", "No", "'Light / Dark Mode'", "ToolRip for the Theme mode"
 
 .. admonition:: Constants
 
