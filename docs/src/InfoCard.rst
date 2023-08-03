@@ -1,0 +1,32 @@
+**InfoCard**
+~~~~~~~~~
+
+*Overview*
+
+Component providing standard delivery of information/errors/warnings
+
+*Example*
+
+.. code-block:: sh
+   :caption: Example : Default usage
+
+   import { InfoCard } from '@ska-telescope/ska-gui-components';
+
+   ...
+
+   <InfoCard filled={INFO_FILLED} level={INFO_LEVEL} message={INFO_MESSAGE} testId="testId" />
+
+*Properties*
+
+.. csv-table:: Example :rst:dir:
+   :header: "Property", "Type", "Required", ""
+   "clickFunction", "Function", "No", "null", "Executed if the component is clicked"
+   "filled", "boolean", "No", "false", "Determines if component is filled or outlined"
+   "fontSize", "number", "No", "35", "Determines the size of the displayed text/symbol"
+   "level", "number", "Yes", "", "Symbol that is placed top-left of the Component"
+   "message", "string", "Yes", "", "Title that is used for the element"
+   "testId", "string", "Yes", "", "Identifier for testing purposes"
+
+*Constants*
+
+n/a
