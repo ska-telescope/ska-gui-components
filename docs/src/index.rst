@@ -15,3 +15,15 @@ as well as implementation of standard properties to allow for maximum accessibil
    usage
    functionality
    javascriptComponents
+   AlertCard
+   Button
+   ButtonToggle
+   DataTree
+   DateEntry
+   DropDown
+   Footer
+   Header
+   InfoCard
+   NumberEntry
+   telescopeSelector
+   TestEntry
