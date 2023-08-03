@@ -5,8 +5,6 @@
 
 Standard Footer wrapper component that spaces evenly it's child components
 
-*Example*
-
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -27,6 +25,8 @@ Standard Footer wrapper component that spaces evenly it's child components
    :header: "Property", "Type", "Required", ""
     "testId", "string", "Yes", "", "Identifier for testing purposes"
 
-*Constants*
+.. admonition:: Constants
 
-n/a
+.. admonition:: Testing Identifier
+
+   Provided by the property *testId*

@@ -5,8 +5,6 @@
 
 Component providing standard delivery of information/errors/warnings
 
-*Example*
-
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -19,7 +17,7 @@ Component providing standard delivery of information/errors/warnings
 *Properties*
 
 .. csv-table:: Example :rst:dir:
-   :header: "Property", "Type", "Required", ""
+   :header: "Property", "Type", "Required", "default", ""
    "clickFunction", "Function", "No", "null", "Executed if the component is clicked"
    "filled", "boolean", "No", "false", "Determines if component is filled or outlined"
    "fontSize", "number", "No", "35", "Determines the size of the displayed text/symbol"
@@ -27,6 +25,8 @@ Component providing standard delivery of information/errors/warnings
    "message", "string", "Yes", "", "Title that is used for the element"
    "testId", "string", "Yes", "", "Identifier for testing purposes"
 
-*Constants*
+.. admonition:: Constants
 
-n/a
+.. admonition:: Testing Identifier
+
+   Provided by the property *testId*

@@ -5,8 +5,6 @@
 
 Standard Header wrapper component that spaces evenly it's child components
 
-*Example*
-
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -24,7 +22,7 @@ Standard Header wrapper component that spaces evenly it's child components
 *Properties*
 
 .. csv-table::
-   :header: "Property", "Type", "Required", ""
+   :header: "Property", "Type", "Required", "default", ""
     "testId", "string", "Yes", "", "Identifier for testing purposes"
     "themeToggle", " Function", "    No", " null", " If provided, the theme toggling button is displayed"
     "toolTip", " Object", "    No", " all values ''", " Contains toolTip text for display (See below)"
@@ -36,6 +34,8 @@ Standard Header wrapper component that spaces evenly it's child components
    "skao", "string", "No", "'SKAO WebSite'", "ToolTip for the SKAO Logo"
    "mode", "string", "No", "'Light / Dark Mode'", "ToolRip for the Theme mode"
 
-*Constants*
+.. admonition:: Constants
 
-n/a
+.. admonition:: Testing Identifier
+
+   Provided by the property *testId*
