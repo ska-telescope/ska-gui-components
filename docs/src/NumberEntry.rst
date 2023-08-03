@@ -7,10 +7,11 @@ Field for entering numbers into the application. Provides a spinner
 
 .. code-block:: sh
    :caption: Example : Default usage
+
    import { NumberEntry } from '@ska-telescope/ska-gui-components';
 
    ...
-   
+
    <NumberEntry label={ENTRY_FIELD_LABEL} testId="testId" value={ENTRY_FIELD_VALUE} />
 
 
