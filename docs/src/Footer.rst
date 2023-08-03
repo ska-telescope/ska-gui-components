@@ -19,13 +19,15 @@ Standard Footer wrapper component that spaces evenly it's child components
       <Grid item>FOOTER</Grid>
    </Footer>
 
-*Properties*
+.. admonition:: Properties
+   .. csv-table::
+      :header: "Property", "Type", "Required", "default", ""
 
-.. csv-table::
-   :header: "Property", "Type", "Required", ""
-    "testId", "string", "Yes", "", "Identifier for testing purposes"
+        "testId", "string", "Yes", "", "Identifier for testing purposes"
 
 .. admonition:: Constants
+
+    none
 
 .. admonition:: Testing Identifier
 
