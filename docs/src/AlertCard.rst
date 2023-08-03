@@ -27,14 +27,13 @@ Panel that is colored dependant upon the most-urgent status valued element provi
       "title", "string", "Yes", "", "Displayed at the top of the Card
 
 
-.. admonition:: Array element values
-   .. csv-table::
-      :header: "Property", "Type", "Required", "default", ""
+.. csv-table:: Properties
+   :header: "Property", "Type", "Required", "default", ""
 
-      "hideValue", "boolean", "No", "false", "If true, display of <strong>value<strong> is suppressed
-      "level", "number", "Yes", "", "Symbol that is placed top-left of the Component
-      "title", "string", "No", "''", "Title that is used for the element
-      "value", "number", "Yes", "", "Value that is used to determine the coloring to be used
+   "hideValue", "boolean", "No", "false", "If true, display of <strong>value<strong> is suppressed
+   "level", "number", "Yes", "", "Symbol that is placed top-left of the Component
+   "title", "string", "No", "''", "Title that is used for the element
+   "value", "number", "Yes", "", "Value that is used to determine the coloring to be used
     
 .. admonition:: Constants
 
