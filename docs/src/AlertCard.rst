@@ -14,20 +14,19 @@ Panel that is colored dependant upon the most-urgent status valued element provi
 
    <AlertCard array={ALERT_CARD_DATA} testId="testId" title="AlertCard Title" />
 
-.. admonition:: Properties
-   .. csv-table::
-      :header: "Property", "Type", "Required", "default", ""
+... csv-table:: Properties
+   :header: "Property", "Type", "Required", "default", ""
 
-      "ariaDescription", "string", "No", "", "Used by Screen Readers
-      "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers
-      "array", "Object", "Yes", "", "See below
-      "clickFunction", "Function", "No", "null", "Executed when the card is clicked
-      "filled", "boolean", "No", "false", "Styling option
-      "testId", "string", "Yes", "", "Used for testing purposes
-      "title", "string", "Yes", "", "Displayed at the top of the Card
+   "ariaDescription", "string", "No", "", "Used by Screen Readers
+   "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers
+   "array", "Object", "Yes", "", "See below
+   "clickFunction", "Function", "No", "null", "Executed when the card is clicked
+   "filled", "boolean", "No", "false", "Styling option
+   "testId", "string", "Yes", "", "Used for testing purposes
+   "title", "string", "Yes", "", "Displayed at the top of the Card
 
 
-.. csv-table:: Properties
+.. csv-table:: array values
    :header: "Property", "Type", "Required", "default", ""
 
    "hideValue", "boolean", "No", "false", "If true, display of <strong>value<strong> is suppressed
