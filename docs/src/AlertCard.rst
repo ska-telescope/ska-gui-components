@@ -13,8 +13,8 @@ Panel that is colored dependant upon the most-urgent status valued element provi
    ...
 
    <AlertCard array={ALERT_CARD_DATA} testId="testId" title="AlertCard Title" />
-
-... csv-table:: Properties
+   
+.. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
    "ariaDescription", "string", "No", "", "Used by Screen Readers
@@ -24,7 +24,6 @@ Panel that is colored dependant upon the most-urgent status valued element provi
    "filled", "boolean", "No", "false", "Styling option
    "testId", "string", "Yes", "", "Used for testing purposes
    "title", "string", "Yes", "", "Displayed at the top of the Card
-
 
 .. csv-table:: array values
    :header: "Property", "Type", "Required", "default", ""
