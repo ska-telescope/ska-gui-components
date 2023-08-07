@@ -1,5 +1,9 @@
 import React from 'react';
 import { AppBar, Grid, Toolbar } from '@mui/material';
+import {
+  THEME_LIGHT,
+  JAVASCRIPT_COMPONENTS_VERSION,
+} from '@ska-telescope/ska-javascript-components';
 
 export interface FooterProps {
   ariaDescription?: string;
@@ -23,6 +27,8 @@ export function Footer({ ariaDescription, ariaTitle, children, testId }: FooterP
     >
       <Toolbar>
         <Grid container direction="row" justifyContent="space-between">
+          <Grid item>{JAVASCRIPT_COMPONENTS_VERSION}</Grid>
+          <Grid item>{THEME_LIGHT}</Grid>
           {children}
         </Grid>
       </Toolbar>
