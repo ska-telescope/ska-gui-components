@@ -27,8 +27,6 @@ export function Footer({ ariaDescription, ariaTitle, children, testId }: FooterP
     >
       <Toolbar>
         <Grid container direction="row" justifyContent="space-between">
-          <Grid item>{JAVASCRIPT_COMPONENTS_VERSION}</Grid>
-          <Grid item>{THEME_LIGHT}</Grid>
           {children}
         </Grid>
       </Toolbar>
