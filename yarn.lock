@@ -2949,10 +2949,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@ska-telescope/ska-javascript-components@^0.1.28":
-  version "0.1.28"
-  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-0.1.28.tgz#532b1ed08f6fbe5c74e13335b5b864e8145290bd"
-  integrity sha512-nkfsIbGesJPzgqTfsh/Flta3tsm7Q0GHnfny1v2uoOeafJNNPN+dRQouxcMI67gZZ6PfKffPcOiDRl2HBxuxew==
+"@ska-telescope/ska-javascript-components@^0.1.29":
+  version "0.1.29"
+  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-0.1.29.tgz#bd1ae42b3491d1ca0445833491514d622f6a8837"
+  integrity sha512-RFMX1Gf4EywB/icMLdogiui+WP4+OlG2PBAnJJ2dEQVlfS2hLlbLE/gfnKW/TwOfTZiTRmS2/L/RWAd0b9VuJQ==
   dependencies:
     babel-istanbul "^0.12.2"
     babel-jest "^29.5.0"
