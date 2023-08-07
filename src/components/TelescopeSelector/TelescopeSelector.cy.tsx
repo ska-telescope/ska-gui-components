@@ -13,10 +13,7 @@ describe('<TelescopeSelector />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <TelescopeSelector
-            current={telescope.id}
-            value={telescope}
-          />
+          <TelescopeSelector current={telescope.id} value={telescope} />
         </ThemeProvider>
       );
       cy.get('[data-testid="telescopeSelectorId"]').click({ multiple: true });
@@ -26,11 +23,7 @@ describe('<TelescopeSelector />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <TelescopeSelector
-            current={telescope.id}
-            value={telescope}
-            toolTip={'ToolTip'}
-          />
+          <TelescopeSelector current={telescope.id} value={telescope} toolTip={'ToolTip'} />
         </ThemeProvider>
       );
       // TODO : Test that there is a tooltip  ?
