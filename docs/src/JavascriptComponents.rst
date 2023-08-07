@@ -26,3 +26,4 @@ The URL for it will be in this form :
     "THEME_DARK", "Constant", "For use with Theme function"
     "THEME_LIGHT", "Constant", "For use with Theme function"
     "Theme", "Function", "Implementation of the SKAO theme"
+    "JAVASCRIPT_COMPONENTS_VERSION", "Constant", "Version number of the library"

@@ -14,6 +14,7 @@ export { default as TextEntry } from './TextEntry/TextEntry';
 export { default as Button, ButtonColorTypes, ButtonVariantTypes } from './Button/Button';
 export { default as ButtonToggle } from './ButtonToggle/ButtonToggle';
 export { default as TelescopeSelector } from './TelescopeSelector/TelescopeSelector';
+export { GUI_COMPONENTS_VERSION } from './version';
 
 export {
   Colors,
@@ -24,10 +25,11 @@ export {
   Spacer,
   Status,
   Styling,
-  TelescopeList, 
-  TELESCOPE_LOW, 
+  TelescopeList,
+  TELESCOPE_LOW,
   TELESCOPE_MID,
   THEME_DARK,
   THEME_LIGHT,
   Theme,
+  JAVASCRIPT_COMPONENTS_VERSION,
 } from '@ska-telescope/ska-javascript-components';
