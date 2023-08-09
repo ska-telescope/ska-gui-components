@@ -41,23 +41,25 @@ export function SKAOButton({
 
   return (
     <Tooltip title={toolTip} arrow>
-      <Button
-        aria-label={label}
-        aria-describedby={ariaDescription}
-        aria-description={ariaDescription}
-        color={color}
-        data-testid={testId}
-        disabled={disabled}
-        fullWidth
-        onClick={(e: any) => clicked(e)}
-        role="button"
-        startIcon={icon}
-        sx={{ mt: 3, mb: 2 }}
-        type="submit"
-        variant={variant}
-      >
-        {label}
-      </Button>
+      <span>
+        <Button
+          aria-label={label}
+          aria-describedby={ariaDescription}
+          aria-description={ariaDescription}
+          color={color}
+          data-testid={testId}
+          disabled={disabled}
+          fullWidth
+          onClick={(e: any) => clicked(e)}
+          role="button"
+          startIcon={icon}
+          sx={{ mt: 3, mb: 2 }}
+          type="submit"
+          variant={variant}
+        >
+          {label}
+        </Button>
+      </span>
     </Tooltip>
   );
 }
