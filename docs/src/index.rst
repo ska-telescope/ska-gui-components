@@ -15,6 +15,7 @@ as well as implementation of standard properties to allow for maximum accessibil
    Usage
    Functionality
    JavascriptComponents
+   Alert
    AlertCard
    Button
    ButtonToggle
