@@ -1,9 +1,9 @@
 import React from 'react';
-import { Alert, Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
+import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
 import { Status } from '@ska-telescope/ska-javascript-components';
+import { SKAOAlert as Alert } from '../Alert/Alert';
 
 const STATE_SIZE = 30;
-const SEVERITY = ['success', 'error', 'warning', 'warning', 'warning', 'info'];
 
 export interface AlertCardProps {
   ariaDescription?: string;
@@ -52,10 +52,9 @@ function AlertElement(
         <Alert
           data-testid={testId + 'Element'}
           key={`AlertFilled${index}`}
-          icon={false}
-          severity={SEVERITY[level]}
-          testId="testId"
-          variant={filled ? 'filled' : 'outlined'}
+          severity={level}
+          testId={testId}
+          filled={filled}
         >
           <Box key={`AlertFilledBoxInner${index}`} m={1}>
             {content(hideValue, level, title, value)}
@@ -76,10 +75,10 @@ export function AlertCard({
   title,
 }: AlertCardProps) {
   const setSeverity = () => {
-    let result = SEVERITY[0];
-    for (let i = 0; result === SEVERITY[0] && i < array.length; i += 1) {
+    let result = 0;
+    for (let i = 0; result === 0 && i < array.length; i += 1) {
       if (array[i].value > 0) {
-        result = SEVERITY[array[i].level];
+        result = array[i].level;
       }
     }
     return result;
@@ -99,11 +98,10 @@ export function AlertCard({
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           aria-description={ariaDescription}
-          data-testid={testId}
-          icon={false}
+          testId={testId}
           key="alerts"
           severity={setSeverity()}
-          variant={filled ? 'filled' : 'outlined'}
+          filled={filled}
         >
           <Stack sx={{ height: '95%' }} spacing={2}>
             <Typography variant="h6" component="div">
@@ -116,7 +114,7 @@ export function AlertCard({
                   arr.hideValue,
                   index,
                   arr.level,
-                  testId,
+                  testId + index,
                   arr.title,
                   arr.value,
                   clickFunction
