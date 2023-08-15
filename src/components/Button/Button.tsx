@@ -53,9 +53,11 @@ export function SKAOButton({
           onClick={(e: any) => clicked(e)}
           role="button"
           startIcon={icon}
-          sx={{ mt: 3, mb: 2 }}
           type="submit"
           variant={variant}
+          sx={{
+            wordWrap: 'break-word',
+          }}
         >
           {label}
         </Button>
