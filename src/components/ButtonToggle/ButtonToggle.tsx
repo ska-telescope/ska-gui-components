@@ -26,7 +26,6 @@ export function ButtonToggle({
   testId,
   toolTip,
 }: ButtonToggleProps): JSX.Element {
-
   const fetchValue = (id: string) => {
     return options[options[0].id === id ? 0 : 1].value;
   };
