@@ -26,7 +26,7 @@ export function ButtonToggle({
   testId,
   toolTip,
 }: ButtonToggleProps): JSX.Element {
-  // MOTE: this will need to be changed should we want to extend to more than 2 options
+
   const fetchValue = (id: string) => {
     return options[options[0].id === id ? 0 : 1].value;
   };
@@ -45,6 +45,7 @@ export function ButtonToggle({
         disabled={disabled}
         exclusive
         onChange={updateValue}
+        size="small"
         value={value}
       >
         {options.map((option: { id: string; label: string; value: any }): JSX.Element => {

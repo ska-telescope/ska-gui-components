@@ -4,7 +4,7 @@ import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 import SKAOButton, { ButtonColorTypes, ButtonVariantTypes } from './Button';
 
 export default {
-  title: 'Example/SKAOButton',
+  title: 'Example/Button',
   component: SKAOButton,
   parameters: {
     layout: 'centered',
@@ -15,9 +15,9 @@ const Template: ComponentStory<typeof SKAOButton> = (args) => {
   return <SKAOButton {...args} />;
 };
 
-export const SKAOButtonDisplay = Template.bind({});
+export const ButtonDisplay = Template.bind({});
 
-SKAOButtonDisplay.args = {
+ButtonDisplay.args = {
   ariaDescription: 'aria Description',
   color: ButtonColorTypes.Success,
   label: 'SKAOButton Label',
