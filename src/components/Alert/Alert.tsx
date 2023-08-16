@@ -4,6 +4,7 @@ import { Alert, Box, Paper } from '@mui/material';
 const SEVERITY = ['success', 'error', 'warning', 'warning', 'warning', 'info'];
 
 export interface AlertProps {
+  action?: any;
   ariaDescription?: string;
   ariaTitle?: string;
   // eslint-disable-next-line no-undef
@@ -14,6 +15,7 @@ export interface AlertProps {
 }
 
 export function SKAOAlert({
+  action,
   ariaDescription,
   ariaTitle,
   children,
@@ -32,6 +34,7 @@ export function SKAOAlert({
         }}
       >
         <Alert
+          action={action}
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           aria-description={ariaDescription}
@@ -49,6 +52,7 @@ export function SKAOAlert({
 }
 
 SKAOAlert.defaultProps = {
+  action: null,
   ariaDescription: 'Panel that is colored dependant upon the provided status',
   ariaTitle: 'Alert',
   filled: false,
