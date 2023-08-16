@@ -55,9 +55,6 @@ export function SKAOButton({
           startIcon={icon}
           type="submit"
           variant={variant}
-          sx={{
-            wordWrap: 'break-word',
-          }}
         >
           {label}
         </Button>

@@ -59,6 +59,10 @@ export function ButtonToggle({
                   color: 'primary.main',
                   backgroundColor: 'secondary.main',
                   fontWeight: 'bold',
+                  ':disabled': {
+                    color: 'primary.contrastText',
+                    backgroundColor: 'primary.dark',
+                  },
                 },
                 '&.Mui-focusVisible': {
                   color: 'primary.main',
