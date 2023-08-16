@@ -6,6 +6,7 @@ import { SKAOAlert as Alert } from '../Alert/Alert';
 const STATE_SIZE = 30;
 
 export interface AlertCardProps {
+  action?: any;
   ariaDescription?: string;
   ariaTitle?: string;
   array: { level: number; title: string; filled: boolean; value: number; hideValue: boolean }[];
@@ -66,6 +67,7 @@ function AlertElement(
 }
 
 export function AlertCard({
+  action,
   ariaDescription,
   ariaTitle,
   array,
@@ -95,6 +97,7 @@ export function AlertCard({
         }}
       >
         <Alert
+          action={action}
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           aria-description={ariaDescription}
@@ -129,6 +132,7 @@ export function AlertCard({
 }
 
 AlertCard.defaultProps = {
+  action: null,
   ariaDescription:
     'Panel that is colored dependant upon the most-urgent status valued element provided',
   ariaTitle: 'AlertCard',
