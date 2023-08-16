@@ -49,7 +49,6 @@ export function SKAOButton({
           color={color}
           data-testid={testId}
           disabled={disabled}
-          fullWidth
           onClick={(e: any) => clicked(e)}
           role="button"
           startIcon={icon}
