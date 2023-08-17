@@ -5,7 +5,8 @@ All of the functionality that has built into the `ska-javascript-components` lib
 this library for convenience as many of them have been used within this library as a basis.
 
 To see the functionality provided, please refer to the ska-javascript-components library documentation
-The URL for it will be in this form : 
+Note that using the ska-gui-component library allows direct access to these components so where it is 
+stated to import from `ska-javascript-component`, `ska-gui-components` can be used instead.  
 
 `https://developer.skao.int/projects/ska-javascript-components/en/latest/index.html``
 

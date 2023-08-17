@@ -28,3 +28,4 @@ as well as implementation of standard properties to allow for maximum accessibil
    NumberEntry
    TelescopeSelector
    TestEntry
+   version
