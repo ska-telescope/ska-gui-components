@@ -1,5 +1,5 @@
-**Version**
-~~~~~
+Version
+~~~~~~~
 
 *Overview*
 

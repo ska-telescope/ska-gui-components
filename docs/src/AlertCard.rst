@@ -1,4 +1,4 @@
-**AlertCard**
+AlertCard
 ~~~~~~~~~
 
 *Overview*
@@ -17,23 +17,25 @@ Panel that is colored dependant upon the most-urgent status valued element provi
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
-   "ariaDescription", "string", "No", "", "Used by Screen Readers
-   "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers
-   "array", "Object", "Yes", "", "See below
-   "clickFunction", "Function", "No", "null", "Executed when the card is clicked
-   "filled", "boolean", "No", "false", "Styling option
-   "testId", "string", "Yes", "", "Used for testing purposes
-   "title", "string", "Yes", "", "Displayed at the top of the Card
+   "ariaDescription", "string", "No", "", "Used by Screen Readers"
+   "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
+   "array", "Object", "Yes", "", "See below"
+   "clickFunction", "Function", "No", "null", "Executed when the card is clicked"
+   "filled", "boolean", "No", "false", "Styling option"
+   "testId", "string", "Yes", "", "Used for testing purposes"
+   "title", "string", "Yes", "", "Displayed at the top of the Card"
 
 .. csv-table:: array values
    :header: "Property", "Type", "Required", "default", ""
 
-   "hideValue", "boolean", "No", "false", "If true, display of <strong>value<strong> is suppressed
-   "level", "number", "Yes", "", "Symbol that is placed top-left of the Component
-   "title", "string", "No", "''", "Title that is used for the element
-   "value", "number", "Yes", "", "Value that is used to determine the coloring to be used
+   "hideValue", "boolean", "No", "false", "If true, display of <strong>value<strong> is suppressed"
+   "level", "number", "Yes", "", "Symbol that is placed top-left of the Component"
+   "title", "string", "No", "''", "Title that is used for the element"
+   "value", "number", "Yes", "", "Value that is used to determine the coloring to be used"
     
 .. admonition:: Constants
+
+   none
 
 .. admonition:: Testing Identifier
 

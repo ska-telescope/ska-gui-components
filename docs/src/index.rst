@@ -1,5 +1,5 @@
 Welcome to ska-gui-components documentation!
-===================================================
+============================================
 
 This is a JavaScript library contained low level components and utilities for use within SKAO GUI applications
 It makes available all functionality that is present within the `ska-javascript-components` library, and uses Material-UI
@@ -27,5 +27,5 @@ as well as implementation of standard properties to allow for maximum accessibil
    InfoCard
    NumberEntry
    TelescopeSelector
-   TestEntry
+   TextEntry
    version

@@ -1,4 +1,4 @@
-**TextEntry**
+TextEntry
 ~~~~~~~~~
 
 *Overview*
@@ -6,7 +6,6 @@
 Field for entering text into the application
 
 .. code-block:: sh
-   :caption: 
 
    import { TextEntry } from '@ska-telescope/ska-gui-components';
 

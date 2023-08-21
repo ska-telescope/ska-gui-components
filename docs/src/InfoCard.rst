@@ -1,5 +1,5 @@
-**InfoCard**
-~~~~~~~~~
+InfoCard
+~~~~~~~~
 
 *Overview*
 

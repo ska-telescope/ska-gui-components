@@ -1,5 +1,5 @@
-**TelescopeSelector**
-~~~~~~~~~
+TelescopeSelector
+~~~~~~~~~~~~~~~~~
 
 *Overview*
 

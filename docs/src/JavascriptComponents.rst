@@ -1,5 +1,5 @@
-**Functionality from ska-javascript-components library**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Functionality from ska-javascript-components library
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All of the functionality that has built into the `ska-javascript-components` library has been included into
 this library for convenience as many of them have been used within this library as a basis.
