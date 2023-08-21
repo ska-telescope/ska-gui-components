@@ -12,12 +12,6 @@ release = '0.1.53'
 
 # -- General configuration ---------------------------------------------------
 
-import sphinx_rtd_theme
-
-def setup(app):
-    app.add_css_file('css/custom.css')
-    app.add_js_file('js/github.js')
-
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
@@ -30,7 +24,7 @@ extensions = [
     'sphinx.ext.githubpages',
 ]
 
-templates_path = ['_templates']
+templates_path = []
 
 source_suffix = '.rst'
 
@@ -44,17 +38,9 @@ pygments_style = 'sphinx'
 
 html_theme = 'ska_ser_sphinx_theme'
 
-html_context = {
-    'logo': 'img/logo.jpg',
-    'theme_logo_only' : True,
-    'display_github': True, # Integrate GitHub
-    'github_user': 'ska-telescope', # Username
-    'github_repo': 'ska-gui-components', # Repo name
-    'github_version': 'master', # Version
-    'conf_py_path': '/src/', # Path in the checkout to the docs root
-}
+html_context = {}
 
-html_static_path = ['_static']
+html_static_path = []
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
@@ -95,7 +81,7 @@ epub_exclude_files = ['search.html']
 
 # -- Options for intersphinx extension ---------------------------------------
 
-intersphinx_mapping = {'https://docs.python.org/': None}
+intersphinx_mapping = {}
 
 # -- Options for todo extension ----------------------------------------------
 

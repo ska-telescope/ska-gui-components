@@ -1,4 +1,4 @@
-**DateEntry**
+DateEntry
 ~~~~~~~~~
 
 *Overview*

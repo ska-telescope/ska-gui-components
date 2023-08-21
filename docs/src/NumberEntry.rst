@@ -1,4 +1,4 @@
-**NumberEntry**
+NumberEntry
 ~~~~~~~~~~~
 
 *Overview*
