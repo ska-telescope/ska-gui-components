@@ -17,6 +17,7 @@ as well as implementation of standard properties to allow for maximum accessibil
    JavascriptComponents
    Alert
    AlertCard
+   Backdrop
    Button
    ButtonToggle
    DataTree
@@ -26,6 +27,7 @@ as well as implementation of standard properties to allow for maximum accessibil
    Header
    InfoCard
    NumberEntry
+   Progress
    TelescopeSelector
    TextEntry
    version
