@@ -39,6 +39,7 @@
     "@babel/preset-typescript": "^7.16.0",
     "@cypress/code-coverage": "^3.11.0",
     "@cypress/instrument-cra": "^1.4.0",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.10.6",
     "@fontsource/material-icons": "^4.5.4",
     "@fontsource/roboto": "^4.5.8",
