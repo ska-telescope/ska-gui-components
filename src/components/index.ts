@@ -12,8 +12,10 @@ export { default as DropDown } from './DropDown/DropDown';
 export { default as NumberEntry } from './NumberEntry/NumberEntry';
 export { default as TextEntry } from './TextEntry/TextEntry';
 //
+export { default as Backdrop } from './Backdrop/Backdrop';
 export { default as Button, ButtonColorTypes, ButtonVariantTypes } from './Button/Button';
 export { default as ButtonToggle } from './ButtonToggle/ButtonToggle';
+export { default as Progress } from './Progress/Progress';
 export { default as TelescopeSelector } from './TelescopeSelector/TelescopeSelector';
 export { GUI_COMPONENTS_VERSION } from './version';
 
