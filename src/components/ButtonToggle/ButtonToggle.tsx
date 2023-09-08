@@ -52,7 +52,7 @@ export function ButtonToggle({
             <ToggleButton
               aria-label={option.id}
               id={option.id}
-              data-testId={testId + option.id}
+              data-testid={testId + option.id}
               key={option.id}
               selected={option.id === current}
               sx={{
