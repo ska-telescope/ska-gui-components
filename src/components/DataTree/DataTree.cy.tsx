@@ -23,9 +23,14 @@ const mockData = {
   },
   files: [
     {
-      path: 'vis.ms',
+      description: 'raw visibilities 1',
+      path: 'vis1.ms',
       status: 'working',
-      description: 'Raw visibility dump from receive',
+    },
+    {
+      description: 'raw visibilities 2',
+      path: 'vis2.ms',
+      status: 'working',
     },
   ],
 };

@@ -7,6 +7,7 @@ import TreeItem, { TreeItemProps, treeItemClasses } from '@mui/lab/TreeItem';
 import Collapse from '@mui/material/Collapse';
 import { useSpring, animated } from '@react-spring/web';
 import { TransitionProps } from '@mui/material/transitions';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface DataTreeProps {
   // required
@@ -100,14 +101,13 @@ export function DataTree({
   const generateContent = (treeItems: any[]) => {
     return Object.keys(treeItems).map((treeItemData) => {
       const keyObj: any = treeItemData;
-      console.log('keyObj :', keyObj);
       const el = treeItems[keyObj] === null ? 'null' : typeof treeItems[keyObj];
-      console.log(treeItems[keyObj], el);
+      const key = uuidv4(); // Generate a unique identifier for each tree item
       return (
         <StyledTreeItem
           aria-label={treeItemData}
           key={treeItemData}
-          nodeId={treeItemData}
+          nodeId={key}
           label={treeItemData}
         >
           {el === 'null' && 'null'}
