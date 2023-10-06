@@ -15,8 +15,13 @@ const mockData = {
   execution_block: 'eb-test-20200325-00001',
   files: [
     {
-      description: 'raw visibilities',
-      path: 'vis.ms',
+      description: 'raw visibilities 1',
+      path: 'vis1.ms',
+      status: 'working',
+    },
+    {
+      description: 'raw visibilities 2',
+      path: 'vis2.ms',
       status: 'working',
     },
   ],
