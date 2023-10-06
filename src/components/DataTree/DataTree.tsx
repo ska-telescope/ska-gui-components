@@ -102,11 +102,11 @@ export function DataTree({
     return Object.keys(treeItems).map((treeItemData) => {
       const keyObj: any = treeItemData;
       const el = treeItems[keyObj] === null ? 'null' : typeof treeItems[keyObj];
-      const key = uuidv4(); // Generate a unique identifier for each tree item
+      const key = uuidv4(); // Generate a unique identifier for each tree item. previously [ treeItemData ]
       return (
         <StyledTreeItem
           aria-label={treeItemData}
-          key={treeItemData}
+          key={key}
           nodeId={key}
           label={treeItemData}
         >
