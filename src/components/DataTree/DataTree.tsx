@@ -104,12 +104,7 @@ export function DataTree({
       const el = treeItems[keyObj] === null ? 'null' : typeof treeItems[keyObj];
       const key = uuidv4(); // Generate a unique identifier for each tree item. previously [ treeItemData ]
       return (
-        <StyledTreeItem
-          aria-label={treeItemData}
-          key={key}
-          nodeId={key}
-          label={treeItemData}
-        >
+        <StyledTreeItem aria-label={treeItemData} key={key} nodeId={key} label={treeItemData}>
           {el === 'null' && 'null'}
           {el === 'string' && treeItems[keyObj]}
           {el === 'object' && el !== null && generateContent(treeItems[keyObj])}
