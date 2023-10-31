@@ -52,7 +52,7 @@ export function EntryField({
 }: EntryFieldProps): JSX.Element {
   const theSuffix = suffix ? suffix : '';
   const thePrefix = prefix ? prefix : '';
-  const updateValue = (e: any) => (typeof setValue !== 'undefined' ? setValue(e) : null);
+  const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
 
   return (
     <TextField
@@ -78,7 +78,7 @@ export function EntryField({
         updateValue(e.target.value);
       }}
       value={value}
-      variant="outlined"
+      variant="standard"
       required={required}
       type={type}
     />

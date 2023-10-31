@@ -30,7 +30,7 @@ export function DropDown({
   testId,
   value,
 }: DropDownProps): JSX.Element {
-  const updateValue = (e: any) => (typeof setValue !== 'undefined' ? setValue(e) : null);
+  const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
 
   return (
     <TextField
@@ -52,7 +52,7 @@ export function DropDown({
       required={required}
       select
       value={value}
-      variant="outlined"
+      variant="standard"
     >
       {options.map((option) => (
         <MenuItem key={option.value} value={option.value}>

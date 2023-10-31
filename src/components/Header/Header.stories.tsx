@@ -1,6 +1,3 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Grid } from '@mui/material';
 import Header from './Header';
 
 function handleThemeToggle() {}
@@ -11,23 +8,14 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof Header>;
+};
 
-const Template: ComponentStory<typeof Header> = (args) => (
-  <Header {...args}>
-    <Grid item>THIS</Grid>
-    <Grid item>IS</Grid>
-    <Grid item>THE</Grid>
-    <Grid item>HEADER</Grid>
-  </Header>
-);
-
-export const Component = Template.bind({});
-
-Component.args = {
-  ariaTitle: 'aria Title',
-  ariaDescription: 'aria Description',
-  testId: 'testId',
-  toolTip: { skao: 'SKAO WebSite', mode: ' Light / Dark Mode' },
-  themeToggle: handleThemeToggle,
+export const Default = {
+  args: {
+    ariaTitle: 'aria Title',
+    ariaDescription: 'aria Description',
+    testId: 'testId',
+    toolTip: { skao: 'SKAO WebSite', mode: ' Light / Dark Mode' },
+    themeToggle: handleThemeToggle,
+  },
 };
