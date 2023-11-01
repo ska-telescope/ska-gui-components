@@ -1,5 +1,3 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 import NumberEntry from './NumberEntry';
 
 export default {
@@ -8,25 +6,21 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof NumberEntry>;
-
-const Template: ComponentStory<typeof NumberEntry> = (args) => {
-  return <NumberEntry {...args} />;
 };
 
-export const NumberEntryDisplay = Template.bind({});
-
-NumberEntryDisplay.args = {
-  ariaTitle: 'aria Title',
-  ariaDescription: 'aria Description',
-  disabled: false,
-  errorText: '',
-  helperText: 'HELPER TEXT',
-  label: 'LABEL',
-  password: false,
-  prefix: '',
-  required: false,
-  suffix: '',
-  value: 0,
-  setValue: undefined,
+export const Default = {
+  args: {
+    ariaTitle: 'aria Title',
+    ariaDescription: 'aria Description',
+    disabled: false,
+    errorText: '',
+    helperText: 'HELPER TEXT',
+    label: 'LABEL',
+    password: false,
+    prefix: '',
+    required: false,
+    suffix: '',
+    value: 0,
+    setValue: undefined,
+  },
 };

@@ -1,5 +1,3 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 import AlertCard from './AlertCard';
 
 const DUMMY_DATA = [
@@ -25,20 +23,14 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof AlertCard>;
-
-const Template: ComponentStory<typeof AlertCard> = (args) => <AlertCard {...args} />;
-
-export const Component = Template.bind({});
-
-Component.parameters = {
-  backgrounds: { default: 'light' },
 };
 
-Component.args = {
-  ariaTitle: 'aria Title',
-  ariaDescription: 'aria Description',
-  title: 'alertCard.title',
-  filled: false,
-  array: DUMMY_DATA,
+export const Default = {
+  args: {
+    ariaTitle: 'aria Title',
+    ariaDescription: 'aria Description',
+    title: 'alertCard.title',
+    filled: false,
+    array: DUMMY_DATA,
+  },
 };

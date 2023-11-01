@@ -1,5 +1,3 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 import InfoCard from './InfoCard';
 
 export default {
@@ -8,22 +6,16 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof InfoCard>;
-
-const Template: ComponentStory<typeof InfoCard> = (args) => <InfoCard {...args} />;
-
-export const Component = Template.bind({});
-
-Component.parameters = {
-  backgrounds: { default: 'light' },
 };
 
-Component.args = {
-  ariaTitle: 'aria Title',
-  ariaDescription: 'aria Description',
-  message: 'infoCard.message',
-  filled: false,
-  level: 1,
-  fontSize: 35,
-  testId: 'testId',
+export const Default = {
+  args: {
+    ariaTitle: 'aria Title',
+    ariaDescription: 'aria Description',
+    message: 'infoCard.message',
+    filled: false,
+    level: 1,
+    fontSize: 35,
+    testId: 'testId',
+  },
 };
