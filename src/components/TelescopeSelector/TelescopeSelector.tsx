@@ -1,6 +1,7 @@
 import React from 'react';
 import { ButtonToggle } from '../ButtonToggle/ButtonToggle';
 import { TelescopeList } from '@ska-telescope/ska-javascript-components';
+import { storageObject } from '@ska-telescope/ska-gui-local-storage';
 
 export type Telescope = {
   code: string;
@@ -14,10 +15,6 @@ export type Telescope = {
 };
 
 export interface TelescopeSelectorProps {
-  // required
-  current: string;
-  setValue?: Function;
-  value: any;
   // optional
   ariaDescription?: string;
   ariaTitle?: string;
@@ -26,18 +23,18 @@ export interface TelescopeSelectorProps {
 }
 
 export function TelescopeSelector({
-  ariaDescription,
-  ariaTitle,
-  disabled,
-  setValue,
-  toolTip,
-  value,
+  ariaDescription = 'Means of selecting one of the available telescopes',
+  ariaTitle = 'TelescopeSelector',
+  disabled = false,
+  toolTip = '',
 }: TelescopeSelectorProps): JSX.Element {
   const telescopeChange = (_event: React.MouseEvent<HTMLElement>, newTelescope: Telescope) => {
-    if (setValue && newTelescope) {
-      setValue(newTelescope);
+    if (newTelescope) {
+      updateTelescope(newTelescope);
     }
   };
+
+  const { telescope, updateTelescope } = storageObject.useStore();
 
   const getOptions = (inList: any) => {
     const results: { id: string; label: string; value: any }[] = [];
@@ -51,22 +48,15 @@ export function TelescopeSelector({
     <ButtonToggle
       ariaDescription={ariaDescription}
       ariaTitle={ariaTitle}
-      current={value.code}
+      current={telescope.code}
       disabled={disabled}
       options={getOptions(TelescopeList)}
       setValue={telescopeChange}
       testId="telescopeSelectorId"
       toolTip={toolTip}
-      value={value}
+      value={telescope}
     />
   );
 }
-
-TelescopeSelector.defaultProps = {
-  ariaDescription: 'Means of selecting one of the available telescopes',
-  ariaTitle: 'TelescopeSelector',
-  disabled: false,
-  toolTip: '',
-};
 
 export default TelescopeSelector;
