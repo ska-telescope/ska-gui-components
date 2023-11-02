@@ -1,9 +1,8 @@
 import React from 'react';
-import { AppBar, Grid, Toolbar } from '@mui/material';
-import {
-  THEME_LIGHT,
-  JAVASCRIPT_COMPONENTS_VERSION,
-} from '@ska-telescope/ska-javascript-components';
+import { AppBar, Grid } from '@mui/material';
+import { Typography } from '@mui/material';
+import { Copyright } from '@mui/icons-material';
+import { IconButton } from '@mui/material';
 
 export interface FooterProps {
   ariaDescription?: string;
@@ -13,7 +12,13 @@ export interface FooterProps {
   testId: string;
 }
 
-export function Footer({ ariaDescription, ariaTitle, children, testId }: FooterProps) {
+export function Footer({
+  ariaDescription = 'Sticky Panel at the bottom of the page',
+  ariaTitle = 'SKAOFooter',
+  children,
+  testId,
+}: FooterProps) {
+  const fullYear = new Date().getFullYear();
   return (
     <AppBar
       aria-label={ariaTitle}
@@ -23,21 +28,23 @@ export function Footer({ ariaDescription, ariaTitle, children, testId }: FooterP
       color="primary"
       position="fixed"
       enableColorOnDark
-      sx={{ borderTop: '1px solid darkgrey', top: 'auto', bottom: 0 }}
+      sx={{ borderTop: '1px solid darkgrey', bottom: 0, top: 'auto' }}
     >
-      <Toolbar>
-        <Grid container direction="row" justifyContent="space-between">
-          {children}
+      <Grid m={1} container direction="row" justifyContent="space-between">
+        <Grid item>
+          <IconButton
+            sx={{ margin: 0, padding: 0 }}
+            aria-label="Copyright information"
+            color="inherit"
+          >
+            <Copyright />
+            <Typography>Copyright {fullYear}</Typography>
+          </IconButton>
         </Grid>
-      </Toolbar>
+        <Grid item>{children}</Grid>
+      </Grid>
     </AppBar>
   );
 }
-
-Footer.defaultProps = {
-  ariaDescription: 'Sticky Panel at the bottom of the page',
-  ariaTitle: 'SKAOFooter',
-  children: null,
-};
 
 export default Footer;
