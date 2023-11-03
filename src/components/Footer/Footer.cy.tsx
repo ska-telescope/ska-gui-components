@@ -12,10 +12,8 @@ describe('<Footer />', () => {
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <Footer testId="testId">
-            <Grid item>THIS</Grid>
-            <Grid item>IS</Grid>
-            <Grid item>THE</Grid>
-            <Grid item>FOOTER</Grid>
+            <Grid />
+            <Grid item>More content</Grid>
           </Footer>
         </ThemeProvider>
       );

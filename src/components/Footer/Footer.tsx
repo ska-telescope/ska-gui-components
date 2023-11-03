@@ -1,15 +1,14 @@
 import React from 'react';
-import { AppBar, Grid } from '@mui/material';
-import { Typography } from '@mui/material';
+import { AppBar, Grid, IconButton, Typography } from '@mui/material';
 import { Copyright } from '@mui/icons-material';
-import { IconButton } from '@mui/material';
-
+import { GUI_COMPONENTS_VERSION } from '../version';
 export interface FooterProps {
   ariaDescription?: string;
   ariaTitle?: string;
   // eslint-disable-next-line no-undef
   children?: JSX.Element[];
   testId: string;
+  version?: string;
 }
 
 export function Footer({
@@ -17,6 +16,7 @@ export function Footer({
   ariaTitle = 'SKAOFooter',
   children,
   testId,
+  version = GUI_COMPONENTS_VERSION,
 }: FooterProps) {
   const fullYear = new Date().getFullYear();
   return (
@@ -30,7 +30,7 @@ export function Footer({
       enableColorOnDark
       sx={{ borderTop: '1px solid darkgrey', bottom: 0, top: 'auto' }}
     >
-      <Grid m={1} container direction="row" justifyContent="space-between">
+      <Grid m={0} pr={1} container direction="row" justifyContent="space-between">
         <Grid item>
           <IconButton
             sx={{ margin: 0, padding: 0 }}
@@ -38,7 +38,9 @@ export function Footer({
             color="inherit"
           >
             <Copyright />
-            <Typography>Copyright {fullYear}</Typography>
+            <Typography>
+              Copyright {fullYear} | {version}{' '}
+            </Typography>
           </IconButton>
         </Grid>
         <Grid item>{children}</Grid>

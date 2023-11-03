@@ -13,7 +13,8 @@ export const Default = {
     ariaDescription: 'aria Description',
     selectTelescope: true,
     testId: 'testId',
+    title: 'ska-gui-components',
     toolTip: { skao: 'SKAO WebSite', mode: ' Light / Dark Mode' },
-    themeToggle: handleThemeToggle,
+    children: ['THIS ', 'IS ', 'SOME ', 'CHILDREN'],
   },
 };

@@ -12,17 +12,16 @@ Standard Footer wrapper component that spaces evenly it's child components
 
    ...
 
-   <Footer testId="testId">
-      <Grid item>THIS</Grid>
-      <Grid item>IS</Grid>
-      <Grid item>THE</Grid>
-      <Grid item>FOOTER</Grid>
+   <Footer testId="testId" version="1.2.3">
+      <Grid />
+      <Grid item>More content</Grid>
    </Footer>
 
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
     "testId", "string", "Yes", "", "Identifier for testing purposes"
+    "version", "string", "No", "Version of the GUI Components", ""
 
 .. admonition:: Constants
 

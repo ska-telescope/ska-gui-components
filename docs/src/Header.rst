@@ -12,7 +12,7 @@ Standard Header wrapper component that spaces evenly it's child components
 
    ...
 
-   <Header testId="testId" themeToggle={themeToggle}>
+   <Header testId="testId" title="SOME TITLE">
       <Grid item>THIS</Grid>
       <Grid item>IS</Grid>
       <Grid item>THE</Grid>
@@ -23,7 +23,7 @@ Standard Header wrapper component that spaces evenly it's child components
    :header: "Property", "Type", "Required", "default", ""
 
     "testId", "string", "Yes", "", "Identifier for testing purposes"
-    "themeToggle", " Function", "    No", " null", " If provided, the theme toggling button is displayed"
+    "title", "string", "No", "", "Title of the application, which is forced to upper case"
     "toolTip", " Object", "    No", " all values ''", " Contains toolTip text for display (See below)"
 
 
