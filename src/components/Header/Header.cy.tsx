@@ -13,7 +13,7 @@ describe('<Header />', () => {
         <StoreProvider>
           <ThemeProvider theme={theme(theTheme)}>
             <CssBaseline />
-            <Header themeToggle={cy.stub().as('clicked')} testId="testId">
+            <Header testId="testId">
               <Grid item>THIS</Grid>
               <Grid item>IS</Grid>
               <Grid item>THE</Grid>

@@ -1,6 +1,7 @@
 import React from 'react';
-import { AppBar, Grid, IconButton, Toolbar, Tooltip, useTheme } from '@mui/material';
-import { Logo } from '@ska-telescope/ska-javascript-components';
+import { AppBar, Box, Grid, IconButton, Tooltip, Typography } from '@mui/material';
+import { Logo, THEME_DARK } from '@ska-telescope/ska-javascript-components';
+import { storageObject } from '@ska-telescope/ska-gui-local-storage';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -17,7 +18,7 @@ export interface HeaderProps {
   ariaTitle?: string;
   selectTelescope?: boolean;
   testId: string;
-  themeToggle: Function;
+  title?: string;
   toolTip?: { skao: string; mode: string };
   children?: JSX.Element[];
 }
@@ -27,17 +28,12 @@ export function Header({
   ariaTitle = 'SKAOHeader',
   selectTelescope = true,
   testId,
-  themeToggle,
+  title = '',
   toolTip = { skao: 'SKAO', mode: '' },
   children,
 }: HeaderProps): JSX.Element {
-  const isDarkTheme = useTheme().palette.mode === 'dark';
-
-  const showThemeToggle = () => typeof themeToggle !== 'undefined';
-
-  const handleThemeToggle = () => {
-    themeToggle();
-  };
+  const { themeMode, toggleTheme } = storageObject.useStore();
+  const isDarkTheme = themeMode.mode === THEME_DARK;
 
   return (
     <AppBar
@@ -51,9 +47,9 @@ export function Header({
       elevation={0}
       sx={{ borderBottom: '1px solid darkgrey' }}
     >
-      <Toolbar>
-        <Grid container alignItems="center" direction="row" justifyContent="space-between">
-          <Grid item xs={3}>
+      <Grid m={1} container alignItems="center" direction="row" justifyContent="space-between">
+        <Grid item>
+          <Box display="flex" justifyContent="flex-start">
             <Tooltip title={toolTip?.skao} arrow>
               <IconButton
                 id={'skaWebsite'}
@@ -65,25 +61,30 @@ export function Header({
                 <Logo dark={!isDarkTheme} height={LOGO_HEIGHT} />
               </IconButton>
             </Tooltip>
-            {selectTelescope && <TelescopeSelector />}
-          </Grid>
-          <Grid item>{children}</Grid>
-          <Grid>
-            {showThemeToggle() && (
-              <Tooltip title={toolTip?.mode} arrow>
-                <IconButton
-                  aria-label="light/dark mode"
-                  sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
-                  onClick={handleThemeToggle}
-                  color="inherit"
-                >
-                  {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
-                </IconButton>
-              </Tooltip>
+            {title && (
+              <Typography data-testid="headerTitleId" variant="h4">
+                | {title.toUpperCase()}
+              </Typography>
             )}
-          </Grid>
+          </Box>
         </Grid>
-      </Toolbar>
+        <Grid item>{children}</Grid>
+        <Grid item>
+          <Box mr={1} display="flex" justifyContent="flex-end">
+            {selectTelescope && <TelescopeSelector />}
+            <Tooltip title={toolTip?.mode} arrow>
+              <IconButton
+                aria-label="light/dark mode"
+                sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+                onClick={toggleTheme}
+                color="inherit"
+              >
+                {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
+              </IconButton>
+            </Tooltip>
+          </Box>
+        </Grid>
+      </Grid>
     </AppBar>
   );
 }
