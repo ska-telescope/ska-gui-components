@@ -40,7 +40,7 @@ export function Header({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
-      aria-hidden="false"
+      aria-hidden={false}
       data-testid={testId}
       color="primary"
       position="fixed"
