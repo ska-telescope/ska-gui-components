@@ -20,16 +20,16 @@ export interface NumberEntryProps {
 }
 
 export function NumberEntry({
-  ariaDescription,
-  ariaTitle,
-  disabled,
-  errorText,
-  helperText,
+  ariaDescription = 'Entry of a valid numeric value',
+  ariaTitle = 'NumberEntry',
+  disabled = false,
+  errorText = '',
+  helperText = '',
   label,
-  prefix,
-  required,
+  prefix = '',
+  required = false,
   setValue,
-  suffix,
+  suffix = '',
   testId,
   value,
 }: NumberEntryProps): JSX.Element {
@@ -60,21 +60,5 @@ export function NumberEntry({
     />
   );
 }
-
-//type="password"
-//autoComplete="current-password"
-
-NumberEntry.defaultProps = {
-  ariaDescription: 'Entry of a valid numeric value',
-  ariaTitle: 'NumberEntry',
-  disabled: false,
-  helperText: '',
-  password: false,
-  prefix: '',
-  required: false,
-  rows: 1,
-  setValue: null,
-  suffix: '',
-};
 
 export default NumberEntry;

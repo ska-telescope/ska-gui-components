@@ -16,17 +16,17 @@ export interface InfoCardProps {
 }
 
 export function InfoCard({
-  ariaDescription,
-  ariaTitle,
+  ariaDescription = 'Card containing information',
+  ariaTitle = 'InfoCard',
   clickFunction,
-  fontSize,
-  filled,
-  level,
+  fontSize = 35,
+  filled = false,
+  level = 1,
   message,
   testId,
 }: InfoCardProps) {
-  const buttonClick = () => (typeof clickFunction !== 'undefined' ? clickFunction : null);
-  const statusSize = () => (typeof fontSize !== 'undefined' ? fontSize * 1.15 : fontSize);
+  const buttonClick = () => (clickFunction ? clickFunction : null);
+  const statusSize = () => (fontSize ? fontSize * 1.15 : fontSize);
 
   return (
     <Paper sx={{ backgroundColor: 'secondary.contrastText' }}>
@@ -56,14 +56,5 @@ export function InfoCard({
     </Paper>
   );
 }
-
-InfoCard.defaultProps = {
-  ariaDescription: 'Entry of a valid numeric value',
-  ariaTitle: 'NumberEntry',
-  clickFunction: 'undefined',
-  fontSize: 35,
-  filled: false,
-  level: 1,
-};
 
 export default InfoCard;

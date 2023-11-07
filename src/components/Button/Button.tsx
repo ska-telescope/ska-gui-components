@@ -27,15 +27,15 @@ export interface ButtonProps {
 }
 
 export function SKAOButton({
-  ariaDescription,
-  color,
-  disabled,
+  ariaDescription = 'Button',
+  color = ButtonColorTypes.Success,
+  disabled = false,
   icon,
   label,
   onClick,
   testId,
-  toolTip,
-  variant,
+  toolTip = '',
+  variant = ButtonVariantTypes.Outlined,
 }: ButtonProps): JSX.Element {
   const clicked = (e: any) => (typeof onClick !== 'undefined' ? onClick(e) : null);
 
@@ -61,14 +61,5 @@ export function SKAOButton({
     </Tooltip>
   );
 }
-
-SKAOButton.defaultProps = {
-  ariaDescription: 'Button',
-  color: ButtonColorTypes.Success,
-  disabled: false,
-  icon: null,
-  toolTip: '',
-  variant: ButtonVariantTypes.Outlined,
-};
 
 export default SKAOButton;

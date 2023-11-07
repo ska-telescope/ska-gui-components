@@ -16,15 +16,15 @@ export interface ButtonToggleProps {
 }
 
 export function ButtonToggle({
-  ariaDescription,
+  ariaDescription = 'Button',
   ariaTitle,
   current,
-  disabled,
+  disabled = false,
   setValue,
   value,
   options,
   testId,
-  toolTip,
+  toolTip = '',
 }: ButtonToggleProps): JSX.Element {
   const fetchValue = (id: string) => {
     return options[options[0].id === id ? 0 : 1].value;
@@ -84,11 +84,5 @@ export function ButtonToggle({
     </Tooltip>
   );
 }
-
-ButtonToggle.defaultProps = {
-  ariaDescription: 'Button',
-  disabled: false,
-  toolTip: '',
-};
 
 export default ButtonToggle;

@@ -29,10 +29,10 @@ export interface DataGridProps {
 }
 
 export function StylingRowsGrid({
-  ariaTitle,
-  ariaDescription,
+  ariaTitle = 'DataGrid',
+  ariaDescription = 'Information provided in a tabular form',
   columns,
-  height,
+  height = 400,
   onRowClick,
   rows,
   testId,
@@ -53,12 +53,5 @@ export function StylingRowsGrid({
     </Paper>
   );
 }
-
-StylingRowsGrid.defaultProps = {
-  ariaDescription: 'Information provided in a tabular form',
-  ariaTitle: 'DataGrid',
-  height: 400,
-  onRowClick: null,
-};
 
 export default StylingRowsGrid;
