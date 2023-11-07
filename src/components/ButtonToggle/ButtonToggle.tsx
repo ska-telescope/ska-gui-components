@@ -11,7 +11,7 @@ export interface ButtonToggleProps {
   // optional
   ariaDescription?: string;
   ariaTitle?: string;
-  disabled: boolean;
+  disabled?: boolean;
   toolTip?: string;
 }
 

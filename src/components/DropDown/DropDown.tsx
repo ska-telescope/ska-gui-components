@@ -13,7 +13,7 @@ export interface DropDownProps {
   errorText?: string;
   helperText?: string;
   label: string;
-  required: boolean;
+  required?: boolean;
   setValue?: Function;
 }
 
