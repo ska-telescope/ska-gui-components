@@ -13,7 +13,7 @@ export interface AlertCardProps {
   clickFunction?: Function;
   filled?: boolean;
   testId: string;
-  title: string;
+  title?: string;
 }
 
 const content = (hideValue: boolean, level: number, theTitle: string, value: number) => (
