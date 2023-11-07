@@ -12,7 +12,7 @@ export interface ButtonToggleProps {
   ariaDescription?: string;
   ariaTitle?: string;
   disabled: boolean;
-  toolTip: string;
+  toolTip?: string;
 }
 
 export function ButtonToggle({
