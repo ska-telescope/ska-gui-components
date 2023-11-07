@@ -7,7 +7,7 @@ export interface SKAOBackdropProps {
   visible?: boolean;
 }
 
-export function SKAOBackdrop({ children, open, visible }: SKAOBackdropProps): JSX.Element {
+export function SKAOBackdrop({ children, open, visible = true }: SKAOBackdropProps): JSX.Element {
   return (
     <Backdrop
       sx={{
@@ -21,9 +21,5 @@ export function SKAOBackdrop({ children, open, visible }: SKAOBackdropProps): JS
     </Backdrop>
   );
 }
-
-SKAOBackdrop.defaultProps = {
-  visible: true,
-};
 
 export default SKAOBackdrop;

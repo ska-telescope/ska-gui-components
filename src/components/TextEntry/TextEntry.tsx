@@ -21,14 +21,14 @@ export interface TextEntryProps {
 }
 
 export function TextEntry({
-  ariaDescription,
-  ariaTitle,
-  disabled,
-  errorText,
-  helperText,
+  ariaDescription = 'Entry of a textual value',
+  ariaTitle = 'TextEntry',
+  disabled = false,
+  errorText = '',
+  helperText = '',
   label,
-  required,
-  rows,
+  required = false,
+  rows = 1,
   setValue,
   testId,
   value,
@@ -61,20 +61,5 @@ export function TextEntry({
     />
   );
 }
-
-//type="password"
-//autoComplete="current-password"
-
-TextEntry.defaultProps = {
-  ariaDescription: 'Entry of a textual value',
-  ariaTitle: 'TextEntry',
-  disabled: false,
-  helperText: '',
-  password: false,
-  required: false,
-  rows: 1,
-  setValue: null,
-  type: 'text',
-};
 
 export default TextEntry;

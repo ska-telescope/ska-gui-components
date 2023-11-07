@@ -13,7 +13,7 @@ export interface AlertCardProps {
   clickFunction?: Function;
   filled?: boolean;
   testId: string;
-  title: string;
+  title?: string;
 }
 
 const content = (hideValue: boolean, level: number, theTitle: string, value: number) => (
@@ -45,7 +45,7 @@ function AlertElement(
   // optional
   clickFunction?: Function
 ) {
-  const buttonClick = () => (typeof clickFunction !== 'undefined' ? clickFunction : null);
+  const buttonClick = () => (clickFunction ? clickFunction : null);
 
   return (
     <Box key={`AlertFilledBox${index}`}>
@@ -68,13 +68,13 @@ function AlertElement(
 
 export function AlertCard({
   action,
-  ariaDescription,
-  ariaTitle,
+  ariaDescription = 'Panel that is colored dependant upon the most-urgent status valued element provided',
+  ariaTitle = 'AlertCard',
   array,
   clickFunction,
-  filled,
+  filled = false,
   testId,
-  title,
+  title = '',
 }: AlertCardProps) {
   const setSeverity = () => {
     let result = 0;
@@ -130,15 +130,5 @@ export function AlertCard({
     </Box>
   );
 }
-
-AlertCard.defaultProps = {
-  action: null,
-  ariaDescription:
-    'Panel that is colored dependant upon the most-urgent status valued element provided',
-  ariaTitle: 'AlertCard',
-  clickFunction: 'undefined',
-  filled: false,
-  title: '',
-};
 
 export default AlertCard;

@@ -35,19 +35,19 @@ export interface EntryFieldProps {
 }
 
 export function EntryField({
-  ariaDescription,
-  ariaTitle,
-  disabled,
-  errorText,
-  helperText,
+  ariaDescription = 'Entry of a value',
+  ariaTitle = 'EntryField',
+  disabled = false,
+  errorText = '',
+  helperText = '',
   label,
-  prefix,
-  required,
-  rows,
+  prefix = '',
+  required = false,
+  rows = 1,
   setValue,
-  suffix,
+  suffix = '',
   testId,
-  type,
+  type = TYPE.TEXT,
   value,
 }: EntryFieldProps): JSX.Element {
   const theSuffix = suffix ? suffix : '';
@@ -84,19 +84,5 @@ export function EntryField({
     />
   );
 }
-
-EntryField.defaultProps = {
-  ariaDescription: 'Entry of a value',
-  ariaTitle: 'EntryField',
-  disabled: false,
-  helperText: '',
-  password: false,
-  prefix: '',
-  required: false,
-  rows: 1,
-  setValue: null,
-  suffix: '',
-  type: TYPE.TEXT,
-};
 
 export default EntryField;

@@ -17,14 +17,14 @@ export interface ProgressProps {
 }
 
 export function Progress({
-  ariaDescription,
-  ariaTitle,
-  determinate,
-  indicator,
-  label,
-  size,
+  ariaDescription = 'Indicates the progress of an activity',
+  ariaTitle = 'Progress',
+  determinate = false,
+  indicator = 'circle',
+  label = false,
+  size = 40,
   testId,
-  value,
+  value = 0,
 }: ProgressProps): JSX.Element {
   const variantSize = (inValue: number) => {
     if (inValue < BASE) {
@@ -145,16 +145,5 @@ export function Progress({
     </>
   );
 }
-
-Progress.defaultProps = {
-  ariaDescription: 'Indicates the progress of an activity',
-  ariaTitle: 'Progress',
-  determinate: false,
-  indicator: 'circle',
-  label: false,
-  modal: false,
-  size: 40,
-  value: 0,
-};
 
 export default Progress;

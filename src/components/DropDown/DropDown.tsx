@@ -13,19 +13,19 @@ export interface DropDownProps {
   errorText?: string;
   helperText?: string;
   label: string;
-  required: boolean;
+  required?: boolean;
   setValue?: Function;
 }
 
 export function DropDown({
-  ariaDescription,
-  ariaTitle,
-  disabled,
-  errorText,
-  helperText,
+  ariaDescription = 'Selection of a value from a list of possible values',
+  ariaTitle = 'DropDown',
+  disabled = false,
+  errorText = '',
+  helperText = '',
   label,
   options,
-  required,
+  required = false,
   setValue,
   testId,
   value,
@@ -62,16 +62,5 @@ export function DropDown({
     </TextField>
   );
 }
-
-DropDown.defaultProps = {
-  ariaDescription: 'Selection of a value from a list of possible values',
-  ariaTitle: 'DropDown',
-  disabled: false,
-  errorText: '',
-  helperText: '',
-  label: '',
-  required: false,
-  setValue: null,
-};
 
 export default DropDown;

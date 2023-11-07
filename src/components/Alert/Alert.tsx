@@ -13,15 +13,14 @@ export interface AlertProps {
   severity: number;
   testId: string;
 }
-
 export function SKAOAlert({
   action,
-  ariaDescription,
-  ariaTitle,
+  ariaDescription = 'Panel that is colored dependant upon the provided status',
+  ariaTitle = 'Alert',
   children,
-  filled,
+  filled = false,
   testId,
-  severity,
+  severity = 0,
 }: AlertProps) {
   return (
     <Box m={1}>
@@ -50,13 +49,5 @@ export function SKAOAlert({
     </Box>
   );
 }
-
-SKAOAlert.defaultProps = {
-  action: null,
-  ariaDescription: 'Panel that is colored dependant upon the provided status',
-  ariaTitle: 'Alert',
-  filled: false,
-  severity: 0,
-};
 
 export default SKAOAlert;

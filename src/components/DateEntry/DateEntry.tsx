@@ -17,12 +17,12 @@ export interface DateEntryProps {
 }
 
 export function DateEntry({
-  ariaDescription,
-  ariaTitle,
-  disabled,
-  errorText,
+  ariaDescription = 'Entry of a valid date',
+  ariaTitle = 'DateEntry',
+  disabled = false,
+  errorText = '',
   label,
-  helperText,
+  helperText = '',
   required,
   setValue,
   testId,
@@ -46,16 +46,5 @@ export function DateEntry({
     />
   );
 }
-
-DateEntry.defaultProps = {
-  ariaDescription: 'Entry of a valid date',
-  ariaTitle: 'DateEntry',
-  disabled: false,
-  errorText: '',
-  helperText: '',
-  password: false,
-  required: false,
-  setValue: null,
-};
 
 export default DateEntry;

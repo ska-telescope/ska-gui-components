@@ -21,11 +21,11 @@ export interface DataTreeProps {
 }
 
 export function DataTree({
-  ariaTitle,
-  ariaDescription,
+  ariaTitle = 'DataTree',
+  ariaDescription = 'Produces an expandable TreeView of the data',
   data,
-  height,
-  maxWidth,
+  height = 264,
+  maxWidth = 400,
   testId,
 }: DataTreeProps): JSX.Element {
   function MinusSquare(props: SvgIconProps) {
@@ -131,12 +131,5 @@ export function DataTree({
     </Box>
   );
 }
-
-DataTree.defaultProps = {
-  ariaDescription: 'Produces an expandable TreeView of the data',
-  ariaTitle: 'DataTree',
-  height: 264,
-  maxWidth: 400,
-};
 
 export default DataTree;
