@@ -46,6 +46,7 @@ export function SKAOButton({
           aria-label={label}
           aria-describedby={ariaDescription}
           aria-description={ariaDescription}
+          aria-hidden={false}
           color={color}
           data-testid={testId}
           disabled={disabled}

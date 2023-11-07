@@ -59,6 +59,7 @@ export function EntryField({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-description={ariaDescription}
+      aria-hidden={false}
       data-testid={testId}
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}
