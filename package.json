@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "0.1.66",
+  "version": "0.1.67",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -27,6 +27,15 @@
     "test:coverage:report:ci": "npx nyc report --report-dir=build/reports --reporter=cobertura",
     "test:coverage:report": "npx nyc report --report-dir=build/reports --reporter=html",
     "test:cypress:component:ci": "cypress run --component --headless --browser chrome --reporter junit --config video=false --reporter-options mochaFile=build/tests/unit-tests[hash].xml"
+  },
+  "resolutions": {
+    "@cypress/request": "3.x.x",
+    "debug": "^4.3.1",
+    "glob-parent": "^5.1.2",
+    "json5": "^1.0.2",
+    "minimatch": "^3.0.5",
+    "nth-check": "^2.0.1",
+    "postcss": "^8.4.31"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -133,8 +142,8 @@
     "@mui/system": "^5.13.7",
     "@mui/x-data-grid": "^6.9.2",
     "@react-spring/web": "^9.7.3",
-    "@ska-telescope/ska-gui-local-storage": "^0.0.2",
-    "@ska-telescope/ska-javascript-components": "^0.1.39",
+    "@ska-telescope/ska-gui-local-storage": "^0.0.3",
+    "@ska-telescope/ska-javascript-components": "^0.1.40",
     "@types/uuid": "^9.0.4",
     "junit-report-merger": "^6.0.2"
   }
