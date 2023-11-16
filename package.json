@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "0.1.65",
+  "version": "0.1.66",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -79,7 +79,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "junit": "^1.4.9",
-    "postcss": "^8.4.12",
+    "postcss": "^8.4.31",
     "prettier": "^2.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -133,8 +133,8 @@
     "@mui/system": "^5.13.7",
     "@mui/x-data-grid": "^6.9.2",
     "@react-spring/web": "^9.7.3",
-    "@ska-telescope/ska-gui-local-storage": "^0.0.1",
-    "@ska-telescope/ska-javascript-components": "^0.1.38",
+    "@ska-telescope/ska-gui-local-storage": "^0.0.2",
+    "@ska-telescope/ska-javascript-components": "^0.1.39",
     "@types/uuid": "^9.0.4",
     "junit-report-merger": "^6.0.2"
   }
