@@ -22,6 +22,7 @@ Standard Footer wrapper component that spaces evenly it's child components
 
     "testId", "string", "Yes", "", "Identifier for testing purposes"
     "version", "string", "No", "Version of the GUI Components", ""
+    "versionTooltip", "string", "No", "Optional tooltip when hovering over the version", ""
 
 .. admonition:: Constants
 

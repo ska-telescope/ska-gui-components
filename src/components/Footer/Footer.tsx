@@ -1,7 +1,10 @@
 import React from 'react';
-import { AppBar, Grid, IconButton, Typography } from '@mui/material';
+import { AppBar, Grid, Stack, Typography } from '@mui/material';
 import { Copyright } from '@mui/icons-material';
+import Button, { ButtonColorTypes, ButtonVariantTypes } from '../Button/Button';
 import { GUI_COMPONENTS_VERSION } from '../version';
+import { Tooltip } from '@mui/material';
+
 export interface FooterProps {
   ariaDescription?: string;
   ariaTitle?: string;
@@ -9,6 +12,7 @@ export interface FooterProps {
   children?: JSX.Element[];
   testId: string;
   version?: string;
+  versionTooltip?: string;
 }
 
 export function Footer({
@@ -17,8 +21,18 @@ export function Footer({
   children,
   testId,
   version = GUI_COMPONENTS_VERSION,
+  versionTooltip,
 }: FooterProps) {
   const fullYear = new Date().getFullYear();
+
+  const COPYRIGHT_0 = 'Click below for latest information';
+  const COPYRIGHT_1 = 'https://www.skao.int/en/487/copyright';
+  const COPYRIGHT_2 = 'Copyright Information';
+
+  function openCopyright() {
+    window.open(COPYRIGHT_1, '_blank');
+  }
+
   return (
     <AppBar
       aria-label={ariaTitle}
@@ -33,16 +47,30 @@ export function Footer({
     >
       <Grid m={0} pr={1} container direction="row" justifyContent="space-between">
         <Grid item>
-          <IconButton
-            sx={{ margin: 0, padding: 0 }}
-            aria-label="Copyright information"
-            color="inherit"
-          >
+          <Stack direction="row" alignItems="center" gap={1}>
             <Copyright />
-            <Typography>
-              Copyright {fullYear} | {version}{' '}
-            </Typography>
-          </IconButton>
+            <Tooltip
+              title={
+                <Stack>
+                  <Typography variant="caption">{COPYRIGHT_0}</Typography>
+                  <Button
+                    ariaDescription="copyright link"
+                    color={ButtonColorTypes.Inherit}
+                    variant={ButtonVariantTypes.Text}
+                    onClick={() => openCopyright()}
+                    label={COPYRIGHT_2}
+                    testId="copyrightLinkTestId"
+                  />
+                </Stack>
+              }
+            >
+              <Typography>SKAO {fullYear}</Typography>
+            </Tooltip>
+            <Typography>|</Typography>
+            <Tooltip title={versionTooltip}>
+              <Typography>{version}</Typography>
+            </Tooltip>
+          </Stack>
         </Grid>
         <Grid item>{children}</Grid>
       </Grid>
