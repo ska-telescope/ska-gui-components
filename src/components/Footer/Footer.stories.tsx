@@ -13,5 +13,6 @@ export const Default = {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
     testId: 'testId',
+    versionTooltip: 'Version tooltip',
   },
 };
