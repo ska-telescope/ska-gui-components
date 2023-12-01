@@ -17,19 +17,21 @@ Panel that is colored dependant upon the property provided
    ...
 
    <AlertCard severity={severity} testId="testId" >
+
        CHILDREN defined are displayed in here
+       
    </AlertCard>
    
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
-   "action", "function", "No", "", "Allows for an onClick activity"
-   "ariaDescription", "string", "No", "", "Used by Screen Readers"
-   "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
-   "color", "AlertColorTypes", "No", "Info", "Identifies the coloring for the alert"
-   "children", "JSX.Element", "No", "", "Allows for content to be added within the alert"
-   "variant", "AlertVariantTypes", "No", "Outlined", "Styling option"
-   "testId", "string", "Yes", "", "Used for testing purposes"
+    "action", "function", "No", "", "Allows for an onClick activity"
+    "ariaDescription", "string", "No", "", "Used by Screen Readers"
+    "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
+    "color", "AlertColorTypes", "No", "Info", "Identifies the coloring for the alert"
+    "children", "JSX.Element", "No", "", "Allows for content to be added within the alert"
+    "variant", "AlertVariantTypes", "No", "Outlined", "Styling option"
+    "testId", "string", "Yes", "", "Used for testing purposes"
     
 .. admonition:: Constants
 
@@ -40,4 +42,3 @@ Panel that is colored dependant upon the property provided
 .. admonition:: Testing Identifier
 
    Provided by the property *testId*
-   
