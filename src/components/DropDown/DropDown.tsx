@@ -36,7 +36,6 @@ export function DropDown({
     <TextField
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
-      aria-description={ariaDescription}
       color="secondary"
       data-testid={testId}
       disabled={disabled}

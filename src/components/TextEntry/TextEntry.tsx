@@ -12,11 +12,11 @@ export interface TextEntryProps {
   errorText?: string;
   helperText?: string;
   password?: boolean;
-  prefix?: string;
+  prefix?: JSX.Element | string;
   required?: boolean;
   rows?: number;
   setValue?: Function;
-  suffix?: string;
+  suffix?: JSX.Element | string;
   testId: string;
 }
 
@@ -46,7 +46,6 @@ export function TextEntry({
     <EntryField
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
-      aria-description={ariaDescription}
       data-testid={testId}
       disabled={disabled}
       errorText={errText()}

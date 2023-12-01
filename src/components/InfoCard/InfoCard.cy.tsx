@@ -1,5 +1,5 @@
 import React from 'react';
-import InfoCard from './InfoCard';
+import InfoCard, { InfoCardColorTypes, InfoCardVariantTypes } from './InfoCard';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
@@ -11,7 +11,7 @@ describe('<InfoCard />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <InfoCard level={1} message="infoCard.message" testId="testId" />
+          <InfoCard color={InfoCardColorTypes.Info} message="infoCard.message" testId="testId" />
         </ThemeProvider>
       );
     });
@@ -20,7 +20,26 @@ describe('<InfoCard />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <InfoCard level={1} message="infoCard.message" testId="testId" filled />
+          <InfoCard
+            color={InfoCardColorTypes.Info}
+            message="infoCard.message"
+            testId="testId"
+            variant={InfoCardVariantTypes.Filled}
+          />
+        </ThemeProvider>
+      );
+    });
+
+    it('Theme ' + theTheme + ' : Status', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <InfoCard
+            color={InfoCardColorTypes.Info}
+            message="infoCard.message"
+            testId="testId"
+            showStatus
+          />
         </ThemeProvider>
       );
     });

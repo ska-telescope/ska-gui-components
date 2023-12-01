@@ -5,6 +5,9 @@ TextEntry
 
 Field for entering text into the application
 
+.. figure:: /images/textEntry.png
+   :width: 90%
+
 .. code-block:: sh
 
    import { TextEntry } from '@ska-telescope/ska-gui-components';
@@ -21,11 +24,11 @@ Field for entering text into the application
     "helperText", "string", "No", "''", "Displayed is there is a value"
     "label", "string", "Yes", "", "Label displayed for the Component"
     "password", "boolean", "No", "false", "Value entered is obscured"
-    "prefix", "string", "No", "''", "Allows for the addition of characters before the number"
+    "prefix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon before the number"
     "required", "boolean", "No", "false", "Asterisk is added to the label if true"
     "rows", "number", "No", "1", "TEXT ONLY.  text area when value is above 1"
     "setValue", "function", "No", "null", "Used to update the value onChange"
-    "suffix", "string", "No", "''", "Allows for the addition of characters after the number"
+    "suffix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon after the number"
     "testId", "string", "Yes", "", "Identifier for testing purposes"
     "value", "string", "Yes", "", "Value that is displayed within the component"
 

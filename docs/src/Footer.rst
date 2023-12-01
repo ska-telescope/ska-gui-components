@@ -4,6 +4,16 @@ Footer
 *Overview*
 
 Standard Footer wrapper component that spaces evenly it's child components
+Clicking on the copyright will display a link to a standard copyright page
+
+The version can be provided via a property.   
+
+There is also a tooltip which is displayed when hovering over the version
+This is so that additional information like API version can be also provided if desired.
+
+.. figure:: /images/footer.png
+   :width: 90%
+
 
 .. code-block:: sh
    :caption: Example : Default usage

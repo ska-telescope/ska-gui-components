@@ -1,4 +1,4 @@
-export { default as Alert } from './Alert/Alert';
+export { default as Alert, AlertColorTypes, AlertVariantTypes } from './Alert/Alert';
 export { default as AlertCard } from './AlertCard/AlertCard';
 export { default as DataGrid } from './DataGrid/DataGrid';
 export { default as InfoCard } from './InfoCard/InfoCard';

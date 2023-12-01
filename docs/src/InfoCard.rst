@@ -5,6 +5,9 @@ InfoCard
 
 Component providing standard delivery of information/errors/warnings
 
+.. figure:: /images/infoCard.png
+   :width: 90%
+
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -12,17 +15,21 @@ Component providing standard delivery of information/errors/warnings
 
    ...
 
-   <InfoCard filled={INFO_FILLED} level={INFO_LEVEL} message={INFO_MESSAGE} testId="testId" />
+   <InfoCard color={InfoCardColorTypes.Info} message="infoCard.message" testId="testId" />
 
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
-    "clickFunction", "Function", "No", "null", "Executed if the component is clicked"
-    "filled", "boolean", "No", "false", "Determines if component is filled or outlined"
-    "fontSize", "number", "No", "35", "Determines the size of the displayed text/symbol"
-    "level", "number", "Yes", "", "Symbol that is placed top-left of the Component"
-    "message", "string", "Yes", "", "Title that is used for the element"
-    "testId", "string", "Yes", "", "Identifier for testing purposes"
+   "ariaDescription", "string", "No", "", "Used by Screen Readers"
+   "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
+   "clickFunction", "Function", "No", "null", "Executed if the component is clicked"
+   "color", "AlertColorTypes", "No", "Info", "Identifies the coloring for the alert"
+   "fontSize", "number", "No", "35", "Determines the size of the displayed text/symbol"
+   "message", "string", "Yes", "", "Title that is used for the element"
+   "showStatus", "boolean", "No", "false", "When true also shows appropriate status component"
+   "showStatusIcon", "boolean", "No", "true", "Displays symbol within the status when shown"
+   "testId", "string", "Yes", "", "Identifier for testing purposes"
+   "variant", "AlertVariantTypes", "No", "Outlined", "Styling option"
 
 .. admonition:: Constants
 

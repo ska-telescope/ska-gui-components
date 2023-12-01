@@ -1,6 +1,4 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import SKAOAlert from './Alert';
+import { SKAOAlert, AlertVariantTypes } from './Alert';
 
 export default {
   title: 'Example/Alert',
@@ -8,19 +6,27 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof SKAOAlert>;
-
-const Template: ComponentStory<typeof SKAOAlert> = (args) => <SKAOAlert {...args} />;
-
-export const Component = Template.bind({});
-
-Component.parameters = {
-  backgrounds: { default: 'light' },
 };
 
-Component.args = {
-  ariaTitle: 'aria Title',
-  ariaDescription: 'aria Description',
-  filled: false,
-  severity: 0,
+export const Default = {
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  args: {
+    ariaTitle: 'aria Title',
+    ariaDescription: 'aria Description',
+    children: 'CHILDREN defined are displayed in here',
+  },
+};
+
+export const Dark = {
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
+  args: {
+    ariaTitle: 'aria Title',
+    ariaDescription: 'aria Description',
+    children: 'CHILDREN defined are displayed in here',
+    variant: AlertVariantTypes.Filled,
+  },
 };

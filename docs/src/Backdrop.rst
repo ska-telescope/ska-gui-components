@@ -6,6 +6,8 @@ Backdrop
 Panel that inhibits activity upon the screen when active.  
 Often used with the Progress component
 
+*Image not applicable*
+
 .. code-block:: sh
    :caption: Example : Default usage
 

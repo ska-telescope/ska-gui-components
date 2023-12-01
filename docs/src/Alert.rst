@@ -3,29 +3,39 @@ Alert
 
 *Overview*
 
-Panel that is colored dependant upon the status number provided
+Panel that is colored dependant upon the property provided
 
-.. code-block:: sh
-   :caption: Example : Default usage
+*Usual implementation is that outlined is used for light mode, and filled for dark mode.*
+
+.. figure:: /images/alert.png
+   :width: 90%
+
+.. admonition:: Example
 
    import { Alert } from '@ska-telescope/ska-gui-components';
 
    ...
 
-   <AlertCard severity={severity} testId="testId" />
+   <AlertCard severity={severity} testId="testId" >
+       CHILDREN defined are displayed in here
+   </AlertCard>
    
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
+   "action", "function", "No", "", "Allows for an onClick activity"
    "ariaDescription", "string", "No", "", "Used by Screen Readers"
    "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
-   "filled", "boolean", "No", "false", "Styling option"
-   "severity", "number", "Yes", "", "border/fill is coloured dependant upon this value [ 0 - 5]"
+   "color", "AlertColorTypes", "No", "Info", "Identifies the coloring for the alert"
+   "children", "JSX.Element", "No", "", "Allows for content to be added within the alert"
+   "variant", "AlertVariantTypes", "No", "Outlined", "Styling option"
    "testId", "string", "Yes", "", "Used for testing purposes"
     
 .. admonition:: Constants
 
-   none
+   - AlertColorTypes : 'error', 'secondary', 'success', 'warning'
+
+   - AlertVariantTypes : 'filled', 'outlined'
 
 .. admonition:: Testing Identifier
 

@@ -5,6 +5,9 @@ DropDown
 
 Field for selecting an option from a possible list
 
+.. figure:: /images/dropDown.png
+   :width: 90%
+
 .. code-block:: sh
    :caption: Example : Default usage
 

@@ -6,6 +6,8 @@ Progress
 Indicator that there is an activity ongoing
 Often used in conjunction with the Backdrop component
 
+*Image not applicable for this component*
+
 .. code-block:: sh
    :caption: Example : Default usage
 

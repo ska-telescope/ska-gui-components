@@ -43,7 +43,6 @@ export function StylingRowsGrid({
         <StyledDataGrid
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
-          aria-description={ariaDescription}
           data-testid={testId}
           getRowClassName={() => `super-app-theme`}
           onRowClick={onRowClick}
