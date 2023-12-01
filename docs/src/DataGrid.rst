@@ -22,11 +22,12 @@ Given the provided data, will provide a table of contents
 
     "ariaDescription", "string", "No", "", "Used by Screen Readers"
     "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
-    "columns", "number", "Yes", "", "Array containing the column specifics ( See below ) "
+    "columns", "number", "Yes", "", "Array containing the column specifics"
     "height", "number", "No", "264", "Determines the height that the component will use"
     "onRowClick", "function", "No", "", "Action if the row is clicked"
-    "rows", "array", "Yes" , "", "Data that is to be presented"
+    "rows", "array", "Yes", "", "Data that is to be presented"
     "testId", "string", "Yes", "", "Identifier for testing purposes"
+    
 
 .. csv-table:: Columns
    :header: "Property", "Type", "Required", "default", ""
