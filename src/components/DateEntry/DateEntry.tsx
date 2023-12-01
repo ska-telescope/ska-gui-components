@@ -32,7 +32,6 @@ export function DateEntry({
     <EntryField
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
-      aria-description={ariaDescription}
       data-testid={testId}
       disabled={disabled}
       errorText={errorText}

@@ -1,17 +1,27 @@
 import React from 'react';
 import { Alert, Box, Paper, Stack, Typography } from '@mui/material';
-import { Status } from '@ska-telescope/ska-javascript-components';
+import { StatusIcon } from '../StatusIcon/StatusIcon';
 
-const SEVERITY = ['success', 'error', 'warning', 'warning', 'warning', 'info'];
-
+export enum InfoCardColorTypes {
+  Error = 'error',
+  Info = 'info',
+  Success = 'success',
+  Warning = 'warning',
+}
+export enum InfoCardVariantTypes {
+  Filled = 'filled',
+  Outlined = 'outlined',
+}
 export interface InfoCardProps {
-  level: number;
+  color: InfoCardColorTypes;
   message: string;
   ariaDescription?: string;
   ariaTitle?: string;
   fontSize?: number;
-  filled?: boolean;
+  variant?: InfoCardVariantTypes;
   clickFunction?: Function;
+  showStatus?: boolean;
+  showStatusIcon?: boolean;
   testId: string;
 }
 
@@ -19,31 +29,52 @@ export function InfoCard({
   ariaDescription = 'Card containing information',
   ariaTitle = 'InfoCard',
   clickFunction,
+  color = InfoCardColorTypes.Info,
   fontSize = 35,
-  filled = false,
-  level = 1,
+  variant = InfoCardVariantTypes.Outlined,
   message,
+  showStatus = false,
+  showStatusIcon = true,
   testId,
 }: InfoCardProps) {
   const buttonClick = () => (clickFunction ? clickFunction : null);
   const statusSize = () => (fontSize ? fontSize * 1.15 : fontSize);
+
+  function getLevel(color: InfoCardColorTypes): number {
+    switch (color) {
+      case InfoCardColorTypes.Success:
+        return 0;
+      case InfoCardColorTypes.Error:
+        return 1;
+      case InfoCardColorTypes.Warning:
+        return 2;
+      case InfoCardColorTypes.Info:
+        return 4;
+      default:
+        return 9;
+    }
+  }
 
   return (
     <Paper sx={{ backgroundColor: 'secondary.contrastText' }}>
       <Alert
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
-        aria-description={ariaDescription}
         data-testid={testId}
-        variant={filled ? 'filled' : 'outlined'}
+        variant={variant}
         icon={false}
-        severity={SEVERITY[level]}
+        severity={color}
         onClick={buttonClick}
       >
         <Stack alignItems="center" direction="row" justifyContent="center" spacing={1}>
-          {level > 0 && level < 6 && (
+          {showStatus && (
             <Box m={1}>
-              <Status level={level} size={statusSize()} testId={testId + 'Status'} />
+              <StatusIcon
+                level={getLevel(color)}
+                icon={showStatusIcon}
+                size={statusSize()}
+                testId={testId + 'Status'}
+              />
             </Box>
           )}
           {message && message.length && (

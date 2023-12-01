@@ -26,11 +26,11 @@ export interface EntryFieldProps {
   errorText?: string;
   helperText?: string;
   password?: boolean;
-  prefix?: string;
+  prefix?: JSX.Element | string;
   required?: boolean;
   rows?: number;
   setValue?: Function;
-  suffix?: string;
+  suffix?: JSX.Element | string;
   type?: TYPE.DATE | TYPE.NUMBER | TYPE.TEXT;
 }
 
@@ -58,8 +58,8 @@ export function EntryField({
     <TextField
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
-      aria-description={ariaDescription}
       aria-hidden={false}
+      color="secondary"
       data-testid={testId}
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}

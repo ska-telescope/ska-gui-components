@@ -2778,6 +2778,24 @@
     react-refresh "^0.14.0"
     react-scripts "^5.0.1"
 
+"@ska-telescope/ska-javascript-components@^0.1.41":
+  version "0.1.41"
+  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-0.1.41.tgz#6449e20335e989aa50d0d7907d198a5e63175f8e"
+  integrity sha512-r/Gu5z0n7nI8w3AnC+G1yTJ+8U+kPp1g/7UHHc+KsvQNMAMX1uxFou3FV75LFANW5lwKAxK4/vlSh5JITYeezw==
+  dependencies:
+    babel-jest "^29.5.0"
+    babel-plugin-import "^1.13.5"
+    babel-plugin-istanbul "^6.1.1"
+    babel-plugin-transform-class-properties "^6.24.1"
+    copy-webpack-plugin "^11.0.0"
+    istanbul-lib-coverage "^3.2.0"
+    minimatch "3.1.2"
+    postcss "8.4.31"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-refresh "^0.14.0"
+    react-scripts "^5.0.1"
+
 "@storybook/addon-actions@7.5.3":
   version "7.5.3"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-7.5.3.tgz#e0d0d819488d1d19918b23469b3ea6610fee5f07"

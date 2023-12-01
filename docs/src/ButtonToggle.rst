@@ -8,6 +8,9 @@ Button group showing 2 options, one of which must be active
 .. code-block:: sh
    :caption: Example : Default usage
 
+.. figure:: /images/buttonToggle.png
+   :width: 90%
+
    import { ButtonToggle } from '@ska-telescope/ska-gui-components';
 
    ...

@@ -118,7 +118,6 @@ export function DataTree({
       <TreeView
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
-        aria-description={ariaDescription}
         data-testid={testId}
         defaultCollapseIcon={<MinusSquare />}
         defaultExpanded={['3']}

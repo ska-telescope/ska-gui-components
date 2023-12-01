@@ -5,6 +5,9 @@ TelescopeSelector
 
 Specialized selection of a specific telescope from all available
 
+.. figure:: /images/telescopeSelector.png
+   :width: 90%
+
 .. code-block:: sh
    :caption: Example : Default usage
 

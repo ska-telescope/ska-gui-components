@@ -56,7 +56,7 @@ export function Progress({
     return (
       <Box sx={{ position: 'relative', display: 'inline-flex' }}>
         <CircularProgress
-          aria-description={ariaDescription}
+          aria-describedBy={ariaDescription}
           aria-label={ariaTitle}
           color="secondary"
           data-testid={testId}
@@ -101,7 +101,7 @@ export function Progress({
       <Box sx={{ width: size, display: 'flex', alignItems: 'center' }}>
         <Box sx={{ width: '100%', mr: 1 }}>
           <LinearProgress
-            aria-description={ariaDescription}
+            aria-describedBy={ariaDescription}
             aria-label={ariaTitle}
             color="secondary"
             data-testid={testId}

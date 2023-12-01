@@ -4,6 +4,10 @@ Header
 *Overview*
 
 Standard Header wrapper component that spaces evenly it's child components
+This includes the telescopeSelector component which can be suppressed if not required.
+
+.. figure:: /images/header.png
+   :width: 90%
 
 .. code-block:: sh
    :caption: Example : Default usage
@@ -22,9 +26,12 @@ Standard Header wrapper component that spaces evenly it's child components
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
-    "testId", "string", "Yes", "", "Identifier for testing purposes"
-    "title", "string", "No", "", "Title of the application, which is forced to upper case"
-    "toolTip", " Object", "    No", " all values ''", " Contains toolTip text for display (See below)"
+   "ariaDescription", "string", "No", "", "Used by Screen Readers"
+   "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
+   "selectTelescope", "boolean", "No", "true", "Allows the selection of telescope to be suppressed"
+   "testId", "string", "Yes", "", "Identifier for testing purposes"
+   "title", "string", "No", "", "Title of the application, which is forced to upper case"
+   "toolTip", " Object", "    No", " all values ''", " Contains toolTip text for display (See below)"
 
 
 .. csv-table:: *ToolTip values*  ( Translated values should be passed in as an override )

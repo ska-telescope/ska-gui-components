@@ -5,6 +5,9 @@ NumberEntry
 
 Field for entering numbers into the application. Provides a spinner
 
+.. figure:: /images/numberEntry.png
+   :width: 90%
+
 .. code-block:: sh
    :caption: Example : Default usage
 
@@ -23,10 +26,10 @@ Field for entering numbers into the application. Provides a spinner
     "helperText", "string", "No", "''", "Displayed is there is a value"
     "label", "string", "Yes", "", "Label displayed for the Component"
     "password", "boolean", "No", "false", "Value entered is obscured"
-    "prefix", "string", "No", "''", "Allows for the addition of characters before the number"
+    "prefix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon before the number"
     "required", "boolean", "No", "false", "Asterisk is added to the label if true"
     "setValue", "function", "No", "null", "Used to update the value onChange"
-    "suffix", "string", "No", "''", "Allows for the addition of characters after the number"
+    "suffix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon after the number"
     "testId", "string", "Yes", "Identifier for testing purposes"
     "value", "string", "Yes", "", "Value that is displayed within the component"
 

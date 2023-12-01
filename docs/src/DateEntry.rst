@@ -5,6 +5,9 @@ DateEntry
 
 Field for entering Dates into the application. Clicking on the icon opens up a date picker
 
+.. figure:: /images/dateEntry.png
+   :width: 90%
+
 .. code-block:: sh
    :caption: Example : Default usage
 

@@ -1,4 +1,4 @@
-import InfoCard from './InfoCard';
+import InfoCard, { InfoCardColorTypes, InfoCardVariantTypes } from './InfoCard';
 
 export default {
   title: 'Example/InfoCard',
@@ -13,9 +13,11 @@ export const Default = {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
     message: 'infoCard.message',
-    filled: false,
-    level: 1,
+    variant: InfoCardVariantTypes.Outlined,
+    color: InfoCardColorTypes.Info,
     fontSize: 35,
     testId: 'testId',
+    showStatus: false,
+    showStatusIcon: true,
   },
 };

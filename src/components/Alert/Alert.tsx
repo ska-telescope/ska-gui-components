@@ -1,16 +1,24 @@
 import React from 'react';
 import { Alert, Box, Paper } from '@mui/material';
 
-const SEVERITY = ['success', 'error', 'warning', 'warning', 'warning', 'info'];
+export enum AlertColorTypes {
+  Error = 'error',
+  Info = 'info',
+  Success = 'success',
+  Warning = 'warning',
+}
+export enum AlertVariantTypes {
+  Filled = 'filled',
+  Outlined = 'outlined',
+}
 
 export interface AlertProps {
   action?: any;
   ariaDescription?: string;
   ariaTitle?: string;
-  // eslint-disable-next-line no-undef
+  color?: AlertColorTypes;
   children?: JSX.Element;
-  filled?: boolean;
-  severity: number;
+  variant?: AlertVariantTypes;
   testId: string;
 }
 export function SKAOAlert({
@@ -18,9 +26,9 @@ export function SKAOAlert({
   ariaDescription = 'Panel that is colored dependant upon the provided status',
   ariaTitle = 'Alert',
   children,
-  filled = false,
+  color = AlertColorTypes.Success,
+  variant = AlertVariantTypes.Outlined,
   testId,
-  severity = 0,
 }: AlertProps) {
   return (
     <Box m={1}>
@@ -36,12 +44,11 @@ export function SKAOAlert({
           action={action}
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
-          aria-description={ariaDescription}
           data-testid={testId}
           icon={false}
           key="alerts"
-          severity={severity < SEVERITY.length ? SEVERITY[severity] : SEVERITY[0]}
-          variant={filled ? 'filled' : 'outlined'}
+          severity={color}
+          variant={variant}
         >
           {children}
         </Alert>
