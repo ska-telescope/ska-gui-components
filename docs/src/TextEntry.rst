@@ -5,7 +5,7 @@ TextEntry
 
 Field for entering text into the application
 
-.. figure:: /images/textEntry.png
+.. figure:: /images/textEntry2.png
    :width: 90%
 
 .. code-block:: sh

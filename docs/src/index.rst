@@ -26,6 +26,7 @@ as well as implementation of standard properties to allow for maximum accessibil
    Backdrop
    Button
    ButtonToggle
+   DataGrid
    DataTree
    DateEntry
    DropDown
@@ -36,4 +37,5 @@ as well as implementation of standard properties to allow for maximum accessibil
    Progress
    TelescopeSelector
    TextEntry
+   StatusIcon
    version
