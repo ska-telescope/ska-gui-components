@@ -10,12 +10,14 @@ export { default as Footer } from './Footer/Footer';
 export { default as DateEntry } from './DateEntry/DateEntry';
 export { default as DropDown } from './DropDown/DropDown';
 export { default as NumberEntry } from './NumberEntry/NumberEntry';
+export { default as SearchEntry } from './SearchEntry/SearchEntry';
 export { default as TextEntry } from './TextEntry/TextEntry';
 //
 export { default as Backdrop } from './Backdrop/Backdrop';
 export { default as Button, ButtonColorTypes, ButtonVariantTypes } from './Button/Button';
 export { default as ButtonToggle } from './ButtonToggle/ButtonToggle';
 export { default as Progress } from './Progress/Progress';
+export { default as StatusIcon } from './StatusIcon/StatusIcon';
 export { default as TelescopeSelector } from './TelescopeSelector/TelescopeSelector';
 export { GUI_COMPONENTS_VERSION } from './version';
 

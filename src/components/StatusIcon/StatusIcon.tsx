@@ -208,3 +208,5 @@ export function StatusIcon({
     </svg>
   );
 }
+
+export default StatusIcon;
