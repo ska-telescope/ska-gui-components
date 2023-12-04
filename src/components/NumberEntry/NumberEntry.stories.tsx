@@ -18,6 +18,7 @@ export const Default = {
     label: 'LABEL',
     password: false,
     prefix: '',
+    onFocus: undefined,
     required: false,
     suffix: '',
     value: 0,

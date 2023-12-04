@@ -12,6 +12,7 @@ export interface DateEntryProps {
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
+  onFocus?: Function;
   required?: boolean;
   setValue?: Function;
 }
@@ -21,8 +22,9 @@ export function DateEntry({
   ariaTitle = 'DateEntry',
   disabled = false,
   errorText = '',
-  label,
   helperText = '',
+  label,
+  onFocus,
   required,
   setValue,
   testId,
@@ -37,6 +39,7 @@ export function DateEntry({
       errorText={errorText}
       helperText={helperText}
       label={label}
+      onFocus={onFocus}
       required={required}
       setValue={setValue}
       testId={testId}
