@@ -13,6 +13,7 @@ export interface TextEntryProps {
   helperText?: string;
   password?: boolean;
   prefix?: JSX.Element | string;
+  onFocus?: Function;
   required?: boolean;
   rows?: number;
   setValue?: Function;
@@ -26,7 +27,9 @@ export function TextEntry({
   disabled = false,
   errorText = '',
   helperText = '',
+  password = false,
   label,
+  onFocus,
   required = false,
   rows = 1,
   setValue,
@@ -51,11 +54,12 @@ export function TextEntry({
       errorText={errText()}
       helperText={helperText}
       label={label}
+      onFocus={onFocus}
       rows={rows}
       value={value}
       required={required}
       testId={testId}
-      type={TYPE.TEXT}
+      type={password ? TYPE.PASSWORD : TYPE.TEXT}
       setValue={setValue}
     />
   );

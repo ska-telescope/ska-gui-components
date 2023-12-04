@@ -19,6 +19,7 @@ export const Default = {
     helperText: 'HELPER TEXT',
     label: 'LABEL',
     prefix: '',
+    onFocus: undefined,
     required: false,
     testId: 'testId',
     suffix: '',

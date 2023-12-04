@@ -11,6 +11,7 @@ export enum STATE {
 export enum TYPE {
   DATE = 'date',
   NUMBER = 'number',
+  PASSWORD = 'password',
   TEXT = 'text',
 }
 
@@ -27,11 +28,12 @@ export interface EntryFieldProps {
   helperText?: string;
   password?: boolean;
   prefix?: JSX.Element | string;
+  onFocus?: Function;
   required?: boolean;
   rows?: number;
   setValue?: Function;
   suffix?: JSX.Element | string;
-  type?: TYPE.DATE | TYPE.NUMBER | TYPE.TEXT;
+  type?: TYPE.DATE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
 }
 
 export function EntryField({
@@ -41,6 +43,7 @@ export function EntryField({
   errorText = '',
   helperText = '',
   label,
+  onFocus,
   prefix = '',
   required = false,
   rows = 1,
@@ -63,6 +66,7 @@ export function EntryField({
       data-testid={testId}
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}
+      onFocus={onFocus}
       fullWidth
       helperText={errorText ? errorText : helperText ? helperText : ''}
       InputProps={{

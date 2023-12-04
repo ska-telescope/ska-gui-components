@@ -13,6 +13,7 @@ export interface NumberEntryProps {
   helperText?: string;
   password?: boolean;
   prefix?: JSX.Element | string;
+  onFocus?: Function;
   required?: boolean;
   setValue?: Function;
   suffix?: JSX.Element | string;
@@ -27,6 +28,7 @@ export function NumberEntry({
   helperText = '',
   label,
   prefix = '',
+  onFocus,
   required = false,
   setValue,
   suffix = '',
@@ -50,6 +52,7 @@ export function NumberEntry({
       helperText={helperText}
       label={label}
       prefix={prefix}
+      onFocus={onFocus}
       value={value}
       required={required}
       setValue={setValue}

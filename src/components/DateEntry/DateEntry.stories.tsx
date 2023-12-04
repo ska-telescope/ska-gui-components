@@ -16,6 +16,7 @@ export const Default = {
     errorText: '',
     helperText: 'HELPER TEXT',
     label: 'LABEL',
+    onFocus: undefined,
     required: false,
     testId: 'testId',
     value: '',
