@@ -141,6 +141,7 @@
     "@mui/lab": "^5.0.0-alpha.135",
     "@mui/system": "^5.13.7",
     "@mui/x-data-grid": "^6.9.2",
+    "@mui/x-tree-view": "^6.17.0",
     "@react-spring/web": "^9.7.3",
     "@ska-telescope/ska-gui-local-storage": "^0.0.3",
     "@ska-telescope/ska-javascript-components": "^0.1.41",
