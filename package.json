@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "0.1.70",
+  "version": "0.1.71",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -28,6 +28,15 @@
     "test:coverage:report": "npx nyc report --report-dir=build/reports --reporter=html",
     "test:cypress:component:ci": "cypress run --component --headless --browser chrome --reporter junit --config video=false --reporter-options mochaFile=build/tests/unit-tests[hash].xml"
   },
+  "resolutions": {
+    "@cypress/request": "3.x.x",
+    "debug": "^4.3.1",
+    "glob-parent": "^5.1.2",
+    "json5": "^1.0.2",
+    "minimatch": "^3.0.5",
+    "nth-check": "^2.0.1",
+    "postcss": "^8.4.31"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.22.7",
@@ -40,11 +49,11 @@
     "@cypress/code-coverage": "^3.11.0",
     "@cypress/instrument-cra": "^1.4.0",
     "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.10.6",
+    "@emotion/styled": "^11.11.0",
     "@fontsource/material-icons": "^4.5.4",
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.11.14",
+    "@mui/material": "^5.14.19",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^11.0.0",
@@ -132,6 +141,7 @@
     "@mui/lab": "^5.0.0-alpha.135",
     "@mui/system": "^5.13.7",
     "@mui/x-data-grid": "^6.9.2",
+    "@mui/x-tree-view": "^6.17.0",
     "@react-spring/web": "^9.7.3",
     "@ska-telescope/ska-gui-local-storage": "^0.0.3",
     "@ska-telescope/ska-javascript-components": "^0.1.41",

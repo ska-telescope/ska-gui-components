@@ -1,9 +1,8 @@
-import { TextEntry } from './TextEntry';
-import SearchIcon from '@mui/icons-material/Search';
+import { SearchEntry } from './SearchEntry';
 
 export default {
-  title: 'Example/TextEntry',
-  component: TextEntry,
+  title: 'Example/SearchEntry',
+  component: SearchEntry,
   parameters: {
     layout: 'centered',
   },
@@ -17,11 +16,7 @@ export const Default = {
     errorText: '',
     helperText: 'HELPER TEXT',
     label: 'LABEL',
-    password: false,
-    prefix: undefined,
     onFocus: undefined,
-    required: false,
-    suffix: '',
     testId: 'testId',
     value: '',
     setValue: undefined,
