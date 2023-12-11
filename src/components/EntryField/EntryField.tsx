@@ -67,6 +67,9 @@ export function EntryField({
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}
       onFocus={onFocus}
+      onInput={(e: { target: { value: string } }) => {
+        e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 12);
+      }}
       fullWidth
       helperText={errorText ? errorText : helperText ? helperText : ''}
       InputProps={{

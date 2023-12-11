@@ -22,7 +22,9 @@ export interface DataGridProps {
   ariaTitle?: string;
   ariaDescription?: string;
   columns: any;
+  columnVisibilityModel?: any;
   height?: number;
+  onColumnVisibilityModelChange?: any;
   onRowClick?: any;
   rows: any;
   testId: string;
@@ -32,7 +34,9 @@ export function StylingRowsGrid({
   ariaTitle = 'DataGrid',
   ariaDescription = 'Information provided in a tabular form',
   columns,
+  columnVisibilityModel,
   height = 400,
+  onColumnVisibilityModelChange,
   onRowClick,
   rows,
   testId,
@@ -43,8 +47,10 @@ export function StylingRowsGrid({
         <StyledDataGrid
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
+          columnVisibilityModel={columnVisibilityModel}
           data-testid={testId}
           getRowClassName={() => `super-app-theme`}
+          onColumnVisibilityModelChange={onColumnVisibilityModelChange}
           onRowClick={onRowClick}
           {...{ rows, columns }}
         />
