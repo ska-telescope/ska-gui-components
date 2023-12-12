@@ -5,13 +5,15 @@ import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
 
+const closeFunc = () => {};
+
 describe('<CopyrightModal />', () => {
   for (const theTheme of THEME) {
     it('Theme ' + theTheme, () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <CopyrightModal />
+          <CopyrightModal closeFunc={closeFunc} />
         </ThemeProvider>
       );
     });

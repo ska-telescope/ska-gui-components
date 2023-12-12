@@ -11,7 +11,7 @@ export function HelpModal(): JSX.Element {
   }
 
   return (
-    <Modal open={help.showHelp}>
+    <Modal open={true}>
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
         <Card variant="outlined" sx={{ height: '90vh', width: '90vw' }}>
           <CardHeader
@@ -27,7 +27,7 @@ export function HelpModal(): JSX.Element {
             }
             title={<Typography variant="h6">PDF Preview</Typography>}
           />
-          <CardContent sx={{ height: '90vh', width: '90vw' }}>{help.content}</CardContent>
+          <CardContent sx={{ height: '90vh', width: '90vw' }}>DUMMY</CardContent>
         </Card>
       </Box>
     </Modal>
