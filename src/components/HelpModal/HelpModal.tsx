@@ -27,7 +27,7 @@ export function HelpModal(): JSX.Element {
             }
             title={<Typography variant="h6">PDF Preview</Typography>}
           />
-          <CardContent sx={{ height: '90vh', width: '90vw' }}>{help.content}</CardContent>
+          <CardContent sx={{ height: '90vh', width: '90vw' }}>DUMMY</CardContent>
         </Card>
       </Box>
     </Modal>
