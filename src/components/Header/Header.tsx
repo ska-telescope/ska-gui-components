@@ -77,13 +77,6 @@ export function Header({
         </Grid>
         <Grid item>{children}</Grid>
         <Grid item>
-          {help.showHelp && (
-            <Typography data-testid="headerTitleId" variant="h5">
-              {help.content}
-            </Typography>
-          )}
-        </Grid>
-        <Grid item>
           <Box mr={1} display="flex" justifyContent="flex-end">
             {selectTelescope && <TelescopeSelector />}
             {hasHelp() && (
