@@ -5,6 +5,7 @@ import { storageObject } from '@ska-telescope/ska-gui-local-storage';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import HelpIcon from '@mui/icons-material/Help';
 
 const LOGO_HEIGHT = 30;
 const SKAO_URL = 'https://www.skao.int/';
@@ -32,8 +33,14 @@ export function Header({
   toolTip = { skao: 'SKAO', mode: '' },
   children,
 }: HeaderProps): JSX.Element {
-  const { themeMode, toggleTheme } = storageObject.useStore();
+  const { help, helpContent, helpToggle, themeMode, toggleTheme } = storageObject.useStore();
   const isDarkTheme = themeMode.mode === THEME_DARK;
+
+  helpContent('THIS IS A HELP MESSAGE');
+
+  const hasHelp = () => {
+    return true; // TODO : Add help validation for an object.
+  };
 
   return (
     <AppBar
@@ -62,7 +69,7 @@ export function Header({
               </IconButton>
             </Tooltip>
             {title && (
-              <Typography data-testid="headerTitleId" variant="h4">
+              <Typography data-testid="headerTitleId" variant="h5">
                 | {title.toUpperCase()}
               </Typography>
             )}
@@ -70,9 +77,26 @@ export function Header({
         </Grid>
         <Grid item>{children}</Grid>
         <Grid item>
+          {help.showHelp && (
+            <Typography data-testid="headerTitleId" variant="h5">
+              {help.content}
+            </Typography>
+          )}
+        </Grid>
+        <Grid item>
           <Box mr={1} display="flex" justifyContent="flex-end">
             {selectTelescope && <TelescopeSelector />}
-            <Tooltip title={toolTip?.mode} arrow>
+            {hasHelp() && (
+              <IconButton
+                aria-label="help icon"
+                sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+                color="inherit"
+                onClick={() => helpToggle()}
+              >
+                {<HelpIcon />}
+              </IconButton>
+            )}
+            <Tooltip title={help} arrow>
               <IconButton
                 aria-label="light/dark mode"
                 sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}

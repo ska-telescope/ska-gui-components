@@ -2926,10 +2926,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@ska-telescope/ska-gui-local-storage@^0.0.4":
-  version "0.0.4"
-  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-gui-local-storage/-/ska-gui-local-storage-0.0.4.tgz#1303f3b167fe2e44b12a0b77ae5b8854ff9fb0ec"
-  integrity sha512-Oht1vixP4bNmTYYUijp097WDmYn75nANo8xwEn0icIvCTglYodmLgDAz+bxVptE/v9tw88wwoJreoX2H0B/n1A==
+"@ska-telescope/ska-gui-local-storage@^0.0.6":
+  version "0.0.6"
+  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-gui-local-storage/-/ska-gui-local-storage-0.0.6.tgz#b91c5d3dd664440a00274613beae3aaa0d08f909"
+  integrity sha512-6oQGIJ7r34BJAkJSaLOnduVP2oVAq6yfVpZhmlkzgZ3WQClEQb/0FxEh+OJuy1hS5UZKp3kyhhyykW2Eu7GzTw==
   dependencies:
     "@react-spring/web" "^9.7.3"
     "@reduxjs/toolkit" "^1.9.7"

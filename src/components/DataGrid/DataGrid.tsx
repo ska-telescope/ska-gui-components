@@ -24,6 +24,7 @@ export interface DataGridProps {
   columns: any;
   columnVisibilityModel?: any;
   height?: number;
+  initialState?: object;
   onColumnVisibilityModelChange?: any;
   onRowClick?: any;
   rows: any;
@@ -36,6 +37,7 @@ export function StylingRowsGrid({
   columns,
   columnVisibilityModel,
   height = 400,
+  initialState,
   onColumnVisibilityModelChange,
   onRowClick,
   rows,
@@ -50,6 +52,7 @@ export function StylingRowsGrid({
           columnVisibilityModel={columnVisibilityModel}
           data-testid={testId}
           getRowClassName={() => `super-app-theme`}
+          initialState={initialState}
           onColumnVisibilityModelChange={onColumnVisibilityModelChange}
           onRowClick={onRowClick}
           {...{ rows, columns }}
