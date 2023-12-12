@@ -11,7 +11,7 @@ export function HelpModal(): JSX.Element {
   }
 
   return (
-    <Modal open={help.showHelp}>
+    <Modal open={true}>
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
         <Card variant="outlined" sx={{ height: '90vh', width: '90vw' }}>
           <CardHeader
