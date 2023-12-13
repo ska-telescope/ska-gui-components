@@ -39,7 +39,7 @@ export function Header({
   helpContent('THIS IS A HELP MESSAGE');
 
   const hasHelp = () => {
-    return help && help.content !== undefined && help.content;
+    return help && help.hasOwnProperty("content") && help.content;
   };
 
   return (

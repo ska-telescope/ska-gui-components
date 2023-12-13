@@ -27,8 +27,6 @@ export function Footer({
 }: FooterProps) {
   const fullYear = new Date().getFullYear();
 
-  const COPYRIGHT_0 = 'Click for details';
-
   function openCopyright() {
     copyrightFunc ? copyrightFunc(true) : null;
   }
