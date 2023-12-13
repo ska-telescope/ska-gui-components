@@ -39,7 +39,7 @@ export function Header({
   helpContent('THIS IS A HELP MESSAGE');
 
   const hasHelp = () => {
-    return help && help.showHelp && help.content;
+    return help && help.content;
   };
 
   return (
