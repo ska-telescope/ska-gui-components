@@ -3,10 +3,11 @@ import { Box, Card, CardContent, CardHeader, IconButton, Modal, Typography } fro
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 export interface CopyrightModalProps {
-  closeFunc: Function;
+  show: boolean;
+  copyrightFunc: Function;
 }
 
-export function CopyrightModal({ closeFunc }: CopyrightModalProps): JSX.Element {
+export function CopyrightModal({ show, copyrightFunc }: CopyrightModalProps): JSX.Element {
   const copyright = [
     'Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:',
     '1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.',
@@ -16,11 +17,11 @@ export function CopyrightModal({ closeFunc }: CopyrightModalProps): JSX.Element 
   ];
 
   function closeModal() {
-    closeFunc();
+    copyrightFunc(false);
   }
 
   return (
-    <Modal open={true}>
+    <Modal open={show}>
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
         <Card variant="outlined" sx={{ height: '90vh', width: '90vw' }}>
           <CardHeader
@@ -36,7 +37,7 @@ export function CopyrightModal({ closeFunc }: CopyrightModalProps): JSX.Element 
             }
             title={<Typography variant="h6">Copyright SKA Observatory</Typography>}
           />
-          <CardContent sx={{ height: '80vh', width: '90vw' }}>
+          <CardContent>
             {copyright.map((item: string) => (
               <>
                 <Typography mb={2} variant="body2" component="div">
