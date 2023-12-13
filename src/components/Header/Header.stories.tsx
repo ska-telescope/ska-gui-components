@@ -15,6 +15,6 @@ export const Default = {
     testId: 'testId',
     title: 'ska-gui-components',
     toolTip: { skao: 'SKAO WebSite', mode: ' Light / Dark Mode' },
-    children: ['THIS ', 'IS ', 'SOME ', 'CHILDREN'],
+    children: ['HERE ', 'ARE ', 'SOME ', 'CHILDREN'],
   },
 };

@@ -39,7 +39,7 @@ export function Header({
   helpContent('THIS IS A HELP MESSAGE');
 
   const hasHelp = () => {
-    return true; // TODO : Add help validation for an object.
+    return help && help.showHelp && help.content;
   };
 
   return (
@@ -69,7 +69,7 @@ export function Header({
               </IconButton>
             </Tooltip>
             {title && (
-              <Typography data-testid="headerTitleId" variant="h5">
+              <Typography mt={1} data-testid="headerTitleId" variant="h5">
                 | {title.toUpperCase()}
               </Typography>
             )}

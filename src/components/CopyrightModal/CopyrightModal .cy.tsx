@@ -13,7 +13,7 @@ describe('<CopyrightModal />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <CopyrightModal closeFunc={closeFunc} />
+          <CopyrightModal show={true} copyrightFunc={closeFunc} />
         </ThemeProvider>
       );
     });
