@@ -39,11 +39,9 @@ export function CopyrightModal({ show, copyrightFunc }: CopyrightModalProps): JS
           />
           <CardContent>
             {copyright.map((item: string) => (
-              <>
-                <Typography mb={2} variant="body2" component="div">
-                  {item}
-                </Typography>
-              </>
+              <Typography key={item} mb={2} variant="body2" component="div">
+                {item}
+              </Typography>
             ))}
           </CardContent>
         </Card>
