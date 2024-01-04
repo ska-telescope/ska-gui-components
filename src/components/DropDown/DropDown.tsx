@@ -13,6 +13,7 @@ export interface DropDownProps {
   errorText?: string;
   helperText?: string;
   label: string;
+  onFocus?: Function;
   required?: boolean;
   setValue?: Function;
 }
@@ -24,6 +25,7 @@ export function DropDown({
   errorText = '',
   helperText = '',
   label,
+  onFocus,
   options,
   required = false,
   setValue,
@@ -48,6 +50,7 @@ export function DropDown({
       onChange={(e: { target: { value: string | number } }) => {
         updateValue(e.target.value);
       }}
+      onFocus={onFocus}
       required={required}
       select
       value={value}

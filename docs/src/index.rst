@@ -37,6 +37,7 @@ as well as implementation of standard properties to allow for maximum accessibil
    Progress
    TelescopeSelector
    TextEntry
+   TickBox
    SearchEntry
    StatusIcon
    version
