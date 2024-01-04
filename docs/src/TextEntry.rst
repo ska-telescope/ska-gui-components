@@ -14,7 +14,7 @@ Field for entering text into the application
 
    ...
 
-   <TextEntry label="TextEntry Label testId="testId" value={ENTRY_FIELD_VALUE} />
+   <TextEntry label="TextEntry Label" testId="testId" value={ENTRY_FIELD_VALUE} />
 
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""

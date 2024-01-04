@@ -14,6 +14,7 @@ export { default as DropDown } from './DropDown/DropDown';
 export { default as NumberEntry } from './NumberEntry/NumberEntry';
 export { default as SearchEntry } from './SearchEntry/SearchEntry';
 export { default as TextEntry } from './TextEntry/TextEntry';
+export { default as TickBox } from './TickBox/TickBox';
 //
 export { default as Backdrop } from './Backdrop/Backdrop';
 export { default as Button, ButtonColorTypes, ButtonVariantTypes } from './Button/Button';
