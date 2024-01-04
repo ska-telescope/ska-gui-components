@@ -21,7 +21,7 @@ Field for entering text into the application
 
     "disabled", "boolean", "No", "false", "Disables the component if true"
     "label", "string", "Yes", "", "Label displayed for the Component"
-    "labelEnd". "boolean", "No", "true", "Position of any label"
+    "labelEnd", "boolean", "No", "true", "Position of any label"
     "testId", "string", "Yes", "", "Identifier for testing purposes"
 
 .. admonition:: Constants
