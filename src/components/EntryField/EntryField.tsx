@@ -75,7 +75,7 @@ export function EntryField({
       }}
       label={label}
       margin="normal"
-      minRows="1"
+      minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
       maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
       multiline={type === TYPE.TEXT && rows && rows > 1}
       name={'textField' + label}
