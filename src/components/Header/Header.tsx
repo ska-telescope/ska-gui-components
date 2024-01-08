@@ -33,11 +33,11 @@ export function Header({
   toolTip = { skao: 'SKAO', mode: '' },
   children,
 }: HeaderProps): JSX.Element {
-  const { help, helpToggle, themeMode, toggleTheme } = storageObject.useStore();
+  const { helpToggle, themeMode, toggleTheme } = storageObject.useStore();
   const isDarkTheme = themeMode.mode === THEME_DARK;
 
   const hasHelp = () => {
-    return help && help.hasOwnProperty('content') && help.content;
+    return false; // help?.content;
   };
 
   return (
