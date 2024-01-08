@@ -89,7 +89,7 @@ export function Header({
                 {<HelpIcon />}
               </IconButton>
             )}
-            <Tooltip title={help} arrow>
+            <Tooltip title={toolTip.mode} arrow>
               <IconButton
                 aria-label="light/dark mode"
                 sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
