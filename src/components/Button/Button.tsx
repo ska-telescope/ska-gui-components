@@ -1,40 +1,33 @@
 import React from 'react';
 import { Button, Tooltip } from '@mui/material';
+import { ButtonVariantTypes, ColorTypes } from '../../models';
 
-export enum ButtonColorTypes {
-  Error = 'error',
-  Inherit = 'inherit',
-  Secondary = 'secondary',
-  Success = 'success',
-  Warning = 'warning',
-}
-
-export enum ButtonVariantTypes {
-  Contained = 'contained',
-  Outlined = 'outlined',
-  Text = 'text',
-}
 export interface ButtonProps {
   ariaDescription?: string;
-  color?: ButtonColorTypes;
+  color?: ColorTypes;
   disabled?: boolean;
   icon?: JSX.Element;
   label: string;
   onClick?: Function;
+  role?: string;
   testId: string;
   toolTip?: string;
+  type?: string;
   variant?: ButtonVariantTypes;
+  sx?: object;
 }
 
 export function SKAOButton({
   ariaDescription = 'Button',
-  color = ButtonColorTypes.Success,
+  color = ColorTypes.Primary,
   disabled = false,
   icon,
   label,
   onClick,
+  role = "button",
   testId,
   toolTip = '',
+  type = 'submit',
   variant = ButtonVariantTypes.Outlined,
 }: ButtonProps): JSX.Element {
   const clicked = (e: any) => (typeof onClick !== 'undefined' ? onClick(e) : null);
@@ -50,9 +43,9 @@ export function SKAOButton({
           data-testid={testId}
           disabled={disabled}
           onClick={(e: any) => clicked(e)}
-          role="button"
+          role={role}
           startIcon={icon}
-          type="submit"
+          type={type}
           variant={variant}
         >
           {label}

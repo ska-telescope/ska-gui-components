@@ -23,6 +23,7 @@ export interface InfoCardProps {
   showStatus?: boolean;
   showStatusIcon?: boolean;
   testId: string;
+  sx?: object;
 }
 
 export function InfoCard({
@@ -36,6 +37,7 @@ export function InfoCard({
   showStatus = false,
   showStatusIcon = true,
   testId,
+  sx = {}
 }: InfoCardProps) {
   const buttonClick = () => (clickFunction ? clickFunction : null);
   const statusSize = () => (fontSize ? fontSize * 1.15 : fontSize);
@@ -65,6 +67,7 @@ export function InfoCard({
         icon={false}
         severity={color}
         onClick={buttonClick}
+        sx={sx}
       >
         <Stack alignItems="center" direction="row" justifyContent="center" spacing={1}>
           {showStatus && (

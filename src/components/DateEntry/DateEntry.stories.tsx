@@ -1,3 +1,4 @@
+import { ColorTypes, Variants } from '../../models';
 import DateEntry from './DateEntry';
 
 export default {
@@ -12,6 +13,7 @@ export const Default = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    color: ColorTypes.Secondary,
     disabled: false,
     errorText: '',
     helperText: 'HELPER TEXT',
@@ -20,5 +22,7 @@ export const Default = {
     required: false,
     testId: 'testId',
     value: '',
+    sx: {},
+    variant: Variants.Standard
   },
 };

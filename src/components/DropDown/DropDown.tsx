@@ -1,5 +1,7 @@
 import React from 'react';
 import { MenuItem, TextField } from '@mui/material';
+import { ColorTypes } from '../../models/colorTypes';
+import { Variants } from '../../models';
 
 export interface DropDownProps {
   // required
@@ -7,6 +9,7 @@ export interface DropDownProps {
   testId: string;
   value: string | number;
   // optional
+  color?: string;
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;
@@ -16,11 +19,14 @@ export interface DropDownProps {
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
+  variant?: Variants.Standard | Variants.Filled | Variants.Outlined;
+  sx?: object;
 }
 
 export function DropDown({
   ariaDescription = 'Selection of a value from a list of possible values',
   ariaTitle = 'DropDown',
+  color = ColorTypes.Primary,
   disabled = false,
   errorText = '',
   helperText = '',
@@ -31,6 +37,8 @@ export function DropDown({
   setValue,
   testId,
   value,
+  variant = Variants.Standard,
+  sx = {}
 }: DropDownProps): JSX.Element {
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
 
@@ -38,7 +46,7 @@ export function DropDown({
     <TextField
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
-      color="secondary"
+      color={color}
       data-testid={testId}
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}
@@ -54,7 +62,8 @@ export function DropDown({
       required={required}
       select
       value={value}
-      variant="standard"
+      variant={variant}
+      sx={sx}
     >
       {options.map((option) => (
         <MenuItem key={option.value} value={option.value}>

@@ -1,5 +1,7 @@
 import React from 'react';
-import { EntryField, TYPE } from '../EntryField/EntryField';
+import { EntryField } from '../EntryField/EntryField';
+import { ColorTypes } from '../../models/colorTypes';
+import { InputTypes, Variants } from '../../models';
 
 export interface NumberEntryProps {
   // required
@@ -8,6 +10,7 @@ export interface NumberEntryProps {
   // optional
   ariaDescription?: string;
   ariaTitle?: string;
+  color?: string;
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
@@ -18,11 +21,14 @@ export interface NumberEntryProps {
   setValue?: Function;
   suffix?: JSX.Element | string;
   testId: string;
+  variant?: Variants.Standard | Variants.Filled | Variants.Outlined;
+  sx?: object;
 }
 
 export function NumberEntry({
   ariaDescription = 'Entry of a valid numeric value',
   ariaTitle = 'NumberEntry',
+  color = ColorTypes.Secondary,
   disabled = false,
   errorText = '',
   helperText = '',
@@ -34,6 +40,7 @@ export function NumberEntry({
   suffix = '',
   testId,
   value,
+  sx = {}
 }: NumberEntryProps): JSX.Element {
   const errText = () => {
     if (required && typeof value !== 'number') {
@@ -46,6 +53,7 @@ export function NumberEntry({
     <EntryField
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
+      color={color}
       data-testid={testId}
       disabled={disabled}
       errorText={errText()}
@@ -58,7 +66,8 @@ export function NumberEntry({
       setValue={setValue}
       suffix={suffix}
       testId={testId}
-      type={TYPE.NUMBER}
+      type={InputTypes.Number}
+      sx={sx}
     />
   );
 }

@@ -1,9 +1,11 @@
 import React from 'react';
 import { AppBar, Grid, Stack, Typography } from '@mui/material';
 import { Copyright } from '@mui/icons-material';
-import Button, { ButtonColorTypes, ButtonVariantTypes } from '../Button/Button';
+import Button from '../Button/Button';
 import { GUI_COMPONENTS_VERSION } from '../version';
 import { Tooltip } from '@mui/material';
+import { ColorTypes } from '../../models/colorTypes';
+import { ButtonVariantTypes } from '../../models/buttonVariantTypes';
 
 export interface FooterProps {
   ariaDescription?: string;
@@ -47,7 +49,7 @@ export function Footer({
           <Stack direction="row" alignItems="center" gap={1}>
             <Button
               ariaDescription="copyright link"
-              color={ButtonColorTypes.Inherit}
+              color={ColorTypes.Inherit}
               onClick={() => openCopyright()}
               icon={<Copyright />}
               label={'SKAO ' + fullYear}

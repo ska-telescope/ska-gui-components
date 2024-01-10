@@ -1,3 +1,4 @@
+import { ColorTypes } from '../../models/colorTypes';
 import NumberEntry from './NumberEntry';
 
 export default {
@@ -12,6 +13,7 @@ export const Default = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    color: ColorTypes.Secondary,
     disabled: false,
     errorText: '',
     helperText: 'HELPER TEXT',
@@ -23,5 +25,6 @@ export const Default = {
     suffix: '',
     value: 0,
     setValue: undefined,
+    sx: {}
   },
 };

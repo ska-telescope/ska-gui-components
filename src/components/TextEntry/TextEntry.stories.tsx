@@ -1,3 +1,5 @@
+import { ColorTypes } from '../../models/colorTypes';
+import { InputTypes } from '../../models/inputTypes';
 import { TextEntry } from './TextEntry';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -13,6 +15,7 @@ export const Default = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    color: ColorTypes.Secondary,
     disabled: false,
     errorText: '',
     helperText: 'HELPER TEXT',
@@ -23,7 +26,9 @@ export const Default = {
     required: false,
     suffix: '',
     testId: 'testId',
+    type: InputTypes.Date,
     value: '',
     setValue: undefined,
+    sx: {}
   },
 };

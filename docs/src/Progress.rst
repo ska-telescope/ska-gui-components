@@ -23,10 +23,12 @@ Often used in conjunction with the Backdrop component
 
    "ariaDescription", "string", "No", "", "Used by Screen Readers"
    "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
+   "color", "string", "No", "secondary", "Define the color of the search input"
    "determinate", "boolean", "No", "false", "if true the value used to for the display determination"
    "indicator", "string", "No", "circle", "Can be circle, line or none"
    "label", "boolean", "No", "false", "if true, then the value is also displayed"
    "size", "number", "No", "40", "Allows for the changing of the Progress size"
+   "sx", "object", "No", "{}", "Define the style object of the component"
    "testId", "string", "Yes", "", "Used for testing purposes"
    "value", "number", "No", 0, "Can be used to determine display characteristics"
 

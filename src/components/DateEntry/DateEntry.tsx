@@ -1,5 +1,6 @@
 import React from 'react';
-import { EntryField, TYPE } from '../EntryField/EntryField';
+import { EntryField } from '../EntryField/EntryField';
+import { InputTypes, ColorTypes, Variants } from '../../models';
 
 export interface DateEntryProps {
   // required
@@ -9,17 +10,21 @@ export interface DateEntryProps {
   // optional
   ariaDescription?: string;
   ariaTitle?: string;
+  color?: string;
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
+  sx?: object;
+  variant?: Variants.Standard | Variants.Filled | Variants.Outlined;
 }
 
 export function DateEntry({
   ariaDescription = 'Entry of a valid date',
   ariaTitle = 'DateEntry',
+  color = ColorTypes.Secondary,
   disabled = false,
   errorText = '',
   helperText = '',
@@ -29,11 +34,14 @@ export function DateEntry({
   setValue,
   testId,
   value,
+  sx = {},
+  variant = Variants.Standard,
 }: DateEntryProps): JSX.Element {
   return (
     <EntryField
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
+      color={color}
       data-testid={testId}
       disabled={disabled}
       errorText={errorText}
@@ -43,8 +51,10 @@ export function DateEntry({
       required={required}
       setValue={setValue}
       testId={testId}
-      type={TYPE.DATE}
+      type={InputTypes.Date}
       value={value}
+      sx={sx}
+      variant={variant}
     />
   );
 }

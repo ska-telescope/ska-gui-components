@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Progress from './Progress';
+import { ColorTypes, IndicatorTypes } from '../../models';
 
 export default {
   title: 'Example/Progress',
@@ -19,9 +20,11 @@ export const ProgressDisplay = Template.bind({});
 ProgressDisplay.args = {
   ariaTitle: 'aria Title',
   ariaDescription: 'aria Description',
+  color: ColorTypes.Secondary,
   determinate: false,
-  indicator: 'circle',
+  indicator: IndicatorTypes.Circle,
   label: false,
   testId: 'testId',
   value: 0,
+  sx: {}
 };

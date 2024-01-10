@@ -1,3 +1,4 @@
+import { ColorTypes } from '../../models/colorTypes';
 import DropDown from './DropDown';
 
 export default {
@@ -18,6 +19,7 @@ export const Default = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    color: ColorTypes.Primary,
     disabled: false,
     helperText: 'HELPER TEXT',
     errorText: '',
@@ -27,5 +29,6 @@ export const Default = {
     value: '',
     setValue: undefined,
     testId: 'testId',
+    sx: {}
   },
 };

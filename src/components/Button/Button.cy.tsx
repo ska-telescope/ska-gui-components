@@ -1,7 +1,8 @@
 import React from 'react';
-import { SKAOButton, ButtonColorTypes, ButtonVariantTypes } from './Button';
+import { SKAOButton } from './Button';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
+import { ColorTypes, ButtonVariantTypes } from '../../models';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
 
@@ -28,7 +29,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color={ButtonColorTypes.Error} testId="LabelButtonId" />
+          <SKAOButton label="Label" color={ColorTypes.Error} testId="LabelButtonId" />
         </ThemeProvider>
       );
     });
@@ -36,7 +37,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color={ButtonColorTypes.Inherit} testId="LabelButtonId" />
+          <SKAOButton label="Label" color={ColorTypes.Inherit} testId="LabelButtonId" />
         </ThemeProvider>
       );
     });
@@ -44,7 +45,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color={ButtonColorTypes.Secondary} testId="LabelButtonId" />
+          <SKAOButton label="Label" color={ColorTypes.Secondary} testId="LabelButtonId" />
         </ThemeProvider>
       );
     });
@@ -52,7 +53,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color={ButtonColorTypes.Success} testId="LabelButtonId" />
+          <SKAOButton label="Label" color={ColorTypes.Success} testId="LabelButtonId" />
         </ThemeProvider>
       );
     });
@@ -60,7 +61,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color={ButtonColorTypes.Warning} testId="LabelButtonId" />
+          <SKAOButton label="Label" color={ColorTypes.Warning} testId="LabelButtonId" />
         </ThemeProvider>
       );
     });

@@ -1,18 +1,12 @@
 import React from 'react';
 import { InputAdornment, TextField } from '@mui/material';
+import { ColorTypes, InputTypes, Variants } from '../../models';
 
 export enum STATE {
   OK = 'ok',
   ERROR = 'error',
   NONE = 'none',
   UNKNOWN = 'unknown',
-}
-
-export enum TYPE {
-  DATE = 'date',
-  NUMBER = 'number',
-  PASSWORD = 'password',
-  TEXT = 'text',
 }
 
 export interface EntryFieldProps {
@@ -23,9 +17,12 @@ export interface EntryFieldProps {
   // optional
   ariaDescription?: string;
   ariaTitle?: string;
+  color?: string;
+  defaultValue?: string;
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
+  margin?: string;
   password?: boolean;
   prefix?: JSX.Element | string;
   onFocus?: Function;
@@ -33,16 +30,21 @@ export interface EntryFieldProps {
   rows?: number;
   setValue?: Function;
   suffix?: JSX.Element | string;
-  type?: TYPE.DATE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
+  type?: InputTypes.Date | InputTypes.Number | InputTypes.Password | InputTypes.Text | InputTypes.File;
+  variant?: Variants.Standard | Variants.Filled | Variants.Outlined;
+  sx?: object;
 }
 
 export function EntryField({
   ariaDescription = 'Entry of a value',
   ariaTitle = 'EntryField',
+  color = ColorTypes.Secondary,
+  defaultValue = '',
   disabled = false,
   errorText = '',
   helperText = '',
   label,
+  margin = 'normal',
   onFocus,
   prefix = '',
   required = false,
@@ -50,11 +52,13 @@ export function EntryField({
   setValue,
   suffix = '',
   testId,
-  type = TYPE.TEXT,
+  type = InputTypes.Text,
   value,
+  variant = Variants.Standard,
+  sx = {}
 }: EntryFieldProps): JSX.Element {
-  const theSuffix = suffix ? suffix : '';
-  const thePrefix = prefix ? prefix : '';
+  const theSuffix = suffix ?? '';
+  const thePrefix = prefix ??'';
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
 
   return (
@@ -62,30 +66,32 @@ export function EntryField({
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
       aria-hidden={false}
-      color="secondary"
+      color={color}
       data-testid={testId}
+      defaultValue={defaultValue ?? value}
       disabled={disabled}
-      error={errorText && errorText.length > 0 ? true : false}
+      error={errorText?.length > 0 ? true : false}
       onFocus={onFocus}
       fullWidth
-      helperText={errorText ? errorText : helperText ? helperText : ''}
+      helperText={errorText ?? helperText ?? ''}
       InputProps={{
         startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
         endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
       }}
       label={label}
-      margin="normal"
-      minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-      maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-      multiline={type === TYPE.TEXT && rows && rows > 1}
+      margin={margin}
+      minRows={type !== InputTypes.Text || !rows ? 1 : rows}
+      maxRows={type !== InputTypes.Text || !rows ? 1 : rows}
+      multiline={type === InputTypes.Text && rows && rows > 1}
       name={'textField' + label}
       onChange={(e: { target: { value: any } }) => {
         updateValue(e.target.value);
       }}
       value={value}
-      variant="standard"
+      variant={variant}
       required={required}
       type={type}
+      sx={sx}
     />
   );
 }
