@@ -18,12 +18,14 @@ interface FileUploadProps {
   chooseLabel?: string;
   chooseToolTip?: string;
   chooseVariant?: ButtonVariantTypes;
+  direction?: 'row' | 'column';
+  file?: File;
   //
   hideFileName?: boolean;
   maxFileWidth?: number;
   testId?: string;
   //
-  setFile?: Function;
+  setFile?: Function | null;
   uploadColor?: ButtonColorTypes;
   uploadDisabled?: boolean;
   uploadLabel?: string;
@@ -39,7 +41,9 @@ export default function FileUpload({
   chooseLabel = 'Choose file',
   chooseToolTip = 'Select to choose a file for upload',
   chooseVariant = ButtonVariantTypes.Contained,
+  direction = 'row',
   //
+  file,
   hideFileName = false,
   maxFileWidth = 20,
   setFile,
@@ -55,6 +59,13 @@ export default function FileUpload({
   const [theFile, setTheFile] = React.useState<File | null>(null);
   const [name, setName] = React.useState('');
   const [status, setStatus] = React.useState(STATUS_INITIAL);
+
+  React.useEffect(() => {
+    if (file) {
+      setTheFile(file);
+      setName(file.name);
+    }
+  }, []);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -96,7 +107,7 @@ export default function FileUpload({
     );
   };
 
-  const chooseButton = () => (
+  const ChooseButton = () => (
     <label htmlFor="uploadFile">
       <input
         style={{ display: 'none' }}
@@ -122,12 +133,12 @@ export default function FileUpload({
   );
 
   const showFileName = () => (
-    <Typography pt={1} testId={testId + 'Filename'} variant="body1">
+    <Typography pt={1} testid={testId + 'Filename'} variant="body1">
       {name?.length ? displayName() : ''}
     </Typography>
   );
 
-  const uploadButton = () => (
+  const UploadButton = () => (
     <SKAOButton
       ariaDescription={uploadToolTip}
       color={status === STATUS_INITIAL ? uploadColor : ButtonColorTypes.Inherit}
@@ -143,10 +154,10 @@ export default function FileUpload({
   );
 
   return (
-    <Grid container direction="row" justifyContent="space-evenly" spacing={1}>
-      <Grid item>{chooseButton()}</Grid>
+    <Grid container direction={direction} justifyContent="space-evenly" spacing={1}>
+      <Grid item>{ChooseButton()}</Grid>
       <Grid item>{!hideFileName && showFileName()}</Grid>
-      <Grid item>{theFile && uploadButton()}</Grid>
+      <Grid item>{theFile && UploadButton()}</Grid>
     </Grid>
   );
 }
