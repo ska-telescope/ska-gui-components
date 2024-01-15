@@ -1,11 +1,11 @@
-Footer
-~~~~~~
+FileUpload
+~~~~~~~~~~
 
 *Overview*
 
 This is a composite component that will allow for the selection of a local file for upload to a specific URL.
 
-.. figure:: /images/footer.png
+.. figure:: /images/fileUpload.png
    :width: 90%
 
 
@@ -27,6 +27,8 @@ This is a composite component that will allow for the selection of a local file 
    "chooseLabel", "string", "No", "Choose file", "Label for the Choose file button"
    "chooseToolTip", "string", "No", "Select to choose a file for upload", "Tooltip for the Choose file button"
    "chooseVariant", "ButtonVariantTypes", "No", "contained", "Allows for the default variant to be overridden"
+   "direction", "String", "No", "row", "Allows the buttons to be displayed vertically if 'column' is set"
+   "file", "File", "No", " null", "If provided will be set as the default when entering the component"
    "hideFileName", "boolean", "No", "false", "Allows for the suppression of the selected filename"
    "maxFileWidth", "number", "No", "20", "Allows the display of the selected filename to be truncated"
    "setFile", "Function", "No", "null", "Function called when a file is selected"
