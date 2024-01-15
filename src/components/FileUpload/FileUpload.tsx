@@ -6,10 +6,13 @@ import { ButtonColorTypes, ButtonVariantTypes, SKAOButton } from '../Button/Butt
 import { StatusIcon } from '../StatusIcon/StatusIcon';
 
 const SIZE = 25;
-export const STATUS_OK = 0;
-export const STATUS_ERROR = 1;
-export const STATUS_PARTIAL = 3;
-export const STATUS_INITIAL = 9;
+
+export enum FileUploadStatus {
+  OK = 0,
+  ERROR = 1,
+  PENDING = 3,
+  INITIAL = 9,
+}
 
 interface FileUploadProps {
   chooseColor?: ButtonColorTypes;
@@ -26,6 +29,7 @@ interface FileUploadProps {
   testId?: string;
   //
   setFile?: Function | null;
+  setStatus?: Function | null;
   uploadColor?: ButtonColorTypes;
   uploadDisabled?: boolean;
   uploadLabel?: string;
@@ -47,6 +51,7 @@ export default function FileUpload({
   hideFileName = false,
   maxFileWidth = 20,
   setFile,
+  setStatus,
   testId = 'fileUpload,',
   //
   uploadColor = ButtonColorTypes.Secondary,
@@ -58,7 +63,7 @@ export default function FileUpload({
 }: FileUploadProps) {
   const [theFile, setTheFile] = React.useState<File | null>(null);
   const [name, setName] = React.useState('');
-  const [status, setStatus] = React.useState(STATUS_INITIAL);
+  const [state, setState] = React.useState(FileUploadStatus.INITIAL);
 
   React.useEffect(() => {
     if (file) {
@@ -67,11 +72,18 @@ export default function FileUpload({
     }
   }, []);
 
+  const setTheStatus = (e: FileUploadStatus) => {
+    if (setStatus) {
+      setStatus(FileUploadStatus.INITIAL);
+    }
+    setState(e);
+  };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setTheFile(e.target.files[0]);
       setName(e.target.files[0].name);
-      setStatus(STATUS_INITIAL);
+      setTheStatus(FileUploadStatus.INITIAL);
       if (setFile) {
         setFile(e.target.files[0].name);
       }
@@ -82,16 +94,16 @@ export default function FileUpload({
     if (theFile) {
       const formData = new FormData();
       formData.append('file', theFile);
-      setStatus(STATUS_PARTIAL);
+      setTheStatus(FileUploadStatus.PENDING);
 
       try {
         await fetch('https://httpbin.org/post', {
           method: 'POST',
           body: formData,
         });
-        setStatus(STATUS_OK);
+        setTheStatus(FileUploadStatus.OK);
       } catch (error) {
-        setStatus(STATUS_ERROR);
+        setTheStatus(FileUploadStatus.ERROR);
       }
     }
   };
@@ -100,10 +112,10 @@ export default function FileUpload({
     name?.length > maxFileWidth ? name.substring(0, maxFileWidth) + '...' : name;
 
   const getIcon = () => {
-    return status === STATUS_INITIAL ? (
+    return state === FileUploadStatus.INITIAL ? (
       <UploadFileIcon />
     ) : (
-      <StatusIcon testId="statusId" icon level={status} size={SIZE} />
+      <StatusIcon testId="statusId" icon level={state} size={SIZE} />
     );
   };
 
@@ -141,7 +153,7 @@ export default function FileUpload({
   const UploadButton = () => (
     <SKAOButton
       ariaDescription={uploadToolTip}
-      color={status === STATUS_INITIAL ? uploadColor : ButtonColorTypes.Inherit}
+      color={state === FileUploadStatus.INITIAL ? uploadColor : ButtonColorTypes.Inherit}
       component="span"
       disabled={uploadDisabled || uploadURL.length === 0}
       icon={getIcon()}
