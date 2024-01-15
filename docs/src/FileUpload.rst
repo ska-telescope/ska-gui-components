@@ -5,7 +5,7 @@ FileUpload
 
 This is a composite component that will allow for the selection of a local file for upload to a specific URL.
 
-.. figure:: /images/FileUpload.png
+.. figure:: /images/fileUpload.png
    :width: 90%
 
 
