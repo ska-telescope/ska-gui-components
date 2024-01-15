@@ -11,6 +11,7 @@ export { default as HelpModal } from './HelpModal/HelpModal';
 //
 export { default as DateEntry } from './DateEntry/DateEntry';
 export { default as DropDown } from './DropDown/DropDown';
+export { default as FileUpload } from './FileUpload/FileUpload';
 export { default as NumberEntry } from './NumberEntry/NumberEntry';
 export { default as SearchEntry } from './SearchEntry/SearchEntry';
 export { default as TextEntry } from './TextEntry/TextEntry';
