@@ -32,6 +32,7 @@ This is a composite component that will allow for the selection of a local file 
    "hideFileName", "boolean", "No", "false", "Allows for the suppression of the selected filename"
    "maxFileWidth", "number", "No", "20", "Allows the display of the selected filename to be truncated"
    "setFile", "Function", "No", "null", "Function called when a file is selected"
+   "setStatus", "Function", "No", "null", "Function for setting the status of the upload for local usage"
    "testId", "string", "Yes", "", "Identifier for testing purposes"
    "uploadColor", "ButtonColorTypes", "No", "secondary", "Allows for the default colour to be overridden"
    "uploadDisabled", "boolean", "No", "false", "Disabled the button"
