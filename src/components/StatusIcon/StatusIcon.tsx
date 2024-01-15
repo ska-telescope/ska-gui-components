@@ -111,7 +111,7 @@ function showIcon(level: number, size: number) {
       {level === 0 && <DoneIcon sx={{ color: 'white' }} />}
       {level === 1 && <ClearIcon sx={{ color: 'white' }} />}
       {level === 2 && showIconText(level, size, '!')}
-      {level === 3 && showIconText(level, size, '?')}
+      {level === 3 && showIconText(level, size * 0.8, '?')}
       {level === 4 && showIconText(level, size, 'i')}
     </>
   );

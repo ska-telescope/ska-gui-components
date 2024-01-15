@@ -17,6 +17,7 @@ export enum ButtonVariantTypes {
 export interface ButtonProps {
   ariaDescription?: string;
   color?: ButtonColorTypes;
+  component?: string;
   disabled?: boolean;
   icon?: JSX.Element;
   label: string;
@@ -29,6 +30,7 @@ export interface ButtonProps {
 export function SKAOButton({
   ariaDescription = 'Button',
   color = ButtonColorTypes.Success,
+  component = 'Button',
   disabled = false,
   icon,
   label,
@@ -47,6 +49,7 @@ export function SKAOButton({
           aria-describedby={ariaDescription}
           aria-hidden={false}
           color={color}
+          component={component}
           data-testid={testId}
           disabled={disabled}
           onClick={(e: any) => clicked(e)}

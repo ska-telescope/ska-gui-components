@@ -7,7 +7,7 @@ const THEME = [THEME_DARK, THEME_LIGHT];
 
 const theValue = '';
 
-describe('<DateEntry />', () => {
+describe('<EntryField />', () => {
   for (const theTheme of THEME) {
     it('Theme ' + theTheme, () => {
       cy.mount(
