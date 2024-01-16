@@ -2,12 +2,7 @@ import React from 'react';
 import { Grid, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
-import {
-  ButtonColorTypes,
-  ButtonSizeTypes,
-  ButtonVariantTypes,
-  SKAOButton,
-} from '../Button/Button';
+import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton } from '../Button/Button';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
 
 const SIZE = 25;
@@ -147,7 +142,7 @@ export default function FileUpload({
         onChange={handleFileChange}
       />
 
-      <SKAOButton
+      <OurButton
         ariaDescription={chooseToolTip}
         color={name ? ButtonColorTypes.Inherit : chooseColor}
         component="span"
@@ -169,7 +164,7 @@ export default function FileUpload({
   );
 
   const UploadButton = () => (
-    <SKAOButton
+    <OurButton
       ariaDescription={uploadToolTip}
       color={state === FileUploadStatus.INITIAL ? uploadColor : ButtonColorTypes.Inherit}
       component="span"

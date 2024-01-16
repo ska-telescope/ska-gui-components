@@ -1,8 +1,8 @@
-import { SKAOButton, ButtonColorTypes, ButtonVariantTypes } from './Button';
+import { OurButton, ButtonColorTypes, ButtonVariantTypes } from './Button';
 
 export default {
   title: 'Example/Button',
-  component: SKAOButton,
+  component: OurButton,
   parameters: {
     layout: 'centered',
   },
@@ -12,7 +12,7 @@ export const Default = {
   args: {
     ariaDescription: 'aria Description',
     color: ButtonColorTypes.Success,
-    label: 'SKAOButton Label',
+    label: 'OurButton Label',
     toolTip: 'Tool tip',
     variant: ButtonVariantTypes.Outlined,
   },

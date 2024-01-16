@@ -34,7 +34,7 @@ export interface ButtonProps {
   variant?: ButtonVariantTypes;
 }
 
-export function SKAOButton({
+export function OurButton({
   ariaDescription = 'Button',
   color = ButtonColorTypes.Success,
   component = 'Button',
@@ -74,4 +74,4 @@ export function SKAOButton({
   );
 }
 
-export default SKAOButton;
+export default OurButton;
