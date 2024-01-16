@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import StylingRowsGrid from './DataGrid';
+import StylingRowsGrid, { StyleColorTypes } from './DataGrid';
 
 const DUMMY_COLUMNS = [
   { field: 'execution_block', headerName: 'HEADER 1', width: 200 },
@@ -46,6 +46,9 @@ Component.parameters = {
 Component.args = {
   ariaTitle: 'aria Title',
   ariaDescription: 'aria Description',
+  colorOnHover: StyleColorTypes.PrimaryDark,
+  colorSelected: StyleColorTypes.SecondaryMain,
+  colorSelectedHover: StyleColorTypes.SecondaryDark,
   columns: DUMMY_COLUMNS,
   height: 400,
   onRowClick: null,
