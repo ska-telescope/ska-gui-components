@@ -2,7 +2,12 @@ import React from 'react';
 import { Grid, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
-import { ButtonColorTypes, ButtonVariantTypes, SKAOButton } from '../Button/Button';
+import {
+  ButtonColorTypes,
+  ButtonSizeTypes,
+  ButtonVariantTypes,
+  SKAOButton,
+} from '../Button/Button';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
 
 const SIZE = 25;
@@ -15,6 +20,7 @@ export enum FileUploadStatus {
 }
 
 interface FileUploadProps {
+  buttonSize?: ButtonSizeTypes;
   chooseColor?: ButtonColorTypes;
   chooseDisabled?: boolean;
   chooseFileTypes?: string;
@@ -32,6 +38,7 @@ interface FileUploadProps {
   setStatus?: Function | null;
   uploadColor?: ButtonColorTypes;
   uploadDisabled?: boolean;
+  uploadFunction?: Function | null;
   uploadLabel?: string;
   uploadToolTip?: string;
   uploadURL?: string;
@@ -39,6 +46,7 @@ interface FileUploadProps {
 }
 
 export default function FileUpload({
+  buttonSize = ButtonSizeTypes.Medium,
   chooseColor = ButtonColorTypes.Secondary,
   chooseDisabled = false,
   chooseFileTypes = '',
@@ -56,9 +64,10 @@ export default function FileUpload({
   //
   uploadColor = ButtonColorTypes.Secondary,
   uploadDisabled = false,
+  uploadFunction,
   uploadLabel = 'Upload',
   uploadToolTip = 'Upload the selected file',
-  uploadURL = '',
+  uploadURL = 'https://httpbin.org/post',
   uploadVariant = ButtonVariantTypes.Contained,
 }: FileUploadProps) {
   const [theFile, setTheFile] = React.useState<File | null>(null);
@@ -74,7 +83,7 @@ export default function FileUpload({
 
   const setTheStatus = (e: FileUploadStatus) => {
     if (setStatus) {
-      setStatus(FileUploadStatus.INITIAL);
+      setStatus(e);
     }
     setState(e);
   };
@@ -90,14 +99,22 @@ export default function FileUpload({
     }
   };
 
-  const handleUpload = async () => {
+  const handleUpload = () => {
+    if (uploadFunction) {
+      uploadFunction(theFile);
+    } else {
+      handleUploadFunction();
+    }
+  };
+
+  const handleUploadFunction = async () => {
     if (theFile) {
       const formData = new FormData();
       formData.append('file', theFile);
       setTheStatus(FileUploadStatus.PENDING);
 
       try {
-        await fetch('https://httpbin.org/post', {
+        await fetch(uploadURL, {
           method: 'POST',
           body: formData,
         });
@@ -137,6 +154,7 @@ export default function FileUpload({
         disabled={chooseDisabled}
         icon={<SearchIcon />}
         label={chooseLabel}
+        size={buttonSize}
         testId={testId + 'ChooseButton'}
         toolTip={chooseToolTip}
         variant={chooseVariant}
@@ -159,6 +177,7 @@ export default function FileUpload({
       icon={getIcon()}
       label={uploadLabel}
       onClick={handleUpload}
+      size={buttonSize}
       testId={testId + 'UploadButton'}
       toolTip={uploadToolTip}
       variant={uploadVariant}

@@ -21,6 +21,7 @@ This is a composite component that will allow for the selection of a local file 
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
+   "buttonSize", "ButtonSizeTypes", "No", "ButtonSizeTypes.Medium", "Allows for the sizing of the buttons to be changed"
    "chooseColor", "ButtonColorTypes", "No", "secondary", "Allows for the default colour to be overridden"
    "chooseDisabled", "boolean", "No", "false", "Disabled the button"
    "chooseFileTypes", "string", "No", "", "Allows for the component to be limited to specified file types"
@@ -36,14 +37,20 @@ This is a composite component that will allow for the selection of a local file 
    "testId", "string", "Yes", "", "Identifier for testing purposes"
    "uploadColor", "ButtonColorTypes", "No", "secondary", "Allows for the default colour to be overridden"
    "uploadDisabled", "boolean", "No", "false", "Disabled the button"
+   "uploadFunction", "Function", "No", "null", "Optional function ( see below )"
    "uploadLabel", "string", "No", "Upload file", "Label for the Upload file button"
    "uploadToolTip", "string", "No", "Upload the selected file", "Tooltip for the Upload file button"
-   "uploadURL", "string", "No", "", "URL to which the selected file will be uploaded"
+   "uploadURL", "string", "No", "https://httpbin.org/post", "URL to which the selected file will be uploaded"
    "uploadVariant", "ButtonVariantTypes", "No", "contained", "Allows for the default variant to be overridden"
 
 .. admonition:: Constants
 
-    none
+    FileUploadStatus.   Enumerator to indicate the status of the file upload.
+
+.. admonition:: uploadFunction usage
+
+   Ths component provides a simple upload function that makes use of the uploadURL property to upload the
+   selected file. The uploadFunction has been provided so that can be completely replaced.
 
 .. admonition:: Testing Identifier
 

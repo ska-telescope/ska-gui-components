@@ -9,6 +9,12 @@ export enum ButtonColorTypes {
   Warning = 'warning',
 }
 
+export enum ButtonSizeTypes {
+  Small = 'small',
+  Medium = 'medium',
+  Large = 'large',
+}
+
 export enum ButtonVariantTypes {
   Contained = 'contained',
   Outlined = 'outlined',
@@ -22,6 +28,7 @@ export interface ButtonProps {
   icon?: JSX.Element;
   label: string;
   onClick?: Function;
+  size?: ButtonSizeTypes;
   testId: string;
   toolTip?: string;
   variant?: ButtonVariantTypes;
@@ -35,6 +42,7 @@ export function SKAOButton({
   icon,
   label,
   onClick,
+  size = ButtonSizeTypes.Medium,
   testId,
   toolTip = '',
   variant = ButtonVariantTypes.Outlined,
@@ -54,6 +62,7 @@ export function SKAOButton({
           disabled={disabled}
           onClick={(e: any) => clicked(e)}
           role="button"
+          size={size}
           startIcon={icon}
           type="submit"
           variant={variant}
