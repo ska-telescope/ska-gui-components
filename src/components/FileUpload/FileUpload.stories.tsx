@@ -1,3 +1,4 @@
+import { ButtonSizeTypes } from '../Button/Button';
 import FileUpload from './FileUpload';
 
 export default {
@@ -13,12 +14,14 @@ export const Light = {
     chooseDisabled: false,
     chooseFileTypes: '',
     chooseLabel: 'Choose',
+    chooseSize: ButtonSizeTypes.Medium,
     chooseToolTip: 'Choose the file',
     direction: 'row',
     maxFileWidth: 20,
     uploadDisabled: false,
     uploadLabel: 'Upload',
     uploadURL: 'https://httpbin.org/post',
+    uploadSize: ButtonSizeTypes.Medium,
     uploadToolTip: 'Upload tooltip',
   },
 };

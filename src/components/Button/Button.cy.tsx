@@ -1,16 +1,16 @@
 import React from 'react';
-import { SKAOButton, ButtonColorTypes, ButtonVariantTypes } from './Button';
+import { OurButton, ButtonColorTypes, ButtonVariantTypes } from './Button';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
 
-describe('<SKAOButton />', () => {
+describe('<Button />', () => {
   it('Basic rendering', () => {
     cy.mount(
       <ThemeProvider theme={theme(THEME_LIGHT)}>
         <CssBaseline />
-        <SKAOButton label="Label" testId="LabelButtonId" />
+        <OurButton label="Label" testId="LabelButtonId" />
       </ThemeProvider>
     );
   });
@@ -20,7 +20,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" testId="LabelButtonId" />
+          <OurButton label="Label" testId="LabelButtonId" />
         </ThemeProvider>
       );
     });
@@ -28,7 +28,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color={ButtonColorTypes.Error} testId="LabelButtonId" />
+          <OurButton label="Label" color={ButtonColorTypes.Error} testId="LabelButtonId" />
         </ThemeProvider>
       );
     });
@@ -36,7 +36,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color={ButtonColorTypes.Inherit} testId="LabelButtonId" />
+          <OurButton label="Label" color={ButtonColorTypes.Inherit} testId="LabelButtonId" />
         </ThemeProvider>
       );
     });
@@ -44,7 +44,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color={ButtonColorTypes.Secondary} testId="LabelButtonId" />
+          <OurButton label="Label" color={ButtonColorTypes.Secondary} testId="LabelButtonId" />
         </ThemeProvider>
       );
     });
@@ -52,7 +52,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color={ButtonColorTypes.Success} testId="LabelButtonId" />
+          <OurButton label="Label" color={ButtonColorTypes.Success} testId="LabelButtonId" />
         </ThemeProvider>
       );
     });
@@ -60,7 +60,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <SKAOButton label="Label" color={ButtonColorTypes.Warning} testId="LabelButtonId" />
+          <OurButton label="Label" color={ButtonColorTypes.Warning} testId="LabelButtonId" />
         </ThemeProvider>
       );
     });
@@ -71,7 +71,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_DARK)}>
           <CssBaseline />
-          <SKAOButton label="Label" testId="LabelButtonId" variant={ButtonVariantTypes.Contained} />
+          <OurButton label="Label" testId="LabelButtonId" variant={ButtonVariantTypes.Contained} />
         </ThemeProvider>
       );
     });
@@ -79,7 +79,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_DARK)}>
           <CssBaseline />
-          <SKAOButton label="Label" testId="LabelButtonId" variant={ButtonVariantTypes.Outlined} />
+          <OurButton label="Label" testId="LabelButtonId" variant={ButtonVariantTypes.Outlined} />
         </ThemeProvider>
       );
     });
@@ -87,7 +87,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_DARK)}>
           <CssBaseline />
-          <SKAOButton label="Label" testId="LabelButtonId" variant={ButtonVariantTypes.Text} />
+          <OurButton label="Label" testId="LabelButtonId" variant={ButtonVariantTypes.Text} />
         </ThemeProvider>
       );
     });
@@ -98,7 +98,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_DARK)}>
           <CssBaseline />
-          <SKAOButton
+          <OurButton
             label="Label"
             onClick={cy.stub().as('onClick')}
             testId="LabelButtonId"
@@ -115,7 +115,7 @@ describe('<SKAOButton />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_DARK)}>
           <CssBaseline />
-          <SKAOButton
+          <OurButton
             label="Label"
             onClick={cy.stub().as('onClick')}
             testId="LabelButtonId"

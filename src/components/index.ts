@@ -11,14 +11,19 @@ export { default as HelpModal } from './HelpModal/HelpModal';
 //
 export { default as DateEntry } from './DateEntry/DateEntry';
 export { default as DropDown } from './DropDown/DropDown';
-export { default as FileUpload } from './FileUpload/FileUpload';
+export { default as FileUpload, FileUploadStatus } from './FileUpload/FileUpload';
 export { default as NumberEntry } from './NumberEntry/NumberEntry';
 export { default as SearchEntry } from './SearchEntry/SearchEntry';
 export { default as TextEntry } from './TextEntry/TextEntry';
 export { default as TickBox } from './TickBox/TickBox';
 //
 export { default as Backdrop } from './Backdrop/Backdrop';
-export { default as Button, ButtonColorTypes, ButtonVariantTypes } from './Button/Button';
+export {
+  default as Button,
+  ButtonColorTypes,
+  ButtonSizeTypes,
+  ButtonVariantTypes,
+} from './Button/Button';
 export { default as ButtonToggle } from './ButtonToggle/ButtonToggle';
 export { default as Progress } from './Progress/Progress';
 export { default as StatusIcon } from './StatusIcon/StatusIcon';
