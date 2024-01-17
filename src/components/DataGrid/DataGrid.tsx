@@ -1,22 +1,7 @@
 import * as React from 'react';
-import { Box, Paper } from '@mui/material';
+import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { styled } from '@mui/material/styles';
-
-const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
-  '& .super-app-theme': {
-    '&:hover': {
-      backgroundColor: theme.palette.primary.dark,
-    },
-    '&.Mui-selected': {
-      color: theme.palette.primary.main,
-      backgroundColor: theme.palette.secondary.main,
-      '&:hover': {
-        backgroundColor: theme.palette.secondary.dark,
-      },
-    },
-  },
-}));
 
 export interface DataGridProps {
   ariaTitle?: string;
@@ -28,6 +13,7 @@ export interface DataGridProps {
   onColumnVisibilityModelChange?: any;
   onRowClick?: any;
   rows: any;
+  showBorder?: boolean;
   testId: string;
 }
 
@@ -41,11 +27,72 @@ export function StylingRowsGrid({
   onColumnVisibilityModelChange,
   onRowClick,
   rows,
+  showBorder = true,
   testId,
 }: DataGridProps) {
+  const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
+    WebkitFontSmoothing: 'auto',
+    letterSpacing: 'normal',
+    '& .MuiTablePagination-displayedRows': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-select': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-selectIcon': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-selectLabel': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .super-app-theme': {
+      '&:hover': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.light,
+      },
+      '&.Mui-selected': {
+        color: theme.palette.primary.main,
+        backgroundColor: theme.palette.secondary.main,
+        '&:hover': {
+          backgroundColor: theme.palette.primary.dark,
+        },
+      },
+    },
+  }));
+  const StyledDataGridNoBorder = styled(DataGrid)(({ theme }) => ({
+    border: 0,
+    WebkitFontSmoothing: 'auto',
+    letterSpacing: 'normal',
+    '& .MuiTablePagination-displayedRows': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-select': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-selectIcon': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-selectLabel': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .super-app-theme': {
+      '&:hover': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.light,
+      },
+      '&.Mui-selected': {
+        color: theme.palette.primary.main,
+        backgroundColor: theme.palette.secondary.main,
+        '&:hover': {
+          backgroundColor: theme.palette.primary.dark,
+        },
+      },
+    },
+  }));
+
   return (
-    <Paper sx={{ backgroundColor: 'secondary.contrastText' }}>
-      <Box sx={{ height, width: '100%' }}>
+    <Box sx={{ height, width: '100%' }}>
+      {showBorder && (
         <StyledDataGrid
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
@@ -57,8 +104,21 @@ export function StylingRowsGrid({
           onRowClick={onRowClick}
           {...{ rows, columns }}
         />
-      </Box>
-    </Paper>
+      )}
+      {!showBorder && (
+        <StyledDataGridNoBorder
+          aria-label={ariaTitle}
+          aria-describedby={ariaDescription}
+          columnVisibilityModel={columnVisibilityModel}
+          data-testid={testId}
+          getRowClassName={() => `super-app-theme`}
+          initialState={initialState}
+          onColumnVisibilityModelChange={onColumnVisibilityModelChange}
+          onRowClick={onRowClick}
+          {...{ rows, columns }}
+        />
+      )}
+    </Box>
   );
 }
 
