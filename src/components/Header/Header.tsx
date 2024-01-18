@@ -36,10 +36,8 @@ export function Header({
   const { help, helpContent, helpToggle, themeMode, toggleTheme } = storageObject.useStore();
   const isDarkTheme = themeMode.mode === THEME_DARK;
 
-  helpContent('THIS IS A HELP MESSAGE');
-
   const hasHelp = () => {
-    return false; // help && help.hasOwnProperty('content') && help.content;
+    return help && help.hasOwnProperty('content') && help.content;
   };
 
   return (
@@ -80,14 +78,16 @@ export function Header({
           <Box mr={1} display="flex" justifyContent="flex-end">
             {selectTelescope && <TelescopeSelector />}
             {hasHelp() && (
-              <IconButton
-                aria-label="help icon"
-                sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
-                color="inherit"
-                onClick={() => helpToggle()}
-              >
-                {<HelpIcon />}
-              </IconButton>
+              <Tooltip title={help.content} arrow>
+                <IconButton
+                  aria-label="help icon"
+                  sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+                  color="inherit"
+                  onClick={() => helpToggle()}
+                >
+                  {<HelpIcon />}
+                </IconButton>
+              </Tooltip>
             )}
             <Tooltip title={toolTip.mode} arrow>
               <IconButton
