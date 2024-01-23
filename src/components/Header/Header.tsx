@@ -18,6 +18,7 @@ export interface HeaderProps {
   ariaDescription?: string;
   ariaTitle?: string;
   selectTelescope?: boolean;
+  showHelp?: boolean;
   testId: string;
   title?: string;
   toolTip?: { skao: string; mode: string };
@@ -28,16 +29,17 @@ export function Header({
   ariaDescription = 'Sticky Panel at the top of the page',
   ariaTitle = 'SKAOHeader',
   selectTelescope = true,
+  showHelp = false,
   testId,
   title = '',
   toolTip = { skao: 'SKAO', mode: '' },
   children,
 }: HeaderProps): JSX.Element {
-  const { help, helpContent, helpToggle, themeMode, toggleTheme } = storageObject.useStore();
+  const { help, helpToggle, themeMode, toggleTheme } = storageObject.useStore();
   const isDarkTheme = themeMode.mode === THEME_DARK;
 
   const hasHelp = () => {
-    return help && help.hasOwnProperty('content') && help.content;
+    return showHelp && help && help.hasOwnProperty('content') && help.content;
   };
 
   return (
