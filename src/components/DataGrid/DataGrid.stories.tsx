@@ -107,6 +107,7 @@ export const Light = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    checkboxSelection: false,
     columns: DUMMY_COLUMNS,
     height: 400,
     onRowClick: null,
@@ -123,6 +124,7 @@ export const Dark = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    checkboxSelection: false,
     columns: DUMMY_COLUMNS,
     height: 400,
     onRowClick: null,
