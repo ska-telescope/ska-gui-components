@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 export interface DataGridProps {
   ariaTitle?: string;
   ariaDescription?: string;
+  checkboxSelection?: boolean;
   columns: any;
   columnVisibilityModel?: any;
   height?: number;
@@ -13,6 +14,7 @@ export interface DataGridProps {
   onColumnVisibilityModelChange?: any;
   onRowClick?: any;
   rows: any;
+
   showBorder?: boolean;
   testId: string;
 }
@@ -20,6 +22,7 @@ export interface DataGridProps {
 export function StylingRowsGrid({
   ariaTitle = 'DataGrid',
   ariaDescription = 'Information provided in a tabular form',
+  checkboxSelection = false,
   columns,
   columnVisibilityModel,
   height = 400,
@@ -96,6 +99,7 @@ export function StylingRowsGrid({
         <StyledDataGrid
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
+          checkboxSelection={checkboxSelection}
           columnVisibilityModel={columnVisibilityModel}
           data-testid={testId}
           getRowClassName={() => `super-app-theme`}
@@ -109,6 +113,7 @@ export function StylingRowsGrid({
         <StyledDataGridNoBorder
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
+          checkboxSelection={checkboxSelection}
           columnVisibilityModel={columnVisibilityModel}
           data-testid={testId}
           getRowClassName={() => `super-app-theme`}

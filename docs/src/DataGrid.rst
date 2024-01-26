@@ -22,6 +22,7 @@ Given the provided data, will provide a table of contents
 
     "ariaDescription", "string", "No", "", "Used by Screen Readers"
     "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
+    "checkboxSelection", "boolean", "No", "false", "Adds checkboxes as the first column"
     "columns", "number", "Yes", "", "Array containing the column specifics"
     "height", "number", "No", "264", "Determines the height that the component will use"
     "onRowClick", "function", "No", "", "Action if the row is clicked"
