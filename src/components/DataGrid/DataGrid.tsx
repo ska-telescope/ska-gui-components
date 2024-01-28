@@ -14,7 +14,7 @@ export interface DataGridProps {
   onColumnVisibilityModelChange?: any;
   onRowClick?: any;
   rows: any;
-  selectedRows?: any;
+  onCellClick?: any;
   showBorder?: boolean;
   testId: string;
 }
@@ -30,7 +30,7 @@ export function StylingRowsGrid({
   onColumnVisibilityModelChange,
   onRowClick,
   rows,
-  selectedRows,
+  onCellClick,
   showBorder = true,
   testId,
 }: DataGridProps) {
@@ -107,7 +107,7 @@ export function StylingRowsGrid({
           initialState={initialState}
           onColumnVisibilityModelChange={onColumnVisibilityModelChange}
           onRowClick={onRowClick}
-          selectedRows={selectedRows}
+          onCellClick={onCellClick}
           {...{ rows, columns }}
         />
       )}
@@ -122,7 +122,7 @@ export function StylingRowsGrid({
           initialState={initialState}
           onColumnVisibilityModelChange={onColumnVisibilityModelChange}
           onRowClick={onRowClick}
-          selectedRows={selectedRows}
+          onCellClick={onCellClick}
           {...{ rows, columns }}
         />
       )}
