@@ -113,6 +113,7 @@ export const Light = {
     onRowClick: null,
     rows: DUMMY_ROWS,
     showBorder: true,
+    showMild: false,
     testId: 'testId',
   },
 };
@@ -130,6 +131,7 @@ export const Dark = {
     onRowClick: null,
     rows: DUMMY_ROWS,
     showBorder: true,
+    showMild: false,
     testId: 'testId',
   },
 };
