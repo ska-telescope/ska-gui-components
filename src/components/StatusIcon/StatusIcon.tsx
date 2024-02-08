@@ -165,8 +165,8 @@ export function StatusIcon({
       width={size}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title id="svg-title">{ariaTitle + ' ' + level}</title>
-      <desc id="svg-description">{ariaDescription}</desc>
+      <title id="svg-title">{setAriaLabel}</title>
+      <desc id="svg-description">{setAriaDesc}</desc>
       {(!level || level < 0 || level > 5) && (
         <g>
           <path d="" transform="translate(-45 -15)" role="presentation" />
