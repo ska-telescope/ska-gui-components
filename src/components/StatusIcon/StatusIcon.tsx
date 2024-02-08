@@ -111,7 +111,7 @@ function showIcon(level: number, size: number) {
       {level === 0 && <DoneIcon sx={{ color: 'white' }} />}
       {level === 1 && <ClearIcon sx={{ color: 'white' }} />}
       {level === 2 && showIconText(level, size, '!')}
-      {level === 3 && showIconText(level, size * 0.8, '?')}
+      {level === 3 && showIconText(level, size * 0.7, '?')}
       {level === 4 && showIconText(level, size, 'i')}
     </>
   );
@@ -148,10 +148,15 @@ export function StatusIcon({
 }: StatusProps) {
   const componentClassNames = ['svg-content'];
 
+  const DEF_TITLE = 'Status Indicator' + ' ' + level;
+  const setAriaLabel = ariaTitle.length > 0 ? ariaTitle : DEF_TITLE;
+  const setAriaDesc =
+    ariaTitle.length > 0 ? ariaTitle + ariaDescription : DEF_TITLE + ' ' + ariaDescription;
+
   return (
     <svg
-      aria-label={ariaTitle + ' ' + level}
-      aria-describedby={ariaTitle + ' ' + level + ' ' + ariaDescription}
+      aria-label={setAriaLabel}
+      aria-describedby={setAriaDesc}
       data-testid={testId}
       className={componentClassNames.join(' ')}
       preserveAspectRatio="xMinYMin meet"
@@ -169,7 +174,7 @@ export function StatusIcon({
       )}
       {level === 1 && (
         <rect
-          aria-describedby={level.toString()}
+          aria-describedby={setAriaLabel}
           role="img"
           x={STROKE_WIDTH}
           y={STROKE_WIDTH}
@@ -182,7 +187,7 @@ export function StatusIcon({
       )}
       {(level === 2 || level === 3 || level === 4) && (
         <polyline
-          aria-describedby={level.toString()}
+          aria-describedby={setAriaLabel}
           role="img"
           points={points(level, size ? size : DEFAULT_SIZE)}
           stroke="black"
@@ -192,7 +197,7 @@ export function StatusIcon({
       )}
       {(level === 0 || level === 5) && (
         <circle
-          aria-describedby={level.toString()}
+          aria-describedby={setAriaLabel}
           role="img"
           cx={size ? size / 2 : DEFAULT_SIZE}
           cy={size ? size / 2 : DEFAULT_SIZE}
