@@ -16,6 +16,7 @@ export interface DataGridProps {
   rows: any;
   onCellClick?: any;
   showBorder?: boolean;
+  showMild?: boolean;
   testId: string;
 }
 
@@ -32,6 +33,7 @@ export function StylingRowsGrid({
   rows,
   onCellClick,
   showBorder = true,
+  showMild = false,
   testId,
 }: DataGridProps) {
   const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
@@ -57,6 +59,35 @@ export function StylingRowsGrid({
       '&.Mui-selected': {
         color: theme.palette.primary.main,
         backgroundColor: theme.palette.secondary.main,
+        '&:hover': {
+          backgroundColor: theme.palette.primary.dark,
+        },
+      },
+    },
+  }));
+  const StyledDataGridMild = styled(DataGrid)(({ theme }) => ({
+    WebkitFontSmoothing: 'auto',
+    letterSpacing: 'normal',
+    '& .MuiTablePagination-displayedRows': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-select': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-selectIcon': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-selectLabel': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .super-app-theme': {
+      '&:hover': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.light,
+      },
+      '&.Mui-selected': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.dark,
         '&:hover': {
           backgroundColor: theme.palette.primary.dark,
         },
@@ -93,10 +124,40 @@ export function StylingRowsGrid({
       },
     },
   }));
+  const StyledDataGridNoBorderMild = styled(DataGrid)(({ theme }) => ({
+    border: 0,
+    WebkitFontSmoothing: 'auto',
+    letterSpacing: 'normal',
+    '& .MuiTablePagination-displayedRows': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-select': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-selectIcon': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .MuiTablePagination-selectLabel': {
+      color: theme.palette.primary.contrastText,
+    },
+    '& .super-app-theme': {
+      '&:hover': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.light,
+      },
+      '&.Mui-selected': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.dark,
+        '&:hover': {
+          backgroundColor: theme.palette.primary.dark,
+        },
+      },
+    },
+  }));
 
   return (
     <Box sx={{ height, width: '100%' }}>
-      {showBorder && (
+      {showBorder && !showMild && (
         <StyledDataGrid
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
@@ -111,8 +172,38 @@ export function StylingRowsGrid({
           {...{ rows, columns }}
         />
       )}
-      {!showBorder && (
+      {showBorder && showMild && (
+        <StyledDataGridMild
+          aria-label={ariaTitle}
+          aria-describedby={ariaDescription}
+          checkboxSelection={checkboxSelection}
+          columnVisibilityModel={columnVisibilityModel}
+          data-testid={testId}
+          getRowClassName={() => `super-app-theme`}
+          initialState={initialState}
+          onColumnVisibilityModelChange={onColumnVisibilityModelChange}
+          onRowClick={onRowClick}
+          onCellClick={onCellClick}
+          {...{ rows, columns }}
+        />
+      )}
+      {!showBorder && !showMild && (
         <StyledDataGridNoBorder
+          aria-label={ariaTitle}
+          aria-describedby={ariaDescription}
+          checkboxSelection={checkboxSelection}
+          columnVisibilityModel={columnVisibilityModel}
+          data-testid={testId}
+          getRowClassName={() => `super-app-theme`}
+          initialState={initialState}
+          onColumnVisibilityModelChange={onColumnVisibilityModelChange}
+          onRowClick={onRowClick}
+          onCellClick={onCellClick}
+          {...{ rows, columns }}
+        />
+      )}
+      {!showBorder && showMild && (
+        <StyledDataGridNoBorderMild
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           checkboxSelection={checkboxSelection}

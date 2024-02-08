@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton } from '../Button/Button';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
@@ -29,6 +30,9 @@ interface FileUploadProps {
   maxFileWidth?: number;
   testId?: string;
   //
+  clearLabel?: string;
+  clearToolTip?: string;
+  clearVariant?: ButtonVariantTypes;
   setFile?: Function | null;
   setStatus?: Function | null;
   uploadColor?: ButtonColorTypes;
@@ -57,6 +61,9 @@ export default function FileUpload({
   setStatus,
   testId = 'fileUpload,',
   //
+  clearLabel = 'Upload',
+  clearToolTip = 'Clear the selected file',
+  clearVariant = ButtonVariantTypes.Contained,
   uploadColor = ButtonColorTypes.Secondary,
   uploadDisabled = false,
   uploadFunction,
@@ -83,7 +90,7 @@ export default function FileUpload({
     setState(e);
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: any) => {
     if (e.target.files) {
       setTheFile(e.target.files[0]);
       setName(e.target.files[0].name);
@@ -91,6 +98,15 @@ export default function FileUpload({
       if (setFile) {
         setFile(e.target.files[0].name);
       }
+    }
+  };
+
+  const handleClear = () => {
+    setTheFile(null);
+    setName('');
+    setTheStatus(FileUploadStatus.INITIAL);
+    if (setFile) {
+      setFile('');
     }
   };
 
@@ -123,7 +139,11 @@ export default function FileUpload({
   const displayName = () =>
     name?.length > maxFileWidth ? name.substring(0, maxFileWidth) + '...' : name;
 
-  const getIcon = () => {
+  const getClearIcon = () => {
+    return <ClearIcon />;
+  };
+
+  const getUploadIcon = () => {
     return state === FileUploadStatus.INITIAL ? (
       <UploadFileIcon />
     ) : (
@@ -169,7 +189,7 @@ export default function FileUpload({
       color={state === FileUploadStatus.INITIAL ? uploadColor : ButtonColorTypes.Inherit}
       component="span"
       disabled={uploadDisabled || uploadURL.length === 0}
-      icon={getIcon()}
+      icon={getUploadIcon()}
       label={uploadLabel}
       onClick={handleUpload}
       size={buttonSize}
@@ -179,11 +199,28 @@ export default function FileUpload({
     />
   );
 
+  const ClearButton = () => (
+    <OurButton
+      ariaDescription={clearToolTip}
+      color={ButtonColorTypes.Inherit}
+      component="span"
+      disabled={uploadDisabled || uploadURL.length === 0}
+      icon={getClearIcon()}
+      label={clearLabel}
+      onClick={handleClear}
+      size={buttonSize}
+      testId={testId + 'ClearButton'}
+      toolTip={clearToolTip}
+      variant={clearVariant}
+    />
+  );
+
   return (
     <Grid container direction={direction} justifyContent="space-evenly" spacing={1}>
       <Grid item>{ChooseButton()}</Grid>
       <Grid item>{!hideFileName && showFileName()}</Grid>
       <Grid item>{theFile && UploadButton()}</Grid>
+      <Grid item>{theFile && ClearButton()}</Grid>
     </Grid>
   );
 }

@@ -18,6 +18,8 @@ export const Light = {
     chooseToolTip: 'Choose the file',
     direction: 'row',
     maxFileWidth: 20,
+    clearLabel: 'Clear',
+    clearToolTip: 'Clear tooltip',
     uploadDisabled: false,
     uploadLabel: 'Upload',
     uploadURL: 'https://httpbin.org/post',
