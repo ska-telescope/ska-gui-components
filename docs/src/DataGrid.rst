@@ -1,4 +1,4 @@
-DataTree
+DataGrid
 ~~~~~~~~
 
 *Overview*
@@ -24,9 +24,15 @@ Given the provided data, will provide a table of contents
     "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
     "checkboxSelection", "boolean", "No", "false", "Adds checkboxes as the first column"
     "columns", "number", "Yes", "", "Array containing the column specifics"
+    "columnVisibilityModel", "any", "No", "", "Ability to dynamically show/hide columns"
     "height", "number", "No", "264", "Determines the height that the component will use"
+    "initialState", "object", "No", "", "Sets the initial state of the DataGrid"
+    "onColumnVisibilityModelChange", "any", "No", "Used to listen to the changes to the visible columns and update the prop accordingly", 
     "onRowClick", "function", "No", "", "Action if the row is clicked"
+    "onCellClick", "function", "No", "", "Action if a cell is clicked"
     "rows", "array", "Yes", "", "Data that is to be presented"
+    "showBorder", "boolean", "No", "", "When active, the border for the component is displayed"
+    "showMild", "boolean", "No", "", "When active, the selected colouring is restricted to a lower contrast"
     "testId", "string", "Yes", "", "Identifier for testing purposes"
     
 

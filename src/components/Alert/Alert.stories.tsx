@@ -1,4 +1,4 @@
-import { SKAOAlert, AlertVariantTypes } from './Alert';
+import { SKAOAlert, AlertVariantTypes, AlertColorTypes } from './Alert';
 
 export default {
   title: 'Example/Alert',
@@ -13,9 +13,12 @@ export const Default = {
     backgrounds: { default: 'light' },
   },
   args: {
-    ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    ariaTitle: 'aria Title',
     children: 'CHILDREN defined are displayed in here',
+    color: AlertColorTypes.Success,
+    variant: AlertVariantTypes.Outlined,
+    testId: 'alertTestId',
   },
 };
 
@@ -24,9 +27,11 @@ export const Dark = {
     backgrounds: { default: 'dark' },
   },
   args: {
-    ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    ariaTitle: 'aria Title',
     children: 'CHILDREN defined are displayed in here',
+    color: AlertColorTypes.Success,
     variant: AlertVariantTypes.Filled,
+    testId: 'alertTestId',
   },
 };

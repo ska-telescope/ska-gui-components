@@ -11,10 +11,10 @@ export interface AlertCardProps {
   ariaTitle?: string;
   array: {
     color: AlertColorTypes;
-    title: string;
-    variant: AlertVariantTypes;
-    value: number;
     hideValue: boolean;
+    title: string;
+    value: number;
+    variant: AlertVariantTypes;
   }[];
   clickFunction?: Function;
   variant?: AlertVariantTypes;
@@ -138,6 +138,7 @@ export function AlertCard({
       action={action}
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
+      aria-hidden={false}
       color={getCardColor(array)}
       testId={testId}
       key="alerts"

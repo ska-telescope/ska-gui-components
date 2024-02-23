@@ -1,7 +1,5 @@
 import Header from './Header';
 
-function handleThemeToggle() {}
-
 export default {
   title: 'Example/Header',
   component: Header,
@@ -11,6 +9,10 @@ export const Default = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    docs: {
+      tooltip: 'THIS IS A TOOLTIP',
+      url: 'https://www.bbc.co.uk/',
+    },
     selectTelescope: true,
     testId: 'testId',
     title: 'ska-gui-components',

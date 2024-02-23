@@ -2,22 +2,20 @@ import React from 'react';
 import { ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
 
 export interface ButtonToggleProps {
-  // required
+  ariaDescription?: string;
+  ariaTitle?: string;
   current: string;
+  disabled?: boolean;
   options: { id: string; label: string; value: any }[];
   setValue?: Function;
   testId: string;
-  value: any;
-  // optional
-  ariaDescription?: string;
-  ariaTitle?: string;
-  disabled?: boolean;
   toolTip?: string;
+  value: any;
 }
 
 export function ButtonToggle({
-  ariaDescription = 'Button',
-  ariaTitle,
+  ariaDescription = 'button',
+  ariaTitle = 'ButtonToggle',
   current,
   disabled = false,
   setValue,
@@ -38,6 +36,7 @@ export function ButtonToggle({
       <ToggleButtonGroup
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
+        aria-hidden={false}
         color="secondary"
         data-testid={testId}
         disabled={disabled}

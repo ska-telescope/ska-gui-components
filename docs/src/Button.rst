@@ -24,6 +24,7 @@ The expectation that an appropriate icon will be provided, which is displayed to
 
    "ariaDescription", "string", "No", "", "Used by Screen Readers"
    "color", "string", "No", "", "Color options : ButtonColorType"
+   "component", "string", "No", "button", "The component used for the root node. Either a string to use a HTML element or a component"
    "disabled", "boolean", "No", "false", "Disabled when true"
    "icon", "JSX.Element", "No", "null", "Prefixes the label when present"
    "label", "string", "Yes", "", "Test displayed upon the button"

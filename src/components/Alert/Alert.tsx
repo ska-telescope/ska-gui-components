@@ -44,6 +44,7 @@ export function SKAOAlert({
           action={action}
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
+          aria-hidden={false}
           data-testid={testId}
           icon={false}
           key="alerts"

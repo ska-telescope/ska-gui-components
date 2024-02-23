@@ -13,9 +13,9 @@ const optionList = [
 
 describe('<ButtonToggle />', () => {
   for (const theTheme of THEME) {
-    it('Theme ' + theTheme + '', () => {
+    it('Theme ' + theTheme + ': Minimal implementation', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <ButtonToggle
             current={telescope.id}
@@ -28,6 +28,7 @@ describe('<ButtonToggle />', () => {
       cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
       // TODO Validate that the button was clicked
     });
+
     it('Theme ' + theTheme + ', toolTips', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
@@ -43,38 +44,35 @@ describe('<ButtonToggle />', () => {
       );
       // TODO : Test that there is a tooltip  ?
     });
-  }
-
-  it('renders : with a provided function.', () => {
-    it('Enabled', () => {
+    it('Theme ' + theTheme + ': A provided function and ENABLED', () => {
       cy.mount(
         <ButtonToggle
           current={telescope.id}
+          disabled={false}
           options={optionList}
           setValue={cy.stub().as('setValue')}
           testId="LabelToggleButtonId"
-          value={telescope}
           toolTip={'ToolTip'}
+          value={telescope}
         />
       );
       cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
       // TODO Validate that the button was clicked
     });
-
-    it('Disabled', () => {
+    it('Theme ' + theTheme + ': A provided function and DISABLED', () => {
       cy.mount(
         <ButtonToggle
           current={telescope.id}
-          disabled
+          disabled={true}
           options={optionList}
           setValue={cy.stub().as('setValue')}
           testId="LabelToggleButtonId"
-          value={telescope}
           toolTip={'ToolTip'}
+          value={telescope}
         />
       );
       cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
-      // TODO Validate that the button was unable to be clicked
+      // TODO Validate that the button was clicked
     });
-  });
+  }
 });

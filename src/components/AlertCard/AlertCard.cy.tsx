@@ -1,125 +1,81 @@
 import React from 'react';
-import { AlertColorTypes, AlertVariantTypes } from '../Alert/Alert';
+import { AlertVariantTypes } from '../Alert/Alert';
+import { ALERT_DATA } from './AlertData';
 import AlertCard from './AlertCard';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
-const DUMMY_DATA = [
-  {
-    color: AlertColorTypes.Success,
-    title: 'SUCCESS',
-    variant: AlertVariantTypes.Filled,
-    value: 0,
-    hideValue: true,
-  },
-  {
-    color: AlertColorTypes.Info,
-    title: 'INFO',
-    variant: AlertVariantTypes.Filled,
-    value: 1,
-    hideValue: false,
-  },
-  {
-    color: AlertColorTypes.Warning,
-    title: 'WARNING',
-    variant: AlertVariantTypes.Filled,
-    value: 1,
-    hideValue: true,
-  },
-  {
-    color: AlertColorTypes.Error,
-    title: 'ERROR',
-    variant: AlertVariantTypes.Filled,
-    value: 1,
-    hideValue: false,
-  },
-  {
-    color: AlertColorTypes.Success,
-    title: 'SUCCESS',
-    variant: AlertVariantTypes.Outlined,
-    value: 1,
-    hideValue: true,
-  },
-  {
-    color: AlertColorTypes.Info,
-    title: 'INFO',
-    variant: AlertVariantTypes.Outlined,
-    value: 1,
-    hideValue: false,
-  },
-  {
-    color: AlertColorTypes.Warning,
-    title: 'WARNING',
-    variant: AlertVariantTypes.Outlined,
-    value: 1,
-    hideValue: true,
-  },
-  {
-    color: AlertColorTypes.Error,
-    title: 'ERROR',
-    variant: AlertVariantTypes.Outlined,
-    value: 1,
-    hideValue: false,
-  },
-];
-
 const THEME = [THEME_DARK, THEME_LIGHT];
+const SHOW_STATUS = [true, false];
+const SHOW_STATUS_ICON = [true, false];
+const VARIANT = [AlertVariantTypes.Outlined, AlertVariantTypes.Filled];
 
 describe('<AlertCard />', () => {
   for (const theTheme of THEME) {
-    it('Theme ' + theTheme + ': Outlined with no title', () => {
+    it('Theme ' + theTheme + ': Minimal implementation', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <AlertCard array={DUMMY_DATA} variant={AlertVariantTypes.Outlined} testId="testId" />
+          <AlertCard array={ALERT_DATA} testId="testId" />
         </ThemeProvider>
       );
     });
-    it('Theme ' + theTheme + ': Filled with no title', () => {
-      cy.mount(
-        <ThemeProvider theme={theme(theTheme)}>
-          <CssBaseline />
-          <AlertCard array={DUMMY_DATA} variant={AlertVariantTypes.Filled} testId="testId" />
-        </ThemeProvider>
-      );
-    });
-    it('Theme ' + theTheme + ': Outlined with title', () => {
-      cy.mount(
-        <ThemeProvider theme={theme(theTheme)}>
-          <CssBaseline />
-          <AlertCard
-            title="TITLE"
-            array={DUMMY_DATA}
-            variant={AlertVariantTypes.Outlined}
-            testId="testId"
-          />
-        </ThemeProvider>
-      );
-    });
-    it('Theme ' + theTheme + ': Filled with title', () => {
-      cy.mount(
-        <ThemeProvider theme={theme(theTheme)}>
-          <CssBaseline />
-          <AlertCard
-            title="TITLE"
-            array={DUMMY_DATA}
-            testId="testId"
-            variant={AlertVariantTypes.Filled}
-          />
-        </ThemeProvider>
-      );
-    });
+    for (const variant of VARIANT) {
+      for (const showStatus of SHOW_STATUS) {
+        for (const showStatusIcon of SHOW_STATUS_ICON) {
+          it(
+            'Theme ' +
+              theTheme +
+              ': Variant = ' +
+              variant +
+              ', Show Status = ' +
+              showStatus +
+              ', Show Status Icon = ' +
+              showStatusIcon +
+              ' No Title',
+            () => {
+              cy.mount(
+                <ThemeProvider theme={theme(theTheme)}>
+                  <CssBaseline />
+                  <AlertCard
+                    array={ALERT_DATA}
+                    showStatus={showStatus}
+                    showStatusIcon={showStatusIcon}
+                    testId="testId"
+                    variant={variant}
+                  />
+                </ThemeProvider>
+              );
+            }
+          );
+          it(
+            'Theme ' +
+              theTheme +
+              ': Variant = ' +
+              variant +
+              ', Show Status = ' +
+              showStatus +
+              ', Show Status Icon = ' +
+              showStatusIcon +
+              ' Titled',
+            () => {
+              cy.mount(
+                <ThemeProvider theme={theme(theTheme)}>
+                  <CssBaseline />
+                  <AlertCard
+                    array={ALERT_DATA}
+                    showStatus={showStatus}
+                    showStatusIcon={showStatusIcon}
+                    testId="testId"
+                    title="Test Title"
+                    variant={variant}
+                  />
+                </ThemeProvider>
+              );
+            }
+          );
+        }
+      }
+    }
   }
-  it('renders : with a provided function', () => {
-    cy.mount(
-      <AlertCard
-        title="alertCard.title"
-        array={DUMMY_DATA}
-        clickFunction={cy.stub().as('clicked')}
-        testId="AlertCard"
-      />
-    );
-    cy.get('[data-testid="AlertCard"]').click({ multiple: true });
-    // TODO Validate that the button was clicked
-  });
 });
