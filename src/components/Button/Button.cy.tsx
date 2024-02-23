@@ -24,7 +24,7 @@ describe('<Button />', () => {
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <Button label="Label" testId="LabelButtonId" />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
     for (const variant of VARIANT) {
@@ -34,7 +34,7 @@ describe('<Button />', () => {
             <ThemeProvider theme={theme(theTheme)}>
               <CssBaseline />
               <Button color={color} label="Label" testId="LabelButtonId" variant={variant} />
-            </ThemeProvider>
+            </ThemeProvider>,
           );
         });
 
@@ -51,7 +51,7 @@ describe('<Button />', () => {
                   toolTip={'Tool tip'}
                   variant={variant}
                 />
-              </ThemeProvider>
+              </ThemeProvider>,
             );
             cy.get('[data-testid="LabelButtonId"]').click({ multiple: true });
             // TODO Validate that the button was clicked
@@ -70,7 +70,7 @@ describe('<Button />', () => {
                   toolTip={'Tool tip'}
                   variant={variant}
                 />
-              </ThemeProvider>
+              </ThemeProvider>,
             );
             cy.get('[data-testid="LabelButtonId"]').click({ multiple: true });
             // TODO Validate that the button was unable to be clicked

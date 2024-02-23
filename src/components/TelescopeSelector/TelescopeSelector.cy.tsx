@@ -15,7 +15,7 @@ describe('<TelescopeSelector />', () => {
             <CssBaseline />
             <TelescopeSelector />
           </ThemeProvider>
-        </StoreProvider>
+        </StoreProvider>,
       );
       cy.get('[data-testid="telescopeSelectorId"]').click({ multiple: true });
       // TODO Validate that the button was clicked
@@ -27,7 +27,7 @@ describe('<TelescopeSelector />', () => {
             <CssBaseline />
             <TelescopeSelector toolTip={'ToolTip'} />
           </ThemeProvider>
-        </StoreProvider>
+        </StoreProvider>,
       );
       // TODO : Test that there is a tooltip  ?
     });

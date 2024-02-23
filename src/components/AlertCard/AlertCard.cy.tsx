@@ -17,7 +17,7 @@ describe('<AlertCard />', () => {
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <AlertCard array={ALERT_DATA} testId="testId" />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
     for (const variant of VARIANT) {
@@ -44,9 +44,9 @@ describe('<AlertCard />', () => {
                     testId="testId"
                     variant={variant}
                   />
-                </ThemeProvider>
+                </ThemeProvider>,
               );
-            }
+            },
           );
           it(
             'Theme ' +
@@ -70,9 +70,9 @@ describe('<AlertCard />', () => {
                     title="Test Title"
                     variant={variant}
                   />
-                </ThemeProvider>
+                </ThemeProvider>,
               );
-            }
+            },
           );
         }
       }

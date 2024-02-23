@@ -61,7 +61,7 @@ const content = (
   showStatus: boolean,
   showStatusIcon: boolean,
   theTitle: string,
-  value: number
+  value: number,
 ) => (
   <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
     <Grid item>
@@ -98,7 +98,7 @@ function AlertElement(
   // optional
   showStatus: boolean,
   showStatusIcon: boolean,
-  clickFunction?: Function
+  clickFunction?: Function,
 ) {
   const buttonClick = () => (clickFunction ? clickFunction : null);
 
@@ -160,8 +160,8 @@ export function AlertCard({
               arr.variant,
               showStatus,
               showStatusIcon,
-              clickFunction
-            )
+              clickFunction,
+            ),
           )}
         </Grid>
       </Stack>

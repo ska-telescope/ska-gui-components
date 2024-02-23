@@ -15,7 +15,7 @@ describe('<Footer />', () => {
             <Grid />
             <Grid item>More content</Grid>
           </Footer>
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
   }

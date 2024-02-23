@@ -51,7 +51,7 @@ export function Progress({
     label: any,
     size: number,
     testId: any,
-    value: number
+    value: number,
   ): JSX.Element {
     return (
       <Box sx={{ position: 'relative', display: 'inline-flex' }}>
@@ -95,7 +95,7 @@ export function Progress({
     label: any,
     size: number,
     testId: any,
-    value: number
+    value: number,
   ): JSX.Element {
     return (
       <Box sx={{ width: size, display: 'flex', alignItems: 'center' }}>
@@ -112,7 +112,7 @@ export function Progress({
         {label && (
           <Box sx={{ minWidth: 35 }}>
             <Typography variant="body2" color="text.secondary">{`${Math.round(
-              value ? value : 0
+              value ? value : 0,
             )}%`}</Typography>
           </Box>
         )}
@@ -130,7 +130,7 @@ export function Progress({
           label,
           size ? size : 40,
           testId,
-          value ? value : 0
+          value ? value : 0,
         )}
       {indicator === 'line' &&
         ProgressLine(
@@ -140,7 +140,7 @@ export function Progress({
           label,
           size ? size : 40,
           testId,
-          value ? value : 0
+          value ? value : 0,
         )}
     </>
   );

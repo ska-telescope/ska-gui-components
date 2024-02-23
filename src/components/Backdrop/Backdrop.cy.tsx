@@ -16,7 +16,7 @@ describe('<DateEntry />', () => {
               BACKDROP IS CLOSED
             </Typography>
           </Backdrop>
-        </ThemeProvider>
+        </ThemeProvider>,
       );
 
       cy.mount(
@@ -27,7 +27,7 @@ describe('<DateEntry />', () => {
               BACKDROP IS OPEN
             </Typography>
           </Backdrop>
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
   }

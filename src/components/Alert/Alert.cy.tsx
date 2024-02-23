@@ -22,7 +22,7 @@ describe('<Alert />', () => {
           <SKAOAlert testId="testId">
             <Typography>CHILDREN defined are displayed in here</Typography>
           </SKAOAlert>
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
     for (const variant of VARIANT) {
@@ -34,7 +34,7 @@ describe('<Alert />', () => {
               <SKAOAlert color={color} testId="testId" variant={variant}>
                 <Typography>CHILDREN defined are displayed in here</Typography>
               </SKAOAlert>
-            </ThemeProvider>
+            </ThemeProvider>,
           );
         });
       }

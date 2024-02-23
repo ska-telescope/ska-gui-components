@@ -14,7 +14,7 @@ describe('<DateEntry />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <TextEntry label="Label" testId="testId" value={theValue} />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
     it('Theme ' + theTheme + ' : Disabled ', () => {
@@ -22,7 +22,7 @@ describe('<DateEntry />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <TextEntry label="Label" testId="testId" value={theValue} disabled />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check it is disabled
     });
@@ -31,7 +31,7 @@ describe('<DateEntry />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <TextEntry label="Label" testId="testId" value={theValue} required />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check it is required
     });
@@ -40,7 +40,7 @@ describe('<DateEntry />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <TextEntry label="Label" testId="testId" value={theValue} helperText="HELPER TEXT" />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check that helperText is visible
     });
@@ -49,7 +49,7 @@ describe('<DateEntry />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <TextEntry label="Label" testId="testId" value={theValue} errorText="ERROR TEXT" />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check that errorText is shown and the colouring is correct
     });

@@ -42,7 +42,7 @@ describe('<DataTree />', () => {
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <DataTree data={mockData} testId="testId" />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
   }

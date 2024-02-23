@@ -37,7 +37,7 @@ describe('<SKAODataGrid />', () => {
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <StylingRowsGrid columns={DUMMY_COLUMNS} rows={DUMMY_ROWS} testId="testId" />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
   }

@@ -12,7 +12,7 @@ describe('<DateEntry />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <Progress testId="testId" />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
   }

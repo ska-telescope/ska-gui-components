@@ -19,7 +19,7 @@ describe('<DropDown />', () => {
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <DropDown label="Label" options={DUMMY_OPTIONS} testId="testId" value={theValue} />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
     it('Theme ' + theTheme + ' : Disabled ', () => {
@@ -33,7 +33,7 @@ describe('<DropDown />', () => {
             value={theValue}
             disabled
           />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check it is disabled
     });
@@ -48,7 +48,7 @@ describe('<DropDown />', () => {
             value={theValue}
             required
           />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check it is required
     });
@@ -63,7 +63,7 @@ describe('<DropDown />', () => {
             value={theValue}
             helperText="HELPER TEXT"
           />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check that helperText is visible
     });
@@ -78,7 +78,7 @@ describe('<DropDown />', () => {
             value={theValue}
             errorText="ERROR TEXT"
           />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check that errorText is shown and the colouring is correct
     });

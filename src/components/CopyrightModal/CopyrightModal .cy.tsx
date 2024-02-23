@@ -14,7 +14,7 @@ describe('<CopyrightModal />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <CopyrightModal show={true} copyrightFunc={closeFunc} />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
   }

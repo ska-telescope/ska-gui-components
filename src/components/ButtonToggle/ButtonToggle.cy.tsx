@@ -23,7 +23,7 @@ describe('<ButtonToggle />', () => {
             testId="LabelToggleButtonId"
             value={telescope}
           />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
       // TODO Validate that the button was clicked
@@ -40,7 +40,7 @@ describe('<ButtonToggle />', () => {
             testId="LabelToggleButtonId"
             toolTip={'ToolTip'}
           />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Test that there is a tooltip  ?
     });
@@ -54,7 +54,7 @@ describe('<ButtonToggle />', () => {
           testId="LabelToggleButtonId"
           toolTip={'ToolTip'}
           value={telescope}
-        />
+        />,
       );
       cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
       // TODO Validate that the button was clicked
@@ -69,7 +69,7 @@ describe('<ButtonToggle />', () => {
           testId="LabelToggleButtonId"
           toolTip={'ToolTip'}
           value={telescope}
-        />
+        />,
       );
       cy.get('[data-testid="LabelToggleButtonId"]').click({ multiple: true });
       // TODO Validate that the button was clicked
