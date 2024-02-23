@@ -13,14 +13,14 @@ describe('<Status />', () => {
       cy.mount(
         <StatusIcon testId="statusTestId" level={i}>
           17
-        </StatusIcon>
+        </StatusIcon>,
       );
     });
     it('Status ' + i + ' renders with text', () => {
       cy.mount(
         <StatusIcon testId="statusTestId" level={i} text={i.toString()}>
           17
-        </StatusIcon>
+        </StatusIcon>,
       );
     });
   }

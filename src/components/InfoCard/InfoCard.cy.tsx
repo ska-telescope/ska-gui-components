@@ -12,7 +12,7 @@ describe('<InfoCard />', () => {
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <InfoCard color={InfoCardColorTypes.Info} message="infoCard.message" testId="testId" />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
 
@@ -26,7 +26,7 @@ describe('<InfoCard />', () => {
             testId="testId"
             variant={InfoCardVariantTypes.Filled}
           />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
 
@@ -40,7 +40,7 @@ describe('<InfoCard />', () => {
             testId="testId"
             showStatus
           />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
   }

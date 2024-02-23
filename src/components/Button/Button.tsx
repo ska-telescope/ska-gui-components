@@ -37,7 +37,7 @@ export interface ButtonProps {
 export function OurButton({
   ariaDescription = 'Button',
   color = ButtonColorTypes.Success,
-  component = 'Button',
+  component = 'button',
   disabled = false,
   icon,
   label,

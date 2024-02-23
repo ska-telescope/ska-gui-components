@@ -20,7 +20,7 @@ describe('<Header />', () => {
               <Grid item>HEADER</Grid>
             </Header>
           </ThemeProvider>
-        </StoreProvider>
+        </StoreProvider>,
       );
       cy.get('[id="skaWebsite"]').click();
       // cy.get('@clicked').should('have.been.called');

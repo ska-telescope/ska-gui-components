@@ -12,7 +12,7 @@ describe('<DateEntry />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <TickBox label="Label" testId="testId" />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
     it('Theme ' + theTheme + ' : Disabled ', () => {
@@ -20,7 +20,7 @@ describe('<DateEntry />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <TickBox label="Label" testId="testId" disabled />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check it is disabled
     });
@@ -29,7 +29,7 @@ describe('<DateEntry />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <TickBox label="Label" testId="testId" required />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check it is required
     });
@@ -38,7 +38,7 @@ describe('<DateEntry />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <TickBox label="Label" testId="testId" helperText="HELPER TEXT" />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check that helperText is visible
     });

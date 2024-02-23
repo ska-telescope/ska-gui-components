@@ -4,8 +4,8 @@ import { DataGrid } from '@mui/x-data-grid';
 import { styled } from '@mui/material/styles';
 
 export interface DataGridProps {
-  ariaTitle?: string;
   ariaDescription?: string;
+  ariaTitle?: string;
   checkboxSelection?: boolean;
   columns: any;
   columnVisibilityModel?: any;

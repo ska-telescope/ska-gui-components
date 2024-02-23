@@ -11,10 +11,10 @@ export interface AlertCardProps {
   ariaTitle?: string;
   array: {
     color: AlertColorTypes;
-    title: string;
-    variant: AlertVariantTypes;
-    value: number;
     hideValue: boolean;
+    title: string;
+    value: number;
+    variant: AlertVariantTypes;
   }[];
   clickFunction?: Function;
   variant?: AlertVariantTypes;
@@ -61,7 +61,7 @@ const content = (
   showStatus: boolean,
   showStatusIcon: boolean,
   theTitle: string,
-  value: number
+  value: number,
 ) => (
   <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
     <Grid item>
@@ -98,7 +98,7 @@ function AlertElement(
   // optional
   showStatus: boolean,
   showStatusIcon: boolean,
-  clickFunction?: Function
+  clickFunction?: Function,
 ) {
   const buttonClick = () => (clickFunction ? clickFunction : null);
 
@@ -138,6 +138,7 @@ export function AlertCard({
       action={action}
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
+      aria-hidden={false}
       color={getCardColor(array)}
       testId={testId}
       key="alerts"
@@ -159,8 +160,8 @@ export function AlertCard({
               arr.variant,
               showStatus,
               showStatusIcon,
-              clickFunction
-            )
+              clickFunction,
+            ),
           )}
         </Grid>
       </Stack>

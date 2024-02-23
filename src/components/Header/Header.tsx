@@ -5,6 +5,7 @@ import { storageObject } from '@ska-telescope/ska-gui-local-storage';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import DescriptionIcon from '@mui/icons-material/Description';
 import HelpIcon from '@mui/icons-material/Help';
 
 const LOGO_HEIGHT = 30;
@@ -17,6 +18,7 @@ function openLink(link: string) {
 export interface HeaderProps {
   ariaDescription?: string;
   ariaTitle?: string;
+  docs?: { tooltip: string; url: string };
   selectTelescope?: boolean;
   showHelp?: boolean;
   testId: string;
@@ -28,6 +30,7 @@ export interface HeaderProps {
 export function Header({
   ariaDescription = 'Sticky Panel at the top of the page',
   ariaTitle = 'SKAOHeader',
+  docs = { tooltip: '', url: '' },
   selectTelescope = true,
   showHelp = false,
   testId,
@@ -79,6 +82,18 @@ export function Header({
         <Grid item>
           <Box mr={1} display="flex" justifyContent="flex-end">
             {selectTelescope && <TelescopeSelector />}
+            {docs?.url && (
+              <Tooltip title={docs?.tooltip} arrow>
+                <IconButton
+                  aria-label="document icon"
+                  sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+                  color="inherit"
+                  onClick={() => openLink(docs.url)}
+                >
+                  {<DescriptionIcon />}
+                </IconButton>
+              </Tooltip>
+            )}
             {hasHelp() && (
               <Tooltip title={help.content} arrow>
                 <IconButton

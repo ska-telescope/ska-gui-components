@@ -14,7 +14,7 @@ describe('<FileUpload />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <FileUpload />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
     it('Theme ' + theTheme + ' : Disabled ', () => {
@@ -22,7 +22,7 @@ describe('<FileUpload />', () => {
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
           <FileUpload chooseDisabled={true} />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
       // TODO : Check it is disabled
     });
