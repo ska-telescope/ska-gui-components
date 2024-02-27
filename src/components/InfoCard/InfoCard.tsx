@@ -13,16 +13,16 @@ export enum InfoCardVariantTypes {
   Outlined = 'outlined',
 }
 export interface InfoCardProps {
-  color: InfoCardColorTypes;
-  message: string;
   ariaDescription?: string;
   ariaTitle?: string;
-  fontSize?: number;
-  variant?: InfoCardVariantTypes;
   clickFunction?: Function;
+  color: InfoCardColorTypes;
+  fontSize?: number;
+  message: string;
   showStatus?: boolean;
   showStatusIcon?: boolean;
   testId: string;
+  variant?: InfoCardVariantTypes;
 }
 
 export function InfoCard({
@@ -31,11 +31,11 @@ export function InfoCard({
   clickFunction,
   color = InfoCardColorTypes.Info,
   fontSize = 35,
-  variant = InfoCardVariantTypes.Outlined,
   message,
   showStatus = false,
   showStatusIcon = true,
   testId,
+  variant = InfoCardVariantTypes.Outlined,
 }: InfoCardProps) {
   const buttonClick = () => (clickFunction ? clickFunction : null);
   const statusSize = () => (fontSize ? fontSize * 1.15 : fontSize);

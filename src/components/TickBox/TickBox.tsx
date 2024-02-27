@@ -8,26 +8,18 @@ export interface TickBoxProps {
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;
-  errorText?: string;
   fontSize?: number;
-  helperText?: string;
   label?: string;
   labelEnd?: boolean;
-  password?: boolean;
-  prefix?: JSX.Element | string;
   onChange?: Function;
   onFocus?: Function;
-  required?: boolean;
-  rows?: number;
-  setValue?: Function;
-  suffix?: JSX.Element | string;
   testId: string;
 }
 
 export function TickBox({
   ariaDescription = 'Entry of a textual value',
   ariaTitle = 'TickBox',
-  checked,
+  checked = false,
   disabled = false,
   defaultChecked,
   fontSize = 28,

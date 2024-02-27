@@ -1,63 +1,95 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "0.1.95",
+  "version": "0.1.96",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts",
   "scripts": {
     "browserList": "npx browserslist@latest --update-db",
     "build": "react-scripts build",
     "build-storybook": "storybook build",
+    "code-analysis": "eslint --ignore-path .eslintignore -f junit -o linting.xml",
     "cypress": "cypress open",
     "cypress:component:chrome": "cypress run --component --browser chrome --config video=false",
-    "code-analysis": "eslint --ignore-path .eslintignore -f junit -o linting.xml",
-    "lint:fix": "eslint  --ignore-path .eslintignore --fix",
     "lint": "eslint --ignore-path .eslintignore",
+    "lint:fix": "eslint  --ignore-path .eslintignore --fix",
     "merge-reports": "jrm build/reports/unit-tests.xml \"build/tests/*.xml\"",
     "prettier:fix": "prettier src/**/*.{js,jsx,ts,tsx} --write",
-    "rollup": "rollup -c",
+    "rollup": "rollup --bundleConfigAsCjs -c",
     "skao:update": "yarn add @ska-telescope/ska-javascript-components@latest @ska-telescope/ska-gui-local-storage@latest",
     "storybook": "storybook dev -p 6006",
+    "storybook:update": "npx storybook@latest upgrade",
     "test:component:headless": "cypress run --component --headless --browser chrome --config video=false",
-    "test:coverage:report:ci": "npx nyc report --report-dir=build/reports --reporter=cobertura",
     "test:coverage:report": "npx nyc report --report-dir=build/reports --reporter=html",
+    "test:coverage:report:ci": "npx nyc report --report-dir=build/reports --reporter=cobertura",
     "test:cypress:component:ci": "cypress run --component --headless --browser chrome --reporter junit --config video=false --reporter-options mochaFile=build/tests/unit-tests[hash].xml"
   },
-  "resolutions": {
-    "@svgr/webpack": "^8.1.0",
-    "debug": "^4.3.4",
-    "json5": "^2.2.3",
-    "postcss": "^8.4.32"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "!src/**/*.stories.{js,jsx,ts,tsx}",
+      "!src/**/index.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/",
+      "!src/index.jsx"
+    ],
+    "coverageReporters": [
+      "text",
+      "cobertura",
+      "html"
+    ]
+  },
+  "dependencies": {
+    "@mui/lab": "^5.0.0-alpha.166",
+    "@mui/system": "^5.15.11",
+    "@mui/x-data-grid": "^6.19.5",
+    "@mui/x-tree-view": "^6.17.0",
+    "@react-spring/web": "^9.7.3",
+    "@ska-telescope/ska-gui-local-storage": "^0.1.16",
+    "@ska-telescope/ska-javascript-components": "^1.0.4",
+    "@types/uuid": "^9.0.4",
+    "junit-report-merger": "^6.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.22.7",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-syntax-flow": "^7.21.4",
     "@babel/plugin-transform-react-jsx": "^7.21.0",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
-    "@cypress/code-coverage": "^3.11.0",
+    "@cypress/code-coverage": "^3.12.26",
     "@cypress/instrument-cra": "^1.4.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/material-icons": "^5.0.13",
     "@fontsource/roboto": "^5.0.8",
-    "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.14.19",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@mui/icons-material": "^5.15.11",
+    "@mui/material": "^5.15.11",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.0.0",
     "@storybook/addon-essentials": "^7.6.13",
     "@storybook/addon-interactions": "^7.6.13",
     "@storybook/addon-links": "^7.6.13",
-    "@storybook/addon-mdx-gfm": "7.6.13",
+    "@storybook/addon-mdx-gfm": "7.6.17",
     "@storybook/node-logger": "^7.6.13",
     "@storybook/preset-create-react-app": "^7.6.13",
     "@storybook/preset-scss": "^1.0.3",
@@ -67,7 +99,7 @@
     "@testing-library/cypress": "^10.0.1",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.0.0",
-    "@types/react": "^18.2.58",
+    "@types/react": "^18.2.59",
     "autoprefixer": "^10.4.14",
     "babel-core": "^6.26.3",
     "babel-jest": "^29.5.0",
@@ -77,7 +109,7 @@
     "css-loader": "^6.7.3",
     "cypress": "^13.6.6",
     "debug": "^4.3.4",
-    "eslint": "^8.37.0",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-cypress": "^2.13.2",
@@ -96,57 +128,19 @@
     "react-refresh": "^0.14.0",
     "react-scripts": "^5.0.0",
     "require-from-string": "^2.0.2",
-    "rollup": "^2.60.0",
-    "rollup-plugin-dts": "^4.0.1",
+    "rollup": "^4.12.0",
+    "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.1",
-    "rollup-plugin-terser": "^7.0.2",
     "sass-loader": "^14.1.1",
     "storybook": "^7.6.13",
     "style-loader": "^3.3.2",
     "typescript": "^5.3.3",
     "webpack": "^5.77.0"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "!src/**/*.stories.{js,jsx,ts,tsx}",
-      "!src/**/index.{js,jsx,ts,tsx}",
-      "!<rootDir>/node_modules/",
-      "!<rootDir>/path/to/dir/",
-      "!src/index.jsx"
-    ],
-    "coverageReporters": [
-      "text",
-      "cobertura",
-      "html"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "peerDependencies": {
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.14",
     "react": "^18.2.0"
-  },
-  "dependencies": {
-    "@mui/lab": "^5.0.0-alpha.135",
-    "@mui/system": "^5.13.7",
-    "@mui/x-data-grid": "^6.19.5",
-    "@mui/x-tree-view": "^6.17.0",
-    "@react-spring/web": "^9.7.3",
-    "@ska-telescope/ska-gui-local-storage": "^0.1.15",
-    "@ska-telescope/ska-javascript-components": "^1.0.3",
-    "@types/uuid": "^9.0.4",
-    "junit-report-merger": "^6.0.2"
   }
 }
