@@ -15,7 +15,6 @@ export type Telescope = {
 };
 
 export interface TelescopeSelectorProps {
-  // optional
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;

@@ -24,6 +24,7 @@ Often used with the Progress component
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
+   "children", "JSX.Element", "No", "", "Allows for a components to be placed on top of the backdrop"
    "open", "boolean", "No", "Yes", "Determines if the panel is active"
    "visible", "boolean", "No", "No", "IF visible the panel has a semi-opaque grey colouring"
     

@@ -20,10 +20,13 @@ Field for entering Dates into the application. Clicking on the icon opens up a d
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
+    "ariaDescription", "string", "No", "", "Used by Screen Readers"
+    "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
     "disabled", " boolean", "No", "false", "Disables the component if true"
     "errorText", " string", "No", "''", "Displayed if there is a value and component is coloured"
     "helperText", " string", "No", "''", "Displayed is there is a value"
     "label", " string", "Yes", "", "Label displayed for the Component"
+    "onFocus", "Function", "No", "", "Function executed when the component is active"
     "required", " boolean", "No", "false", "Asterisk is added to the label if true"
     "setValue", " function", "No", "null", "Used to update the value onChange"
     "testId", " string", "Yes", "", "Identifier for testing purposes"

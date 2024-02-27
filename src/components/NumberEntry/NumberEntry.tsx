@@ -12,8 +12,8 @@ export interface NumberEntryProps {
   errorText?: string;
   helperText?: string;
   password?: boolean;
-  prefix?: JSX.Element | string;
   onFocus?: Function;
+  prefix?: JSX.Element | string;
   required?: boolean;
   setValue?: Function;
   suffix?: JSX.Element | string;
@@ -27,8 +27,8 @@ export function NumberEntry({
   errorText = '',
   helperText = '',
   label,
-  prefix = '',
   onFocus,
+  prefix = '',
   required = false,
   setValue,
   suffix = '',

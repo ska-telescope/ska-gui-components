@@ -24,7 +24,6 @@ Button group showing 2 options, one of which must be active
    "ariaTitle", "string", "No", "ButtonToggle", "Used by Screen Readers"
    "current", "string", "Yes", "", "Value of the currently active element"
    "disabled", "boolean", "false", "", "Allows the group to be disabled"
-   "label", "string", "Yes", "", "aria-label value"
    "options", "object", "Yes", "", "{ id: string, label: string, value: any}[]  Max 2"
    "setValue", "function", "Yes", "", "Function to update the value when clicked"
    "testId", "string", "No", "SPECIAL", "Value is ""telescopeSelectorId"" for this component"

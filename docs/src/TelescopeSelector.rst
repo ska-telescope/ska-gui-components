@@ -3,7 +3,8 @@ TelescopeSelector
 
 *Overview*
 
-Specialized selection of a specific telescope from all available
+Specialized selection of a specific telescope from all that are available.
+Note that this interacts directly with the REDUX storage implemented by the ska-gui-local-storage library
 
 .. figure:: /images/telescopeSelector.png
    :width: 90%
@@ -22,12 +23,8 @@ Specialized selection of a specific telescope from all available
 
       "ariaDescription", "string", "No", "''", "Description that is used by screen readers"
       "ariaTitle", "string", "No", "''", "Title that is used by screen readers"
-      "current", "string", "Yes", "", "Value of the currently active element"
       "disabled", "boolean", "No", "false", "disable/enable the component"
-      "setValue", "function", "Yes", "", "Function to update the value when clicked"
-      "testId", "string", "Yes", "", "Identifier for testing purposes"
       "toolTip", "string", "No", "''", "Optional toolTip for the toggle"
-      "value", "object", "Yes", "", "Object of the currently active element"
 
 .. admonition:: Constants
 

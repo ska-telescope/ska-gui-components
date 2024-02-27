@@ -10,7 +10,6 @@ export interface ProgressProps {
   determinate?: boolean;
   indicator?: 'circle' | 'line' | 'none';
   label?: boolean;
-  modal?: boolean;
   size?: number;
   testId: string;
   value?: number;

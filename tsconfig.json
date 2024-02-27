@@ -17,5 +17,6 @@
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
         "emitDeclarationOnly": true,
-    }
+    },
+    "exclude": ["src/*.cy.ts"]
 }
