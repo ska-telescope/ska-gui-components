@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Progress from './Progress';
+import Progress, { ProgressIndicator } from './Progress';
 
 export default {
   title: 'Example/Progress',
@@ -20,7 +20,7 @@ ProgressDisplay.args = {
   ariaTitle: 'aria Title',
   ariaDescription: 'aria Description',
   determinate: false,
-  indicator: 'circle',
+  indicator: ProgressIndicator.Circle,
   label: false,
   testId: 'testId',
   value: 0,

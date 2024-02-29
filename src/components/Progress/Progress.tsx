@@ -4,11 +4,17 @@ import { Box, CircularProgress, LinearProgress, Typography } from '@mui/material
 const BASE = 70;
 const OFFSET = 25;
 
+export enum ProgressIndicator {
+  Circle = 'circle',
+  Line = 'line',
+  None = 'none',
+}
+
 export interface ProgressProps {
   ariaDescription?: string;
   ariaTitle?: string;
   determinate?: boolean;
-  indicator?: 'circle' | 'line' | 'none';
+  indicator?: ProgressIndicator;
   label?: boolean;
   size?: number;
   testId: string;
@@ -19,7 +25,7 @@ export function Progress({
   ariaDescription = 'Indicates the progress of an activity',
   ariaTitle = 'Progress',
   determinate = false,
-  indicator = 'circle',
+  indicator = ProgressIndicator.Circle,
   label = false,
   size = 40,
   testId,
@@ -121,7 +127,7 @@ export function Progress({
 
   return (
     <>
-      {indicator === 'circle' &&
+      {indicator === ProgressIndicator.Circle &&
         ProgressCircle(
           ariaDescription,
           ariaTitle,
@@ -131,7 +137,7 @@ export function Progress({
           testId,
           value ? value : 0,
         )}
-      {indicator === 'line' &&
+      {indicator === ProgressIndicator.Line &&
         ProgressLine(
           ariaDescription,
           ariaTitle,

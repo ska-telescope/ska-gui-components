@@ -5,13 +5,11 @@ import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
 
-const theValue = '';
-
 describe('<FileUpload />', () => {
   for (const theTheme of THEME) {
     it('Theme ' + theTheme, () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <FileUpload />
         </ThemeProvider>,
@@ -19,7 +17,7 @@ describe('<FileUpload />', () => {
     });
     it('Theme ' + theTheme + ' : Disabled ', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <FileUpload chooseDisabled={true} />
         </ThemeProvider>,

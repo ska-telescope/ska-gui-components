@@ -24,7 +24,7 @@ Often used in conjunction with the Backdrop component
    "ariaDescription", "string", "No", "", "Used by Screen Readers"
    "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
    "determinate", "boolean", "No", "false", "if true the value used to for the display determination"
-   "indicator", "string", "No", "circle", "Can be circle, line or none"
+   "indicator", "string", "No", "circle", "ProgressIndicator ( see below ) "
    "label", "boolean", "No", "false", "if true, then the value is also displayed"
    "size", "number", "No", "40", "Allows for the changing of the Progress size"
    "testId", "string", "Yes", "", "Used for testing purposes"
@@ -33,7 +33,7 @@ Often used in conjunction with the Backdrop component
     
 .. admonition:: Constants
 
-   none
+   - ProgressIndicator : 'Circle', 'Line', 'None'
 
 .. admonition:: Testing Identifier
 

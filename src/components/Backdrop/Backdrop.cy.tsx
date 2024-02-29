@@ -9,7 +9,7 @@ describe('<DateEntry />', () => {
   for (const theTheme of THEME) {
     it('Theme ' + theTheme, () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <Backdrop open={false}>
             <Typography variant="h4" component="div">
@@ -20,7 +20,7 @@ describe('<DateEntry />', () => {
       );
 
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <Backdrop open={false}>
             <Typography variant="h4" component="div">

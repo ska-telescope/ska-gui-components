@@ -11,7 +11,7 @@ describe('<CopyrightModal />', () => {
   for (const theTheme of THEME) {
     it('Theme ' + theTheme, () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <CopyrightModal show={true} copyrightFunc={closeFunc} />
         </ThemeProvider>,
