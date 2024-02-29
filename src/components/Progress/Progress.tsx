@@ -127,7 +127,7 @@ export function Progress({
 
   return (
     <>
-      {indicator === 'circle' &&
+      {indicator === ProgressIndicator.Circle &&
         ProgressCircle(
           ariaDescription,
           ariaTitle,
@@ -137,7 +137,7 @@ export function Progress({
           testId,
           value ? value : 0,
         )}
-      {indicator === 'line' &&
+      {indicator === ProgressIndicator.Line &&
         ProgressLine(
           ariaDescription,
           ariaTitle,
