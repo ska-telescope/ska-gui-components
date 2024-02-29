@@ -68,7 +68,7 @@ export function Header({
                 color="inherit"
                 onClick={() => openLink(SKAO_URL)}
               >
-                <Logo dark={!isDarkTheme} height={LOGO_HEIGHT} />
+                <Logo dark={isDarkTheme} height={LOGO_HEIGHT} />
               </IconButton>
             </Tooltip>
             {title && (

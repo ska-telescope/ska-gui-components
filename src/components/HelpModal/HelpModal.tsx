@@ -1,9 +1,13 @@
 import React from 'react';
-import { Box, Card, CardContent, CardHeader, IconButton, Modal, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardHeader, IconButton, Modal } from '@mui/material';
 import { storageObject } from '@ska-telescope/ska-gui-local-storage';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-export function HelpModal(): JSX.Element {
+export interface HelpModalProps {
+  component?: boolean;
+}
+
+export function HelpModal({ component = false }: HelpModalProps): JSX.Element {
   const { help, helpToggle } = storageObject.useStore();
 
   function closeModal() {
@@ -25,9 +29,10 @@ export function HelpModal(): JSX.Element {
                 <HighlightOffIcon />
               </IconButton>
             }
-            title={<Typography variant="h6">PDF Preview</Typography>}
           />
-          <CardContent sx={{ height: '90vh', width: '90vw' }}>DUMMY</CardContent>
+          <CardContent sx={{ height: '90vh', width: '90vw' }}>
+            {component ? help.component : help.content}
+          </CardContent>
         </Card>
       </Box>
     </Modal>

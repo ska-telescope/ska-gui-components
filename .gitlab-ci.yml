@@ -3,6 +3,7 @@ default:
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
+  a11y_urls: $CAR_NPM_REPOSITORY_URL
 
 stages:
   - dependencies
@@ -11,6 +12,7 @@ stages:
   - test
   - pages
   - deploy
+  - accessibility
   - publish
 
 #Install basic dependencies using yarn
@@ -49,7 +51,6 @@ code_analysis:
       - build/
 
 test_and_coverage:
-  allow_failure: true
   image: cypress/browsers:node18.12.0-chrome106-ff106
   stage: test
   tags:
@@ -67,9 +68,14 @@ test_and_coverage:
     - yarn test:component:headless
     - yarn test:coverage:report:ci
     - cp build/reports/cobertura-coverage.xml build/reports/code-coverage.xml
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:
-        paths:
-          - build/
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: build/reports/cobertura-coverage.xml
+    paths:
+      - build/
 
 test-counts:
   image: cypress/browsers:node18.12.0-chrome106-ff106
@@ -189,6 +195,7 @@ pages:
 
 include:
   - template: Code-Quality.gitlab-ci.yml
+  - template: "Verify/Accessibility.gitlab-ci.yml"
   
 # .post step finalizers eg: badges
   - project: 'ska-telescope/templates-repository'

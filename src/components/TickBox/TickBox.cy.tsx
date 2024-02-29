@@ -37,7 +37,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(THEME_LIGHT)}>
           <CssBaseline />
-          <TickBox label="Label" testId="testId"  />
+          <TickBox label="Label" testId="testId" />
         </ThemeProvider>,
       );
       // TODO : Check that helperText is visible
