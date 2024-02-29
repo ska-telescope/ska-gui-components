@@ -11,7 +11,7 @@ describe('<TelescopeSelector />', () => {
     it('Theme ' + theTheme + '', () => {
       cy.mount(
         <StoreProvider>
-          <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <ThemeProvider theme={theme(theTheme)}>
             <CssBaseline />
             <TelescopeSelector />
           </ThemeProvider>
@@ -23,7 +23,7 @@ describe('<TelescopeSelector />', () => {
     it('Theme ' + theTheme + ', toolTips', () => {
       cy.mount(
         <StoreProvider>
-          <ThemeProvider theme={theme(THEME_LIGHT)}>
+          <ThemeProvider theme={theme(theTheme)}>
             <CssBaseline />
             <TelescopeSelector toolTip={'ToolTip'} />
           </ThemeProvider>

@@ -25,7 +25,7 @@ export {
   ButtonVariantTypes,
 } from './Button/Button';
 export { default as ButtonToggle } from './ButtonToggle/ButtonToggle';
-export { default as Progress } from './Progress/Progress';
+export { default as Progress, ProgressIndicator } from './Progress/Progress';
 export { default as StatusIcon } from './StatusIcon/StatusIcon';
 export { default as TelescopeSelector } from './TelescopeSelector/TelescopeSelector';
 export { GUI_COMPONENTS_VERSION } from './version';

@@ -11,7 +11,7 @@ describe('<NumberEntry />', () => {
   for (const theTheme of THEME) {
     it('Theme ' + theTheme, () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <NumberEntry label="Label" testId="testId" value={theValue} />
         </ThemeProvider>,
@@ -19,7 +19,7 @@ describe('<NumberEntry />', () => {
     });
     it('Theme ' + theTheme + ' : Disabled ', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <NumberEntry label="Label" testId="testId" value={theValue} disabled />
         </ThemeProvider>,
@@ -28,7 +28,7 @@ describe('<NumberEntry />', () => {
     });
     it('Theme ' + theTheme + ' : Required ', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <NumberEntry label="Label" testId="testId" value={theValue} required />
         </ThemeProvider>,
@@ -37,7 +37,7 @@ describe('<NumberEntry />', () => {
     });
     it('Theme ' + theTheme + ' : HelperText ', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <NumberEntry label="Label" testId="testId" value={theValue} helperText="HELPER TEXT" />
         </ThemeProvider>,
@@ -46,7 +46,7 @@ describe('<NumberEntry />', () => {
     });
     it('Theme ' + theTheme + ' : ErrorText ', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <NumberEntry label="Label" testId="testId" value={theValue} errorText="ERROR TEXT" />
         </ThemeProvider>,

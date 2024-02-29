@@ -24,7 +24,7 @@ describe('<DropDown />', () => {
     });
     it('Theme ' + theTheme + ' : Disabled ', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <DropDown
             label="Label"
@@ -39,7 +39,7 @@ describe('<DropDown />', () => {
     });
     it('Theme ' + theTheme + ' : Required ', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <DropDown
             label="Label"
@@ -54,7 +54,7 @@ describe('<DropDown />', () => {
     });
     it('Theme ' + theTheme + ' : HelperText ', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <DropDown
             label="Label"
@@ -69,7 +69,7 @@ describe('<DropDown />', () => {
     });
     it('Theme ' + theTheme + ' : ErrorText ', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <DropDown
             label="Label"

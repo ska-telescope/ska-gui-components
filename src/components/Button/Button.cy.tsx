@@ -41,7 +41,7 @@ describe('<Button />', () => {
         it('renders : with a provided function.', () => {
           it('Enabled', () => {
             cy.mount(
-              <ThemeProvider theme={theme(THEME_DARK)}>
+              <ThemeProvider theme={theme(theTheme)}>
                 <CssBaseline />
                 <Button
                   color={color}
@@ -60,7 +60,7 @@ describe('<Button />', () => {
 
           it('Disabled', () => {
             cy.mount(
-              <ThemeProvider theme={theme(THEME_DARK)}>
+              <ThemeProvider theme={theme(theTheme)}>
                 <CssBaseline />
                 <Button
                   color={color}
