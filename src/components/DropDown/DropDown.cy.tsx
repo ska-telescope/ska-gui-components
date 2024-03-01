@@ -80,7 +80,6 @@ describe('<DropDown />', () => {
           />
         </ThemeProvider>,
       );
-      // TODO : Check that errorText is shown and the colouring is correct
     });
   }
 });

@@ -31,7 +31,7 @@ describe('<ButtonToggle />', () => {
 
     it('Theme ' + theTheme + ', toolTips', () => {
       cy.mount(
-        <ThemeProvider theme={theme(THEME_LIGHT)}>
+        <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
           <ButtonToggle
             current={telescope.id}

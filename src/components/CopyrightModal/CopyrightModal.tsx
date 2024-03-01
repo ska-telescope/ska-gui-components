@@ -27,10 +27,10 @@ export function CopyrightModal({ show, copyrightFunc }: CopyrightModalProps): JS
           <CardHeader
             action={
               <IconButton
-                aria-label="DUMMY"
                 sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
                 onClick={() => closeModal()}
                 color="inherit"
+                data-testid="closeModalBtn"
               >
                 <HighlightOffIcon />
               </IconButton>

@@ -23,5 +23,12 @@ describe('<Status />', () => {
         </StatusIcon>,
       );
     });
+    it('Status ' + i + ' renders with text & icon', () => {
+      cy.mount(
+        <StatusIcon testId="statusTestId" icon level={i} size={100} text={i.toString()}>
+          17
+        </StatusIcon>,
+      );
+    });
   }
 });

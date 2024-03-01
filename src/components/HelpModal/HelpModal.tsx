@@ -25,6 +25,7 @@ export function HelpModal({ component = false }: HelpModalProps): JSX.Element {
                 sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
                 onClick={() => closeModal()}
                 color="inherit"
+                data-testid="closeHelpModalBtn"
               >
                 <HighlightOffIcon />
               </IconButton>
