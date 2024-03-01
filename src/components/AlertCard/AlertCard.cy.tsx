@@ -72,7 +72,7 @@ describe('<AlertCard />', () => {
                   />
                 </ThemeProvider>,
               );
-              cy.get('[data-testid="testId"]').click({ multiple : true });
+              cy.get('[data-testid="testId"]').click({ multiple: true });
             },
           );
         }

@@ -7,7 +7,15 @@ const THEME = [THEME_DARK, THEME_LIGHT];
 const INDICATOR = [ProgressIndicator.Circle, ProgressIndicator.Line, ProgressIndicator.None];
 const BASE = 70;
 const OFFSET = 25;
-const SIZE = [ BASE, BASE + OFFSET, BASE + OFFSET * 2, BASE + OFFSET * 3, BASE + OFFSET * 4, BASE + OFFSET * 5, BASE + OFFSET * 6]
+const SIZE = [
+  BASE,
+  BASE + OFFSET,
+  BASE + OFFSET * 2,
+  BASE + OFFSET * 3,
+  BASE + OFFSET * 4,
+  BASE + OFFSET * 5,
+  BASE + OFFSET * 6,
+];
 
 /*
 ariaDescription?: string;
@@ -60,24 +68,30 @@ describe('<DateEntry />', () => {
           </ThemeProvider>,
         );
       });
-      
+
       for (const sizing of SIZE) {
-        it('Theme ' + theTheme + ', Indicator ' + indicator + ', Label, Size '+ (sizing - 10), () => {
-          cy.mount(
-            <ThemeProvider theme={theme(theTheme)}>
-              <CssBaseline />
-              <Progress indicator={indicator} label size={sizing - 10} testId="testId" />
-            </ThemeProvider>,
-          );
-        });
-        it('Theme ' + theTheme + ', Indicator ' + indicator + ', No Label, Size '+ (sizing - 10), () => {
-          cy.mount(
-            <ThemeProvider theme={theme(theTheme)}>
-              <CssBaseline />
-              <Progress indicator={indicator} size={sizing - 10} testId="testId" />
-            </ThemeProvider>,
-          );
-        });
+        it(
+          'Theme ' + theTheme + ', Indicator ' + indicator + ', Label, Size ' + (sizing - 10),
+          () => {
+            cy.mount(
+              <ThemeProvider theme={theme(theTheme)}>
+                <CssBaseline />
+                <Progress indicator={indicator} label size={sizing - 10} testId="testId" />
+              </ThemeProvider>,
+            );
+          },
+        );
+        it(
+          'Theme ' + theTheme + ', Indicator ' + indicator + ', No Label, Size ' + (sizing - 10),
+          () => {
+            cy.mount(
+              <ThemeProvider theme={theme(theTheme)}>
+                <CssBaseline />
+                <Progress indicator={indicator} size={sizing - 10} testId="testId" />
+              </ThemeProvider>,
+            );
+          },
+        );
       }
     }
   }

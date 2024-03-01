@@ -32,7 +32,7 @@ const DUMMY_ROWS = [
 
 describe('<SKAODataGrid />', () => {
   for (const theTheme of THEME) {
-    it('Theme ' + theTheme + "showBorder = true, showMild = false", () => {
+    it('Theme ' + theTheme + 'showBorder = true, showMild = false', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
@@ -40,7 +40,7 @@ describe('<SKAODataGrid />', () => {
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + "showBorder = true, showMild = true", () => {
+    it('Theme ' + theTheme + 'showBorder = true, showMild = true', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
@@ -48,19 +48,30 @@ describe('<SKAODataGrid />', () => {
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + "showBorder = false, showMild = false", () => {
+    it('Theme ' + theTheme + 'showBorder = false, showMild = false', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <StylingRowsGrid columns={DUMMY_COLUMNS} showBorder={false} rows={DUMMY_ROWS} testId="testId" />
+          <StylingRowsGrid
+            columns={DUMMY_COLUMNS}
+            showBorder={false}
+            rows={DUMMY_ROWS}
+            testId="testId"
+          />
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + "showBorder = false, showMild = true", () => {
+    it('Theme ' + theTheme + 'showBorder = false, showMild = true', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <StylingRowsGrid columns={DUMMY_COLUMNS} showBorder={false} showMild rows={DUMMY_ROWS} testId="testId" />
+          <StylingRowsGrid
+            columns={DUMMY_COLUMNS}
+            showBorder={false}
+            showMild
+            rows={DUMMY_ROWS}
+            testId="testId"
+          />
         </ThemeProvider>,
       );
     });

@@ -78,7 +78,7 @@ describe('<DropDown />', () => {
             value={theValue}
             errorText="ERROR TEXT"
           />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
   }
