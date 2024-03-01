@@ -18,6 +18,14 @@ const TEST_FONTSIZE = 40;
 
 describe('<InfoCard />', () => {
   for (const theTheme of THEME) {
+    it('Theme ' + theTheme, () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <InfoCard message={MESS} testId="testId" />
+        </ThemeProvider>,
+      );
+    });
     for (const color of COLOR) {
       for (const variant of VARIANT) {
         it('Theme ' + theTheme, () => {
@@ -87,6 +95,7 @@ describe('<InfoCard />', () => {
               />
             </ThemeProvider>,
           );
+          cy.get('[data-testid="testId"]').click();
         });
       }
     }

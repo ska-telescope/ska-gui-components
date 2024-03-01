@@ -27,6 +27,7 @@ describe('<HelpModal />', () => {
           </ThemeProvider>
         </StoreProvider>,
       );
+      cy.get('[data-testid="closeHelpModalBtn"]').click();
     });
   }
 });

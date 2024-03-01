@@ -16,7 +16,7 @@ export interface InfoCardProps {
   ariaDescription?: string;
   ariaTitle?: string;
   clickFunction?: Function;
-  color: InfoCardColorTypes;
+  color?: InfoCardColorTypes;
   fontSize?: number;
   message: string;
   showStatus?: boolean;
@@ -38,7 +38,7 @@ export function InfoCard({
   variant = InfoCardVariantTypes.Outlined,
 }: InfoCardProps) {
   const buttonClick = () => (clickFunction ? clickFunction : null);
-  const statusSize = () => (fontSize ? fontSize * 1.15 : fontSize);
+  const statusSize = () => fontSize * 1.15;
 
   function getLevel(color: InfoCardColorTypes): number {
     switch (color) {
@@ -49,9 +49,8 @@ export function InfoCard({
       case InfoCardColorTypes.Warning:
         return 2;
       case InfoCardColorTypes.Info:
-        return 4;
       default:
-        return 9;
+        return 4;
     }
   }
 

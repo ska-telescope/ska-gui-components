@@ -22,7 +22,14 @@ describe('<FileUpload />', () => {
           <FileUpload chooseDisabled={true} />
         </ThemeProvider>,
       );
-      // TODO : Check it is disabled
+    });
+    it('Theme ' + theTheme + ' : Disabled ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <FileUpload chooseDisabled={true} />
+        </ThemeProvider>,
+      );
     });
   }
 });

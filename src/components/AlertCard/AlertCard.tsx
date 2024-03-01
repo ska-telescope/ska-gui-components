@@ -33,9 +33,8 @@ function getLevel(color: AlertColorTypes): number {
     case AlertColorTypes.Warning:
       return 2;
     case AlertColorTypes.Info:
-      return 4;
     default:
-      return 9;
+      return 4;
   }
 }
 
@@ -104,7 +103,7 @@ function AlertElement(
 
   return (
     <Box key={`AlertFilledBox${index}`}>
-      <Button key={`AlertFilledButton${index}`} onClick={buttonClick}>
+      <Button key={`AlertFilledButton${index}`} onClick={buttonClick} testId={testId + "Btn"}>
         <Alert
           data-testid={testId + 'Element'}
           key={`AlertFilled${index}`}

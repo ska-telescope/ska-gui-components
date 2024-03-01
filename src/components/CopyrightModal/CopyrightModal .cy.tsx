@@ -16,6 +16,7 @@ describe('<CopyrightModal />', () => {
           <CopyrightModal show={true} copyrightFunc={closeFunc} />
         </ThemeProvider>,
       );
+      cy.get('[data-testid="closeModalBtn"]').click();
     });
   }
 });

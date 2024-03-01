@@ -23,7 +23,6 @@ describe('<Header />', () => {
         </StoreProvider>,
       );
       cy.get('[id="skaWebsite"]').click();
-      // cy.get('@clicked').should('have.been.called');
     });
   }
 });

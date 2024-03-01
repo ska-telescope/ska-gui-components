@@ -17,6 +17,7 @@ describe('<Footer />', () => {
           </Footer>
         </ThemeProvider>,
       );
+      cy.get('[data-testid="copyrightLinkTestId"]').click();
     });
   }
 });

@@ -17,6 +17,14 @@ describe('<EntryField />', () => {
         </ThemeProvider>,
       );
     });
+    it('Theme ' + theTheme, () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <EntryField label="Label" prefix=">" suffix="<" testId="testId" value={theValue} />
+        </ThemeProvider>,
+      );
+    });
     it('Theme ' + theTheme + ' : Disabled ', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
@@ -24,7 +32,6 @@ describe('<EntryField />', () => {
           <EntryField label="Label" testId="testId" value={theValue} disabled />
         </ThemeProvider>,
       );
-      // TODO : Check it is disabled
     });
     it('Theme ' + theTheme + ' : Required ', () => {
       cy.mount(
@@ -33,7 +40,6 @@ describe('<EntryField />', () => {
           <EntryField label="Label" testId="testId" value={theValue} required />
         </ThemeProvider>,
       );
-      // TODO : Check it is required
     });
     it('Theme ' + theTheme + ' : HelperText ', () => {
       cy.mount(
@@ -42,7 +48,6 @@ describe('<EntryField />', () => {
           <EntryField label="Label" testId="testId" value={theValue} helperText="HELPER TEXT" />
         </ThemeProvider>,
       );
-      // TODO : Check that helperText is visible
     });
     it('Theme ' + theTheme + ' : ErrorText ', () => {
       cy.mount(
@@ -51,7 +56,14 @@ describe('<EntryField />', () => {
           <EntryField label="Label" testId="testId" value={theValue} errorText="ERROR TEXT" />
         </ThemeProvider>,
       );
-      // TODO : Check that errorText is shown and the colouring is correct
+    });
+    it('Theme ' + theTheme + ' : ErrorText ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <EntryField label="Label" testId="testId" value={theValue} errorText="ERROR TEXT" />
+        </ThemeProvider>,
+      );
     });
   }
 });

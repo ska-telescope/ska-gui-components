@@ -78,9 +78,8 @@ describe('<DropDown />', () => {
             value={theValue}
             errorText="ERROR TEXT"
           />
-        </ThemeProvider>,
+        </ThemeProvider>
       );
-      // TODO : Check that errorText is shown and the colouring is correct
     });
   }
 });
