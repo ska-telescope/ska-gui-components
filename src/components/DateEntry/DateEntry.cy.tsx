@@ -18,7 +18,7 @@ describe('<DateEntry />', () => {
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + " Label TOP", () => {
+    it('Theme ' + theTheme + ' Label TOP', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
@@ -26,23 +26,33 @@ describe('<DateEntry />', () => {
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + " Label BOTTOM", () => {
+    it('Theme ' + theTheme + ' Label BOTTOM', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <DateEntry label="Label" labelPosition={POSITION.BOTTOM} testId="testId" value={theValue} />
+          <DateEntry
+            label="Label"
+            labelPosition={POSITION.BOTTOM}
+            testId="testId"
+            value={theValue}
+          />
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + " Label START", () => {
+    it('Theme ' + theTheme + ' Label START', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <DateEntry label="Label" labelPosition={POSITION.START} testId="testId" value={theValue} />
+          <DateEntry
+            label="Label"
+            labelPosition={POSITION.START}
+            testId="testId"
+            value={theValue}
+          />
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + " Label END", () => {
+    it('Theme ' + theTheme + ' Label END', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />

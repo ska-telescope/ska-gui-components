@@ -18,35 +18,55 @@ describe('<NumberEntry />', () => {
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + " Label TOP", () => {
+    it('Theme ' + theTheme + ' Label TOP', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <NumberEntry label="Label" labelPosition={POSITION.TOP} testId="testId" value={theValue} />
+          <NumberEntry
+            label="Label"
+            labelPosition={POSITION.TOP}
+            testId="testId"
+            value={theValue}
+          />
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + " Label BOTTOM", () => {
+    it('Theme ' + theTheme + ' Label BOTTOM', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <NumberEntry label="Label" labelPosition={POSITION.BOTTOM} testId="testId" value={theValue} />
+          <NumberEntry
+            label="Label"
+            labelPosition={POSITION.BOTTOM}
+            testId="testId"
+            value={theValue}
+          />
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + " Label START", () => {
+    it('Theme ' + theTheme + ' Label START', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <NumberEntry label="Label" labelPosition={POSITION.START} testId="testId" value={theValue} />
+          <NumberEntry
+            label="Label"
+            labelPosition={POSITION.START}
+            testId="testId"
+            value={theValue}
+          />
         </ThemeProvider>,
       );
     });
-    it('Theme ' + theTheme + " Label END", () => {
+    it('Theme ' + theTheme + ' Label END', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <NumberEntry label="Label" labelPosition={POSITION.END} testId="testId" value={theValue} />
+          <NumberEntry
+            label="Label"
+            labelPosition={POSITION.END}
+            testId="testId"
+            value={theValue}
+          />
         </ThemeProvider>,
       );
     });
