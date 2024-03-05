@@ -1,4 +1,4 @@
-import EntryField from './EntryField';
+import EntryField, { POSITION } from './EntryField';
 
 function handleThemeToggle() {}
 
@@ -18,6 +18,8 @@ export const Default = {
     errorText: '',
     helperText: 'HELPER TEXT',
     label: 'LABEL',
+    labelPosition: POSITION.CONTAINED,
+    labelWidth: 4,
     prefix: '',
     onFocus: undefined,
     required: false,

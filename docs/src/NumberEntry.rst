@@ -27,6 +27,8 @@ Field for entering numbers into the application. Provides a spinner
     "errorText", "string", "No", "''", "Displayed if there is a value and component is coloured"
     "helperText", "string", "No", "''", "Displayed is there is a value"
     "label", "string", "Yes", "", "Label displayed for the Component"
+    "labelPosition", "POSITION", "No, "POSITION.CONTAINED", "Allows for the positioning of the label"
+    "labelWidth", "number", "No", "4", "Sets the width of the label for POSITION.START & POSITION.END labelPositions"
     "onFocus", "Function", "No", "", "Function executed when the component is active"
     "prefix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon before the number"
     "required", "boolean", "No", "false", "Asterisk is added to the label if true"
@@ -37,7 +39,9 @@ Field for entering numbers into the application. Provides a spinner
 
 .. admonition:: Constants
 
-    none
+   :header: "Constant", "Values", "Usage"
+
+   "POSITION", "Contained,Top,Bottom, Start, End", "Allows for the positioning of the label"
 
 .. admonition:: Testing Identifier
 

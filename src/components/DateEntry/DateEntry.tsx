@@ -1,5 +1,5 @@
 import React from 'react';
-import { EntryField, TYPE } from '../EntryField/EntryField';
+import { EntryField, POSITION, TYPE } from '../EntryField/EntryField';
 
 export interface DateEntryProps {
   // required
@@ -12,6 +12,8 @@ export interface DateEntryProps {
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
+  labelPosition?: POSITION;
+  labelWidth?: number;
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
@@ -24,6 +26,8 @@ export function DateEntry({
   errorText = '',
   helperText = '',
   label,
+  labelPosition,
+  labelWidth,
   onFocus,
   required,
   setValue,
@@ -39,6 +43,8 @@ export function DateEntry({
       errorText={errorText}
       helperText={helperText}
       label={label}
+      labelPosition={labelPosition}
+      labelWidth={labelWidth}
       onFocus={onFocus}
       required={required}
       setValue={setValue}

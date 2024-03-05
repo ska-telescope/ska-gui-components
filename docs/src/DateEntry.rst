@@ -26,6 +26,8 @@ Field for entering Dates into the application. Clicking on the icon opens up a d
     "errorText", " string", "No", "''", "Displayed if there is a value and component is coloured"
     "helperText", " string", "No", "''", "Displayed is there is a value"
     "label", " string", "Yes", "", "Label displayed for the Component"
+    "labelPosition", "POSITION", "No, "POSITION.CONTAINED", "Allows for the positioning of the label"
+    "labelWidth", "number", "No", "4", "Sets the width of the label for POSITION.START & POSITION.END labelPositions"
     "onFocus", "Function", "No", "", "Function executed when the component is active"
     "required", " boolean", "No", "false", "Asterisk is added to the label if true"
     "setValue", " function", "No", "null", "Used to update the value onChange"
@@ -34,7 +36,10 @@ Field for entering Dates into the application. Clicking on the icon opens up a d
 
 .. admonition:: Constants
 
-    none
+    :header: "Constant", "Values", "Usage"
+
+   "POSITION", "Contained,Top,Bottom, Start, End", "Allows for the positioning of the label"
+   
 
 .. admonition:: Testing Identifier
 

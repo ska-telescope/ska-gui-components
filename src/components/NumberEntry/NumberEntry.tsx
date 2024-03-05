@@ -1,5 +1,5 @@
 import React from 'react';
-import { EntryField, TYPE } from '../EntryField/EntryField';
+import { EntryField, POSITION, TYPE } from '../EntryField/EntryField';
 
 export interface NumberEntryProps {
   // required
@@ -11,6 +11,8 @@ export interface NumberEntryProps {
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
+  labelPosition?: POSITION;
+  labelWidth?: number;
   password?: boolean;
   onFocus?: Function;
   prefix?: JSX.Element | string;
@@ -27,6 +29,8 @@ export function NumberEntry({
   errorText = '',
   helperText = '',
   label,
+  labelPosition,
+  labelWidth,
   onFocus,
   prefix = '',
   required = false,
@@ -51,6 +55,8 @@ export function NumberEntry({
       errorText={errText()}
       helperText={helperText}
       label={label}
+      labelPosition={labelPosition}
+      labelWidth={labelWidth}
       prefix={prefix}
       onFocus={onFocus}
       value={value}
