@@ -6,7 +6,7 @@ export type Help = {
   content: Object;
   component: Object;
   showHelp: Boolean;
-}
+};
 export interface HelpModalProps {
   component?: boolean;
   help: Help;
@@ -14,7 +14,6 @@ export interface HelpModalProps {
 }
 
 export function HelpModal({ component = false, help, helpToggle }: HelpModalProps): JSX.Element {
-
   function closeModal() {
     helpToggle();
   }

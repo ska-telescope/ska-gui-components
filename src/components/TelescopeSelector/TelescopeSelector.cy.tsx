@@ -14,7 +14,10 @@ describe('<TelescopeSelector />', () => {
         <StoreProvider>
           <ThemeProvider theme={theme(theTheme)}>
             <CssBaseline />
-            <TelescopeSelector telescope={TELESCOPE_LOW} updateTelescope={cy.stub().as('updateTelescope')} />
+            <TelescopeSelector
+              telescope={TELESCOPE_LOW}
+              updateTelescope={cy.stub().as('updateTelescope')}
+            />
           </ThemeProvider>
         </StoreProvider>,
       );
@@ -25,7 +28,10 @@ describe('<TelescopeSelector />', () => {
         <StoreProvider>
           <ThemeProvider theme={theme(theTheme)}>
             <CssBaseline />
-            <TelescopeSelector telescope={TELESCOPE_LOW} updateTelescope={cy.stub().as('updateTelescope')} />
+            <TelescopeSelector
+              telescope={TELESCOPE_LOW}
+              updateTelescope={cy.stub().as('updateTelescope')}
+            />
           </ThemeProvider>
         </StoreProvider>,
       );
@@ -34,12 +40,25 @@ describe('<TelescopeSelector />', () => {
 
   it('renders : with a provided function.', () => {
     it('Enabled', () => {
-      cy.mount(<TelescopeSelector telescope={TELESCOPE_LOW} toolTip={'ToolTip'} updateTelescope={cy.stub().as('updateTelescope')} />);
+      cy.mount(
+        <TelescopeSelector
+          telescope={TELESCOPE_LOW}
+          toolTip={'ToolTip'}
+          updateTelescope={cy.stub().as('updateTelescope')}
+        />,
+      );
       cy.get('[data-testid="telescopeSelectorId"]').click({ multiple: true });
     });
 
     it('Disabled', () => {
-      cy.mount(<TelescopeSelector disabled telescope={TELESCOPE_LOW} toolTip={'ToolTip'} updateTelescope={cy.stub().as('updateTelescope')} />);
+      cy.mount(
+        <TelescopeSelector
+          disabled
+          telescope={TELESCOPE_LOW}
+          toolTip={'ToolTip'}
+          updateTelescope={cy.stub().as('updateTelescope')}
+        />,
+      );
       cy.get('[data-testid="telescopeSelectorId"]').click({ multiple: true });
     });
   });
