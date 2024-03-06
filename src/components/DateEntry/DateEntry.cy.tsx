@@ -2,7 +2,7 @@ import React from 'react';
 import DateEntry from './DateEntry';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
-import { ENTRY_LABEL_POSITION } from '../EntryField/EntryField';
+import { LABEL_POSITION } from '../EntryField/EntryField';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
 
@@ -24,7 +24,7 @@ describe('<DateEntry />', () => {
           <CssBaseline />
           <DateEntry
             label="Label"
-            labelPosition={ENTRY_LABEL_POSITION.TOP}
+            labelPosition={LABEL_POSITION.TOP}
             testId="testId"
             value={theValue}
           />
@@ -37,7 +37,7 @@ describe('<DateEntry />', () => {
           <CssBaseline />
           <DateEntry
             label="Label"
-            labelPosition={ENTRY_LABEL_POSITION.BOTTOM}
+            labelPosition={LABEL_POSITION.BOTTOM}
             testId="testId"
             value={theValue}
           />
@@ -50,7 +50,7 @@ describe('<DateEntry />', () => {
           <CssBaseline />
           <DateEntry
             label="Label"
-            labelPosition={ENTRY_LABEL_POSITION.START}
+            labelPosition={LABEL_POSITION.START}
             testId="testId"
             value={theValue}
           />
@@ -63,7 +63,7 @@ describe('<DateEntry />', () => {
           <CssBaseline />
           <DateEntry
             label="Label"
-            labelPosition={ENTRY_LABEL_POSITION.END}
+            labelPosition={LABEL_POSITION.END}
             testId="testId"
             value={theValue}
           />

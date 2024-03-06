@@ -1,5 +1,5 @@
 import React from 'react';
-import EntryField, { ENTRY_LABEL_POSITION } from './EntryField';
+import EntryField, { LABEL_POSITION } from './EntryField';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
@@ -23,7 +23,7 @@ describe('<EntryField />', () => {
           <CssBaseline />
           <EntryField
             label="Label"
-            labelPosition={ENTRY_LABEL_POSITION.TOP}
+            labelPosition={LABEL_POSITION.TOP}
             testId="testId"
             value={theValue}
           />
@@ -36,7 +36,7 @@ describe('<EntryField />', () => {
           <CssBaseline />
           <EntryField
             label="Label"
-            labelPosition={ENTRY_LABEL_POSITION.BOTTOM}
+            labelPosition={LABEL_POSITION.BOTTOM}
             testId="testId"
             value={theValue}
           />
@@ -49,7 +49,7 @@ describe('<EntryField />', () => {
           <CssBaseline />
           <EntryField
             label="Label"
-            labelPosition={ENTRY_LABEL_POSITION.START}
+            labelPosition={LABEL_POSITION.START}
             testId="testId"
             value={theValue}
           />
@@ -62,7 +62,7 @@ describe('<EntryField />', () => {
           <CssBaseline />
           <EntryField
             label="Label"
-            labelPosition={ENTRY_LABEL_POSITION.END}
+            labelPosition={LABEL_POSITION.END}
             testId="testId"
             value={theValue}
           />

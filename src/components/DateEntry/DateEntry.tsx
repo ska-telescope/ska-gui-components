@@ -1,5 +1,5 @@
 import React from 'react';
-import { EntryField, ENTRY_LABEL_POSITION, TYPE } from '../EntryField/EntryField';
+import { EntryField, LABEL_POSITION, TYPE } from '../EntryField/EntryField';
 
 export interface DateEntryProps {
   // required
@@ -12,7 +12,7 @@ export interface DateEntryProps {
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
-  labelPosition?: ENTRY_LABEL_POSITION;
+  labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   onFocus?: Function;
   required?: boolean;

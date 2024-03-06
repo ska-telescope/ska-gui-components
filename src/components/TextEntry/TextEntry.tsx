@@ -1,5 +1,5 @@
 import React from 'react';
-import { EntryField, ENTRY_LABEL_POSITION, TYPE } from '../EntryField/EntryField';
+import { EntryField, LABEL_POSITION, TYPE } from '../EntryField/EntryField';
 
 export interface TextEntryProps {
   // required
@@ -11,7 +11,7 @@ export interface TextEntryProps {
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
-  labelPosition?: ENTRY_LABEL_POSITION;
+  labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   password?: boolean;
   prefix?: JSX.Element | string;

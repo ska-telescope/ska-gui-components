@@ -1,7 +1,8 @@
 import React from 'react';
-import TickBox, { TICK_BOX_LABEL_POSITION } from './TickBox';
+import TickBox from './TickBox';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
+import { LABEL_POSITION } from '../EntryField/EntryField';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
 
@@ -47,7 +48,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <TickBox label="Label" labelPosition={TICK_BOX_LABEL_POSITION.END} testId="testId" />
+          <TickBox label="Label" labelPosition={LABEL_POSITION.END} testId="testId" />
         </ThemeProvider>,
       );
     });
@@ -55,7 +56,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <TickBox label="Label" labelPosition={TICK_BOX_LABEL_POSITION.TOP} testId="testId" />
+          <TickBox label="Label" labelPosition={LABEL_POSITION.TOP} testId="testId" />
         </ThemeProvider>,
       );
     });
@@ -63,7 +64,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <TickBox label="Label" labelPosition={TICK_BOX_LABEL_POSITION.BOTTOM} testId="testId" />
+          <TickBox label="Label" labelPosition={LABEL_POSITION.BOTTOM} testId="testId" />
         </ThemeProvider>,
       );
     });

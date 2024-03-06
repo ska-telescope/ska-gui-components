@@ -5,7 +5,7 @@ import { FormControl } from '@mui/material';
 import { Grid } from '@mui/material';
 import { InputLabel, Typography } from '@mui/material';
 
-export enum ENTRY_LABEL_POSITION {
+export enum LABEL_POSITION {
   CONTAINED = 'contained',
   START = 'start',
   TOP = 'top',
@@ -39,7 +39,7 @@ export interface EntryFieldProps {
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
-  labelPosition?: ENTRY_LABEL_POSITION;
+  labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   password?: boolean;
   prefix?: JSX.Element | string;
@@ -60,7 +60,7 @@ export function EntryField({
   errorText = '',
   helperText = '',
   label,
-  labelPosition = ENTRY_LABEL_POSITION.CONTAINED,
+  labelPosition = LABEL_POSITION.CONTAINED,
   labelWidth = 4,
   onFocus,
   prefix = '',
@@ -80,10 +80,9 @@ export function EntryField({
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
   return (
     <>
-      {(labelPosition === ENTRY_LABEL_POSITION.START ||
-        labelPosition === ENTRY_LABEL_POSITION.END) && (
+      {(labelPosition === LABEL_POSITION.START || labelPosition === LABEL_POSITION.END) && (
         <Grid container direction="row" justifyContent="space-between" alignItems="baseline">
-          {labelPosition === ENTRY_LABEL_POSITION.START && (
+          {labelPosition === LABEL_POSITION.START && (
             <Grid item xs={labelWidth}>
               <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
                 <Typography>{displayLabel}</Typography>
@@ -125,7 +124,7 @@ export function EntryField({
               {children}
             </TextField>
           </Grid>
-          {labelPosition === ENTRY_LABEL_POSITION.END && (
+          {labelPosition === LABEL_POSITION.END && (
             <Grid item xs={labelWidth}>
               <InputLabel shrink={false} htmlFor={'username'}>
                 <Typography>{displayLabel}</Typography>
@@ -135,8 +134,7 @@ export function EntryField({
         </Grid>
       )}
 
-      {(labelPosition === ENTRY_LABEL_POSITION.TOP ||
-        labelPosition === ENTRY_LABEL_POSITION.BOTTOM) && (
+      {(labelPosition === LABEL_POSITION.TOP || labelPosition === LABEL_POSITION.BOTTOM) && (
         <FormControl component="fieldset">
           <FormControlLabel
             disabled={disabled}
@@ -179,7 +177,7 @@ export function EntryField({
         </FormControl>
       )}
 
-      {labelPosition === ENTRY_LABEL_POSITION.CONTAINED && (
+      {labelPosition === LABEL_POSITION.CONTAINED && (
         <TextField
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
