@@ -1,3 +1,4 @@
+import { ENTRY_LABEL_POSITION } from '../EntryField/EntryField';
 import NumberEntry from './NumberEntry';
 
 export default {
@@ -16,6 +17,8 @@ export const Default = {
     errorText: '',
     helperText: 'HELPER TEXT',
     label: 'LABEL',
+    labelPosition: ENTRY_LABEL_POSITION.CONTAINED,
+    labelWidth: 4,
     password: false,
     prefix: '',
     onFocus: undefined,

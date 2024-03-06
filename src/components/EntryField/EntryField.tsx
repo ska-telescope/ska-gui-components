@@ -5,7 +5,7 @@ import { FormControl } from '@mui/material';
 import { Grid } from '@mui/material';
 import { InputLabel, Typography } from '@mui/material';
 
-export enum POSITION {
+export enum ENTRY_LABEL_POSITION {
   CONTAINED = 'contained',
   START = 'start',
   TOP = 'top',
@@ -35,16 +35,18 @@ export interface EntryFieldProps {
   // optional
   ariaDescription?: string;
   ariaTitle?: string;
+  children?: JSX.Element | JSX.Element[];
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
-  labelPosition?: POSITION;
+  labelPosition?: ENTRY_LABEL_POSITION;
   labelWidth?: number;
   password?: boolean;
   prefix?: JSX.Element | string;
   onFocus?: Function;
   required?: boolean;
   rows?: number;
+  select?: boolean;
   setValue?: Function;
   suffix?: JSX.Element | string;
   type?: TYPE.DATE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
@@ -53,16 +55,18 @@ export interface EntryFieldProps {
 export function EntryField({
   ariaDescription = 'Entry of a value',
   ariaTitle = 'EntryField',
+  children,
   disabled = false,
   errorText = '',
   helperText = '',
   label,
-  labelPosition = POSITION.CONTAINED,
+  labelPosition = ENTRY_LABEL_POSITION.CONTAINED,
   labelWidth = 4,
   onFocus,
   prefix = '',
   required = false,
   rows = 1,
+  select = false,
   setValue,
   suffix = '',
   testId,
@@ -76,9 +80,10 @@ export function EntryField({
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
   return (
     <>
-      {(labelPosition === POSITION.START || labelPosition === POSITION.END) && (
+      {(labelPosition === ENTRY_LABEL_POSITION.START ||
+        labelPosition === ENTRY_LABEL_POSITION.END) && (
         <Grid container direction="row" justifyContent="space-between" alignItems="baseline">
-          {labelPosition === POSITION.START && (
+          {labelPosition === ENTRY_LABEL_POSITION.START && (
             <Grid item xs={labelWidth}>
               <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
                 <Typography>{displayLabel}</Typography>
@@ -111,13 +116,16 @@ export function EntryField({
               onChange={(e: { target: { value: any } }) => {
                 updateValue(e.target.value);
               }}
+              select={select}
               value={value}
               variant="standard"
               required={required}
               type={type}
-            />
+            >
+              {children}
+            </TextField>
           </Grid>
-          {labelPosition === POSITION.END && (
+          {labelPosition === ENTRY_LABEL_POSITION.END && (
             <Grid item xs={labelWidth}>
               <InputLabel shrink={false} htmlFor={'username'}>
                 <Typography>{displayLabel}</Typography>
@@ -127,7 +135,8 @@ export function EntryField({
         </Grid>
       )}
 
-      {(labelPosition === POSITION.TOP || labelPosition === POSITION.BOTTOM) && (
+      {(labelPosition === ENTRY_LABEL_POSITION.TOP ||
+        labelPosition === ENTRY_LABEL_POSITION.BOTTOM) && (
         <FormControl component="fieldset">
           <FormControlLabel
             disabled={disabled}
@@ -157,17 +166,20 @@ export function EntryField({
                 onChange={(e: { target: { value: any } }) => {
                   updateValue(e.target.value);
                 }}
+                select={select}
                 value={value}
                 variant="standard"
                 required={required}
                 type={type}
-              />
+              >
+                {children}
+              </TextField>
             }
           />
         </FormControl>
       )}
 
-      {labelPosition === POSITION.CONTAINED && (
+      {labelPosition === ENTRY_LABEL_POSITION.CONTAINED && (
         <TextField
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
@@ -195,8 +207,11 @@ export function EntryField({
           value={value}
           variant="standard"
           required={required}
+          select={select}
           type={type}
-        />
+        >
+          {children}
+        </TextField>
       )}
     </>
   );

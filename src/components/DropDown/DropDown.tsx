@@ -1,5 +1,6 @@
 import React from 'react';
-import { MenuItem, TextField } from '@mui/material';
+import { MenuItem } from '@mui/material';
+import EntryField, { ENTRY_LABEL_POSITION } from '../EntryField/EntryField';
 
 export interface DropDownProps {
   // required
@@ -13,6 +14,8 @@ export interface DropDownProps {
   errorText?: string;
   helperText?: string;
   label: string;
+  labelPosition?: ENTRY_LABEL_POSITION;
+  labelWidth?: number;
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
@@ -25,6 +28,8 @@ export function DropDown({
   errorText = '',
   helperText = '',
   label,
+  labelPosition,
+  labelWidth,
   onFocus,
   options,
   required = false,
@@ -35,33 +40,31 @@ export function DropDown({
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
 
   return (
-    <TextField
+    <EntryField
       aria-label={ariaTitle}
       aria-describedby={ariaDescription}
-      color="secondary"
       data-testid={testId}
       disabled={disabled}
-      error={errorText && errorText.length > 0 ? true : false}
-      fullWidth
-      helperText={errorText ? errorText : helperText ? helperText : ''}
-      id={'dropDown' + label + 'Id'}
+      errorText={errorText}
+      helperText={helperText}
       label={label}
-      name={'dropDown' + label}
-      onChange={(e: { target: { value: string | number } }) => {
-        updateValue(e.target.value);
-      }}
+      labelPosition={labelPosition}
+      labelWidth={labelWidth}
       onFocus={onFocus}
-      required={required}
-      select
       value={value}
-      variant="standard"
+      required={required}
+      testId={testId}
+      select
+      setValue={(e: { target: { value: string | number } }) => {
+        updateValue(e);
+      }}
     >
       {options.map((option) => (
         <MenuItem key={option.value} value={option.value}>
           {option.label}
         </MenuItem>
       ))}
-    </TextField>
+    </EntryField>
   );
 }
 

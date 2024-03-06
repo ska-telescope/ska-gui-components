@@ -1,5 +1,5 @@
 import React from 'react';
-import TickBox from './TickBox';
+import TickBox, { TICK_BOX_LABEL_POSITION } from './TickBox';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
@@ -47,7 +47,23 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <TickBox label="Label" labelEnd={true} testId="testId" />
+          <TickBox label="Label" labelPosition={TICK_BOX_LABEL_POSITION.END} testId="testId" />
+        </ThemeProvider>,
+      );
+    });
+    it('Theme ' + theTheme + ' : Label, Top ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <TickBox label="Label" labelPosition={TICK_BOX_LABEL_POSITION.TOP} testId="testId" />
+        </ThemeProvider>,
+      );
+    });
+    it('Theme ' + theTheme + ' : Label, Bottom ', () => {
+      cy.mount(
+        <ThemeProvider theme={theme(theTheme)}>
+          <CssBaseline />
+          <TickBox label="Label" labelPosition={TICK_BOX_LABEL_POSITION.BOTTOM} testId="testId" />
         </ThemeProvider>,
       );
     });
