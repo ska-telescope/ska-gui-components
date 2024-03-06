@@ -1,7 +1,6 @@
 import React from 'react';
 import { ButtonToggle } from '../ButtonToggle/ButtonToggle';
 import { TelescopeList } from '@ska-telescope/ska-javascript-components';
-import { storageObject } from '@ska-telescope/ska-gui-local-storage';
 
 export type Telescope = {
   code: string;
@@ -18,22 +17,24 @@ export interface TelescopeSelectorProps {
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;
+  telescope: Telescope;
   toolTip?: string;
+  updateTelescope: Function;
 }
 
 export function TelescopeSelector({
   ariaDescription = 'Means of selecting one of the available telescopes',
   ariaTitle = 'TelescopeSelector',
   disabled = false,
+  telescope,
   toolTip = '',
+  updateTelescope
 }: TelescopeSelectorProps): JSX.Element {
   const telescopeChange = (_event: React.MouseEvent<HTMLElement>, newTelescope: Telescope) => {
     if (newTelescope) {
       updateTelescope(newTelescope);
     }
   };
-
-  const { telescope, updateTelescope } = storageObject.useStore();
 
   const getOptions = (inList: any) => {
     const results: { id: string; label: string; value: any }[] = [];

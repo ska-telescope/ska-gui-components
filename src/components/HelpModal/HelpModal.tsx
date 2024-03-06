@@ -1,14 +1,19 @@
 import React from 'react';
 import { Box, Card, CardContent, CardHeader, IconButton, Modal } from '@mui/material';
-import { storageObject } from '@ska-telescope/ska-gui-local-storage';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
+export type Help = {
+  content: Object;
+  component: Object;
+  showHelp: Boolean;
+}
 export interface HelpModalProps {
   component?: boolean;
+  help: Help;
+  helpToggle: Function;
 }
 
-export function HelpModal({ component = false }: HelpModalProps): JSX.Element {
-  const { help, helpToggle } = storageObject.useStore();
+export function HelpModal({ component = false, help, helpToggle }: HelpModalProps): JSX.Element {
 
   function closeModal() {
     helpToggle();
