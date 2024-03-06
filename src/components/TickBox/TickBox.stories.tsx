@@ -1,5 +1,4 @@
-import { TickBox } from './TickBox';
-import SearchIcon from '@mui/icons-material/Search';
+import { TICK_BOX_LABEL_POSITION, TickBox } from './TickBox';
 
 export default {
   title: 'Example/TickBox',
@@ -15,7 +14,7 @@ export const Default = {
     ariaDescription: 'aria Description',
     disabled: false,
     label: 'LABEL',
-    labelEnd: true,
+    labelPosition: TICK_BOX_LABEL_POSITION.START,
     onFocus: undefined,
     required: false,
     testId: 'testId',

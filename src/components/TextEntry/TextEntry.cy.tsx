@@ -2,7 +2,7 @@ import React from 'react';
 import TextEntry from './TextEntry';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
-import { POSITION } from '../EntryField/EntryField';
+import { ENTRY_LABEL_POSITION } from '../EntryField/EntryField';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
 
@@ -22,7 +22,12 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <TextEntry label="Label" labelPosition={POSITION.TOP} testId="testId" value={theValue} />
+          <TextEntry
+            label="Label"
+            labelPosition={ENTRY_LABEL_POSITION.TOP}
+            testId="testId"
+            value={theValue}
+          />
         </ThemeProvider>,
       );
     });
@@ -32,7 +37,7 @@ describe('<DateEntry />', () => {
           <CssBaseline />
           <TextEntry
             label="Label"
-            labelPosition={POSITION.BOTTOM}
+            labelPosition={ENTRY_LABEL_POSITION.BOTTOM}
             testId="testId"
             value={theValue}
           />
@@ -45,7 +50,7 @@ describe('<DateEntry />', () => {
           <CssBaseline />
           <TextEntry
             label="Label"
-            labelPosition={POSITION.START}
+            labelPosition={ENTRY_LABEL_POSITION.START}
             testId="testId"
             value={theValue}
           />
@@ -56,7 +61,12 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <TextEntry label="Label" labelPosition={POSITION.END} testId="testId" value={theValue} />
+          <TextEntry
+            label="Label"
+            labelPosition={ENTRY_LABEL_POSITION.END}
+            testId="testId"
+            value={theValue}
+          />
         </ThemeProvider>,
       );
     });

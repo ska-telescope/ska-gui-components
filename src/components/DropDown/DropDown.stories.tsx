@@ -1,3 +1,4 @@
+import { ENTRY_LABEL_POSITION } from '../EntryField/EntryField';
 import DropDown from './DropDown';
 
 export default {
@@ -22,6 +23,8 @@ export const Default = {
     helperText: 'HELPER TEXT',
     errorText: '',
     label: 'LABEL',
+    labelPosition: ENTRY_LABEL_POSITION.CONTAINED,
+    labelWidth: 4,
     options: DUMMY_OPTIONS,
     required: false,
     value: '',

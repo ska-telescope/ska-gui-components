@@ -25,8 +25,8 @@ Field for entering text into the application
     "errorText", "string", "No", "''", "Displayed if there is a value and component is coloured"
     "helperText", "string", "No", "''", "Displayed is there is a value"
     "label", "string", "Yes", "", "Label displayed for the Component"
-    "labelPosition", "POSITION", "No", "POSITION.CONTAINED", "Allows for the positioning of the label"
-    "labelWidth", "number", "No", "4", "Sets the width of the label for POSITION.START & POSITION.END labelPositions"
+    "labelPosition", "ENTRY_LABEL_POSITION", "No", "ENTRY_LABEL_POSITION.CONTAINED", "Allows for the positioning of the label"
+    "labelWidth", "number", "No", "4", "Sets the width of the label for ENTRY_LABEL_POSITION.START & ENTRY_LABEL_POSITION.END labelPositions"
     "onFocus", "Function", "No", "", "Function executed when the component is active"
     "password", "boolean", "No", "false", "Value entered is obscured"
     "required", "boolean", "No", "false", "Asterisk is added to the label if true"
@@ -39,7 +39,7 @@ Field for entering text into the application
 
    :header: "Constant", "Values", "Usage"
 
-   "POSITION", "Contained,Top,Bottom, Start, End", "Allows for the positioning of the label"
+   "ENTRY_LABEL_POSITION", "Contained, Top, Bottom, Start, End", "Allows for the positioning of the label"
 
 .. admonition:: Testing Identifier
 

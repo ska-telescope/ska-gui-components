@@ -1,5 +1,5 @@
 import React from 'react';
-import EntryField, { POSITION } from './EntryField';
+import EntryField, { ENTRY_LABEL_POSITION } from './EntryField';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
@@ -21,7 +21,12 @@ describe('<EntryField />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <EntryField label="Label" labelPosition={POSITION.TOP} testId="testId" value={theValue} />
+          <EntryField
+            label="Label"
+            labelPosition={ENTRY_LABEL_POSITION.TOP}
+            testId="testId"
+            value={theValue}
+          />
         </ThemeProvider>,
       );
     });
@@ -31,7 +36,7 @@ describe('<EntryField />', () => {
           <CssBaseline />
           <EntryField
             label="Label"
-            labelPosition={POSITION.BOTTOM}
+            labelPosition={ENTRY_LABEL_POSITION.BOTTOM}
             testId="testId"
             value={theValue}
           />
@@ -44,7 +49,7 @@ describe('<EntryField />', () => {
           <CssBaseline />
           <EntryField
             label="Label"
-            labelPosition={POSITION.START}
+            labelPosition={ENTRY_LABEL_POSITION.START}
             testId="testId"
             value={theValue}
           />
@@ -55,7 +60,12 @@ describe('<EntryField />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <EntryField label="Label" labelPosition={POSITION.END} testId="testId" value={theValue} />
+          <EntryField
+            label="Label"
+            labelPosition={ENTRY_LABEL_POSITION.END}
+            testId="testId"
+            value={theValue}
+          />
         </ThemeProvider>,
       );
     });
