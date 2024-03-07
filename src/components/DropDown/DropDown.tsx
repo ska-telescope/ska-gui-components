@@ -16,7 +16,7 @@ export interface DropDownProps {
   helperText?: string;
   label: string;
   labelPosition?: LABEL_POSITION;
-  labelWidth: number;
+  labelWidth?: number;
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
