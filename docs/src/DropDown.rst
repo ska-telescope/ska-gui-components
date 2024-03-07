@@ -27,7 +27,6 @@ Field for selecting an option from a possible list
     "helperText", "string", "No", "''", "Displayed is there is a value"
     "label", "string", "Yes", "", "Label displayed for the Component"
     "labelPosition", "LABEL_POSITION", "No", "LABEL_POSITION.CONTAINED", "Allows for the positioning of the label"
-    "labelWidth", "number", "No", "4", "Sets the width of the label for LABEL_POSITION.START & LABEL_POSITION.END labelPositions"
     "onFocus", "Function", "No", "", "Function executed when the component is active"
     "options", "*", "Yes", "", "Options to be displayed for selection.  See below"
     "required", "boolean", "No", "false", "Asterisk is added to the label if true"

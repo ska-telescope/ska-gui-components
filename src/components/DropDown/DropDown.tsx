@@ -1,5 +1,6 @@
 import React from 'react';
-import { MenuItem, TextField } from '@mui/material';
+import { FormControl, FormControlLabel, Grid, MenuItem, TextField } from '@mui/material';
+import { LABEL_POSITION } from '../EntryField/EntryField';
 
 export interface DropDownProps {
   // required
@@ -13,6 +14,7 @@ export interface DropDownProps {
   errorText?: string;
   helperText?: string;
   label: string;
+  labelPosition?: LABEL_POSITION;
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
@@ -25,6 +27,7 @@ export function DropDown({
   errorText = '',
   helperText = '',
   label,
+  labelPosition = LABEL_POSITION.CONTAINED,
   onFocus,
   options,
   required = false,
@@ -35,33 +38,76 @@ export function DropDown({
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
 
   return (
-    <TextField
-      aria-label={ariaTitle}
-      aria-describedby={ariaDescription}
-      color="secondary"
-      data-testid={testId}
-      disabled={disabled}
-      error={errorText && errorText.length > 0 ? true : false}
-      fullWidth
-      helperText={errorText ? errorText : helperText ? helperText : ''}
-      id={'dropDown' + label + 'Id'}
-      label={label}
-      name={'dropDown' + label}
-      onChange={(e: { target: { value: string | number } }) => {
-        updateValue(e.target.value);
-      }}
-      onFocus={onFocus}
-      required={required}
-      select
-      value={value}
-      variant="standard"
-    >
-      {options.map((option) => (
-        <MenuItem key={option.value} value={option.value}>
-          {option.label}
-        </MenuItem>
-      ))}
-    </TextField>
+    <>
+      {labelPosition !== LABEL_POSITION.CONTAINED && (
+        <FormControl component="fieldset">
+          <FormControlLabel
+            disabled={disabled}
+            labelPlacement={labelPosition}
+            label={label}
+            control={
+              <TextField
+                aria-label={ariaTitle}
+                aria-describedby={ariaDescription}
+                color="secondary"
+                data-testid={testId}
+                disabled={disabled}
+                error={errorText && errorText.length > 0 ? true : false}
+                fullWidth
+                helperText={errorText ? errorText : helperText ? helperText : ''}
+                id={'dropDown' + label + 'Id'}
+                label=""
+                name={'dropDown' + label}
+                onChange={(e: { target: { value: string | number } }) => {
+                  updateValue(e.target.value);
+                }}
+                onFocus={onFocus}
+                required={required}
+                select
+                value={value}
+                variant="standard"
+              >
+                {options.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            }
+          />
+        </FormControl>
+      )}
+
+      {labelPosition === LABEL_POSITION.CONTAINED && (
+        <TextField
+          aria-label={ariaTitle}
+          aria-describedby={ariaDescription}
+          color="secondary"
+          data-testid={testId}
+          disabled={disabled}
+          error={errorText && errorText.length > 0 ? true : false}
+          fullWidth
+          helperText={errorText ? errorText : helperText ? helperText : ''}
+          id={'dropDown' + label + 'Id'}
+          label={label}
+          name={'dropDown' + label}
+          onChange={(e: { target: { value: string | number } }) => {
+            updateValue(e.target.value);
+          }}
+          onFocus={onFocus}
+          required={required}
+          select
+          value={value}
+          variant="standard"
+        >
+          {options.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      )}
+    </>
   );
 }
 
