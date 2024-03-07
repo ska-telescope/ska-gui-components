@@ -1,10 +1,15 @@
 import React from 'react';
 import HelpModal from './HelpModal';
-import { CssBaseline, Grid, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 import { StoreProvider } from '@ska-telescope/ska-gui-local-storage';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
+const HELP = {
+  content: 'THIS IS CONTENT HELP',
+  component: 'THIS IS COMPONENT HELP',
+  showHelp: false,
+};
 
 describe('<HelpModal />', () => {
   for (const theTheme of THEME) {
@@ -13,7 +18,7 @@ describe('<HelpModal />', () => {
         <StoreProvider>
           <ThemeProvider theme={theme(theTheme)}>
             <CssBaseline />
-            <HelpModal />
+            <HelpModal help={HELP} helpToggle={cy.stub().as('helpToggle')} />
           </ThemeProvider>
         </StoreProvider>,
       );
@@ -23,7 +28,7 @@ describe('<HelpModal />', () => {
         <StoreProvider>
           <ThemeProvider theme={theme(theTheme)}>
             <CssBaseline />
-            <HelpModal component={true} />
+            <HelpModal component={true} help={HELP} helpToggle={cy.stub().as('helpToggle')} />
           </ThemeProvider>
         </StoreProvider>,
       );

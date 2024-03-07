@@ -12,11 +12,16 @@ Note that this interacts directly with the REDUX storage implemented by the ska-
 .. code-block:: sh
    :caption: Example : Default usage
 
+   import { storageObject } from '@ska-telescope/ska-gui-local-storage';
    import { TelescopeSelector } from '@ska-telescope/ska-gui-components';
 
    ...
 
-   <TelescopeSelector data={data} testId="testId" />
+   const { telescope, updateTelescope } = storageObject.useStore();
+
+   ...
+
+   <TelescopeSelector telescope={telescope} testId="testId" updateTelescope={updateTelescope} />
 
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
