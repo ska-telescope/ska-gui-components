@@ -38,7 +38,8 @@ export function Header({
   toolTip = { skao: 'SKAO', mode: '' },
   children,
 }: HeaderProps): JSX.Element {
-  const { help, helpToggle, themeMode, toggleTheme } = storageObject.useStore();
+  const { help, helpToggle, telescope, themeMode, toggleTheme, updateTelescope } =
+    storageObject.useStore();
   const isDarkTheme = themeMode.mode === THEME_DARK;
 
   const hasHelp = () => {
@@ -81,7 +82,9 @@ export function Header({
         <Grid item>{children}</Grid>
         <Grid item>
           <Box mr={1} display="flex" justifyContent="flex-end">
-            {selectTelescope && <TelescopeSelector />}
+            {selectTelescope && (
+              <TelescopeSelector telescope={telescope} updateTelescope={updateTelescope} />
+            )}
             {docs?.url && (
               <Tooltip title={docs?.tooltip} arrow>
                 <IconButton

@@ -1,13 +1,7 @@
 import React from 'react';
 import { FormControlLabel, Checkbox } from '@mui/material';
 import useTheme from '@mui/material/styles/useTheme';
-
-export enum TICK_BOX_LABEL_POSITION {
-  START = 'start',
-  TOP = 'top',
-  BOTTOM = 'bottom',
-  END = 'end',
-}
+import { LABEL_POSITION } from '../EntryField/EntryField';
 
 export interface TickBoxProps {
   ariaDescription?: string;
@@ -17,7 +11,7 @@ export interface TickBoxProps {
   disabled?: boolean;
   fontSize?: number;
   label?: string;
-  labelPosition?: TICK_BOX_LABEL_POSITION;
+  labelPosition?: LABEL_POSITION;
   onChange?: Function;
   onFocus?: Function;
   testId: string;
@@ -31,7 +25,7 @@ export function TickBox({
   defaultChecked,
   fontSize = 28,
   label,
-  labelPosition = TICK_BOX_LABEL_POSITION.START,
+  labelPosition = LABEL_POSITION.START,
   onChange,
   onFocus,
   testId,
@@ -62,7 +56,9 @@ export function TickBox({
         />
       }
       label={label}
-      labelPlacement={labelPosition}
+      labelPlacement={
+        labelPosition === LABEL_POSITION.CONTAINED ? LABEL_POSITION.START : labelPosition
+      }
       sx={{ '& .MuiSvgIcon-root': { fontSize: { fontSize } } }}
     />
   );

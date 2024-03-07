@@ -1,4 +1,4 @@
-import { ENTRY_LABEL_POSITION } from '../EntryField/EntryField';
+import { LABEL_POSITION } from '../EntryField/EntryField';
 import { TextEntry } from './TextEntry';
 
 export default {
@@ -17,7 +17,7 @@ export const Default = {
     errorText: '',
     helperText: 'HELPER TEXT',
     label: 'LABEL',
-    labelPosition: ENTRY_LABEL_POSITION.CONTAINED,
+    labelPosition: LABEL_POSITION.CONTAINED,
     labelWidth: 4,
     password: false,
     prefix: undefined,

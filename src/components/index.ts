@@ -12,11 +12,11 @@ export { default as HelpModal } from './HelpModal/HelpModal';
 export { default as DateEntry } from './DateEntry/DateEntry';
 export { default as DropDown } from './DropDown/DropDown';
 export { default as FileUpload, FileUploadStatus } from './FileUpload/FileUpload';
-export { ENTRY_LABEL_POSITION } from './EntryField/EntryField';
+export { LABEL_POSITION } from './EntryField/EntryField';
 export { default as NumberEntry } from './NumberEntry/NumberEntry';
 export { default as SearchEntry } from './SearchEntry/SearchEntry';
 export { default as TextEntry } from './TextEntry/TextEntry';
-export { default as TickBox, TICK_BOX_LABEL_POSITION } from './TickBox/TickBox';
+export { default as TickBox } from './TickBox/TickBox';
 //
 export { default as Backdrop } from './Backdrop/Backdrop';
 export {

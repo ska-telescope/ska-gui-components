@@ -1,4 +1,5 @@
-import { TICK_BOX_LABEL_POSITION, TickBox } from './TickBox';
+import { LABEL_POSITION } from '../EntryField/EntryField';
+import { TickBox } from './TickBox';
 
 export default {
   title: 'Example/TickBox',
@@ -14,7 +15,7 @@ export const Default = {
     ariaDescription: 'aria Description',
     disabled: false,
     label: 'LABEL',
-    labelPosition: TICK_BOX_LABEL_POSITION.START,
+    labelPosition: LABEL_POSITION.START,
     onFocus: undefined,
     required: false,
     testId: 'testId',
