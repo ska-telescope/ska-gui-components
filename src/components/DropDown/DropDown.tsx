@@ -15,10 +15,12 @@ export interface DropDownProps {
   errorText?: string;
   helperText?: string;
   label: string;
+  labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   onFocus?: Function;
   required?: boolean;
+  select?: boolean;
   setValue?: Function;
 }
 
@@ -29,11 +31,13 @@ export function DropDown({
   errorText = '',
   helperText = '',
   label,
+  labelBold = false,
   labelPosition = LABEL_POSITION.CONTAINED,
   labelWidth = 4,
   onFocus,
   options,
   required = false,
+  select = false,
   setValue,
   testId,
   value,
@@ -43,6 +47,66 @@ export function DropDown({
 
   return (
     <>
+      {(labelPosition === LABEL_POSITION.START || labelPosition === LABEL_POSITION.END) && (
+        <Grid
+          alignItems="baseline"
+          container
+          direction="row"
+          justifyContent="space-between"
+          sx={{ width: '100%' }}
+        >
+          {labelPosition === LABEL_POSITION.START && (
+            <Grid item xs={labelWidth}>
+              <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
+                <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                  {displayLabel}
+                </Typography>
+              </InputLabel>
+            </Grid>
+          )}
+          <Grid item xs={12 - labelWidth}>
+            <TextField
+              aria-label={ariaTitle}
+              aria-describedby={ariaDescription}
+              aria-hidden={false}
+              color="secondary"
+              data-testid={testId}
+              disabled={disabled}
+              error={errorText && errorText.length > 0 ? true : false}
+              fullWidth
+              helperText={errorText ? errorText : helperText ? helperText : ''}
+              hiddenLabel
+              id={testId}
+              margin="none"
+              name={'dropDown' + label}
+              onChange={(e: { target: { value: string | number } }) => {
+                updateValue(e.target.value);
+              }}
+              onFocus={onFocus}
+              required={required}
+              select={select}
+              value={value}
+              variant="standard"
+            >
+              {options.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+          {labelPosition === LABEL_POSITION.END && (
+            <Grid item xs={labelWidth}>
+              <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
+                <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                  {displayLabel}
+                </Typography>
+              </InputLabel>
+            </Grid>
+          )}
+        </Grid>
+      )}
+
       {(labelPosition === LABEL_POSITION.TOP || labelPosition === LABEL_POSITION.BOTTOM) && (
         <FormControl sx={{ width: '100%' }} component="fieldset">
           <FormControlLabel
@@ -80,60 +144,6 @@ export function DropDown({
             }
           />
         </FormControl>
-      )}
-
-      {(labelPosition === LABEL_POSITION.START || labelPosition === LABEL_POSITION.END) && (
-        <Grid
-          container
-          sx={{ width: '100%' }}
-          direction="row"
-          justifyContent="space-between"
-          alignItems="baseline"
-        >
-          {labelPosition === LABEL_POSITION.START && (
-            <Grid item xs={labelWidth}>
-              <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
-                <Typography>{displayLabel}</Typography>
-              </InputLabel>
-            </Grid>
-          )}
-          <Grid item xs={12 - labelWidth}>
-            <TextField
-              aria-label={ariaTitle}
-              aria-describedby={ariaDescription}
-              color="secondary"
-              data-testid={testId}
-              disabled={disabled}
-              error={errorText && errorText.length > 0 ? true : false}
-              fullWidth
-              helperText={errorText ? errorText : helperText ? helperText : ''}
-              id={'dropDown' + label + 'Id'}
-              label=""
-              name={'dropDown' + label}
-              onChange={(e: { target: { value: string | number } }) => {
-                updateValue(e.target.value);
-              }}
-              onFocus={onFocus}
-              required={required}
-              select
-              value={value}
-              variant="standard"
-            >
-              {options.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
-          {labelPosition === LABEL_POSITION.END && (
-            <Grid item xs={labelWidth}>
-              <InputLabel shrink={false} htmlFor={'username'}>
-                <Typography>{displayLabel}</Typography>
-              </InputLabel>
-            </Grid>
-          )}
-        </Grid>
       )}
 
       {labelPosition === LABEL_POSITION.CONTAINED && (

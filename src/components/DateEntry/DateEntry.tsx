@@ -12,6 +12,7 @@ export interface DateEntryProps {
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
+  labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   onFocus?: Function;
@@ -26,6 +27,7 @@ export function DateEntry({
   errorText = '',
   helperText = '',
   label,
+  labelBold = false,
   labelPosition,
   labelWidth,
   onFocus,
@@ -43,6 +45,7 @@ export function DateEntry({
       errorText={errorText}
       helperText={helperText}
       label={label}
+      labelBold={labelBold}
       labelPosition={labelPosition}
       labelWidth={labelWidth}
       onFocus={onFocus}

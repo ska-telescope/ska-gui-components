@@ -25,6 +25,7 @@ Field for entering text into the application
     "errorText", "string", "No", "''", "Displayed if there is a value and component is coloured"
     "helperText", "string", "No", "''", "Displayed is there is a value"
     "label", "string", "Yes", "", "Label displayed for the Component"
+    "labelBold", "boolean", "No", "false", "Label is displayed in bold unless disabled"
     "labelPosition", "LABEL_POSITION", "No", "LABEL_POSITION.CONTAINED", "Allows for the positioning of the label"
     "labelWidth", "number", "No", "4", "Sets the width of the label for LABEL_POSITION.START & LABEL_POSITION.END labelPositions"
     "onFocus", "Function", "No", "", "Function executed when the component is active"

@@ -26,6 +26,7 @@ Field for entering text into the application
     "disabled", "boolean", "No", "false", "Disables the component if true"
     "fontSize", "number", "No", "28", "font size of the text used"
     "label", "string", "Yes", "", "Label displayed for the Component"
+    "labelBold", "boolean", "No", "false", "Label is displayed in bold unless disabled"
     "labelPosition", "LABEL_POSITION", "No", "LABEL_POSITION.START", "Allows for the positioning of the label"
     "onChange", "Function", "No", "", "Function executed when the component is clicked"
     "onFocus", "Function", "No", "", "Function executed when the component is active"

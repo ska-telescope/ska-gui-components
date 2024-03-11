@@ -11,6 +11,7 @@ export interface NumberEntryProps {
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
+  labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   password?: boolean;
@@ -29,6 +30,7 @@ export function NumberEntry({
   errorText = '',
   helperText = '',
   label,
+  labelBold = false,
   labelPosition,
   labelWidth,
   onFocus,
@@ -55,6 +57,7 @@ export function NumberEntry({
       errorText={errText()}
       helperText={helperText}
       label={label}
+      labelBold={labelBold}
       labelPosition={labelPosition}
       labelWidth={labelWidth}
       prefix={prefix}
