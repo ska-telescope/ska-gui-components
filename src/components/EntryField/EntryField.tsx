@@ -39,6 +39,7 @@ export interface EntryFieldProps {
   disabled?: boolean;
   errorText?: string;
   helperText?: string;
+  labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   password?: boolean;
@@ -60,6 +61,7 @@ export function EntryField({
   errorText = '',
   helperText = '',
   label,
+  labelBold = false,
   labelPosition = LABEL_POSITION.CONTAINED,
   labelWidth = 4,
   onFocus,
@@ -75,17 +77,25 @@ export function EntryField({
 }: EntryFieldProps): JSX.Element {
   const theSuffix = suffix ? suffix : '';
   const thePrefix = prefix ? prefix : '';
+  const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
   const displayLabel = label + (required ? ' *' : '');
 
-  const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
   return (
     <>
       {(labelPosition === LABEL_POSITION.START || labelPosition === LABEL_POSITION.END) && (
-        <Grid container direction="row" justifyContent="space-between" alignItems="baseline">
+        <Grid
+          alignItems="baseline"
+          container
+          direction="row"
+          justifyContent="space-between"
+          sx={{ width: '100%' }}
+        >
           {labelPosition === LABEL_POSITION.START && (
             <Grid item xs={labelWidth}>
               <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
-                <Typography>{displayLabel}</Typography>
+                <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                  {displayLabel}
+                </Typography>
               </InputLabel>
             </Grid>
           )}
@@ -98,7 +108,6 @@ export function EntryField({
               data-testid={testId}
               disabled={disabled}
               error={errorText && errorText.length > 0 ? true : false}
-              onFocus={onFocus}
               fullWidth
               helperText={errorText ? errorText : helperText ? helperText : ''}
               hiddenLabel
@@ -115,10 +124,11 @@ export function EntryField({
               onChange={(e: { target: { value: any } }) => {
                 updateValue(e.target.value);
               }}
+              onFocus={onFocus}
+              required={required}
               select={select}
               value={value}
               variant="standard"
-              required={required}
               type={type}
             >
               {children}
@@ -126,8 +136,10 @@ export function EntryField({
           </Grid>
           {labelPosition === LABEL_POSITION.END && (
             <Grid item xs={labelWidth}>
-              <InputLabel shrink={false} htmlFor={'username'}>
-                <Typography>{displayLabel}</Typography>
+              <InputLabel shrink={false} htmlFor={testId}>
+                <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                  {displayLabel}
+                </Typography>
               </InputLabel>
             </Grid>
           )}

@@ -26,6 +26,7 @@ Field for selecting an option from a possible list
     "errorText", "string", "No", "''", "Displayed if there is a value and component is coloured"
     "helperText", "string", "No", "''", "Displayed is there is a value"
     "label", "string", "Yes", "", "Label displayed for the Component"
+    "labelBold", "boolean", "No", "false", "Label is displayed in bold unless disabled"
     "labelPosition", "LABEL_POSITION", "No", "LABEL_POSITION.CONTAINED", "Allows for the positioning of the label"
     "onFocus", "Function", "No", "", "Function executed when the component is active"
     "options", "*", "Yes", "", "Options to be displayed for selection.  See below"
