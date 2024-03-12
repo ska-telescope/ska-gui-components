@@ -6,8 +6,6 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton } from '../Button/Button';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
 
-const SIZE = 25;
-
 export enum FileUploadStatus {
   OK = 0,
   ERROR = 1,
@@ -147,7 +145,7 @@ export default function FileUpload({
     return state === FileUploadStatus.INITIAL ? (
       <UploadFileIcon />
     ) : (
-      <StatusIcon testId="statusId" icon level={state} size={SIZE} />
+      <StatusIcon testId="statusId" icon level={state} size={14} />
     );
   };
 
@@ -161,7 +159,6 @@ export default function FileUpload({
         accept={chooseFileTypes}
         onChange={handleFileChange}
       />
-
       <OurButton
         ariaDescription={chooseToolTip}
         color={name ? ButtonColorTypes.Inherit : chooseColor}

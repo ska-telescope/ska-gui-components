@@ -33,6 +33,7 @@ as well as implementation of standard properties to allow for maximum accessibil
    FileUpload
    Footer
    Header
+   IconButton
    InfoCard
    NumberEntry
    Progress
