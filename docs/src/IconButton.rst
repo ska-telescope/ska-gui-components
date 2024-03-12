@@ -1,13 +1,10 @@
 IconButton
-~~~~~~
+~~~~~~~~~~
 
 *Overview*
 
 IconButton for use with all applications.
 This is used if user actions are required, but there is not an associated label due to design or space restrictions.
-
-.. figure:: /images/button.png
-   :width: 90%
 
 .. code-block:: sh
    :caption: Example : Default usage
