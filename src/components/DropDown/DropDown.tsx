@@ -20,7 +20,6 @@ export interface DropDownProps {
   labelWidth?: number;
   onFocus?: Function;
   required?: boolean;
-  select?: boolean;
   setValue?: Function;
 }
 
@@ -37,7 +36,6 @@ export function DropDown({
   onFocus,
   options,
   required = false,
-  select = false,
   setValue,
   testId,
   value,
@@ -84,7 +82,7 @@ export function DropDown({
               }}
               onFocus={onFocus}
               required={required}
-              select={select}
+              select
               value={value}
               variant="standard"
             >

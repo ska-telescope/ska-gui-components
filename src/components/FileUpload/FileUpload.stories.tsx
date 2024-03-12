@@ -11,10 +11,10 @@ export default {
 
 export const Light = {
   args: {
+    buttonSize: ButtonSizeTypes.Medium,
     chooseDisabled: false,
     chooseFileTypes: '',
     chooseLabel: 'Choose',
-    chooseSize: ButtonSizeTypes.Medium,
     chooseToolTip: 'Choose the file',
     direction: 'row',
     maxFileWidth: 20,
@@ -23,7 +23,6 @@ export const Light = {
     uploadDisabled: false,
     uploadLabel: 'Upload',
     uploadURL: 'https://httpbin.org/post',
-    uploadSize: ButtonSizeTypes.Medium,
     uploadToolTip: 'Upload tooltip',
   },
 };
@@ -33,6 +32,7 @@ export const Dark = {
     backgrounds: { default: 'dark' },
   },
   args: {
+    chooseSize: ButtonSizeTypes.Medium,
     chooseDisabled: false,
     chooseFileTypes: '',
     chooseLabel: 'Choose',
