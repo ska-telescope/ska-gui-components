@@ -35,10 +35,12 @@ export function TextEntry({
   labelPosition,
   labelWidth,
   password = false,
+  prefix = '',
   onFocus,
   required = false,
   rows = 1,
   setValue,
+  suffix = '',
   testId,
   value,
 }: TextEntryProps): JSX.Element {
@@ -64,12 +66,14 @@ export function TextEntry({
       labelPosition={labelPosition}
       labelWidth={labelWidth}
       onFocus={onFocus}
+      prefix={prefix}
       rows={rows}
       value={value}
       required={required}
       testId={testId}
       type={password ? TYPE.PASSWORD : TYPE.TEXT}
       setValue={setValue}
+      suffix={suffix}
     />
   );
 }
