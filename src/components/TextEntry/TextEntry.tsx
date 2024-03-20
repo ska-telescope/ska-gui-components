@@ -14,9 +14,10 @@ export interface TextEntryProps {
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
+  mask?: string;
+  onFocus?: Function;
   password?: boolean;
   prefix?: JSX.Element | string;
-  onFocus?: Function;
   required?: boolean;
   rows?: number;
   setValue?: Function;
@@ -34,9 +35,10 @@ export function TextEntry({
   labelBold = false,
   labelPosition,
   labelWidth,
+  mask,
+  onFocus,
   password = false,
   prefix = '',
-  onFocus,
   required = false,
   rows = 1,
   setValue,
@@ -65,6 +67,7 @@ export function TextEntry({
       labelBold={labelBold}
       labelPosition={labelPosition}
       labelWidth={labelWidth}
+      mask={mask}
       onFocus={onFocus}
       prefix={prefix}
       rows={rows}

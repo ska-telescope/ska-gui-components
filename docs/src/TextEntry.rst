@@ -28,6 +28,7 @@ Field for entering text into the application
     "labelBold", "boolean", "No", "false", "Label is displayed in bold unless disabled"
     "labelPosition", "LABEL_POSITION", "No", "LABEL_POSITION.CONTAINED", "Allows for the positioning of the label"
     "labelWidth", "number", "No", "4", "Sets the width of the label for LABEL_POSITION.START & LABEL_POSITION.END labelPositions"
+    "mask", "string", "No", "", "Used to allow the field to be masked ( See below ) "
     "onFocus", "Function", "No", "", "Function executed when the component is active"
     "password", "boolean", "No", "false", "Value entered is obscured"
     "prefix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon before the entry"
@@ -43,6 +44,16 @@ Field for entering text into the application
    :header: "Constant", "Values", "Usage"
 
    "LABEL_POSITION", "Contained, Top, Bottom, Start, End", "Allows for the positioning of the label"
+
+.. admonition:: Masking
+
+   :header: "Character(s)", "Details"
+
+   "0", "Any digit"
+   "a", "Any letter"
+   "*", "Any character"
+   "[]", "Make input optional"
+   "()", "Include fixed part in unmasked value"
 
 .. admonition:: Testing Identifier
 
