@@ -30,9 +30,11 @@ Field for entering text into the application
     "labelWidth", "number", "No", "4", "Sets the width of the label for LABEL_POSITION.START & LABEL_POSITION.END labelPositions"
     "onFocus", "Function", "No", "", "Function executed when the component is active"
     "password", "boolean", "No", "false", "Value entered is obscured"
+    "prefix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon before the entry"
     "required", "boolean", "No", "false", "Asterisk is added to the label if true"
     "rows", "number", "No", "1", "TEXT ONLY.  text area when value is above 1"
     "setValue", "function", "No", "null", "Used to update the value onChange"
+    "suffix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon after the entry"
     "testId", "string", "Yes", "", "Identifier for testing purposes"
     "value", "string", "Yes", "", "Value that is displayed within the component"
 
