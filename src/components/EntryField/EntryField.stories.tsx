@@ -19,7 +19,6 @@ export const Default = {
     labelBold: true,
     labelPosition: LABEL_POSITION.START,
     labelWidth: 4,
-    mask: '',
     onFocus: undefined,
     prefix: '',
     required: false,

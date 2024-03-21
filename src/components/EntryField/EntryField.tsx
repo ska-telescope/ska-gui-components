@@ -1,5 +1,4 @@
 import React from 'react';
-import { IMaskInput } from 'react-imask';
 import { InputAdornment, TextField } from '@mui/material';
 import { FormControlLabel } from '@mui/material';
 import { FormControl } from '@mui/material';
@@ -43,7 +42,6 @@ export interface EntryFieldProps {
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
-  mask?: string;
   onFocus?: Function;
   password?: boolean;
   prefix?: JSX.Element | string;
@@ -66,7 +64,6 @@ export function EntryField({
   labelBold = false,
   labelPosition = LABEL_POSITION.CONTAINED,
   labelWidth = 4,
-  mask = '',
   onFocus,
   prefix = '',
   required = false,
@@ -82,26 +79,6 @@ export function EntryField({
   const thePrefix = prefix ? prefix : '';
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
   const displayLabel = label + (required ? ' *' : '');
-
-  interface CustomProps {
-    onChange: (event: { target: { name: string; value: string } }) => void;
-    name: string;
-  }
-
-  const TextMaskCustom = React.forwardRef<HTMLInputElement, CustomProps>(
-    function TextMaskCustom(props, ref) {
-      const { onChange, ...other } = props;
-      return (
-        <IMaskInput
-          {...other}
-          mask={mask}
-          inputRef={ref}
-          onAccept={(value: any) => onChange({ target: { name: props.name, value } })}
-          overwrite
-        />
-      );
-    },
-  );
 
   return (
     <>
@@ -138,7 +115,6 @@ export function EntryField({
               InputProps={{
                 startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                 endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-                inputComponent: TextMaskCustom as any,
               }}
               margin="none"
               minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
@@ -191,7 +167,6 @@ export function EntryField({
                 InputProps={{
                   startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                   endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-                  inputComponent: TextMaskCustom as any,
                 }}
                 margin="none"
                 minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
@@ -229,7 +204,6 @@ export function EntryField({
           InputProps={{
             startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
             endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-            inputComponent: TextMaskCustom as any,
           }}
           label={label}
           margin="normal"
