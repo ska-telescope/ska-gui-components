@@ -1,7 +1,12 @@
 import React from 'react';
 import { AppBar, Box, Grid, IconButton, Tooltip, Typography } from '@mui/material';
-import { Logo, THEME_DARK } from '@ska-telescope/ska-javascript-components';
-import { storageObject } from '@ska-telescope/ska-gui-local-storage';
+import {
+  Help,
+  Logo,
+  Telescope,
+  THEME_DARK,
+  THEME_LIGHT,
+} from '@ska-telescope/ska-javascript-components';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -11,16 +16,27 @@ import HelpIcon from '@mui/icons-material/Help';
 const LOGO_HEIGHT = 30;
 const SKAO_URL = 'https://www.skao.int/';
 
+export type Storage = {
+  help?: Help;
+  helpToggle?: Function;
+  telescope?: Telescope;
+  themeMode: typeof THEME_MODE;
+  toggleTheme: Function;
+  updateTelescope?: Function;
+};
+
 function openLink(link: string) {
   window.open(link, '_blank');
 }
 
+const THEME_MODE = THEME_DARK || THEME_LIGHT;
 export interface HeaderProps {
   ariaDescription?: string;
   ariaTitle?: string;
   docs?: { tooltip: string; url: string };
   selectTelescope?: boolean;
   showHelp?: boolean;
+  storage: Storage;
   testId: string;
   title?: string;
   toolTip?: { skao: string; mode: string };
@@ -32,18 +48,22 @@ export function Header({
   ariaTitle = 'SKAOHeader',
   docs = { tooltip: '', url: '' },
   selectTelescope = true,
+  storage,
   showHelp = false,
   testId,
   title = '',
   toolTip = { skao: 'SKAO', mode: '' },
   children,
 }: HeaderProps): JSX.Element {
-  const { help, helpToggle, telescope, themeMode, toggleTheme, updateTelescope } =
-    storageObject.useStore();
-  const isDarkTheme = themeMode.mode === THEME_DARK;
+  const isDarkTheme = storage.themeMode === THEME_DARK;
 
   const hasHelp = () => {
-    return showHelp && help && help.hasOwnProperty('content') && help.content;
+    return (
+      showHelp && storage.help && storage.help.hasOwnProperty('content') && storage.help.content
+    );
+  };
+  const updateTel = () => {
+    storage.updateTelescope ? storage.updateTelescope : null;
   };
 
   return (
@@ -82,8 +102,8 @@ export function Header({
         <Grid item>{children}</Grid>
         <Grid item>
           <Box mr={1} display="flex" justifyContent="flex-end">
-            {selectTelescope && (
-              <TelescopeSelector telescope={telescope} updateTelescope={updateTelescope} />
+            {selectTelescope && storage.telescope && (
+              <TelescopeSelector telescope={storage.telescope} updateTelescope={updateTel} />
             )}
             {docs?.url && (
               <Tooltip title={docs?.tooltip} arrow>
@@ -98,12 +118,12 @@ export function Header({
               </Tooltip>
             )}
             {hasHelp() && (
-              <Tooltip title={help.content} arrow>
+              <Tooltip title={storage.help?.content} arrow>
                 <IconButton
                   aria-label="help icon"
                   sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
                   color="inherit"
-                  onClick={() => helpToggle()}
+                  onClick={() => (storage.helpToggle ? storage.helpToggle() : null)}
                 >
                   {<HelpIcon />}
                 </IconButton>
@@ -113,7 +133,7 @@ export function Header({
               <IconButton
                 aria-label="light/dark mode"
                 sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
-                onClick={toggleTheme}
+                onClick={storage.toggleTheme}
                 color="inherit"
               >
                 {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
