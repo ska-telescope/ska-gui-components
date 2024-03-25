@@ -4,7 +4,7 @@ export { default as DataGrid } from './DataGrid/DataGrid';
 export { default as InfoCard, InfoCardColorTypes, InfoCardVariantTypes } from './InfoCard/InfoCard';
 export { default as DataTree } from './DataTree/DataTree';
 //
-export { default as Header, Storage } from './Header/Header';
+export { default as Header } from './Header/Header';
 export { default as Footer } from './Footer/Footer';
 export { default as CopyrightModal } from './CopyrightModal/CopyrightModal';
 export { default as HelpModal } from './HelpModal/HelpModal';
@@ -29,7 +29,9 @@ export { default as ButtonToggle } from './ButtonToggle/ButtonToggle';
 export { default as Progress, ProgressIndicator } from './Progress/Progress';
 export { default as StatusIcon } from './StatusIcon/StatusIcon';
 export { default as TelescopeSelector } from './TelescopeSelector/TelescopeSelector';
+
 export { GUI_COMPONENTS_VERSION } from './version';
+export { Storage } from '../utils/types/Storage';
 
 export {
   Colors,

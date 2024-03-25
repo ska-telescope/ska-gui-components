@@ -1,13 +1,8 @@
 import React from 'react';
 import { AppBar, Box, Grid, IconButton, Tooltip, Typography } from '@mui/material';
-import {
-  Help,
-  Logo,
-  Telescope,
-  THEME_DARK,
-  THEME_LIGHT,
-} from '@ska-telescope/ska-javascript-components';
+import { Logo, THEME_DARK } from '@ska-telescope/ska-javascript-components';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
+import { Storage } from '../../utils/types/Storage';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -16,20 +11,10 @@ import HelpIcon from '@mui/icons-material/Help';
 const LOGO_HEIGHT = 30;
 const SKAO_URL = 'https://www.skao.int/';
 
-export type Storage = {
-  help?: Help;
-  helpToggle?: Function;
-  telescope?: Telescope;
-  themeMode: typeof THEME_MODE;
-  toggleTheme: Function;
-  updateTelescope?: Function;
-};
-
 function openLink(link: string) {
   window.open(link, '_blank');
 }
 
-const THEME_MODE = THEME_DARK || THEME_LIGHT;
 export interface HeaderProps {
   ariaDescription?: string;
   ariaTitle?: string;
