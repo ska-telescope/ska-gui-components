@@ -31,7 +31,6 @@ export { default as StatusIcon } from './StatusIcon/StatusIcon';
 export { default as TelescopeSelector } from './TelescopeSelector/TelescopeSelector';
 
 export { GUI_COMPONENTS_VERSION } from './version';
-export { Storage } from '../utils/types/Storage';
 
 export {
   Colors,

@@ -33,6 +33,7 @@ interface FileUploadProps {
   clearVariant?: ButtonVariantTypes;
   setFile?: Function | null;
   setStatus?: Function | null;
+  status?: FileUploadStatus;
   uploadColor?: ButtonColorTypes;
   uploadDisabled?: boolean;
   uploadFunction?: Function | null;
@@ -57,7 +58,8 @@ export default function FileUpload({
   maxFileWidth = 20,
   setFile,
   setStatus,
-  testId = 'fileUpload,',
+  status,
+  testId = 'fileUpload',
   //
   clearLabel = 'Upload',
   clearToolTip = 'Clear the selected file',
@@ -84,8 +86,9 @@ export default function FileUpload({
   const setTheStatus = (e: FileUploadStatus) => {
     if (setStatus) {
       setStatus(e);
+    } else {
+      setState(e);
     }
-    setState(e);
   };
 
   const handleFileChange = (e: any) => {

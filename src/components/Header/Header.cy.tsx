@@ -1,9 +1,25 @@
 import React from 'react';
 import Header from './Header';
 import { CssBaseline, Grid, ThemeProvider } from '@mui/material';
+import { TELESCOPE_MID } from '@ska-telescope/ska-javascript-components';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
+
+const theHelp = {
+  content: '',
+  component: '',
+  showHelp: false,
+};
+
+const theStorage = {
+  help: theHelp,
+  helpToggle: cy.stub().as('helpToggle'),
+  telescope: TELESCOPE_MID,
+  themeMode: THEME_LIGHT,
+  toggleTheme: cy.stub().as('toggleTheme'),
+  updateTelescope: cy.stub().as('updateTelescope'),
+};
 
 describe('<Header />', () => {
   for (const theTheme of THEME) {
@@ -11,7 +27,7 @@ describe('<Header />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <Header testId="testId">
+          <Header storage={theStorage} testId="testId">
             <Grid item>THIS</Grid>
             <Grid item>IS</Grid>
             <Grid item>THE</Grid>
