@@ -2,7 +2,7 @@ import { Help, Telescope, THEME_DARK, THEME_LIGHT } from '@ska-telescope/ska-jav
 
 const THEME_MODE = THEME_DARK || THEME_LIGHT;
 
-export type Storage = {
+type Storage = {
   help?: Help;
   helpToggle?: Function;
   telescope?: Telescope;
@@ -10,3 +10,5 @@ export type Storage = {
   toggleTheme: Function;
   updateTelescope?: Function;
 };
+
+export default Storage;
