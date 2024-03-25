@@ -6,7 +6,6 @@ import '@fontsource/roboto/700.css';
 import '@fontsource/material-icons';
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { StoreProvider } from '@ska-telescope/ska-gui-local-storage';
 import { THEME_DARK, THEME_LIGHT, theme } from '../src/services/theme/theme';
 
 export const globalTypes = {
@@ -31,14 +30,12 @@ export const withMuiTheme = (Story, context) => {
   const { theme: themeKey } = context.globals;
 
   return (
-    <StoreProvider>
       <ThemeProvider theme={theme(themeKey)}>
         <CssBaseline />
         <React.Suspense fallback="...is loading">
           <Story />
         </React.Suspense>
       </ThemeProvider>
-    </StoreProvider>
   );
 };
 

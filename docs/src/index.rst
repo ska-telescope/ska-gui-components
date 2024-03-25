@@ -6,7 +6,6 @@ It makes use of the following:
 
 Material-UI ( version 5 ) - Ensures that the SKAO theme is implemented in a consistent manner
 ska-javascript-components - JavaScript library containing functionality that does not require Material-UI
-ska-gui-local-storage - JavaScript library that uses REDUX for information storage that can be used across SKAO applications
 
 Note that functionality that is available from the ska-javascript-components library has been made available via this library
 so that separate inclusion is not required.

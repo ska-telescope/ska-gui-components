@@ -4,7 +4,7 @@ TelescopeSelector
 *Overview*
 
 Specialized selection of a specific telescope from all that are available.
-Note that this interacts directly with the REDUX storage implemented by the ska-gui-local-storage library
+Note that this interacts directly with the local storage provided to this library
 
 .. figure:: /images/telescopeSelector.png
    :width: 90%
@@ -12,12 +12,7 @@ Note that this interacts directly with the REDUX storage implemented by the ska-
 .. code-block:: sh
    :caption: Example : Default usage
 
-   import { storageObject } from '@ska-telescope/ska-gui-local-storage';
    import { TelescopeSelector } from '@ska-telescope/ska-gui-components';
-
-   ...
-
-   const { telescope, updateTelescope } = storageObject.useStore();
 
    ...
 
