@@ -12,18 +12,18 @@ const theHelp = {
   showHelp: false,
 };
 
-const theStorage = {
-  help: theHelp,
-  helpToggle: cy.stub().as('helpToggle'),
-  telescope: TELESCOPE_MID,
-  themeMode: THEME_LIGHT,
-  toggleTheme: cy.stub().as('toggleTheme'),
-  updateTelescope: cy.stub().as('updateTelescope'),
-};
-
 describe('<Header />', () => {
   for (const theTheme of THEME) {
     it('Theme ' + theTheme + ': Verifies external link to SKAO WebSite', () => {
+      const theStorage = {
+        help: theHelp,
+        helpToggle: cy.stub().as('helpToggle'),
+        telescope: TELESCOPE_MID,
+        themeMode: THEME_LIGHT,
+        toggleTheme: cy.stub().as('toggleTheme'),
+        updateTelescope: cy.stub().as('updateTelescope'),
+      };
+
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />

@@ -148,7 +148,7 @@ export default function FileUpload({
     return state === FileUploadStatus.INITIAL ? (
       <UploadFileIcon />
     ) : (
-      <StatusIcon testId="statusId" icon level={state} size={14} />
+      <StatusIcon testId="statusId" icon level={status ? status : state} size={14} />
     );
   };
 
