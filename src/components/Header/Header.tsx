@@ -61,8 +61,8 @@ export function Header({
       showHelp && storage.help && storage.help.hasOwnProperty('content') && storage.help.content
     );
   };
-  const updateTel = (_event: React.MouseEvent<HTMLElement>, e: any) => {
-    storage.updateTelescope ? storage.updateTelescope(e) : null;
+  const updateTel = (event: React.MouseEvent<HTMLElement>) => {
+    storage.updateTelescope ? storage.updateTelescope(event) : null;
   };
 
   return (
