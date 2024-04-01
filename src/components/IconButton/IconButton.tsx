@@ -5,7 +5,7 @@ export interface IconButtonProps {
   ariaDescription?: string;
   ariaTitle?: string;
   icon: JSX.Element;
-  clickFunction?: Function;
+  onClick?: Function;
   testId: string;
   toolTip?: string;
 }
@@ -13,19 +13,19 @@ export interface IconButtonProps {
 export function OurIconButton({
   ariaDescription = 'Icon button providing some functionality',
   ariaTitle = 'IconButton',
-  clickFunction,
+  onClick,
   icon,
   testId,
   toolTip,
 }: IconButtonProps) {
-  const buttonClick = () => (clickFunction ? clickFunction : null);
+  const buttonClick = () => (onClick ? onClick : null);
 
   return (
     <Tooltip testid={testId} title={toolTip} arrow>
       <IconButton
         aria-description={ariaDescription}
         aria-label={ariaTitle}
-        clickFunction={buttonClick}
+        onClick={buttonClick}
         style={{ cursor: 'pointer' }}
       >
         {icon}

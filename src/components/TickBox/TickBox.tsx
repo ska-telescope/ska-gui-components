@@ -7,9 +7,7 @@ import { InputLabel } from '@mui/material';
 
 export interface TickBoxProps {
   ariaDescription?: string;
-  ariaTitle?: string;
   checked?: boolean;
-  defaultChecked?: boolean;
   disabled?: boolean;
   fontSize?: number;
   label?: string;
@@ -24,10 +22,8 @@ export interface TickBoxProps {
 
 export function TickBox({
   ariaDescription = 'Entry of a textual value',
-  ariaTitle = 'TickBox',
   checked = false,
   disabled = false,
-  defaultChecked,
   fontSize = 28,
   label,
   labelBold = false,
@@ -65,9 +61,7 @@ export function TickBox({
           <Grid item xs={12 - labelWidth}>
             <FormControlLabel
               aria-description={ariaDescription}
-              aria-title={ariaTitle}
               checked={checked}
-              defaultChecked={defaultChecked}
               disabled={disabled}
               id={testId}
               testid={testId}
@@ -75,7 +69,6 @@ export function TickBox({
               onFocus={onFocus}
               control={
                 <Checkbox
-                  defaultChecked
                   sx={{
                     '&.Mui-checked': {
                       color: theme.palette.secondary.main,
@@ -86,7 +79,6 @@ export function TickBox({
                   }}
                 />
               }
-              labelHidden
               sx={{ '& .MuiSvgIcon-root': { fontSize: { fontSize } } }}
             />
           </Grid>
@@ -104,16 +96,13 @@ export function TickBox({
       {(labelPosition === LABEL_POSITION.TOP || labelPosition === LABEL_POSITION.BOTTOM) && (
         <FormControlLabel
           aria-description={ariaDescription}
-          aria-title={ariaTitle}
           checked={checked}
-          defaultChecked={defaultChecked}
           disabled={disabled}
           testid={testId}
           onChange={onChange}
           onFocus={onFocus}
           control={
             <Checkbox
-              defaultChecked
               sx={{
                 '&.Mui-checked': {
                   color: theme.palette.secondary.main,

@@ -9,5 +9,12 @@ export default {
 };
 
 export const Default = {
-  args: {},
+  args: {
+    help: {
+      content: 'HELP CONTENT',
+      component: 'HELP COMPONENT',
+      showHelp: true,
+    },
+    helpToggle: null,
+  },
 };
