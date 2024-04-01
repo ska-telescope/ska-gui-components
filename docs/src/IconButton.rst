@@ -21,7 +21,7 @@ This is used if user actions are required, but there is not an associated label 
 
    "ariaDescription", "string", "No", "", "Used by Screen Readers"
    "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
-   "clickFunction", "Function", "No", "null", "Determines actions to be taken when the button is clicked"
+   "onClick", "Function", "No", "null", "Determines actions to be taken when the button is clicked"
    "icon", "JSX.Element", "Yes", "", "Required as the main part of the IconButton"
    "testId", "string", "Yes", "", "Identifier for testing purposes"
    "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"

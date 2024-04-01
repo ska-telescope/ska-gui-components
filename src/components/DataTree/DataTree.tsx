@@ -98,6 +98,9 @@ export function DataTree({
   }));
 
   const generateContent = (treeItems: any[]) => {
+    if (!treeItems || treeItems === null) {
+      return null;
+    }
     return Object.keys(treeItems).map((treeItemData) => {
       const keyObj: any = treeItemData;
       const el = typeof treeItems[keyObj];

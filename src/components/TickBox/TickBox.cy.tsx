@@ -24,7 +24,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <TickBox ariaDescription={ARIA_DESC} ariaTitle={ARIA_TITLE} testId="testId" />
+          <TickBox ariaDescription={ARIA_DESC} testId="testId" />
         </ThemeProvider>,
       );
     });
@@ -80,7 +80,7 @@ describe('<DateEntry />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <TickBox defaultChecked={true} testId="testId" />
+          <TickBox checked={true} testId="testId" />
         </ThemeProvider>,
       );
     });
