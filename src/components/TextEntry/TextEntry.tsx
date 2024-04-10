@@ -17,7 +17,7 @@ export interface TextEntryProps {
   onFocus?: Function;
   password?: boolean;
   prefix?: JSX.Element | string;
-  required?: boolean;
+  required?: boolean | string;
   rows?: number;
   setValue?: Function;
   suffix?: JSX.Element | string;
@@ -45,9 +45,13 @@ export function TextEntry({
   value,
 }: TextEntryProps): JSX.Element {
   const errText = () => {
-    if (required) {
+    if (typeof required === 'boolean') {
       if (!value || value.length === 0) {
-        errorText = 'entryField.required';
+        errorText = 'A value is required';
+      }
+    } else if (typeof required === 'string') {
+      if (!value || value.length === 0) {
+        return required;
       }
     }
     return errorText;
@@ -69,7 +73,7 @@ export function TextEntry({
       prefix={prefix}
       rows={rows}
       value={value}
-      required={required}
+      required={typeof required === 'boolean' ? required : required.length > 0}
       testId={testId}
       type={password ? TYPE.PASSWORD : TYPE.TEXT}
       setValue={setValue}

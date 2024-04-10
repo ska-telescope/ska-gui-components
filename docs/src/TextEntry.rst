@@ -32,7 +32,7 @@ Field for entering text into the application
     "onFocus", "Function", "No", "", "Function executed when the component is active"
     "password", "boolean", "No", "false", "Value entered is obscured"
     "prefix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon before the entry"
-    "required", "boolean", "No", "false", "Asterisk is added to the label if true"
+    "required", "boolean | string", "No", "false", "Asterisk is added to the label if true, if string also populates the error"
     "rows", "number", "No", "1", "TEXT ONLY.  text area when value is above 1"
     "setValue", "function", "No", "null", "Used to update the value onChange"
     "suffix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon after the entry"
