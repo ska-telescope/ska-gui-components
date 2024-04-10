@@ -17,7 +17,7 @@ export interface NumberEntryProps {
   password?: boolean;
   onFocus?: Function;
   prefix?: JSX.Element | string;
-  required?: boolean;
+  required?: boolean | string;
   setValue?: Function;
   suffix?: JSX.Element | string;
   testId: string;
@@ -42,8 +42,14 @@ export function NumberEntry({
   value,
 }: NumberEntryProps): JSX.Element {
   const errText = () => {
-    if (required && typeof value !== 'number') {
-      errorText = 'entryField.required';
+    if (typeof required === 'boolean') {
+      if (typeof value !== 'number') {
+        errorText = 'A numeric value is required';
+      }
+    } else if (typeof required === 'string') {
+      if (typeof value !== 'number') {
+        return required;
+      }
     }
     return errorText;
   };
@@ -63,7 +69,7 @@ export function NumberEntry({
       prefix={prefix}
       onFocus={onFocus}
       value={value}
-      required={required}
+      required={typeof required === 'boolean' ? required : required.length > 0}
       setValue={setValue}
       suffix={suffix}
       testId={testId}
