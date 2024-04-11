@@ -4,7 +4,7 @@ import { EntryField, LABEL_POSITION, TYPE } from '../EntryField/EntryField';
 export interface NumberEntryProps {
   // required
   label: string;
-  value: string | number;
+  value: number | string;
   // optional
   ariaDescription?: string;
   ariaTitle?: string;
@@ -54,8 +54,12 @@ export function NumberEntry({
     return false;
   };
 
+  function isNumber(value?: string | number): boolean {
+    return value != null && value !== '' && !isNaN(Number(value.toString()));
+  }
+
   const errText = () => {
-    if (isRequired() || typeof value !== 'number') {
+    if (isRequired() && !isNumber(value)) {
       return typeof required === 'string' && required.length > 0
         ? required
         : 'A numeric value is required';

@@ -24,7 +24,7 @@ export const Default = {
     onFocus: undefined,
     required: false,
     suffix: '',
-    value: 0,
+    value: '',
     setValue: undefined,
   },
 };
