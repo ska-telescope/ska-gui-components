@@ -44,14 +44,24 @@ export function TextEntry({
   testId,
   value,
 }: TextEntryProps): JSX.Element {
-  const errText = () => {
+  const isRequired = () => {
+    if (!required) {
+      return false;
+    }
     if (typeof required === 'boolean') {
+      return required;
+    }
+    if (typeof required === 'string') {
+      return required.length > 0;
+    }
+    return false;
+  };
+  const errText = () => {
+    if (isRequired()) {
       if (!value || value.length === 0) {
-        errorText = 'A value is required';
-      }
-    } else if (typeof required === 'string') {
-      if (!value || value.length === 0) {
-        return required;
+        return typeof required === 'string' && required.length > 0
+          ? required
+          : 'A value is required';
       }
     }
     return errorText;
@@ -73,7 +83,7 @@ export function TextEntry({
       prefix={prefix}
       rows={rows}
       value={value}
-      required={typeof required === 'boolean' ? required : required.length > 0}
+      required={isRequired()}
       testId={testId}
       type={password ? TYPE.PASSWORD : TYPE.TEXT}
       setValue={setValue}

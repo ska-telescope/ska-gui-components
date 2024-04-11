@@ -41,15 +41,24 @@ export function NumberEntry({
   testId,
   value,
 }: NumberEntryProps): JSX.Element {
-  const errText = () => {
+  const isRequired = () => {
+    if (!required) {
+      return false;
+    }
     if (typeof required === 'boolean') {
-      if (typeof value !== 'number') {
-        errorText = 'A numeric value is required';
-      }
-    } else if (typeof required === 'string') {
-      if (typeof value !== 'number') {
-        return required;
-      }
+      return required;
+    }
+    if (typeof required === 'string') {
+      return required.length > 0;
+    }
+    return false;
+  };
+
+  const errText = () => {
+    if (isRequired() || typeof value !== 'number') {
+      return typeof required === 'string' && required.length > 0
+        ? required
+        : 'A numeric value is required';
     }
     return errorText;
   };
@@ -69,7 +78,7 @@ export function NumberEntry({
       prefix={prefix}
       onFocus={onFocus}
       value={value}
-      required={typeof required === 'boolean' ? required : required.length > 0}
+      required={isRequired()}
       setValue={setValue}
       suffix={suffix}
       testId={testId}
