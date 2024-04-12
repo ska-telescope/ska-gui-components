@@ -108,6 +108,8 @@ export function DataTree({
       return (
         <StyledTreeItem aria-label={treeItemData} key={key} nodeId={key} label={treeItemData}>
           {el === 'string' && treeItems[keyObj]}
+          {el === 'number' && treeItems[keyObj]}
+          {el === 'boolean' && treeItems[keyObj]}
           {el === 'object' && el !== null && generateContent(treeItems[keyObj])}
         </StyledTreeItem>
       );
