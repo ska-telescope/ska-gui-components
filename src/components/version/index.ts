@@ -1,1 +1,1 @@
-export const GUI_COMPONENTS_VERSION = '1.0.19';
+export const GUI_COMPONENTS_VERSION = '1.0.20';
