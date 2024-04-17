@@ -127,6 +127,7 @@ export const Dark = {
     ariaDescription: 'aria Description',
     checkboxSelection: false,
     columns: DUMMY_COLUMNS,
+    headerLines: 1,
     height: 400,
     onRowClick: null,
     rows: DUMMY_ROWS,

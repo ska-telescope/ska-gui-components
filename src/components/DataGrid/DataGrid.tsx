@@ -64,6 +64,11 @@ export function StylingRowsGrid({
         },
       },
     },
+    '& .MuiDataGrid-columnHeaderTitle': {
+      overflow: 'visible',
+      lineHeight: '1.43rem',
+      whiteSpace: 'normal',
+    },
   }));
   const StyledDataGridMild = styled(DataGrid)(({ theme }) => ({
     WebkitFontSmoothing: 'auto',
@@ -92,6 +97,11 @@ export function StylingRowsGrid({
           backgroundColor: theme.palette.primary.dark,
         },
       },
+    },
+    '& .MuiDataGrid-columnHeaderTitle': {
+      overflow: 'visible',
+      lineHeight: '1.43rem',
+      whiteSpace: 'normal',
     },
   }));
   const StyledDataGridNoBorder = styled(DataGrid)(({ theme }) => ({
@@ -122,6 +132,11 @@ export function StylingRowsGrid({
           backgroundColor: theme.palette.primary.dark,
         },
       },
+      '& .MuiDataGrid-columnHeaderTitle': {
+        overflow: 'visible',
+        lineHeight: '1.43rem',
+        whiteSpace: 'normal',
+      },
     },
   }));
   const StyledDataGridNoBorderMild = styled(DataGrid)(({ theme }) => ({
@@ -151,6 +166,11 @@ export function StylingRowsGrid({
         '&:hover': {
           backgroundColor: theme.palette.primary.dark,
         },
+      },
+      '& .MuiDataGrid-columnHeaderTitle': {
+        overflow: 'visible',
+        lineHeight: '1.43rem',
+        whiteSpace: 'normal',
       },
     },
   }));
