@@ -1,11 +1,6 @@
 import React from 'react';
 import { AppBar, Box, Grid, IconButton, Tooltip, Typography } from '@mui/material';
-import {
-  Help,
-  Logo,
-  Telescope,
-  THEME_DARK,
-} from '@ska-telescope/ska-javascript-components';
+import { Help, Logo, Telescope, THEME_DARK } from '@ska-telescope/ska-javascript-components';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
