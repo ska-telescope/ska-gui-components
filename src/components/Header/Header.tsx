@@ -5,20 +5,12 @@ import {
   Logo,
   Telescope,
   THEME_DARK,
-  THEME_LIGHT,
 } from '@ska-telescope/ska-javascript-components';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DescriptionIcon from '@mui/icons-material/Description';
 import HelpIcon from '@mui/icons-material/Help';
-
-const LOGO_HEIGHT = 30;
-const SKAO_URL = 'https://www.skao.int/';
-
-function openLink(link: string) {
-  window.open(link, '_blank');
-}
 
 export type Storage = {
   help?: Help;
@@ -28,6 +20,13 @@ export type Storage = {
   toggleTheme: Function;
   updateTelescope?: Function;
 };
+
+const LOGO_HEIGHT = 30;
+const SKAO_URL = 'https://www.skao.int/';
+
+function openLink(link: string) {
+  window.open(link, '_blank');
+}
 
 export interface HeaderProps {
   ariaDescription?: string;
