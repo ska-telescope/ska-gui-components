@@ -10,6 +10,7 @@ export interface NumberEntryProps {
   ariaTitle?: string;
   disabled?: boolean;
   errorText?: string;
+  height?: number;
   helperText?: string;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
@@ -28,6 +29,7 @@ export function NumberEntry({
   ariaTitle = 'NumberEntry',
   disabled = false,
   errorText = '',
+  height,
   helperText = '',
   label,
   labelBold = false,

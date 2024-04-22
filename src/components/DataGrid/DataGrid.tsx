@@ -132,11 +132,11 @@ export function StylingRowsGrid({
           backgroundColor: theme.palette.primary.dark,
         },
       },
-      '& .MuiDataGrid-columnHeaderTitle': {
-        overflow: 'visible',
-        lineHeight: '1.43rem',
-        whiteSpace: 'normal',
-      },
+    },
+    '& .MuiDataGrid-columnHeaderTitle': {
+      overflow: 'visible',
+      lineHeight: '1.43rem',
+      whiteSpace: 'normal',
     },
   }));
   const StyledDataGridNoBorderMild = styled(DataGrid)(({ theme }) => ({
@@ -167,11 +167,11 @@ export function StylingRowsGrid({
           backgroundColor: theme.palette.primary.dark,
         },
       },
-      '& .MuiDataGrid-columnHeaderTitle': {
-        overflow: 'visible',
-        lineHeight: '1.43rem',
-        whiteSpace: 'normal',
-      },
+    },
+    '& .MuiDataGrid-columnHeaderTitle': {
+      overflow: 'visible',
+      lineHeight: '1.43rem',
+      whiteSpace: 'normal',
     },
   }));
 
