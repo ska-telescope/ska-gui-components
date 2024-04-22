@@ -38,6 +38,7 @@ export interface EntryFieldProps {
   children?: JSX.Element | JSX.Element[];
   disabled?: boolean;
   errorText?: string;
+  height?: number;
   helperText?: string;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
@@ -59,6 +60,7 @@ export function EntryField({
   children,
   disabled = false,
   errorText = '',
+  height = 45,
   helperText = '',
   label,
   labelBold = false,
@@ -88,7 +90,7 @@ export function EntryField({
           container
           direction="row"
           justifyContent="space-between"
-          sx={{ width: '100%' }}
+          sx={{ height: height, width: '100%' }}
         >
           {labelPosition === LABEL_POSITION.START && (
             <Grid item xs={labelWidth}>
