@@ -8,6 +8,7 @@ export interface DataGridProps {
   ariaTitle?: string;
   checkboxSelection?: boolean;
   columns: any;
+  columnHeaderHeight?: number;
   columnVisibilityModel?: any;
   height?: number;
   initialState?: object;
@@ -25,6 +26,7 @@ export function StylingRowsGrid({
   ariaDescription = 'Information provided in a tabular form',
   checkboxSelection = false,
   columns,
+  columnHeaderHeight = 56,
   columnVisibilityModel,
   height = 400,
   initialState,
@@ -182,6 +184,7 @@ export function StylingRowsGrid({
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           checkboxSelection={checkboxSelection}
+          columnHeaderHeight={columnHeaderHeight}
           columnVisibilityModel={columnVisibilityModel}
           data-testid={testId}
           getRowClassName={() => `super-app-theme`}
@@ -197,6 +200,7 @@ export function StylingRowsGrid({
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           checkboxSelection={checkboxSelection}
+          columnHeaderHeight={columnHeaderHeight}
           columnVisibilityModel={columnVisibilityModel}
           data-testid={testId}
           getRowClassName={() => `super-app-theme`}
@@ -212,6 +216,7 @@ export function StylingRowsGrid({
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           checkboxSelection={checkboxSelection}
+          columnHeaderHeight={columnHeaderHeight}
           columnVisibilityModel={columnVisibilityModel}
           data-testid={testId}
           getRowClassName={() => `super-app-theme`}
@@ -227,6 +232,7 @@ export function StylingRowsGrid({
           aria-label={ariaTitle}
           aria-describedby={ariaDescription}
           checkboxSelection={checkboxSelection}
+          columnHeaderHeight={columnHeaderHeight}
           columnVisibilityModel={columnVisibilityModel}
           data-testid={testId}
           getRowClassName={() => `super-app-theme`}
