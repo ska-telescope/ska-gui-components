@@ -13,6 +13,7 @@ export interface DropDownProps {
   ariaTitle?: string;
   disabled?: boolean;
   errorText?: string;
+  height?: number;
   helperText?: string;
   label: string;
   labelBold?: boolean;
@@ -28,6 +29,7 @@ export function DropDown({
   ariaTitle = 'DropDown',
   disabled = false,
   errorText = '',
+  height = 45,
   helperText = '',
   label,
   labelBold = false,
@@ -51,7 +53,7 @@ export function DropDown({
           container
           direction="row"
           justifyContent="space-between"
-          sx={{ width: '100%' }}
+          sx={{ height: height, width: '100%' }}
         >
           {labelPosition === LABEL_POSITION.START && (
             <Grid item xs={labelWidth}>
