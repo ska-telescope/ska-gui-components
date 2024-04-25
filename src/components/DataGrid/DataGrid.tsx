@@ -36,8 +36,7 @@ export function StylingRowsGrid({
   onCellClick,
   testId,
 }: DataGridProps) {
-
-const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
+  const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     border: 0,
     WebkitFontSmoothing: 'auto',
     letterSpacing: 'normal',
@@ -54,36 +53,36 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
       color: theme.palette.primary.contrastText,
     },
     '& .super-app-theme': {
+      '&:hover': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.light,
+      },
+      '&.Mui-selected': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.dark,
         '&:hover': {
-            color: theme.palette.primary.contrastText,
-            backgroundColor: theme.palette.primary.light,
+          backgroundColor: theme.palette.primary.dark,
         },
-        '&.Mui-selected': {
-            color: theme.palette.primary.contrastText,
-            backgroundColor: theme.palette.primary.dark,
-            '&:hover': {
-            backgroundColor: theme.palette.primary.dark,
-            },
-        },
+      },
     },
-}));
+  }));
 
   return (
     <Box sx={{ height, width: '100%' }}>
-        <StyledDataGrid
-          aria-label={ariaTitle}
-          aria-describedby={ariaDescription}
-          checkboxSelection={checkboxSelection}
-          columnHeaderHeight={columnHeaderHeight}
-          columnVisibilityModel={columnVisibilityModel}
-          data-testid={testId}
-          getRowClassName={() => `super-app-theme`}
-          initialState={initialState}
-          onColumnVisibilityModelChange={onColumnVisibilityModelChange}
-          onRowClick={onRowClick}
-          onCellClick={onCellClick}
-          {...{ rows, columns }}
-        />
+      <StyledDataGrid
+        aria-label={ariaTitle}
+        aria-describedby={ariaDescription}
+        checkboxSelection={checkboxSelection}
+        columnHeaderHeight={columnHeaderHeight}
+        columnVisibilityModel={columnVisibilityModel}
+        data-testid={testId}
+        getRowClassName={() => `super-app-theme`}
+        initialState={initialState}
+        onColumnVisibilityModelChange={onColumnVisibilityModelChange}
+        onRowClick={onRowClick}
+        onCellClick={onCellClick}
+        {...{ rows, columns }}
+      />
     </Box>
   );
 }
