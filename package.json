@@ -60,10 +60,13 @@
     ]
   },
   "dependencies": {
-    "@mui/lab": "^5.0.0-alpha.166",
+    "@mui/core": "^5.0.0-alpha.54",
+    "@mui/icons-material": "^5.15.15",
+    "@mui/lab": "^5.0.0-alpha.170",
+    "@mui/material": "^5.15.15",
     "@mui/system": "^5.15.11",
-    "@mui/x-data-grid": "^6.19.5",
-    "@mui/x-tree-view": "^6.17.0",
+    "@mui/x-data-grid": "^7.3.0",
+    "@mui/x-tree-view": "^7.3.0",
     "@react-spring/web": "^9.7.3",
     "@ska-telescope/ska-javascript-components": "^1.0.9",
     "@types/uuid": "^9.0.4",
@@ -84,8 +87,6 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/material-icons": "^5.0.13",
     "@fontsource/roboto": "^5.0.8",
-    "@mui/icons-material": "^5.15.11",
-    "@mui/material": "^5.15.11",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
@@ -143,8 +144,6 @@
     "webpack": "^5.77.0"
   },
   "peerDependencies": {
-    "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.11.14",
     "react": "^18.2.0"
   }
 }
