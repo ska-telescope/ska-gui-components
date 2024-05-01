@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Box } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridEventListener } from '@mui/x-data-grid';
 import { styled } from '@mui/material/styles';
-
 export interface DataGridProps {
   ariaDescription?: string;
   ariaTitle?: string;
@@ -67,6 +66,10 @@ export function StylingRowsGrid({
     },
   }));
 
+  const handleRowClick: GridEventListener<'rowClick'> = (params) => {
+    onRowClick ? onRowClick(params) : null;
+  };
+
   return (
     <Box sx={{ height, width: '100%' }}>
       <StyledDataGrid
@@ -79,7 +82,7 @@ export function StylingRowsGrid({
         getRowClassName={() => `super-app-theme`}
         initialState={initialState}
         onColumnVisibilityModelChange={onColumnVisibilityModelChange}
-        onRowClick={onRowClick}
+        onRowClick={handleRowClick}
         onCellClick={onCellClick}
         {...{ rows, columns }}
       />
