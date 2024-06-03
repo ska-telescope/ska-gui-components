@@ -5,6 +5,8 @@ import ClearIcon from '@mui/icons-material/Clear';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton } from '../Button/Button';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
+import { Box } from '@mui/system';
+import { Paper } from '@mui/material';
 
 export enum FileUploadStatus {
   OK = 0,
@@ -100,6 +102,7 @@ export default function FileUpload({
         setFile(e.target.files[0].name);
       }
     }
+    e.target.value = null;
   };
 
   const handleClear = () => {
@@ -217,11 +220,11 @@ export default function FileUpload({
   );
 
   return (
-    <Grid container direction={direction} justifyContent="space-evenly" spacing={1}>
+    <Grid p={0} container direction={direction} justifyContent="space-evenly" spacing={1}>
       <Grid item>{ChooseButton()}</Grid>
-      <Grid item>{!hideFileName && showFileName()}</Grid>
-      <Grid item>{theFile && UploadButton()}</Grid>
-      <Grid item>{theFile && ClearButton()}</Grid>
+      {!hideFileName && <Grid item>{showFileName()}</Grid>}
+      {theFile && <Grid item>{ClearButton()}</Grid>}
+      {theFile && <Grid item>{UploadButton()}</Grid>}
     </Grid>
   );
 }
