@@ -15,10 +15,12 @@ export interface DropDownProps {
   errorText?: string;
   height?: number;
   helperText?: string;
+  inputRef?: string;
   label: string;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
+  name?: string;
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
@@ -31,10 +33,12 @@ export function DropDown({
   errorText = '',
   height = 45,
   helperText = '',
+  inputRef = '',
   label,
   labelBold = false,
   labelPosition = LABEL_POSITION.CONTAINED,
   labelWidth = 4,
+  name = '',
   onFocus,
   options,
   required = false,
@@ -157,8 +161,9 @@ export function DropDown({
           fullWidth
           helperText={errorText ? errorText : helperText ? helperText : ''}
           id={'dropDown' + label + 'Id'}
+          inputRef={inputRef}
           label={label}
-          name={'dropDown' + label}
+          name={name}
           onChange={(e: { target: { value: string | number } }) => {
             updateValue(e.target.value);
           }}

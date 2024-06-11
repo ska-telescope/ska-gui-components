@@ -12,9 +12,11 @@ export interface TextEntryProps {
   errorText?: string;
   height?: number;
   helperText?: string;
+  inputRef?: string;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
+  name?: string;
   onFocus?: Function;
   password?: boolean;
   prefix?: JSX.Element | string;
@@ -32,10 +34,12 @@ export function TextEntry({
   errorText = '',
   height,
   helperText = '',
+  inputRef = '',
   label,
   labelBold = false,
   labelPosition,
   labelWidth,
+  name = '',
   onFocus,
   password = false,
   prefix = '',
@@ -76,11 +80,14 @@ export function TextEntry({
       data-testid={testId}
       disabled={disabled}
       errorText={errText()}
+      height={height}
       helperText={helperText}
+      inputRef={inputRef}
       label={label}
       labelBold={labelBold}
       labelPosition={labelPosition}
       labelWidth={labelWidth}
+      name={name}
       onFocus={onFocus}
       prefix={prefix}
       rows={rows}

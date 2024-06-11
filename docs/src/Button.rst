@@ -4,7 +4,11 @@ Button
 *Overview*
 
 Button for use with all applications.
-The expectation that an appropriate icon will be provided, which is displayed to the left of the label.
+
+.. tip:: 
+
+   - It is expected that an appropriate icon will be provided into the icon property.
+     For a list icons currently in use, please refer to the icons section of this guide
 
 .. figure:: /images/button.png
    :width: 90%

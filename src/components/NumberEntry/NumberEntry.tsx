@@ -12,10 +12,12 @@ export interface NumberEntryProps {
   errorText?: string;
   height?: number;
   helperText?: string;
+  inputRef?: string;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   password?: boolean;
+  name?: string;
   onFocus?: Function;
   prefix?: JSX.Element | string;
   required?: boolean | string;
@@ -31,10 +33,12 @@ export function NumberEntry({
   errorText = '',
   height,
   helperText = '',
+  inputRef = '',
   label,
   labelBold = false,
   labelPosition,
   labelWidth,
+  name = '',
   onFocus,
   prefix = '',
   required = false,
@@ -77,12 +81,15 @@ export function NumberEntry({
       disabled={disabled}
       errorText={errText()}
       helperText={helperText}
+      height={height}
+      inputRef={inputRef}
       label={label}
       labelBold={labelBold}
       labelPosition={labelPosition}
       labelWidth={labelWidth}
-      prefix={prefix}
+      name={name}
       onFocus={onFocus}
+      prefix={prefix}
       value={value}
       required={isRequired()}
       setValue={setValue}
