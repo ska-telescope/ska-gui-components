@@ -18,9 +18,10 @@ Below is a list of the known icons in use.
     />
 
 .. note:: sh
-   :caption: Implementation in the code
 
-    Note that the word Icon has been appended to the components where missing so add with code clarity
+   Implementation in the code
+
+   Note that the word Icon has been appended to the components where missing so add with code clarity
 
 .. csv-table:: Properties
    :header: "import URL", "Icon component", "description"
