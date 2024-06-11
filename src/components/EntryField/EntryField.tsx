@@ -40,9 +40,11 @@ export interface EntryFieldProps {
   errorText?: string;
   height?: number;
   helperText?: string;
+  inputRef?: string;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
+  name?: string;
   onFocus?: Function;
   password?: boolean;
   prefix?: JSX.Element | string;
@@ -62,10 +64,12 @@ export function EntryField({
   errorText = '',
   height = 45,
   helperText = '',
+  inputRef = '',
   label,
   labelBold = false,
   labelPosition = LABEL_POSITION.CONTAINED,
   labelWidth = 4,
+  name = '',
   onFocus,
   prefix = '',
   required = false,
@@ -118,11 +122,12 @@ export function EntryField({
                 startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                 endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
               }}
+              inputRef={inputRef}
               margin="none"
               minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
               maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
               multiline={type === TYPE.TEXT && rows && rows > 1}
-              name={'textField' + label}
+              name={name}
               onChange={(e: { target: { value: any } }) => {
                 updateValue(e.target.value);
               }}
@@ -170,11 +175,12 @@ export function EntryField({
                   startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                   endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
                 }}
+                inputRef={inputRef}
                 margin="none"
                 minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
                 maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
                 multiline={type === TYPE.TEXT && rows && rows > 1}
-                name={'textField' + label}
+                name={name}
                 onChange={(e: { target: { value: any } }) => {
                   updateValue(e.target.value);
                 }}
@@ -207,12 +213,13 @@ export function EntryField({
             startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
             endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
           }}
+          inputRef={inputRef}
           label={label}
           margin="normal"
           minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
           maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
           multiline={type === TYPE.TEXT && rows && rows > 1}
-          name={'textField' + label}
+          name={name}
           onChange={(e: { target: { value: any } }) => {
             updateValue(e.target.value);
           }}
