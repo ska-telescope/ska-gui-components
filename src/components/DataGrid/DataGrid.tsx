@@ -13,6 +13,7 @@ export interface DataGridProps {
   initialState?: object;
   onColumnVisibilityModelChange?: any;
   onRowClick?: any;
+  onRowSelectionModelChange?: any;
   rows: any;
   onCellClick?: any;
   showBorder?: boolean;
@@ -31,6 +32,7 @@ export function StylingRowsGrid({
   initialState,
   onColumnVisibilityModelChange,
   onRowClick,
+  onRowSelectionModelChange,
   rows,
   onCellClick,
   testId,
@@ -81,9 +83,10 @@ export function StylingRowsGrid({
         data-testid={testId}
         getRowClassName={() => `super-app-theme`}
         initialState={initialState}
+        onCellClick={onCellClick}
         onColumnVisibilityModelChange={onColumnVisibilityModelChange}
         onRowClick={handleRowClick}
-        onCellClick={onCellClick}
+        onRowSelectionModelChange={onRowSelectionModelChange}
         {...{ rows, columns }}
       />
     </Box>

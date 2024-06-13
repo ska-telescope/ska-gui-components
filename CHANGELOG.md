@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+1.0.30 
+
+*****
+
+Updated the DataGrid to make onRowSelectionModelChange visible
 1.0.29
 
 *****
