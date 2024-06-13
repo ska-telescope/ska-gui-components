@@ -1,14 +1,21 @@
 Changelog
 ==========
 
-1.0.30 
+1.0.31
 
-*****
+******
+
+Updated the DataGrid to make rowSelectionModel visible
+
+1.0.30
+
+******
 
 Updated the DataGrid to make onRowSelectionModelChange visible
+
 1.0.29
 
-*****
+******
 
 * DateEntry
   * Addition of name property

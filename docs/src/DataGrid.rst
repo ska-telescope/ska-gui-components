@@ -30,8 +30,9 @@ Given the provided data, will provide a table of contents
     "onColumnVisibilityModelChange", "any", "No", "Used to listen to the changes to the visible columns and update the prop accordingly", 
     "onRowClick", "function", "No", "", "Action if the row is clicked"
     "onCellClick", "function", "No", "", "Action if a cell is clicked"
-    "onRowSelectionModelChange", "function", "No", "", "?Used to obtain the selected rows from the dataGrid"
-    "rows", "array", "Yes", "", "Data that is to be presented"
+    "onRowSelectionModelChange", "function", "No", "", "Used to obtain the selected rows from the dataGrid"
+    "rows", "array", "Yes", "", "Data that is to be presented"    
+    "rowSelectionModel", "array", "No", "", "Used to populate the dataGrid with selected rows"
     "showBorder", "boolean", "No", "", "When active, the border for the component is displayed"
     "showMild", "boolean", "No", "", "When active, the selected colouring is restricted to a lower contrast"
     "testId", "string", "Yes", "", "Identifier for testing purposes"

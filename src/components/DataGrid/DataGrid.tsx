@@ -11,11 +11,12 @@ export interface DataGridProps {
   columnVisibilityModel?: any;
   height?: number;
   initialState?: object;
+  onCellClick?: any;
   onColumnVisibilityModelChange?: any;
   onRowClick?: any;
   onRowSelectionModelChange?: any;
   rows: any;
-  onCellClick?: any;
+  rowSelectionModel: any;
   showBorder?: boolean;
   showMild?: boolean;
   testId: string;
@@ -30,11 +31,12 @@ export function StylingRowsGrid({
   columnVisibilityModel,
   height = 400,
   initialState,
+  onCellClick,
   onColumnVisibilityModelChange,
   onRowClick,
   onRowSelectionModelChange,
   rows,
-  onCellClick,
+  rowSelectionModel,
   testId,
 }: DataGridProps) {
   const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
@@ -87,6 +89,7 @@ export function StylingRowsGrid({
         onColumnVisibilityModelChange={onColumnVisibilityModelChange}
         onRowClick={handleRowClick}
         onRowSelectionModelChange={onRowSelectionModelChange}
+        rowSelectionModel={rowSelectionModel}
         {...{ rows, columns }}
       />
     </Box>
