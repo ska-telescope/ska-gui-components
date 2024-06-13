@@ -16,7 +16,7 @@ export interface DataGridProps {
   onRowClick?: any;
   onRowSelectionModelChange?: any;
   rows: any;
-  rowSelectionModel: any;
+  rowSelectionModel?: any;
   showBorder?: boolean;
   showMild?: boolean;
   testId: string;
