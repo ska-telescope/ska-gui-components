@@ -29,7 +29,7 @@ Field for selecting an option from a possible list
     "inputRef", "string", "No", "", "Allows the field entry to be accessed by reference if needed"
     "label", "string", "Yes", "", "Label displayed for the Component"
     "labelBold", "boolean", "No", "false", "Label is displayed in bold unless disabled"
-    "labelPosition", "LABEL_POSITION", "No", "LABEL_POSITION.CONTAINED", "Allows for the positioning of the label"
+    "labelPosition", "LABEL_POSITION", "No", "CONTAINED", "Allows for the positioning of the label"
     "name", "string", "No", "", "Allows for the field to be referenced and is separate to the testId"
     "onFocus", "Function", "No", "", "Function executed when the component is active"
     "options", "*", "Yes", "", "Options to be displayed for selection.  See below"

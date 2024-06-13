@@ -30,7 +30,7 @@ Field for entering numbers into the application. Provides a spinner
     "inputRef", "string", "No", "", "Allows the field entry to be accessed by reference if needed"
     "label", "string", "Yes", "", "Label displayed for the Component"
     "labelBold", "boolean", "No", "false", "Label is displayed in bold unless disabled"
-    "labelPosition", "LABEL_POSITION", "No", "LABEL_POSITION.CONTAINED", "Allows for the positioning of the label"
+    "labelPosition", "LABEL_POSITION", "No", "CONTAINED", "Allows for the positioning of the label"
     "labelWidth", "number", "No", "4", "Sets the width of the label for LABEL_POSITION.START & LABEL_POSITION.END labelPositions"
     "name", "string", "No", "", "Allows for the field to be referenced and is separate to the testId"
     "onFocus", "Function", "No", "", "Function executed when the component is active"

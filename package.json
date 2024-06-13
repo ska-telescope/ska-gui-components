@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -67,7 +67,7 @@
     "@mui/x-data-grid": "^7.3.0",
     "@mui/x-tree-view": "6.17.0",
     "@react-spring/web": "^9.7.3",
-    "@ska-telescope/ska-javascript-components": "^1.0.9",
+    "@ska-telescope/ska-javascript-components": "^2.0.0",
     "@types/uuid": "^9.0.4",
     "junit-report-merger": "^6.0.2"
   },
