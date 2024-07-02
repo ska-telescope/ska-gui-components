@@ -43,7 +43,7 @@ interface FileUploadProps {
   uploadVariant?: ButtonVariantTypes;
 }
 
-export function FileUpload({
+export default function FileUpload({
   buttonSize = ButtonSizeTypes.Medium,
   chooseColor = ButtonColorTypes.Secondary,
   chooseDisabled = false,
