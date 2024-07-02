@@ -1,22 +1,24 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "strict": true,
-        "skipLibCheck": true,
-        "rootDir": "src",
-
-        "jsx": "react",
-        "module": "ESNext",
-        "declaration": true,
-        "declarationDir": "types",
-        "sourceMap": true,
-        "outDir": "dist",
-        "moduleResolution": "node",
-        "allowJs": true,
-        "allowSyntheticDefaultImports": true,
-        "emitDeclarationOnly": true,
+      "target": "es5",
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "skipLibCheck": true,
+      "rootDir": "src",
+  
+      "jsx": "react",
+      "module": "ESNext",
+      "declaration": true,
+      "declarationDir": "types",
+      "sourceMap": true,
+      "outDir": "dist",
+      "moduleResolution": "node",
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "emitDeclarationOnly": true,
     },
+    "include": ["src/*.ts"],
     "exclude": ["src/*.cy.ts"]
-}
+  }
+  

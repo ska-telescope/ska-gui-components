@@ -21,7 +21,7 @@ export function OurIconButton({
   const buttonClick = () => (onClick ? onClick : null);
 
   return (
-    <Tooltip testid={testId} title={toolTip} arrow>
+    <Tooltip data-testid={testId} title={toolTip} arrow>
       <IconButton
         aria-description={ariaDescription}
         aria-label={ariaTitle}

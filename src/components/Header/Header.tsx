@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler, ReactNode } from 'react';
 import { AppBar, Box, Grid, IconButton, Tooltip, Typography } from '@mui/material';
 import { Help, Logo, Telescope, THEME_DARK } from '@ska-telescope/ska-javascript-components';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
@@ -111,7 +111,7 @@ export function Header({
               </Tooltip>
             )}
             {hasHelp() && (
-              <Tooltip title={storage.help?.content} arrow>
+              <Tooltip title={storage.help?.content as ReactNode} arrow>
                 <IconButton
                   aria-label="help icon"
                   sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
@@ -126,7 +126,7 @@ export function Header({
               <IconButton
                 aria-label="light/dark mode"
                 sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
-                onClick={storage.toggleTheme}
+                onClick={storage.toggleTheme as MouseEventHandler}
                 color="inherit"
               >
                 {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}

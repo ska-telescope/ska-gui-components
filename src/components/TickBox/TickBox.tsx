@@ -64,9 +64,10 @@ export function TickBox({
               checked={checked}
               disabled={disabled}
               id={testId}
-              testid={testId}
-              onChange={onChange}
-              onFocus={onFocus}
+              data-testid={testId}
+              label={displayLabel}
+              onChange={() => onChange}
+              onFocus={() => onFocus}
               control={
                 <Checkbox
                   sx={{
@@ -97,10 +98,10 @@ export function TickBox({
         <FormControlLabel
           aria-description={ariaDescription}
           checked={checked}
+          data-testid={testId}
           disabled={disabled}
-          testid={testId}
-          onChange={onChange}
-          onFocus={onFocus}
+          onChange={() => onChange}
+          onFocus={() => onFocus}
           control={
             <Checkbox
               sx={{

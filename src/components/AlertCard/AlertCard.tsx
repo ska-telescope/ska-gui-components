@@ -103,12 +103,11 @@ function AlertElement(
 
   return (
     <Box key={`AlertFilledBox${index}`}>
-      <Button key={`AlertFilledButton${index}`} onClick={buttonClick} testId={testId + 'Btn'}>
+      <Button key={`AlertFilledButton${index}`} onClick={buttonClick} data-testid={testId + 'Btn'}>
         <Alert
-          data-testid={testId + 'Element'}
           key={`AlertFilled${index}`}
           color={color}
-          testId={testId}
+          testId={testId + 'Element'}
           variant={variant}
         >
           <Box key={`AlertFilledBoxInner${index}`} m={1}>

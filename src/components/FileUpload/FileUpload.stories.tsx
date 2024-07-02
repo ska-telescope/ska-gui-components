@@ -1,5 +1,5 @@
 import { ButtonSizeTypes } from '../Button/Button';
-import FileUpload from './FileUpload';
+import { FileUpload } from './FileUpload';
 
 export default {
   title: 'Example/FileUpload',

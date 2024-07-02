@@ -122,16 +122,16 @@ export function EntryField({
                 startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                 endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
               }}
-              inputRef={inputRef}
+              inputRef={() => inputRef}
               margin="none"
               minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
               maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-              multiline={type === TYPE.TEXT && rows && rows > 1}
+              multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
               name={name}
               onChange={(e: { target: { value: any } }) => {
                 updateValue(e.target.value);
               }}
-              onFocus={onFocus}
+              onFocus={() => onFocus}
               required={required}
               select={select}
               value={value}
@@ -168,18 +168,18 @@ export function EntryField({
                 data-testid={testId}
                 disabled={disabled}
                 error={errorText && errorText.length > 0 ? true : false}
-                onFocus={onFocus}
+                onFocus={() => onFocus}
                 fullWidth
                 helperText={errorText ? errorText : helperText ? helperText : ''}
                 InputProps={{
                   startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                   endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
                 }}
-                inputRef={inputRef}
+                inputRef={() => inputRef}
                 margin="none"
                 minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
                 maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-                multiline={type === TYPE.TEXT && rows && rows > 1}
+                multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
                 name={name}
                 onChange={(e: { target: { value: any } }) => {
                   updateValue(e.target.value);
@@ -206,19 +206,19 @@ export function EntryField({
           data-testid={testId}
           disabled={disabled}
           error={errorText && errorText.length > 0 ? true : false}
-          onFocus={onFocus}
+          onFocus={() => onFocus}
           fullWidth
           helperText={errorText ? errorText : helperText ? helperText : ''}
           InputProps={{
             startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
             endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
           }}
-          inputRef={inputRef}
+          inputRef={() => inputRef}
           label={label}
           margin="normal"
           minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
           maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-          multiline={type === TYPE.TEXT && rows && rows > 1}
+          multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
           name={name}
           onChange={(e: { target: { value: any } }) => {
             updateValue(e.target.value);
