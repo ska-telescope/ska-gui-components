@@ -9,7 +9,7 @@ export interface DataGridProps {
   columns: any;
   columnHeaderHeight?: number;
   columnVisibilityModel?: any;
-  getRowHeight?: Function,
+  getRowHeight?: Function;
   height?: number;
   initialState?: object;
   onCellClick?: any;
@@ -78,7 +78,7 @@ export function StylingRowsGrid({
 
   const getTheHeight = () => {
     return getRowHeight ? getRowHeight() : 'auto';
-  }
+  };
 
   return (
     <Box sx={{ height, width: '100%' }}>

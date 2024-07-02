@@ -8,7 +8,7 @@ import { Tooltip } from '@mui/material';
 export interface FooterProps {
   ariaDescription?: string;
   ariaTitle?: string;
-  // eslint-disable-next-line no-undef
+
   children?: JSX.Element[];
   copyrightFunc?: Function;
   testId: string;

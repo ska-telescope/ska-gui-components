@@ -36,7 +36,7 @@ export function HelpModal({ component = false, help, helpToggle }: HelpModalProp
             }
           />
           <CardContent sx={{ height: '90vh', width: '90vw' }}>
-            {component ? help.component as ReactNode : help.content as ReactNode}
+            {component ? (help.component as ReactNode) : (help.content as ReactNode)}
           </CardContent>
         </Card>
       </Box>
