@@ -2,7 +2,12 @@ export { AlertColorTypes, AlertVariantTypes, SKAOAlert } from './components/Aler
 export { AlertCard } from './components/AlertCard/AlertCard';
 export { ALERT_DATA } from './components/AlertCard/AlertData';
 export { SKAOBackdrop } from './components/Backdrop/Backdrop';
-export { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton, } from './components/Button/Button';
+export {
+  ButtonColorTypes,
+  ButtonSizeTypes,
+  ButtonVariantTypes,
+  OurButton,
+} from './components/Button/Button';
 export { ButtonToggle } from './components/ButtonToggle/ButtonToggle';
 export { CopyrightModal } from './components/CopyrightModal/CopyrightModal';
 export { StylingRowsGrid } from './components/DataGrid/DataGrid';

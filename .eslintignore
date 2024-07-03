@@ -11,6 +11,7 @@ build
 **.lock
 **/*.cy.tsx
 **./*.stories.*
+**./*.d.ts
 **/stories/*
 *.json
 *.ico
