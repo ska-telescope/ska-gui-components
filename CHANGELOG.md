@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.6
+
+*****
+
+Updated onChange for TickBox
+
 2.0.5
 
 *****
