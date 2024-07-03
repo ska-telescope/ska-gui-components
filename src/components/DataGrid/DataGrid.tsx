@@ -77,7 +77,7 @@ export function StylingRowsGrid({
   };
 
   const getTheHeight = () => {
-    return getRowHeight ? getRowHeight() : '52px';
+    return getRowHeight ? getRowHeight() : 52;
   };
 
   return (
