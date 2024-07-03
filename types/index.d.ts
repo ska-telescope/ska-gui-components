@@ -2,7 +2,12 @@ export { AlertColorTypes, AlertVariantTypes, SKAOAlert as Alert } from './compon
 export { AlertCard } from './components/AlertCard/AlertCard';
 export { ALERT_DATA } from './components/AlertCard/AlertData';
 export { SKAOBackdrop as BackDrop } from './components/Backdrop/Backdrop';
-export { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton as Button, } from './components/Button/Button';
+export {
+  ButtonColorTypes,
+  ButtonSizeTypes,
+  ButtonVariantTypes,
+  OurButton as Button,
+} from './components/Button/Button';
 export { ButtonToggle } from './components/ButtonToggle/ButtonToggle';
 export { CopyrightModal } from './components/CopyrightModal/CopyrightModal';
 export { StylingRowsGrid as DataGrid } from './components/DataGrid/DataGrid';
@@ -24,4 +29,20 @@ export { TelescopeSelector } from './components/TelescopeSelector/TelescopeSelec
 export { TextEntry } from './components/TextEntry/TextEntry';
 export { TickBox } from './components/TickBox/TickBox';
 export { GUI_COMPONENTS_VERSION } from './components/version';
-export { Colors, Logo, LOGO_DEFAULT_HEIGHT, SPACER_HORIZONTAL, SPACER_VERTICAL, Spacer, Status, Styling, TelescopeList, TELESCOPE_LOW, TELESCOPE_MID, THEME_DARK, THEME_LIGHT, Theme, JAVASCRIPT_COMPONENTS_VERSION, } from '@ska-telescope/ska-javascript-components';
+export {
+  Colors,
+  Logo,
+  LOGO_DEFAULT_HEIGHT,
+  SPACER_HORIZONTAL,
+  SPACER_VERTICAL,
+  Spacer,
+  Status,
+  Styling,
+  TelescopeList,
+  TELESCOPE_LOW,
+  TELESCOPE_MID,
+  THEME_DARK,
+  THEME_LIGHT,
+  Theme,
+  JAVASCRIPT_COMPONENTS_VERSION,
+} from '@ska-telescope/ska-javascript-components';
