@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+2.0.1
+
+*****
+
+Changed StylingDataGrid to DataGrid
+Changed OurButton to Button
+
 2.0.0
 
 *****
