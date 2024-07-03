@@ -65,7 +65,7 @@ export function TickBox({
               disabled={disabled}
               id={testId}
               data-testid={testId}
-              label={displayLabel}
+              label={''}
               onChange={() => onChange}
               onFocus={() => onFocus}
               control={
