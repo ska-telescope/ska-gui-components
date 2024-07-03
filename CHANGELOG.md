@@ -1,11 +1,11 @@
 Changelog
 ==========
 
-2.0.3
+2.0.4
 
 *****
 
-Set DataGrid default row height to 52px
+Resolved issue with duplicate labelling for TickBox
 
 2.0.2
 
