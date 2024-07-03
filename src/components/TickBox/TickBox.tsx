@@ -78,6 +78,7 @@ export function TickBox({
                       },
                     },
                   }}
+                  onChange={() => onChange}
                 />
               }
               sx={{ '& .MuiSvgIcon-root': { fontSize: { fontSize } } }}
