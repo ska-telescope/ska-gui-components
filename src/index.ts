@@ -1,7 +1,7 @@
 export { AlertColorTypes, AlertVariantTypes, SKAOAlert as Alert } from './components/Alert/Alert';
 export { AlertCard } from './components/AlertCard/AlertCard';
 export { ALERT_DATA } from './components/AlertCard/AlertData';
-export { SKAOBackdrop } from './components/Backdrop/Backdrop';
+export { SKAOBackdrop as BackDrop } from './components/Backdrop/Backdrop';
 export {
   ButtonColorTypes,
   ButtonSizeTypes,
@@ -19,7 +19,7 @@ export { FileUpload, FileUploadStatus } from './components/FileUpload/FileUpload
 export { Footer } from './components/Footer/Footer';
 export { Header } from './components/Header/Header';
 export { HelpModal } from './components/HelpModal/HelpModal';
-export { OurIconButton } from './components/IconButton/IconButton';
+export { OurIconButton as IconButton } from './components/IconButton/IconButton';
 export { InfoCardColorTypes, InfoCardVariantTypes, InfoCard } from './components/InfoCard/InfoCard';
 export { NumberEntry } from './components/NumberEntry/NumberEntry';
 export { ProgressIndicator, Progress } from './components/Progress/Progress';
