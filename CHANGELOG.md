@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+2.0.2
+
+*****
+
+Changed SKAOLoader to Loader
+Changed OurIconButton to IconButton
+
 2.0.1
 
 *****
