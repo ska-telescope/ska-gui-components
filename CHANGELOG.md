@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.3
+
+*****
+
+Set DataGrid default row height to 52px
+
 2.0.2
 
 *****
