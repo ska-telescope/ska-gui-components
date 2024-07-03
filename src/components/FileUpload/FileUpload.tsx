@@ -43,7 +43,7 @@ interface FileUploadProps {
   uploadVariant?: ButtonVariantTypes;
 }
 
-export default function FileUpload({
+export function FileUpload({
   buttonSize = ButtonSizeTypes.Medium,
   chooseColor = ButtonColorTypes.Secondary,
   chooseDisabled = false,
@@ -226,3 +226,5 @@ export default function FileUpload({
     </Grid>
   );
 }
+
+export default FileUpload;
