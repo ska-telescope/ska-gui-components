@@ -9,7 +9,7 @@ const STROKE_WIDTH = 2;
 interface StatusProps {
   ariaDescription?: string;
   ariaTitle?: string;
-  // eslint-disable-next-line no-undef
+
   children?: React.ReactElement | string;
   icon?: boolean;
   level?: number;

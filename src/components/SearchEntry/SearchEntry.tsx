@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FocusEventHandler } from 'react';
 import { InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -47,7 +47,7 @@ export function SearchEntry({
       data-testid={testId}
       disabled={disabled}
       error={errorText && errorText.length > 0 ? true : false}
-      onFocus={onFocus}
+      onFocus={onFocus as FocusEventHandler}
       fullWidth
       helperText={errorText ? errorText : helperText ? helperText : ''}
       InputProps={{

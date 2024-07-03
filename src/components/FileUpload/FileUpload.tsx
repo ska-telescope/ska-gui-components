@@ -5,8 +5,6 @@ import ClearIcon from '@mui/icons-material/Clear';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton } from '../Button/Button';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
-import { Box } from '@mui/system';
-import { Paper } from '@mui/material';
 
 export enum FileUploadStatus {
   OK = 0,
@@ -45,7 +43,7 @@ interface FileUploadProps {
   uploadVariant?: ButtonVariantTypes;
 }
 
-export default function FileUpload({
+export function FileUpload({
   buttonSize = ButtonSizeTypes.Medium,
   chooseColor = ButtonColorTypes.Secondary,
   chooseDisabled = false,
@@ -182,7 +180,7 @@ export default function FileUpload({
   );
 
   const showFileName = () => (
-    <Typography pt={1} testid={testId + 'Filename'} variant="body1">
+    <Typography pt={1} data-testid={testId + 'Filename'} variant="body1">
       {name?.length ? displayName() : ''}
     </Typography>
   );
@@ -228,3 +226,5 @@ export default function FileUpload({
     </Grid>
   );
 }
+
+export default FileUpload;

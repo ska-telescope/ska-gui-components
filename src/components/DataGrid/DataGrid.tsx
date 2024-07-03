@@ -9,6 +9,7 @@ export interface DataGridProps {
   columns: any;
   columnHeaderHeight?: number;
   columnVisibilityModel?: any;
+  getRowHeight?: Function;
   height?: number;
   initialState?: object;
   onCellClick?: any;
@@ -29,6 +30,7 @@ export function StylingRowsGrid({
   columns,
   columnHeaderHeight = 56,
   columnVisibilityModel,
+  getRowHeight,
   height = 400,
   initialState,
   onCellClick,
@@ -74,6 +76,10 @@ export function StylingRowsGrid({
     onRowClick ? onRowClick(params) : null;
   };
 
+  const getTheHeight = () => {
+    return getRowHeight ? getRowHeight() : 'auto';
+  };
+
   return (
     <Box sx={{ height, width: '100%' }}>
       <StyledDataGrid
@@ -84,6 +90,7 @@ export function StylingRowsGrid({
         columnVisibilityModel={columnVisibilityModel}
         data-testid={testId}
         getRowClassName={() => `super-app-theme`}
+        getRowHeight={getTheHeight}
         initialState={initialState}
         onCellClick={onCellClick}
         onColumnVisibilityModelChange={onColumnVisibilityModelChange}

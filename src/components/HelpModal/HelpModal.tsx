@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Box, Card, CardContent, CardHeader, IconButton, Modal } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
@@ -36,7 +36,7 @@ export function HelpModal({ component = false, help, helpToggle }: HelpModalProp
             }
           />
           <CardContent sx={{ height: '90vh', width: '90vw' }}>
-            {component ? help.component : help.content}
+            {component ? (help.component as ReactNode) : (help.content as ReactNode)}
           </CardContent>
         </Card>
       </Box>

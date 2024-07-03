@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Tooltip } from '@mui/material';
+import { ElementType } from '@react-spring/web';
 
 export enum ButtonColorTypes {
   Error = 'error',
@@ -57,7 +58,7 @@ export function OurButton({
           aria-describedby={ariaDescription}
           aria-hidden={false}
           color={color}
-          component={component}
+          component={component as ElementType}
           data-testid={testId}
           disabled={disabled}
           onClick={(e: any) => clicked(e)}

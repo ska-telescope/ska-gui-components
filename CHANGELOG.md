@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.0
+
+*****
+
+Converted to use Vite
+
 1.0.31
 
 ******
