@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.7
+
+*****
+
+TickBox : onFocus & onChange test for defined
+
 2.0.6
 
 *****

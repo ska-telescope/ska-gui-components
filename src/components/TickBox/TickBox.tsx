@@ -1,9 +1,9 @@
 import React from 'react';
 import { FormControlLabel, Checkbox } from '@mui/material';
 import useTheme from '@mui/material/styles/useTheme';
-import { LABEL_POSITION } from '../EntryField/EntryField';
 import { Grid, Typography } from '@mui/material';
 import { InputLabel } from '@mui/material';
+import { LABEL_POSITION } from '../EntryField/EntryField';
 
 export interface TickBoxProps {
   ariaDescription?: string;
@@ -29,13 +29,25 @@ export function TickBox({
   labelBold = false,
   labelPosition = LABEL_POSITION.START,
   labelWidth = 8,
-  onChange,
-  onFocus,
+  onChange = undefined,
+  onFocus = undefined,
   required,
   testId,
 }: TickBoxProps): JSX.Element {
   const theme = useTheme();
   const displayLabel = label + (required ? ' *' : '');
+
+  const onChangeFunction = (e: any) => {
+    if (onChange) {
+      onChange(e);
+    }
+  };
+
+  const onFocusFunction = (e: any) => {
+    if (onFocus) {
+      onFocus(e);
+    }
+  };
 
   return (
     <>
@@ -66,8 +78,8 @@ export function TickBox({
               id={testId}
               data-testid={testId}
               label={''}
-              onChange={() => onChange}
-              onFocus={() => onFocus}
+              onChange={(e) => onChangeFunction(e)}
+              onFocus={(e) => onFocusFunction(e)}
               control={
                 <Checkbox
                   sx={{
@@ -78,7 +90,6 @@ export function TickBox({
                       },
                     },
                   }}
-                  onChange={() => onChange}
                 />
               }
               sx={{ '& .MuiSvgIcon-root': { fontSize: { fontSize } } }}
@@ -101,8 +112,8 @@ export function TickBox({
           checked={checked}
           data-testid={testId}
           disabled={disabled}
-          onChange={() => onChange}
-          onFocus={() => onFocus}
+          onChange={(e) => onChangeFunction(e)}
+          onFocus={(e) => onFocusFunction(e)}
           control={
             <Checkbox
               sx={{
