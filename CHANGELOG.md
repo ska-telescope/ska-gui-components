@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.8
+
+*****
+
+onFocus updated for Entry fields
+
 2.0.7
 
 *****

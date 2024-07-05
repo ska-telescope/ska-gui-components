@@ -57,7 +57,7 @@ export function DateEntry({
       labelPosition={labelPosition}
       labelWidth={labelWidth}
       name={name}
-      onFocus={onFocus}
+      onFocus={() => onFocus}
       required={required}
       setValue={setValue}
       testId={testId}

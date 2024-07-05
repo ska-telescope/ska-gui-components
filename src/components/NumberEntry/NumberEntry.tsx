@@ -88,7 +88,7 @@ export function NumberEntry({
       labelPosition={labelPosition}
       labelWidth={labelWidth}
       name={name}
-      onFocus={onFocus}
+      onFocus={() => onFocus}
       prefix={prefix}
       value={value}
       required={isRequired()}

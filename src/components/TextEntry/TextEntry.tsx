@@ -88,7 +88,7 @@ export function TextEntry({
       labelPosition={labelPosition}
       labelWidth={labelWidth}
       name={name}
-      onFocus={onFocus}
+      onFocus={() => onFocus}
       prefix={prefix}
       rows={rows}
       value={value}
