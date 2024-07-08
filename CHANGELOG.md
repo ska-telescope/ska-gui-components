@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.9
+
+*****
+
+onFocus : Further updates
+
 2.0.8
 
 *****
