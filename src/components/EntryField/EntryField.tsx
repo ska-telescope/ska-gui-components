@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FocusEventHandler } from 'react';
 import { InputAdornment, TextField } from '@mui/material';
 import { FormControlLabel } from '@mui/material';
 import { FormControl } from '@mui/material';
@@ -131,7 +131,7 @@ export function EntryField({
               onChange={(e: { target: { value: any } }) => {
                 updateValue(e.target.value);
               }}
-              onFocus={() => onFocus}
+              onFocus={onFocus as FocusEventHandler}
               required={required}
               select={select}
               value={value}
@@ -168,7 +168,7 @@ export function EntryField({
                 data-testid={testId}
                 disabled={disabled}
                 error={errorText && errorText.length > 0 ? true : false}
-                onFocus={() => onFocus}
+                onFocus={onFocus as FocusEventHandler}
                 fullWidth
                 helperText={errorText ? errorText : helperText ? helperText : ''}
                 InputProps={{
@@ -206,7 +206,7 @@ export function EntryField({
           data-testid={testId}
           disabled={disabled}
           error={errorText && errorText.length > 0 ? true : false}
-          onFocus={() => onFocus}
+          onFocus={onFocus as FocusEventHandler}
           fullWidth
           helperText={errorText ? errorText : helperText ? helperText : ''}
           InputProps={{

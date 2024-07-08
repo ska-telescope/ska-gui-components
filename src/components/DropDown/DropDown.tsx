@@ -1,4 +1,4 @@
-import React, { FocusEventHandler, Ref } from 'react';
+import React, { FocusEventHandler } from 'react';
 import { FormControl, FormControlLabel, Grid, MenuItem, TextField } from '@mui/material';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 import { InputLabel, Typography } from '@mui/material';
@@ -133,7 +133,7 @@ export function DropDown({
                 onChange={(e: { target: { value: string | number } }) => {
                   updateValue(e.target.value);
                 }}
-                onFocus={() => onFocus}
+                onFocus={onFocus as FocusEventHandler}
                 required={required}
                 select
                 value={value}

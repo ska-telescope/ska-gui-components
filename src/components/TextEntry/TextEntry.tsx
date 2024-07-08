@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FocusEventHandler } from 'react';
 import { EntryField, LABEL_POSITION, TYPE } from '../EntryField/EntryField';
 
 export interface TextEntryProps {
@@ -88,7 +88,7 @@ export function TextEntry({
       labelPosition={labelPosition}
       labelWidth={labelWidth}
       name={name}
-      onFocus={() => onFocus}
+      onFocus={onFocus as FocusEventHandler}
       prefix={prefix}
       rows={rows}
       value={value}
