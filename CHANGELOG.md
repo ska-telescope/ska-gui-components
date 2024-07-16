@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.11
+
+******
+
+Updated dependencies list
+
 2.0.10
 
 ******
