@@ -25,6 +25,7 @@ Component providing standard delivery of information/errors/warnings
    "clickFunction", "Function", "No", "null", "Executed if the component is clicked"
    "color", "AlertColorTypes", "No", "Info", "Identifies the coloring for the alert"
    "fontSize", "number", "No", "35", "Determines the size of the displayed text/symbol"
+   "maxHeight", "string", "No", "", "Allows for a maximum height of the card to be provided"
    "message", "string", "Yes", "", "Title that is used for the element"
    "showStatus", "boolean", "No", "false", "When true also shows appropriate status component"
    "showStatusIcon", "boolean", "No", "true", "Displays symbol within the status when shown"
