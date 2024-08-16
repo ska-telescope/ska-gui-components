@@ -18,6 +18,7 @@ export interface InfoCardProps {
   clickFunction?: Function;
   color?: InfoCardColorTypes;
   fontSize?: number;
+  maxHeight?: string;
   message: string;
   showStatus?: boolean;
   showStatusIcon?: boolean;
@@ -31,6 +32,7 @@ export function InfoCard({
   clickFunction,
   color = InfoCardColorTypes.Info,
   fontSize = 35,
+  maxHeight = '100vh',
   message,
   showStatus = false,
   showStatusIcon = true,
@@ -77,7 +79,15 @@ export function InfoCard({
             </Box>
           )}
           {message && message.length && (
-            <Typography sx={{ fontSize: { fontSize }, display: 'flex', justifyContent: 'center' }}>
+            <Typography
+              sx={{
+                fontSize: { fontSize },
+                display: 'flex',
+                justifyContent: 'center',
+                overflowY: 'scroll',
+                maxHeight: { maxHeight },
+              }}
+            >
               {message}
             </Typography>
           )}

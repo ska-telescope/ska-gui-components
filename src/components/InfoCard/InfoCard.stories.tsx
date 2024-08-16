@@ -16,6 +16,7 @@ export const Default = {
     variant: InfoCardVariantTypes.Outlined,
     color: InfoCardColorTypes.Info,
     fontSize: 35,
+    maxHeight: '100vh',
     testId: 'testId',
     showStatus: false,
     showStatusIcon: true,
