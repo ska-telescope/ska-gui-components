@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.14
+
+******
+
+Updated version from ska-javascript-components
+
 2.0.13
 
 ******
