@@ -1,6 +1,12 @@
 import React, { MouseEventHandler, ReactNode } from 'react';
 import { AppBar, Box, Grid, IconButton, Tooltip, Typography } from '@mui/material';
-import { Help, Logo, Telescope, THEME_DARK } from '@ska-telescope/ska-javascript-components';
+import {
+  Help,
+  Logo,
+  Symbol,
+  Telescope,
+  THEME_DARK,
+} from '@ska-telescope/ska-javascript-components';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -33,6 +39,7 @@ export interface HeaderProps {
   testId: string;
   title?: string;
   toolTip?: { skao: string; mode: string };
+  useSymbol?: Boolean;
   children?: JSX.Element[];
 }
 
@@ -46,6 +53,7 @@ export function Header({
   testId,
   title = '',
   toolTip = { skao: 'SKAO', mode: '' },
+  useSymbol = false,
   children,
 }: HeaderProps): JSX.Element {
   const isDarkTheme = storage.themeMode === THEME_DARK;
@@ -82,7 +90,11 @@ export function Header({
                 color="inherit"
                 onClick={() => openLink(SKAO_URL)}
               >
-                <Logo dark={isDarkTheme} height={LOGO_HEIGHT} />
+                {useSymbol ? (
+                  <Symbol dark={isDarkTheme} height={LOGO_HEIGHT} />
+                ) : (
+                  <Logo dark={isDarkTheme} height={LOGO_HEIGHT} />
+                )}
               </IconButton>
             </Tooltip>
             {title && (

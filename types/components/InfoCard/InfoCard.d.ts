@@ -15,6 +15,8 @@ export interface InfoCardProps {
   clickFunction?: Function;
   color?: InfoCardColorTypes;
   fontSize?: number;
+  maxHeight?: string;
+  minHeight?: string;
   message: string;
   showStatus?: boolean;
   showStatusIcon?: boolean;
@@ -27,6 +29,8 @@ export declare function InfoCard({
   clickFunction,
   color,
   fontSize,
+  maxHeight,
+  minHeight,
   message,
   showStatus,
   showStatusIcon,

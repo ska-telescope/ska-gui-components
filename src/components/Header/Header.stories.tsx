@@ -30,6 +30,7 @@ export const Default = {
     testId: 'testId',
     title: 'ska-gui-components',
     toolTip: { skao: 'SKAO WebSite', mode: ' Light / Dark Mode' },
+    useSymbol: false,
     children: ['HERE ', 'ARE ', 'SOME ', 'CHILDREN'],
   },
 };

@@ -34,6 +34,7 @@ This includes the telescopeSelector component which can be suppressed if not req
    "testId", "string", "Yes", "", "Identifier for testing purposes"
    "title", "string", "No", "", "Title of the application, which is forced to upper case"
    "toolTip", " Object", "    No", " all values ''", " Contains toolTip text for display (See below)"
+   "useSymbol", "boolean", "No", "false", "Allows for the SKAO Symbol to be used instead of the Logo"
 
 
 .. csv-table:: *ToolTip values*  ( Translated values should be passed in as an override )

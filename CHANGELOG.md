@@ -1,6 +1,19 @@
 Changelog
 ==========
 
+2.0.13
+
+******
+
+Added minHeight & maxHeight as an additional property to the InfoCard
+Updated dependency to ska-javascript-components to provide SKAO Symbol
+
+2.0.12 
+
+******
+
+Rebase mis-matched version numbers
+
 2.0.11
 
 ******
