@@ -16,11 +16,12 @@ export interface InfoCardProps {
     color?: InfoCardColorTypes;
     fontSize?: number;
     maxHeight?: string;
+    minHeight?: string;
     message: string;
     showStatus?: boolean;
     showStatusIcon?: boolean;
     testId: string;
     variant?: InfoCardVariantTypes;
 }
-export declare function InfoCard({ ariaDescription, ariaTitle, clickFunction, color, fontSize, maxHeight, message, showStatus, showStatusIcon, testId, variant, }: InfoCardProps): React.JSX.Element;
+export declare function InfoCard({ ariaDescription, ariaTitle, clickFunction, color, fontSize, maxHeight, minHeight, message, showStatus, showStatusIcon, testId, variant, }: InfoCardProps): React.JSX.Element;
 export default InfoCard;

@@ -24,4 +24,4 @@ export { TelescopeSelector } from './components/TelescopeSelector/TelescopeSelec
 export { TextEntry } from './components/TextEntry/TextEntry';
 export { TickBox } from './components/TickBox/TickBox';
 export { GUI_COMPONENTS_VERSION } from './components/version';
-export { Colors, Logo, LOGO_DEFAULT_HEIGHT, SPACER_HORIZONTAL, SPACER_VERTICAL, Spacer, Status, Styling, TelescopeList, TELESCOPE_LOW, TELESCOPE_MID, THEME_DARK, THEME_LIGHT, Theme, JAVASCRIPT_COMPONENTS_VERSION, } from '@ska-telescope/ska-javascript-components';
+export { Colors, Logo, LOGO_DEFAULT_HEIGHT, SPACER_HORIZONTAL, SPACER_VERTICAL, Spacer, Status, Styling, Symbol, SYMBOL_DEFAULT_HEIGHT, TelescopeList, TELESCOPE_LOW, TELESCOPE_MID, THEME_DARK, THEME_LIGHT, Theme, JAVASCRIPT_COMPONENTS_VERSION, } from '@ska-telescope/ska-javascript-components';

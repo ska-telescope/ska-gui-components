@@ -17,6 +17,7 @@ export const Default = {
     color: InfoCardColorTypes.Info,
     fontSize: 35,
     maxHeight: '100vh',
+    minHeight: '50px',
     testId: 'testId',
     showStatus: false,
     showStatusIcon: true,

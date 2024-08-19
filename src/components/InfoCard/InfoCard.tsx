@@ -19,6 +19,7 @@ export interface InfoCardProps {
   color?: InfoCardColorTypes;
   fontSize?: number;
   maxHeight?: string;
+  minHeight?: string;
   message: string;
   showStatus?: boolean;
   showStatusIcon?: boolean;
@@ -33,6 +34,7 @@ export function InfoCard({
   color = InfoCardColorTypes.Info,
   fontSize = 35,
   maxHeight = '100vh',
+  minHeight = '50px',
   message,
   showStatus = false,
   showStatusIcon = true,
@@ -79,17 +81,25 @@ export function InfoCard({
             </Box>
           )}
           {message && message.length && (
-            <Typography
+            <Box
+              component="div"
               sx={{
-                fontSize: { fontSize },
-                display: 'flex',
-                justifyContent: 'center',
-                overflowY: 'scroll',
+                overflow: 'auto',
+                minHeight: { minHeight },
                 maxHeight: { maxHeight },
+                whiteSpace: 'normal',
               }}
             >
-              {message}
-            </Typography>
+              <Typography
+                sx={{
+                  fontSize: { fontSize },
+                  display: 'flex',
+                  justifyContent: 'center',
+                }}
+              >
+                {message}
+              </Typography>
+            </Box>
           )}
         </Stack>
       </Alert>
