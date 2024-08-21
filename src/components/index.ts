@@ -22,6 +22,7 @@ export { default as Backdrop } from './Backdrop/Backdrop';
 export {
   default as Button,
   ButtonColorTypes,
+  ButtonIcons,
   ButtonSizeTypes,
   ButtonVariantTypes,
 } from './Button/Button';

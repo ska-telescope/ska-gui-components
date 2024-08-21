@@ -1,4 +1,4 @@
-import { OurButton, ButtonColorTypes, ButtonVariantTypes } from './Button';
+import { OurButton, ButtonColorTypes, ButtonVariantTypes, ButtonIcons } from './Button';
 
 export default {
   title: 'Example/Button',
@@ -12,6 +12,7 @@ export const Default = {
   args: {
     ariaDescription: 'aria Description',
     color: ButtonColorTypes.Success,
+    icon: ButtonIcons.Add,
     label: 'OurButton Label',
     toolTip: 'Tool tip',
     variant: ButtonVariantTypes.Outlined,

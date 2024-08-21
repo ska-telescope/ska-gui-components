@@ -30,7 +30,7 @@ Button for use with all applications.
    "color", "string", "No", "", "Color options : ButtonColorType"
    "component", "string", "No", "button", "The component used for the root node. Either a string to use a HTML element or a component"
    "disabled", "boolean", "No", "false", "Disabled when true"
-   "icon", "JSX.Element", "No", "null", "Prefixes the label when present"
+   "icon", "JSX.Element | string", "No", "null", "Prefixes the label when present. If string, Standard Icon of appropriate type is displayed"
    "label", "string", "Yes", "", "Test displayed upon the button"
    "onClick", "Function", "No", "null", "Determines actions to be taken when the button is clicked"
    "size", "ButtonSizeTypes", "No", "ButtonSizeTypes.Medium", "Allows for the sizing of the button to be changed"
@@ -42,7 +42,8 @@ Button for use with all applications.
 
    :header: "Constant", "Values", "Usage"
 
-   "ButtonColorTypes", "Error,Inherit,Secondary,Success,Warning", "Allows for the colouring of the button to be changed"
+   "ButtonColorTypes", "Error,Inherit,Secondary,Success,Warning", "Allows for the coloring of the button to be changed"
+   "ButtonIcons", "Add,Cancel,Confirm,Delete,Download,Email,Home,Location,Next,PDF,previous,Save,Submit,Validate", "Displayed if provided"
    "ButtonSizeTypes", "Small, Medium, Large", "Allows for the sizing of the button to be changed"
    "ButtonVariantTypes", "Contained,Outlined,Text", "Allows for the styling of the button to be changed"
 

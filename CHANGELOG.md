@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.15
+
+******
+
+Extended Button to be able to provide a range of standard Icons.
+
 2.0.14
 
 ******
