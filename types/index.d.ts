@@ -4,6 +4,7 @@ export { ALERT_DATA } from './components/AlertCard/AlertData';
 export { SKAOBackdrop as BackDrop } from './components/Backdrop/Backdrop';
 export {
   ButtonColorTypes,
+  ButtonIcons,
   ButtonSizeTypes,
   ButtonVariantTypes,
   OurButton as Button,
