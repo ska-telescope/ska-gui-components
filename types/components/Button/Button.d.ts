@@ -26,7 +26,7 @@ export declare enum ButtonIcons {
   Location = 'location',
   Next = 'next',
   PDF = 'pdf',
-  previous = 'previous',
+  Previous = 'previous',
   Save = 'save',
   Submit = 'submit',
   Validate = 'validate',

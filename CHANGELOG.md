@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.16
+
+******
+
+Update dependencies & partial implementation of flatten.
+
 2.0.15
 
 ******

@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -60,6 +60,13 @@
       "html"
     ]
   },
+  "resolutions": {
+    "**/**/json5": "^1.0.2",
+    "@babel/traverse": "^7.25.0",
+    "minimatch": "^3.0.5",
+    "debug": "^4.3.1",
+    "babel-traverse": "^6.26.0"
+  },
   "dependencies": {
     "@mui/icons-material": "^5.15.19",
     "@mui/lab": "^5.0.0-alpha.170",
@@ -68,7 +75,7 @@
     "@mui/x-data-grid": "^7.3.0",
     "@mui/x-tree-view": "6.17.0",
     "@react-spring/web": "^9.7.3",
-    "@ska-telescope/ska-javascript-components": "^2.0.4",
+    "@ska-telescope/ska-javascript-components": "^2.0.6",
     "@types/uuid": "^9.0.4",
     "junit-report-merger": "^6.0.2",
     "typescript": "5.5.3"
@@ -113,7 +120,7 @@
     "babel-preset-react-app": "^10.0.1",
     "css-loader": "^7.1.2",
     "cypress": "^13.10.0",
-    "debug": "^4.3.4",
+    "debug": "^4.3.6",
     "eslint": "^8.1.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
@@ -126,6 +133,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "json5": "^2.2.3",
     "junit": "^1.4.9",
+    "micromatch": "^4.0.8",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "react": "^18.3.1",
@@ -139,7 +147,7 @@
     "sass-loader": "^14.2.1",
     "storybook": "^8.2.9",
     "vite": "^5.3.2",
-    "vite-plugin-dts": "^3.9.1"
+    "vite-plugin-dts": "^4.1.0"
   },
   "peerDependencies": {
     "react": "^18.2.0"
