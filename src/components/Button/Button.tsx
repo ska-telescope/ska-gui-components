@@ -48,7 +48,7 @@ export enum ButtonIcons {
   Location = 'location',
   Next = 'next',
   PDF = 'pdf',
-  previous = 'previous',
+  Previous = 'previous',
   Save = 'save',
   Submit = 'submit',
   Validate = 'validate',
@@ -105,7 +105,7 @@ export function OurButton({
         return <ArrowForwardIosIcon />;
       case ButtonIcons.PDF:
         return <PictureAsPdfIcon />;
-      case ButtonIcons.previous:
+      case ButtonIcons.Previous:
         return <ArrowBackIosIcon />;
       case ButtonIcons.Save:
         return <SaveIcon />;

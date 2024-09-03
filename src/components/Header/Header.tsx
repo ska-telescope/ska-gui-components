@@ -57,6 +57,7 @@ export function Header({
   children,
 }: HeaderProps): JSX.Element {
   const isDarkTheme = storage.themeMode === THEME_DARK;
+  const flatten = false; // TODO : Need to implement user preferences
 
   const hasHelp = () => {
     return (
@@ -91,9 +92,9 @@ export function Header({
                 onClick={() => openLink(SKAO_URL)}
               >
                 {useSymbol ? (
-                  <Symbol dark={isDarkTheme} height={LOGO_HEIGHT} />
+                  <Symbol dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
                 ) : (
-                  <Logo dark={isDarkTheme} height={LOGO_HEIGHT} />
+                  <Logo dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
                 )}
               </IconButton>
             </Tooltip>
