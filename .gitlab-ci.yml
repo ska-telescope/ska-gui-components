@@ -51,7 +51,7 @@ test_and_coverage:
   before_script:
     - mkdir -p build/reports
     - mkdir -p build/.nyc_output
-    - yarn install --frozen-lockfile
+    - yarn 
   script:
     - yarn storybook &
     - yarn test:component:headless
