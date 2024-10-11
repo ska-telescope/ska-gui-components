@@ -40,7 +40,7 @@ export interface EntryFieldProps {
   errorText?: string;
   height?: number;
   helperText?: string;
-  inputRef?: string;
+  inputRef?: React.MutableRefObject<any>;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
@@ -65,7 +65,7 @@ export function EntryField({
   errorText = '',
   height = 45,
   helperText = '',
-  inputRef = '',
+  inputRef,
   label,
   labelBold = false,
   labelPosition = LABEL_POSITION.CONTAINED,
@@ -124,7 +124,7 @@ export function EntryField({
                 startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                 endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
               }}
-              inputRef={() => inputRef}
+              inputRef={inputRef}
               margin="none"
               minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
               maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
@@ -179,7 +179,7 @@ export function EntryField({
                   startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                   endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
                 }}
-                inputRef={() => inputRef}
+                inputRef={inputRef}
                 margin="none"
                 minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
                 maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
@@ -218,7 +218,7 @@ export function EntryField({
             startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
             endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
           }}
-          inputRef={() => inputRef}
+          inputRef={inputRef}
           label={label}
           margin="normal"
           minRows={type !== TYPE.TEXT || !rows ? 1 : rows}

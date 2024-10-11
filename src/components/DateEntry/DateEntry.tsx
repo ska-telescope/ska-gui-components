@@ -13,7 +13,7 @@ export interface DateEntryProps {
   errorText?: string;
   helperText?: string;
   height?: number;
-  inputRef?: string;
+  inputRef?: React.MutableRefObject<any>;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
@@ -31,7 +31,7 @@ export function DateEntry({
   errorText = '',
   helperText = '',
   height = 45,
-  inputRef = '',
+  inputRef,
   label,
   labelBold = false,
   labelPosition,

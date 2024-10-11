@@ -12,7 +12,7 @@ export interface NumberEntryProps {
   errorText?: string;
   height?: number;
   helperText?: string;
-  inputRef?: string;
+  inputRef?: React.MutableRefObject<any>;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
@@ -34,7 +34,7 @@ export function NumberEntry({
   errorText = '',
   height,
   helperText = '',
-  inputRef = '',
+  inputRef,
   label,
   labelBold = false,
   labelPosition,

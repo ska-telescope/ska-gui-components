@@ -1,3 +1,4 @@
+import React from 'react';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 export interface DateEntryProps {
   label: string;
@@ -9,7 +10,7 @@ export interface DateEntryProps {
   errorText?: string;
   helperText?: string;
   height?: number;
-  inputRef?: string;
+  inputRef?: React.MutableRefObject<any>;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
