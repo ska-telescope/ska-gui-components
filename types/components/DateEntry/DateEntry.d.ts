@@ -14,6 +14,7 @@ export interface DateEntryProps {
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   name?: string;
+  onBlur?: Function;
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
@@ -31,6 +32,7 @@ export declare function DateEntry({
   labelPosition,
   labelWidth,
   name,
+  onBlur,
   onFocus,
   required,
   setValue,

@@ -33,6 +33,7 @@ export interface EntryFieldProps {
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   name?: string;
+  onBlur?: Function;
   onFocus?: Function;
   password?: boolean;
   prefix?: JSX.Element | string;
@@ -57,6 +58,7 @@ export declare function EntryField({
   labelPosition,
   labelWidth,
   name,
+  onBlur,
   onFocus,
   prefix,
   required,

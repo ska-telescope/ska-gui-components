@@ -18,6 +18,7 @@ export interface NumberEntryProps {
   labelWidth?: number;
   password?: boolean;
   name?: string;
+  onBlur?: Function;
   onFocus?: Function;
   prefix?: JSX.Element | string;
   required?: boolean | string;
@@ -39,6 +40,7 @@ export function NumberEntry({
   labelPosition,
   labelWidth,
   name = '',
+  onBlur,
   onFocus,
   prefix = '',
   required = false,
@@ -88,6 +90,7 @@ export function NumberEntry({
       labelPosition={labelPosition}
       labelWidth={labelWidth}
       name={name}
+      onBlur={onBlur as FocusEventHandler}
       onFocus={onFocus as FocusEventHandler}
       prefix={prefix}
       value={value}

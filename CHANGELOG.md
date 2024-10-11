@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.17
+
+******
+
+Added support of onBlur for entry fields
+
 2.0.16
 
 ******
