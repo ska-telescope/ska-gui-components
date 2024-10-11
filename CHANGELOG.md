@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.18
+
+******
+
+Updated inputRef to be of type React.MutableRefObject<any>
+
 2.0.17
 
 ******

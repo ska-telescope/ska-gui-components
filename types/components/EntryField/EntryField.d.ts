@@ -1,3 +1,4 @@
+import React from 'react';
 export declare enum LABEL_POSITION {
   CONTAINED = 'contained',
   START = 'start',
@@ -28,7 +29,7 @@ export interface EntryFieldProps {
   errorText?: string;
   height?: number;
   helperText?: string;
-  inputRef?: string;
+  inputRef?: React.MutableRefObject<any>;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;

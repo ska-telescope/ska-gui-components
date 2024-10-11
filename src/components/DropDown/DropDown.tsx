@@ -15,7 +15,7 @@ export interface DropDownProps {
   errorText?: string;
   height?: number;
   helperText?: string;
-  inputRef?: string;
+  inputRef?: React.MutableRefObject<any>;
   label: string;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
@@ -33,7 +33,7 @@ export function DropDown({
   errorText = '',
   height = 45,
   helperText = '',
-  inputRef = '',
+  inputRef,
   label,
   labelBold = false,
   labelPosition = LABEL_POSITION.CONTAINED,
@@ -161,7 +161,7 @@ export function DropDown({
           fullWidth
           helperText={errorText ? errorText : helperText ? helperText : ''}
           id={'dropDown' + label + 'Id'}
-          inputRef={() => inputRef}
+          inputRef={inputRef}
           label={label}
           name={name}
           onChange={(e: { target: { value: string | number } }) => {

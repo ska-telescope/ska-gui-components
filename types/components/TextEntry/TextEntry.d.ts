@@ -1,3 +1,4 @@
+import React from 'react';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 export interface TextEntryProps {
   label: string;
@@ -8,7 +9,7 @@ export interface TextEntryProps {
   errorText?: string;
   height?: number;
   helperText?: string;
-  inputRef?: string;
+  inputRef?: React.MutableRefObject<any>;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;

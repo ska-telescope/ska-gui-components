@@ -1,3 +1,4 @@
+import React from 'react';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 export interface DropDownProps {
   options: {
@@ -12,7 +13,7 @@ export interface DropDownProps {
   errorText?: string;
   height?: number;
   helperText?: string;
-  inputRef?: string;
+  inputRef?: React.MutableRefObject<any>;
   label: string;
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
