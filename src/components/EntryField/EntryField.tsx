@@ -45,6 +45,7 @@ export interface EntryFieldProps {
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   name?: string;
+  onBlur?: Function;
   onFocus?: Function;
   password?: boolean;
   prefix?: JSX.Element | string;
@@ -70,6 +71,7 @@ export function EntryField({
   labelPosition = LABEL_POSITION.CONTAINED,
   labelWidth = 4,
   name = '',
+  onBlur,
   onFocus,
   prefix = '',
   required = false,
@@ -131,6 +133,7 @@ export function EntryField({
               onChange={(e: { target: { value: any } }) => {
                 updateValue(e.target.value);
               }}
+              onBlur={onBlur as FocusEventHandler}
               onFocus={onFocus as FocusEventHandler}
               required={required}
               select={select}
@@ -168,6 +171,7 @@ export function EntryField({
                 data-testid={testId}
                 disabled={disabled}
                 error={errorText && errorText.length > 0 ? true : false}
+                onBlur={onBlur as FocusEventHandler}
                 onFocus={onFocus as FocusEventHandler}
                 fullWidth
                 helperText={errorText ? errorText : helperText ? helperText : ''}
@@ -206,6 +210,7 @@ export function EntryField({
           data-testid={testId}
           disabled={disabled}
           error={errorText && errorText.length > 0 ? true : false}
+          onBlur={onBlur as FocusEventHandler}
           onFocus={onFocus as FocusEventHandler}
           fullWidth
           helperText={errorText ? errorText : helperText ? helperText : ''}
