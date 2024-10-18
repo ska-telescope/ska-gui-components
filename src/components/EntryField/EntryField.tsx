@@ -22,6 +22,7 @@ export enum STATE {
 
 export enum TYPE {
   DATE = 'date',
+  FILE = 'file',
   NUMBER = 'number',
   PASSWORD = 'password',
   TEXT = 'text',
@@ -54,7 +55,7 @@ export interface EntryFieldProps {
   select?: boolean;
   setValue?: Function;
   suffix?: JSX.Element | string;
-  type?: TYPE.DATE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
+  type?: TYPE.DATE | TYPE.FILE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
 }
 
 export function EntryField({

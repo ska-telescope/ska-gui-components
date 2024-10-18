@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.19
+
+******
+
+Added isMinimal to the FileUpload to provide a smaller presentation component
+
 2.0.18
 
 ******

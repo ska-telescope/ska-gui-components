@@ -18,14 +18,14 @@ export function OurIconButton({
   testId,
   toolTip,
 }: IconButtonProps) {
-  const buttonClick = () => (onClick ? onClick : null);
+  const buttonClick = (e: any) => (onClick ? onClick(e) : null);
 
   return (
     <Tooltip data-testid={testId} title={toolTip} arrow>
       <IconButton
         aria-description={ariaDescription}
         aria-label={ariaTitle}
-        onClick={buttonClick}
+        onClick={(e: any) => buttonClick(e)}
         style={{ cursor: 'pointer' }}
       >
         {icon}
