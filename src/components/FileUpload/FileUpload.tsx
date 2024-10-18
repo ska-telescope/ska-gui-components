@@ -5,6 +5,8 @@ import ClearIcon from '@mui/icons-material/Clear';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton } from '../Button/Button';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
+import OurIconButton from '../IconButton/IconButton';
+import SKAOAlert, { AlertColorTypes } from '../Alert/Alert';
 
 export enum FileUploadStatus {
   OK = 0,
@@ -23,12 +25,14 @@ interface FileUploadProps {
   chooseVariant?: ButtonVariantTypes;
   direction?: 'row' | 'column';
   file?: File;
+  isMinimal?: boolean;
   //
   hideFileName?: boolean;
   maxFileWidth?: number;
   testId?: string;
   //
   clearLabel?: string;
+  clearDisabled?: boolean;
   clearToolTip?: string;
   clearVariant?: ButtonVariantTypes;
   setFile?: Function | null;
@@ -41,6 +45,8 @@ interface FileUploadProps {
   uploadToolTip?: string;
   uploadURL?: string;
   uploadVariant?: ButtonVariantTypes;
+  //
+  suffix?: JSX.Element | null;
 }
 
 export function FileUpload({
@@ -50,8 +56,9 @@ export function FileUpload({
   chooseFileTypes = '',
   chooseLabel = 'Choose file',
   chooseToolTip = 'Select to choose a file for upload',
-  chooseVariant = ButtonVariantTypes.Contained,
   direction = 'row',
+  isMinimal = false,
+  chooseVariant = isMinimal ? ButtonVariantTypes.Text : ButtonVariantTypes.Contained,
   //
   file,
   hideFileName = false,
@@ -61,6 +68,7 @@ export function FileUpload({
   status,
   testId = 'fileUpload',
   //
+  clearDisabled = false,
   clearLabel = 'Upload',
   clearToolTip = 'Clear the selected file',
   clearVariant = ButtonVariantTypes.Contained,
@@ -71,6 +79,8 @@ export function FileUpload({
   uploadToolTip = 'Upload the selected file',
   uploadURL = 'https://httpbin.org/post',
   uploadVariant = ButtonVariantTypes.Contained,
+  //
+  suffix = null,
 }: FileUploadProps) {
   const [theFile, setTheFile] = React.useState<File | null>(null);
   const [name, setName] = React.useState('');
@@ -99,6 +109,13 @@ export function FileUpload({
       if (setFile) {
         setFile(e.target.files[0].name);
       }
+      if (isMinimal) {
+        if (uploadFunction) {
+          uploadFunction(e.target.files[0].name);
+        } else {
+          handleUploadFunction(e.target.files[0].name);
+        }
+      }
     }
     e.target.value = null;
   };
@@ -116,14 +133,14 @@ export function FileUpload({
     if (uploadFunction) {
       uploadFunction(theFile);
     } else {
-      handleUploadFunction();
+      handleUploadFunction(theFile);
     }
   };
 
-  const handleUploadFunction = async () => {
-    if (theFile) {
+  const handleUploadFunction = async (inFile: string | Blob | null) => {
+    if (inFile) {
       const formData = new FormData();
-      formData.append('file', theFile);
+      formData.append('file', inFile);
       setTheStatus(FileUploadStatus.PENDING);
 
       try {
@@ -150,8 +167,25 @@ export function FileUpload({
     return val === FileUploadStatus.INITIAL ? (
       <UploadFileIcon />
     ) : (
-      <StatusIcon testId="statusId" icon level={status ? status : state} size={14} />
+      <StatusIcon
+        testId="statusId"
+        icon
+        level={status ? status : state}
+        size={isMinimal ? 20 : 14}
+      />
     );
+  };
+
+  const getAlertColor = () => {
+    const val = status ? status : state;
+    switch (val) {
+      case FileUploadStatus.PENDING:
+        return AlertColorTypes.Warning;
+      case FileUploadStatus.OK:
+        return AlertColorTypes.Success;
+      default:
+        return AlertColorTypes.Error;
+    }
   };
 
   const ChooseButton = () => (
@@ -166,13 +200,13 @@ export function FileUpload({
       />
       <OurButton
         ariaDescription={chooseToolTip}
-        color={name ? ButtonColorTypes.Inherit : chooseColor}
+        color={isMinimal ? ButtonColorTypes.Inherit : name ? ButtonColorTypes.Inherit : chooseColor}
         component="span"
         disabled={chooseDisabled}
-        icon={<SearchIcon />}
-        label={chooseLabel}
+        icon={isMinimal ? getUploadIcon() : <SearchIcon />}
+        label={isMinimal ? '' : chooseLabel}
         size={buttonSize}
-        testId={testId + 'ChooseButton'}
+        testId={isMinimal ? testId + 'ChooseIcon' : testId + 'ChooseButton'}
         toolTip={chooseToolTip}
         variant={chooseVariant}
       />
@@ -180,7 +214,7 @@ export function FileUpload({
   );
 
   const showFileName = () => (
-    <Typography pt={1} data-testid={testId + 'Filename'} variant="body1">
+    <Typography pt={1} data-testid={testId + 'Filename'} sx={{ width: '200px' }} variant="body1">
       {name?.length ? displayName() : ''}
     </Typography>
   );
@@ -202,28 +236,62 @@ export function FileUpload({
   );
 
   const ClearButton = () => (
-    <OurButton
-      ariaDescription={clearToolTip}
-      color={ButtonColorTypes.Inherit}
-      component="span"
-      disabled={uploadDisabled || uploadURL.length === 0}
-      icon={getClearIcon()}
-      label={clearLabel}
-      onClick={handleClear}
-      size={buttonSize}
-      testId={testId + 'ClearButton'}
-      toolTip={clearToolTip}
-      variant={clearVariant}
-    />
+    <>
+      {isMinimal && (
+        <OurIconButton
+          ariaDescription={clearToolTip}
+          icon={getClearIcon()}
+          onClick={handleClear}
+          testId={testId + 'ClearIcon'}
+          toolTip={chooseToolTip}
+        />
+      )}
+      {!isMinimal && (
+        <OurButton
+          ariaDescription={clearToolTip}
+          color={ButtonColorTypes.Inherit}
+          component="span"
+          disabled={clearDisabled}
+          icon={getClearIcon()}
+          label={isMinimal ? '' : clearLabel}
+          onClick={handleClear}
+          size={buttonSize}
+          testId={testId + 'ClearButton'}
+          toolTip={clearToolTip}
+          variant={clearVariant}
+        />
+      )}
+    </>
   );
 
   return (
-    <Grid p={0} container direction={direction} justifyContent="space-evenly" spacing={1}>
-      <Grid item>{ChooseButton()}</Grid>
-      {!hideFileName && <Grid item>{showFileName()}</Grid>}
-      {theFile && <Grid item>{ClearButton()}</Grid>}
-      {theFile && <Grid item>{UploadButton()}</Grid>}
-    </Grid>
+    <>
+      {isMinimal && (
+        <SKAOAlert color={getAlertColor()} testId="testId">
+          <Grid
+            p={0}
+            container
+            direction={direction}
+            alignItems="baseline"
+            justifyContent={'center'}
+          >
+            <Grid item>{ChooseButton()}</Grid>
+            <Grid item>{showFileName()}</Grid>
+            {theFile && <Grid item>{ClearButton()}</Grid>}
+            {suffix && <Grid item>{suffix}</Grid>}
+          </Grid>
+        </SKAOAlert>
+      )}
+      {!isMinimal && (
+        <Grid p={0} container direction={direction} justifyContent="space-evenly" spacing={1}>
+          <Grid item>{ChooseButton()}</Grid>
+          {!hideFileName && <Grid item>{showFileName()}</Grid>}
+          {theFile && <Grid item>{ClearButton()}</Grid>}
+          {theFile && <Grid item>{UploadButton()}</Grid>}
+          {suffix && <Grid item>{suffix}</Grid>}
+        </Grid>
+      )}
+    </>
   );
 }
 

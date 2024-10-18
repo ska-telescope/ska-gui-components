@@ -16,10 +16,12 @@ interface FileUploadProps {
   chooseVariant?: ButtonVariantTypes;
   direction?: 'row' | 'column';
   file?: File;
+  isMinimal?: boolean;
   hideFileName?: boolean;
   maxFileWidth?: number;
   testId?: string;
   clearLabel?: string;
+  clearDisabled?: boolean;
   clearToolTip?: string;
   clearVariant?: ButtonVariantTypes;
   setFile?: Function | null;
@@ -32,6 +34,7 @@ interface FileUploadProps {
   uploadToolTip?: string;
   uploadURL?: string;
   uploadVariant?: ButtonVariantTypes;
+  suffix?: JSX.Element | null;
 }
 export declare function FileUpload({
   buttonSize,
@@ -40,8 +43,9 @@ export declare function FileUpload({
   chooseFileTypes,
   chooseLabel,
   chooseToolTip,
-  chooseVariant,
   direction,
+  isMinimal,
+  chooseVariant,
   file,
   hideFileName,
   maxFileWidth,
@@ -49,6 +53,7 @@ export declare function FileUpload({
   setStatus,
   status,
   testId,
+  clearDisabled,
   clearLabel,
   clearToolTip,
   clearVariant,
@@ -59,5 +64,6 @@ export declare function FileUpload({
   uploadToolTip,
   uploadURL,
   uploadVariant,
+  suffix,
 }: FileUploadProps): React.JSX.Element;
 export default FileUpload;
