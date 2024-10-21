@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.20
+
+******
+
+Corrected issue with not being able to have 2 FileLoad components on the same page
+
 2.0.19
 
 ******
