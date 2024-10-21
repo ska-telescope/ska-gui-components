@@ -189,10 +189,10 @@ export function FileUpload({
   };
 
   const ChooseButton = () => (
-    <label htmlFor="uploadFile">
+    <label htmlFor={testId}>
       <input
         style={{ display: 'none' }}
-        id="uploadFile"
+        id={testId}
         name="chooseFileInput"
         type="file"
         accept={chooseFileTypes}
