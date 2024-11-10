@@ -10,7 +10,7 @@ export interface DataGridProps {
   columnHeaderHeight?: number;
   columnVisibilityModel?: any;
   getRowHeight?: Function;
-  height?: number;
+  height?: number | string;
   initialState?: object;
   onCellClick?: any;
   onColumnVisibilityModelChange?: any;

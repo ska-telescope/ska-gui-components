@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.21
+
+******
+
+Data grid extended to allow for strings to be passed to the height property
+
 2.0.20
 
 ******
