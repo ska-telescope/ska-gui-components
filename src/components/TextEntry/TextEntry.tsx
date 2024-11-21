@@ -26,6 +26,7 @@ export interface TextEntryProps {
   setValue?: Function;
   suffix?: JSX.Element | string;
   testId: string;
+  toolTip?: string;
 }
 
 export function TextEntry({
@@ -50,6 +51,7 @@ export function TextEntry({
   setValue,
   suffix = '',
   testId,
+  toolTip = '',
   value,
 }: TextEntryProps): JSX.Element {
   const isRequired = () => {
@@ -98,6 +100,7 @@ export function TextEntry({
       required={isRequired()}
       testId={testId}
       type={password ? TYPE.PASSWORD : TYPE.TEXT}
+      toolTip={toolTip}
       setValue={setValue}
       suffix={suffix}
     />

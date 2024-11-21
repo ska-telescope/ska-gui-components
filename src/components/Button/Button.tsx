@@ -77,7 +77,7 @@ export function OurButton({
   label,
   onClick,
   size = ButtonSizeTypes.Medium,
-  testId,
+  testId = '',
   toolTip = '',
   variant = ButtonVariantTypes.Outlined,
 }: ButtonProps): JSX.Element {
@@ -131,7 +131,7 @@ export function OurButton({
           aria-hidden={false}
           color={color}
           component={component as ElementType}
-          data-testid={testId}
+          data-testid={testId.length > 0 ? testId : 'button-' + label}
           disabled={disabled}
           onClick={(e: any) => clicked(e)}
           role="button"

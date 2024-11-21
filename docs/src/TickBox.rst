@@ -29,6 +29,7 @@ Field for entering text into the application
     "onChange", "Function", "No", "", "Function executed when the component is clicked"
     "onFocus", "Function", "No", "", "Function executed when the component is active"
     "testId", "string", "Yes", "", "Identifier for testing purposes"
+    "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
 
 .. admonition:: Constants
 

@@ -1,5 +1,5 @@
 import React, { FocusEventHandler } from 'react';
-import { InputAdornment, TextField } from '@mui/material';
+import { InputAdornment, TextField, Tooltip } from '@mui/material';
 import { FormControlLabel } from '@mui/material';
 import { FormControl } from '@mui/material';
 import { Grid } from '@mui/material';
@@ -55,6 +55,7 @@ export interface EntryFieldProps {
   select?: boolean;
   setValue?: Function;
   suffix?: JSX.Element | string;
+  toolTip?: string;
   type?: TYPE.DATE | TYPE.FILE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
 }
 
@@ -81,6 +82,7 @@ export function EntryField({
   setValue,
   suffix = '',
   testId,
+  toolTip = '',
   type = TYPE.TEXT,
   value,
 }: EntryFieldProps): JSX.Element {
@@ -109,41 +111,45 @@ export function EntryField({
             </Grid>
           )}
           <Grid item xs={12 - labelWidth}>
-            <TextField
-              aria-label={ariaTitle}
-              aria-describedby={ariaDescription}
-              aria-hidden={false}
-              color="secondary"
-              data-testid={testId}
-              disabled={disabled}
-              error={errorText && errorText.length > 0 ? true : false}
-              fullWidth
-              helperText={errorText ? errorText : helperText ? helperText : ''}
-              hiddenLabel
-              id={testId}
-              InputProps={{
-                startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
-                endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-              }}
-              inputRef={inputRef}
-              margin="none"
-              minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-              maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-              multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
-              name={name}
-              onChange={(e: { target: { value: any } }) => {
-                updateValue(e.target.value);
-              }}
-              onBlur={onBlur as FocusEventHandler}
-              onFocus={onFocus as FocusEventHandler}
-              required={required}
-              select={select}
-              value={value}
-              variant="standard"
-              type={type}
-            >
-              {children}
-            </TextField>
+            <Tooltip title={toolTip} arrow>
+              <TextField
+                aria-label={ariaTitle}
+                aria-describedby={ariaDescription}
+                aria-hidden={false}
+                color="secondary"
+                data-testid={testId}
+                disabled={disabled}
+                error={errorText && errorText.length > 0 ? true : false}
+                fullWidth
+                helperText={errorText ? errorText : helperText ? helperText : ''}
+                hiddenLabel
+                id={testId}
+                inputRef={inputRef}
+                margin="none"
+                minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
+                maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
+                multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
+                name={name}
+                onChange={(e: { target: { value: any } }) => {
+                  updateValue(e.target.value);
+                }}
+                onBlur={onBlur as FocusEventHandler}
+                onFocus={onFocus as FocusEventHandler}
+                required={required}
+                select={select}
+                value={value}
+                variant="standard"
+                type={type}
+                slotProps={{
+                  input: {
+                    startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
+                    endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+                  },
+                }}
+              >
+                {children}
+              </TextField>
+            </Tooltip>
           </Grid>
           {labelPosition === LABEL_POSITION.END && (
             <Grid item xs={labelWidth}>
@@ -156,7 +162,6 @@ export function EntryField({
           )}
         </Grid>
       )}
-
       {(labelPosition === LABEL_POSITION.TOP || labelPosition === LABEL_POSITION.BOTTOM) && (
         <FormControl component="fieldset">
           <FormControlLabel
@@ -164,79 +169,86 @@ export function EntryField({
             labelPlacement={labelPosition}
             label={label}
             control={
-              <TextField
-                aria-label={ariaTitle}
-                aria-describedby={ariaDescription}
-                aria-hidden={false}
-                color="secondary"
-                data-testid={testId}
-                disabled={disabled}
-                error={errorText && errorText.length > 0 ? true : false}
-                onBlur={onBlur as FocusEventHandler}
-                onFocus={onFocus as FocusEventHandler}
-                fullWidth
-                helperText={errorText ? errorText : helperText ? helperText : ''}
-                InputProps={{
-                  startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
-                  endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-                }}
-                inputRef={inputRef}
-                margin="none"
-                minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-                maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-                multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
-                name={name}
-                onChange={(e: { target: { value: any } }) => {
-                  updateValue(e.target.value);
-                }}
-                select={select}
-                value={value}
-                variant="standard"
-                required={required}
-                type={type}
-              >
-                {children}
-              </TextField>
+              <Tooltip title={toolTip} arrow>
+                <TextField
+                  aria-label={ariaTitle}
+                  aria-describedby={ariaDescription}
+                  aria-hidden={false}
+                  color="secondary"
+                  data-testid={testId}
+                  disabled={disabled}
+                  error={errorText && errorText.length > 0 ? true : false}
+                  onBlur={onBlur as FocusEventHandler}
+                  onFocus={onFocus as FocusEventHandler}
+                  fullWidth
+                  helperText={errorText ? errorText : helperText ? helperText : ''}
+                  inputRef={inputRef}
+                  margin="none"
+                  minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
+                  maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
+                  multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
+                  name={name}
+                  onChange={(e: { target: { value: any } }) => {
+                    updateValue(e.target.value);
+                  }}
+                  select={select}
+                  value={value}
+                  variant="standard"
+                  required={required}
+                  type={type}
+                  slotProps={{
+                    input: {
+                      startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
+                      endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+                    },
+                  }}
+                >
+                  {children}
+                </TextField>
+              </Tooltip>
             }
           />
         </FormControl>
       )}
-
       {labelPosition === LABEL_POSITION.CONTAINED && (
-        <TextField
-          aria-label={ariaTitle}
-          aria-describedby={ariaDescription}
-          aria-hidden={false}
-          color="secondary"
-          data-testid={testId}
-          disabled={disabled}
-          error={errorText && errorText.length > 0 ? true : false}
-          onBlur={onBlur as FocusEventHandler}
-          onFocus={onFocus as FocusEventHandler}
-          fullWidth
-          helperText={errorText ? errorText : helperText ? helperText : ''}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
-            endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-          }}
-          inputRef={inputRef}
-          label={label}
-          margin="normal"
-          minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-          maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-          multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
-          name={name}
-          onChange={(e: { target: { value: any } }) => {
-            updateValue(e.target.value);
-          }}
-          value={value}
-          variant="standard"
-          required={required}
-          select={select}
-          type={type}
-        >
-          {children}
-        </TextField>
+        <Tooltip title={toolTip} arrow>
+          <TextField
+            aria-label={ariaTitle}
+            aria-describedby={ariaDescription}
+            aria-hidden={false}
+            color="secondary"
+            data-testid={testId}
+            disabled={disabled}
+            error={errorText && errorText.length > 0 ? true : false}
+            onBlur={onBlur as FocusEventHandler}
+            onFocus={onFocus as FocusEventHandler}
+            fullWidth
+            helperText={errorText ? errorText : helperText ? helperText : ''}
+            inputRef={inputRef}
+            label={label}
+            margin="normal"
+            minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
+            maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
+            multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
+            name={name}
+            onChange={(e: { target: { value: any } }) => {
+              updateValue(e.target.value);
+            }}
+            value={value}
+            variant="standard"
+            required={required}
+            select={select}
+            type={type}
+            slotProps={{
+              input: {
+                startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
+                endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+              },
+            }}
+          >
+            {children}
+          </TextField>
+        </Tooltip>
       )}
     </>
   );

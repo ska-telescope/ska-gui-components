@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box } from '@mui/material';
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 import { alpha, styled } from '@mui/material/styles';
-import { TreeView, TreeItem, TreeItemProps, treeItemClasses } from '@mui/x-tree-view';
+import { SimpleTreeView, TreeItem, TreeItemProps, treeItemClasses } from '@mui/x-tree-view';
 import Collapse from '@mui/material/Collapse';
 import { useSpring, animated } from '@react-spring/web';
 import { TransitionProps } from '@mui/material/transitions';
@@ -83,14 +83,14 @@ export function DataTree({
   }
 
   const StyledTreeItem = styled((props: TreeItemProps) => (
-    <TreeItem {...props} TransitionComponent={TransitionComponent} />
+    <TreeItem {...props} slots={{ groupTransition: TransitionComponent }} />
   ))(({ theme }) => ({
     [`& .${treeItemClasses.iconContainer}`]: {
       '& .close': {
         opacity: 0.3,
       },
     },
-    [`& .${treeItemClasses.group}`]: {
+    [`& .${treeItemClasses.groupTransition}`]: {
       marginLeft: 15,
       paddingLeft: 18,
       borderLeft: `1px dashed ${alpha(theme.palette.text.primary, 0.4)}`,
@@ -106,7 +106,7 @@ export function DataTree({
       const el = typeof treeItems[keyObj];
       const key = uuidv4(); // Generate a unique identifier for each tree item. previously [ treeItemData ]
       return (
-        <StyledTreeItem aria-label={treeItemData} key={key} nodeId={key} label={treeItemData}>
+        <StyledTreeItem aria-label={treeItemData} key={key} itemId={key} label={treeItemData}>
           {el === 'string' && treeItems[keyObj]}
           {el === 'number' && treeItems[keyObj]}
           {el === 'boolean' && treeItems[keyObj]}
@@ -118,18 +118,20 @@ export function DataTree({
 
   return (
     <Box m={1}>
-      <TreeView
+      <SimpleTreeView
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
         data-testid={testId}
-        defaultCollapseIcon={<MinusSquare />}
-        defaultExpanded={['3']}
-        defaultExpandIcon={<PlusSquare />}
-        defaultEndIcon={<CloseSquare />}
+        defaultExpandedItems={['3']}
+        slots={{
+          collapseIcon: MinusSquare,
+          endIcon: CloseSquare,
+          expandIcon: PlusSquare,
+        }}
         sx={{ maxHeight: height, flexGrow: 1, maxWidth: maxWidth, overflowY: 'auto' }}
       >
         {generateContent(data)}
-      </TreeView>
+      </SimpleTreeView>
     </Box>
   );
 }

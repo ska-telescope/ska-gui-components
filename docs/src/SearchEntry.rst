@@ -27,6 +27,7 @@ Field for entering search text into the application
     "label", "string", "Yes", "", "Label displayed for the Component"
     "setValue", "function", "No", "null", "Used to update the value onChange"
     "testId", "string", "Yes", "", "Identifier for testing purposes"
+    "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
     "value", "string", "Yes", "", "Value that is displayed within the component"
 
 .. admonition:: Constants

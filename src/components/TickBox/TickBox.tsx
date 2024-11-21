@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControlLabel, Checkbox } from '@mui/material';
+import { FormControlLabel, Checkbox, Tooltip } from '@mui/material';
 import useTheme from '@mui/material/styles/useTheme';
 import { Grid, Typography } from '@mui/material';
 import { InputLabel } from '@mui/material';
@@ -18,6 +18,7 @@ export interface TickBoxProps {
   onFocus?: Function;
   required?: Boolean;
   testId: string;
+  toolTip?: string;
 }
 
 export function TickBox({
@@ -33,6 +34,7 @@ export function TickBox({
   onFocus = undefined,
   required,
   testId,
+  toolTip = '',
 }: TickBoxProps): JSX.Element {
   const theme = useTheme();
   const displayLabel = label + (required ? ' *' : '');
@@ -81,16 +83,18 @@ export function TickBox({
               onChange={(e) => onChangeFunction(e)}
               onFocus={(e) => onFocusFunction(e)}
               control={
-                <Checkbox
-                  sx={{
-                    '&.Mui-checked': {
-                      color: theme.palette.secondary.main,
-                      '&.Mui-disabled': {
-                        color: theme.palette.primary.dark,
+                <Tooltip title={toolTip} arrow>
+                  <Checkbox
+                    sx={{
+                      '&.Mui-checked': {
+                        color: theme.palette.secondary.main,
+                        '&.Mui-disabled': {
+                          color: theme.palette.primary.dark,
+                        },
                       },
-                    },
-                  }}
-                />
+                    }}
+                  />
+                </Tooltip>
               }
               sx={{ '& .MuiSvgIcon-root': { fontSize: { fontSize } } }}
             />
@@ -115,16 +119,18 @@ export function TickBox({
           onChange={(e) => onChangeFunction(e)}
           onFocus={(e) => onFocusFunction(e)}
           control={
-            <Checkbox
-              sx={{
-                '&.Mui-checked': {
-                  color: theme.palette.secondary.main,
-                  '&.Mui-disabled': {
-                    color: theme.palette.primary.dark,
+            <Tooltip title={toolTip} arrow>
+              <Checkbox
+                sx={{
+                  '&.Mui-checked': {
+                    color: theme.palette.secondary.main,
+                    '&.Mui-disabled': {
+                      color: theme.palette.primary.dark,
+                    },
                   },
-                },
-              }}
-            />
+                }}
+              />
+            </Tooltip>
           }
           label={displayLabel}
           labelPlacement={labelPosition}

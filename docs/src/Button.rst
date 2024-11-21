@@ -34,7 +34,7 @@ Button for use with all applications.
    "label", "string", "Yes", "", "Test displayed upon the button"
    "onClick", "Function", "No", "null", "Determines actions to be taken when the button is clicked"
    "size", "ButtonSizeTypes", "No", "ButtonSizeTypes.Medium", "Allows for the sizing of the button to be changed"
-   "testId", "string", "Yes", "", "Identifier for testing purposes"
+   "testId", "string", "No", "button-{{label}}", "Identifier for testing purposes"
    "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
    "variant", "string", "No", "outlined", "Styling options : ButtonVariantType"
     
