@@ -2,6 +2,7 @@ import React from 'react';
 import ClearIcon from '@mui/icons-material/Clear';
 import DoneIcon from '@mui/icons-material/Done';
 import { Colors } from '@ska-telescope/ska-javascript-components';
+import { Tooltip } from '@mui/material';
 
 const DEFAULT_SIZE = 60;
 const STROKE_WIDTH = 2;
@@ -16,6 +17,7 @@ interface StatusProps {
   size?: number;
   testId: string;
   text?: string;
+  toolTip?: string;
 }
 
 function fontSize(value: number) {
@@ -145,6 +147,7 @@ export function StatusIcon({
   size = DEFAULT_SIZE,
   testId,
   text = '',
+  toolTip = '',
 }: StatusProps) {
   const componentClassNames = ['svg-content'];
 
@@ -154,63 +157,65 @@ export function StatusIcon({
     ariaTitle.length > 0 ? ariaTitle + ariaDescription : DEF_TITLE + ' ' + ariaDescription;
 
   return (
-    <svg
-      aria-label={setAriaLabel}
-      aria-describedby={setAriaDesc}
-      data-testid={testId}
-      className={componentClassNames.join(' ')}
-      preserveAspectRatio="xMinYMin meet"
-      role="img"
-      height={size}
-      width={size}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <title id="svg-title">{setAriaLabel}</title>
-      <desc id="svg-description">{setAriaDesc}</desc>
-      {(!level || level < 0 || level > 5) && (
-        <g>
-          <path d="" transform="translate(-45 -15)" role="presentation" />
-        </g>
-      )}
-      {level === 1 && (
-        <rect
-          aria-describedby={setAriaLabel}
-          role="img"
-          x={STROKE_WIDTH}
-          y={STROKE_WIDTH}
-          width={(size ? size : DEFAULT_SIZE) - STROKE_WIDTH * 2}
-          height={(size ? size : DEFAULT_SIZE) - STROKE_WIDTH * 2}
-          stroke="black"
-          fill={fillColor(level)}
-          strokeWidth={STROKE_WIDTH}
-        />
-      )}
-      {(level === 2 || level === 3 || level === 4) && (
-        <polyline
-          aria-describedby={setAriaLabel}
-          role="img"
-          points={points(level, size ? size : DEFAULT_SIZE)}
-          stroke="black"
-          fill={fillColor(level)}
-          strokeWidth={STROKE_WIDTH}
-        />
-      )}
-      {(level === 0 || level === 5) && (
-        <circle
-          aria-describedby={setAriaLabel}
-          role="img"
-          cx={size ? size / 2 : DEFAULT_SIZE}
-          cy={size ? size / 2 : DEFAULT_SIZE}
-          r={size ? (size - STROKE_WIDTH) / 2 : DEFAULT_SIZE - STROKE_WIDTH}
-          stroke="black"
-          fill={fillColor(level)}
-          strokeWidth={STROKE_WIDTH}
-        />
-      )}
-      {icon && showIcon(level, size)}
-      {!icon && text && showText(level, size, text)}
-      {children}
-    </svg>
+    <Tooltip title={toolTip} arrow>
+      <svg
+        aria-label={setAriaLabel}
+        aria-describedby={setAriaDesc}
+        data-testid={testId}
+        className={componentClassNames.join(' ')}
+        preserveAspectRatio="xMinYMin meet"
+        role="img"
+        height={size}
+        width={size}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title id="svg-title">{setAriaLabel}</title>
+        <desc id="svg-description">{setAriaDesc}</desc>
+        {(!level || level < 0 || level > 5) && (
+          <g>
+            <path d="" transform="translate(-45 -15)" role="presentation" />
+          </g>
+        )}
+        {level === 1 && (
+          <rect
+            aria-describedby={setAriaLabel}
+            role="img"
+            x={STROKE_WIDTH}
+            y={STROKE_WIDTH}
+            width={(size ? size : DEFAULT_SIZE) - STROKE_WIDTH * 2}
+            height={(size ? size : DEFAULT_SIZE) - STROKE_WIDTH * 2}
+            stroke="black"
+            fill={fillColor(level)}
+            strokeWidth={STROKE_WIDTH}
+          />
+        )}
+        {(level === 2 || level === 3 || level === 4) && (
+          <polyline
+            aria-describedby={setAriaLabel}
+            role="img"
+            points={points(level, size ? size : DEFAULT_SIZE)}
+            stroke="black"
+            fill={fillColor(level)}
+            strokeWidth={STROKE_WIDTH}
+          />
+        )}
+        {(level === 0 || level === 5) && (
+          <circle
+            aria-describedby={setAriaLabel}
+            role="img"
+            cx={size ? size / 2 : DEFAULT_SIZE}
+            cy={size ? size / 2 : DEFAULT_SIZE}
+            r={size ? (size - STROKE_WIDTH) / 2 : DEFAULT_SIZE - STROKE_WIDTH}
+            stroke="black"
+            fill={fillColor(level)}
+            strokeWidth={STROKE_WIDTH}
+          />
+        )}
+        {icon && showIcon(level, size)}
+        {!icon && text && showText(level, size, text)}
+        {children}
+      </svg>
+    </Tooltip>
   );
 }
 

@@ -1,5 +1,5 @@
 import React, { FocusEventHandler } from 'react';
-import { FormControl, FormControlLabel, Grid, MenuItem, TextField } from '@mui/material';
+import { FormControl, FormControlLabel, Grid, MenuItem, TextField, Tooltip } from '@mui/material';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 import { InputLabel, Typography } from '@mui/material';
 
@@ -24,6 +24,7 @@ export interface DropDownProps {
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
+  toolTip?: string;
 }
 
 export function DropDown({
@@ -44,6 +45,7 @@ export function DropDown({
   required = false,
   setValue,
   testId,
+  toolTip = '',
   value,
 }: DropDownProps): JSX.Element {
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
@@ -69,35 +71,37 @@ export function DropDown({
             </Grid>
           )}
           <Grid item xs={12 - labelWidth}>
-            <TextField
-              aria-label={ariaTitle}
-              aria-describedby={ariaDescription}
-              aria-hidden={false}
-              color="secondary"
-              data-testid={testId}
-              disabled={disabled}
-              error={errorText && errorText.length > 0 ? true : false}
-              fullWidth
-              helperText={errorText ? errorText : helperText ? helperText : ''}
-              hiddenLabel
-              id={testId}
-              margin="none"
-              name={'dropDown' + label}
-              onChange={(e: { target: { value: string | number } }) => {
-                updateValue(e.target.value);
-              }}
-              onFocus={onFocus as FocusEventHandler}
-              required={required}
-              select
-              value={value}
-              variant="standard"
-            >
-              {options.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
+            <Tooltip title={toolTip} arrow>
+              <TextField
+                aria-label={ariaTitle}
+                aria-describedby={ariaDescription}
+                aria-hidden={false}
+                color="secondary"
+                data-testid={testId}
+                disabled={disabled}
+                error={errorText && errorText.length > 0 ? true : false}
+                fullWidth
+                helperText={errorText ? errorText : helperText ? helperText : ''}
+                hiddenLabel
+                id={testId}
+                margin="none"
+                name={'dropDown' + label}
+                onChange={(e: { target: { value: string | number } }) => {
+                  updateValue(e.target.value);
+                }}
+                onFocus={onFocus as FocusEventHandler}
+                required={required}
+                select
+                value={value}
+                variant="standard"
+              >
+                {options.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Tooltip>
           </Grid>
           {labelPosition === LABEL_POSITION.END && (
             <Grid item xs={labelWidth}>
@@ -118,68 +122,72 @@ export function DropDown({
             labelPlacement={labelPosition}
             label={label}
             control={
-              <TextField
-                aria-label={ariaTitle}
-                aria-describedby={ariaDescription}
-                color="secondary"
-                data-testid={testId}
-                disabled={disabled}
-                error={errorText && errorText.length > 0 ? true : false}
-                fullWidth
-                helperText={errorText ? errorText : helperText ? helperText : ''}
-                id={'dropDown' + label + 'Id'}
-                label=""
-                name={'dropDown' + label}
-                onChange={(e: { target: { value: string | number } }) => {
-                  updateValue(e.target.value);
-                }}
-                onFocus={onFocus as FocusEventHandler}
-                required={required}
-                select
-                value={value}
-                variant="standard"
-              >
-                {options.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
+              <Tooltip title={toolTip} arrow>
+                <TextField
+                  aria-label={ariaTitle}
+                  aria-describedby={ariaDescription}
+                  color="secondary"
+                  data-testid={testId}
+                  disabled={disabled}
+                  error={errorText && errorText.length > 0 ? true : false}
+                  fullWidth
+                  helperText={errorText ? errorText : helperText ? helperText : ''}
+                  id={'dropDown' + label + 'Id'}
+                  label=""
+                  name={'dropDown' + label}
+                  onChange={(e: { target: { value: string | number } }) => {
+                    updateValue(e.target.value);
+                  }}
+                  onFocus={onFocus as FocusEventHandler}
+                  required={required}
+                  select
+                  value={value}
+                  variant="standard"
+                >
+                  {options.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Tooltip>
             }
           />
         </FormControl>
       )}
 
       {labelPosition === LABEL_POSITION.CONTAINED && (
-        <TextField
-          aria-label={ariaTitle}
-          aria-describedby={ariaDescription}
-          color="secondary"
-          data-testid={testId}
-          disabled={disabled}
-          error={errorText && errorText.length > 0 ? true : false}
-          fullWidth
-          helperText={errorText ? errorText : helperText ? helperText : ''}
-          id={'dropDown' + label + 'Id'}
-          inputRef={inputRef}
-          label={label}
-          name={name}
-          onChange={(e: { target: { value: string | number } }) => {
-            updateValue(e.target.value);
-          }}
-          onFocus={onFocus as FocusEventHandler}
-          required={required}
-          select
-          sx={{ width: '100%' }}
-          value={value}
-          variant="standard"
-        >
-          {options.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
+        <Tooltip title={toolTip} arrow>
+          <TextField
+            aria-label={ariaTitle}
+            aria-describedby={ariaDescription}
+            color="secondary"
+            data-testid={testId}
+            disabled={disabled}
+            error={errorText && errorText.length > 0 ? true : false}
+            fullWidth
+            helperText={errorText ? errorText : helperText ? helperText : ''}
+            id={'dropDown' + label + 'Id'}
+            inputRef={inputRef}
+            label={label}
+            name={name}
+            onChange={(e: { target: { value: string | number } }) => {
+              updateValue(e.target.value);
+            }}
+            onFocus={onFocus as FocusEventHandler}
+            required={required}
+            select
+            sx={{ width: '100%' }}
+            value={value}
+            variant="standard"
+          >
+            {options.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </Tooltip>
       )}
     </>
   );

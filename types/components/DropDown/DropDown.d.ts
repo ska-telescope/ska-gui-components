@@ -22,6 +22,7 @@ export interface DropDownProps {
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
+  toolTip?: string;
 }
 export declare function DropDown({
   ariaDescription,
@@ -41,6 +42,7 @@ export declare function DropDown({
   required,
   setValue,
   testId,
+  toolTip,
   value,
 }: DropDownProps): JSX.Element;
 export default DropDown;

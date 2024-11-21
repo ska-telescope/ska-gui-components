@@ -28,6 +28,7 @@ This also will provide fixed symbol display for the icons
    "size","number", "No", "12", "This provides both height & width"
    "testId","string", "Yes", , "Unique identifier used for testing"
    "text","string", "No", "", "String that will be displayed upon the shape.  Single character only recommended"
+   "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
 
 .. admonition:: Constants
       

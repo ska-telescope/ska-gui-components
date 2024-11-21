@@ -1,7 +1,11 @@
-{
+const targets = {
+  node: 20,
+};
+
+module.exports = {
   "presets": [
     "@babel/preset-env",
-    "@babel/preset-react",
+    ['@babel/preset-react', { runtime: 'automatic' }],
     "@babel/preset-typescript"
   ],
   "env": {
@@ -10,4 +14,4 @@
     }
   },
   "plugins": [["@babel/transform-runtime"]]
-}
+};

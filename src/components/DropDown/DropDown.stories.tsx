@@ -31,5 +31,6 @@ export const Default = {
     value: '',
     setValue: undefined,
     testId: 'testId',
+    toolTip: 'tooltip',
   },
 };

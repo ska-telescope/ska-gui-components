@@ -15,6 +15,7 @@ export interface SearchEntryProps {
   helperText?: string;
   onFocus?: Function;
   setValue?: Function;
+  toolTip?: string;
 }
 export declare function SearchEntry({
   ariaDescription,
@@ -26,6 +27,7 @@ export declare function SearchEntry({
   onFocus,
   setValue,
   testId,
+  toolTip,
   value,
 }: SearchEntryProps): JSX.Element;
 export default SearchEntry;

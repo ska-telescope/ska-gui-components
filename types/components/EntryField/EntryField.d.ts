@@ -44,6 +44,7 @@ export interface EntryFieldProps {
   select?: boolean;
   setValue?: Function;
   suffix?: JSX.Element | string;
+  toolTip?: string;
   type?: TYPE.DATE | TYPE.FILE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
 }
 export declare function EntryField({
@@ -69,6 +70,7 @@ export declare function EntryField({
   setValue,
   suffix,
   testId,
+  toolTip,
   type,
   value,
 }: EntryFieldProps): JSX.Element;

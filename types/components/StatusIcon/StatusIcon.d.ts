@@ -8,6 +8,7 @@ interface StatusProps {
   size?: number;
   testId: string;
   text?: string;
+  toolTip?: string;
 }
 export declare function StatusIcon({
   ariaDescription,
@@ -18,5 +19,6 @@ export declare function StatusIcon({
   size,
   testId,
   text,
+  toolTip,
 }: StatusProps): React.JSX.Element;
 export default StatusIcon;

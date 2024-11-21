@@ -37,6 +37,7 @@ Field for entering Dates into the application. Clicking on the icon opens up a d
     "required", " boolean", "No", "false", "Asterisk is added to the label if true"
     "setValue", " function", "No", "null", "Used to update the value onChange"
     "testId", " string", "Yes", "", "Identifier for testing purposes"
+    "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
     "value", " string", "Yes", "", "Value that is displayed within the component"
 
 .. admonition:: Constants

@@ -12,6 +12,7 @@ export interface TickBoxProps {
   onFocus?: Function;
   required?: Boolean;
   testId: string;
+  toolTip?: string;
 }
 export declare function TickBox({
   ariaDescription,
@@ -26,5 +27,6 @@ export declare function TickBox({
   onFocus,
   required,
   testId,
+  toolTip,
 }: TickBoxProps): JSX.Element;
 export default TickBox;

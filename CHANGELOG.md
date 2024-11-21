@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.22
+
+******
+
+Added tooltips to a number of the components
+
 2.0.21
 
 ******

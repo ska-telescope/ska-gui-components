@@ -25,6 +25,7 @@ export interface NumberEntryProps {
   setValue?: Function;
   suffix?: JSX.Element | string;
   testId: string;
+  toolTip?: string;
 }
 
 export function NumberEntry({
@@ -47,6 +48,7 @@ export function NumberEntry({
   setValue,
   suffix = '',
   testId,
+  toolTip = '',
   value,
 }: NumberEntryProps): JSX.Element {
   const isRequired = () => {
@@ -98,6 +100,7 @@ export function NumberEntry({
       setValue={setValue}
       suffix={suffix}
       testId={testId}
+      toolTip={toolTip}
       type={TYPE.NUMBER}
     />
   );

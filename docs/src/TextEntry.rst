@@ -41,6 +41,7 @@ Field for entering text into the application
     "setValue", "function", "No", "null", "Used to update the value onChange"
     "suffix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon after the entry"
     "testId", "string", "Yes", "", "Identifier for testing purposes"
+    "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
     "value", "string", "Yes", "", "Value that is displayed within the component"
 
 .. admonition:: Constants

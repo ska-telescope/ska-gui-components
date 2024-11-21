@@ -19,6 +19,7 @@ export interface DateEntryProps {
   onFocus?: Function;
   required?: boolean;
   setValue?: Function;
+  toolTip?: string;
 }
 export declare function DateEntry({
   ariaDescription,
@@ -38,6 +39,7 @@ export declare function DateEntry({
   required,
   setValue,
   testId,
+  toolTip,
   value,
 }: DateEntryProps): JSX.Element;
 export default DateEntry;

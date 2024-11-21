@@ -22,6 +22,7 @@ export interface NumberEntryProps {
   setValue?: Function;
   suffix?: JSX.Element | string;
   testId: string;
+  toolTip?: string;
 }
 export declare function NumberEntry({
   ariaDescription,
@@ -43,6 +44,7 @@ export declare function NumberEntry({
   setValue,
   suffix,
   testId,
+  toolTip,
   value,
 }: NumberEntryProps): JSX.Element;
 export default NumberEntry;

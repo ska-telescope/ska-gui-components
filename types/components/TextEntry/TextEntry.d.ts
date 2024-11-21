@@ -23,6 +23,7 @@ export interface TextEntryProps {
   setValue?: Function;
   suffix?: JSX.Element | string;
   testId: string;
+  toolTip?: string;
 }
 export declare function TextEntry({
   ariaDescription,
@@ -46,6 +47,7 @@ export declare function TextEntry({
   setValue,
   suffix,
   testId,
+  toolTip,
   value,
 }: TextEntryProps): JSX.Element;
 export default TextEntry;
