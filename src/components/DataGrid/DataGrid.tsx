@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box } from '@mui/material';
-import { DataGrid, GridEventListener } from '@mui/x-data-grid';
+import { DataGrid, GridEventListener, GridFeatureMode } from '@mui/x-data-grid';
 import { styled } from '@mui/material/styles';
 export interface DataGridProps {
   ariaDescription?: string;
@@ -9,17 +9,22 @@ export interface DataGridProps {
   columns: any;
   columnHeaderHeight?: number;
   columnVisibilityModel?: any;
+  filterMode?: GridFeatureMode;
   getRowHeight?: Function;
   height?: number | string;
   initialState?: object;
+  loading?: any;
   onCellClick?: any;
   onColumnVisibilityModelChange?: any;
+  onFilterModelChange?: any;
   onRowClick?: any;
   onRowSelectionModelChange?: any;
   rows: any;
+  rowHeight?: number;
   rowSelectionModel?: any;
   showBorder?: boolean;
   showMild?: boolean;
+  style?: any;
   testId: string;
 }
 
@@ -30,15 +35,20 @@ export function StylingRowsGrid({
   columns,
   columnHeaderHeight = 56,
   columnVisibilityModel,
+  filterMode = 'client',
   getRowHeight,
   height = 400,
   initialState,
+  loading,
   onCellClick,
   onColumnVisibilityModelChange,
+  onFilterModelChange,
   onRowClick,
   onRowSelectionModelChange,
   rows,
+  rowHeight,
   rowSelectionModel,
+  style,
   testId,
 }: DataGridProps) {
   const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
@@ -89,14 +99,19 @@ export function StylingRowsGrid({
         columnHeaderHeight={columnHeaderHeight}
         columnVisibilityModel={columnVisibilityModel}
         data-testid={testId}
+        filterMode={filterMode}
         getRowClassName={() => `super-app-theme`}
         getRowHeight={getTheHeight}
         initialState={initialState}
+        loading={loading}
         onCellClick={onCellClick}
         onColumnVisibilityModelChange={onColumnVisibilityModelChange}
+        onFilterModelChange={onFilterModelChange}
         onRowClick={handleRowClick}
         onRowSelectionModelChange={onRowSelectionModelChange}
+        rowHeight={rowHeight}
         rowSelectionModel={rowSelectionModel}
+        style={style}
         {...{ rows, columns }}
       />
     </Box>
