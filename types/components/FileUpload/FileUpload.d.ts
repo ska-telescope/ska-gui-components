@@ -34,6 +34,9 @@ interface FileUploadProps {
   uploadToolTip?: string;
   uploadURL?: string;
   uploadVariant?: ButtonVariantTypes;
+  dropzone?: boolean;
+  dropzonePreview: boolean;
+  dropzonePrompt?: string;
   suffix?: JSX.Element | null;
 }
 export declare function FileUpload({
@@ -64,6 +67,9 @@ export declare function FileUpload({
   uploadToolTip,
   uploadURL,
   uploadVariant,
+  dropzone,
+  dropzonePreview,
+  dropzonePrompt,
   suffix,
 }: FileUploadProps): React.JSX.Element;
 export default FileUpload;
