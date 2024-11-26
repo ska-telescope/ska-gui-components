@@ -35,6 +35,7 @@ interface FileUploadProps {
   uploadURL?: string;
   uploadVariant?: ButtonVariantTypes;
   dropzone?: boolean;
+  dropzoneIcons?: boolean;
   dropzonePreview: boolean;
   dropzonePrompt?: string;
   suffix?: JSX.Element | null;
@@ -68,6 +69,7 @@ export declare function FileUpload({
   uploadURL,
   uploadVariant,
   dropzone,
+  dropzoneIcons,
   dropzonePreview,
   dropzonePrompt,
   suffix,

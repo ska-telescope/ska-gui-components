@@ -1,11 +1,17 @@
 Changelog
 ==========
 
+2.0.24
+
+******
+
+Further tweaking to the ToolTips and FileUpload components
+
 2.0.23
 
 ******
 
-??????
+Added DropZone and used in the FIleLoad
 
 2.0.22
 

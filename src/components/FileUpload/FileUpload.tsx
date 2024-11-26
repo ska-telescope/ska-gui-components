@@ -48,6 +48,7 @@ interface FileUploadProps {
   uploadVariant?: ButtonVariantTypes;
   //
   dropzone?: boolean;
+  dropzoneIcons?: boolean;
   dropzonePreview: boolean;
   dropzonePrompt?: string;
   //
@@ -86,6 +87,7 @@ export function FileUpload({
   uploadVariant = ButtonVariantTypes.Contained,
   //
   dropzone = false,
+  dropzoneIcons = true,
   dropzonePreview = true,
   dropzonePrompt = '',
   //
@@ -251,7 +253,7 @@ export function FileUpload({
 
   const UploadButton = () => (
     <>
-      {dropzone && (
+      {dropzone && dropzoneIcons && (
         <OurIconButton
           ariaDescription={uploadToolTip}
           icon={getUploadIcon()}
@@ -260,7 +262,7 @@ export function FileUpload({
           toolTip={uploadToolTip}
         />
       )}
-      {!dropzone && (
+      {!(dropzone && dropzoneIcons) && (
         <OurButton
           ariaDescription={uploadToolTip}
           color={state === FileUploadStatus.INITIAL ? uploadColor : ButtonColorTypes.Inherit}
@@ -280,7 +282,7 @@ export function FileUpload({
 
   const ClearButton = () => (
     <>
-      {(dropzone || isMinimal) && (
+      {((dropzone && dropzoneIcons) || isMinimal) && (
         <OurIconButton
           ariaDescription={clearToolTip}
           icon={getClearIcon()}
@@ -289,7 +291,7 @@ export function FileUpload({
           toolTip={clearToolTip}
         />
       )}
-      {!dropzone && !isMinimal && (
+      {(!dropzone || !dropzoneIcons) && !isMinimal && (
         <OurButton
           ariaDescription={clearToolTip}
           color={ButtonColorTypes.Inherit}
@@ -317,11 +319,21 @@ export function FileUpload({
             preview={dropzonePreview}
             prompt={dropzonePrompt}
           />
-          <Stack direction="row">
-            {theFile && ClearButton()}
-            {theFile && UploadButton()}
-            {suffix}
-          </Stack>
+          <Grid
+            p={0}
+            container
+            direction="row"
+            alignItems="baseline"
+            justifyContent="space-between"
+          >
+            <Grid item>
+              <Stack direction="row">
+                {theFile && ClearButton()}
+                {theFile && UploadButton()}
+              </Stack>
+            </Grid>
+            <Grid item>{suffix}</Grid>
+          </Grid>
         </>
       )}
       {!dropzone && isMinimal && (
