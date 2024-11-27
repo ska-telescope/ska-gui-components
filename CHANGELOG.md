@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.27
+
+******
+
+Dropzone adjustments
+
 2.0.26
 
 ******
