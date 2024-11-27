@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.26
+
+******
+
+Display the preloaded filename in the dropzone if it exists
+
 2.0.25
 
 ******

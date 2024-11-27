@@ -28,9 +28,7 @@ const Dropzone = ({
   fileChange,
   preview = true,
   prompt = 'Drag and drop your files here, or click to select files',
-  accepted = {
-    '*/*': ['.*'],
-  },
+  accepted,
   maxFiles = 1,
 }: DropzoneProps) => {
   const theme = useTheme();
@@ -53,7 +51,9 @@ const Dropzone = ({
   };
 
   const [files, setFiles] = React.useState([]);
+
   const onDrop = React.useCallback((acceptedFiles: any) => {
+    console.log(acceptedFiles);
     fileChange(acceptedFiles);
     setFiles(
       acceptedFiles.map((file: Blob | MediaSource) =>
@@ -63,12 +63,6 @@ const Dropzone = ({
       ),
     );
   }, []);
-
-  React.useEffect(() => {
-    if (!inFile) {
-      setFiles([]);
-    }
-  }, [inFile]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -82,6 +76,12 @@ const Dropzone = ({
       <span>{file['name']}</span>
     </li>
   ));
+
+  const inList = (
+    <li key={inFile}>
+      <span>{inFile}</span>
+    </li>
+  );
 
   const activeStyle = { ...dropzoneStyle, ...activeDropzoneStyle };
 
@@ -107,7 +107,7 @@ const Dropzone = ({
     >
       <input {...getInputProps()} />
       {prompt}
-      <ul>{fileList}</ul>
+      <ul>{inFile ? inList : fileList}</ul>
     </div>
   );
 };
