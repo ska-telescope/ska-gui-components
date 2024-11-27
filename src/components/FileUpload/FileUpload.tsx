@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Stack, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
@@ -8,6 +8,7 @@ import { StatusIcon } from '../StatusIcon/StatusIcon';
 import OurIconButton from '../IconButton/IconButton';
 import SKAOAlert, { AlertColorTypes } from '../Alert/Alert';
 import DropZone from '../DropZone/DropZone';
+import { Accept } from 'react-dropzone/.';
 
 export enum FileUploadStatus {
   OK = 0,
@@ -48,6 +49,7 @@ interface FileUploadProps {
   uploadVariant?: ButtonVariantTypes;
   //
   dropzone?: boolean;
+  dropzoneAccepted?: Accept;
   dropzoneIcons?: boolean;
   dropzonePreview: boolean;
   dropzonePrompt?: string;
@@ -87,6 +89,9 @@ export function FileUpload({
   uploadVariant = ButtonVariantTypes.Contained,
   //
   dropzone = false,
+  dropzoneAccepted = {
+    '*/*': ['.*'],
+  },
   dropzoneIcons = true,
   dropzonePreview = true,
   dropzonePrompt = '',
@@ -314,11 +319,13 @@ export function FileUpload({
       {dropzone && (
         <>
           <DropZone
+            accepted={dropzoneAccepted}
             inFile={theFile}
             fileChange={handleFileChange}
             preview={dropzonePreview}
             prompt={dropzonePrompt}
           />
+
           <Grid
             p={0}
             container
@@ -327,10 +334,16 @@ export function FileUpload({
             justifyContent="space-between"
           >
             <Grid item>
-              <Stack direction="row">
-                {theFile && ClearButton()}
-                {theFile && UploadButton()}
-              </Stack>
+              <Grid
+                spacing={1}
+                container
+                direction="row"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Grid item>{theFile && ClearButton()}</Grid>
+                <Grid item>{theFile && UploadButton()}</Grid>
+              </Grid>
             </Grid>
             <Grid item>{suffix}</Grid>
           </Grid>

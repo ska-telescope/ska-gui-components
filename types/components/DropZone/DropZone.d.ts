@@ -1,10 +1,11 @@
 import React from 'react';
+import { Accept } from 'react-dropzone';
 interface DropzoneProps {
   inFile: any;
   fileChange: Function;
   preview?: boolean;
   prompt?: string;
-  fileTypes?: string;
+  accepted?: Accept;
   maxFiles?: number;
 }
 declare const Dropzone: ({
@@ -12,7 +13,7 @@ declare const Dropzone: ({
   fileChange,
   preview,
   prompt,
-  fileTypes,
+  accepted,
   maxFiles,
 }: DropzoneProps) => React.JSX.Element;
 export default Dropzone;

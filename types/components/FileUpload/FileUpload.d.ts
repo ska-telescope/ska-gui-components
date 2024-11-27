@@ -1,5 +1,6 @@
 import React from 'react';
 import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes } from '../Button/Button';
+import { Accept } from 'react-dropzone/.';
 export declare enum FileUploadStatus {
   OK = 0,
   ERROR = 1,
@@ -35,6 +36,7 @@ interface FileUploadProps {
   uploadURL?: string;
   uploadVariant?: ButtonVariantTypes;
   dropzone?: boolean;
+  dropzoneAccepted?: Accept;
   dropzoneIcons?: boolean;
   dropzonePreview: boolean;
   dropzonePrompt?: string;
@@ -69,6 +71,7 @@ export declare function FileUpload({
   uploadURL,
   uploadVariant,
   dropzone,
+  dropzoneAccepted,
   dropzoneIcons,
   dropzonePreview,
   dropzonePrompt,
