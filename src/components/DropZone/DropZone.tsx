@@ -1,7 +1,6 @@
 import React from 'react';
 import { Accept, useDropzone } from 'react-dropzone';
 import useTheme from '@mui/material/styles/useTheme';
-import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 
 const activeDropzoneStyle = {
   borderColor: '#00adb5',
@@ -20,7 +19,7 @@ interface DropzoneProps {
   fileChange: Function;
   preview?: boolean;
   prompt?: string;
-  fileTypes?: string;
+  accepted?: Accept;
   maxFiles?: number;
 }
 
@@ -29,7 +28,9 @@ const Dropzone = ({
   fileChange,
   preview = true,
   prompt = 'Drag and drop your files here, or click to select files',
-  fileTypes = '*/*',
+  accepted = {
+    '*/*': ['.*'],
+  },
   maxFiles = 1,
 }: DropzoneProps) => {
   const theme = useTheme();
@@ -71,7 +72,7 @@ const Dropzone = ({
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: fileTypes as unknown as Accept,
+    accept: accepted,
     maxFiles: maxFiles,
   });
 

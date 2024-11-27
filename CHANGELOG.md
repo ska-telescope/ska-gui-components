@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.25
+
+******
+
+FileUpload component tuning, including adding the dropzoneAccepted property
+
 2.0.24
 
 ******
