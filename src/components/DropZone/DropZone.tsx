@@ -107,7 +107,7 @@ const Dropzone = ({
     >
       <input {...getInputProps()} />
       {prompt}
-      <ul>{inFile && !fileList ? inList : fileList}</ul>
+      <ul>{inFile && (!files || files.length === 0) ? inList : fileList}</ul>
     </div>
   );
 };
