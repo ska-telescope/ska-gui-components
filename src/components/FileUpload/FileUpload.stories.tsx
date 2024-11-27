@@ -24,6 +24,7 @@ export const Light = {
     dropzone: true,
     dropzonePreview: true,
     dropzonePrompt: 'DROP HERE',
+    file: 'filename.pdf',
     uploadDisabled: false,
     uploadLabel: 'Upload',
     uploadURL: 'https://httpbin.org/post',

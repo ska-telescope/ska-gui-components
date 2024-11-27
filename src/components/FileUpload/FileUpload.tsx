@@ -89,9 +89,7 @@ export function FileUpload({
   uploadVariant = ButtonVariantTypes.Contained,
   //
   dropzone = false,
-  dropzoneAccepted = {
-    '*/*': ['.*'],
-  },
+  dropzoneAccepted,
   dropzoneIcons = true,
   dropzonePreview = true,
   dropzonePrompt = '',
@@ -117,6 +115,7 @@ export function FileUpload({
     }
   };
 
+  /*
   const handleDropdownFileChange = (e: any) => {
     if (e.target.files) {
       setTheFile(e.target.files[0]);
@@ -135,6 +134,7 @@ export function FileUpload({
     }
     e.target.value = null;
   };
+  */
 
   const handleFileChange = (e: any) => {
     const inFiles = dropzone ? e : e.target.files;
@@ -320,7 +320,7 @@ export function FileUpload({
         <>
           <DropZone
             accepted={dropzoneAccepted}
-            inFile={theFile}
+            inFile={file}
             fileChange={handleFileChange}
             preview={dropzonePreview}
             prompt={dropzonePrompt}
