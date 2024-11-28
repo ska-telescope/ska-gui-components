@@ -9,7 +9,7 @@ export interface DataGridProps {
   columns: any;
   columnHeaderHeight?: number;
   columnVisibilityModel?: any;
-  filterMode?: GridFeatureMode;
+  filterModeServer: boolean;
   getRowHeight?: Function;
   height?: number | string;
   initialState?: object;
@@ -35,7 +35,7 @@ export function StylingRowsGrid({
   columns,
   columnHeaderHeight = 56,
   columnVisibilityModel,
-  filterMode = 'client',
+  filterModeServer = false,
   getRowHeight,
   height = 400,
   initialState,
@@ -66,6 +66,14 @@ export function StylingRowsGrid({
     },
     '& .MuiTablePagination-selectLabel': {
       color: theme.palette.primary.contrastText,
+    },
+    '& .MuiDataGrid-row.Mui-selected': {
+      color: theme.palette.primary.contrastText,
+      backgroundColor: theme.palette.primary.dark,
+      '&:hover': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.dark,
+      },
     },
     '& .super-app-theme': {
       '&:hover': {
@@ -99,7 +107,7 @@ export function StylingRowsGrid({
         columnHeaderHeight={columnHeaderHeight}
         columnVisibilityModel={columnVisibilityModel}
         data-testid={testId}
-        filterMode={filterMode}
+        filterMode={filterModeServer ? 'server' : 'client'}
         getRowClassName={() => `super-app-theme`}
         getRowHeight={getTheHeight}
         initialState={initialState}

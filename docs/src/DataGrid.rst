@@ -25,10 +25,12 @@ Given the provided data, will provide a table of contents
     "checkboxSelection", "boolean", "No", "false", "Adds checkboxes as the first column"
     "columns", "number", "Yes", "", "Array containing the column specifics"
     "columnVisibilityModel", "any", "No", "", "Ability to dynamically show/hide columns"
+    "filterModeServer", "boolean", "No", "false", "Determines if te filtering mode is on the client (default) or server"
     "getRowHeight", "Function", "No", "auto", "Ability to pass in a function to calculate the row height.  Auto determined by default"
     "height", "number", "No", "264", "Determines the height that the component will use"
     "initialState", "object", "No", "", "Sets the initial state of the DataGrid"
-    "onColumnVisibilityModelChange", "any", "No", "Used to listen to the changes to the visible columns and update the prop accordingly", 
+    "onColumnVisibilityModelChange", "any", "No", "Used to listen to the changes to the visible columns and update accordingly", 
+    "onFilterModelChange", "any", "No", "Used to listen to changes to the filters and update accordingly", 
     "onRowClick", "function", "No", "", "Action if the row is clicked"
     "onCellClick", "function", "No", "", "Action if a cell is clicked"
     "onRowSelectionModelChange", "function", "No", "", "Used to obtain the selected rows from the dataGrid"

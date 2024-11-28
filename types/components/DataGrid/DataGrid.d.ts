@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { GridFeatureMode } from '@mui/x-data-grid';
 export interface DataGridProps {
   ariaDescription?: string;
   ariaTitle?: string;
@@ -7,7 +6,7 @@ export interface DataGridProps {
   columns: any;
   columnHeaderHeight?: number;
   columnVisibilityModel?: any;
-  filterMode?: GridFeatureMode;
+  filterModeServer: boolean;
   getRowHeight?: Function;
   height?: number | string;
   initialState?: object;
@@ -32,7 +31,7 @@ export declare function StylingRowsGrid({
   columns,
   columnHeaderHeight,
   columnVisibilityModel,
-  filterMode,
+  filterModeServer,
   getRowHeight,
   height,
   initialState,
