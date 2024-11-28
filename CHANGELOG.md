@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.31
+
+******
+
+filterModeServer needed to be optional
+
 2.0.30
 
 ******

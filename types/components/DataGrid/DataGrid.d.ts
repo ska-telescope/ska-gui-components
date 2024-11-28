@@ -6,7 +6,7 @@ export interface DataGridProps {
   columns: any;
   columnHeaderHeight?: number;
   columnVisibilityModel?: any;
-  filterModeServer: boolean;
+  filterModeServer?: boolean;
   getRowHeight?: Function;
   height?: number | string;
   initialState?: object;
@@ -19,6 +19,7 @@ export interface DataGridProps {
   rows: any;
   rowHeight?: number;
   rowSelectionModel?: any;
+  sx?: any;
   showBorder?: boolean;
   showMild?: boolean;
   style?: any;
@@ -45,6 +46,7 @@ export declare function StylingRowsGrid({
   rowHeight,
   rowSelectionModel,
   style,
+  sx,
   testId,
 }: DataGridProps): React.JSX.Element;
 export default StylingRowsGrid;

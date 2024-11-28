@@ -9,7 +9,7 @@ export interface DataGridProps {
   columns: any;
   columnHeaderHeight?: number;
   columnVisibilityModel?: any;
-  filterModeServer: boolean;
+  filterModeServer?: boolean;
   getRowHeight?: Function;
   height?: number | string;
   initialState?: object;
@@ -22,6 +22,7 @@ export interface DataGridProps {
   rows: any;
   rowHeight?: number;
   rowSelectionModel?: any;
+  sx?: any;
   showBorder?: boolean;
   showMild?: boolean;
   style?: any;
@@ -49,6 +50,7 @@ export function StylingRowsGrid({
   rowHeight,
   rowSelectionModel,
   style,
+  sx,
   testId = 'dataGrid-testId',
 }: DataGridProps) {
   const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
@@ -120,6 +122,7 @@ export function StylingRowsGrid({
         rowHeight={rowHeight}
         rowSelectionModel={rowSelectionModel}
         style={style}
+        sx={sx}
         {...{ rows, columns }}
       />
     </Box>
