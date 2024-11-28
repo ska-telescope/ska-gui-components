@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.30
+
+******
+
+Added further styling to the DataGrid as well as a few further options
+
 2.0.29
 
 ******
