@@ -25,7 +25,7 @@ export interface DataGridProps {
   style?: any;
   testId: string;
 }
-export declare function StylingRowsGrid({
+export declare function SKAODataGrid({
   ariaTitle,
   ariaDescription,
   checkboxSelection,
@@ -49,4 +49,4 @@ export declare function StylingRowsGrid({
   sx,
   testId,
 }: DataGridProps): React.JSX.Element;
-export default StylingRowsGrid;
+export default SKAODataGrid;

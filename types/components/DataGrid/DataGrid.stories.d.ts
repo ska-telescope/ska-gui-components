@@ -1,7 +1,7 @@
-import StylingRowsGrid from './DataGrid';
+import SKAODataGrid from './DataGrid';
 declare const _default: {
   title: string;
-  component: typeof StylingRowsGrid;
+  component: typeof SKAODataGrid;
   parameters: {
     layout: string;
   };

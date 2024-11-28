@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Box } from '@mui/material';
-import { DataGrid, GridEventListener, GridFeatureMode } from '@mui/x-data-grid';
-import { styled } from '@mui/material/styles';
+import { DataGrid, GridEventListener } from '@mui/x-data-grid';
 export interface DataGridProps {
   ariaDescription?: string;
   ariaTitle?: string;
@@ -29,7 +28,7 @@ export interface DataGridProps {
   testId: string;
 }
 
-export function StylingRowsGrid({
+export function SKAODataGrid({
   ariaTitle = 'DataGrid',
   ariaDescription = 'Information provided in a tabular form',
   checkboxSelection = false,
@@ -50,48 +49,18 @@ export function StylingRowsGrid({
   rowHeight,
   rowSelectionModel,
   style,
-  sx,
+  sx = {
+    '& .MuiDataGrid-row.Mui-selected': {
+      backgroundColor: 'primary.dark',
+      color: 'primary.contrastText',
+      '&:hover': {
+        backgroundColor: 'primary.dark',
+        color: 'primary.contrastText',
+      },
+    },
+  },
   testId = 'dataGrid-testId',
 }: DataGridProps) {
-  const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
-    border: 0,
-    WebkitFontSmoothing: 'auto',
-    letterSpacing: 'normal',
-    '& .MuiTablePagination-displayedRows': {
-      color: theme.palette.primary.contrastText,
-    },
-    '& .MuiTablePagination-select': {
-      color: theme.palette.primary.contrastText,
-    },
-    '& .MuiTablePagination-selectIcon': {
-      color: theme.palette.primary.contrastText,
-    },
-    '& .MuiTablePagination-selectLabel': {
-      color: theme.palette.primary.contrastText,
-    },
-    '& .MuiDataGrid-row.Mui-selected': {
-      color: theme.palette.primary.contrastText,
-      backgroundColor: theme.palette.primary.dark,
-      '&:hover': {
-        color: theme.palette.primary.contrastText,
-        backgroundColor: theme.palette.primary.dark,
-      },
-    },
-    '& .super-app-theme': {
-      '&:hover': {
-        color: theme.palette.primary.contrastText,
-        backgroundColor: theme.palette.primary.light,
-      },
-      '&.Mui-selected': {
-        color: theme.palette.primary.contrastText,
-        backgroundColor: theme.palette.primary.dark,
-        '&:hover': {
-          backgroundColor: theme.palette.primary.dark,
-        },
-      },
-    },
-  }));
-
   const handleRowClick: GridEventListener<'rowClick'> = (params) => {
     onRowClick ? onRowClick(params) : null;
   };
@@ -102,7 +71,7 @@ export function StylingRowsGrid({
 
   return (
     <Box sx={{ height, width: '100%' }}>
-      <StyledDataGrid
+      <DataGrid
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
         checkboxSelection={checkboxSelection}
@@ -110,7 +79,6 @@ export function StylingRowsGrid({
         columnVisibilityModel={columnVisibilityModel}
         data-testid={testId}
         filterMode={filterModeServer ? 'server' : 'client'}
-        getRowClassName={() => `super-app-theme`}
         getRowHeight={getTheHeight}
         initialState={initialState}
         loading={loading}
@@ -129,4 +97,4 @@ export function StylingRowsGrid({
   );
 }
 
-export default StylingRowsGrid;
+export default SKAODataGrid;

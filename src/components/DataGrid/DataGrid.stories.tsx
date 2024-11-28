@@ -1,5 +1,5 @@
 import React from 'react';
-import StylingRowsGrid from './DataGrid';
+import SKAODataGrid from './DataGrid';
 
 const DUMMY_COLUMNS = [
   { field: 'id', headerName: 'ID', width: 100 },
@@ -94,7 +94,7 @@ const DUMMY_ROWS = [
 
 export default {
   title: 'Example/DataGrid',
-  component: StylingRowsGrid,
+  component: SKAODataGrid,
   parameters: {
     layout: 'centered',
   },
