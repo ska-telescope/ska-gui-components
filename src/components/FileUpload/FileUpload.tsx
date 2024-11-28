@@ -31,7 +31,7 @@ interface FileUploadProps {
   //
   hideFileName?: boolean;
   maxFileWidth?: number;
-  testId?: string;
+  testId: string;
   //
   clearLabel?: string;
   clearDisabled?: boolean;
@@ -74,7 +74,7 @@ export function FileUpload({
   setFile,
   setStatus,
   status,
-  testId = 'fileUpload',
+  testId = 'fileUpload-testId',
   //
   clearDisabled = false,
   clearLabel = 'Upload',

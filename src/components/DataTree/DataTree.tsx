@@ -25,7 +25,7 @@ export function DataTree({
   data,
   height = 264,
   maxWidth = 400,
-  testId,
+  testId = 'dataTree-testId',
 }: DataTreeProps): JSX.Element {
   function MinusSquare(props: SvgIconProps) {
     return (

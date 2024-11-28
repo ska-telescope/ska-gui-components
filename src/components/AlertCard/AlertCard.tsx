@@ -127,7 +127,7 @@ export function AlertCard({
   clickFunction,
   showStatus = true,
   showStatusIcon = true,
-  testId,
+  testId = 'alertCard-testId',
   title = '',
   variant = AlertVariantTypes.Outlined,
 }: AlertCardProps) {

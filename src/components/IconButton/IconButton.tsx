@@ -15,7 +15,7 @@ export function OurIconButton({
   ariaTitle = 'IconButton',
   onClick,
   icon,
-  testId,
+  testId = 'iconButton-testId',
   toolTip,
 }: IconButtonProps) {
   const buttonClick = (e: any) => (onClick ? onClick(e) : null);

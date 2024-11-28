@@ -12,7 +12,7 @@ export enum STATE {
 export interface SearchEntryProps {
   // required
   label: string;
-  testId: string;
+  testId?: string;
   value: string | number;
   // optional
   ariaDescription?: string;
@@ -34,7 +34,7 @@ export function SearchEntry({
   label,
   onFocus,
   setValue,
-  testId,
+  testId = 'searchEntry-' + label,
   toolTip = '',
   value,
 }: SearchEntryProps): JSX.Element {

@@ -24,7 +24,7 @@ export interface NumberEntryProps {
   required?: boolean | string;
   setValue?: Function;
   suffix?: JSX.Element | string;
-  testId: string;
+  testId?: string;
   toolTip?: string;
 }
 
@@ -47,7 +47,7 @@ export function NumberEntry({
   required = false,
   setValue,
   suffix = '',
-  testId,
+  testId = 'numberEntry-' + label,
   toolTip = '',
   value,
 }: NumberEntryProps): JSX.Element {

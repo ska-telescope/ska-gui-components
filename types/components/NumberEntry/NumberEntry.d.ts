@@ -21,7 +21,7 @@ export interface NumberEntryProps {
   required?: boolean | string;
   setValue?: Function;
   suffix?: JSX.Element | string;
-  testId: string;
+  testId?: string;
   toolTip?: string;
 }
 export declare function NumberEntry({

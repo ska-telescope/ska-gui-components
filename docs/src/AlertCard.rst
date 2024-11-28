@@ -31,7 +31,7 @@ The ordering of the colors is  Error, Warning, Success & Info.
    "variant", "AlertVariantTypes", "No", "AlertVariantTypes.Outlined", "Styling option"
    "showStatus", "boolean", "No", "true", "Allows for the appropriate status icon component to be displayed"
    "showStatusIcon", "boolean", "No", "true", "Allows for the appropriate symbol on the status icon to be displayed"
-   "testId", "string", "Yes", "", "Used for testing purposes"
+   "testId", "string", "No", "alertCard-testId", "Used for testing purposes"
    "title", "string", "Yes", "", "Displayed at the top of the Card"
 
 .. csv-table:: array values

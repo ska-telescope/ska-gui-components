@@ -17,7 +17,7 @@ export interface ProgressProps {
   indicator?: ProgressIndicator;
   label?: boolean;
   size?: number;
-  testId: string;
+  testId?: string;
   value?: number;
 }
 
@@ -28,7 +28,7 @@ export function Progress({
   indicator = ProgressIndicator.Circle,
   label = false,
   size = 40,
-  testId,
+  testId = 'progress-testId',
   value = 0,
 }: ProgressProps): JSX.Element {
   const variantSize = (inValue: number) => {

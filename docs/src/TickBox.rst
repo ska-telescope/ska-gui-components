@@ -28,7 +28,7 @@ Field for entering text into the application
     "labelPosition", "LABEL_POSITION", "No", "LABEL_POSITION.START", "Allows for the positioning of the label"
     "onChange", "Function", "No", "", "Function executed when the component is clicked"
     "onFocus", "Function", "No", "", "Function executed when the component is active"
-    "testId", "string", "Yes", "", "Identifier for testing purposes"
+    "testId", "string", "No", "tickBox-{label}", "Identifier for testing purposes"
     "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
 
 .. admonition:: Constants

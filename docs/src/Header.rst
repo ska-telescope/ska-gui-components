@@ -31,7 +31,7 @@ This includes the telescopeSelector component which can be suppressed if not req
    "docs", "{ tooltip: string; url: string; }", "No", "", "Displays docs icon if a url is provided"
    "selectTelescope", "boolean", "No", "true", "Allows the selection of telescope to be suppressed"
    "showHelp", "boolean", "No", "false", "Allows the help to be displayed if there is content to be displayed"
-   "testId", "string", "Yes", "", "Identifier for testing purposes"
+   "testId", "string", "No", "header-testId", "Identifier for testing purposes"
    "title", "string", "No", "", "Title of the application, which is forced to upper case"
    "toolTip", " Object", "    No", " all values ''", " Contains toolTip text for display (See below)"
    "useSymbol", "boolean", "No", "false", "Allows for the SKAO Symbol to be used instead of the Logo"

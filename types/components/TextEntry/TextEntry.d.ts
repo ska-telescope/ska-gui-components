@@ -22,7 +22,7 @@ export interface TextEntryProps {
   rows?: number;
   setValue?: Function;
   suffix?: JSX.Element | string;
-  testId: string;
+  testId?: string;
   toolTip?: string;
 }
 export declare function TextEntry({

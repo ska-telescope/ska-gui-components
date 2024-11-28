@@ -49,7 +49,7 @@ export function StylingRowsGrid({
   rowHeight,
   rowSelectionModel,
   style,
-  testId,
+  testId = 'dataGrid-testId',
 }: DataGridProps) {
   const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     border: 0,

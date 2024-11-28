@@ -1,7 +1,14 @@
 Changelog
 ==========
 
-2.0.CS
+2.0.29
+
+******
+
+Added defaults to all testId properties and made optional
+Added children to the infoCard to allow for increased display options
+
+2.0.28
 
 ******
 

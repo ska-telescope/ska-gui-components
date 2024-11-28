@@ -17,10 +17,11 @@ export interface InfoCardProps {
   fontSize?: number;
   maxHeight?: string;
   minHeight?: string;
-  message: string;
+  message?: string;
+  children?: JSX.Element;
   showStatus?: boolean;
   showStatusIcon?: boolean;
-  testId: string;
+  testId?: string;
   variant?: InfoCardVariantTypes;
 }
 export declare function InfoCard({
@@ -32,6 +33,7 @@ export declare function InfoCard({
   maxHeight,
   minHeight,
   message,
+  children,
   showStatus,
   showStatusIcon,
   testId,

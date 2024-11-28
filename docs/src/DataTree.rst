@@ -25,7 +25,7 @@ Passing data out of a JSON.parse() will produce an expandable TreeView of the da
     "data", "number", "Yes", "''", "Symbol that is placed top-left of the Component"
     "height", "number", "No", "264", "Determines the height that the component will use"
     "maxWidth", "number", "No", "400", "Determines the width that the component will use"
-    "testId", "string", "Yes", "", "Identifier for testing purposes"
+    "testId", "string", "No", "dataTree-testId", "Identifier for testing purposes"
 
 .. admonition:: Constants
 

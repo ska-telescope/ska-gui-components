@@ -20,7 +20,7 @@ interface FileUploadProps {
   isMinimal?: boolean;
   hideFileName?: boolean;
   maxFileWidth?: number;
-  testId?: string;
+  testId: string;
   clearLabel?: string;
   clearDisabled?: boolean;
   clearToolTip?: string;

@@ -11,7 +11,7 @@ export interface FooterProps {
 
   children?: JSX.Element[];
   copyrightFunc?: Function;
-  testId: string;
+  testId?: string;
   version?: string;
   versionTooltip?: string;
 }
@@ -21,7 +21,7 @@ export function Footer({
   ariaTitle = 'SKAOFooter',
   children,
   copyrightFunc,
-  testId,
+  testId = 'footer-testId',
   version = GUI_COMPONENTS_VERSION,
   versionTooltip,
 }: FooterProps) {

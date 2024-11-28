@@ -6,7 +6,7 @@ export declare enum STATE {
 }
 export interface SearchEntryProps {
   label: string;
-  testId: string;
+  testId?: string;
   value: string | number;
   ariaDescription?: string;
   ariaTitle?: string;
