@@ -20,10 +20,11 @@ export interface InfoCardProps {
   fontSize?: number;
   maxHeight?: string;
   minHeight?: string;
-  message: string;
+  message?: string;
+  children?: JSX.Element;
   showStatus?: boolean;
   showStatusIcon?: boolean;
-  testId: string;
+  testId?: string;
   variant?: InfoCardVariantTypes;
 }
 
@@ -35,10 +36,11 @@ export function InfoCard({
   fontSize = 35,
   maxHeight = '100vh',
   minHeight = '50px',
-  message,
+  message = '',
+  children,
   showStatus = false,
   showStatusIcon = true,
-  testId,
+  testId = 'infoCard-testId',
   variant = InfoCardVariantTypes.Outlined,
 }: InfoCardProps) {
   const buttonClick = () => (clickFunction ? clickFunction : null);
@@ -101,6 +103,7 @@ export function InfoCard({
               </Typography>
             </Box>
           )}
+          {children}
         </Stack>
       </Alert>
     </Paper>

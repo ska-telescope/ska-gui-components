@@ -31,7 +31,7 @@ Panel that is colored dependant upon the property provided
     "color", "AlertColorTypes", "No", "Info", "Identifies the coloring for the alert"
     "children", "JSX.Element", "No", "", "Allows for content to be added within the alert"
     "variant", "AlertVariantTypes", "No", "Outlined", "Styling option"
-    "testId", "string", "Yes", "", "Used for testing purposes"
+    "testId", "string", "No", "alert-testId", "Used for testing purposes"
     
 .. admonition:: Constants
 

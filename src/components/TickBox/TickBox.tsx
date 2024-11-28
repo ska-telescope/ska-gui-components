@@ -17,7 +17,7 @@ export interface TickBoxProps {
   onChange?: Function;
   onFocus?: Function;
   required?: Boolean;
-  testId: string;
+  testId?: string;
   toolTip?: string;
 }
 
@@ -33,7 +33,7 @@ export function TickBox({
   onChange = undefined,
   onFocus = undefined,
   required,
-  testId,
+  testId = 'tickBox-' + label,
   toolTip = '',
 }: TickBoxProps): JSX.Element {
   const theme = useTheme();

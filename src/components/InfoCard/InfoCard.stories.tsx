@@ -1,3 +1,6 @@
+import { Typography } from '@mui/material';
+import { Box, fontSize } from '@mui/system';
+import React from 'react';
 import InfoCard, { InfoCardColorTypes, InfoCardVariantTypes } from './InfoCard';
 
 export default {
@@ -8,10 +11,17 @@ export default {
   },
 };
 
+const element = () => (
+  <Box component="div">
+    <Typography>THIS IS A CHILD</Typography>
+  </Box>
+);
+
 export const Default = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    children: element(),
     message: 'infoCard.message',
     variant: InfoCardVariantTypes.Outlined,
     color: InfoCardColorTypes.Info,

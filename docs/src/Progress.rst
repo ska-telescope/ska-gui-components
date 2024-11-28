@@ -27,7 +27,7 @@ Often used in conjunction with the Backdrop component
    "indicator", "string", "No", "circle", "ProgressIndicator ( see below ) "
    "label", "boolean", "No", "false", "if true, then the value is also displayed"
    "size", "number", "No", "40", "Allows for the changing of the Progress size"
-   "testId", "string", "Yes", "", "Used for testing purposes"
+   "testId", "string", "No", "progress-testId", "Used for testing purposes"
    "value", "number", "No", 0, "Can be used to determine display characteristics"
 
     

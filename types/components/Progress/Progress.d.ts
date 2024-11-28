@@ -10,7 +10,7 @@ export interface ProgressProps {
   indicator?: ProgressIndicator;
   label?: boolean;
   size?: number;
-  testId: string;
+  testId?: string;
   value?: number;
 }
 export declare function Progress({

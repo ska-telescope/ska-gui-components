@@ -77,7 +77,7 @@ export function OurButton({
   label,
   onClick,
   size = ButtonSizeTypes.Medium,
-  testId = '',
+  testId = 'buttton-' + label,
   toolTip = '',
   variant = ButtonVariantTypes.Outlined,
 }: ButtonProps): JSX.Element {

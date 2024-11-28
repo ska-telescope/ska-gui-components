@@ -30,7 +30,7 @@ This is so that additional information like API version can be also provided if 
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
 
-    "testId", "string", "Yes", "", "Identifier for testing purposes"
+    "testId", "string", "No", "footer-testId", "Identifier for testing purposes"
     "version", "string", "No", "Version of the GUI Components", ""
     "versionTooltip", "string", "No", "Optional tooltip when hovering over the version", ""
 

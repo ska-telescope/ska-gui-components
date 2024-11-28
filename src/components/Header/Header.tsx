@@ -36,7 +36,7 @@ export interface HeaderProps {
   selectTelescope?: boolean;
   showHelp?: boolean;
   storage: Storage;
-  testId: string;
+  testId?: string;
   title?: string;
   toolTip?: { skao: string; mode: string };
   useSymbol?: Boolean;
@@ -50,7 +50,7 @@ export function Header({
   selectTelescope = true,
   storage,
   showHelp = false,
-  testId,
+  testId = 'header-testId',
   title = '',
   toolTip = { skao: 'SKAO', mode: '' },
   useSymbol = false,

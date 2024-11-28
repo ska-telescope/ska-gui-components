@@ -39,7 +39,7 @@ Field for entering numbers into the application. Provides a spinner
     "required", "boolean | string", "No", "false", "Asterisk is added to the label if true, if string also populates the error"
     "setValue", "function", "No", "null", "Used to update the value onChange"
     "suffix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon after the number"
-    "testId", "string", "Yes", "Identifier for testing purposes"
+    "testId", "string", "No", "numberEntry-{label}", "Identifier for testing purposes"
     "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
     "value", "string", "Yes", "", "Value that is displayed within the component"
 

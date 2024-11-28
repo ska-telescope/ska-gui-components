@@ -36,7 +36,7 @@ Given the provided data, will provide a table of contents
     "rowSelectionModel", "array", "No", "", "Used to populate the dataGrid with selected rows"
     "showBorder", "boolean", "No", "", "When active, the border for the component is displayed"
     "showMild", "boolean", "No", "", "When active, the selected colouring is restricted to a lower contrast"
-    "testId", "string", "Yes", "", "Identifier for testing purposes"
+    "testId", "string", "No", "dataGrid-testId", "Identifier for testing purposes"
     
 
 .. csv-table:: Columns

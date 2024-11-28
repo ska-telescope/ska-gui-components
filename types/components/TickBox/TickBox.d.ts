@@ -11,7 +11,7 @@ export interface TickBoxProps {
   onChange?: Function;
   onFocus?: Function;
   required?: Boolean;
-  testId: string;
+  testId?: string;
   toolTip?: string;
 }
 export declare function TickBox({

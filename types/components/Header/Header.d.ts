@@ -17,7 +17,7 @@ export interface HeaderProps {
   selectTelescope?: boolean;
   showHelp?: boolean;
   storage: Storage;
-  testId: string;
+  testId?: string;
   title?: string;
   toolTip?: {
     skao: string;

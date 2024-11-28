@@ -6,7 +6,7 @@ import { InputLabel, Typography } from '@mui/material';
 export interface DropDownProps {
   // required
   options: { label: string; value: string | number }[];
-  testId: string;
+  testId?: string;
   value: string | number;
   // optional
   ariaDescription?: string;
@@ -44,7 +44,7 @@ export function DropDown({
   options,
   required = false,
   setValue,
-  testId,
+  testId = 'dropDown-testId',
   toolTip = '',
   value,
 }: DropDownProps): JSX.Element {

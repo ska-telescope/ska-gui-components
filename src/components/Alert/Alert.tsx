@@ -28,7 +28,7 @@ export function SKAOAlert({
   children,
   color = AlertColorTypes.Success,
   variant = AlertVariantTypes.Outlined,
-  testId,
+  testId = 'alert-testId',
 }: AlertProps) {
   return (
     <Box m={1}>

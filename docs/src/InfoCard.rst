@@ -3,7 +3,8 @@ InfoCard
 
 *Overview*
 
-Component providing standard delivery of information/errors/warnings
+Component providing standard delivery of information/errors/warnings. 
+It also has the ability to display children which will occur under any provided message text
 
 .. figure:: /images/infoCard.png
    :width: 90%
@@ -15,7 +16,9 @@ Component providing standard delivery of information/errors/warnings
 
    ...
 
-   <InfoCard color={InfoCardColorTypes.Info} message="infoCard.message" testId="testId" />
+   <InfoCard color={InfoCardColorTypes.Info} message="infoCard.message" testId="testId" >
+      {children}
+   </InfoCard>
 
 .. csv-table:: Properties
    :header: "Property", "Type", "Required", "default", ""
@@ -26,10 +29,10 @@ Component providing standard delivery of information/errors/warnings
    "color", "AlertColorTypes", "No", "Info", "Identifies the coloring for the alert"
    "fontSize", "number", "No", "35", "Determines the size of the displayed text/symbol"
    "maxHeight", "string", "No", "", "Allows for a maximum height of the card to be provided"
-   "message", "string", "Yes", "", "Title that is used for the element"
+   "message", "string", "No", "", "Title that is used for the element"
    "showStatus", "boolean", "No", "false", "When true also shows appropriate status component"
    "showStatusIcon", "boolean", "No", "true", "Displays symbol within the status when shown"
-   "testId", "string", "Yes", "", "Identifier for testing purposes"
+   "testId", "string", "No", "infoCard-testId", "Identifier for testing purposes"
    "variant", "AlertVariantTypes", "No", "Outlined", "Styling option"
 
 .. admonition:: Constants

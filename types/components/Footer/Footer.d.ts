@@ -4,7 +4,7 @@ export interface FooterProps {
   ariaTitle?: string;
   children?: JSX.Element[];
   copyrightFunc?: Function;
-  testId: string;
+  testId?: string;
   version?: string;
   versionTooltip?: string;
 }

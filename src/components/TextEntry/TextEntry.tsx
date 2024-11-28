@@ -25,7 +25,7 @@ export interface TextEntryProps {
   rows?: number;
   setValue?: Function;
   suffix?: JSX.Element | string;
-  testId: string;
+  testId?: string;
   toolTip?: string;
 }
 
@@ -50,7 +50,7 @@ export function TextEntry({
   rows = 1,
   setValue,
   suffix = '',
-  testId,
+  testId = 'textEntry-' + label,
   toolTip = '',
   value,
 }: TextEntryProps): JSX.Element {

@@ -36,7 +36,7 @@ Field for selecting an option from a possible list
     "options", "*", "Yes", "", "Options to be displayed for selection.  See below"
     "required", "boolean", "No", "false", "Asterisk is added to the label if true"
     "setValue", "function", "No", "null", "Used to update the value onChange"
-    "testId", "string", "Yes", "", "Identifier for testing purposes"
+    "testId", "string", "No", "dropDown-testId", "Identifier for testing purposes"
     "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
     "value", "string", "Yes", "", "Value that is displayed within the component"
 
