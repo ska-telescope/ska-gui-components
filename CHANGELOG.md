@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.32
+
+******
+
+Replaced DataGrid with one that has the ability to override the styling
+
 2.0.31
 
 ******

@@ -1,7 +1,7 @@
 import React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
-import StylingRowsGrid from './DataGrid';
+import SKAODataGrid from './DataGrid';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
 
@@ -36,7 +36,7 @@ describe('<SKAODataGrid />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <StylingRowsGrid columns={DUMMY_COLUMNS} rows={DUMMY_ROWS} testId="testId" />
+          <SKAODataGrid columns={DUMMY_COLUMNS} rows={DUMMY_ROWS} testId="testId" />
         </ThemeProvider>,
       );
     });
@@ -44,7 +44,7 @@ describe('<SKAODataGrid />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <StylingRowsGrid columns={DUMMY_COLUMNS} showMild rows={DUMMY_ROWS} testId="testId" />
+          <SKAODataGrid columns={DUMMY_COLUMNS} showMild rows={DUMMY_ROWS} testId="testId" />
         </ThemeProvider>,
       );
     });
@@ -52,7 +52,7 @@ describe('<SKAODataGrid />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <StylingRowsGrid
+          <SKAODataGrid
             columns={DUMMY_COLUMNS}
             showBorder={false}
             rows={DUMMY_ROWS}
@@ -65,7 +65,7 @@ describe('<SKAODataGrid />', () => {
       cy.mount(
         <ThemeProvider theme={theme(theTheme)}>
           <CssBaseline />
-          <StylingRowsGrid
+          <SKAODataGrid
             columns={DUMMY_COLUMNS}
             showBorder={false}
             showMild

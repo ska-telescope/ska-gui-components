@@ -11,7 +11,7 @@ export {
 } from './components/Button/Button';
 export { ButtonToggle } from './components/ButtonToggle/ButtonToggle';
 export { CopyrightModal } from './components/CopyrightModal/CopyrightModal';
-export { StylingRowsGrid as DataGrid } from './components/DataGrid/DataGrid';
+export { SKAODataGrid as DataGrid } from './components/DataGrid/DataGrid';
 export { DataTree } from './components/DataTree/DataTree';
 export { DateEntry } from './components/DateEntry/DateEntry';
 export { DropDown } from './components/DropDown/DropDown';
