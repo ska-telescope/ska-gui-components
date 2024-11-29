@@ -24,6 +24,8 @@ export declare enum ButtonIcons {
   Email = 'email',
   Home = 'home',
   Location = 'location',
+  Login = 'login',
+  Logout = 'logout',
   Next = 'next',
   PDF = 'pdf',
   Previous = 'previous',
