@@ -5,8 +5,7 @@ Changelog
 
 ******
 
-Added standard icons and buttons for Login & logout
-Added AuthProvider
+Added standard icons for Login & logout
 
 2.0.32
 
