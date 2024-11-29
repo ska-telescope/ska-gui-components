@@ -11,14 +11,14 @@ import { LogLevel } from '@azure/msal-browser';
 
 const AuthProvider = ({
   MSENTRA_CLIENT_ID,
-  MSENTRA_TENANT_ID,
+  MSENTRA_AUTHORITY,
   MSENTRA_REDIRECT_URI,
   children,
 }): React.JSX.Element => {
   const msalConfig = {
     auth: {
       clientId: `${MSENTRA_CLIENT_ID}`,
-      authority: `https://login.microsoftonline.com/${MSENTRA_TENANT_ID}`,
+      authority: `${MSENTRA_AUTHORITY}`,
       redirectUri: `${MSENTRA_REDIRECT_URI}`,
     },
     cache: {
