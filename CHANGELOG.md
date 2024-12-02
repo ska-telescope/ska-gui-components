@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.1.02
+
+******
+
+Added exports for AuthProvider, ButtonLogin & ButtonLogout
+
 2.1.01
 
 ******

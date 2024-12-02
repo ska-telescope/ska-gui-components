@@ -4,11 +4,10 @@ export interface ButtonLogoutProps {
   color?: ButtonColorTypes;
   component?: string;
   disabled?: boolean;
-  icon?: JSX.Element | string;
   label: string;
   onError?: Function;
   size?: ButtonSizeTypes;
-  testId: string;
+  testId?: string;
   toolTip?: string;
   variant?: ButtonVariantTypes;
 }
@@ -17,7 +16,6 @@ export declare function ButtonLogout({
   color,
   component,
   disabled,
-  icon,
   label,
   size,
   testId,
