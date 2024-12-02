@@ -12,7 +12,7 @@ Added AuthProvider
 
 ******
 
-Added standard icons  for Login & logout
+Added standard icons for Login & logout
 
 2.0.32
 
