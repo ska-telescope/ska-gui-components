@@ -9,8 +9,6 @@ export {
   ButtonVariantTypes,
   OurButton as Button,
 } from './components/Button/Button';
-export { ButtonLogin } from './components/ButtonLogin/ButtonLogin';
-export { ButtonLogout } from './components/ButtonLogout/ButtonLogout';
 export { ButtonToggle } from './components/ButtonToggle/ButtonToggle';
 export { CopyrightModal } from './components/CopyrightModal/CopyrightModal';
 export { SKAODataGrid as DataGrid } from './components/DataGrid/DataGrid';

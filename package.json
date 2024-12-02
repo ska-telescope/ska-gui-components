@@ -69,8 +69,6 @@
     "babel-traverse": "^6.26.0"
   },
   "dependencies": {
-    "@azure/msal-browser": "^3.27.0",
-    "@azure/msal-react": "^2.2.0",
     "@mui/icons-material": "^6.1.8",
     "@mui/material": "^6.1.8",
     "@mui/system": "^6.1.8",
