@@ -1,12 +1,18 @@
 Changelog
 ==========
 
-2.1.00
+2.1.01
 
 ******
 
 Added standard buttons for Login & logout
 Added AuthProvider
+
+2.1.00
+
+******
+
+Added links for msal
 
 2.0.33
 
