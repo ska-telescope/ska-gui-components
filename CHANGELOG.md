@@ -1,12 +1,18 @@
 Changelog
 ==========
 
+2.1.00
+
+******
+
+Added standard buttons for Login & logout
+Added AuthProvider
+
 2.0.33
 
 ******
 
-Added standard icons and buttons for Login & logout
-Added AuthProvider
+Added standard icons  for Login & logout
 
 2.0.32
 
