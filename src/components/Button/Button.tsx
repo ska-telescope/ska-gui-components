@@ -9,6 +9,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import DownloadIcon from '@mui/icons-material/DownloadRounded';
 import HomeIcon from '@mui/icons-material/Home';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
@@ -46,6 +48,8 @@ export enum ButtonIcons {
   Email = 'email',
   Home = 'home',
   Location = 'location',
+  Login = 'login',
+  Logout = 'logout',
   Next = 'next',
   PDF = 'pdf',
   Previous = 'previous',
@@ -99,6 +103,10 @@ export function OurButton({
         return <EmailIcon />;
       case ButtonIcons.Home:
         return <HomeIcon />;
+      case ButtonIcons.Login:
+        return <LoginIcon />;
+      case ButtonIcons.Logout:
+        return <LogoutIcon />;
       case ButtonIcons.Location:
         return <MyLocationIcon />;
       case ButtonIcons.Next:

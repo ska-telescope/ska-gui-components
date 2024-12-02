@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.0.33
+
+******
+
+Added standard icons for Login & logout
+
 2.0.32
 
 ******

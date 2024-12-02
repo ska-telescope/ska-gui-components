@@ -336,6 +336,7 @@ export function FileUpload({
             <Grid item>
               <Grid
                 spacing={1}
+                pt={1}
                 container
                 direction="row"
                 alignItems="center"
