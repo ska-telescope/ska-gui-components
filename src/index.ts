@@ -1,6 +1,7 @@
 export { AlertColorTypes, AlertVariantTypes, SKAOAlert as Alert } from './components/Alert/Alert';
 export { AlertCard } from './components/AlertCard/AlertCard';
 export { ALERT_DATA } from './components/AlertCard/AlertData';
+export { AuthProvider } from './components/AuthProvider/AuthProvider';
 export { SKAOBackdrop as BackDrop } from './components/Backdrop/Backdrop';
 export {
   ButtonColorTypes,
@@ -9,6 +10,8 @@ export {
   ButtonVariantTypes,
   OurButton as Button,
 } from './components/Button/Button';
+export { ButtonLogin } from './components/ButtonLogin/ButtonLogin';
+export { ButtonLogout } from './components/ButtonLogout/ButtonLogout';
 export { ButtonToggle } from './components/ButtonToggle/ButtonToggle';
 export { CopyrightModal } from './components/CopyrightModal/CopyrightModal';
 export { SKAODataGrid as DataGrid } from './components/DataGrid/DataGrid';

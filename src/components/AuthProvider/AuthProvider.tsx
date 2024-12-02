@@ -3,12 +3,19 @@ import { PublicClientApplication } from '@azure/msal-browser';
 import { MsalProvider } from '@azure/msal-react';
 import { LogLevel } from '@azure/msal-browser';
 
-const AuthProvider = ({
+export interface AuthProviderProps {
+  MSENTRA_CLIENT_ID: string;
+  MSENTRA_AUTHORITY: string;
+  MSENTRA_REDIRECT_URI: string;
+  children?: React.ReactElement;
+}
+
+export const AuthProvider = ({
   MSENTRA_CLIENT_ID,
   MSENTRA_AUTHORITY,
   MSENTRA_REDIRECT_URI,
   children,
-}): React.JSX.Element => {
+}: AuthProviderProps): React.JSX.Element => {
   /**
    * Configuration object to be passed to MSAL instance on creation.
    * For a full list of MSAL.js configuration parameters, visit:
@@ -53,5 +60,3 @@ const AuthProvider = ({
 
   return <MsalProvider instance={msalInstance}>{children}</MsalProvider>;
 };
-
-export default AuthProvider;
