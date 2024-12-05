@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.1.04
+
+******
+
+Added dispatch of a storageEvent to the Header
+
 2.1.03
 
 ******
