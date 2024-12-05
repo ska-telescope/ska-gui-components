@@ -62,17 +62,27 @@ export function Header({
   useSymbol = false,
   children,
 }: HeaderProps): JSX.Element {
+  function updateLocalStorage(key: string, newValue: string) {
+    const oldValue = localStorage.getItem(key);
+    localStorage.setItem(key, newValue);
+    const storageEvent = new StorageEvent('storage', {
+      key: key,
+      oldValue: oldValue,
+      newValue: newValue,
+      url: window.location.href,
+      storageArea: localStorage,
+    });
+    window.dispatchEvent(storageEvent);
+  }
+
   const setThemeMode = () =>
-    localStorage.setItem(
-      'skao_theme_mode',
-      getThemeMode() === THEME_DARK ? THEME_LIGHT : THEME_DARK,
-    );
+    updateLocalStorage('skao_theme_mode', getThemeMode() === THEME_DARK ? THEME_LIGHT : THEME_DARK);
   const getThemeMode = () =>
     useBrowserStorage ? localStorage.getItem('skao_theme_mode') : storage.themeMode;
   const themeToggle = () => (useBrowserStorage ? setThemeMode() : storage.toggleTheme());
 
   const setHelpMode = () =>
-    localStorage.setItem(
+    updateLocalStorage(
       'skao_show_help',
       localStorage.getItem('skao_show_help') === 'true' ? 'false' : 'true',
     );
@@ -89,7 +99,7 @@ export function Header({
   const setTelescopeStorage = () =>
     storage.updateTelescope ? storage.updateTelescope(event) : null;
   const setTelescopeBrowser = () =>
-    localStorage.setItem(
+    updateLocalStorage(
       'skao_telescope',
       JSON.stringify(getTelescope() === TELESCOPE_LOW ? TELESCOPE_MID : TELESCOPE_LOW),
     );
@@ -98,7 +108,7 @@ export function Header({
   const getTelescopeBrowser = () => {
     const obj = localStorage.getItem('skao_telescope');
     if (!obj) {
-      localStorage.setItem('skao_telescope', JSON.stringify(TELESCOPE_LOW));
+      updateLocalStorage('skao_telescope', JSON.stringify(TELESCOPE_LOW));
       return TELESCOPE_LOW;
     }
     return JSON.parse(obj);
