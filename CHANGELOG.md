@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+2.1.03
+
+******
+
+Updated so that all vomponents use the SKA IconButton
+Added useBrowserStorage to the Header
+
 2.1.02
 
 ******

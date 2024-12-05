@@ -1,12 +1,14 @@
 export type Help = {
-  content: Object;
-  component: Object;
-  showHelp: Boolean;
+    content: Object;
+    component: Object;
+    showHelp: Boolean;
 };
 export interface HelpModalProps {
-  component?: boolean;
-  help: Help;
-  helpToggle: Function;
+    ariaDescription?: string;
+    component?: boolean;
+    help: Help;
+    helpToggle: Function;
+    toolTip?: string;
 }
-export declare function HelpModal({ component, help, helpToggle }: HelpModalProps): JSX.Element;
+export declare function HelpModal({ ariaDescription, component, help, helpToggle, toolTip }: HelpModalProps): JSX.Element;
 export default HelpModal;
