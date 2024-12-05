@@ -35,7 +35,7 @@ describe('<Header />', () => {
           </Header>
         </ThemeProvider>,
       );
-      cy.get('[id="skaWebsite"]').click();
+      cy.get('[data-testId="skaWebsite"]').click();
     });
   }
 });

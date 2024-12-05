@@ -137,6 +137,7 @@ export function Header({
                   <Logo dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
                 )
               }
+              testId={'skaWebsite'}
               toolTip={toolTip?.skao}
             ></OurIconButton>
             {title && (
