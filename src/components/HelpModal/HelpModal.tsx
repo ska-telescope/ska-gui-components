@@ -16,7 +16,13 @@ export interface HelpModalProps {
   toolTip?: string;
 }
 
-export function HelpModal({ ariaDescription = "Help Modal", component = false, help, helpToggle, toolTip = "Help close button" }: HelpModalProps): JSX.Element {
+export function HelpModal({
+  ariaDescription = 'Help Modal',
+  component = false,
+  help,
+  helpToggle,
+  toolTip = 'Help close button',
+}: HelpModalProps): JSX.Element {
   function closeModal() {
     helpToggle();
   }

@@ -11,7 +11,13 @@ export interface CopyrightModalProps {
   toolTip?: string;
 }
 
-export function CopyrightModal({ ariaDescription = "Copyright Modal", copyrightFunc, show, title = "Copyright SKA Observatory", toolTip = "Copyright close button" }: CopyrightModalProps): JSX.Element {
+export function CopyrightModal({
+  ariaDescription = 'Copyright Modal',
+  copyrightFunc,
+  show,
+  title = 'Copyright SKA Observatory',
+  toolTip = 'Copyright close button',
+}: CopyrightModalProps): JSX.Element {
   const copyright = [
     'Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:',
     '1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.',
