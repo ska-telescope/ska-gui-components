@@ -23,6 +23,7 @@ export interface HeaderProps {
     skao: string;
     mode: string;
   };
+  useBrowserStorage?: boolean;
   useSymbol?: Boolean;
   children?: JSX.Element[];
 }
@@ -36,6 +37,7 @@ export declare function Header({
   testId,
   title,
   toolTip,
+  useBrowserStorage,
   useSymbol,
   children,
 }: HeaderProps): JSX.Element;

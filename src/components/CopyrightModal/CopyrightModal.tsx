@@ -1,13 +1,23 @@
 import React from 'react';
-import { Box, Card, CardContent, CardHeader, IconButton, Modal, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardHeader, Modal, Typography } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { OurIconButton } from '../IconButton/IconButton';
 
 export interface CopyrightModalProps {
-  show: boolean;
+  ariaDescription?: string;
   copyrightFunc: Function;
+  show: boolean;
+  title?: string;
+  toolTip?: string;
 }
 
-export function CopyrightModal({ show, copyrightFunc }: CopyrightModalProps): JSX.Element {
+export function CopyrightModal({
+  ariaDescription = 'Copyright Modal',
+  copyrightFunc,
+  show,
+  title = 'Copyright SKA Observatory',
+  toolTip = 'Copyright close button',
+}: CopyrightModalProps): JSX.Element {
   const copyright = [
     'Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:',
     '1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.',
@@ -26,16 +36,15 @@ export function CopyrightModal({ show, copyrightFunc }: CopyrightModalProps): JS
         <Card variant="outlined" sx={{ height: '90vh', width: '90vw' }}>
           <CardHeader
             action={
-              <IconButton
-                sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+              <OurIconButton
+                ariaDescription={ariaDescription}
+                icon={<HighlightOffIcon />}
                 onClick={() => closeModal()}
-                color="inherit"
-                data-testid="closeModalBtn"
-              >
-                <HighlightOffIcon />
-              </IconButton>
+                testId={'closeModalBtn'}
+                toolTip={toolTip}
+              />
             }
-            title={<Typography variant="h6">Copyright SKA Observatory</Typography>}
+            title={<Typography variant="h6">{title}</Typography>}
           />
           <CardContent>
             {copyright.map((item: string) => (

@@ -31,6 +31,7 @@ export const Default = {
     title: 'ska-gui-components',
     toolTip: { skao: 'SKAO WebSite', mode: ' Light / Dark Mode' },
     useSymbol: false,
+    useBrowserStorage: false,
     children: ['HERE ', 'ARE ', 'SOME ', 'CHILDREN'],
   },
 };
