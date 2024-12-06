@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+2.1.05
+
+******
+
+Extension to the InfoCard
+Updatedjavascript and storage libraries to remove the need for babel
+
 2.1.04
 
 ******

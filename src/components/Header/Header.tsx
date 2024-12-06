@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { AppBar, Box, Grid, Typography } from '@mui/material';
 import {
   Help,
@@ -44,7 +44,7 @@ export interface HeaderProps {
   title?: string;
   toolTip?: { skao: string; mode: string };
   useBrowserStorage?: boolean;
-  useSymbol?: Boolean;
+  useSymbol?: boolean;
   children?: JSX.Element[];
 }
 
@@ -75,14 +75,30 @@ export function Header({
     window.dispatchEvent(storageEvent);
   }
 
+  function updateSessionStorage(key: string, newValue: string) {
+    const oldValue = sessionStorage.getItem(key);
+    localStorage.setItem(key, newValue);
+    const storageEvent = new StorageEvent('storage', {
+      key: key,
+      oldValue: oldValue,
+      newValue: newValue,
+      url: window.location.href,
+      storageArea: sessionStorage,
+    });
+    window.dispatchEvent(storageEvent);
+  }
+
   const setThemeMode = () =>
-    updateLocalStorage('skao_theme_mode', getThemeMode() === THEME_DARK ? THEME_LIGHT : THEME_DARK);
+    updateSessionStorage(
+      'skao_theme_mode',
+      getThemeMode() === THEME_DARK ? THEME_LIGHT : THEME_DARK,
+    );
   const getThemeMode = () =>
     useBrowserStorage ? localStorage.getItem('skao_theme_mode') : storage.themeMode;
   const themeToggle = () => (useBrowserStorage ? setThemeMode() : storage.toggleTheme());
 
   const setHelpMode = () =>
-    updateLocalStorage(
+    updateSessionStorage(
       'skao_show_help',
       localStorage.getItem('skao_show_help') === 'true' ? 'false' : 'true',
     );

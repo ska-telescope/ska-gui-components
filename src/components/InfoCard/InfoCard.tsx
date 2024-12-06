@@ -103,7 +103,32 @@ export function InfoCard({
               </Typography>
             </Box>
           )}
-          {children}
+          {children && (
+            <Box
+              component="div"
+              sx={{
+                overflow: 'auto',
+                minHeight: { minHeight },
+                maxHeight: { maxHeight },
+                whiteSpace: 'normal',
+              }}
+            >
+              {children}
+            </Box>
+          )}
+          {!showStatus && !children && (!message || message.length === 0) && (
+            <Box
+              component="div"
+              sx={{
+                overflow: 'auto',
+                minHeight: { minHeight },
+                maxHeight: { maxHeight },
+                whiteSpace: 'normal',
+              }}
+            >
+              "THERE IS NOTHING TO SEE HERE !"
+            </Box>
+          )}
         </Stack>
       </Alert>
     </Paper>
