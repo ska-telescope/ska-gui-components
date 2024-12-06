@@ -24,7 +24,7 @@ export interface HeaderProps {
     mode: string;
   };
   useBrowserStorage?: boolean;
-  useSymbol?: Boolean;
+  useSymbol?: boolean;
   children?: JSX.Element[];
 }
 export declare function Header({
