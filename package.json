@@ -1,15 +1,15 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "2.1.05",
+  "version": "2.1.06",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index",
+  "module": "dist/index.js",
   "exports": {
-    "require": "./dist/cjs/index.js",
-    "import": "./dist/esm/index.js"
+    "require": "./dist/index.js",
+    "import": "./dist/index.js"
   },
-  "types": "dist/index.d.ts",
+  "types": "dist/index",
   "type": "module",
   "files": [
     "dist"
