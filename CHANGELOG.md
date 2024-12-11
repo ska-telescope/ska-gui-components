@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+2.1.06
+
+******
+
+Altering so that types are supported for TS applications ( Vite in this case )
+Removed the need for the header to ask display the telescope selector
+
 2.1.05
 
 ******

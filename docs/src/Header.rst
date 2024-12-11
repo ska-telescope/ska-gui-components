@@ -29,7 +29,6 @@ This includes the telescopeSelector component which can be suppressed if not req
    "ariaDescription", "string", "No", "", "Used by Screen Readers"
    "ariaTitle", "string", "No", "AlertCard", "Used by Screen Readers"
    "docs", "{ tooltip: string; url: string; }", "No", "", "Displays docs icon if a url is provided"
-   "selectTelescope", "boolean", "No", "true", "Allows the selection of telescope to be suppressed"
    "showHelp", "boolean", "No", "false", "Allows the help to be displayed if there is content to be displayed"
    "testId", "string", "No", "header-testId", "Identifier for testing purposes"
    "title", "string", "No", "", "Title of the application, which is forced to upper case"

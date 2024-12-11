@@ -14,7 +14,6 @@ export interface HeaderProps {
     tooltip: string;
     url: string;
   };
-  selectTelescope?: boolean;
   showHelp?: boolean;
   storage: Storage;
   testId?: string;
@@ -23,21 +22,18 @@ export interface HeaderProps {
     skao: string;
     mode: string;
   };
-  useBrowserStorage?: boolean;
-  useSymbol?: boolean;
+  useSymbol?: Boolean;
   children?: JSX.Element[];
 }
 export declare function Header({
   ariaDescription,
   ariaTitle,
   docs,
-  selectTelescope,
   storage,
   showHelp,
   testId,
   title,
   toolTip,
-  useBrowserStorage,
   useSymbol,
   children,
 }: HeaderProps): JSX.Element;

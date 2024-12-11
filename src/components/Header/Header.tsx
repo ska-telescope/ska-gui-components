@@ -1,16 +1,12 @@
-import React, { ReactNode } from 'react';
-import { AppBar, Box, Grid, Typography } from '@mui/material';
+import React, { MouseEventHandler, ReactNode } from 'react';
+import { AppBar, Box, Grid, IconButton, Tooltip, Typography } from '@mui/material';
 import {
   Help,
   Logo,
   Symbol,
   Telescope,
-  TELESCOPE_LOW,
-  TELESCOPE_MID,
   THEME_DARK,
-  THEME_LIGHT,
 } from '@ska-telescope/ska-javascript-components';
-import { OurIconButton } from '../IconButton/IconButton';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -37,14 +33,12 @@ export interface HeaderProps {
   ariaDescription?: string;
   ariaTitle?: string;
   docs?: { tooltip: string; url: string };
-  selectTelescope?: boolean;
   showHelp?: boolean;
   storage: Storage;
   testId?: string;
   title?: string;
   toolTip?: { skao: string; mode: string };
-  useBrowserStorage?: boolean;
-  useSymbol?: boolean;
+  useSymbol?: Boolean;
   children?: JSX.Element[];
 }
 
@@ -52,90 +46,24 @@ export function Header({
   ariaDescription = 'Sticky Panel at the top of the page',
   ariaTitle = 'SKAOHeader',
   docs = { tooltip: '', url: '' },
-  selectTelescope = true,
   storage,
   showHelp = false,
   testId = 'header-testId',
   title = '',
   toolTip = { skao: 'SKAO', mode: '' },
-  useBrowserStorage = false,
   useSymbol = false,
   children,
 }: HeaderProps): JSX.Element {
-  function updateLocalStorage(key: string, newValue: string) {
-    const oldValue = localStorage.getItem(key);
-    localStorage.setItem(key, newValue);
-    const storageEvent = new StorageEvent('storage', {
-      key: key,
-      oldValue: oldValue,
-      newValue: newValue,
-      url: window.location.href,
-      storageArea: localStorage,
-    });
-    window.dispatchEvent(storageEvent);
-  }
-
-  function updateSessionStorage(key: string, newValue: string) {
-    const oldValue = sessionStorage.getItem(key);
-    localStorage.setItem(key, newValue);
-    const storageEvent = new StorageEvent('storage', {
-      key: key,
-      oldValue: oldValue,
-      newValue: newValue,
-      url: window.location.href,
-      storageArea: sessionStorage,
-    });
-    window.dispatchEvent(storageEvent);
-  }
-
-  const setThemeMode = () =>
-    updateSessionStorage(
-      'skao_theme_mode',
-      getThemeMode() === THEME_DARK ? THEME_LIGHT : THEME_DARK,
-    );
-  const getThemeMode = () =>
-    useBrowserStorage ? localStorage.getItem('skao_theme_mode') : storage.themeMode;
-  const themeToggle = () => (useBrowserStorage ? setThemeMode() : storage.toggleTheme());
-
-  const setHelpMode = () =>
-    updateSessionStorage(
-      'skao_show_help',
-      localStorage.getItem('skao_show_help') === 'true' ? 'false' : 'true',
-    );
-  const helpToggle = () =>
-    useBrowserStorage ? setHelpMode() : storage.helpToggle ? storage.helpToggle() : null;
-
-  const getHelpStorage = () =>
-    storage.help && storage.help.hasOwnProperty('content') && storage.help.content
-      ? storage.help.content
-      : null;
-  const getHelpBrowser = () => sessionStorage.getItem('skao_help_content');
-  const getHelp = () => (showHelp && useBrowserStorage ? getHelpBrowser() : getHelpStorage());
-
-  const setTelescopeStorage = () =>
-    storage.updateTelescope ? storage.updateTelescope(event) : null;
-  const setTelescopeBrowser = () =>
-    updateLocalStorage(
-      'skao_telescope',
-      JSON.stringify(getTelescope() === TELESCOPE_LOW ? TELESCOPE_MID : TELESCOPE_LOW),
-    );
-  const setTelescope = () => (useBrowserStorage ? setTelescopeBrowser() : setTelescopeStorage());
-  const getTelescopeStorage = () => storage.telescope;
-  const getTelescopeBrowser = () => {
-    const obj = localStorage.getItem('skao_telescope');
-    if (!obj) {
-      updateLocalStorage('skao_telescope', JSON.stringify(TELESCOPE_LOW));
-      return TELESCOPE_LOW;
-    }
-    return JSON.parse(obj);
-  };
-  const getTelescope = () => (useBrowserStorage ? getTelescopeBrowser() : getTelescopeStorage());
-
-  const isDarkTheme = getThemeMode() === THEME_DARK;
+  const isDarkTheme = storage.themeMode === THEME_DARK;
   const flatten = false; // TODO : Need to implement user preferences
 
-  const updateTel = () => {
-    () => setTelescope();
+  const hasHelp = () => {
+    return (
+      showHelp && storage.help && storage.help.hasOwnProperty('content') && storage.help.content
+    );
+  };
+  const updateTel = (event: React.MouseEvent<HTMLElement>) => {
+    storage.updateTelescope ? storage.updateTelescope(event) : null;
   };
 
   return (
@@ -153,19 +81,21 @@ export function Header({
       <Grid m={1} container alignItems="center" direction="row" justifyContent="space-between">
         <Grid item>
           <Box display="flex" justifyContent="flex-start">
-            <OurIconButton
-              ariaTitle="skaWebsite"
-              onClick={() => openLink(SKAO_URL)}
-              icon={
-                useSymbol ? (
+            <Tooltip title={toolTip?.skao} arrow>
+              <IconButton
+                id={'skaWebsite'}
+                aria-label="skaWebsite"
+                sx={{ '&:hover': { backgroundColor: 'primary.dark' }, m: 0 }}
+                color="inherit"
+                onClick={() => openLink(SKAO_URL)}
+              >
+                {useSymbol ? (
                   <Symbol dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
                 ) : (
                   <Logo dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
-                )
-              }
-              testId={'skaWebsite'}
-              toolTip={toolTip?.skao}
-            ></OurIconButton>
+                )}
+              </IconButton>
+            </Tooltip>
             {title && (
               <Typography mt={1} data-testid="headerTitleId" variant="h5">
                 | {title.toUpperCase()}
@@ -176,31 +106,43 @@ export function Header({
         <Grid item>{children}</Grid>
         <Grid item>
           <Box mr={1} display="flex" justifyContent="flex-end">
-            {selectTelescope && getTelescope() && (
-              <TelescopeSelector telescope={getTelescope()} updateTelescope={updateTel} />
+            {storage.telescope && storage.updateTelescope && (
+              <TelescopeSelector telescope={storage.telescope} updateTelescope={updateTel} />
             )}
             {docs?.url && (
-              <OurIconButton
-                ariaTitle="document icon"
-                onClick={() => openLink(docs.url)}
-                icon={<DescriptionIcon />}
-                toolTip={docs?.tooltip}
-              />
+              <Tooltip title={docs?.tooltip} arrow>
+                <IconButton
+                  aria-label="document icon"
+                  sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+                  color="inherit"
+                  onClick={() => openLink(docs.url)}
+                >
+                  {<DescriptionIcon />}
+                </IconButton>
+              </Tooltip>
             )}
-            {getHelp() && (
-              <OurIconButton
-                ariaTitle="help icon"
-                onClick={() => helpToggle()}
-                icon={<HelpIcon />}
-                toolTip={getHelp() as ReactNode}
-              />
+            {hasHelp() && (
+              <Tooltip title={storage.help?.content as ReactNode} arrow>
+                <IconButton
+                  aria-label="help icon"
+                  sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+                  color="inherit"
+                  onClick={() => (storage.helpToggle ? storage.helpToggle() : null)}
+                >
+                  {<HelpIcon />}
+                </IconButton>
+              </Tooltip>
             )}
-            <OurIconButton
-              ariaTitle="light/dark mode"
-              onClick={() => themeToggle()}
-              icon={isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
-              toolTip={toolTip.mode}
-            />
+            <Tooltip title={toolTip.mode} arrow>
+              <IconButton
+                aria-label="light/dark mode"
+                sx={{ '&:hover': { backgroundColor: 'primary.dark' }, ml: 1 }}
+                onClick={storage.toggleTheme as MouseEventHandler}
+                color="inherit"
+              >
+                {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
+              </IconButton>
+            </Tooltip>
           </Box>
         </Grid>
       </Grid>
