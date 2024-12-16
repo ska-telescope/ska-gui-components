@@ -94,112 +94,58 @@ export function OurButton({
   const fetchIcon = () => {
     switch (icon) {
       case ButtonIcons.Add:
-        {
-          /* 
-// @ts-ignore */
-        }
+        // @ts-ignore
         return <AddIcon />;
       case ButtonIcons.Cancel:
-        {
-          /* 
-// @ts-ignore */
-        }
+        // @ts-ignore
         return <ClearIcon />;
       case ButtonIcons.Confirm:
-        {
-          /* 
-// @ts-ignore */
-        }
+        // @ts-ignore
         return <CheckIcon />;
       case ButtonIcons.Delete:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <DeleteIcon />;
       case ButtonIcons.Download:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <DownloadIcon />;
       case ButtonIcons.Email:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <EmailIcon />;
       case ButtonIcons.Home:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <HomeIcon />;
       case ButtonIcons.Login:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <LoginIcon />;
       case ButtonIcons.Logout:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <LogoutIcon />;
       case ButtonIcons.Location:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <MyLocationIcon />;
       case ButtonIcons.Next:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <ArrowForwardIosIcon />;
       case ButtonIcons.PDF:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <PictureAsPdfIcon />;
       case ButtonIcons.Previous:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <ArrowBackIosIcon />;
       case ButtonIcons.Save:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <SaveIcon />;
       case ButtonIcons.Search:
-        {
-          /* 
-          // @ts-ignore */
-        }
+        // @ts-ignore
         return <SearchIcon />;
       case ButtonIcons.Submit:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <PublishIcon />;
       case ButtonIcons.Upload:
-        {
-          /* 
-          // @ts-ignore */
-        }
+        // @ts-ignore
         return <UploadFileIcon />;
       case ButtonIcons.Validate:
-        {
-          /* 
-        // @ts-ignore */
-        }
+        // @ts-ignore
         return <FactCheckIcon />;
       default:
         return null;

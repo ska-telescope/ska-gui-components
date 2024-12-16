@@ -201,10 +201,8 @@ export function FileUpload({
     name?.length > maxFileWidth ? name.substring(0, maxFileWidth) + '...' : name;
 
   const getClearIcon = () => {
-    {
-      /* 
+    /* 
 // @ts-ignore */
-    }
     return <ClearIcon />;
   };
 
