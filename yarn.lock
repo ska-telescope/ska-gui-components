@@ -1321,10 +1321,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-5.6.0.tgz#41dd6093d34652cddb5d5bdeee04eafc33826668"
   integrity sha512-TV7t8GKYaJWsn00tFDqBw8+Uqmr8A0fRU1tvTQhyZzGv0sJCGRQL3JGMI3ucuKo3XIZdUP+Lx7/gh2t3lewy7g==
 
-"@ska-telescope/ska-javascript-components@^2.0.9":
-  version "2.0.9"
-  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-2.0.9.tgz#da82bb16415aea9d8aeebbe057c84af623fb348d"
-  integrity sha512-Xx3TrzHr5bQEOtsO1JhHg2dr/wXoGwsdzdWCp7gfsYj6cfeXjr4lScto25bhp2dU0PMlJlV5EaxgE/1+uumpSg==
+"@ska-telescope/ska-javascript-components@^2.0.11":
+  version "2.0.11"
+  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-2.0.11.tgz#f7c3cef76e397e47fa3bf10fcd8e92a0c10e7b7c"
+  integrity sha512-XnSP1ZGZwuaLzrWI9rFtlBggH8647YcUkOOdu7WDhr0X5EVLybwOPbomAalwJ/7WCvidxDiLaueuycJAUMuNXg==
   dependencies:
     "@microsoft/api-extractor" "^7.47.11"
     "@typescript-eslint/parser" "^8.17.0"

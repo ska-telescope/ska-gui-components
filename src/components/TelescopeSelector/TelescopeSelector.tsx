@@ -1,6 +1,6 @@
 import React from 'react';
 import { ButtonToggle } from '../ButtonToggle/ButtonToggle.js';
-import { TELESCOPE_LOW, TELESCOPE_MID } from '@ska-telescope/ska-javascript-components';
+import { TelescopeList } from '@ska-telescope/ska-javascript-components';
 
 export type Telescope = {
   code: string;
@@ -50,7 +50,7 @@ export function TelescopeSelector({
       ariaTitle={ariaTitle}
       current={telescope.code}
       disabled={disabled}
-      options={getOptions([TELESCOPE_LOW, TELESCOPE_MID])}
+      options={getOptions(TelescopeList)}
       setValue={telescopeChange}
       testId="telescopeSelectorId"
       toolTip={toolTip}
