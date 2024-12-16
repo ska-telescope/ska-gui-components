@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Grid, Stack, Typography } from '@mui/material';
-import { StatusIcon } from '../StatusIcon/StatusIcon';
-import { SKAOAlert as Alert, AlertColorTypes, AlertVariantTypes } from '../Alert/Alert';
+import { StatusIcon } from '../StatusIcon/StatusIcon.js';
+import { SKAOAlert as Alert, AlertColorTypes, AlertVariantTypes } from '../Alert/Alert.js';
 
 const STATE_SIZE = 30;
 

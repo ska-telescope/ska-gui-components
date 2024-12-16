@@ -1,9 +1,8 @@
 import React from 'react';
-import { FormControlLabel, Checkbox, Tooltip } from '@mui/material';
-import useTheme from '@mui/material/styles/useTheme';
+import { FormControlLabel, Checkbox, Tooltip, useTheme } from '@mui/material';
 import { Grid, Typography } from '@mui/material';
 import { InputLabel } from '@mui/material';
-import { LABEL_POSITION } from '../EntryField/EntryField';
+import { LABEL_POSITION } from '../EntryField/EntryField.js';
 
 export interface TickBoxProps {
   ariaDescription?: string;

@@ -15,8 +15,10 @@ import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import SaveIcon from '@mui/icons-material/Save';
+import SearchIcon from '@mui/icons-material/Search';
 import PublishIcon from '@mui/icons-material/Publish';
 import EmailIcon from '@mui/icons-material/Email';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 
 export enum ButtonColorTypes {
@@ -54,7 +56,9 @@ export enum ButtonIcons {
   PDF = 'pdf',
   Previous = 'previous',
   Save = 'save',
+  Search = 'search',
   Submit = 'submit',
+  Upload = 'upload',
   Validate = 'validate',
 }
 
@@ -90,36 +94,112 @@ export function OurButton({
   const fetchIcon = () => {
     switch (icon) {
       case ButtonIcons.Add:
+        {
+          /* 
+// @ts-ignore */
+        }
         return <AddIcon />;
       case ButtonIcons.Cancel:
+        {
+          /* 
+// @ts-ignore */
+        }
         return <ClearIcon />;
       case ButtonIcons.Confirm:
+        {
+          /* 
+// @ts-ignore */
+        }
         return <CheckIcon />;
       case ButtonIcons.Delete:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <DeleteIcon />;
       case ButtonIcons.Download:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <DownloadIcon />;
       case ButtonIcons.Email:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <EmailIcon />;
       case ButtonIcons.Home:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <HomeIcon />;
       case ButtonIcons.Login:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <LoginIcon />;
       case ButtonIcons.Logout:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <LogoutIcon />;
       case ButtonIcons.Location:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <MyLocationIcon />;
       case ButtonIcons.Next:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <ArrowForwardIosIcon />;
       case ButtonIcons.PDF:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <PictureAsPdfIcon />;
       case ButtonIcons.Previous:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <ArrowBackIosIcon />;
       case ButtonIcons.Save:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <SaveIcon />;
+      case ButtonIcons.Search:
+        {
+          /* 
+          // @ts-ignore */
+        }
+        return <SearchIcon />;
       case ButtonIcons.Submit:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <PublishIcon />;
+      case ButtonIcons.Upload:
+        {
+          /* 
+          // @ts-ignore */
+        }
+        return <UploadFileIcon />;
       case ButtonIcons.Validate:
+        {
+          /* 
+        // @ts-ignore */
+        }
         return <FactCheckIcon />;
       default:
         return null;

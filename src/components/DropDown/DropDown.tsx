@@ -1,6 +1,6 @@
 import React, { FocusEventHandler } from 'react';
 import { FormControl, FormControlLabel, Grid, MenuItem, TextField, Tooltip } from '@mui/material';
-import { LABEL_POSITION } from '../EntryField/EntryField';
+import { LABEL_POSITION } from '../EntryField/EntryField.js';
 import { InputLabel, Typography } from '@mui/material';
 
 export interface DropDownProps {

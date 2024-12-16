@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, Box, Paper, Stack, Typography } from '@mui/material';
-import { StatusIcon } from '../StatusIcon/StatusIcon';
+import { StatusIcon } from '../StatusIcon/StatusIcon.js';
 
 export enum InfoCardColorTypes {
   Error = 'error',

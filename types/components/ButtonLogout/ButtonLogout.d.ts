@@ -1,4 +1,4 @@
-import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes } from '../Button/Button';
+import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes } from '../Button/Button.js';
 export interface ButtonLogoutProps {
   ariaDescription?: string;
   color?: ButtonColorTypes;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LABEL_POSITION } from '../EntryField/EntryField';
+import { LABEL_POSITION } from '../EntryField/EntryField.js';
 export interface DropDownProps {
   options: {
     label: string;

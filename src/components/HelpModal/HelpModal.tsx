@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Box, Card, CardContent, CardHeader, Modal } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { OurIconButton } from '../IconButton/IconButton';
+import { OurIconButton } from '../IconButton/IconButton.js';
 
 export type Help = {
   content: Object;
@@ -35,7 +35,11 @@ export function HelpModal({
             action={
               <OurIconButton
                 ariaDescription={ariaDescription}
-                icon={<HighlightOffIcon />}
+                icon={
+                  /* 
+                  // @ts-ignore */
+                  <HighlightOffIcon />
+                }
                 onClick={() => closeModal()}
                 testId={'closeHelpModalBtn'}
                 toolTip={toolTip}

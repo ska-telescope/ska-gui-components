@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertColorTypes, AlertVariantTypes } from '../Alert/Alert';
+import { AlertColorTypes, AlertVariantTypes } from '../Alert/Alert.js';
 export interface AlertCardProps {
   action?: any;
   ariaDescription?: string;

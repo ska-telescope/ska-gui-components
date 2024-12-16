@@ -30,7 +30,9 @@ export declare enum ButtonIcons {
   PDF = 'pdf',
   Previous = 'previous',
   Save = 'save',
+  Search = 'search',
   Submit = 'submit',
+  Upload = 'upload',
   Validate = 'validate',
 }
 export interface ButtonProps {

@@ -1,14 +1,19 @@
 import React from 'react';
 import { Grid, Typography } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
-import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton } from '../Button/Button';
-import { StatusIcon } from '../StatusIcon/StatusIcon';
-import OurIconButton from '../IconButton/IconButton';
-import SKAOAlert, { AlertColorTypes } from '../Alert/Alert';
-import DropZone from '../DropZone/DropZone';
-import { Accept } from 'react-dropzone/.';
+import {
+  ButtonColorTypes,
+  ButtonIcons,
+  ButtonSizeTypes,
+  ButtonVariantTypes,
+  OurButton,
+} from '../Button/Button.js';
+import { StatusIcon } from '../StatusIcon/StatusIcon.js';
+import OurIconButton from '../IconButton/IconButton.js';
+import SKAOAlert, { AlertColorTypes } from '../Alert/Alert.js';
+import DropZone from '../DropZone/DropZone.js';
+import { Accept } from 'react-dropzone';
 
 export enum FileUploadStatus {
   OK = 0,
@@ -196,12 +201,18 @@ export function FileUpload({
     name?.length > maxFileWidth ? name.substring(0, maxFileWidth) + '...' : name;
 
   const getClearIcon = () => {
+    {
+      /* 
+// @ts-ignore */
+    }
     return <ClearIcon />;
   };
 
   const getUploadIcon = () => {
     const val = status ? status : state;
     return val === FileUploadStatus.INITIAL ? (
+      /* 
+          // @ts-ignore */
       <UploadFileIcon />
     ) : (
       <StatusIcon
@@ -240,7 +251,7 @@ export function FileUpload({
         color={isMinimal ? ButtonColorTypes.Inherit : name ? ButtonColorTypes.Inherit : chooseColor}
         component="span"
         disabled={chooseDisabled}
-        icon={isMinimal ? getUploadIcon() : <SearchIcon />}
+        icon={isMinimal ? getUploadIcon() : ButtonIcons.Search}
         label={isMinimal ? '' : chooseLabel}
         size={buttonSize}
         testId={isMinimal ? testId + 'ChooseIcon' : testId + 'ChooseButton'}
