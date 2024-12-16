@@ -44,7 +44,6 @@ export {
   Styling,
   Symbol,
   SYMBOL_DEFAULT_HEIGHT,
-  TelescopeList,
   TELESCOPE_LOW,
   TELESCOPE_MID,
   THEME_DARK,

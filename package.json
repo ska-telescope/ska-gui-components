@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/index",
@@ -71,6 +71,7 @@
     "@azure/msal-react": "^2.2.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@microsoft/api-extractor": "^7.48.1",
     "@mui/icons-material": "^6.2.0",
     "@mui/material": "^6.2.0",
     "@mui/system": "^6.1.8",
