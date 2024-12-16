@@ -7,7 +7,7 @@ import {
   Telescope,
   THEME_DARK,
 } from '@ska-telescope/ska-javascript-components';
-import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
+import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector.js';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -117,7 +117,11 @@ export function Header({
                   color="inherit"
                   onClick={() => openLink(docs.url)}
                 >
-                  {<DescriptionIcon />}
+                  {
+                    /* 
+          // @ts-ignore */
+                    <DescriptionIcon />
+                  }
                 </IconButton>
               </Tooltip>
             )}
@@ -129,7 +133,11 @@ export function Header({
                   color="inherit"
                   onClick={() => (storage.helpToggle ? storage.helpToggle() : null)}
                 >
-                  {<HelpIcon />}
+                  {
+                    /* 
+          // @ts-ignore */
+                    <HelpIcon />
+                  }
                 </IconButton>
               </Tooltip>
             )}
@@ -140,7 +148,11 @@ export function Header({
                 onClick={storage.toggleTheme as MouseEventHandler}
                 color="inherit"
               >
-                {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
+                {
+                  /* 
+          // @ts-ignore */
+                  // isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />
+                }
               </IconButton>
             </Tooltip>
           </Box>

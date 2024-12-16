@@ -88,6 +88,29 @@ function points(level: number, size: number) {
   }
 }
 
+const clearIcon = (size: string | number) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height={size}
+    viewBox="0 -960 960 960"
+    width={size}
+    fill="white"
+  >
+    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+  </svg>
+);
+const doneIcon = (size: string | number) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height={size}
+    viewBox="0 -960 960 960"
+    width={size}
+    fill="white"
+  >
+    <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+  </svg>
+);
+
 function showIconText(level: number, size: number, text: string) {
   return (
     <text
@@ -110,8 +133,8 @@ function showIconText(level: number, size: number, text: string) {
 function showIcon(level: number, size: number) {
   return (
     <>
-      {level === 0 && <DoneIcon sx={{ color: 'white' }} />}
-      {level === 1 && <ClearIcon sx={{ color: 'white' }} />}
+      {level === 0 && doneIcon(size)}
+      {level === 1 && clearIcon(size)}
       {level === 2 && showIconText(level, size, '!')}
       {level === 3 && showIconText(level, size * 0.7, '?')}
       {level === 4 && showIconText(level, size, 'i')}

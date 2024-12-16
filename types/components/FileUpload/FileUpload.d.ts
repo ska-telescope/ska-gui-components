@@ -1,6 +1,6 @@
 import React from 'react';
-import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes } from '../Button/Button';
-import { Accept } from 'react-dropzone/.';
+import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes } from '../Button/Button.js';
+import { Accept } from 'react-dropzone';
 export declare enum FileUploadStatus {
   OK = 0,
   ERROR = 1,

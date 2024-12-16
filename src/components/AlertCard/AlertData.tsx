@@ -1,4 +1,4 @@
-import { AlertColorTypes, AlertVariantTypes } from '../Alert/Alert';
+import { AlertColorTypes, AlertVariantTypes } from '../Alert/Alert.js';
 
 export const ALERT_DATA = [
   {

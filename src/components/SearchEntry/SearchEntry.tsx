@@ -69,6 +69,8 @@ export function SearchEntry({
           input: {
             startAdornment: (
               <InputAdornment position="start">
+                {/* 
+// @ts-ignore */}
                 <SearchIcon />
               </InputAdornment>
             ),

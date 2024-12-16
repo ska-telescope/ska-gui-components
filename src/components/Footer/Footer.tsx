@@ -1,8 +1,8 @@
 import React from 'react';
 import { AppBar, Grid, Stack, Typography } from '@mui/material';
 import { Copyright } from '@mui/icons-material';
-import Button, { ButtonColorTypes, ButtonVariantTypes } from '../Button/Button';
-import { GUI_COMPONENTS_VERSION } from '../version';
+import Button, { ButtonColorTypes, ButtonVariantTypes } from '../Button/Button.js';
+import { GUI_COMPONENTS_VERSION } from '../version/index.js';
 import { Tooltip } from '@mui/material';
 
 export interface FooterProps {

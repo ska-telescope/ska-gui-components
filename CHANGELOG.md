@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.1.7
+
+******
+
+Removed leading zero from version numbering
+
 2.1.06
 
 ******

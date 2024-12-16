@@ -6,7 +6,7 @@
     "node": true
   },
   "extends": ["prettier", "plugin:cypress/recommended"],
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "plugins": ["prettier", "cypress"],
   "rules": {
     "prettier/prettier": ["error"],

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonToggle } from '../ButtonToggle/ButtonToggle';
+import { ButtonToggle } from '../ButtonToggle/ButtonToggle.js';
 import { TelescopeList } from '@ska-telescope/ska-javascript-components';
 
 export type Telescope = {

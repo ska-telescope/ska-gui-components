@@ -1,4 +1,4 @@
-import { LABEL_POSITION } from '../EntryField/EntryField';
+import { LABEL_POSITION } from '../EntryField/EntryField.js';
 export interface TickBoxProps {
   ariaDescription?: string;
   checked?: boolean;

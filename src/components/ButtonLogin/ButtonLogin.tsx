@@ -1,7 +1,12 @@
 import React from 'react';
 import { useMsal } from '@azure/msal-react';
-import { OurButton, ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes } from '../Button/Button';
-import { loginRequest } from '../../utils/authConfig';
+import {
+  OurButton,
+  ButtonColorTypes,
+  ButtonSizeTypes,
+  ButtonVariantTypes,
+} from '../Button/Button.js';
+import { loginRequest } from '../../utils/authConfig.js';
 
 export interface ButtonLoginProps {
   ariaDescription?: string;
