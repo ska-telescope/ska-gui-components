@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import { CssBaseline, Grid, ThemeProvider } from '@mui/material';
+import { CssBaseline, Grid, ThemeProvider } from '@mui/material/index.js';
 import { TELESCOPE_MID } from '@ska-telescope/ska-javascript-components';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 

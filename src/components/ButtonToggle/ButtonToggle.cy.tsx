@@ -1,6 +1,6 @@
 import React from 'react';
 import ButtonToggle from './ButtonToggle';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material/index.js';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 const THEME = [THEME_DARK, THEME_LIGHT];

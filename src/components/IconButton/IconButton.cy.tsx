@@ -1,6 +1,6 @@
 import React from 'react';
 import IconButton from './IconButton';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material/index.js';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 

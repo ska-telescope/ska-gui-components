@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/index",
@@ -107,6 +107,7 @@
     "@testing-library/cypress": "^10.0.1",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7",
+    "@types/jest": "^29.5.14",
     "@types/react": "^18.3.3",
     "@typescript-eslint/parser": "^8.18.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
