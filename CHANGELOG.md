@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.1.9
+
+******
+
+Excluded TelescopeList from the ska-javascript-components exports
+
 2.1.8
 
 ******
