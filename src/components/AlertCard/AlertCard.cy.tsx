@@ -2,7 +2,7 @@ import React from 'react';
 import { AlertVariantTypes } from '../Alert/Alert';
 import { ALERT_DATA } from './AlertData';
 import AlertCard from './AlertCard';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material/index.js';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 
 const THEME = [THEME_DARK, THEME_LIGHT];

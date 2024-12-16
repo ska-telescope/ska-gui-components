@@ -1,9 +1,14 @@
 import * as React from 'react';
-import { Box, Collapse } from '@mui/material';
-import { alpha, styled } from '@mui/material/styles';
-import { SimpleTreeView, TreeItem, TreeItemProps, treeItemClasses } from '@mui/x-tree-view';
+import { Box, Collapse } from '@mui/material/index.js';
+import { alpha, styled } from '@mui/material/styles/index.js';
+import {
+  SimpleTreeView,
+  TreeItem,
+  TreeItemProps,
+  treeItemClasses,
+} from '@mui/x-tree-view/index.js';
 import { useSpring, animated } from '@react-spring/web';
-import { TransitionProps } from '@mui/material/transitions';
+import { TransitionProps } from '@mui/material/transitions/index.js';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface DataTreeProps {

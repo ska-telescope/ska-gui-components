@@ -1,6 +1,6 @@
 import React from 'react';
 import DateEntry from './DateEntry';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material/index.js';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 

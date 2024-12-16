@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.1.8
+
+******
+
+Adding index.js to some MUI imports
+
 2.1.7
 
 ******

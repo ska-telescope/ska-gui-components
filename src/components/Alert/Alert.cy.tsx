@@ -1,8 +1,7 @@
 import React from 'react';
 import { SKAOAlert, AlertColorTypes, AlertVariantTypes } from './Alert';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider, Typography } from '@mui/material/index.js';
 import { THEME_DARK, THEME_LIGHT, theme } from '../../services/theme/theme';
-import { Typography } from '@mui/material';
 
 const COLOR = [
   AlertColorTypes.Success,
