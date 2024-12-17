@@ -8,8 +8,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, './src/index.ts'),
-      name: 'react-beautiful-timeline',
-      fileName: (format) => `index.${format}.js`,
+      name: 'ska-gui-components',
+      formats: ['es'],
+      fileName: 'ska-gui-components'
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
