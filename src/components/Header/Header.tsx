@@ -1,17 +1,29 @@
 import React, { MouseEventHandler, ReactNode } from 'react';
 import { AppBar, Box, Grid, IconButton, Tooltip, Typography } from '@mui/material';
-import {
-  Help,
-  Logo,
-  Symbol,
-  Telescope,
-  THEME_DARK,
-} from '@ska-telescope/ska-javascript-components';
+import { Logo, Symbol, THEME_DARK } from '@ska-telescope/ska-javascript-components';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector.js';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+// import Brightness4Icon from '@mui/icons-material/Brightness4';
+// import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DescriptionIcon from '@mui/icons-material/Description';
 import HelpIcon from '@mui/icons-material/Help';
+
+// TODO : Help & Telescope should come from ska-javascript-components
+export type Help = {
+  content: Object;
+  component: Object;
+  showHelp: Boolean;
+};
+
+export type Telescope = {
+  code: string;
+  name: string;
+  location: string;
+  position: {
+    lat: number;
+    lon: number;
+  };
+  image: string;
+};
 
 export type Storage = {
   help?: Help;
