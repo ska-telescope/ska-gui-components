@@ -160,9 +160,7 @@ export function Header({
                 onClick={storage.toggleTheme as MouseEventHandler}
                 color="inherit"
               >
-                {
-                  isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />
-                }
+                {isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
               </IconButton>
             </Tooltip>
           </Box>
