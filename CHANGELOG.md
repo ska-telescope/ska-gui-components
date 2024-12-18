@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.1.12
+
+******
+
+Added type modue into index.html
+
 2.1.11
 
 ******

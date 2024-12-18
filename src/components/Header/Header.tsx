@@ -2,8 +2,8 @@ import React, { MouseEventHandler, ReactNode } from 'react';
 import { AppBar, Box, Grid, IconButton, Tooltip, Typography } from '@mui/material';
 import { Logo, Symbol, THEME_DARK } from '@ska-telescope/ska-javascript-components';
 import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector.js';
-// import Brightness4Icon from '@mui/icons-material/Brightness4';
-// import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DescriptionIcon from '@mui/icons-material/Description';
 import HelpIcon from '@mui/icons-material/Help';
 
@@ -161,9 +161,7 @@ export function Header({
                 color="inherit"
               >
                 {
-                  /* 
-          // @ts-ignore */
-                  // isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />
+                  isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />
                 }
               </IconButton>
             </Tooltip>
