@@ -1,28 +1,23 @@
 {
-    "compilerOptions": {
-      "lib": ["es6", "dom"],
-      "target": "es6",
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "strict": true,
-      "skipLibCheck": true,
-      "rootDir": "src",
-  
-      "jsx": "react",
-      "module": "NodeNext",
-      "declaration": true,
-      "declarationDir": "types",
-      "sourceMap": true,
-      "outDir": "dist",
-      "moduleResolution": "NodeNext",
-      "allowJs": true,
-      "emitDeclarationOnly": true,
-      "noImplicitAny": true,
-      "noImplicitThis": true,
-      "strictNullChecks": true,
-      "allowSyntheticDefaultImports": true
-    },
-    "include": ["src/*.ts"],
-    "exclude": ["src/*.cy.ts"]
-  }
-  
+  "compilerOptions": {
+    "target": "EsNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "rootDir": "src",
+
+    "jsx": "react",
+    "module": "ESNext",
+    "declaration": true,
+    "declarationDir": "./types",
+    "sourceMap": true,
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true,
+  },
+  "include": ["src/*.ts"],
+  "exclude": ["src/*.cy.ts"]
+}

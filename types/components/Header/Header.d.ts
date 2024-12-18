@@ -1,4 +1,18 @@
-import { Help, Telescope } from '@ska-telescope/ska-javascript-components';
+export type Help = {
+  content: Object;
+  component: Object;
+  showHelp: Boolean;
+};
+export type Telescope = {
+  code: string;
+  name: string;
+  location: string;
+  position: {
+    lat: number;
+    lon: number;
+  };
+  image: string;
+};
 export type Storage = {
   help?: Help;
   helpToggle?: Function;
