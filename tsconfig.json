@@ -16,7 +16,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
-    "emitDeclarationOnly": true,
   },
   "include": ["src/*.ts"],
   "exclude": ["src/*.cy.ts"]
