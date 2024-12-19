@@ -30,7 +30,7 @@ export function ButtonLogout({
   testId = 'logoutButtton-' + label,
   toolTip = '',
   variant = ButtonVariantTypes.Contained,
-}: ButtonLogoutProps): JSX.Element {
+}: ButtonLogoutProps): React.JSX.Element {
   const { instance } = useMsal();
 
   const handleLogout = () => {

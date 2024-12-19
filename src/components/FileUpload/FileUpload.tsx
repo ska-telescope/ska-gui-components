@@ -59,7 +59,7 @@ interface FileUploadProps {
   dropzonePreview: boolean;
   dropzonePrompt?: string;
   //
-  suffix?: JSX.Element | null;
+  suffix?: React.JSX.Element | null;
 }
 
 export function FileUpload({
@@ -104,6 +104,7 @@ export function FileUpload({
   const [theFile, setTheFile] = React.useState<File | null>(null);
   const [name, setName] = React.useState('');
   const [state, setState] = React.useState(FileUploadStatus.INITIAL);
+  const [, setTheError] = React.useState('');
 
   React.useEffect(() => {
     if (file) {
@@ -192,6 +193,7 @@ export function FileUpload({
         });
         setTheStatus(FileUploadStatus.OK);
       } catch (error) {
+        setTheError(error);
         setTheStatus(FileUploadStatus.ERROR);
       }
     }
@@ -201,16 +203,12 @@ export function FileUpload({
     name?.length > maxFileWidth ? name.substring(0, maxFileWidth) + '...' : name;
 
   const getClearIcon = () => {
-    /* 
-// @ts-ignore */
     return <ClearIcon />;
   };
 
   const getUploadIcon = () => {
     const val = status ? status : state;
     return val === FileUploadStatus.INITIAL ? (
-      /* 
-          // @ts-ignore */
       <UploadFileIcon />
     ) : (
       <StatusIcon

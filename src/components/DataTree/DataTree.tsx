@@ -29,7 +29,7 @@ export function DataTree({
   height = 264,
   maxWidth = 400,
   testId = 'dataTree-testId',
-}: DataTreeProps): JSX.Element {
+}: DataTreeProps): React.JSX.Element {
   function MinusSquare() {
     return (
       <svg

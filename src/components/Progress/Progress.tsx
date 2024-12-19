@@ -30,7 +30,7 @@ export function Progress({
   size = 40,
   testId = 'progress-testId',
   value = 0,
-}: ProgressProps): JSX.Element {
+}: ProgressProps): React.JSX.Element {
   const variantSize = (inValue: number) => {
     if (inValue < BASE) {
       return 'subtitle1';
@@ -57,7 +57,7 @@ export function Progress({
     size: number,
     testId: any,
     value: number,
-  ): JSX.Element {
+  ): React.JSX.Element {
     return (
       <Box sx={{ position: 'relative', display: 'inline-flex' }}>
         <CircularProgress
@@ -101,7 +101,7 @@ export function Progress({
     size: number,
     testId: any,
     value: number,
-  ): JSX.Element {
+  ): React.JSX.Element {
     return (
       <Box sx={{ width: size, display: 'flex', alignItems: 'center' }}>
         <Box sx={{ width: '100%', mr: 1 }}>

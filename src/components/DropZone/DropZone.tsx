@@ -2,9 +2,9 @@ import React from 'react';
 import { Accept, useDropzone } from 'react-dropzone';
 import { useTheme } from '@mui/material';
 
-const activeDropzoneStyle = {
-  borderColor: '#00adb5',
-};
+// const activeDropzoneStyle = {
+//   borderColor: '#00adb5',
+// };
 
 const ImagePreview = {
   display: 'flex',
@@ -33,22 +33,22 @@ const Dropzone = ({
 }: DropzoneProps) => {
   const theme = useTheme();
 
-  const dropzoneStyle = {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '20px',
-    marginTop: '2rem',
-    borderWidth: '2px',
-    borderRadius: '2px',
-    borderColor: theme.palette.secondary.main,
-    borderStyle: 'dashed',
-    outline: 'none',
-    transition: 'border 0.24s ease-in-out',
-    cursor: 'pointer',
-  };
+  // const dropzoneStyle = {
+  //   flex: 1,
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  //   padding: '20px',
+  //   marginTop: '2rem',
+  //   borderWidth: '2px',
+  //   borderRadius: '2px',
+  //   borderColor: theme.palette.secondary.main,
+  //   borderStyle: 'dashed',
+  //   outline: 'none',
+  //   transition: 'border 0.24s ease-in-out',
+  //   cursor: 'pointer',
+  // };
 
   const [files, setFiles] = React.useState([]);
 
@@ -63,7 +63,7 @@ const Dropzone = ({
     );
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: accepted,
     maxFiles: maxFiles,
@@ -82,7 +82,7 @@ const Dropzone = ({
     </li>
   );
 
-  const activeStyle = { ...dropzoneStyle, ...activeDropzoneStyle };
+  // const activeStyle = { ...dropzoneStyle, ...activeDropzoneStyle };
 
   return (
     <div

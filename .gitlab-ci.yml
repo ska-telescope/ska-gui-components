@@ -109,14 +109,6 @@ build:
     - k8srunner
   script:
     - yarn build
-
-# Roll up the application
-distribution:
-  stage: build
-  tags:
-    - k8srunner
-  script:
-    - yarn rollup
   artifacts:
     paths:
       - dist/

@@ -2,12 +2,16 @@ import React from 'react';
 import { Backdrop } from '@mui/material';
 
 export interface SKAOBackdropProps {
-  children?: JSX.Element;
+  children?: React.JSX.Element;
   open: boolean;
   visible?: boolean;
 }
 
-export function SKAOBackdrop({ children, open, visible = true }: SKAOBackdropProps): JSX.Element {
+export function SKAOBackdrop({
+  children,
+  open,
+  visible = true,
+}: SKAOBackdropProps): React.JSX.Element {
   return (
     <Backdrop
       sx={{

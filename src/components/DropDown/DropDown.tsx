@@ -47,7 +47,7 @@ export function DropDown({
   testId = 'dropDown-testId',
   toolTip = '',
   value,
-}: DropDownProps): JSX.Element {
+}: DropDownProps): React.JSX.Element {
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
   const displayLabel = label + (required ? ' *' : '');
 

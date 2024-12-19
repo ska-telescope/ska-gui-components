@@ -21,7 +21,7 @@ export interface InfoCardProps {
   maxHeight?: string;
   minHeight?: string;
   message?: string;
-  children?: JSX.Element;
+  children?: React.JSX.Element;
   showStatus?: boolean;
   showStatusIcon?: boolean;
   testId?: string;

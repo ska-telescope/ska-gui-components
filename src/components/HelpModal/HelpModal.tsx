@@ -4,9 +4,9 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { OurIconButton } from '../IconButton/IconButton.js';
 
 export type Help = {
-  content: Object;
-  component: Object;
-  showHelp: Boolean;
+  content: object;
+  component: object;
+  showHelp: boolean;
 };
 export interface HelpModalProps {
   ariaDescription?: string;
@@ -22,7 +22,7 @@ export function HelpModal({
   help,
   helpToggle,
   toolTip = 'Help close button',
-}: HelpModalProps): JSX.Element {
+}: HelpModalProps): React.JSX.Element {
   function closeModal() {
     helpToggle();
   }
@@ -35,11 +35,7 @@ export function HelpModal({
             action={
               <OurIconButton
                 ariaDescription={ariaDescription}
-                icon={
-                  /* 
-                  // @ts-ignore */
-                  <HighlightOffIcon />
-                }
+                icon={<HighlightOffIcon />}
                 onClick={() => closeModal()}
                 testId={'closeHelpModalBtn'}
                 toolTip={toolTip}

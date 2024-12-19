@@ -36,7 +36,7 @@ export interface EntryFieldProps {
   // optional
   ariaDescription?: string;
   ariaTitle?: string;
-  children?: JSX.Element | JSX.Element[];
+  children?: React.JSX.Element | React.JSX.Element[];
   disabled?: boolean;
   errorText?: string;
   height?: number;
@@ -49,12 +49,12 @@ export interface EntryFieldProps {
   onBlur?: Function;
   onFocus?: Function;
   password?: boolean;
-  prefix?: JSX.Element | string;
+  prefix?: React.JSX.Element | string;
   required?: boolean;
   rows?: number;
   select?: boolean;
   setValue?: Function;
-  suffix?: JSX.Element | string;
+  suffix?: React.JSX.Element | string;
   toolTip?: string;
   type?: TYPE.DATE | TYPE.FILE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
 }
@@ -85,7 +85,7 @@ export function EntryField({
   toolTip = '',
   type = TYPE.TEXT,
   value,
-}: EntryFieldProps): JSX.Element {
+}: EntryFieldProps): React.JSX.Element {
   const theSuffix = suffix ? suffix : '';
   const thePrefix = prefix ? prefix : '';
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));

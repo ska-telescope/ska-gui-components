@@ -62,7 +62,9 @@ export function SKAODataGrid({
   testId = 'dataGrid-testId',
 }: DataGridProps) {
   const handleRowClick: GridEventListener<'rowClick'> = (params) => {
-    onRowClick ? onRowClick(params) : null;
+    if (onRowClick) {
+      onRowClick(params);
+    }
   };
 
   const getTheHeight = () => {
