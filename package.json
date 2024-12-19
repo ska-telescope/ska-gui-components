@@ -15,7 +15,7 @@
     "browserList": "npx browserslist@latest --update-db",
     "build": "vite build & tsc",
     "build-storybook": "storybook build",
-    "code-analysis": "eslint . --report-unused-disable-directives --max-warnings 0 -f junit -o linting.xml --debug",
+    "code-analysis": "eslint . --report-unused-disable-directives --max-warnings 0 -f junit -o linting.xml",
     "cypress:open": "cypress open",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --report-unused-disable-directives --max-warnings 0 --fix",

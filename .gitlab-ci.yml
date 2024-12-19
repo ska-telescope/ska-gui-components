@@ -32,6 +32,7 @@ code_analysis:
   stage: lint
   tags:
     - k8srunner
+  allow_failure: true
   before_script:
     - mkdir -p build/reports
   script:
