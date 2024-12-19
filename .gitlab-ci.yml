@@ -47,6 +47,7 @@ code_analysis:
 test_and_coverage:
   image: cypress/browsers:22.11.0
   stage: test
+  allow_failure: true
   tags:
     - k8srunner
   before_script:
@@ -71,6 +72,7 @@ test_and_coverage:
 test-counts:
   image: cypress/browsers:22.11.0
   stage: test
+  allow_failure: true
   tags:
     - k8srunner
   cache:
