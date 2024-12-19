@@ -27,4 +27,3 @@ export { TelescopeSelector } from './components/TelescopeSelector/TelescopeSelec
 export { TextEntry } from './components/TextEntry/TextEntry.js';
 export { TickBox } from './components/TickBox/TickBox.js';
 export { GUI_COMPONENTS_VERSION } from './components/version/index.js';
-export { Colors, Logo, LOGO_DEFAULT_HEIGHT, SPACER_HORIZONTAL, SPACER_VERTICAL, Spacer, Status, Styling, Symbol, SYMBOL_DEFAULT_HEIGHT, TelescopeList, TELESCOPE_LOW, TELESCOPE_MID, THEME_DARK, THEME_LIGHT, Theme, JAVASCRIPT_COMPONENTS_VERSION, } from '@ska-telescope/ska-javascript-components';

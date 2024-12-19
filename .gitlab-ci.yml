@@ -82,6 +82,7 @@ test-counts:
     policy: pull
   before_script:
     - mkdir -p build/tests
+    - mkdir -p build/reports
     - yarn install --immutable
   script:
     - yarn test:cypress:component:ci
@@ -173,6 +174,7 @@ pages:
 include:
   - template: Code-Quality.gitlab-ci.yml
   - template: "Verify/Accessibility.gitlab-ci.yml"
+  - template: Jobs/Dependency-Scanning.gitlab-ci.yml
 
   # .post step finalizers eg: badges
   - project: 'ska-telescope/templates-repository'

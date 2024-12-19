@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.1.15
+
+******
+
+No longer pass ska-javascript-components thru
+
 2.1.14
 
 ******
