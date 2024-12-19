@@ -1,6 +1,30 @@
 Changelog
 ==========
 
+2.1.12
+
+******
+
+Added type modue into index.html
+
+2.1.11
+
+******
+
+Updated ska-javascript-components
+
+2.1.10
+
+******
+
+Updated ska-javascript-components
+
+2.1.9
+
+******
+
+Excluded TelescopeList from the ska-javascript-components exports
+
 2.1.8
 
 ******
