@@ -17,7 +17,7 @@ export interface AlertProps {
   ariaDescription?: string;
   ariaTitle?: string;
   color?: AlertColorTypes;
-  children?: JSX.Element;
+  children?: React.JSX.Element;
   variant?: AlertVariantTypes;
   testId: string;
 }

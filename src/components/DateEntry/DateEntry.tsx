@@ -45,7 +45,7 @@ export function DateEntry({
   testId,
   toolTip = '',
   value,
-}: DateEntryProps): JSX.Element {
+}: DateEntryProps): React.JSX.Element {
   return (
     <EntryField
       aria-label={ariaTitle}

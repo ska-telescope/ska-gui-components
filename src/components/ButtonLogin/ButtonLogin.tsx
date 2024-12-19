@@ -32,12 +32,14 @@ export function ButtonLogin({
   testId = 'loginButtton-' + label,
   toolTip = '',
   variant = ButtonVariantTypes.Outlined,
-}: ButtonLoginProps): JSX.Element {
+}: ButtonLoginProps): React.JSX.Element {
   const { instance } = useMsal();
 
   function handleLogin() {
     instance.loginRedirect(loginRequest).catch((e) => {
-      onError ? onError(e) : null;
+      if (onError) {
+        onError(e);
+      }
     });
   }
 

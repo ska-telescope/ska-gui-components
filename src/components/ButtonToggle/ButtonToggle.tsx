@@ -23,7 +23,7 @@ export function ButtonToggle({
   options,
   testId,
   toolTip = '',
-}: ButtonToggleProps): JSX.Element {
+}: ButtonToggleProps): React.JSX.Element {
   const fetchValue = (id: string) => {
     return options[options[0].id === id ? 0 : 1].value;
   };
@@ -45,7 +45,7 @@ export function ButtonToggle({
         size="small"
         value={value}
       >
-        {options.map((option: { id: string; label: string; value: any }): JSX.Element => {
+        {options.map((option: { id: string; label: string; value: any }): React.JSX.Element => {
           return (
             <ToggleButton
               aria-label={option.id}

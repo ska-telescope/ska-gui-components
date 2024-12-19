@@ -8,14 +8,13 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, './src/index.ts'),
       name: 'ska-gui-components',
-      fileName: (format) => `index.${format}.js`,
+      fileName: (format) => `index.${format}.ts`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react'],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
         },
       },
     },

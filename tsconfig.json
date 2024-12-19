@@ -1,23 +1,7 @@
 {
-  "compilerOptions": {
-    "target": "EsNext",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "rootDir": "src",
-
-    "jsx": "react",
-    "module": "ESNext",
-    "declaration": true,
-    "declarationDir": "./types",
-    "sourceMap": true,
-    "outDir": "dist",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
-    "emitDeclarationOnly": true,
-  },
-  "include": ["src/*.ts"],
-  "exclude": ["src/*.cy.ts"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }

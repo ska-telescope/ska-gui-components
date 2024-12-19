@@ -67,7 +67,7 @@ export interface ButtonProps {
   color?: ButtonColorTypes;
   component?: string;
   disabled?: boolean;
-  icon?: JSX.Element | string;
+  icon?: React.JSX.Element | string;
   label: string;
   onClick?: Function;
   size?: ButtonSizeTypes;
@@ -88,64 +88,46 @@ export function OurButton({
   testId = 'buttton-' + label,
   toolTip = '',
   variant = ButtonVariantTypes.Outlined,
-}: ButtonProps): JSX.Element {
+}: ButtonProps): React.JSX.Element {
   const clicked = (e: any) => (typeof onClick !== 'undefined' ? onClick(e) : null);
 
   const fetchIcon = () => {
     switch (icon) {
       case ButtonIcons.Add:
-        // @ts-ignore
         return <AddIcon />;
       case ButtonIcons.Cancel:
-        // @ts-ignore
         return <ClearIcon />;
       case ButtonIcons.Confirm:
-        // @ts-ignore
         return <CheckIcon />;
       case ButtonIcons.Delete:
-        // @ts-ignore
         return <DeleteIcon />;
       case ButtonIcons.Download:
-        // @ts-ignore
         return <DownloadIcon />;
       case ButtonIcons.Email:
-        // @ts-ignore
         return <EmailIcon />;
       case ButtonIcons.Home:
-        // @ts-ignore
         return <HomeIcon />;
       case ButtonIcons.Login:
-        // @ts-ignore
         return <LoginIcon />;
       case ButtonIcons.Logout:
-        // @ts-ignore
         return <LogoutIcon />;
       case ButtonIcons.Location:
-        // @ts-ignore
         return <MyLocationIcon />;
       case ButtonIcons.Next:
-        // @ts-ignore
         return <ArrowForwardIosIcon />;
       case ButtonIcons.PDF:
-        // @ts-ignore
         return <PictureAsPdfIcon />;
       case ButtonIcons.Previous:
-        // @ts-ignore
         return <ArrowBackIosIcon />;
       case ButtonIcons.Save:
-        // @ts-ignore
         return <SaveIcon />;
       case ButtonIcons.Search:
-        // @ts-ignore
         return <SearchIcon />;
       case ButtonIcons.Submit:
-        // @ts-ignore
         return <PublishIcon />;
       case ButtonIcons.Upload:
-        // @ts-ignore
         return <UploadFileIcon />;
       case ButtonIcons.Validate:
-        // @ts-ignore
         return <FactCheckIcon />;
       default:
         return null;

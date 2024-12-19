@@ -4,7 +4,7 @@ import { Tooltip, IconButton } from '@mui/material';
 export interface IconButtonProps {
   ariaDescription?: string;
   ariaTitle?: string;
-  icon: JSX.Element;
+  icon: React.JSX.Element;
   onClick?: Function;
   testId?: string;
   toolTip?: string | ReactNode | null;

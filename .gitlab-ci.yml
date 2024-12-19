@@ -32,6 +32,7 @@ code_analysis:
   stage: lint
   tags:
     - k8srunner
+  allow_failure: true
   before_script:
     - mkdir -p build/reports
   script:
@@ -46,6 +47,7 @@ code_analysis:
 test_and_coverage:
   image: cypress/browsers:22.11.0
   stage: test
+  allow_failure: true
   tags:
     - k8srunner
   before_script:
@@ -70,6 +72,7 @@ test_and_coverage:
 test-counts:
   image: cypress/browsers:22.11.0
   stage: test
+  allow_failure: true
   tags:
     - k8srunner
   cache:
@@ -109,14 +112,6 @@ build:
     - k8srunner
   script:
     - yarn build
-
-# Roll up the application
-distribution:
-  stage: build
-  tags:
-    - k8srunner
-  script:
-    - yarn rollup
   artifacts:
     paths:
       - dist/

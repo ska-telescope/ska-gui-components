@@ -7,13 +7,12 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DescriptionIcon from '@mui/icons-material/Description';
 import HelpIcon from '@mui/icons-material/Help';
 
-// TODO : Help & Telescope should come from ska-javascript-components
+// TODO : Should come from ska-javascript-components
 export type Help = {
-  content: Object;
-  component: Object;
-  showHelp: Boolean;
+  content: object;
+  component: object;
+  showHelp: boolean;
 };
-
 export type Telescope = {
   code: string;
   name: string;
@@ -50,8 +49,8 @@ export interface HeaderProps {
   testId?: string;
   title?: string;
   toolTip?: { skao: string; mode: string };
-  useSymbol?: Boolean;
-  children?: JSX.Element[];
+  useSymbol?: boolean;
+  children?: React.JSX.Element[];
 }
 
 export function Header({
@@ -65,7 +64,7 @@ export function Header({
   toolTip = { skao: 'SKAO', mode: '' },
   useSymbol = false,
   children,
-}: HeaderProps): JSX.Element {
+}: HeaderProps): React.JSX.Element {
   const isDarkTheme = storage.themeMode === THEME_DARK;
   const flatten = false; // TODO : Need to implement user preferences
 
@@ -75,7 +74,9 @@ export function Header({
     );
   };
   const updateTel = (event: React.MouseEvent<HTMLElement>) => {
-    storage.updateTelescope ? storage.updateTelescope(event) : null;
+    if (storage.updateTelescope) {
+      storage.updateTelescope(event);
+    }
   };
 
   return (
@@ -129,11 +130,7 @@ export function Header({
                   color="inherit"
                   onClick={() => openLink(docs.url)}
                 >
-                  {
-                    /* 
-          // @ts-ignore */
-                    <DescriptionIcon />
-                  }
+                  {<DescriptionIcon />}
                 </IconButton>
               </Tooltip>
             )}
@@ -145,11 +142,7 @@ export function Header({
                   color="inherit"
                   onClick={() => (storage.helpToggle ? storage.helpToggle() : null)}
                 >
-                  {
-                    /* 
-          // @ts-ignore */
-                    <HelpIcon />
-                  }
+                  {<HelpIcon />}
                 </IconButton>
               </Tooltip>
             )}

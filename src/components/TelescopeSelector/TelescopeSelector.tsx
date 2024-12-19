@@ -29,7 +29,7 @@ export function TelescopeSelector({
   telescope,
   toolTip = '',
   updateTelescope,
-}: TelescopeSelectorProps): JSX.Element {
+}: TelescopeSelectorProps): React.JSX.Element {
   const telescopeChange = (_event: React.MouseEvent<HTMLElement>, newTelescope: Telescope) => {
     if (newTelescope) {
       updateTelescope(newTelescope);

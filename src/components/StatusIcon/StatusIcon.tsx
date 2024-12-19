@@ -1,6 +1,6 @@
 import React from 'react';
-import ClearIcon from '@mui/icons-material/Clear';
-import DoneIcon from '@mui/icons-material/Done';
+// import ClearIcon from '@mui/icons-material/Clear';
+// import DoneIcon from '@mui/icons-material/Done';
 import { Colors } from '@ska-telescope/ska-javascript-components';
 import { Tooltip } from '@mui/material';
 

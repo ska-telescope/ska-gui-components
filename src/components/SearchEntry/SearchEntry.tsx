@@ -37,7 +37,7 @@ export function SearchEntry({
   testId = 'searchEntry-' + label,
   toolTip = '',
   value,
-}: SearchEntryProps): JSX.Element {
+}: SearchEntryProps): React.JSX.Element {
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
 
   return (
@@ -69,8 +69,6 @@ export function SearchEntry({
           input: {
             startAdornment: (
               <InputAdornment position="start">
-                {/* 
-// @ts-ignore */}
                 <SearchIcon />
               </InputAdornment>
             ),

@@ -9,7 +9,7 @@ export interface FooterProps {
   ariaDescription?: string;
   ariaTitle?: string;
 
-  children?: JSX.Element[];
+  children?: React.JSX.Element[];
   copyrightFunc?: Function;
   testId?: string;
   version?: string;
@@ -28,7 +28,9 @@ export function Footer({
   const fullYear = new Date().getFullYear();
 
   function openCopyright() {
-    copyrightFunc ? copyrightFunc(true) : null;
+    if (copyrightFunc) {
+      copyrightFunc(true);
+    }
   }
 
   return (

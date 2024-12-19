@@ -12,6 +12,8 @@ export default [
   {
     makeAbsoluteExternalsRelative: true,
     preserveEntrySignatures: 'strict',
+    makeAbsoluteExternalsRelative: true,
+    preserveEntrySignatures: 'strict',
     input: 'src/index.ts',
     output: [
       {
@@ -27,15 +29,16 @@ export default [
     ],
     plugins: [
       peerDepsExternal(),
+      commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss(),
       terser(),
     ],
   },
   {
-    input: 'dist/types/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    input: 'dist/esm/types/index.d.ts',
     plugins: [dts.default()],
     external: [/\.css$/, /\.scss$/],
   },
 ];
+

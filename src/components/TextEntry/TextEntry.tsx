@@ -20,11 +20,11 @@ export interface TextEntryProps {
   onBlur?: Function;
   onFocus?: Function;
   password?: boolean;
-  prefix?: JSX.Element | string;
+  prefix?: React.JSX.Element | string;
   required?: boolean | string;
   rows?: number;
   setValue?: Function;
-  suffix?: JSX.Element | string;
+  suffix?: React.JSX.Element | string;
   testId?: string;
   toolTip?: string;
 }
@@ -53,7 +53,7 @@ export function TextEntry({
   testId = 'textEntry-' + label,
   toolTip = '',
   value,
-}: TextEntryProps): JSX.Element {
+}: TextEntryProps): React.JSX.Element {
   const isRequired = () => {
     if (!required) {
       return false;
