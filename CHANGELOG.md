@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.1.14
+
+******
+
+Added a Scan stage
+
 2.1.12
 
 ******

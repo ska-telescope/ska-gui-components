@@ -91,7 +91,7 @@ test-counts:
 
 # list the current top level dependencies for the project
 list_dependencies:
-  stage: test
+  stage: scan
   tags:
     - k8srunner
   allow_failure: true
