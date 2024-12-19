@@ -1,7 +1,7 @@
 {
   "name": "@ska-telescope/ska-gui-components",
   "private": false,
-  "version": "2.1.12",
+  "version": "2.1.4",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/index.umd.ts",
