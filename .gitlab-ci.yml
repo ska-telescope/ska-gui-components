@@ -39,7 +39,6 @@ code_analysis:
   script:
     - yarn install
     - yarn run code-analysis
-    - mv linting.xml build/reports/linting.xml
   artifacts:
     paths:
       - build/
@@ -93,7 +92,7 @@ test-counts:
 
 # list the current top level dependencies for the project
 list_dependencies:
-  stage: scan
+  stage: dependencies
   tags:
     - k8srunner
   allow_failure: true
