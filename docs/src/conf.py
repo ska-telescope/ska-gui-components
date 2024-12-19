@@ -6,9 +6,9 @@ copyright = '2023, SKAO'
 author = 'SKAO, (Trevor A Swain)'
 
 # The short X.Y version
-version = '2.1.15'
+version = '2.1.16'
 # The full version, including alpha/beta/rc tags
-release = '2.1.15'
+release = '2.1.16'
 
 # -- General configuration ---------------------------------------------------
 

@@ -39,7 +39,6 @@ code_analysis:
   script:
     - yarn install
     - yarn run code-analysis
-    - mv linting.xml build/reports/linting.xml
   artifacts:
     paths:
       - build/
