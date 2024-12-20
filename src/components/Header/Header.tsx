@@ -8,12 +8,12 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import HelpIcon from '@mui/icons-material/Help';
 
 // TODO : Should come from ska-javascript-components
-export type Help = {
+type Help = {
   content: object;
   component: object;
   showHelp: boolean;
 };
-export type Telescope = {
+type Telescope = {
   code: string;
   name: string;
   location: string;

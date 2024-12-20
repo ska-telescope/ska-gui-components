@@ -2,13 +2,6 @@ import React, { FocusEventHandler } from 'react';
 import { InputAdornment, TextField, Tooltip } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-export enum STATE {
-  OK = 'ok',
-  ERROR = 'error',
-  NONE = 'none',
-  UNKNOWN = 'unknown',
-}
-
 export interface SearchEntryProps {
   // required
   label: string;
