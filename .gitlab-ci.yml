@@ -30,15 +30,16 @@ install_dependencies:
 
 #Run the static code analysis
 code_analysis:
+code_analysis:
   stage: lint
   tags:
     - k8srunner
-  allow_failure: true
   before_script:
     - mkdir -p build/reports
   script:
     - yarn install
-    - yarn run code-analysis
+    - yarn code-analysis
+    - mv linting.xml build/reports/linting.xml
   artifacts:
     paths:
       - build/
