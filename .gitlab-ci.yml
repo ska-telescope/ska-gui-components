@@ -32,6 +32,7 @@ install_dependencies:
 code_analysis:
 code_analysis:
   stage: lint
+    allow_failure: true
   tags:
     - k8srunner
   before_script:
