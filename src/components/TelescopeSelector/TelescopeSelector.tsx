@@ -17,6 +17,7 @@ export interface TelescopeSelectorProps {
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;
+  reversed?: boolean;
   telescope: Telescope;
   toolTip?: string;
   updateTelescope: Function;
@@ -26,6 +27,7 @@ export function TelescopeSelector({
   ariaDescription = 'Means of selecting one of the available telescopes',
   ariaTitle = 'TelescopeSelector',
   disabled = false,
+  reversed = false,
   telescope,
   toolTip = '',
   updateTelescope,
@@ -39,7 +41,11 @@ export function TelescopeSelector({
   const getOptions = (inList: any) => {
     const results: { id: string; label: string; value: any }[] = [];
     inList.forEach((el: Telescope): void => {
-      results.push({ id: el.code, label: el.name, value: el });
+      if (reversed) { 
+        results.unshift({ id: el.code, label: el.name, value: el });
+      } else {
+        results.push({ id: el.code, label: el.name, value: el });
+      }
     });
     return results;
   };

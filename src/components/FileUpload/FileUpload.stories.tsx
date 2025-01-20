@@ -22,7 +22,6 @@ export const Light = {
     clearLabel: 'Clear',
     clearToolTip: 'Clear tooltip',
     dropzone: true,
-    dropzoneIcons: true,
     dropzonePreview: true,
     dropzonePrompt: 'DROP HERE',
     file: 'filename.pdf',
