@@ -1,6 +1,17 @@
 Changelog
 ==========
 
+2.2.0
+*****
+
+Reset to a good version
+ButtonLogin & ButtonLogout code added for later use 
+Updated so that all components use the SKA IconButton
+Added useBrowserStorage to the Header
+Updated to Node v22
+Ability to reverse the ordering in the TelescopeSelector
+Ability to set the Alert border to none added
+
 2.0.33
 
 ******

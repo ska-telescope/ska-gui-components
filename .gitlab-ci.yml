@@ -1,5 +1,5 @@
 default:
-  image: node:20.2.0-alpine3.18
+  image: node:22
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -13,6 +13,7 @@ stages:
   - pages
   - deploy
   - accessibility
+  - scan
   - publish
 
 #Install basic dependencies using yarn
@@ -44,7 +45,7 @@ code_analysis:
 
 # run the test coverage reports
 test_and_coverage:
-  image: cypress/browsers:node18.12.0-chrome106-ff106
+  image: cypress/browsers:22.11.0
   stage: test
   tags:
     - k8srunner
@@ -68,7 +69,7 @@ test_and_coverage:
       - build/
 
 test-counts:
-  image: cypress/browsers:node18.12.0-chrome106-ff106
+  image: cypress/browsers:22.11.0
   stage: test
   tags:
     - k8srunner

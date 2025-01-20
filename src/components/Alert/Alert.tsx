@@ -1,15 +1,18 @@
 import React from 'react';
 import { Alert, Box, Paper } from '@mui/material';
+import StatusIcon from '../StatusIcon/StatusIcon';
 
 export enum AlertColorTypes {
   Error = 'error',
   Info = 'info',
   Success = 'success',
   Warning = 'warning',
+  None = 'none',
 }
 export enum AlertVariantTypes {
   Filled = 'filled',
   Outlined = 'outlined',
+  Default = 'default',
 }
 
 export interface AlertProps {
@@ -19,6 +22,7 @@ export interface AlertProps {
   color?: AlertColorTypes;
   children?: JSX.Element;
   variant?: AlertVariantTypes;
+  showIcon?: boolean;
   testId: string;
 }
 export function SKAOAlert({
@@ -28,6 +32,7 @@ export function SKAOAlert({
   children,
   color = AlertColorTypes.Success,
   variant = AlertVariantTypes.Outlined,
+  showIcon = false,
   testId = 'alert-testId',
 }: AlertProps) {
   return (
@@ -40,19 +45,55 @@ export function SKAOAlert({
           minWidth: '60px',
         }}
       >
-        <Alert
-          action={action}
-          aria-label={ariaTitle}
-          aria-describedby={ariaDescription}
-          aria-hidden={false}
-          data-testid={testId}
-          icon={false}
-          key="alerts"
-          severity={color}
-          variant={variant}
-        >
-          {children}
-        </Alert>
+        {variant === AlertVariantTypes.Default && (
+          <Alert
+            action={action}
+            aria-label={ariaTitle}
+            aria-describedby={ariaDescription}
+            aria-hidden={false}
+            data-testid={testId}
+            icon={false}
+            key="alerts"
+            severity={color as any}
+          >
+            {children}
+          </Alert>
+        )}
+        {variant !== AlertVariantTypes.Default && showIcon && (
+          <Alert
+            action={action}
+            aria-label={ariaTitle}
+            aria-describedby={ariaDescription}
+            aria-hidden={false}
+            data-testid={testId}
+            iconMapping={{
+              error: <StatusIcon testId="statusId" icon level={1} size={20} />,
+              info: <StatusIcon testId="statusId" icon level={4} size={20} />,
+              success: <StatusIcon testId="statusId" icon level={0} size={20} />,
+              warning: <StatusIcon testId="statusId" icon level={2} size={20} />,
+            }}
+            key="alerts"
+            severity={color as any}
+            variant={variant as any}
+          >
+            {children}
+          </Alert>
+        )}
+        {variant !== AlertVariantTypes.Default && !showIcon && (
+          <Alert
+            action={action}
+            aria-label={ariaTitle}
+            aria-describedby={ariaDescription}
+            aria-hidden={false}
+            data-testid={testId}
+            icon={false}
+            key="alerts"
+            severity={color as any}
+            variant={variant as any}
+          >
+            {children}
+          </Alert>
+        )}
       </Paper>
     </Box>
   );

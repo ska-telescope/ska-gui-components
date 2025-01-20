@@ -18,6 +18,7 @@ export const Default = {
     children: 'CHILDREN defined are displayed in here',
     color: AlertColorTypes.Success,
     variant: AlertVariantTypes.Outlined,
+    showIcon: false,
     testId: 'alertTestId',
   },
 };
@@ -32,6 +33,7 @@ export const Dark = {
     children: 'CHILDREN defined are displayed in here',
     color: AlertColorTypes.Success,
     variant: AlertVariantTypes.Filled,
+    showIcon: false,
     testId: 'alertTestId',
   },
 };

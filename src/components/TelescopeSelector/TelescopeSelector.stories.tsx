@@ -18,6 +18,7 @@ export const Default = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
+    reversed: false,
     telescope: TELESCOPE_LOW,
     toolTip: 'Tool tip',
     updateTelescope: telescopeFunction,

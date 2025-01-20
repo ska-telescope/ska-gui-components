@@ -12,6 +12,7 @@ export interface TelescopeSelectorProps {
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;
+  reversed?: boolean;
   telescope: Telescope;
   toolTip?: string;
   updateTelescope: Function;
@@ -20,6 +21,7 @@ export declare function TelescopeSelector({
   ariaDescription,
   ariaTitle,
   disabled,
+  reversed,
   telescope,
   toolTip,
   updateTelescope,

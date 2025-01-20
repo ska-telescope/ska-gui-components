@@ -1,5 +1,5 @@
 import React from 'react';
-import { LABEL_POSITION } from '../EntryField/EntryField';
+import { LABEL_POSITION } from '../EntryField/EntryField.js';
 export interface NumberEntryProps {
   label: string;
   value: number | string;
@@ -17,10 +17,10 @@ export interface NumberEntryProps {
   name?: string;
   onBlur?: Function;
   onFocus?: Function;
-  prefix?: JSX.Element | string;
+  prefix?: React.JSX.Element | string;
   required?: boolean | string;
   setValue?: Function;
-  suffix?: JSX.Element | string;
+  suffix?: React.JSX.Element | string;
   testId?: string;
   toolTip?: string;
 }
@@ -46,5 +46,5 @@ export declare function NumberEntry({
   testId,
   toolTip,
   value,
-}: NumberEntryProps): JSX.Element;
+}: NumberEntryProps): React.JSX.Element;
 export default NumberEntry;

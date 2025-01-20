@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Tooltip, IconButton } from '@mui/material';
 
 export interface IconButtonProps {
@@ -6,8 +6,8 @@ export interface IconButtonProps {
   ariaTitle?: string;
   icon: JSX.Element;
   onClick?: Function;
-  testId: string;
-  toolTip?: string;
+  testId?: string;
+  toolTip?: string | ReactNode | null;
 }
 
 export function OurIconButton({

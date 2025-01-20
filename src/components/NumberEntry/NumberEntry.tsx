@@ -1,5 +1,5 @@
 import React, { FocusEventHandler } from 'react';
-import { EntryField, LABEL_POSITION, TYPE } from '../EntryField/EntryField';
+import { EntryField, LABEL_POSITION, TYPE } from '../EntryField/EntryField.js';
 
 export interface NumberEntryProps {
   // required
@@ -20,10 +20,10 @@ export interface NumberEntryProps {
   name?: string;
   onBlur?: Function;
   onFocus?: Function;
-  prefix?: JSX.Element | string;
+  prefix?: React.JSX.Element | string;
   required?: boolean | string;
   setValue?: Function;
-  suffix?: JSX.Element | string;
+  suffix?: React.JSX.Element | string;
   testId?: string;
   toolTip?: string;
 }
@@ -50,7 +50,7 @@ export function NumberEntry({
   testId = 'numberEntry-' + label,
   toolTip = '',
   value,
-}: NumberEntryProps): JSX.Element {
+}: NumberEntryProps): React.JSX.Element {
   const isRequired = () => {
     if (!required) {
       return false;
