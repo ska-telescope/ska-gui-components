@@ -1,21 +1,20 @@
-import React, { MouseEventHandler, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { AppBar, Box, Grid, Typography } from '@mui/material';
 import {
-  Help,
   Logo,
   Symbol,
-  Telescope,
   TELESCOPE_LOW,
   TELESCOPE_MID,
   THEME_DARK,
   THEME_LIGHT,
 } from '@ska-telescope/ska-javascript-components';
 import { OurIconButton } from '../IconButton/IconButton';
-import { TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
+import { Telescope, TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DescriptionIcon from '@mui/icons-material/Description';
 import HelpIcon from '@mui/icons-material/Help';
+import { Help } from '../HelpModal/HelpModal';
 
 export type Storage = {
   help?: Help;

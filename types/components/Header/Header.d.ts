@@ -1,4 +1,5 @@
-import { Help, Telescope } from '@ska-telescope/ska-javascript-components';
+import { Telescope } from '../TelescopeSelector/TelescopeSelector';
+import { Help } from '../HelpModal/HelpModal';
 export type Storage = {
   help?: Help;
   helpToggle?: Function;
@@ -23,6 +24,7 @@ export interface HeaderProps {
     skao: string;
     mode: string;
   };
+  useBrowserStorage?: boolean;
   useSymbol?: Boolean;
   children?: JSX.Element[];
 }
@@ -36,6 +38,7 @@ export declare function Header({
   testId,
   title,
   toolTip,
+  useBrowserStorage,
   useSymbol,
   children,
 }: HeaderProps): JSX.Element;

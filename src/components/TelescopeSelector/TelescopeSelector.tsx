@@ -41,7 +41,7 @@ export function TelescopeSelector({
   const getOptions = (inList: any) => {
     const results: { id: string; label: string; value: any }[] = [];
     inList.forEach((el: Telescope): void => {
-      if (reversed) { 
+      if (reversed) {
         results.unshift({ id: el.code, label: el.name, value: el });
       } else {
         results.push({ id: el.code, label: el.name, value: el });

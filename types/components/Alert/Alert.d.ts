@@ -4,10 +4,12 @@ export declare enum AlertColorTypes {
   Info = 'info',
   Success = 'success',
   Warning = 'warning',
+  None = 'none',
 }
 export declare enum AlertVariantTypes {
   Filled = 'filled',
   Outlined = 'outlined',
+  Default = 'default',
 }
 export interface AlertProps {
   action?: any;
@@ -16,6 +18,7 @@ export interface AlertProps {
   color?: AlertColorTypes;
   children?: JSX.Element;
   variant?: AlertVariantTypes;
+  showIcon?: boolean;
   testId: string;
 }
 export declare function SKAOAlert({
@@ -25,6 +28,7 @@ export declare function SKAOAlert({
   children,
   color,
   variant,
+  showIcon,
   testId,
 }: AlertProps): React.JSX.Element;
 export default SKAOAlert;

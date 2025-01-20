@@ -4,9 +4,17 @@ export type Help = {
   showHelp: Boolean;
 };
 export interface HelpModalProps {
+  ariaDescription?: string;
   component?: boolean;
   help: Help;
   helpToggle: Function;
+  toolTip?: string;
 }
-export declare function HelpModal({ component, help, helpToggle }: HelpModalProps): JSX.Element;
+export declare function HelpModal({
+  ariaDescription,
+  component,
+  help,
+  helpToggle,
+  toolTip,
+}: HelpModalProps): JSX.Element;
 export default HelpModal;
