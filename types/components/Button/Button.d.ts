@@ -41,6 +41,7 @@ export interface ButtonProps {
   icon?: JSX.Element | string;
   label: string;
   onClick?: Function;
+  ref?: string;
   size?: ButtonSizeTypes;
   testId: string;
   toolTip?: string;
@@ -54,6 +55,7 @@ export declare function OurButton({
   icon,
   label,
   onClick,
+  ref,
   size,
   testId,
   toolTip,

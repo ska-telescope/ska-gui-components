@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -19,6 +19,7 @@
     "build": "tsc && vite build",
     "build-storybook": "storybook build",
     "code-analysis": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --ignore-path .eslintignore -f junit -o linting.xml",
+    "checker": "yarn build && yarn prettier:fix && yarn lint:fix",
     "cypress:open": "cypress open",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
