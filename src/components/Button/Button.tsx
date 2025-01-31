@@ -66,6 +66,7 @@ export interface ButtonProps {
   icon?: JSX.Element | string;
   label: string;
   onClick?: Function;
+  ref?: string;
   size?: ButtonSizeTypes;
   testId: string;
   toolTip?: string;
@@ -80,6 +81,7 @@ export function OurButton({
   icon,
   label,
   onClick,
+  ref,
   size = ButtonSizeTypes.Medium,
   testId = 'buttton-' + label,
   toolTip = '',
@@ -142,6 +144,7 @@ export function OurButton({
           data-testid={testId.length > 0 ? testId : 'button-' + label}
           disabled={disabled}
           onClick={(e: any) => clicked(e)}
+          ref={ref}
           role="button"
           size={size}
           startIcon={getIcon()}

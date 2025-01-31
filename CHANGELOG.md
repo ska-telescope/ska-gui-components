@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.2.1
+*****
+
+added ability to add ref to a standard button
+
 2.2.0
 *****
 
