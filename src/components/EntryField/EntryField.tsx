@@ -4,6 +4,7 @@ import { FormControlLabel } from '@mui/material';
 import { FormControl } from '@mui/material';
 import { Grid } from '@mui/material';
 import { InputLabel, Typography } from '@mui/material';
+import Children from '../../utils/types/types';
 
 export enum LABEL_POSITION {
   CONTAINED = 'contained',
@@ -36,7 +37,7 @@ export interface EntryFieldProps {
   // optional
   ariaDescription?: string;
   ariaTitle?: string;
-  children?: JSX.Element | JSX.Element[];
+  children?: Children;
   disabled?: boolean;
   errorText?: string;
   height?: number;

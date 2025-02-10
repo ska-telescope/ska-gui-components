@@ -15,6 +15,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DescriptionIcon from '@mui/icons-material/Description';
 import HelpIcon from '@mui/icons-material/Help';
 import { Help } from '../HelpModal/HelpModal';
+import Children from '../../utils/types/types';
 
 export type Storage = {
   help?: Help;
@@ -44,7 +45,7 @@ export interface HeaderProps {
   toolTip?: { skao: string; mode: string };
   useBrowserStorage?: boolean;
   useSymbol?: Boolean;
-  children?: JSX.Element[];
+  children?: Children;
 }
 
 export function Header({

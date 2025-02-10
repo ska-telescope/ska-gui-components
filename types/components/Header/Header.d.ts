@@ -1,5 +1,6 @@
 import { Telescope } from '../TelescopeSelector/TelescopeSelector';
 import { Help } from '../HelpModal/HelpModal';
+import Children from '../../utils/types/types';
 export type Storage = {
   help?: Help;
   helpToggle?: Function;
@@ -26,7 +27,7 @@ export interface HeaderProps {
   };
   useBrowserStorage?: boolean;
   useSymbol?: Boolean;
-  children?: JSX.Element[];
+  children?: Children;
 }
 export declare function Header({
   ariaDescription,

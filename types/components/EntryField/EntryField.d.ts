@@ -1,4 +1,5 @@
 import React from 'react';
+import Children from '../../utils/types/types';
 export declare enum LABEL_POSITION {
   CONTAINED = 'contained',
   START = 'start',
@@ -25,7 +26,7 @@ export interface EntryFieldProps {
   value: string | number;
   ariaDescription?: string;
   ariaTitle?: string;
-  children?: JSX.Element | JSX.Element[];
+  children?: Children;
   disabled?: boolean;
   errorText?: string;
   height?: number;

@@ -1,8 +1,9 @@
 import React from 'react';
+import Children from '../../utils/types/types';
 export interface FooterProps {
   ariaDescription?: string;
   ariaTitle?: string;
-  children?: JSX.Element[];
+  children?: Children;
   copyrightFunc?: Function;
   testId?: string;
   version?: string;

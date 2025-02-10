@@ -1,8 +1,9 @@
 import React from 'react';
 import { Backdrop } from '@mui/material';
+import Children from '../../utils/types/types';
 
 export interface SKAOBackdropProps {
-  children?: JSX.Element;
+  children?: Children;
   open: boolean;
   visible?: boolean;
 }

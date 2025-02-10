@@ -4,12 +4,13 @@ import { Copyright } from '@mui/icons-material';
 import Button, { ButtonColorTypes, ButtonVariantTypes } from '../Button/Button';
 import { GUI_COMPONENTS_VERSION } from '../version';
 import { Tooltip } from '@mui/material';
+import Children from '../../utils/types/types';
 
 export interface FooterProps {
   ariaDescription?: string;
   ariaTitle?: string;
 
-  children?: JSX.Element[];
+  children?: Children;
   copyrightFunc?: Function;
   testId?: string;
   version?: string;

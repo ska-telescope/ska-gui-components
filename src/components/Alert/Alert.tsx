@@ -1,6 +1,7 @@
 import React from 'react';
 import { Alert, Box, Paper } from '@mui/material';
 import StatusIcon from '../StatusIcon/StatusIcon';
+import Children from '../../utils/types/types';
 
 export enum AlertColorTypes {
   Error = 'error',
@@ -20,7 +21,7 @@ export interface AlertProps {
   ariaDescription?: string;
   ariaTitle?: string;
   color?: AlertColorTypes;
-  children?: JSX.Element;
+  children?: Children;
   variant?: AlertVariantTypes;
   showIcon?: boolean;
   testId: string;

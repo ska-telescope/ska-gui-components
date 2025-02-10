@@ -1,4 +1,5 @@
 import React from 'react';
+import Children from '../../utils/types/types';
 export declare enum AlertColorTypes {
   Error = 'error',
   Info = 'info',
@@ -16,7 +17,7 @@ export interface AlertProps {
   ariaDescription?: string;
   ariaTitle?: string;
   color?: AlertColorTypes;
-  children?: JSX.Element;
+  children?: Children;
   variant?: AlertVariantTypes;
   showIcon?: boolean;
   testId: string;
