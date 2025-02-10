@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.2.2
+*****
+
+Updated to 2.2.4 of ska-javascript-components  ( updates to vite & rollup dependencies )
+All children properties now use the Children type
+
 2.2.1
 *****
 
