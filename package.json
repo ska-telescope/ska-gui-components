@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "main": "dist/cjs/index.js",
@@ -70,6 +70,7 @@
     "babel-traverse": "^6.26.0"
   },
   "dependencies": {
+    "@base-ui-components/react": "^1.0.0-alpha.6",
     "@mui/base": "^5.0.0-beta.68",
     "@mui/icons-material": "^6.1.8",
     "@mui/material": "^6.1.8",
@@ -114,6 +115,7 @@
     "@testing-library/cypress": "^10.0.1",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7",
+    "@types/jest": "^29.5.14",
     "@types/react": "^18.3.3",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "autoprefixer": "^10.4.19",
