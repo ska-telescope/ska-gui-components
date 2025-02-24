@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box } from '@mui/material';
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon/index.js';
-import { alpha, styled } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles/index.js';
 import { SimpleTreeView, TreeItem, TreeItemProps, treeItemClasses } from '@mui/x-tree-view';
 import Collapse from '@mui/material/Collapse';
 import { useSpring, animated } from '@react-spring/web';
