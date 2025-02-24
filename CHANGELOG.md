@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.2.3
+*****
+
+Note added to the documentation main page to advise the reader of the existence of the ska-login-page
+
 2.2.2
 *****
 

@@ -6,7 +6,7 @@ import { LABEL_POSITION } from '../EntryField/EntryField';
 
 const THEME = [THEME_DARK, THEME_LIGHT];
 
-const theValue = '';
+const theValue = 10;
 
 describe('<NumberEntry />', () => {
   for (const theTheme of THEME) {
@@ -104,7 +104,7 @@ describe('<NumberEntry />', () => {
           <NumberEntry label="Label" testId="testId" value={theValue} errorText="ERROR TEXT" />
         </ThemeProvider>,
       );
-      // TODO : Check that errorText is shown and the coloring is correct
+      // TODO : Check that errorText is shown and the colouring is correct
     });
   }
 });

@@ -13,6 +13,11 @@ so that separate inclusion is not required.
 Every effort has been made to ensure that all components have a unique means of identification for testing purposes,
 as well as implementation of standard properties to allow for maximum accessibility for those that have access limitations
 
+.. Note:: 
+
+   - If you require the application to include authentication as standard, please also check out the `ska-login-page` repository, which provides
+     a number of options that will help to achieve that requirement
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -22,6 +27,7 @@ as well as implementation of standard properties to allow for maximum accessibil
    JavascriptComponents
    Alert
    AlertCard
+   AppWrapper
    Backdrop
    Button
    ButtonToggle
