@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.2.4
+*****
+
+Added index.js to tje @mui/material/node/styles
+
 2.2.3
 *****
 
