@@ -1,7 +1,7 @@
 Changelog
 ==========
 
-2.2.5
+2.2.6
 *****
 
 Added index.js to the @mui/material/node/styles
