@@ -2,8 +2,13 @@ import * as React from 'react';
 import { Box } from '@mui/material';
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon/index.js';
 import { alpha, styled } from '@mui/material/styles/index.js';
-import { SimpleTreeView, TreeItem, TreeItemProps, treeItemClasses } from '@mui/x-tree-view';
-import Collapse from '@mui/material/Collapse';
+import {
+  SimpleTreeView,
+  TreeItem,
+  TreeItemProps,
+  treeItemClasses,
+} from '@mui/x-tree-view/index.js';
+import Collapse from '@mui/material/Collapse/index.js';
 import { useSpring, animated } from '@react-spring/web';
 import { TransitionProps } from '@mui/material/transitions';
 import { v4 as uuidv4 } from 'uuid';
