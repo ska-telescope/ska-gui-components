@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormControlLabel, Checkbox, Tooltip } from '@mui/material';
-import useTheme from '@mui/material/styles/useTheme';
+import useTheme from '@mui/material/styles/useTheme.js';
 import { Grid, Typography } from '@mui/material';
 import { InputLabel } from '@mui/material';
 import { LABEL_POSITION } from '../EntryField/EntryField';
@@ -64,7 +64,7 @@ export function TickBox({
           sx={{ width: '100%' }}
         >
           {labelPosition === LABEL_POSITION.START && (
-            <Grid item xs={labelWidth}>
+            <Grid xs={labelWidth}>
               <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
                 <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
                   {displayLabel}
