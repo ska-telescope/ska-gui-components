@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid2 as Grid, Paper } from '@mui/material';
+import { Paper } from '@mui/material';
 import { Spacer, SPACER_VERTICAL } from '@ska-telescope/ska-javascript-components';
 import CopyrightModal from '../CopyrightModal/CopyrightModal';
 import Footer from '../Footer/Footer';
