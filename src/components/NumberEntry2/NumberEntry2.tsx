@@ -5,7 +5,7 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import useTheme from '@mui/material/styles/useTheme';
 import { Box, Stack } from '@mui/system';
-import styles from './NumberEntry.module.css';
+import styles from './NumberEntry2.module.css';
 import { Tooltip } from '@mui/material';
 
 interface NumberEntry2Props {
@@ -26,7 +26,7 @@ interface NumberEntry2Props {
   width?: number;
 }
 
-export default function NumberEntry2({
+export function NumberEntry2({
   disabled = false,
   fieldHeight = 85,
   fieldName,
@@ -119,3 +119,5 @@ export default function NumberEntry2({
     </Box>
   );
 }
+
+export default NumberEntry2;
