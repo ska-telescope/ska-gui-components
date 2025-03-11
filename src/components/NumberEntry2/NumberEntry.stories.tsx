@@ -1,3 +1,5 @@
+import { Typography } from '@mui/material';
+import React from 'react';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 import NumberEntry2 from './NumberEntry';
 
@@ -9,6 +11,7 @@ export default {
   },
 };
 
+export const title = () => <Typography>TITLE</Typography>;
 export const Default = {
   args: {
     ariaTitle: 'aria Title',
@@ -19,11 +22,16 @@ export const Default = {
     label: 'LABEL',
     labelPosition: LABEL_POSITION.CONTAINED,
     labelWidth: 4,
+    minValue: 0,
+    maxValue: 2,
+    prompt: '',
+    step: 0.1,
     password: false,
     prefix: '',
     onFocus: undefined,
     required: false,
     suffix: '',
+    title: title(),
     value: '',
     setValue: undefined,
   },

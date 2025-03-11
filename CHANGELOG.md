@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.2.8
+*****
+
+Updated the NumberEntry2 component
+
 2.2.6
 *****
 
