@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.2.10
+******
+
+Added useTheme.js to new component
+
 2.2.9
 *****
 

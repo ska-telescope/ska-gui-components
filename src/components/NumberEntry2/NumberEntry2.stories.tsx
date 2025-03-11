@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import React from 'react';
+import * as React from 'react';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 import NumberEntry2 from './NumberEntry2';
 
@@ -11,7 +11,6 @@ export default {
   },
 };
 
-export const title = () => <Typography>TITLE</Typography>;
 export const Default = {
   args: {
     ariaTitle: 'aria Title',
@@ -31,8 +30,9 @@ export const Default = {
     onFocus: undefined,
     required: false,
     suffix: '',
-    title: title(),
+    title: <Typography>TITLE</Typography>,
     value: '',
+    width: 200,
     setValue: undefined,
   },
 };
