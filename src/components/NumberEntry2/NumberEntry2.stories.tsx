@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 import { LABEL_POSITION } from '../EntryField/EntryField';
-import NumberEntry2 from './NumberEntry';
+import NumberEntry2 from './NumberEntry2';
 
 export default {
   title: 'Example/NumberEntry2',
