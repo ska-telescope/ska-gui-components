@@ -64,10 +64,8 @@
   },
   "resolutions": {
     "**/**/json5": "^1.0.2",
-    "@babel/traverse": "^7.25.0",
     "minimatch": "^3.0.5",
-    "debug": "^4.3.1",
-    "babel-traverse": "^6.26.0"
+    "debug": "^4.3.1"
   },
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-alpha.6",
@@ -80,20 +78,13 @@
     "@react-spring/web": "^9.7.3",
     "@ska-telescope/ska-javascript-components": "^2.2.4",
     "@types/uuid": "^9.0.4",
+    "@typescript-eslint/parser": "^8.26.1",
     "junit-report-merger": "^6.0.2",
     "react-dropzone": "^14.3.5",
     "styled-components": "^6.1.13",
     "typescript": "5.5.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.6",
-    "@babel/eslint-parser": "^7.24.6",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@babel/plugin-syntax-flow": "^7.24.6",
-    "@babel/plugin-transform-react-jsx": "^7.24.6",
-    "@babel/preset-env": "^7.24.6",
-    "@babel/preset-react": "^7.24.6",
-    "@babel/preset-typescript": "^7.24.6",
     "@chromatic-com/storybook": "^1",
     "@cypress/instrument-cra": "^1.4.0",
     "@emotion/react": "^11.13.5",
@@ -119,12 +110,9 @@
     "@types/react": "^18.3.3",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "autoprefixer": "^10.4.19",
-    "babel-jest": "^29.5.0",
-    "babel-plugin-import": "^1.13.5",
-    "babel-plugin-istanbul": "^6.1.1",
-    "babel-preset-react-app": "^10.0.1",
     "css-loader": "^7.1.2",
     "cypress": "^13.10.0",
+    "cypress-vite": "^1.6.0",
     "debug": "^4.3.6",
     "eslint": "^8.1.0",
     "eslint-config-airbnb": "^19.0.4",
