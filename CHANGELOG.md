@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+2.2.11
+******
+
+Fix of version numbering mismatch
+
+2.2.10
+******
+
+Reduced babel dependancies
+
 2.2.9
 *****
 
