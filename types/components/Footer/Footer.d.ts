@@ -1,4 +1,3 @@
-import React from 'react';
 import Children from '../../utils/types/types';
 export interface FooterProps {
   ariaDescription?: string;
@@ -17,5 +16,5 @@ export declare function Footer({
   testId,
   version,
   versionTooltip,
-}: FooterProps): React.JSX.Element;
+}: FooterProps): import('react/jsx-runtime').JSX.Element;
 export default Footer;

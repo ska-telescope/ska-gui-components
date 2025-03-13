@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { Backdrop } from '@mui/material';
 import Children from '../../utils/types/types';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
 
 export interface ButtonToggleProps {

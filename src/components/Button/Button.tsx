@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { Button, Tooltip } from '@mui/material';
 import { ElementType } from '@react-spring/web';
 //

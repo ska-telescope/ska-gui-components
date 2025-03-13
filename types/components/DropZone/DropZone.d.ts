@@ -1,4 +1,3 @@
-import React from 'react';
 import { Accept } from 'react-dropzone';
 interface DropzoneProps {
   inFile: any;
@@ -15,5 +14,5 @@ declare const Dropzone: ({
   prompt,
   accepted,
   maxFiles,
-}: DropzoneProps) => React.JSX.Element;
+}: DropzoneProps) => import('react/jsx-runtime').JSX.Element;
 export default Dropzone;

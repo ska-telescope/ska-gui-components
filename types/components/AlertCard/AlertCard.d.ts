@@ -1,4 +1,3 @@
-import React from 'react';
 import { AlertColorTypes, AlertVariantTypes } from '../Alert/Alert';
 export interface AlertCardProps {
   action?: any;
@@ -29,5 +28,5 @@ export declare function AlertCard({
   testId,
   title,
   variant,
-}: AlertCardProps): React.JSX.Element;
+}: AlertCardProps): import('react/jsx-runtime').JSX.Element;
 export default AlertCard;

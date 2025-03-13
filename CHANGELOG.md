@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.2.12
+******
+
+Replaced Cypress with Vitest
+
 2.2.11
 ******
 

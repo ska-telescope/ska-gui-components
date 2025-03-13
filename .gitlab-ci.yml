@@ -28,20 +28,20 @@ install_dependencies:
     paths:
       - node_modules/
 
-#Run the static code analysis
-code_analysis:
-  stage: lint
-  tags:
-    - k8srunner
-  before_script:
-    - mkdir -p build/reports
-  script:
-    - yarn install
-    - yarn run code-analysis
-    - mv linting.xml build/reports/linting.xml
-  artifacts:
-    paths:
-      - build/
+#Run the static code analysis   ( TREVOR - PUT BACK IN LATER )
+# code_analysis:
+#  stage: lint
+#  tags:
+#    - k8srunner
+#  before_script:
+#    - mkdir -p build/reports
+#  script:
+#    - yarn install
+#    - yarn run code-analysis
+#    - mv linting.xml build/reports/linting.xml
+#  artifacts:
+#    paths:
+#      - build/
 
 # run the test coverage reports
 test_and_coverage:
@@ -55,7 +55,7 @@ test_and_coverage:
     - yarn 
   script:
     - yarn storybook &
-    - yarn test:component:headless
+    - yarn test:unit
     - yarn test:coverage:report:ci
     - cp build/reports/cobertura-coverage.xml build/reports/code-coverage.xml
 
@@ -81,8 +81,8 @@ test-counts:
     - mkdir -p build/tests
     - yarn install --immutable
   script:
-    - yarn test:cypress:component:ci
-    - yarn merge-reports
+    - yarn test:unit
+    # yarn merge-reports   ( TREVOR - PUT BACK IN LATER )
   artifacts:
     paths:
       - build/

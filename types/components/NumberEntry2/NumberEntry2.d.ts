@@ -1,4 +1,3 @@
-import React from 'react';
 interface NumberEntry2Props {
   disabled?: boolean;
   fieldHeight?: number;
@@ -32,5 +31,5 @@ export declare function NumberEntry2({
   toolTip,
   value,
   width,
-}: NumberEntry2Props): React.JSX.Element;
+}: NumberEntry2Props): import('react/jsx-runtime').JSX.Element;
 export default NumberEntry2;

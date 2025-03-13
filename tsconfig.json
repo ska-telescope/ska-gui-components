@@ -1,24 +1,27 @@
 {
     "compilerOptions": {
-      "target": "es5",
+      "target": "es2020",
+      "lib": ["ES2020", "DOM", "DOM.Iterable"],
+      "module": "ES2020",
+      "moduleResolution": "node", // "Bundler"
+      "jsx": "react-jsx",
+      "baseUrl": "./src",
+      "noEmit": true,
+      "isolatedModules": true,
       "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
       "strict": true,
-      "skipLibCheck": true,
-      "rootDir": "src",
-  
-      "jsx": "react",
-      "module": "ESNext",
-      "declaration": true,
-      "declarationDir": "types",
-      "sourceMap": true,
-      "outDir": "dist",
-      "moduleResolution": "node",
-      "allowJs": true,
-      "allowSyntheticDefaultImports": true,
-      "emitDeclarationOnly": true,
+      "checkJs": true,
+
+      "forceConsistentCasingInFileNames": true,
+      "skipLibCheck": true,  
+      // "declaration": true,
+      // "declarationDir": "types",
+      // "sourceMap": true,
+      // "outDir": "dist",
+      // "allowJs": true,
+      // "allowSyntheticDefaultImports": true,
     },
     "include": ["src/*.ts", "global.d.ts"],
-    "exclude": ["src/*.cy.ts"]
+    "exclude": ["dist/**/*", "node_modules/**/*", "src/*.test.ts"]
   }
   

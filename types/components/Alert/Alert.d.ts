@@ -1,4 +1,3 @@
-import React from 'react';
 import Children from '../../utils/types/types';
 export declare enum AlertColorTypes {
   Error = 'error',
@@ -31,5 +30,5 @@ export declare function SKAOAlert({
   variant,
   showIcon,
   testId,
-}: AlertProps): React.JSX.Element;
+}: AlertProps): import('react/jsx-runtime').JSX.Element;
 export default SKAOAlert;
