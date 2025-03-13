@@ -1,22 +1,22 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "2.2.12",
+  "license": "BSD-3-Clause",
+  "private": false,
+  "version": "2.2.13",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "module": "dist/index.es.js",
   "exports": {
-    "require": "./dist/cjs/index.js",
-    "import": "./dist/esm/index.js"
+    "import": "./dist/index.es.js"
   },
-  "types": "dist/index.d.ts",
   "type": "module",
+  "types": "dist/index.es.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "browserList": "npx browserslist@latest --update-db",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && rollup --config rollup.config.mjs",
     "build-storybook": "storybook build",
     "code-analysis": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --ignore-path .eslintignore -f junit -o linting.xml",
     "checker": "yarn build && yarn prettier:fix && yarn lint:fix",
@@ -72,6 +72,7 @@
     "@types/uuid": "^9.0.4",
     "@typescript-eslint/parser": "^8.26.1",
     "junit-report-merger": "^6.0.2",
+    "path": "^0.12.7",
     "react-dropzone": "^14.3.5",
     "typescript": "5.5.3",
     "uuid": "^11.1.0"
