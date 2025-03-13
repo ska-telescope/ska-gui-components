@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 export interface IconButtonProps {
   ariaDescription?: string;
   ariaTitle?: string;
@@ -14,5 +14,5 @@ export declare function OurIconButton({
   icon,
   testId,
   toolTip,
-}: IconButtonProps): React.JSX.Element;
+}: IconButtonProps): import('react/jsx-runtime').JSX.Element;
 export default OurIconButton;

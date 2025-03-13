@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { FormControlLabel, Checkbox, Tooltip } from '@mui/material';
 import useTheme from '@mui/material/styles/useTheme.js';
-import { Grid, Typography } from '@mui/material';
+import { Grid2, Typography } from '@mui/material';
 import { InputLabel } from '@mui/material';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 
@@ -56,7 +56,7 @@ export function TickBox({
       {(labelPosition === LABEL_POSITION.CONTAINED ||
         labelPosition === LABEL_POSITION.START ||
         labelPosition === LABEL_POSITION.END) && (
-        <Grid
+        <Grid2
           alignItems="baseline"
           container
           direction="row"
@@ -64,15 +64,15 @@ export function TickBox({
           sx={{ width: '100%' }}
         >
           {labelPosition === LABEL_POSITION.START && (
-            <Grid xs={labelWidth}>
+            <Grid2 size={{ xs: labelWidth }}>
               <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
                 <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
                   {displayLabel}
                 </Typography>
               </InputLabel>
-            </Grid>
+            </Grid2>
           )}
-          <Grid item xs={12 - labelWidth}>
+          <Grid2 size={{ xs: 12 - labelWidth }}>
             <FormControlLabel
               aria-description={ariaDescription}
               checked={checked}
@@ -98,17 +98,17 @@ export function TickBox({
               }
               sx={{ '& .MuiSvgIcon-root': { fontSize: { fontSize } } }}
             />
-          </Grid>
+          </Grid2>
           {labelPosition === LABEL_POSITION.END && (
-            <Grid item xs={labelWidth}>
+            <Grid2 size={{ xs: labelWidth }}>
               <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
                 <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
                   {displayLabel}
                 </Typography>
               </InputLabel>
-            </Grid>
+            </Grid2>
           )}
-        </Grid>
+        </Grid2>
       )}
       {(labelPosition === LABEL_POSITION.TOP || labelPosition === LABEL_POSITION.BOTTOM) && (
         <FormControlLabel

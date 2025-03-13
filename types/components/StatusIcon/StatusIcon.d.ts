@@ -20,5 +20,5 @@ export declare function StatusIcon({
   testId,
   text,
   toolTip,
-}: StatusProps): React.JSX.Element;
+}: StatusProps): import('react/jsx-runtime').JSX.Element;
 export default StatusIcon;

@@ -1,1 +1,1 @@
-export declare const GUI_COMPONENTS_VERSION = '2.2.11';
+export declare const GUI_COMPONENTS_VERSION = '2.2.12';

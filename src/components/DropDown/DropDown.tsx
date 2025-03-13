@@ -1,4 +1,4 @@
-import React, { FocusEventHandler } from 'react';
+import React, { FocusEventHandler, JSX } from 'react';
 import { FormControl, FormControlLabel, Grid, MenuItem, TextField, Tooltip } from '@mui/material';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 import { InputLabel, Typography } from '@mui/material';

@@ -1,4 +1,4 @@
-import React, { FocusEventHandler } from 'react';
+import React, { FocusEventHandler, JSX } from 'react';
 import { EntryField, LABEL_POSITION, TYPE } from '../EntryField/EntryField';
 
 export interface TextEntryProps {

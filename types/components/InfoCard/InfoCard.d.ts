@@ -1,4 +1,3 @@
-import React from 'react';
 export declare enum InfoCardColorTypes {
   Error = 'error',
   Info = 'info',
@@ -38,5 +37,5 @@ export declare function InfoCard({
   showStatusIcon,
   testId,
   variant,
-}: InfoCardProps): React.JSX.Element;
+}: InfoCardProps): import('react/jsx-runtime').JSX.Element;
 export default InfoCard;

@@ -1,4 +1,4 @@
-import React, { FocusEventHandler } from 'react';
+import React, { FocusEventHandler, JSX } from 'react';
 import { InputAdornment, TextField, Tooltip } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 

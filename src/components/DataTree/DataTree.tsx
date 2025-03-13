@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Box } from '@mui/material';
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon/index.js';
 import { alpha, styled } from '@mui/material/styles/index.js';
@@ -9,9 +8,10 @@ import {
   treeItemClasses,
 } from '@mui/x-tree-view/index.js';
 import Collapse from '@mui/material/Collapse/index.js';
-import { useSpring, animated } from '@react-spring/web';
+import { useSpring } from '@react-spring/web';
 import { TransitionProps } from '@mui/material/transitions';
 import { v4 as uuidv4 } from 'uuid';
+import { JSX } from 'react';
 
 export interface DataTreeProps {
   // required
@@ -80,11 +80,7 @@ export function DataTree({
       },
     });
 
-    return (
-      <animated.div style={style}>
-        <Collapse {...props} />
-      </animated.div>
-    );
+    return <Collapse {...props}>{props.children}</Collapse>;
   }
 
   const StyledTreeItem = styled((props: TreeItemProps) => (

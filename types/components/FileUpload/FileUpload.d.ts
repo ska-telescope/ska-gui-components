@@ -1,4 +1,3 @@
-import React from 'react';
 import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes } from '../Button/Button';
 import { Accept } from 'react-dropzone/.';
 export declare enum FileUploadStatus {
@@ -76,5 +75,5 @@ export declare function FileUpload({
   dropzonePreview,
   dropzonePrompt,
   suffix,
-}: FileUploadProps): React.JSX.Element;
+}: FileUploadProps): import('react/jsx-runtime').JSX.Element;
 export default FileUpload;

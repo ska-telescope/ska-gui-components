@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { Field } from '@base-ui-components/react/field';
 import { NumberField } from '@base-ui-components/react/number-field';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { JSX, ReactNode } from 'react';
 import { Box, Card, CardContent, CardHeader, Modal } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { OurIconButton } from '../IconButton/IconButton';

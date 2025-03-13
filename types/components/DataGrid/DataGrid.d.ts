@@ -1,4 +1,3 @@
-import * as React from 'react';
 export interface DataGridProps {
   ariaDescription?: string;
   ariaTitle?: string;
@@ -48,5 +47,5 @@ export declare function SKAODataGrid({
   style,
   sx,
   testId,
-}: DataGridProps): React.JSX.Element;
+}: DataGridProps): import('react/jsx-runtime').JSX.Element;
 export default SKAODataGrid;

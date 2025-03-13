@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { Alert, Box, Paper, Stack, Typography } from '@mui/material';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
 
