@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+2.2.14
+******
+
+Updated pathing in package.json
+
+2.2.13
+******
+
+Removed cjs output
+
 2.2.12
 ******
 

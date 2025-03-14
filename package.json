@@ -2,24 +2,24 @@
   "name": "@ska-telescope/ska-gui-components",
   "license": "BSD-3-Clause",
   "private": false,
-  "version": "2.2.13",
+  "version": "2.2.14",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
-  "module": "dist/index.es.js",
+  "module": "dist/ska-gui-components.min.mjs",
   "exports": {
-    "import": "./dist/index.es.js"
+    "import": "./dist/ska-gui-components.min.mjs"
   },
   "type": "module",
-  "types": "dist/index.es.d.ts",
+  "types": "dist/ska-gui-components.d.mts",
   "files": [
     "dist"
   ],
   "scripts": {
     "browserList": "npx browserslist@latest --update-db",
-    "build": "tsc && vite build && rollup --config rollup.config.mjs",
+    "build": "tsc && vite build",
     "build-storybook": "storybook build",
     "code-analysis": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --ignore-path .eslintignore -f junit -o linting.xml",
-    "checker": "yarn build && yarn prettier:fix && yarn lint:fix",
+    "checker": "yarn build && yarn prettier:fix && yarn lint:fix && yarn rollup",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "merge-reports": "jrm build/reports/unit-tests.xml \"build/tests/*.xml\"",
