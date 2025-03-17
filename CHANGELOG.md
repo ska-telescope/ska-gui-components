@@ -1,10 +1,10 @@
 Changelog
 ==========
 
-2.2.16
+2.2.17
 ******
 
-Seperating x-tree-view imports
+Seperating x-tree-view imports  ( other tags had an error in the package.json )
 
 2.2.14
 ******
