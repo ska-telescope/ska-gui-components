@@ -1,16 +1,16 @@
 import { JSX } from 'react';
 
-import Box from '@mui/material/Box/Box';
-import Collapse from '@mui/material/Collapse/Collapse';
-import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon/SvgIcon';
-import { TransitionProps } from '@mui/material/transitions/transition';
+import Box from '@mui/material/Box/Box.js';
+import Collapse from '@mui/material/Collapse/Collapse.js';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon/SvgIcon.js';
+import { TransitionProps } from '@mui/material/transitions/transition.js';
 
 import { alpha, styled } from '@mui/material/styles';
 
-import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView/SimpleTreeView';
-import { TreeItem } from '@mui/x-tree-view/TreeItem/TreeItem';
-import { TreeItemProps } from '@mui/x-tree-view/TreeItem/TreeItem.types';
-import { treeItemClasses } from '@mui/x-tree-view/TreeItem/treeItemClasses';
+import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView/SimpleTreeView.js';
+import { TreeItem } from '@mui/x-tree-view/TreeItem/TreeItem.js';
+import { TreeItemProps } from '@mui/x-tree-view/TreeItem/TreeItem.types.js';
+import { treeItemClasses } from '@mui/x-tree-view/TreeItem/treeItemClasses.js';
 
 import { useSpring } from '@react-spring/web';
 
