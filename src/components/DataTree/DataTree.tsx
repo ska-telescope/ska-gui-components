@@ -5,6 +5,8 @@ import Collapse from '@mui/material/Collapse/Collapse.js';
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon/SvgIcon.js';
 import { TransitionProps } from '@mui/material/transitions/transition.js';
 
+import { styled } from '@mui/material/styles/index.js';
+
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView/SimpleTreeView.js';
 import { TreeItem } from '@mui/x-tree-view/TreeItem/TreeItem.js';
 import { TreeItemProps } from '@mui/x-tree-view/TreeItem/TreeItem.types.js';
@@ -13,9 +15,6 @@ import { treeItemClasses } from '@mui/x-tree-view/TreeItem/treeItemClasses.js';
 import { useSpring } from '@react-spring/web';
 
 import { v4 as uuidv4 } from 'uuid';
-import muiSystem from '@mui/system/index.js';
-
-const { styled, alpha } = muiSystem;
 
 export interface DataTreeProps {
   // required
@@ -98,7 +97,7 @@ export function DataTree({
     [`& .${treeItemClasses.groupTransition}`]: {
       marginLeft: 15,
       paddingLeft: 18,
-      borderLeft: `1px dashed ${alpha(theme.palette.text.primary, 0.4)}`,
+      borderLeft: `1px dashed ${(theme.palette.text.primary, 0.4)}`,
     },
   }));
 
