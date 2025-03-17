@@ -5,7 +5,7 @@ import Collapse from '@mui/material/Collapse/Collapse.js';
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon/SvgIcon.js';
 import { TransitionProps } from '@mui/material/transitions/transition.js';
 
-import { alpha, styled } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles/index.js';
 
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView/SimpleTreeView.js';
 import { TreeItem } from '@mui/x-tree-view/TreeItem/TreeItem.js';
