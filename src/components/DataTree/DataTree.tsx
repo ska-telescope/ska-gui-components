@@ -1,17 +1,20 @@
-import { Box } from '@mui/material';
-import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon/index.js';
-import { alpha, styled } from '@mui/material/styles/index.js';
-import {
-  SimpleTreeView,
-  TreeItem,
-  TreeItemProps,
-  treeItemClasses,
-} from '@mui/x-tree-view/index.js';
-import Collapse from '@mui/material/Collapse/index.js';
-import { useSpring } from '@react-spring/web';
-import { TransitionProps } from '@mui/material/transitions';
-import { v4 as uuidv4 } from 'uuid';
 import { JSX } from 'react';
+
+import Box from '@mui/material/Box/Box';
+import Collapse from '@mui/material/Collapse/Collapse';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon/SvgIcon';
+import { TransitionProps } from '@mui/material/transitions/transition';
+
+import { alpha, styled } from '@mui/material/styles';
+
+import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView/SimpleTreeView';
+import { TreeItem } from '@mui/x-tree-view/TreeItem/TreeItem';
+import { TreeItemProps } from '@mui/x-tree-view/TreeItem/TreeItem.types';
+import { treeItemClasses } from '@mui/x-tree-view/TreeItem/treeItemClasses';
+
+import { useSpring } from '@react-spring/web';
+
+import { v4 as uuidv4 } from 'uuid';
 
 export interface DataTreeProps {
   // required

@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.2.15
+******
+
+Seperating x-tree-view imports
+
 2.2.14
 ******
 
