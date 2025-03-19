@@ -1,5 +1,6 @@
 import { JSX, ReactNode } from 'react';
-import { AppBar, Box, Grid, Typography } from '@mui/material';
+import { AppBar, Box, Grid, Paper, Typography, useTheme } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import {
   Logo,
   Symbol,
@@ -9,7 +10,6 @@ import {
   THEME_LIGHT,
 } from '@ska-telescope/ska-javascript-components';
 import { OurIconButton } from '../IconButton/IconButton';
-import useTheme from '@mui/material/styles/useTheme.js';
 import { Telescope, TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 import DarkModeIcon from '../Icons/classic/DarkModeIcon';
 import LightModeIcon from '../Icons/classic/LightModeIcon';
@@ -17,6 +17,17 @@ import DocumentIcon from '../Icons/classic/DocumentIcon';
 import HelpIcon from '../Icons/circle/HelpIcon';
 import { Help } from '../HelpModal/HelpModal';
 import Children from '../../utils/types/types';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
 
 export type Storage = {
   help?: Help;
@@ -126,7 +137,7 @@ export function Header({
       sx={{ borderBottom: '1px solid darkgrey' }}
     >
       <Grid m={1} container alignItems="center" direction="row" justifyContent="space-between">
-        <Grid item>
+        <Item>
           <Box display="flex" justifyContent="flex-start">
             <OurIconButton
               ariaTitle="skaWebsite"
@@ -147,9 +158,9 @@ export function Header({
               </Typography>
             )}
           </Box>
-        </Grid>
-        <Grid item>{children}</Grid>
-        <Grid item>
+        </Item>
+        <Item>{children}</Item>
+        <Item>
           <Box mr={1} display="flex" justifyContent="flex-end">
             {selectTelescope && getTelescope() && (
               <TelescopeSelector telescope={getTelescope()} updateTelescope={updateTel} />
@@ -183,7 +194,7 @@ export function Header({
               toolTip={toolTip.mode}
             />
           </Box>
-        </Grid>
+        </Item>
       </Grid>
     </AppBar>
   );

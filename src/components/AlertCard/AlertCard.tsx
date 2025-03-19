@@ -1,9 +1,21 @@
 import React from 'react';
-import { Box, Button, Grid, Stack, Typography } from '@mui/material';
+import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
 import { SKAOAlert as Alert, AlertColorTypes, AlertVariantTypes } from '../Alert/Alert';
 
 const STATE_SIZE = 30;
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
 
 export interface AlertCardProps {
   action?: any;
@@ -63,7 +75,7 @@ const content = (
   value: number,
 ) => (
   <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
-    <Grid item>
+    <Item>
       {showStatus && (
         <StatusIcon
           icon={showStatusIcon}
@@ -75,13 +87,13 @@ const content = (
       <Typography variant="body2" component="div">
         {theTitle}
       </Typography>
-    </Grid>
+    </Item>
     {!hideValue && (
-      <Grid item>
+      <Item>
         <Typography variant="h3" component="div">
           {value}
         </Typography>
-      </Grid>
+      </Item>
     )}
   </Grid>
 );

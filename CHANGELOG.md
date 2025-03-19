@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.2
+*****
+
+Moved material-UI to v7
+
 2.3.1
 *****
 

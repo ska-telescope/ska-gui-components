@@ -1,6 +1,6 @@
 import React, { JSX } from 'react';
-import { Grid, Typography } from '@mui/material';
-import useTheme from '@mui/material/styles/useTheme.js';
+import { Grid, Paper, Typography, useTheme } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import ClearIcon from '../Icons/classic/ClearIcon';
 import FileUploadIcon from '../Icons/classic/FileUploadIcon';
 import SearchIcon from '../Icons/classic/SearchIcon';
@@ -10,6 +10,17 @@ import OurIconButton from '../IconButton/IconButton';
 import SKAOAlert, { AlertColorTypes } from '../Alert/Alert';
 import DropZone from '../DropZone/DropZone';
 import { Accept } from 'react-dropzone/.';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
 
 export enum FileUploadStatus {
   OK = 0,
@@ -340,7 +351,7 @@ export function FileUpload({
             alignItems="baseline"
             justifyContent="space-between"
           >
-            <Grid item>
+            <Item>
               <Grid
                 spacing={1}
                 pt={1}
@@ -349,11 +360,11 @@ export function FileUpload({
                 alignItems="center"
                 justifyContent="center"
               >
-                <Grid item>{theFile && ClearButton()}</Grid>
-                <Grid item>{theFile && UploadButton()}</Grid>
+                <Item>{theFile && ClearButton()}</Item>
+                <Item>{theFile && UploadButton()}</Item>
               </Grid>
-            </Grid>
-            <Grid item>{suffix}</Grid>
+            </Item>
+            <Item>{suffix}</Item>
           </Grid>
         </>
       )}
@@ -366,20 +377,20 @@ export function FileUpload({
             alignItems="baseline"
             justifyContent={'center'}
           >
-            <Grid item>{ChooseButton()}</Grid>
-            <Grid item>{showFileName()}</Grid>
-            {theFile && <Grid item>{ClearButton()}</Grid>}
-            {suffix && <Grid item>{suffix}</Grid>}
+            <Item>{ChooseButton()}</Item>
+            <Item>{showFileName()}</Item>
+            {theFile && <Item>{ClearButton()}</Item>}
+            {suffix && <Item>{suffix}</Item>}
           </Grid>
         </SKAOAlert>
       )}
       {!dropzone && !isMinimal && (
         <Grid p={0} container direction={direction} justifyContent="space-evenly" spacing={1}>
-          <Grid item>{ChooseButton()}</Grid>
-          {!hideFileName && <Grid item>{showFileName()}</Grid>}
-          {theFile && <Grid item>{ClearButton()}</Grid>}
-          {theFile && <Grid item>{UploadButton()}</Grid>}
-          {suffix && <Grid item>{suffix}</Grid>}
+          <Item>{ChooseButton()}</Item>
+          {!hideFileName && <Item>{showFileName()}</Item>}
+          {theFile && <Item>{ClearButton()}</Item>}
+          {theFile && <Item>{UploadButton()}</Item>}
+          {suffix && <Item>{suffix}</Item>}
         </Grid>
       )}
     </>

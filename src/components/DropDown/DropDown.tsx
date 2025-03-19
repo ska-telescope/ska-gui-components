@@ -1,7 +1,27 @@
 import React, { FocusEventHandler, JSX } from 'react';
-import { FormControl, FormControlLabel, Grid, MenuItem, TextField, Tooltip } from '@mui/material';
+import {
+  FormControl,
+  FormControlLabel,
+  Grid,
+  Paper,
+  MenuItem,
+  TextField,
+  Tooltip,
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 import { InputLabel, Typography } from '@mui/material';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
 
 export interface DropDownProps {
   // required
@@ -62,54 +82,60 @@ export function DropDown({
           sx={{ height: height, width: '100%' }}
         >
           {labelPosition === LABEL_POSITION.START && (
-            <Grid item xs={labelWidth}>
-              <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
-                <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
-                  {displayLabel}
-                </Typography>
-              </InputLabel>
+            <Grid size={{ xs: labelWidth }}>
+              <Item>
+                <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
+                  <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                    {displayLabel}
+                  </Typography>
+                </InputLabel>
+              </Item>
             </Grid>
           )}
-          <Grid item xs={12 - labelWidth}>
-            <Tooltip title={toolTip} arrow>
-              <TextField
-                aria-label={ariaTitle}
-                aria-describedby={ariaDescription}
-                aria-hidden={false}
-                color="secondary"
-                data-testid={testId}
-                disabled={disabled}
-                error={errorText && errorText.length > 0 ? true : false}
-                fullWidth
-                helperText={errorText ? errorText : helperText ? helperText : ''}
-                hiddenLabel
-                id={testId}
-                margin="none"
-                name={'dropDown' + label}
-                onChange={(e: { target: { value: string | number } }) => {
-                  updateValue(e.target.value);
-                }}
-                onFocus={onFocus as FocusEventHandler}
-                required={required}
-                select
-                value={value}
-                variant="standard"
-              >
-                {options.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </Tooltip>
+          <Grid size={{ xs: 12 - labelWidth }}>
+            <Item>
+              <Tooltip title={toolTip} arrow>
+                <TextField
+                  aria-label={ariaTitle}
+                  aria-describedby={ariaDescription}
+                  aria-hidden={false}
+                  color="secondary"
+                  data-testid={testId}
+                  disabled={disabled}
+                  error={errorText && errorText.length > 0 ? true : false}
+                  fullWidth
+                  helperText={errorText ? errorText : helperText ? helperText : ''}
+                  hiddenLabel
+                  id={testId}
+                  margin="none"
+                  name={'dropDown' + label}
+                  onChange={(e: { target: { value: string | number } }) => {
+                    updateValue(e.target.value);
+                  }}
+                  onFocus={onFocus as FocusEventHandler}
+                  required={required}
+                  select
+                  value={value}
+                  variant="standard"
+                >
+                  {options.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Tooltip>
+            </Item>
           </Grid>
           {labelPosition === LABEL_POSITION.END && (
-            <Grid item xs={labelWidth}>
-              <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
-                <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
-                  {displayLabel}
-                </Typography>
-              </InputLabel>
+            <Grid size={{ xs: labelWidth }}>
+              <Item>
+                <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
+                  <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                    {displayLabel}
+                  </Typography>
+                </InputLabel>
+              </Item>
             </Grid>
           )}
         </Grid>
