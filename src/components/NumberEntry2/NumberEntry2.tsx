@@ -1,8 +1,8 @@
 import React, { JSX } from 'react';
 import { Field } from '@base-ui-components/react/field';
 import { NumberField } from '@base-ui-components/react/number-field';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowSortDown from '../Icons/classic/ArrowSortDown';
+import ArrowSortUp from '../Icons/classic/ArrowSortUp';
 import useTheme from '@mui/material/styles/useTheme.js';
 import { Box, Stack } from '@mui/system';
 import styles from './NumberEntry2.module.css';
@@ -101,10 +101,10 @@ export function NumberEntry2({
                 <NumberField.Input style={inputStyle} />
                 <Stack>
                   <NumberField.Increment className={styles.Increment}>
-                    <ArrowDropUpIcon />
+                    <ArrowSortUp />
                   </NumberField.Increment>
                   <NumberField.Decrement className={styles.Decrement}>
-                    <ArrowDropDownIcon />
+                    <ArrowSortDown />
                   </NumberField.Decrement>
                 </Stack>
               </NumberField.Group>

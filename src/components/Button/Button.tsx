@@ -2,22 +2,20 @@ import React, { JSX } from 'react';
 import { Button, Tooltip } from '@mui/material';
 import { ElementType } from '@react-spring/web';
 //
-import AddIcon from '@mui/icons-material/Add';
-import ClearIcon from '@mui/icons-material/Clear';
-import CheckIcon from '@mui/icons-material/Check';
-import DeleteIcon from '@mui/icons-material/Delete';
-import DownloadIcon from '@mui/icons-material/DownloadRounded';
-import HomeIcon from '@mui/icons-material/Home';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import LoginIcon from '@mui/icons-material/Login';
-import LogoutIcon from '@mui/icons-material/Logout';
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import MyLocationIcon from '@mui/icons-material/MyLocation';
-import SaveIcon from '@mui/icons-material/Save';
-import PublishIcon from '@mui/icons-material/Publish';
-import EmailIcon from '@mui/icons-material/Email';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
+import AddIcon from '../Icons/classic/AddIcon';
+import ClearIcon from '../Icons/classic/ClearIcon';
+import TickIcon from '../Icons/classic/TickIcon';
+import DeleteIcon from '../Icons/classic/DeleteIcon';
+import DownloadIcon from '../Icons/classic/DownloadIcon';
+import HomeIcon from '../Icons/classic/HomeIcon';
+import ArrowForwardIcon from '../Icons/classic/ArrowForwardIcon';
+import PDFDocumentIcon from '../Icons/classic/PDFDocumentIcon';
+import ArrowBackIcon from '../Icons/classic/ArrowBackIcon';
+import CrosshairsIcon from '../Icons/circle/CrosshairsIcon';
+import SaveIcon from '../Icons/classic/SaveIcon';
+import PublishIcon from '../Icons/classic/PublishIcon';
+import EmailIcon from '../Icons/classic/EmailIcon';
+import FactCheckIcon from '../Icons/classic/FactCheckIcon';
 
 export enum ButtonColorTypes {
   Error = 'error',
@@ -48,8 +46,6 @@ export enum ButtonIcons {
   Email = 'email',
   Home = 'home',
   Location = 'location',
-  Login = 'login',
-  Logout = 'logout',
   Next = 'next',
   PDF = 'pdf',
   Previous = 'previous',
@@ -96,7 +92,7 @@ export function OurButton({
       case ButtonIcons.Cancel:
         return <ClearIcon />;
       case ButtonIcons.Confirm:
-        return <CheckIcon />;
+        return <TickIcon />;
       case ButtonIcons.Delete:
         return <DeleteIcon />;
       case ButtonIcons.Download:
@@ -105,18 +101,14 @@ export function OurButton({
         return <EmailIcon />;
       case ButtonIcons.Home:
         return <HomeIcon />;
-      case ButtonIcons.Login:
-        return <LoginIcon />;
-      case ButtonIcons.Logout:
-        return <LogoutIcon />;
       case ButtonIcons.Location:
-        return <MyLocationIcon />;
+        return <CrosshairsIcon />;
       case ButtonIcons.Next:
-        return <ArrowForwardIosIcon />;
+        return <ArrowForwardIcon />;
       case ButtonIcons.PDF:
-        return <PictureAsPdfIcon />;
+        return <PDFDocumentIcon />;
       case ButtonIcons.Previous:
-        return <ArrowBackIosIcon />;
+        return <ArrowBackIcon />;
       case ButtonIcons.Save:
         return <SaveIcon />;
       case ButtonIcons.Submit:

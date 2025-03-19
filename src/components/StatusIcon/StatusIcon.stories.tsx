@@ -11,6 +11,7 @@ export default {
 export const Default = {
   args: {
     testId: 'StatusIconTestId',
-    level: 1,
+    icon: true,
+    level: 0,
   },
 };

@@ -1,6 +1,7 @@
 import React, { JSX } from 'react';
 import { Box, Card, CardContent, CardHeader, Modal, Typography } from '@mui/material';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import useTheme from '@mui/material/styles/useTheme.js';
+import ClearIcon from '../Icons/circle/ClearIcon';
 import { OurIconButton } from '../IconButton/IconButton';
 
 export interface CopyrightModalProps {
@@ -38,7 +39,7 @@ export function CopyrightModal({
             action={
               <OurIconButton
                 ariaDescription={ariaDescription}
-                icon={<HighlightOffIcon />}
+                icon={<ClearIcon colorFG={useTheme().palette.secondary.main} />}
                 onClick={() => closeModal()}
                 testId={'closeModalBtn'}
                 toolTip={toolTip}

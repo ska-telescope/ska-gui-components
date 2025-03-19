@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+2.3.1
+*****
+
+Replaced all the MUI icons with internal SVG
+
+2.3.0
+*****
+
+Striped out TreeView as it is not ES6
+
 2.2.17
 ******
 

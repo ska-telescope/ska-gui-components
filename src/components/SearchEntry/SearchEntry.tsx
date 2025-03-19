@@ -1,6 +1,6 @@
-import React, { FocusEventHandler, JSX } from 'react';
+import { FocusEventHandler, JSX } from 'react';
 import { InputAdornment, TextField, Tooltip } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from '../Icons/classic/SearchIcon';
 
 export enum STATE {
   OK = 'ok',

@@ -1,6 +1,7 @@
 import React, { JSX, ReactNode } from 'react';
 import { Box, Card, CardContent, CardHeader, Modal } from '@mui/material';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import useTheme from '@mui/material/styles/useTheme.js';
+import ClearIcon from '../Icons/circle/ClearIcon';
 import { OurIconButton } from '../IconButton/IconButton';
 
 export type Help = {
@@ -35,7 +36,7 @@ export function HelpModal({
             action={
               <OurIconButton
                 ariaDescription={ariaDescription}
-                icon={<HighlightOffIcon />}
+                icon={<ClearIcon colorFG={useTheme().palette.secondary.main} />}
                 onClick={() => closeModal()}
                 testId={'closeHelpModalBtn'}
                 toolTip={toolTip}

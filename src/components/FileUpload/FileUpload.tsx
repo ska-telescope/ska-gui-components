@@ -1,8 +1,9 @@
 import React, { JSX } from 'react';
 import { Grid, Typography } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
-import ClearIcon from '@mui/icons-material/Clear';
-import UploadFileIcon from '@mui/icons-material/UploadFile';
+import useTheme from '@mui/material/styles/useTheme.js';
+import ClearIcon from '../Icons/classic/ClearIcon';
+import FileUploadIcon from '../Icons/classic/FileUploadIcon';
+import SearchIcon from '../Icons/classic/SearchIcon';
 import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton } from '../Button/Button';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
 import OurIconButton from '../IconButton/IconButton';
@@ -196,13 +197,13 @@ export function FileUpload({
     name?.length > maxFileWidth ? name.substring(0, maxFileWidth) + '...' : name;
 
   const getClearIcon = () => {
-    return <ClearIcon />;
+    return <ClearIcon colorFG={useTheme().palette.secondary.main} />;
   };
 
   const getUploadIcon = () => {
     const val = status ? status : state;
     return val === FileUploadStatus.INITIAL ? (
-      <UploadFileIcon />
+      <FileUploadIcon colorFG={useTheme().palette.secondary.main} />
     ) : (
       <StatusIcon
         testId="statusId"
@@ -240,7 +241,13 @@ export function FileUpload({
         color={isMinimal ? ButtonColorTypes.Inherit : name ? ButtonColorTypes.Inherit : chooseColor}
         component="span"
         disabled={chooseDisabled}
-        icon={isMinimal ? getUploadIcon() : <SearchIcon />}
+        icon={
+          isMinimal ? (
+            getUploadIcon()
+          ) : (
+            <SearchIcon colorFG={useTheme().palette.secondary.contrastText} />
+          )
+        }
         label={isMinimal ? '' : chooseLabel}
         size={buttonSize}
         testId={isMinimal ? testId + 'ChooseIcon' : testId + 'ChooseButton'}
