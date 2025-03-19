@@ -1,6 +1,5 @@
 import React, { JSX, ReactNode } from 'react';
-import { Box, Card, CardContent, CardHeader, Modal } from '@mui/material';
-import useTheme from '@mui/material/styles/useTheme.js';
+import { Box, Card, CardContent, CardHeader, Modal, useTheme } from '@mui/material';
 import ClearIcon from '../Icons/circle/ClearIcon';
 import { OurIconButton } from '../IconButton/IconButton';
 

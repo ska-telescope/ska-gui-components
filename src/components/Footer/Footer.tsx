@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppBar, Grid, Stack, Typography } from '@mui/material';
-import useTheme from '@mui/material/styles/useTheme.js';
+import { AppBar, Grid, Paper, Stack, Typography, useTheme } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import CopyrightIcon from '../Icons/circle/CopyrightIcon';
 import Button, { ButtonColorTypes, ButtonVariantTypes } from '../Button/Button';
 import { GUI_COMPONENTS_VERSION } from '../version';
@@ -17,6 +17,17 @@ export interface FooterProps {
   version?: string;
   versionTooltip?: string;
 }
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
 
 export function Footer({
   ariaDescription = 'Sticky Panel at the bottom of the page',
@@ -45,7 +56,7 @@ export function Footer({
       sx={{ borderTop: '1px solid darkgrey', bottom: 0, top: 'auto' }}
     >
       <Grid m={0} pr={1} container direction="row" justifyContent="space-between">
-        <Grid item>
+        <Item>
           <Stack direction="row" alignItems="center" gap={1}>
             <Button
               ariaDescription="copyright link"
@@ -61,8 +72,8 @@ export function Footer({
               <Typography>{version}</Typography>
             </Tooltip>
           </Stack>
-        </Grid>
-        <Grid item>{children}</Grid>
+        </Item>
+        <Item>{children}</Item>
       </Grid>
     </AppBar>
   );

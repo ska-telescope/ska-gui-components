@@ -1,6 +1,6 @@
+import { useTheme } from '@mui/material';
 import React from 'react';
 import { Accept, useDropzone } from 'react-dropzone';
-import useTheme from '@mui/material/styles/useTheme.js';
 
 const activeDropzoneStyle = {
   borderColor: '#00adb5',

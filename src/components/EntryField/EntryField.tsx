@@ -1,10 +1,22 @@
 import React, { FocusEventHandler, JSX } from 'react';
-import { InputAdornment, TextField, Tooltip } from '@mui/material';
+import { InputAdornment, Paper, TextField, Tooltip } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { FormControlLabel } from '@mui/material';
 import { FormControl } from '@mui/material';
 import { Grid } from '@mui/material';
 import { InputLabel, Typography } from '@mui/material';
 import Children from '../../utils/types/types';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
 
 export enum LABEL_POSITION {
   CONTAINED = 'contained',
@@ -103,62 +115,68 @@ export function EntryField({
           sx={{ height: height, width: '100%' }}
         >
           {labelPosition === LABEL_POSITION.START && (
-            <Grid item xs={labelWidth}>
-              <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
-                <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
-                  {displayLabel}
-                </Typography>
-              </InputLabel>
+            <Grid size={{ xs: labelWidth }}>
+              <Item>
+                <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
+                  <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                    {displayLabel}
+                  </Typography>
+                </InputLabel>
+              </Item>
             </Grid>
           )}
-          <Grid item xs={12 - labelWidth}>
-            <Tooltip title={toolTip} arrow>
-              <TextField
-                aria-label={ariaTitle}
-                aria-describedby={ariaDescription}
-                aria-hidden={false}
-                color="secondary"
-                data-testid={testId}
-                disabled={disabled}
-                error={errorText && errorText.length > 0 ? true : false}
-                fullWidth
-                helperText={errorText ? errorText : helperText ? helperText : ''}
-                hiddenLabel
-                id={testId}
-                inputRef={inputRef}
-                margin="none"
-                minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-                maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-                multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
-                name={name}
-                onChange={(e: { target: { value: any } }) => {
-                  updateValue(e.target.value);
-                }}
-                onBlur={onBlur as FocusEventHandler}
-                onFocus={onFocus as FocusEventHandler}
-                required={required}
-                select={select}
-                value={value}
-                variant="standard"
-                type={type}
-                slotProps={{
-                  input: {
-                    startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
-                    endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-                  },
-                }}
-              >
-                {children}
-              </TextField>
-            </Tooltip>
+          <Grid size={{ xs: 12 - labelWidth }}>
+            <Item>
+              <Tooltip title={toolTip} arrow>
+                <TextField
+                  aria-label={ariaTitle}
+                  aria-describedby={ariaDescription}
+                  aria-hidden={false}
+                  color="secondary"
+                  data-testid={testId}
+                  disabled={disabled}
+                  error={errorText && errorText.length > 0 ? true : false}
+                  fullWidth
+                  helperText={errorText ? errorText : helperText ? helperText : ''}
+                  hiddenLabel
+                  id={testId}
+                  inputRef={inputRef}
+                  margin="none"
+                  minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
+                  maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
+                  multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
+                  name={name}
+                  onChange={(e: { target: { value: any } }) => {
+                    updateValue(e.target.value);
+                  }}
+                  onBlur={onBlur as FocusEventHandler}
+                  onFocus={onFocus as FocusEventHandler}
+                  required={required}
+                  select={select}
+                  value={value}
+                  variant="standard"
+                  type={type}
+                  slotProps={{
+                    input: {
+                      startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
+                      endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+                    },
+                  }}
+                >
+                  {children}
+                </TextField>
+              </Tooltip>
+            </Item>
           </Grid>
           {labelPosition === LABEL_POSITION.END && (
-            <Grid item xs={labelWidth}>
-              <InputLabel shrink={false} htmlFor={testId}>
-                <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
-                  {displayLabel}
-                </Typography>
-              </InputLabel>
+            <Grid size={{ xs: labelWidth }}>
+              <Item>
+                <InputLabel shrink={false} htmlFor={testId}>
+                  <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                    {displayLabel}
+                  </Typography>
+                </InputLabel>
+              </Item>
             </Grid>
           )}
         </Grid>

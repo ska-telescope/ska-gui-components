@@ -3,8 +3,7 @@ import { Field } from '@base-ui-components/react/field';
 import { NumberField } from '@base-ui-components/react/number-field';
 import ArrowSortDown from '../Icons/classic/ArrowSortDown';
 import ArrowSortUp from '../Icons/classic/ArrowSortUp';
-import useTheme from '@mui/material/styles/useTheme.js';
-import { Box, Stack } from '@mui/system';
+import { Box, Stack, useTheme } from '@mui/material';
 import styles from './NumberEntry2.module.css';
 import { Tooltip } from '@mui/material';
 

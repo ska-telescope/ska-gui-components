@@ -1,8 +1,8 @@
 import React, { JSX } from 'react';
 import { Box, Card, CardContent, CardHeader, Modal, Typography } from '@mui/material';
-import useTheme from '@mui/material/styles/useTheme.js';
 import ClearIcon from '../Icons/circle/ClearIcon';
 import { OurIconButton } from '../IconButton/IconButton';
+import useTheme from '@mui/system/useTheme';
 
 export interface CopyrightModalProps {
   ariaDescription?: string;
