@@ -27,6 +27,7 @@ export const Default = {
     },
     selectTelescope: true,
     storage: theStorage,
+    showHelp: true,
     testId: 'testId',
     title: 'ska-gui-components',
     toolTip: { skao: 'SKAO WebSite', mode: ' Light / Dark Mode' },

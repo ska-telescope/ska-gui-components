@@ -1,6 +1,6 @@
 import React from 'react';
 import OurIconButton from './IconButton';
-import MyLocationIcon from '@mui/icons-material/MyLocation';
+import CrossharsIcon from '../Icons/circle/CrosshairsIcon';
 
 export default {
   title: 'Example/IconButton',
@@ -14,7 +14,7 @@ export const Default = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
-    icon: <MyLocationIcon />,
+    icon: <CrossharsIcon colorFG={'#000000'} visual />,
     testId: 'testId',
     toolTip: 'Tooltip',
   },

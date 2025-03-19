@@ -1,4 +1,4 @@
-import React, { JSX, ReactNode } from 'react';
+import { JSX, ReactNode } from 'react';
 import { AppBar, Box, Grid, Typography } from '@mui/material';
 import {
   Logo,
@@ -9,11 +9,12 @@ import {
   THEME_LIGHT,
 } from '@ska-telescope/ska-javascript-components';
 import { OurIconButton } from '../IconButton/IconButton';
+import useTheme from '@mui/material/styles/useTheme.js';
 import { Telescope, TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import DescriptionIcon from '@mui/icons-material/Description';
-import HelpIcon from '@mui/icons-material/Help';
+import DarkModeIcon from '../Icons/classic/DarkModeIcon';
+import LightModeIcon from '../Icons/classic/LightModeIcon';
+import DocumentIcon from '../Icons/classic/DocumentIcon';
+import HelpIcon from '../Icons/circle/HelpIcon';
 import { Help } from '../HelpModal/HelpModal';
 import Children from '../../utils/types/types';
 
@@ -84,7 +85,7 @@ export function Header({
       ? storage.help.content
       : null;
   const getHelpBrowser = () => sessionStorage.getItem('skao_help_content');
-  const getHelp = () => (showHelp && useBrowserStorage ? getHelpBrowser() : getHelpStorage());
+  const getHelp = () => (showHelp && useBrowserStorage ? getHelpBrowser() : 'DUMMY'); // TREVOR getHelpStorage());
 
   const setTelescopeStorage = () =>
     storage.updateTelescope ? storage.updateTelescope(event) : null;
@@ -157,7 +158,7 @@ export function Header({
               <OurIconButton
                 ariaTitle="document icon"
                 onClick={() => openLink(docs.url)}
-                icon={<DescriptionIcon />}
+                icon={<DocumentIcon colorFG={useTheme().palette.primary.contrastText} />}
                 toolTip={docs?.tooltip}
               />
             )}
@@ -165,14 +166,20 @@ export function Header({
               <OurIconButton
                 ariaTitle="help icon"
                 onClick={() => helpToggle()}
-                icon={<HelpIcon />}
+                icon={<HelpIcon colorFG={useTheme().palette.primary.contrastText} />}
                 toolTip={getHelp() as ReactNode}
               />
             )}
             <OurIconButton
               ariaTitle="light/dark mode"
               onClick={() => themeToggle()}
-              icon={isDarkTheme ? <Brightness4Icon /> : <Brightness7Icon />}
+              icon={
+                isDarkTheme ? (
+                  <DarkModeIcon colorFG={useTheme().palette.primary.contrastText} />
+                ) : (
+                  <LightModeIcon colorFG={useTheme().palette.primary.contrastText} />
+                )
+              }
               toolTip={toolTip.mode}
             />
           </Box>

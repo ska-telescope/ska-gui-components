@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Grid, Stack, Typography } from '@mui/material';
-import { Copyright } from '@mui/icons-material';
+import useTheme from '@mui/material/styles/useTheme.js';
+import CopyrightIcon from '../Icons/circle/CopyrightIcon';
 import Button, { ButtonColorTypes, ButtonVariantTypes } from '../Button/Button';
 import { GUI_COMPONENTS_VERSION } from '../version';
 import { Tooltip } from '@mui/material';
@@ -50,7 +51,7 @@ export function Footer({
               ariaDescription="copyright link"
               color={ButtonColorTypes.Inherit}
               onClick={() => openCopyright()}
-              icon={<Copyright />}
+              icon={<CopyrightIcon colorFG={useTheme().palette.secondary.contrastText} />}
               label={'SKAO ' + fullYear}
               testId="copyrightLinkTestId"
               variant={ButtonVariantTypes.Text}

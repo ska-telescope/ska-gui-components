@@ -1,6 +1,6 @@
 import React from 'react';
-import ClearIcon from '@mui/icons-material/Clear';
-import DoneIcon from '@mui/icons-material/Done';
+import ClearIcon from '../Icons/classic/ClearIcon';
+import TickIcon from '../Icons/classic/TickIcon';
 import { Colors } from '@ska-telescope/ska-javascript-components';
 import { Tooltip } from '@mui/material';
 
@@ -110,8 +110,8 @@ function showIconText(level: number, size: number, text: string) {
 function showIcon(level: number, size: number) {
   return (
     <>
-      {level === 0 && <DoneIcon sx={{ color: 'white' }} />}
-      {level === 1 && <ClearIcon sx={{ color: 'white' }} />}
+      {level === 0 && <TickIcon colorFG={'#FFFFFF'} size={size * 0.9} />}
+      {level === 1 && <ClearIcon colorFG={'#FFFFFF'} size={size} />}
       {level === 2 && showIconText(level, size, '!')}
       {level === 3 && showIconText(level, size * 0.7, '?')}
       {level === 4 && showIconText(level, size, 'i')}
