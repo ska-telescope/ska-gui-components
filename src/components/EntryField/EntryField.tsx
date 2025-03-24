@@ -1,5 +1,5 @@
 import React, { FocusEventHandler, JSX } from 'react';
-import { InputAdornment, Paper, TextField, Tooltip } from '@mui/material';
+import { InputAdornment, Paper, PopperPlacementType, TextField, Tooltip } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { FormControlLabel } from '@mui/material';
 import { FormControl } from '@mui/material';
@@ -69,6 +69,7 @@ export interface EntryFieldProps {
   setValue?: Function;
   suffix?: JSX.Element | string;
   toolTip?: string;
+  toolTipPlacement?: string;
   type?: TYPE.DATE | TYPE.FILE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
 }
 
@@ -96,6 +97,7 @@ export function EntryField({
   suffix = '',
   testId,
   toolTip = '',
+  toolTipPlacement = 'bottom',
   type = TYPE.TEXT,
   value,
 }: EntryFieldProps): JSX.Element {
@@ -127,7 +129,7 @@ export function EntryField({
           )}
           <Grid size={{ xs: 12 - labelWidth }}>
             <Item>
-              <Tooltip title={toolTip} arrow>
+              <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
                 <TextField
                   aria-label={ariaTitle}
                   aria-describedby={ariaDescription}
@@ -188,7 +190,7 @@ export function EntryField({
             labelPlacement={labelPosition}
             label={label}
             control={
-              <Tooltip title={toolTip} arrow>
+              <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
                 <TextField
                   aria-label={ariaTitle}
                   aria-describedby={ariaDescription}
@@ -230,7 +232,7 @@ export function EntryField({
         </FormControl>
       )}
       {labelPosition === LABEL_POSITION.CONTAINED && (
-        <Tooltip title={toolTip} arrow>
+        <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
           <TextField
             aria-label={ariaTitle}
             aria-describedby={ariaDescription}

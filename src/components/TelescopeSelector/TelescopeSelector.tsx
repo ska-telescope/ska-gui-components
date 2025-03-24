@@ -20,6 +20,7 @@ export interface TelescopeSelectorProps {
   reversed?: boolean;
   telescope: Telescope;
   toolTip?: string;
+  toolTipPlacement?: string;
   updateTelescope: Function;
 }
 
@@ -30,6 +31,7 @@ export function TelescopeSelector({
   reversed = false,
   telescope,
   toolTip = '',
+  toolTipPlacement = 'bottom',
   updateTelescope,
 }: TelescopeSelectorProps): JSX.Element {
   const telescopeChange = (_event: React.MouseEvent<HTMLElement>, newTelescope: Telescope) => {
@@ -60,6 +62,7 @@ export function TelescopeSelector({
       setValue={telescopeChange}
       testId="telescopeSelectorId"
       toolTip={toolTip}
+      toolTipPlacement={toolTipPlacement}
       value={telescope}
     />
   );

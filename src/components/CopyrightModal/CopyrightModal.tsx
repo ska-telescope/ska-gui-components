@@ -9,6 +9,7 @@ export interface CopyrightModalProps {
   show: boolean;
   title?: string;
   toolTip?: string;
+  toolTipPlacement?: string;
 }
 
 export function CopyrightModal({

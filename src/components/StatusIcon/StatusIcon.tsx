@@ -2,7 +2,7 @@ import React from 'react';
 import ClearIcon from '../Icons/classic/ClearIcon';
 import TickIcon from '../Icons/classic/TickIcon';
 import { Colors } from '@ska-telescope/ska-javascript-components';
-import { Tooltip } from '@mui/material';
+import { PopperPlacementType, Tooltip } from '@mui/material';
 
 const DEFAULT_SIZE = 60;
 const STROKE_WIDTH = 2;
@@ -18,6 +18,7 @@ interface StatusProps {
   testId: string;
   text?: string;
   toolTip?: string;
+  toolTipPlacement?: string;
 }
 
 function fontSize(value: number) {
@@ -148,6 +149,7 @@ export function StatusIcon({
   testId,
   text = '',
   toolTip = '',
+  toolTipPlacement = 'bottom',
 }: StatusProps) {
   const componentClassNames = ['svg-content'];
 
@@ -157,7 +159,7 @@ export function StatusIcon({
     ariaTitle.length > 0 ? ariaTitle + ariaDescription : DEF_TITLE + ' ' + ariaDescription;
 
   return (
-    <Tooltip title={toolTip} arrow>
+    <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
       <svg
         aria-label={setAriaLabel}
         aria-describedby={setAriaDesc}

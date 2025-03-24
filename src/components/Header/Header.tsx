@@ -55,6 +55,7 @@ export interface HeaderProps {
   testId?: string;
   title?: string;
   toolTip?: { skao: string; mode: string };
+  toolTipPlacement?: string;
   useBrowserStorage?: boolean;
   useSymbol?: Boolean;
   children?: Children;

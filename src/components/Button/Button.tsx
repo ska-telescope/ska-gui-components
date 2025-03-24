@@ -1,5 +1,5 @@
 import React, { JSX } from 'react';
-import { Button, Tooltip } from '@mui/material';
+import { Button, PopperPlacementType, Tooltip } from '@mui/material';
 import { ElementType } from '@react-spring/web';
 //
 import AddIcon from '../Icons/classic/AddIcon';
@@ -66,6 +66,7 @@ export interface ButtonProps {
   size?: ButtonSizeTypes;
   testId: string;
   toolTip?: string;
+  toolTipPlacement?: string;
   variant?: ButtonVariantTypes;
 }
 
@@ -81,6 +82,7 @@ export function OurButton({
   size = ButtonSizeTypes.Medium,
   testId = 'buttton-' + label,
   toolTip = '',
+  toolTipPlacement = 'bottom',
   variant = ButtonVariantTypes.Outlined,
 }: ButtonProps): JSX.Element {
   const clicked = (e: any) => (typeof onClick !== 'undefined' ? onClick(e) : null);
@@ -125,7 +127,7 @@ export function OurButton({
   };
 
   return (
-    <Tooltip title={toolTip} arrow>
+    <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
       <span>
         <Button
           aria-label={label}

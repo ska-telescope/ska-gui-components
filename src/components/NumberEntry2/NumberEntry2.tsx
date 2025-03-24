@@ -3,7 +3,7 @@ import { Field } from '@base-ui-components/react/field';
 import { NumberField } from '@base-ui-components/react/number-field';
 import ArrowSortDown from '../Icons/classic/ArrowSortDown';
 import ArrowSortUp from '../Icons/classic/ArrowSortUp';
-import { Box, Stack, useTheme } from '@mui/material';
+import { Box, PopperPlacementType, Stack, useTheme } from '@mui/material';
 import styles from './NumberEntry2.module.css';
 import { Tooltip } from '@mui/material';
 
@@ -21,6 +21,7 @@ interface NumberEntry2Props {
   testId?: string;
   title?: string | JSX.Element;
   toolTip?: string;
+  toolTipPlacement?: string;
   value: number | undefined;
   width?: number;
 }
@@ -39,6 +40,7 @@ export function NumberEntry2({
   title = '',
   testId = fieldName,
   toolTip = '',
+  toolTipPlacement = 'bottom',
   value,
   width = 5,
 }: NumberEntry2Props) {
@@ -73,7 +75,7 @@ export function NumberEntry2({
           borderBottomWidth: 1,
         }}
       >
-        <Tooltip title={toolTip} arrow>
+        <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
           <Stack direction="row">
             <NumberField.Root
               allowWheelScrub

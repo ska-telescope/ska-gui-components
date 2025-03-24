@@ -14,6 +14,7 @@ export interface HelpModalProps {
   help: Help;
   helpToggle: Function;
   toolTip?: string;
+  toolTipPlacement?: string;
 }
 
 export function HelpModal({

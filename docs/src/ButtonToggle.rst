@@ -28,6 +28,7 @@ Button group showing 2 options, one of which must be active
    "setValue", "function", "Yes", "", "Function to update the value when clicked"
    "testId", "string", "No", "SPECIAL", "Value is ""telescopeSelectorId"" for this component"
    "toolTip", "string", "No", "''", "Optional toolTip for the toggle"
+   "toolTipPlacement". "string", "No", "bottom", "Allows for the positioning of the tooltip to be moved from the default"
    "value", "object", "Yes", "", "Object of the currently active element"
 
 .. admonition:: Constants

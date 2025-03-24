@@ -25,6 +25,7 @@ This is used if user actions are required, but there is not an associated label 
    "icon", "JSX.Element", "Yes", "", "Required as the main part of the IconButton"
    "testId", "string", "No", "iconButton-testId", "Identifier for testing purposes"
    "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
+   "toolTipPlacement". "string", "No", "bottom", "Allows for the positioning of the tooltip to be moved from the default"
     
 .. admonition:: Constants
 

@@ -26,6 +26,7 @@ export interface NumberEntryProps {
   suffix?: React.JSX.Element | string;
   testId?: string;
   toolTip?: string;
+  toolTipPlacement?: string;
 }
 
 export function NumberEntry({
@@ -49,6 +50,7 @@ export function NumberEntry({
   suffix = '',
   testId = 'numberEntry-' + label,
   toolTip = '',
+  toolTipPlacement = 'bottom',
   value,
 }: NumberEntryProps): React.JSX.Element {
   const isRequired = () => {
@@ -101,6 +103,7 @@ export function NumberEntry({
       suffix={suffix}
       testId={testId}
       toolTip={toolTip}
+      toolTipPlacement={toolTipPlacement}
       type={TYPE.NUMBER}
     />
   );

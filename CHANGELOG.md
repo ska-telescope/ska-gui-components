@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.3
+*****
+
+Extended all components so that the placement of the tooltip can be moved from the default of Bottom
+
 2.3.2
 *****
 

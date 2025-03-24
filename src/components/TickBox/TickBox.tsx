@@ -1,5 +1,5 @@
 import React, { JSX } from 'react';
-import { FormControlLabel, Checkbox, Tooltip, useTheme } from '@mui/material';
+import { FormControlLabel, Checkbox, Tooltip, useTheme, PopperPlacementType } from '@mui/material';
 import { Grid, Typography } from '@mui/material';
 import { InputLabel } from '@mui/material';
 import { LABEL_POSITION } from '../EntryField/EntryField';
@@ -18,6 +18,7 @@ export interface TickBoxProps {
   required?: Boolean;
   testId?: string;
   toolTip?: string;
+  toolTipPlacement?: string;
 }
 
 export function TickBox({
@@ -34,6 +35,7 @@ export function TickBox({
   required,
   testId = 'tickBox-' + label,
   toolTip = '',
+  toolTipPlacement = 'bottom',
 }: TickBoxProps): JSX.Element {
   const theme = useTheme();
   const displayLabel = label + (required ? ' *' : '');
@@ -82,7 +84,7 @@ export function TickBox({
               onChange={(e) => onChangeFunction(e)}
               onFocus={(e) => onFocusFunction(e)}
               control={
-                <Tooltip title={toolTip} arrow>
+                <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
                   <Checkbox
                     sx={{
                       '&.Mui-checked': {
@@ -118,7 +120,7 @@ export function TickBox({
           onChange={(e) => onChangeFunction(e)}
           onFocus={(e) => onFocusFunction(e)}
           control={
-            <Tooltip title={toolTip} arrow>
+            <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
               <Checkbox
                 sx={{
                   '&.Mui-checked': {

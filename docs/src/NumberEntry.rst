@@ -41,6 +41,7 @@ Field for entering numbers into the application. Provides a spinner
     "suffix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon after the number"
     "testId", "string", "No", "numberEntry-{label}", "Identifier for testing purposes"
     "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
+    "toolTipPlacement". "string", "No", "bottom", "Allows for the positioning of the tooltip to be moved from the default"
     "value", "string", "Yes", "", "Value that is displayed within the component"
 
 .. admonition:: Constants

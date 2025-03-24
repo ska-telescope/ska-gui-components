@@ -29,6 +29,7 @@ This also will provide fixed symbol display for the icons
    "testId","string", "Yes", , "Unique identifier used for testing"
    "text","string", "No", "", "String that will be displayed upon the shape.  Single character only recommended"
    "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
+   "toolTipPlacement". "string", "No", "bottom", "Allows for the positioning of the tooltip to be moved from the default"
 
 .. admonition:: Constants
       
