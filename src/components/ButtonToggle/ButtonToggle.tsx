@@ -1,5 +1,5 @@
 import React, { JSX } from 'react';
-import { ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
+import { PopperPlacementType, ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
 
 export interface ButtonToggleProps {
   ariaDescription?: string;
@@ -10,6 +10,7 @@ export interface ButtonToggleProps {
   setValue?: Function;
   testId: string;
   toolTip?: string;
+  toolTipPlacement?: string;
   value: any;
 }
 
@@ -23,6 +24,7 @@ export function ButtonToggle({
   options,
   testId,
   toolTip = '',
+  toolTipPlacement = 'bottom',
 }: ButtonToggleProps): JSX.Element {
   const fetchValue = (id: string) => {
     return options[options[0].id === id ? 0 : 1].value;
@@ -32,7 +34,7 @@ export function ButtonToggle({
     typeof setValue !== 'undefined' ? setValue(e, fetchValue(id)) : null;
 
   return (
-    <Tooltip title={toolTip} arrow>
+    <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
       <ToggleButtonGroup
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}

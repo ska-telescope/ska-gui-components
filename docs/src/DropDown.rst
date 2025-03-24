@@ -38,6 +38,7 @@ Field for selecting an option from a possible list
     "setValue", "function", "No", "null", "Used to update the value onChange"
     "testId", "string", "No", "dropDown-testId", "Identifier for testing purposes"
     "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
+    "toolTipPlacement". "string", "No", "bottom", "Allows for the positioning of the tooltip to be moved from the default"
     "value", "string", "Yes", "", "Value that is displayed within the component"
 
 .. admonition:: Constants

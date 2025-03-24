@@ -1,5 +1,5 @@
 import { FocusEventHandler, JSX } from 'react';
-import { InputAdornment, TextField, Tooltip } from '@mui/material';
+import { InputAdornment, PopperPlacementType, TextField, Tooltip } from '@mui/material';
 import SearchIcon from '../Icons/classic/SearchIcon';
 
 export enum STATE {
@@ -23,6 +23,7 @@ export interface SearchEntryProps {
   onFocus?: Function;
   setValue?: Function;
   toolTip?: string;
+  toolTipPlacement?: string;
 }
 
 export function SearchEntry({
@@ -36,12 +37,13 @@ export function SearchEntry({
   setValue,
   testId = 'searchEntry-' + label,
   toolTip = '',
+  toolTipPlacement = 'bottom',
   value,
 }: SearchEntryProps): JSX.Element {
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
 
   return (
-    <Tooltip title={toolTip} arrow>
+    <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
       <TextField
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}

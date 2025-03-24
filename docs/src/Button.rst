@@ -36,6 +36,7 @@ Button for use with all applications.
    "size", "ButtonSizeTypes", "No", "ButtonSizeTypes.Medium", "Allows for the sizing of the button to be changed"
    "testId", "string", "No", "button-{{label}}", "Identifier for testing purposes"
    "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
+   "toolTipPlacement". "string", "No", "bottom", "Allows for the positioning of the tooltip to be moved from the default"
    "variant", "string", "No", "outlined", "Styling options : ButtonVariantType"
     
 .. admonition:: Constants

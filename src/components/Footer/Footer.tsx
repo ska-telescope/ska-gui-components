@@ -1,5 +1,13 @@
 import React from 'react';
-import { AppBar, Grid, Paper, Stack, Typography, useTheme } from '@mui/material';
+import {
+  AppBar,
+  Grid,
+  Paper,
+  PopperPlacementType,
+  Stack,
+  Typography,
+  useTheme,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CopyrightIcon from '../Icons/circle/CopyrightIcon';
 import Button, { ButtonColorTypes, ButtonVariantTypes } from '../Button/Button';
@@ -13,6 +21,7 @@ export interface FooterProps {
 
   children?: Children;
   copyrightFunc?: Function;
+  toolTipPlacement?: string;
   testId?: string;
   version?: string;
   versionTooltip?: string;
@@ -35,6 +44,7 @@ export function Footer({
   children,
   copyrightFunc,
   testId = 'footer-testId',
+  toolTipPlacement = 'above',
   version = GUI_COMPONENTS_VERSION,
   versionTooltip,
 }: FooterProps) {
@@ -68,7 +78,7 @@ export function Footer({
               variant={ButtonVariantTypes.Text}
             />
             <Typography>|</Typography>
-            <Tooltip title={versionTooltip}>
+            <Tooltip placement={toolTipPlacement as PopperPlacementType} title={versionTooltip}>
               <Typography>{version}</Typography>
             </Tooltip>
           </Stack>

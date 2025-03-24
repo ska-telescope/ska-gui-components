@@ -25,6 +25,7 @@ Note that this interacts directly with the local storage provided to this librar
       "ariaTitle", "string", "No", "''", "Title that is used by screen readers"
       "disabled", "boolean", "No", "false", "disable/enable the component"
       "toolTip", "string", "No", "''", "Optional toolTip for the toggle"
+      "toolTipPlacement". "string", "No", "bottom", "Allows for the positioning of the tooltip to be moved from the default"
 
 .. admonition:: Constants
 

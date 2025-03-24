@@ -42,6 +42,7 @@ Field for entering text into the application
     "suffix", "string | JSX.Element", "No", "''", "Allows for the addition of characters/icon after the entry"
     "testId", "string", "No", "textEntry-{label}", "Identifier for testing purposes"
     "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
+    "toolTipPlacement". "string", "No", "bottom", "Allows for the positioning of the tooltip to be moved from the default"
     "value", "string", "Yes", "", "Value that is displayed within the component"
 
 .. admonition:: Constants

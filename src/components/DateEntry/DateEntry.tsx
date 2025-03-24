@@ -23,6 +23,7 @@ export interface DateEntryProps {
   required?: boolean;
   setValue?: Function;
   toolTip?: string;
+  toolTipPlacement?: string;
 }
 
 export function DateEntry({
@@ -44,6 +45,7 @@ export function DateEntry({
   setValue,
   testId,
   toolTip = '',
+  toolTipPlacement = 'bottom',
   value,
 }: DateEntryProps): JSX.Element {
   return (
@@ -68,6 +70,7 @@ export function DateEntry({
       testId={testId}
       type={TYPE.DATE}
       toolTip={toolTip}
+      toolTipPlacement={toolTipPlacement}
       value={value}
     />
   );

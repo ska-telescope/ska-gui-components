@@ -7,6 +7,7 @@ import {
   MenuItem,
   TextField,
   Tooltip,
+  PopperPlacementType,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { LABEL_POSITION } from '../EntryField/EntryField';
@@ -45,6 +46,7 @@ export interface DropDownProps {
   required?: boolean;
   setValue?: Function;
   toolTip?: string;
+  toolTipPlacement?: string;
 }
 
 export function DropDown({
@@ -66,6 +68,7 @@ export function DropDown({
   setValue,
   testId = 'dropDown-testId',
   toolTip = '',
+  toolTipPlacement = 'bottom',
   value,
 }: DropDownProps): JSX.Element {
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
@@ -94,7 +97,7 @@ export function DropDown({
           )}
           <Grid size={{ xs: 12 - labelWidth }}>
             <Item>
-              <Tooltip title={toolTip} arrow>
+              <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
                 <TextField
                   aria-label={ariaTitle}
                   aria-describedby={ariaDescription}
@@ -148,7 +151,7 @@ export function DropDown({
             labelPlacement={labelPosition}
             label={label}
             control={
-              <Tooltip title={toolTip} arrow>
+              <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
                 <TextField
                   aria-label={ariaTitle}
                   aria-describedby={ariaDescription}
@@ -183,7 +186,7 @@ export function DropDown({
       )}
 
       {labelPosition === LABEL_POSITION.CONTAINED && (
-        <Tooltip title={toolTip} arrow>
+        <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
           <TextField
             aria-label={ariaTitle}
             aria-describedby={ariaDescription}
