@@ -351,7 +351,7 @@ export function FileUpload({
             alignItems="baseline"
             justifyContent="space-between"
           >
-            <Item>
+            <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
               <Grid
                 spacing={1}
                 pt={1}
@@ -360,11 +360,15 @@ export function FileUpload({
                 alignItems="center"
                 justifyContent="center"
               >
-                <Item>{theFile && ClearButton()}</Item>
-                <Item>{theFile && UploadButton()}</Item>
+                <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
+                  {theFile && ClearButton()}
+                </Item>
+                <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
+                  {theFile && UploadButton()}
+                </Item>
               </Grid>
             </Item>
-            <Item>{suffix}</Item>
+            <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{suffix}</Item>
           </Grid>
         </>
       )}
@@ -377,20 +381,28 @@ export function FileUpload({
             alignItems="baseline"
             justifyContent={'center'}
           >
-            <Item>{ChooseButton()}</Item>
-            <Item>{showFileName()}</Item>
-            {theFile && <Item>{ClearButton()}</Item>}
-            {suffix && <Item>{suffix}</Item>}
+            <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{ChooseButton()}</Item>
+            <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{showFileName()}</Item>
+            {theFile && (
+              <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{ClearButton()}</Item>
+            )}
+            {suffix && <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{suffix}</Item>}
           </Grid>
         </SKAOAlert>
       )}
       {!dropzone && !isMinimal && (
         <Grid p={0} container direction={direction} justifyContent="space-evenly" spacing={1}>
-          <Item>{ChooseButton()}</Item>
-          {!hideFileName && <Item>{showFileName()}</Item>}
-          {theFile && <Item>{ClearButton()}</Item>}
-          {theFile && <Item>{UploadButton()}</Item>}
-          {suffix && <Item>{suffix}</Item>}
+          <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{ChooseButton()}</Item>
+          {!hideFileName && (
+            <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{showFileName()}</Item>
+          )}
+          {theFile && (
+            <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{ClearButton()}</Item>
+          )}
+          {theFile && (
+            <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{UploadButton()}</Item>
+          )}
+          {suffix && <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{suffix}</Item>}
         </Grid>
       )}
     </>

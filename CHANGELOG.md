@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.3.4
+*****
+
+Added styling to <Item> as latest MUI version is styled with a border and background color
+Corrected issue where the help icon was always being displayed
+
 2.3.3
 *****
 

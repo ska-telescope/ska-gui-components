@@ -86,7 +86,7 @@ export function DropDown({
         >
           {labelPosition === LABEL_POSITION.START && (
             <Grid size={{ xs: labelWidth }}>
-              <Item>
+              <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
                 <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
                   <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
                     {displayLabel}
@@ -96,7 +96,7 @@ export function DropDown({
             </Grid>
           )}
           <Grid size={{ xs: 12 - labelWidth }}>
-            <Item>
+            <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
               <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
                 <TextField
                   aria-label={ariaTitle}
@@ -132,7 +132,7 @@ export function DropDown({
           </Grid>
           {labelPosition === LABEL_POSITION.END && (
             <Grid size={{ xs: labelWidth }}>
-              <Item>
+              <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
                 <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
                   <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
                     {displayLabel}
