@@ -97,7 +97,7 @@ export function Header({
       ? storage.help.content
       : null;
   const getHelpBrowser = () => sessionStorage.getItem('skao_help_content');
-  const getHelp = () => (showHelp && useBrowserStorage ? getHelpBrowser() : 'DUMMY'); // TREVOR getHelpStorage());
+  const getHelp = () => (showHelp ? (useBrowserStorage ? getHelpBrowser() : '') : ''); // TREVOR getHelpStorage());
 
   const setTelescopeStorage = () =>
     storage.updateTelescope ? storage.updateTelescope(event) : null;
@@ -138,7 +138,7 @@ export function Header({
       sx={{ borderBottom: '1px solid darkgrey' }}
     >
       <Grid m={1} container alignItems="center" direction="row" justifyContent="space-between">
-        <Item>
+        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
           <Box display="flex" justifyContent="flex-start">
             <OurIconButton
               ariaTitle="skaWebsite"
@@ -160,8 +160,8 @@ export function Header({
             )}
           </Box>
         </Item>
-        <Item>{children}</Item>
-        <Item>
+        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>
+        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
           <Box mr={1} display="flex" justifyContent="flex-end">
             {selectTelescope && getTelescope() && (
               <TelescopeSelector telescope={getTelescope()} updateTelescope={updateTel} />

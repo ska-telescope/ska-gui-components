@@ -75,7 +75,7 @@ const content = (
   value: number,
 ) => (
   <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
-    <Item>
+    <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
       {showStatus && (
         <StatusIcon
           icon={showStatusIcon}
@@ -89,7 +89,7 @@ const content = (
       </Typography>
     </Item>
     {!hideValue && (
-      <Item>
+      <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
         <Typography variant="h3" component="div">
           {value}
         </Typography>

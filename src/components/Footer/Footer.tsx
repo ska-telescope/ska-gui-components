@@ -66,7 +66,7 @@ export function Footer({
       sx={{ borderTop: '1px solid darkgrey', bottom: 0, top: 'auto' }}
     >
       <Grid m={0} pr={1} container direction="row" justifyContent="space-between">
-        <Item>
+        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
           <Stack direction="row" alignItems="center" gap={1}>
             <Button
               ariaDescription="copyright link"
@@ -83,7 +83,7 @@ export function Footer({
             </Tooltip>
           </Stack>
         </Item>
-        <Item>{children}</Item>
+        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>
       </Grid>
     </AppBar>
   );
