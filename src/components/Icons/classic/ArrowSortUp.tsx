@@ -6,8 +6,8 @@ interface ArrowSortUpProps {
 }
 
 export function ArrowSortUp({
-  colorFG = '#070068',
-  size = 20,
+  colorFG = 'inherit',
+  size = 15,
   title = 'Arrow Up Icon',
   visual = false,
 }: ArrowSortUpProps) {
