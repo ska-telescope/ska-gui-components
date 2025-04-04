@@ -11,13 +11,16 @@ interface NumberEntry2Props {
   disabled?: boolean;
   fieldHeight?: number;
   fieldName: string;
+  iconColor?: string;
+  iconSize?: number;
+  prefix?: string | JSX.Element;
   prompt?: string;
   maxValue?: number;
   minValue?: number;
   required?: boolean;
   setValue: Function;
   step?: number;
-  suffix?: any;
+  suffix?: string | JSX.Element;
   testId?: string;
   title?: string | JSX.Element;
   toolTip?: string;
@@ -30,13 +33,16 @@ export function NumberEntry2({
   disabled = false,
   fieldHeight = 85,
   fieldName,
+  iconColor = 'inherit',
+  iconSize = 15,
   maxValue = 9999999,
   minValue = 0,
+  prefix = '',
   prompt = '',
   required = false,
   setValue,
   step = 0.1,
-  suffix = null,
+  suffix = '',
   title = '',
   testId = fieldName,
   toolTip = '',
@@ -99,18 +105,25 @@ export function NumberEntry2({
               </NumberField.ScrubArea>
 
               <NumberField.Group className={styles.Group}>
+                {prefix}
                 <NumberField.Input style={inputStyle} />
                 <Stack>
-                  <NumberField.Increment className={styles.Increment}>
-                    <ArrowSortUp />
+                  <NumberField.Increment
+                    className={styles.Increment}
+                    disabled={!value || maxValue <= value}
+                  >
+                    <ArrowSortUp colorFG={iconColor} size={iconSize} />
                   </NumberField.Increment>
-                  <NumberField.Decrement className={styles.Decrement}>
-                    <ArrowSortDown />
+                  <NumberField.Decrement
+                    className={styles.Decrement}
+                    disabled={!value || minValue >= value}
+                  >
+                    <ArrowSortDown colorFG={iconColor} size={iconSize} />
                   </NumberField.Decrement>
                 </Stack>
+                {suffix}
               </NumberField.Group>
             </NumberField.Root>
-            {suffix}
           </Stack>
         </Tooltip>
       </Box>

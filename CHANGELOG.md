@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.5
+*****
+
+Tweaking the up/down arrow display 
+
 2.3.4
 *****
 

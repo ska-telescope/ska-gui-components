@@ -6,8 +6,8 @@ interface ArrowSortDownProps {
 }
 
 export function ArrowSortDown({
-  colorFG = '#070068',
-  size = 20,
+  colorFG = 'inherit',
+  size = 15,
   title = 'Arrow Down Icon',
   visual = false,
 }: ArrowSortDownProps) {
