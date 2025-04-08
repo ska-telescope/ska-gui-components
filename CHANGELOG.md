@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.6
+*****
+
+Added aria to the new component 
+
 2.3.5
 *****
 

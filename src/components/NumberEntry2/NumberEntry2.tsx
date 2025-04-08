@@ -8,6 +8,8 @@ import styles from './NumberEntry2.module.css';
 import { Tooltip } from '@mui/material';
 
 interface NumberEntry2Props {
+  ariaDescription?: string;
+  ariaTitle?: string;
   disabled?: boolean;
   fieldHeight?: number;
   fieldName: string;
@@ -30,6 +32,8 @@ interface NumberEntry2Props {
 }
 
 export function NumberEntry2({
+  ariaDescription = 'Entry of a valid numeric value',
+  ariaTitle = 'NumberEntry',
   disabled = false,
   fieldHeight = 85,
   fieldName,
@@ -82,49 +86,49 @@ export function NumberEntry2({
         }}
       >
         <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
-          <Stack direction="row">
-            <NumberField.Root
-              allowWheelScrub
-              id={id}
-              className={styles.Field}
-              data-testid={testId}
-              defaultValue={value}
-              disabled={disabled}
-              largeStep={1}
-              max={maxValue}
-              min={minValue}
-              onValueChange={(itemValue) => setValue(itemValue)}
-              required={required}
-              step={step}
-              value={value}
-            >
-              <NumberField.ScrubArea className={styles.ScrubArea}>
-                <label htmlFor={id} className={styles.Label}>
-                  {title}
-                </label>
-              </NumberField.ScrubArea>
+          <NumberField.Root
+            allowWheelScrub
+            aria-label={ariaTitle}
+            aria-describedby={ariaDescription}
+            id={id}
+            className={styles.Field}
+            data-testid={testId}
+            defaultValue={value}
+            disabled={disabled}
+            largeStep={1}
+            max={maxValue}
+            min={minValue}
+            onValueChange={(itemValue) => setValue(itemValue)}
+            required={required}
+            step={step}
+            value={value}
+          >
+            <NumberField.ScrubArea className={styles.ScrubArea}>
+              <label htmlFor={id} className={styles.Label}>
+                {title}
+              </label>
+            </NumberField.ScrubArea>
 
-              <NumberField.Group className={styles.Group}>
-                {prefix}
-                <NumberField.Input style={inputStyle} />
-                <Stack>
-                  <NumberField.Increment
-                    className={styles.Increment}
-                    disabled={!value || maxValue <= value}
-                  >
-                    <ArrowSortUp colorFG={iconColor} size={iconSize} />
-                  </NumberField.Increment>
-                  <NumberField.Decrement
-                    className={styles.Decrement}
-                    disabled={!value || minValue >= value}
-                  >
-                    <ArrowSortDown colorFG={iconColor} size={iconSize} />
-                  </NumberField.Decrement>
-                </Stack>
-                {suffix}
-              </NumberField.Group>
-            </NumberField.Root>
-          </Stack>
+            <NumberField.Group className={styles.Group}>
+              {prefix}
+              <NumberField.Input style={inputStyle} />
+              <Stack>
+                <NumberField.Increment
+                  className={styles.Increment}
+                  disabled={!value || maxValue <= value}
+                >
+                  <ArrowSortUp colorFG={iconColor} size={iconSize} />
+                </NumberField.Increment>
+                <NumberField.Decrement
+                  className={styles.Decrement}
+                  disabled={!value || minValue >= value}
+                >
+                  <ArrowSortDown colorFG={iconColor} size={iconSize} />
+                </NumberField.Decrement>
+              </Stack>
+              {suffix}
+            </NumberField.Group>
+          </NumberField.Root>
         </Tooltip>
       </Box>
       <Field.Root className={styles.Field}>
