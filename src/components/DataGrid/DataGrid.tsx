@@ -48,6 +48,7 @@ export function SKAODataGrid({
   rows,
   rowHeight,
   rowSelectionModel,
+  showBorder = false,
   style,
   sx = {
     '& .MuiDataGrid-row.Mui-selected': {

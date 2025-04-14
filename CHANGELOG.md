@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.7
+*****
+
+Added NumberField
+
 2.3.6
 *****
 
