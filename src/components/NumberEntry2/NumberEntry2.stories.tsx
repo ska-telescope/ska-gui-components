@@ -11,7 +11,6 @@ export default {
   },
 };
 
-export const title = () => <Typography>TITLE</Typography>;
 export const Default = {
   args: {
     ariaTitle: 'aria Title',
@@ -31,7 +30,7 @@ export const Default = {
     onFocus: undefined,
     required: false,
     suffix: '?',
-    title: title(),
+    title: 'Title',
     value: '',
     setValue: undefined,
     width: 200,

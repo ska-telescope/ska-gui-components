@@ -131,7 +131,9 @@ export const Dark = {
     height: 400,
     onRowClick: null,
     rows: DUMMY_ROWS,
-    showBorder: true,
+    style: {
+      border: 'none',
+    },
     showMild: false,
     testId: 'testId',
   },

@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.7
+*****
+
+Updated NumberEntry2
+
 2.3.6
 *****
 
