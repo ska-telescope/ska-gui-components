@@ -1,8 +1,6 @@
 import React, { JSX } from 'react';
 import { Field } from '@base-ui-components/react/field';
-import { NumberField } from '@base-ui-components/react/number-field';
-import ArrowSortDown from '../Icons/classic/ArrowSortDown';
-import ArrowSortUp from '../Icons/classic/ArrowSortUp';
+import { NumberField as BaseNumberField } from '@base-ui-components/react/number-field';
 import { Box, PopperPlacementType, Stack, useTheme } from '@mui/material';
 import styles from './NumberEntry2.module.css';
 import { Tooltip } from '@mui/material';
@@ -11,15 +9,16 @@ interface NumberEntry2Props {
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;
+  errorText?: string;
   fieldHeight?: number;
   fieldName: string;
-  iconColor?: string;
-  iconSize?: number;
+  icon?: boolean;
   prefix?: string | JSX.Element;
   prompt?: string;
   maxValue?: number;
   minValue?: number;
   required?: boolean;
+  scrubArea?: boolean;
   setValue: Function;
   step?: number;
   suffix?: string | JSX.Element;
@@ -35,15 +34,15 @@ export function NumberEntry2({
   ariaDescription = 'Entry of a valid numeric value',
   ariaTitle = 'NumberEntry',
   disabled = false,
-  fieldHeight = 85,
+  errorText = '',
   fieldName,
-  iconColor = 'inherit',
-  iconSize = 15,
+  icon = true,
   maxValue = 9999999,
   minValue = 0,
   prefix = '',
   prompt = '',
   required = false,
+  scrubArea = false,
   setValue,
   step = 0.1,
   suffix = '',
@@ -52,89 +51,128 @@ export function NumberEntry2({
   toolTip = '',
   toolTipPlacement = 'bottom',
   value,
-  width = 5,
 }: NumberEntry2Props) {
   const id = React.useId();
-  const theme = useTheme();
-
-  const inputStyle = {
-    margin: 0,
-    padding: 0,
-    paddingLeft: '0.5rem',
-    border: 'none',
-    height: '2.5rem',
-    width: width,
-    fontFamily: 'inherit',
-    fontSize: '1rem',
-    fontWeight: 'normal',
-    backgroundColor: 'transparent',
-    color: theme.palette.primary.contrastText,
-
-    textAlign: 'left' as 'left',
-    fontVariantNumeric: 'tabular-nums',
-    outline: 'none',
-  };
-
   return (
-    <Box sx={{ height: fieldHeight }}>
-      <Box
-        pt={1}
-        sx={{
-          borderBottomColor: 'palette.secondary.light',
-          borderBottomStyle: 'solid',
-          borderBottomWidth: 1,
-        }}
+    <Field.Root className={styles.Field}>
+      <BaseNumberField.Root
+        allowWheelScrub
+        aria-label={ariaTitle}
+        aria-describedby={ariaDescription}
+        id={id}
+        className={styles.Field}
+        data-testid={testId}
+        defaultValue={value}
+        disabled={disabled}
+        largeStep={1}
+        max={maxValue}
+        min={minValue}
+        onValueChange={(itemValue) => setValue(itemValue)}
+        required={required}
+        step={step}
+        value={value}
       >
-        <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
-          <NumberField.Root
-            allowWheelScrub
-            aria-label={ariaTitle}
-            aria-describedby={ariaDescription}
-            id={id}
-            className={styles.Field}
-            data-testid={testId}
-            defaultValue={value}
-            disabled={disabled}
-            largeStep={1}
-            max={maxValue}
-            min={minValue}
-            onValueChange={(itemValue) => setValue(itemValue)}
-            required={required}
-            step={step}
-            value={value}
-          >
-            <NumberField.ScrubArea className={styles.ScrubArea}>
-              <label htmlFor={id} className={styles.Label}>
-                {title}
-              </label>
-            </NumberField.ScrubArea>
+        {scrubArea && (
+          <BaseNumberField.ScrubArea className={styles.ScrubArea}>
+            <label htmlFor={id} className={styles.Label}>
+              {title}
+            </label>
+            {scrubArea && (
+              <BaseNumberField.ScrubAreaCursor className={styles.ScrubAreaCursor}>
+                <CursorGrowIcon />
+              </BaseNumberField.ScrubAreaCursor>
+            )}
+          </BaseNumberField.ScrubArea>
+        )}
 
-            <NumberField.Group className={styles.Group}>
-              {prefix}
-              <NumberField.Input style={inputStyle} />
-              <Stack>
-                <NumberField.Increment
-                  className={styles.Increment}
-                  disabled={!value || maxValue <= value}
-                >
-                  <ArrowSortUp colorFG={iconColor} size={iconSize} />
-                </NumberField.Increment>
-                <NumberField.Decrement
-                  className={styles.Decrement}
-                  disabled={!value || minValue >= value}
-                >
-                  <ArrowSortDown colorFG={iconColor} size={iconSize} />
-                </NumberField.Decrement>
-              </Stack>
-              {suffix}
-            </NumberField.Group>
-          </NumberField.Root>
-        </Tooltip>
-      </Box>
-      <Field.Root className={styles.Field}>
-        <Field.Description className={styles.Description}>{prompt}</Field.Description>
-      </Field.Root>
-    </Box>
+        {!scrubArea && (
+          <label htmlFor={id} data-testid={testId + 'Title'} className={styles.Label}>
+            {title}
+          </label>
+        )}
+
+        <BaseNumberField.Group className={styles.Group}>
+          {icon && (
+            <BaseNumberField.Decrement
+              data-testid={testId + 'Subtraction'}
+              className={styles.Decrement}
+            >
+              <MinusIcon />
+            </BaseNumberField.Decrement>
+          )}
+          {prefix && <div className={styles.Prefix}>{prefix}</div>}
+          <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
+            <BaseNumberField.Input className={styles.Input} />
+          </Tooltip>
+
+          {suffix && <div className={styles.Suffix}>{suffix}</div>}
+          {icon && (
+            <BaseNumberField.Increment
+              data-testid={testId + 'Addition'}
+              className={styles.Increment}
+            >
+              <PlusIcon />
+            </BaseNumberField.Increment>
+          )}
+        </BaseNumberField.Group>
+      </BaseNumberField.Root>
+      <Field.Error data-testid={testId + 'Error'} className={styles.Error}>
+        {errorText}
+      </Field.Error>
+      <Field.Description data-testid={testId + 'Prompt'} className={styles.Description}>
+        {prompt}
+      </Field.Description>
+    </Field.Root>
+  );
+}
+
+function CursorGrowIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      width="26"
+      height="14"
+      viewBox="0 0 24 14"
+      fill="black"
+      stroke="white"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M19.5 5.5L6.49737 5.51844V2L1 6.9999L6.5 12L6.49737 8.5L19.5 8.5V12L25 6.9999L19.5 2V5.5Z" />
+    </svg>
+  );
+}
+
+function PlusIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 10 10"
+      fill="none"
+      stroke="currentcolor"
+      strokeWidth="1.6"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M0 5H5M10 5H5M5 5V0M5 5V10" />
+    </svg>
+  );
+}
+
+function MinusIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 10 10"
+      fill="none"
+      stroke="currentcolor"
+      strokeWidth="1.6"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M0 5H10" />
+    </svg>
   );
 }
 

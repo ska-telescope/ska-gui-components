@@ -4,7 +4,7 @@ Changelog
 2.3.7
 *****
 
-Added NumberField
+Updated NumberEntry2
 
 2.3.6
 *****

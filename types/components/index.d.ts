@@ -13,7 +13,6 @@ export { default as FileUpload, FileUploadStatus } from './FileUpload/FileUpload
 export { LABEL_POSITION } from './EntryField/EntryField';
 export { default as NumberEntry } from './NumberEntry/NumberEntry';
 export { default as NumberEntry2 } from './NumberEntry2/NumberEntry2';
-export { default as NumberField } from './NumberField/NumberField';
 export { default as SearchEntry } from './SearchEntry/SearchEntry';
 export { default as TextEntry } from './TextEntry/TextEntry';
 export { default as TickBox } from './TickBox/TickBox';
