@@ -1,6 +1,10 @@
 Changelog
 ==========
 
+Unreleased
+************
+Updated EntryField, NumberEntry to handle number scroller display
+
 2.3.8
 *****
 

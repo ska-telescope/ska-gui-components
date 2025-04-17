@@ -27,6 +27,7 @@ export interface NumberEntryProps {
   testId?: string;
   toolTip?: string;
   toolTipPlacement?: string;
+  scroller?: boolean;
 }
 
 export function NumberEntry({
@@ -51,6 +52,7 @@ export function NumberEntry({
   testId = 'numberEntry-' + label,
   toolTip = '',
   toolTipPlacement = 'bottom',
+  scroller = true,
   value,
 }: NumberEntryProps): React.JSX.Element {
   const isRequired = () => {
@@ -105,6 +107,7 @@ export function NumberEntry({
       toolTip={toolTip}
       toolTipPlacement={toolTipPlacement}
       type={TYPE.NUMBER}
+      numScroller={scroller}
     />
   );
 }
