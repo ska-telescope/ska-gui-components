@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.8
+*****
+
+Fixed issue where NumberEntry2 was not displaying provided errorText
+
 2.3.7
 *****
 

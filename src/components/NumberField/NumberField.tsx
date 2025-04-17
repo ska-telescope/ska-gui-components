@@ -1,116 +1,57 @@
 import React, { JSX } from 'react';
 import { Field } from '@base-ui-components/react/field';
 import { NumberField as BaseNumberField } from '@base-ui-components/react/number-field';
-import { PopperPlacementType, useTheme } from '@mui/material';
-import styles from './NumberEntry2.module.css';
-import { Tooltip } from '@mui/material';
-import { fontWeight } from '@mui/system';
+import styles from './NumberField.module.css';
+import { PopperPlacementType, Tooltip } from '@mui/material';
 
-interface NumberEntry2Props {
+interface NumberFieldProps {
   ariaDescription?: string;
   ariaTitle?: string;
-  borderColor?: string;
   disabled?: boolean;
-  errorColor?: string;
   errorText?: string;
-  fieldHeight?: number;
   fieldName: string;
   icon?: boolean;
-  iconBackground?: string;
-  iconBorder?: string;
   iconColor?: string;
+  iconSize?: number;
   prefix?: string | JSX.Element;
   prompt?: string;
-  promptColor?: string;
-  maxValue?: number | undefined;
-  minValue?: number | undefined;
+  maxValue?: number;
+  minValue?: number;
   required?: boolean;
+  scrubArea?: boolean;
   setValue: Function;
   step?: number;
   suffix?: string | JSX.Element;
   testId?: string;
   title?: string | JSX.Element;
-  titleAlign?: 'left' | 'right' | 'center';
-  titleColor?: string;
-  titleFontSize?: string;
-  titleFontWeight?: number;
   toolTip?: string;
   toolTipPlacement?: string;
   value: number | undefined;
-  width?: number;
 }
 
-export function NumberEntry2({
+export function NumberField({
   ariaDescription = 'Entry of a valid numeric value',
   ariaTitle = 'NumberEntry',
-  borderColor,
   disabled = false,
-  errorColor,
-  errorText = 'Error',
+  errorText = '',
   fieldName,
   icon = true,
-  iconBackground,
-  iconBorder,
-  iconColor,
-  maxValue,
-  minValue,
+  maxValue = 9999999,
+  minValue = 0,
   prefix = '',
-  prompt = 'Prompt',
-  promptColor,
+  prompt = '',
   required = false,
+  scrubArea = false,
   setValue,
-  step = 1,
+  step = 0.1,
   suffix = '',
   title = '',
-  titleAlign,
-  titleColor,
-  titleFontSize,
-  titleFontWeight,
   testId = fieldName,
   toolTip = '',
   toolTipPlacement = 'bottom',
   value,
-  width = 300,
-}: NumberEntry2Props) {
+}: NumberFieldProps) {
   const id = React.useId();
-  const theme = useTheme();
-
-  const iconStyle = {
-    color: iconColor ? iconColor : theme.palette.primary.main,
-    backgroundColor: iconBackground ? iconBackground : 'transparent',
-    borderColor: iconBorder ? iconBorder : 'transparent',
-  };
-
-  const iconStyleDisabled = {
-    color: iconBackground ? iconBackground : 'transparent',
-    backgroundColor: iconBackground ? iconBackground : 'transparent',
-    borderColor: iconBorder ? iconBorder : 'transparent',
-  };
-
-  const inputStyle = {
-    width: width,
-    borderColor: borderColor ? borderColor : theme.palette.primary.main,
-  };
-
-  const errorStyle = {
-    color: errorColor ? errorColor : theme.palette.error.main,
-  };
-
-  const promptStyle = {
-    color: promptColor ? promptColor : theme.palette.primary.light,
-  };
-
-  const textStyle = {
-    color: titleColor ? titleColor : theme.palette.primary.main,
-    fontSize: titleFontSize ? titleFontSize : '16px',
-    fontWeight: titleFontWeight ? titleFontWeight : 500,
-    width: width,
-    textAlign: titleAlign ? titleAlign : 'left',
-  };
-
-  const minDisabled = minValue === undefined || value === undefined ? false : value <= minValue;
-  const maxDisabled = maxValue === undefined || value === undefined ? false : value >= maxValue;
-
   return (
     <Field.Root className={styles.Field}>
       <BaseNumberField.Root
@@ -122,7 +63,7 @@ export function NumberEntry2({
         data-testid={testId}
         defaultValue={value}
         disabled={disabled}
-        largeStep={step * 10}
+        largeStep={1}
         max={maxValue}
         min={minValue}
         onValueChange={(itemValue) => setValue(itemValue)}
@@ -130,43 +71,43 @@ export function NumberEntry2({
         step={step}
         value={value}
       >
-        <BaseNumberField.ScrubArea className={styles.ScrubArea}>
-          <label
-            htmlFor={id}
-            data-testid={testId + 'Title'}
-            className={styles.Label}
-            style={textStyle}
-          >
+        {scrubArea && (
+          <BaseNumberField.ScrubArea className={styles.ScrubArea}>
+            <label htmlFor={id} className={styles.Label}>
+              {title}
+            </label>
+            {scrubArea && (
+              <BaseNumberField.ScrubAreaCursor className={styles.ScrubAreaCursor}>
+                <CursorGrowIcon />
+              </BaseNumberField.ScrubAreaCursor>
+            )}
+          </BaseNumberField.ScrubArea>
+        )}
+
+        {!scrubArea && (
+          <label htmlFor={id} data-testid={testId + 'Title'} className={styles.Label}>
             {title}
           </label>
-          <BaseNumberField.ScrubAreaCursor className={styles.ScrubAreaCursor}>
-            <CursorGrowIcon />
-          </BaseNumberField.ScrubAreaCursor>
-        </BaseNumberField.ScrubArea>
+        )}
 
         <BaseNumberField.Group className={styles.Group}>
           {icon && (
             <BaseNumberField.Decrement
               data-testid={testId + 'Subtraction'}
-              disabled={minDisabled}
               className={styles.Decrement}
-              style={minDisabled ? iconStyleDisabled : iconStyle}
             >
               <MinusIcon />
             </BaseNumberField.Decrement>
           )}
           {prefix && <div className={styles.Prefix}>{prefix}</div>}
-
           <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
-            <BaseNumberField.Input style={inputStyle} className={styles.Input} />
+            <BaseNumberField.Input className={styles.Input} />
           </Tooltip>
 
           {suffix && <div className={styles.Suffix}>{suffix}</div>}
           {icon && (
             <BaseNumberField.Increment
               data-testid={testId + 'Addition'}
-              disabled={maxDisabled}
-              style={maxDisabled ? iconStyleDisabled : iconStyle}
               className={styles.Increment}
             >
               <PlusIcon />
@@ -174,11 +115,11 @@ export function NumberEntry2({
           )}
         </BaseNumberField.Group>
       </BaseNumberField.Root>
-      <Field.Error data-testid={testId + 'Error'} style={errorStyle} forceShow={!!errorText}>
+      <Field.Error data-testid={testId + 'Error'} className={styles.Error}>
         {errorText}
       </Field.Error>
-      <Field.Description data-testid={testId + 'Prompt'} style={promptStyle}>
-        {errorText ? '' : prompt}
+      <Field.Description data-testid={testId + 'Prompt'} className={styles.Description}>
+        {prompt}
       </Field.Description>
     </Field.Root>
   );
@@ -234,4 +175,4 @@ function MinusIcon(props: React.ComponentProps<'svg'>) {
   );
 }
 
-export default NumberEntry2;
+export default NumberField;
