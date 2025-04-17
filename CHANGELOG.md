@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.9
+*****
+
+Display adjustments, changing defaults and adding classic icon placement
+
 2.3.8
 *****
 
