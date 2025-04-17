@@ -90,22 +90,32 @@ export function NumberEntry2({
   };
 
   const inputStyle = {
-    width: '100%',
-    borderColor: borderColor ? borderColor : theme.palette.primary.main,
+    width: width,
+    borderColor: borderColor ? borderColor : theme.palette.primary.light,
   };
 
   const errorStyle = {
     color: errorColor ? errorColor : theme.palette.error.main,
+    fontSize: '14px',
   };
 
   const promptStyle = {
     color: promptColor ? promptColor : theme.palette.primary.light,
+    fontSize: '14px',
   };
 
   const textStyle = {
     color: titleColor ? titleColor : theme.palette.primary.main,
-    fontSize: titleFontSize ? titleFontSize : '16px',
-    fontWeight: titleFontWeight ? titleFontWeight : 500,
+    fontSize: titleFontSize ? titleFontSize : '14px',
+    fontWeight: titleFontWeight ? titleFontWeight : 600,
+    width: width,
+    textAlign: titleAlign ? titleAlign : 'left',
+  };
+
+  const textStyleDisabled = {
+    color: titleColor ? titleColor : theme.palette.primary.light,
+    fontSize: titleFontSize ? titleFontSize : '14px',
+    fontWeight: titleFontWeight ? titleFontWeight : 600,
     width: width,
     textAlign: titleAlign ? titleAlign : 'left',
   };
@@ -138,7 +148,7 @@ export function NumberEntry2({
               htmlFor={id}
               data-testid={testId + 'Title'}
               className={styles.Label}
-              style={textStyle}
+              style={disabled ? textStyleDisabled : textStyle}
             >
               {title}
             </label>
