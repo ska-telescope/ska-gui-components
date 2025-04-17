@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.10
+******
+
+Input is now left justified, with further visual improvements being made
+
 2.3.9
 *****
 

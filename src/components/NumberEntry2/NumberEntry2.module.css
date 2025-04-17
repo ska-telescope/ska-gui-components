@@ -30,14 +30,14 @@
   margin: 0;
   padding: 0;
   border-top: none;
-  border-bottom: 0.5px solid 'palette.secondary.dark';
+  border-bottom: 0.1px solid 'palette.secondary.main';
   border-left: none;
   border-right: none;
   height: 2rem;
   font-family: inherit;
   font-size: 1rem;
   font-weight: normal;
-  text-align: center;
+  text-align: left;
   font-variant-numeric: tabular-nums;
   background-color: 'transparent';
 
