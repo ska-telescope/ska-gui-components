@@ -4,7 +4,7 @@ import { NumberField as BaseNumberField } from '@base-ui-components/react/number
 import { PopperPlacementType, useTheme } from '@mui/material';
 import styles from './NumberEntry2.module.css';
 import { Tooltip } from '@mui/material';
-import { fontWeight } from '@mui/system';
+import { fontWeight, Stack } from '@mui/system';
 
 interface NumberEntry2Props {
   ariaDescription?: string;
@@ -15,7 +15,7 @@ interface NumberEntry2Props {
   errorText?: string;
   fieldHeight?: number;
   fieldName: string;
-  icon?: boolean;
+  icon?: 'classic' | 'none' | 'split';
   iconBackground?: string;
   iconBorder?: string;
   iconColor?: string;
@@ -25,6 +25,7 @@ interface NumberEntry2Props {
   maxValue?: number | undefined;
   minValue?: number | undefined;
   required?: boolean;
+  scrubArea?: boolean;
   setValue: Function;
   step?: number;
   suffix?: string | JSX.Element;
@@ -46,18 +47,19 @@ export function NumberEntry2({
   borderColor,
   disabled = false,
   errorColor,
-  errorText = 'Error',
+  errorText = '',
   fieldName,
-  icon = true,
+  icon = 'classic',
   iconBackground,
   iconBorder,
   iconColor,
   maxValue,
   minValue,
   prefix = '',
-  prompt = 'Prompt',
+  prompt = '',
   promptColor,
   required = false,
+  scrubArea = false,
   setValue,
   step = 1,
   suffix = '',
@@ -88,7 +90,7 @@ export function NumberEntry2({
   };
 
   const inputStyle = {
-    width: width,
+    width: '100%',
     borderColor: borderColor ? borderColor : theme.palette.primary.main,
   };
 
@@ -114,7 +116,7 @@ export function NumberEntry2({
   return (
     <Field.Root className={styles.Field}>
       <BaseNumberField.Root
-        allowWheelScrub
+        allowWheelScrub={scrubArea}
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
         id={id}
@@ -130,7 +132,23 @@ export function NumberEntry2({
         step={step}
         value={value}
       >
-        <BaseNumberField.ScrubArea className={styles.ScrubArea}>
+        {scrubArea && (
+          <BaseNumberField.ScrubArea className={styles.ScrubArea}>
+            <label
+              htmlFor={id}
+              data-testid={testId + 'Title'}
+              className={styles.Label}
+              style={textStyle}
+            >
+              {title}
+            </label>
+            <BaseNumberField.ScrubAreaCursor className={styles.ScrubAreaCursor}>
+              <CursorGrowIcon />
+            </BaseNumberField.ScrubAreaCursor>
+          </BaseNumberField.ScrubArea>
+        )}
+
+        {!scrubArea && (
           <label
             htmlFor={id}
             data-testid={testId + 'Title'}
@@ -139,13 +157,10 @@ export function NumberEntry2({
           >
             {title}
           </label>
-          <BaseNumberField.ScrubAreaCursor className={styles.ScrubAreaCursor}>
-            <CursorGrowIcon />
-          </BaseNumberField.ScrubAreaCursor>
-        </BaseNumberField.ScrubArea>
+        )}
 
         <BaseNumberField.Group className={styles.Group}>
-          {icon && (
+          {icon === 'split' && (
             <BaseNumberField.Decrement
               data-testid={testId + 'Subtraction'}
               disabled={minDisabled}
@@ -160,9 +175,28 @@ export function NumberEntry2({
           <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
             <BaseNumberField.Input style={inputStyle} className={styles.Input} />
           </Tooltip>
-
+          {icon === 'classic' && (
+            <Stack direction={'column'} gap={0}>
+              <BaseNumberField.Increment
+                data-testid={testId + 'AdditionClassic'}
+                disabled={maxDisabled}
+                style={maxDisabled ? iconStyleDisabled : iconStyle}
+                className={styles.Up}
+              >
+                <CaretUpIcon />
+              </BaseNumberField.Increment>
+              <BaseNumberField.Decrement
+                data-testid={testId + 'SubtractionClassic'}
+                disabled={minDisabled}
+                className={styles.Down}
+                style={minDisabled ? iconStyleDisabled : iconStyle}
+              >
+                <CaretDownIcon />
+              </BaseNumberField.Decrement>
+            </Stack>
+          )}
           {suffix && <div className={styles.Suffix}>{suffix}</div>}
-          {icon && (
+          {icon === 'split' && (
             <BaseNumberField.Increment
               data-testid={testId + 'Addition'}
               disabled={maxDisabled}
@@ -190,8 +224,8 @@ function CursorGrowIcon(props: React.ComponentProps<'svg'>) {
       width="26"
       height="14"
       viewBox="0 0 24 14"
-      fill="black"
-      stroke="white"
+      fill="currentcolor"
+      stroke="currentcolor"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -206,7 +240,7 @@ function PlusIcon(props: React.ComponentProps<'svg'>) {
       width="10"
       height="10"
       viewBox="0 0 10 10"
-      fill="none"
+      fill="currentcolor"
       stroke="currentcolor"
       strokeWidth="1.6"
       xmlns="http://www.w3.org/2000/svg"
@@ -217,13 +251,47 @@ function PlusIcon(props: React.ComponentProps<'svg'>) {
   );
 }
 
+function CaretUpIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      width="10"
+      height="10"
+      fill="currentcolor"
+      stroke="currentcolor"
+      strokeWidth="1.6"
+      viewBox="0 0 320 512"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z" />
+    </svg>
+  );
+}
+
+function CaretDownIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      width="10"
+      height="10"
+      fill="currentcolor"
+      stroke="currentcolor"
+      strokeWidth="1.6"
+      viewBox="0 0 320 512"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+    </svg>
+  );
+}
+
 function MinusIcon(props: React.ComponentProps<'svg'>) {
   return (
     <svg
       width="10"
       height="10"
       viewBox="0 0 10 10"
-      fill="none"
+      fill="currentcolor"
       stroke="currentcolor"
       strokeWidth="1.6"
       xmlns="http://www.w3.org/2000/svg"
