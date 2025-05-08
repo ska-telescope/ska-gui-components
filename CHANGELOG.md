@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+2.3.13
+******
+
+Ability to suppress scroller
+
+2.3.12
+******
+
+Removed tags failing SemVer 
+
 2.3.10
 ******
 

@@ -71,6 +71,7 @@ export interface EntryFieldProps {
   toolTip?: string;
   toolTipPlacement?: string;
   type?: TYPE.DATE | TYPE.FILE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
+  numScroller?: boolean;
 }
 
 export function EntryField({
@@ -99,12 +100,30 @@ export function EntryField({
   toolTip = '',
   toolTipPlacement = 'bottom',
   type = TYPE.TEXT,
+  numScroller = true,
   value,
 }: EntryFieldProps): JSX.Element {
   const theSuffix = suffix ? suffix : '';
   const thePrefix = prefix ? prefix : '';
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
   const displayLabel = label + (required ? ' *' : '');
+  const slotPropsSx = numScroller
+    ? undefined
+    : {
+        // Hide arrows for Chrome, Safari, Edge
+        '& input::-webkit-outer-spin-button': {
+          WebkitAppearance: 'none',
+          margin: 0,
+        },
+        '& input::-webkit-inner-spin-button': {
+          WebkitAppearance: 'none',
+          margin: 0,
+        },
+        // Hide arrows for Firefox
+        '& input[type=number]': {
+          MozAppearance: 'textfield',
+        },
+      };
 
   return (
     <>
@@ -162,6 +181,7 @@ export function EntryField({
                     input: {
                       startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                       endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+                      sx: slotPropsSx,
                     },
                   }}
                 >
@@ -221,6 +241,7 @@ export function EntryField({
                     input: {
                       startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                       endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+                      sx: slotPropsSx,
                     },
                   }}
                 >
@@ -264,6 +285,7 @@ export function EntryField({
               input: {
                 startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                 endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+                sx: slotPropsSx,
               },
             }}
           >
