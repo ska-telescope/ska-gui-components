@@ -1,9 +1,25 @@
 Changelog
 ==========
 
-Unreleased
-************
-Updated EntryField, NumberEntry to handle number scroller display
+2.3.13
+******
+
+Ability to suppress scroller
+
+2.3.12
+******
+
+Removed tags failing SemVer 
+
+2.3.10
+******
+
+Input is now left justified, with further visual improvements being made
+
+2.3.9
+*****
+
+Display adjustments, changing defaults and adding classic icon placement
 
 2.3.8
 *****
