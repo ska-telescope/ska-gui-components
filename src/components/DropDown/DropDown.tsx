@@ -17,7 +17,6 @@ const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
-  textAlign: 'center',
   color: theme.palette.text.secondary,
   ...theme.applyStyles('dark', {
     backgroundColor: '#1A2027',
@@ -41,6 +40,7 @@ export interface DropDownProps {
   labelBold?: boolean;
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
+  maxMenuHeight?: string;
   name?: string;
   onFocus?: Function;
   required?: boolean;
@@ -61,6 +61,7 @@ export function DropDown({
   labelBold = false,
   labelPosition = LABEL_POSITION.CONTAINED,
   labelWidth = 4,
+  maxMenuHeight = '40vh',
   name = '',
   onFocus,
   options,
@@ -118,6 +119,16 @@ export function DropDown({
                   onFocus={onFocus as FocusEventHandler}
                   required={required}
                   select
+                  sx={{ idth: '100%' }}
+                  SelectProps={{
+                    MenuProps: {
+                      PaperProps: {
+                        sx: {
+                          maxHeight: maxMenuHeight,
+                        },
+                      },
+                    },
+                  }}
                   value={value}
                   variant="standard"
                 >
@@ -170,6 +181,16 @@ export function DropDown({
                   onFocus={onFocus as FocusEventHandler}
                   required={required}
                   select
+                  sx={{ idth: '100%' }}
+                  SelectProps={{
+                    MenuProps: {
+                      PaperProps: {
+                        sx: {
+                          maxHeight: maxMenuHeight,
+                        },
+                      },
+                    },
+                  }}
                   value={value}
                   variant="standard"
                 >
@@ -206,7 +227,16 @@ export function DropDown({
             onFocus={onFocus as FocusEventHandler}
             required={required}
             select
-            sx={{ width: '100%' }}
+            sx={{ idth: '100%' }}
+            SelectProps={{
+              MenuProps: {
+                PaperProps: {
+                  sx: {
+                    maxHeight: maxMenuHeight,
+                  },
+                },
+              },
+            }}
             value={value}
             variant="standard"
           >

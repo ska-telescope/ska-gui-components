@@ -18,6 +18,7 @@ export const Default = {
     helperText: 'HELPER TEXT',
     label: 'LABEL',
     labelPosition: LABEL_POSITION.CONTAINED,
+    numScroller: false,
     labelWidth: 4,
     password: false,
     prefix: '',

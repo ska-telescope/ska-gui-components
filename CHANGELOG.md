@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.14
+******
+
+Add property so that the maxHeight of the select menu can be limited
+
 2.3.13
 ******
 

@@ -22,7 +22,7 @@ export { HelpModal } from './components/HelpModal/HelpModal';
 export { OurIconButton as IconButton } from './components/IconButton/IconButton';
 export { InfoCardColorTypes, InfoCardVariantTypes, InfoCard } from './components/InfoCard/InfoCard';
 export { NumberEntry } from './components/NumberEntry/NumberEntry';
-export { NumberEntry2 } from './components/NumberEntry2/NumberEntry2';
+export { NumberEntry2 } from './components/BaseUI/NumberEntry2/NumberEntry2';
 export { ProgressIndicator, Progress } from './components/Progress/Progress';
 export { SearchEntry } from './components/SearchEntry/SearchEntry';
 export { StatusIcon } from './components/StatusIcon/StatusIcon';
