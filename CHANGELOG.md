@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.15
+******
+
+Updated so that labels for fields float to the left
+
 2.3.14
 ******
 
