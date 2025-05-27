@@ -22,7 +22,6 @@ export interface DataGridProps {
   rowHeight?: number;
   rowSelectionModel?: any;
   sx?: any;
-  showBorder?: boolean;
   showMild?: boolean;
   style?: any;
   testId: string;
@@ -48,9 +47,9 @@ export function SKAODataGrid({
   rows,
   rowHeight,
   rowSelectionModel,
-  showBorder = false,
   style,
   sx = {
+    border: 'none',
     '& .MuiDataGrid-row.Mui-selected': {
       backgroundColor: 'primary.dark',
       color: 'primary.contrastText',

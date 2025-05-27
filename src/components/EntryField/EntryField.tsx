@@ -137,9 +137,15 @@ export function EntryField({
         >
           {labelPosition === LABEL_POSITION.START && (
             <Grid size={{ xs: labelWidth }}>
-              <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
+              <Item sx={{ float: 'left', backgroundColor: 'transparent', boxShadow: 0 }}>
                 <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
-                  <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                  <Typography
+                    sx={{
+                      float: 'left',
+                      backgroundColor: 'transparent',
+                      fontWeight: !disabled && labelBold ? 'bold' : 'normal',
+                    }}
+                  >
                     {displayLabel}
                   </Typography>
                 </InputLabel>
