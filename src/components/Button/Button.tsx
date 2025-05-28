@@ -1,5 +1,6 @@
 import React, { JSX } from 'react';
 import { Button, PopperPlacementType, Tooltip } from '@mui/material';
+import { useTheme } from '@mui/material';
 import { ElementType } from '@react-spring/web';
 //
 import AddIcon from '../Icons/classic/AddIcon';
@@ -16,6 +17,8 @@ import SaveIcon from '../Icons/classic/SaveIcon';
 import PublishIcon from '../Icons/classic/PublishIcon';
 import EmailIcon from '../Icons/classic/EmailIcon';
 import FactCheckIcon from '../Icons/classic/FactCheckIcon';
+
+import { Colors } from '@ska-telescope/ska-javascript-components';
 
 export enum ButtonColorTypes {
   Error = 'error',
@@ -70,53 +73,81 @@ export interface ButtonProps {
   variant?: ButtonVariantTypes;
 }
 
-export function OurButton({
-  ariaDescription = 'Button',
-  color = ButtonColorTypes.Success,
-  component = 'button',
-  disabled = false,
-  icon,
-  label,
-  onClick,
-  ref,
-  size = ButtonSizeTypes.Medium,
-  testId = 'buttton-' + label,
-  toolTip = '',
-  toolTipPlacement = 'bottom',
-  variant = ButtonVariantTypes.Outlined,
-}: ButtonProps): JSX.Element {
+export function OurButton(
+  this: any,
+  {
+    ariaDescription = 'Button',
+    color = ButtonColorTypes.Success,
+    component = 'button',
+    disabled = false,
+    icon,
+    label,
+    onClick,
+    ref,
+    size = ButtonSizeTypes.Medium,
+    testId = 'buttton-' + label,
+    toolTip = '',
+    toolTipPlacement = 'bottom',
+    variant = ButtonVariantTypes.Outlined,
+  }: ButtonProps,
+): JSX.Element {
   const clicked = (e: any) => (typeof onClick !== 'undefined' ? onClick(e) : null);
 
+  const fetchColorFG = () => {
+    const theme = useTheme();
+    switch (color) {
+      case ButtonColorTypes.Error:
+        return variant === ButtonVariantTypes.Contained
+          ? theme.palette.primary.contrastText
+          : Colors().STATUS_FG_1;
+      case ButtonColorTypes.Secondary:
+        return variant === ButtonVariantTypes.Contained
+          ? theme.palette.primary.contrastText
+          : theme.palette.secondary.main;
+      case ButtonColorTypes.Success:
+        return variant === ButtonVariantTypes.Contained
+          ? theme.palette.primary.contrastText
+          : Colors().STATUS_FG_0;
+      case ButtonColorTypes.Warning:
+        return variant === ButtonVariantTypes.Contained
+          ? theme.palette.primary.contrastText
+          : Colors().STATUS_FG_3;
+      default:
+        return variant === ButtonVariantTypes.Contained ? 'Inherit' : Colors().STATUS_FG_5;
+    }
+  };
+
   const fetchIcon = () => {
+    const theme = useTheme();
     switch (icon) {
       case ButtonIcons.Add:
-        return <AddIcon />;
+        return <AddIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Cancel:
-        return <ClearIcon />;
+        return <ClearIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Confirm:
-        return <TickIcon />;
+        return <TickIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Delete:
-        return <DeleteIcon />;
+        return <DeleteIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Download:
-        return <DownloadIcon />;
+        return <DownloadIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Email:
-        return <EmailIcon />;
+        return <EmailIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Home:
-        return <HomeIcon />;
+        return <HomeIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Location:
-        return <CrosshairsIcon />;
+        return <CrosshairsIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Next:
-        return <ArrowForwardIcon />;
+        return <ArrowForwardIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.PDF:
-        return <PDFDocumentIcon />;
+        return <PDFDocumentIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Previous:
-        return <ArrowBackIcon />;
+        return <ArrowBackIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Save:
-        return <SaveIcon />;
+        return <SaveIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Submit:
-        return <PublishIcon />;
+        return <PublishIcon colorFG={fetchColorFG()} />;
       case ButtonIcons.Validate:
-        return <FactCheckIcon />;
+        return <FactCheckIcon colorFG={fetchColorFG()} />;
       default:
         return null;
     }

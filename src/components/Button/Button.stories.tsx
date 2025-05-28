@@ -15,6 +15,21 @@ export const Default = {
     icon: ButtonIcons.Add,
     label: 'OurButton Label',
     toolTip: 'Tool tip',
-    variant: ButtonVariantTypes.Outlined,
+    variant: ButtonVariantTypes.Contained,
+  },
+};
+
+export const Dark = {
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
+  args: {
+    ariaDescription: 'aria Description',
+    color: ButtonColorTypes.Error,
+    icon: ButtonIcons.Add,
+    label: 'OurButton Label',
+    testId: 'testId',
+    toolTip: 'Tool tip',
+    variant: ButtonVariantTypes.Contained,
   },
 };
