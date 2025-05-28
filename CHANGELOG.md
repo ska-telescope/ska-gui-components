@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.16
+******
+
+Button icon color now matches the colouring of the text
+
 2.3.15
 ******
 
