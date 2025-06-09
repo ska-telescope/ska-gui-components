@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { Paper } from '@mui/material';
 import { Spacer, SPACER_VERTICAL } from '@ska-telescope/ska-javascript-components';
 import CopyrightModal from '../CopyrightModal/CopyrightModal';
@@ -44,7 +44,9 @@ export type AppWrapperProperties = {
   iconDocsURL: string;
   iconSKAOToolTip?: string;
   iconThemeToolTip?: string;
+  loginComponent?: JSX.Element | null;
   mainChildren?: Children;
+  selectTelescope?: boolean;
   storageHelp?: Help;
   storageHelpToggle?: Function;
   storageTelescope?: Telescope;
@@ -64,6 +66,8 @@ function TheHeader(properties: AppWrapperProperties): React.JSX.Element {
           : 'Click here for SKAO documentation',
         url: properties.iconDocsURL,
       }}
+      loginComponent={properties.loginComponent}
+      selectTelescope={properties.selectTelescope}
       title={properties.application ? properties.application : 'SKA APPLICATION'}
       testId="skaHeader"
       toolTip={{
@@ -78,7 +82,9 @@ function TheHeader(properties: AppWrapperProperties): React.JSX.Element {
         toggleTheme: properties.storageToggleTheme,
         updateTelescope: properties.storageUpdateTelescope,
       }}
-    ></Header>
+    >
+      {properties.headerChildren}
+    </Header>
   );
 }
 
