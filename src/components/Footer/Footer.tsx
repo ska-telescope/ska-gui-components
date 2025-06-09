@@ -44,7 +44,7 @@ export function Footer({
   children,
   copyrightFunc,
   testId = 'footer-testId',
-  toolTipPlacement = 'above',
+  toolTipPlacement = 'top',
   version = GUI_COMPONENTS_VERSION,
   versionTooltip,
 }: FooterProps) {
