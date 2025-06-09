@@ -1,4 +1,4 @@
-AuthWrapper
+AppWrapper
 ~~~~~~~~~~~
 
 *Overview*
@@ -21,7 +21,7 @@ This can be configured via a number of properties, which are listed later on thi
 
    ...
 
-   <AuthWrapper
+   <AppWrapper
       iconDocsURL="... some URL ..."
       storageThemeMode={themeMode.mode}
       storageToggleTheme={toggleTheme}

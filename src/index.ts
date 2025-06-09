@@ -1,6 +1,7 @@
 export { AlertColorTypes, AlertVariantTypes, SKAOAlert as Alert } from './components/Alert/Alert';
 export { AlertCard } from './components/AlertCard/AlertCard';
 export { ALERT_DATA } from './components/AlertCard/AlertData';
+export { AppWrapper } from './components/AppWrapper/AppWrapper';
 export { SKAOBackdrop as BackDrop } from './components/Backdrop/Backdrop';
 export {
   ButtonColorTypes,

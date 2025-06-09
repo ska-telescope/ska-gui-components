@@ -1,8 +1,9 @@
 export { default as Alert, AlertColorTypes, AlertVariantTypes } from './Alert/Alert';
 export { default as AlertCard } from './AlertCard/AlertCard';
+export { default as AppWrapper } from './AppWrapper/AppWrapper';
 export { default as DataGrid } from './DataGrid/DataGrid';
 export { default as InfoCard, InfoCardColorTypes, InfoCardVariantTypes } from './InfoCard/InfoCard';
-export { default as DataTree } from './DataTree/DataTree';
+// export { default as DataTree } from './DataTree/DataTree';
 //
 export { default as Header } from './Header/Header';
 export { default as Footer } from './Footer/Footer';
@@ -14,7 +15,7 @@ export { default as DropDown } from './DropDown/DropDown';
 export { default as FileUpload, FileUploadStatus } from './FileUpload/FileUpload';
 export { LABEL_POSITION } from './EntryField/EntryField';
 export { default as NumberEntry } from './NumberEntry/NumberEntry';
-export { default as NumberEntry2 } from './NumberEntry2/NumberEntry2';
+export { default as NumberEntry2 } from './BaseUI/NumberEntry2/NumberEntry2';
 export { default as SearchEntry } from './SearchEntry/SearchEntry';
 export { default as TextEntry } from './TextEntry/TextEntry';
 export { default as TickBox } from './TickBox/TickBox';

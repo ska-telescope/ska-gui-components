@@ -5,6 +5,7 @@ Changelog
 ******
 
 Button icon color now matches the colouring of the text
+AppWrapper initial implementation
 
 2.3.15
 ******

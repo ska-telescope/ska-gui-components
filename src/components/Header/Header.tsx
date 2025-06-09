@@ -49,6 +49,7 @@ export interface HeaderProps {
   ariaDescription?: string;
   ariaTitle?: string;
   docs?: { tooltip: string; url: string };
+  loginComponent?: JSX.Element | null;
   selectTelescope?: boolean;
   showHelp?: boolean;
   storage: Storage;
@@ -65,6 +66,7 @@ export function Header({
   ariaDescription = 'Sticky Panel at the top of the page',
   ariaTitle = 'SKAOHeader',
   docs = { tooltip: '', url: '' },
+  loginComponent = null,
   selectTelescope = true,
   storage,
   showHelp = false,
@@ -163,6 +165,7 @@ export function Header({
         <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>
         <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
           <Box mr={1} display="flex" justifyContent="flex-end">
+            {loginComponent}
             {selectTelescope && getTelescope() && (
               <TelescopeSelector telescope={getTelescope()} updateTelescope={updateTel} />
             )}
