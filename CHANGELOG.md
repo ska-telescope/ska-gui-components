@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.17
+******
+
+Fix issue with footer tooltip
+
 2.3.16
 ******
 
