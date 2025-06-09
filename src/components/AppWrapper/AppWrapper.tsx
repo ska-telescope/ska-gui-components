@@ -82,6 +82,7 @@ function TheHeader(properties: AppWrapperProperties): React.JSX.Element {
         toggleTheme: properties.storageToggleTheme,
         updateTelescope: properties.storageUpdateTelescope,
       }}
+      useBrowserStorage={false}
     >
       {properties.headerChildren}
     </Header>

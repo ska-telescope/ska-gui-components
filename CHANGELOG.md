@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.18
+******
+
+Enforce the use of provided storage
+
 2.3.17
 ******
 
