@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.19
+******
+
+Ensure that the telescope is obtained from Storage
+
 2.3.18
 ******
 
