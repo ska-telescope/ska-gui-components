@@ -165,7 +165,9 @@ export function Header({
         <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>
         <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
           <Box mr={1} display="flex" justifyContent="flex-end">
-            {loginComponent}
+            <Box mr={1} display="flex" justifyContent="flex-end">
+              {loginComponent}
+            </Box>
             {selectTelescope && getTelescope() && (
               <TelescopeSelector telescope={getTelescope()} updateTelescope={updateTel} />
             )}
