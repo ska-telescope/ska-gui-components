@@ -101,30 +101,32 @@ export function Header({
   const getHelpBrowser = () => sessionStorage.getItem('skao_help_content');
   const getHelp = () => (showHelp ? (useBrowserStorage ? getHelpBrowser() : '') : ''); // TREVOR getHelpStorage());
 
+  const getTelescopeStorage = () => storage?.telescope ? storage.telescope : TELESCOPE_LOW;
   const setTelescopeStorage = () =>
-    storage.updateTelescope ? storage.updateTelescope(event) : null;
-  const setTelescopeBrowser = () =>
-    localStorage.setItem(
-      'skao_telescope',
-      JSON.stringify(getTelescope() === TELESCOPE_LOW ? TELESCOPE_MID : TELESCOPE_LOW),
-    );
-  const setTelescope = () => (useBrowserStorage ? setTelescopeBrowser() : setTelescopeStorage());
-  const getTelescopeStorage = () => storage.telescope;
-  const getTelescopeBrowser = () => {
-    const obj = localStorage.getItem('skao_telescope');
-    if (!obj) {
-      localStorage.setItem('skao_telescope', JSON.stringify(TELESCOPE_LOW));
-      return TELESCOPE_LOW;
-    }
-    return JSON.parse(obj);
-  };
-  const getTelescope = () => (useBrowserStorage ? getTelescopeBrowser() : getTelescopeStorage());
+    storage.updateTelescope ? storage.updateTelescope(getTelescopeStorage() === TELESCOPE_LOW ? TELESCOPE_MID : TELESCOPE_LOW) : null;
+  
+  // const setTelescopeBrowser = () =>
+  //   localStorage.setItem(
+  //     'skao_telescope',
+  //     JSON.stringify(getTelescopeBrowser() === TELESCOPE_LOW ? TELESCOPE_MID : TELESCOPE_LOW),
+  //   );
+  // const setTelescope = () => (useBrowserStorage ? setTelescopeBrowser() : setTelescopeStorage());
+  // const getTelescopeBrowser = () => {
+  //   const obj = localStorage.getItem('skao_telescope');
+  //   if (!obj) {
+  //     localStorage.setItem('skao_telescope', JSON.stringify(TELESCOPE_LOW));
+  //     return TELESCOPE_LOW;
+  //   }
+  //   return JSON.parse(obj);
+  // };
+  // const getTelescope = () => (useBrowserStorage ? getTelescopeBrowser() : getTelescopeStorage());
 
   const isDarkTheme = getThemeMode() === THEME_DARK;
   const flatten = false; // TODO : Need to implement user preferences
 
   const updateTel = () => {
-    () => setTelescope();
+    console.log("TREVOR: updateTel called");
+    () => setTelescopeStorage();
   };
 
   return (
@@ -168,8 +170,8 @@ export function Header({
             <Box mr={1} display="flex" justifyContent="flex-end">
               {loginComponent}
             </Box>
-            {selectTelescope && getTelescope() && (
-              <TelescopeSelector telescope={getTelescope()} updateTelescope={updateTel} />
+            {selectTelescope && getTelescopeStorage() && (
+              <TelescopeSelector telescope={getTelescopeStorage()} updateTelescope={updateTel} />
             )}
             {docs?.url && (
               <OurIconButton
