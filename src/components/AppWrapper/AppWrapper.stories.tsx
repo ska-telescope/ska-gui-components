@@ -26,3 +26,41 @@ export const Default = {
     versionTooltip: '6.6.6',
   },
 };
+
+export const Dark = {
+  args: {
+    mainChildren: 'MAIN CHILD',
+    footerChildren: 'FOOTER CHILD',
+    application: 'Application',
+    headerChildren: 'HEADER CHILD',
+    loginComponent: 'LOGIN COMPONENT',
+    docsIconToolTip: 'DOCS ICON TOOLTIP',
+    docsURL: 'DOCS URL',
+    skaoLogoToolTip: 'SKAO LOGO TOOLTIP',
+    themeModeToolTip: 'THEME MODE TOOLTIP',
+    selectTelescope: true,
+    storageThemeMode: 'dark',
+    storageToggleTheme: null,
+    version: '1.2.3',
+    versionTooltip: '6.6.6',
+  },
+};
+
+export const light = {
+  args: {
+    mainChildren: 'MAIN CHILD',
+    footerChildren: 'FOOTER CHILD',
+    application: 'Application',
+    headerChildren: 'HEADER CHILD',
+    loginComponent: 'LOGIN COMPONENT',
+    docsIconToolTip: 'DOCS ICON TOOLTIP',
+    docsURL: 'DOCS URL',
+    skaoLogoToolTip: 'SKAO LOGO TOOLTIP',
+    themeModeToolTip: 'THEME MODE TOOLTIP',
+    selectTelescope: true,
+    storageThemeMode: 'light',
+    storageToggleTheme: null,
+    version: '1.2.3',
+    versionTooltip: '6.6.6',
+  },
+};
