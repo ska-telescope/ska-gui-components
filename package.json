@@ -2,7 +2,7 @@
   "name": "@ska-telescope/ska-gui-components",
   "license": "BSD-3-Clause",
   "private": false,
-  "version": "2.3.19",
+  "version": "2.3.20",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "module": "dist/ska-gui-components.min.mjs",

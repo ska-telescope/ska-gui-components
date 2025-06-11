@@ -101,10 +101,22 @@ export function Header({
   const getHelpBrowser = () => sessionStorage.getItem('skao_help_content');
   const getHelp = () => (showHelp ? (useBrowserStorage ? getHelpBrowser() : '') : ''); // TREVOR getHelpStorage());
 
-  const getTelescopeStorage = () => storage?.telescope ? storage.telescope : TELESCOPE_LOW;
-  const setTelescopeStorage = () =>
-    storage.updateTelescope ? storage.updateTelescope(getTelescopeStorage() === TELESCOPE_LOW ? TELESCOPE_MID : TELESCOPE_LOW) : null;
-  
+  const getTelescopeStorage = () => (storage?.telescope ? storage.telescope : TELESCOPE_LOW);
+  const setTelescopeStorage = () => {
+    const currentTelescope = getTelescopeStorage();
+    if (storage.updateTelescope) {
+      const newTelescope = currentTelescope === TELESCOPE_LOW ? TELESCOPE_MID : TELESCOPE_LOW;
+      console.log(
+        'TREVOR: setTelescopeStorage called with currentTelescope:',
+        currentTelescope,
+        newTelescope,
+      );
+      storage.updateTelescope(newTelescope);
+    } else {
+      console.warn('TREVOR: storage.updateTelescope is not defined');
+    }
+  };
+
   // const setTelescopeBrowser = () =>
   //   localStorage.setItem(
   //     'skao_telescope',
@@ -125,7 +137,7 @@ export function Header({
   const flatten = false; // TODO : Need to implement user preferences
 
   const updateTel = () => {
-    console.log("TREVOR: updateTel called");
+    console.log('TREVOR: updateTel called');
     () => setTelescopeStorage();
   };
 
