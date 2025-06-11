@@ -41,12 +41,20 @@ Button for use with all applications.
     
 .. admonition:: Constants
 
-   :header: "Constant", "Values", "Usage"
+   :header: "Constant", "Usage"
 
-   "ButtonColorTypes", "Error,Inherit,Secondary,Success,Warning", "Allows for the coloring of the button to be changed"
-   "ButtonIcons", "Add,Cancel,Confirm,Delete,Download,Email,Home,Location,Next,PDF,previous,Save,Submit,Validate", "Displayed if provided"
-   "ButtonSizeTypes", "Small, Medium, Large", "Allows for the sizing of the button to be changed"
-   "ButtonVariantTypes", "Contained,Outlined,Text", "Allows for the styling of the button to be changed"
+   "ButtonColorTypes.Error",  "Sets the color of the button to the ERROR color.  ( may cause accessibility issues ) "
+   "ButtonColorTypes.Inherit", "Sets the color of the button to inherit from its parent."
+   "ButtonColorTypes.Secondary", "Sets the color of the button to the SECONDARY color of the theme "
+   "ButtonColorTypes.Success", "Sets the color of the button to the SUCCESS color.  ( may cause accessibility issues ) "
+   "ButtonColorTypes.Warning", "Sets the color of the button to the WARNING color.  ( may cause accessibility issues ) "
+   "ButtonIcons.?????", "Displayed if provided"
+   "ButtonSizeTypes.Small", "Allows for the sizing of the button to be changed"
+   "ButtonSizeTypes.Medium", "Allows for the sizing of the button to be changed"
+   "ButtonSizeTypes".Large", "Allows for the sizing of the button to be changed"
+   "ButtonVariantTypes.Contained", "Allows for the styling of the button to be changed (Recommended)"
+   "ButtonVariantTypes.Outlined", "Allows for the styling of the button to be changed"
+   "ButtonVariantTypes.Text", "Allows for the styling of the button to be changed"
 
 .. admonition:: Testing Identifier
 

@@ -38,6 +38,7 @@ This can be configured via a number of properties, which are listed later on thi
    "iconDocsURL", "string", "Yes", "URL for the documentation icon"
    "iconSKAOToolTip", "string", "No", "Tooltip for the SKAO logo"
    "iconThemeToolTip", "string", "No", "Tooltip for the theme icon"
+   "loginComponent", "JSX.Element[]", "No", "Reserved for the implementation of a login component if required"
    "mainChildren", "JSX.Element[]", "No", "One or more elements to be added to the Wrapper and placed in the main part of the page"
    "storageHelp", "Help", "No", "If present, is available if the help icon is clicked"
    "storageHelpToggle", "function", "No", "function that is executed if the help icon is clicked"

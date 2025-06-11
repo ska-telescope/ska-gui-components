@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.22
+******
+
+Addition of the AppWrapper component, which simplifies and standardizes the application structure
+
 2.3.19
 ******
 
