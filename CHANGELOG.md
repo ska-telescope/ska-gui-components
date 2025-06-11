@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.23
+******
+
+Remove console messages as the debug process has completed
+
 2.3.22
 ******
 

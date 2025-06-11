@@ -53,7 +53,6 @@ const Dropzone = ({
   const [files, setFiles] = React.useState([]);
 
   const onDrop = React.useCallback((acceptedFiles: any) => {
-    console.log(acceptedFiles);
     fileChange(acceptedFiles);
     setFiles(
       acceptedFiles.map((file: Blob | MediaSource) =>
