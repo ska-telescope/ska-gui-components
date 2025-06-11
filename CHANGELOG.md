@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.24
+******
+
+Reset the background colouring
+
 2.3.23
 ******
 
