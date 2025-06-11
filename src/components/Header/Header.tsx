@@ -106,7 +106,7 @@ export function Header({
     const currentTelescope = getTelescopeStorage();
     if (storage.updateTelescope) {
       const newTelescope = currentTelescope === TELESCOPE_LOW ? TELESCOPE_MID : TELESCOPE_LOW;
-      console.log(
+      console.warn(
         'TREVOR: setTelescopeStorage called with currentTelescope:',
         currentTelescope,
         newTelescope,
@@ -138,7 +138,7 @@ export function Header({
 
   const updateTel = () => {
     console.log('TREVOR: updateTel called');
-    () => setTelescopeStorage();
+    setTelescopeStorage();
   };
 
   return (
