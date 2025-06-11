@@ -109,12 +109,12 @@ export function TheFooter(properties: AppWrapperProperties): React.JSX.Element {
 
 export function AppWrapper(properties: AppWrapperProperties) {
   return (
-    <Paper elevation={0} sx={{ height: '100%', backgroundColor: 'primary.main' }}>
+    <Paper elevation={0} sx={{ height: '100%', backgroundColor: 'secondary.contrastText' }}>
       {TheHeader(properties)}
       <Paper
         elevation={0}
         sx={{
-          backgroundColor: 'primary.main',
+          backgroundColor: 'secondary.contrastText',
           width: '100vw',
           minHeight: '100vh',
         }}
