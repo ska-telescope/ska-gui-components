@@ -47,6 +47,15 @@ Field for selecting an option from a possible list
 
    "LABEL_POSITION", "Contained, Top, Bottom, Start, End", "Allows for the positioning of the label"
 
+{ label: string; value: string | number; disabled: boolean }
+
+.. csv-table:: options
+   :header: "Property", "Type",""
+
+    "label", "string", "Test that is presented to the user"
+    "value", "string | number", "Value that is used when the option is selected"
+    "disabled", "boolean", "No", "false", "Indicates if the option is enabled or disabled.  If missing, enabled is assumed"
+
 .. admonition:: Testing Identifier
 
    Provided by the property *testId*

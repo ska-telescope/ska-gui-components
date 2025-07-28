@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.25
+******
+
+Dropdown content can be individually disabled
+
 2.3.24
 ******
 
