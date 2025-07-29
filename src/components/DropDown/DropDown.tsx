@@ -25,7 +25,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export interface DropDownProps {
   // required
-  options: { label: string; value: string | number }[];
+  options: { label: string; value: string | number; disabled: boolean }[];
   testId?: string;
   value: string | number;
   // optional
@@ -133,7 +133,7 @@ export function DropDown({
                   variant="standard"
                 >
                   {options.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
+                    <MenuItem key={option.value} value={option.value} disabled={option.disabled}>
                       {option.label}
                     </MenuItem>
                   ))}
@@ -241,7 +241,7 @@ export function DropDown({
             variant="standard"
           >
             {options.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
+              <MenuItem key={option.value} value={option.value} disabled={option.disabled}>
                 {option.label}
               </MenuItem>
             ))}
