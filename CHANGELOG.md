@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+2.3.26
+******
+
+Added Feedback optional icon added to Header & AppWrapper
+Added TriStateCheckbox to library
+Ability to suppress the underline for DropDown and TextField
+
 2.3.25
 ******
 

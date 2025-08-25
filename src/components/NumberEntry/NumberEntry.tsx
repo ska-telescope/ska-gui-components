@@ -9,6 +9,7 @@ export interface NumberEntryProps {
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;
+  disabledUnderline?: boolean;
   errorText?: string;
   height?: number;
   helperText?: string;
@@ -34,6 +35,7 @@ export function NumberEntry({
   ariaDescription = 'Entry of a valid numeric value',
   ariaTitle = 'NumberEntry',
   disabled = false,
+  disabledUnderline = false,
   errorText = '',
   height,
   helperText = '',
@@ -87,6 +89,7 @@ export function NumberEntry({
       aria-describedby={ariaDescription}
       data-testid={testId}
       disabled={disabled}
+      disabledUnderline={disabledUnderline}
       errorText={errText()}
       helperText={helperText}
       height={height}

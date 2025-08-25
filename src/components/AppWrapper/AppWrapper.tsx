@@ -42,6 +42,8 @@ export type AppWrapperProperties = {
   headerChildren?: Children;
   iconDocsToolTip?: string;
   iconDocsURL: string;
+  iconFeedbackToolTip?: string;
+  iconFeedbackURL: string;
   iconSKAOToolTip?: string;
   iconThemeToolTip?: string;
   loginComponent?: JSX.Element | null;
@@ -65,6 +67,12 @@ function TheHeader(properties: AppWrapperProperties): React.JSX.Element {
           ? properties.iconDocsToolTip
           : 'Click here for SKAO documentation',
         url: properties.iconDocsURL,
+      }}
+      feedback={{
+        tooltip: properties.iconFeedbackToolTip
+          ? properties.iconFeedbackToolTip
+          : 'Click here to provide SKAO with feedback',
+        url: properties.iconFeedbackURL,
       }}
       loginComponent={properties.loginComponent}
       selectTelescope={properties.selectTelescope}

@@ -51,6 +51,7 @@ export interface EntryFieldProps {
   ariaTitle?: string;
   children?: Children;
   disabled?: boolean;
+  disabledUnderline?: boolean;
   errorText?: string;
   height?: number;
   helperText?: string;
@@ -79,6 +80,7 @@ export function EntryField({
   ariaTitle = 'EntryField',
   children,
   disabled = false,
+  disabledUnderline = false,
   errorText = '',
   height = 45,
   helperText = '',
@@ -187,6 +189,7 @@ export function EntryField({
                     input: {
                       startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                       endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+                      disableUnderline: disabledUnderline,
                       sx: slotPropsSx,
                     },
                   }}
@@ -247,6 +250,7 @@ export function EntryField({
                     input: {
                       startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                       endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+                      disableUnderline: disabledUnderline,
                       sx: slotPropsSx,
                     },
                   }}
@@ -291,6 +295,7 @@ export function EntryField({
               input: {
                 startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
                 endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
+                disableUnderline: disabledUnderline,
                 sx: slotPropsSx,
               },
             }}
