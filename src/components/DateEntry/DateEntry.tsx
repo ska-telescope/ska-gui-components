@@ -10,6 +10,7 @@ export interface DateEntryProps {
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;
+  disabledUnderline?: boolean;
   errorText?: string;
   helperText?: string;
   height?: number;
@@ -30,6 +31,7 @@ export function DateEntry({
   ariaDescription = 'Entry of a valid date',
   ariaTitle = 'DateEntry',
   disabled = false,
+  disabledUnderline = false,
   errorText = '',
   helperText = '',
   height = 45,
@@ -54,6 +56,7 @@ export function DateEntry({
       aria-describedby={ariaDescription}
       data-testid={testId}
       disabled={disabled}
+      disabledUnderline={disabledUnderline}
       errorText={errorText}
       helperText={helperText}
       height={height}

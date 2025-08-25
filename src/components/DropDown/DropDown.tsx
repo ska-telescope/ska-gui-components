@@ -8,6 +8,7 @@ import {
   TextField,
   Tooltip,
   PopperPlacementType,
+  TextFieldVariants,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { LABEL_POSITION } from '../EntryField/EntryField';
@@ -32,6 +33,7 @@ export interface DropDownProps {
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;
+  disabledUnderline?: boolean;
   errorText?: string;
   height?: number;
   helperText?: string;
@@ -47,12 +49,14 @@ export interface DropDownProps {
   setValue?: Function;
   toolTip?: string;
   toolTipPlacement?: string;
+  variant?: TextFieldVariants;
 }
 
 export function DropDown({
   ariaDescription = 'Selection of a value from a list of possible values',
   ariaTitle = 'DropDown',
   disabled = false,
+  disabledUnderline = false,
   errorText = '',
   height = 45,
   helperText = '',
@@ -71,6 +75,7 @@ export function DropDown({
   toolTip = '',
   toolTipPlacement = 'bottom',
   value,
+  variant = 'standard',
 }: DropDownProps): JSX.Element {
   const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
   const displayLabel = label + (required ? ' *' : '');
@@ -106,6 +111,7 @@ export function DropDown({
                   color="secondary"
                   data-testid={testId}
                   disabled={disabled}
+                  InputProps={{ disableUnderline: disabledUnderline }}
                   error={errorText && errorText.length > 0 ? true : false}
                   fullWidth
                   helperText={errorText ? errorText : helperText ? helperText : ''}
@@ -130,7 +136,7 @@ export function DropDown({
                     },
                   }}
                   value={value}
-                  variant="standard"
+                  variant={variant}
                 >
                   {options.map((option) => (
                     <MenuItem key={option.value} value={option.value} disabled={option.disabled}>
@@ -169,6 +175,7 @@ export function DropDown({
                   color="secondary"
                   data-testid={testId}
                   disabled={disabled}
+                  InputProps={{ disableUnderline: disabledUnderline }}
                   error={errorText && errorText.length > 0 ? true : false}
                   fullWidth
                   helperText={errorText ? errorText : helperText ? helperText : ''}
@@ -192,7 +199,7 @@ export function DropDown({
                     },
                   }}
                   value={value}
-                  variant="standard"
+                  variant={variant}
                 >
                   {options.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
@@ -214,6 +221,7 @@ export function DropDown({
             color="secondary"
             data-testid={testId}
             disabled={disabled}
+            InputProps={{ disableUnderline: disabledUnderline }}
             error={errorText && errorText.length > 0 ? true : false}
             fullWidth
             helperText={errorText ? errorText : helperText ? helperText : ''}
@@ -238,7 +246,7 @@ export function DropDown({
               },
             }}
             value={value}
-            variant="standard"
+            variant={variant}
           >
             {options.map((option) => (
               <MenuItem key={option.value} value={option.value} disabled={option.disabled}>

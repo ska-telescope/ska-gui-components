@@ -13,6 +13,7 @@ describe('EntryField', () => {
         ariaTitle="aria Title"
         ariaDescription="aria Description"
         disabled={false}
+        disabledUnderline={false}
         errorText=""
         helperText="HELPER TEXT"
         label="LABEL"

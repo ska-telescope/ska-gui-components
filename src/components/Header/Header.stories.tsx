@@ -25,6 +25,10 @@ export const Default = {
       tooltip: 'THIS IS A TOOLTIP',
       url: 'https://www.bbc.co.uk/',
     },
+    feedback: {
+      tooltip: 'THIS IS A TOOLTIP',
+      url: 'https://www.bbc.co.uk/',
+    },
     selectTelescope: true,
     storage: theStorage,
     showHelp: true,

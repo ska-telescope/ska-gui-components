@@ -14,6 +14,7 @@ import { Telescope, TelescopeSelector } from '../TelescopeSelector/TelescopeSele
 import DarkModeIcon from '../Icons/classic/DarkModeIcon';
 import LightModeIcon from '../Icons/classic/LightModeIcon';
 import DocumentIcon from '../Icons/classic/DocumentIcon';
+import FeedbackIcon from '../Icons/classic/FeedbackIcon';
 import HelpIcon from '../Icons/circle/HelpIcon';
 import { Help } from '../HelpModal/HelpModal';
 import Children from '../../utils/types/types';
@@ -49,6 +50,7 @@ export interface HeaderProps {
   ariaDescription?: string;
   ariaTitle?: string;
   docs?: { tooltip: string; url: string };
+  feedback?: { tooltip: string; url: string };
   loginComponent?: JSX.Element | null;
   selectTelescope?: boolean;
   showHelp?: boolean;
@@ -66,6 +68,7 @@ export function Header({
   ariaDescription = 'Sticky Panel at the top of the page',
   ariaTitle = 'SKAOHeader',
   docs = { tooltip: '', url: '' },
+  feedback = { tooltip: '', url: '' },
   loginComponent = null,
   selectTelescope = true,
   storage,
@@ -176,6 +179,14 @@ export function Header({
             </Box>
             {selectTelescope && getTelescopeStorage() && (
               <TelescopeSelector telescope={getTelescopeStorage()} updateTelescope={updateTel} />
+            )}
+            {true && (
+              <OurIconButton
+                ariaTitle="feedback icon"
+                onClick={() => openLink(feedback.url)}
+                icon={<FeedbackIcon colorFG={useTheme().palette.primary.contrastText} />}
+                toolTip={feedback?.tooltip}
+              />
             )}
             {docs?.url && (
               <OurIconButton

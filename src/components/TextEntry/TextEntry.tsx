@@ -9,6 +9,7 @@ export interface TextEntryProps {
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;
+  disabledUnderline?: boolean;
   errorText?: string;
   height?: number;
   helperText?: string;
@@ -34,6 +35,7 @@ export function TextEntry({
   ariaDescription = 'Entry of a textual value',
   ariaTitle = 'TextEntry',
   disabled = false,
+  disabledUnderline = false,
   errorText = '',
   height,
   helperText = '',
@@ -85,6 +87,7 @@ export function TextEntry({
       aria-describedby={ariaDescription}
       data-testid={testId}
       disabled={disabled}
+      disabledUnderline={disabledUnderline}
       errorText={errText()}
       height={height}
       helperText={helperText}

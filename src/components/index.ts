@@ -19,6 +19,7 @@ export { default as NumberEntry2 } from './BaseUI/NumberEntry2/NumberEntry2';
 export { default as SearchEntry } from './SearchEntry/SearchEntry';
 export { default as TextEntry } from './TextEntry/TextEntry';
 export { default as TickBox } from './TickBox/TickBox';
+export { default as TriStateCheckbox } from './TriStateCheckbox/TriStateCheckbox';
 //
 export { default as Backdrop } from './Backdrop/Backdrop';
 export {
