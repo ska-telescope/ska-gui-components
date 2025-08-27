@@ -16,6 +16,7 @@ export const Default = {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
     disabled: false,
+    disabledUnderline: false,
     icon: true,
     errorText: '',
     helperText: 'HELPER TEXT',

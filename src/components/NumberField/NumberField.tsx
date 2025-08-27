@@ -8,6 +8,7 @@ interface NumberFieldProps {
   ariaDescription?: string;
   ariaTitle?: string;
   disabled?: boolean;
+  disabledUnderline?: boolean;
   errorText?: string;
   fieldName: string;
   icon?: boolean;
@@ -33,6 +34,7 @@ export function NumberField({
   ariaDescription = 'Entry of a valid numeric value',
   ariaTitle = 'NumberEntry',
   disabled = false,
+  disabledUnderline = false,
   errorText = '',
   fieldName,
   icon = true,
@@ -101,7 +103,7 @@ export function NumberField({
           )}
           {prefix && <div className={styles.Prefix}>{prefix}</div>}
           <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
-            <BaseNumberField.Input className={styles.Input} />
+            <BaseNumberField.Input className={disabledUnderline ? styles.Clear : styles.Input} />
           </Tooltip>
 
           {suffix && <div className={styles.Suffix}>{suffix}</div>}

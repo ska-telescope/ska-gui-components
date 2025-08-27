@@ -24,6 +24,7 @@ export const Default = {
     prefix: undefined,
     onFocus: undefined,
     required: false,
+    rows: 3,
     suffix: '',
     testId: 'testId',
     value: '',

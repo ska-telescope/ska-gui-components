@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.27
+******
+
+Updated so that the feedback icon can be suppressed
+
 2.3.26
 ******
 
