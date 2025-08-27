@@ -34,7 +34,10 @@ export function FeedbackIcon({
         style={visual ? pulseStyle : undefined}
         aria-label={title}
       >
-        <path fill={colorFG} d="M2 2v20l4-4h16V2H2zm16 12H6v-2h12v2zm0-4H6V8h12v2z" />
+        <path
+          fill={colorFG}
+          d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"
+        />
       </svg>
     </>
   );

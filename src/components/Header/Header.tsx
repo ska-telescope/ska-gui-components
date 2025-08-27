@@ -180,7 +180,7 @@ export function Header({
             {selectTelescope && getTelescopeStorage() && (
               <TelescopeSelector telescope={getTelescopeStorage()} updateTelescope={updateTel} />
             )}
-            {true && (
+            {feedback?.url && (
               <OurIconButton
                 ariaTitle="feedback icon"
                 onClick={() => openLink(feedback.url)}

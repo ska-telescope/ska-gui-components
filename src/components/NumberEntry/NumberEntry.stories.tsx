@@ -14,7 +14,7 @@ export const Default = {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
     disabled: false,
-    disabledUnderline: true,
+    disabledUnderline: false,
     errorText: '',
     helperText: 'HELPER TEXT',
     label: 'LABEL',
