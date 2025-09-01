@@ -131,7 +131,6 @@ export function EntryField({
     <>
       {(labelPosition === LABEL_POSITION.START || labelPosition === LABEL_POSITION.END) && (
         <Grid
-          alignItems="baseline"
           container
           direction="row"
           justifyContent="space-between"

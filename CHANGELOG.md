@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.28
+******
+
+Update MUI version and corrected the labelling position when lef/right
+
 2.3.27
 ******
 
