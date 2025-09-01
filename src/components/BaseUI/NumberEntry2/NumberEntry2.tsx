@@ -218,7 +218,7 @@ export function NumberEntry2({
           )}
         </BaseNumberField.Group>
       </BaseNumberField.Root>
-      <Field.Error data-testid={testId + 'Error'} style={errorStyle} forceShow={!!errorText}>
+      <Field.Error data-testid={testId + 'Error'} style={errorStyle}>
         {errorText}
       </Field.Error>
       <Field.Description data-testid={testId + 'Prompt'} style={promptStyle}>
