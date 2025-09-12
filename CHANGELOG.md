@@ -1,10 +1,17 @@
 Changelog
 ==========
 
+2.3.29
+******
+
+Resolved audit notifications
+Updated to latest ska-javascript-components library
+Theme function updated to be able to be backwards compatible
+
 2.3.28
 ******
 
-Update MUI version and corrected the labelling position when lef/right
+Update MUI version and corrected the labelling position when left/right
 
 2.3.27
 ******

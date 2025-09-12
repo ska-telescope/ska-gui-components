@@ -1,4 +1,3 @@
-import React from 'react';
 import { Alert, Box, Paper } from '@mui/material';
 import StatusIcon from '../StatusIcon/StatusIcon';
 import Children from '../../utils/types/types';

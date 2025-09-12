@@ -13,7 +13,7 @@ describe('NumberField', () => {
         icon
         prompt="HELPER TEXT"
         title="LABEL"
-        width={200}
+        // width={200}
         fieldName={''}
         setValue={() => {}}
         toolTip="TOOLTIP"

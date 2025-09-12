@@ -10,16 +10,19 @@ const STROKE_WIDTH = 2;
 interface StatusProps {
   ariaDescription?: string;
   ariaTitle?: string;
-
   children?: React.ReactElement | string;
   icon?: boolean;
   level?: number;
+  noBorder?: boolean;
+  softColors?: boolean;
   size?: number;
   testId: string;
   text?: string;
   toolTip?: string;
   toolTipPlacement?: string;
 }
+
+const colors = Colors();
 
 function fontSize(value: number) {
   return `${value * 3.5}%`;
@@ -29,29 +32,29 @@ function iconFontSize(value: number) {
   return `${value * 5.5}%`;
 }
 
-function getColor(level: number, col: number) {
+function getColor(level: number, col: number, soft: boolean) {
   switch (level) {
     case 0:
-      return Colors().SUCCESS[col];
+      return soft ? Colors().SOFT_SUCCESS[col] : Colors().SUCCESS[col];
     case 1:
-      return Colors().ERROR_1[col];
+      return soft ? Colors().SOFT_ERROR_1[col] : Colors().ERROR_1[col];
     case 2:
-      return Colors().ERROR_2[col];
+      return soft ? Colors().SOFT_ERROR_2[col] : Colors().ERROR_2[col];
     case 3:
-      return Colors().ERROR_3[col];
+      return soft ? Colors().SOFT_ERROR_3[col] : Colors().ERROR_3[col];
     case 4:
-      return Colors().ERROR_4[col];
+      return soft ? Colors().SOFT_ERROR_4[col] : Colors().ERROR_4[col];
     default:
-      return Colors().DARK_PRIMARY_CONTRAST;
+      return soft ? Colors().DARK_PRIMARY_CONTRAST : Colors().DARK_PRIMARY_CONTRAST;
   }
 }
 
-function fillColor(value: number) {
-  return getColor(value, 1);
+function fillColor(level: number, soft: boolean) {
+  return getColor(level, 1, soft);
 }
 
-function textColor(value: number) {
-  return getColor(value, 4);
+function textColor(level: number, soft: boolean) {
+  return getColor(level, 4, soft);
 }
 
 function textHeight(value: number) {
@@ -89,7 +92,7 @@ function points(level: number, size: number) {
   }
 }
 
-function showIconText(level: number, size: number, text: string) {
+function showIconText(level: number, size: number, text: string, soft: boolean) {
   return (
     <text
       aria-describedby={text}
@@ -101,38 +104,39 @@ function showIconText(level: number, size: number, text: string) {
       textAnchor="middle"
       textLength={size ? size / 3 : DEFAULT_SIZE}
       lengthAdjust="spacingAndGlyphs"
-      fill={textColor(level)}
+      fill={textColor(level, soft)}
     >
       {text}
     </text>
   );
 }
 
-function showIcon(level: number, size: number) {
+function showIcon(level: number, size: number, soft: boolean) {
   return (
     <>
       {level === 0 && <TickIcon colorFG={'#FFFFFF'} size={size * 0.9} />}
       {level === 1 && <ClearIcon colorFG={'#FFFFFF'} size={size} />}
-      {level === 2 && showIconText(level, size, '!')}
-      {level === 3 && showIconText(level, size * 0.7, '?')}
-      {level === 4 && showIconText(level, size, 'i')}
+      {level === 2 && showIconText(level, size, '!', soft)}
+      {level === 3 && showIconText(level, size * 0.7, '?', soft)}
+      {level === 4 && showIconText(level, size, 'i', soft)}
     </>
   );
 }
 
-function showText(level: number, size: number, text: string) {
+const theSize = (size: number | undefined) => size ?? DEFAULT_SIZE;
+
+function showText(level: number, size: number, text: string, soft: boolean) {
   return (
     <text
-      aria-describedby={text}
       x="50%"
-      y={textHeight(typeof level === 'number' ? level : 9)}
+      y={textHeight(level)}
       alignmentBaseline="central"
       dominantBaseline="central"
-      fontSize={fontSize(size ? size : DEFAULT_SIZE)}
+      fontSize={fontSize(theSize(size))}
       textAnchor="middle"
-      textLength={size ? size / 2 : DEFAULT_SIZE}
+      textLength={theSize(size) / 2}
       lengthAdjust="spacingAndGlyphs"
-      fill={textColor(typeof level === 'number' ? level : 9)}
+      fill={textColor(level, soft)}
     >
       {text}
     </text>
@@ -145,6 +149,8 @@ export function StatusIcon({
   children,
   icon = false,
   level = 9,
+  noBorder = false,
+  softColors = false,
   size = DEFAULT_SIZE,
   testId,
   text = '',
@@ -157,6 +163,10 @@ export function StatusIcon({
   const setAriaLabel = ariaTitle.length > 0 ? ariaTitle : DEF_TITLE;
   const setAriaDesc =
     ariaTitle.length > 0 ? ariaTitle + ariaDescription : DEF_TITLE + ' ' + ariaDescription;
+
+  const strokeProps = noBorder
+    ? { stroke: 'none', strokeWidth: 0 }
+    : { stroke: 'black', strokeWidth: STROKE_WIDTH };
 
   return (
     <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
@@ -184,9 +194,8 @@ export function StatusIcon({
             y={STROKE_WIDTH}
             width={(size ? size : DEFAULT_SIZE) - STROKE_WIDTH * 2}
             height={(size ? size : DEFAULT_SIZE) - STROKE_WIDTH * 2}
-            stroke="black"
-            fill={fillColor(level)}
-            strokeWidth={STROKE_WIDTH}
+            fill={fillColor(level, softColors)}
+            {...strokeProps}
           />
         )}
         {(level === 2 || level === 3 || level === 4) && (
@@ -194,9 +203,8 @@ export function StatusIcon({
             aria-describedby={setAriaLabel}
             role="img"
             points={points(level, size ? size : DEFAULT_SIZE)}
-            stroke="black"
-            fill={fillColor(level)}
-            strokeWidth={STROKE_WIDTH}
+            fill={fillColor(level, softColors)}
+            {...strokeProps}
           />
         )}
         {(level === 0 || level === 5) && (
@@ -206,13 +214,12 @@ export function StatusIcon({
             cx={size ? size / 2 : DEFAULT_SIZE}
             cy={size ? size / 2 : DEFAULT_SIZE}
             r={size ? (size - STROKE_WIDTH) / 2 : DEFAULT_SIZE - STROKE_WIDTH}
-            stroke="black"
-            fill={fillColor(level)}
-            strokeWidth={STROKE_WIDTH}
+            fill={fillColor(level, softColors)}
+            {...strokeProps}
           />
         )}
-        {icon && showIcon(level, size)}
-        {!icon && text && showText(level, size, text)}
+        {icon && showIcon(level, size, softColors)}
+        {!icon && text && showText(level, size, text, softColors)}
         {children}
       </svg>
     </Tooltip>

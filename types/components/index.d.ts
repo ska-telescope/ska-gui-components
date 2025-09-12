@@ -29,6 +29,15 @@ export { default as StatusIcon } from './StatusIcon/StatusIcon';
 export { default as TelescopeSelector } from './TelescopeSelector/TelescopeSelector';
 export { GUI_COMPONENTS_VERSION } from './version';
 export {
+  ACCESSIBILITY_DEFAULT,
+  ACCESSIBILITY_PROTANOPIA,
+  ACCESSIBILITY_PROTANOMALY,
+  ACCESSIBILITY_DEUTERANOPIA,
+  ACCESSIBILITY_DEUTERANOMALY,
+  ACCESSIBILITY_TRITANOPIA,
+  ACCESSIBILITY_TRITANOMALY,
+  ACCESSIBILITY_ACHROMATOMALY,
+  ACCESSIBILITY_ACHROMATOPSIA,
   Colors,
   Logo,
   LOGO_DEFAULT_HEIGHT,
@@ -47,3 +56,5 @@ export {
   Theme,
   JAVASCRIPT_COMPONENTS_VERSION,
 } from '@ska-telescope/ska-javascript-components';
+
+export type { AccessibilityMode, ThemeMode } from '@ska-telescope/ska-javascript-components';

@@ -1,4 +1,3 @@
-import { LABEL_POSITION } from '../EntryField/EntryField';
 import NumberEntry2 from './NumberEntry2';
 
 export default {

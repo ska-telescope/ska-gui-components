@@ -1,6 +1,6 @@
-import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 import DataTree from './DataTree';
-declare const _default: ComponentMeta<typeof DataTree>;
+declare const _default: Meta<typeof DataTree>;
 export default _default;
 export declare const DataTreeDisplay: import('@storybook/types').AnnotatedStoryFn<
   import('@storybook/react').ReactRenderer,

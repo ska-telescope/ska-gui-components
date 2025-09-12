@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import ButtonToggle from './ButtonToggle';
 
 export default {
@@ -8,7 +8,7 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof ButtonToggle>;
+} as Meta<typeof ButtonToggle>;
 
 const telescope = { id: 'low', Label: 'SKA LOW' };
 const telescopeList = [
@@ -16,7 +16,7 @@ const telescopeList = [
   { id: 'mid', label: 'SKA MID', value: null },
 ];
 
-const Template: ComponentStory<typeof ButtonToggle> = (args) => {
+const Template: StoryFn<typeof ButtonToggle> = (args) => {
   return <ButtonToggle {...args} />;
 };
 

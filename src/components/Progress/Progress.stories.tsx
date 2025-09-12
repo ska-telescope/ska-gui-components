@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import Progress, { ProgressIndicator } from './Progress';
 
 export default {
@@ -8,9 +8,9 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof Progress>;
+} as Meta<typeof Progress>;
 
-const Template: ComponentStory<typeof Progress> = (args) => {
+const Template: StoryFn<typeof Progress> = (args) => {
   return <Progress {...args} />;
 };
 
