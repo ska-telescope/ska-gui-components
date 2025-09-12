@@ -3,7 +3,7 @@ import { describe, test } from 'vitest';
 import { render } from '@testing-library/react';
 import IconButton from '././IconButton';
 import '@testing-library/jest-dom';
-import AddIcon from 'components/Icons/classic/AddIcon';
+import AddIcon from '../Icons/classic/AddIcon';
 
 describe('IconButton', () => {
   // const mockAction = vi.fn();
