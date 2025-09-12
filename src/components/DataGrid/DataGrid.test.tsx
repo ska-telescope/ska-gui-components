@@ -3,10 +3,6 @@ import { describe, test } from 'vitest';
 import { render } from '@testing-library/react';
 import DataGrid from '././DataGrid';
 import '@testing-library/jest-dom';
-import SKAODataGrid from './DataGrid';
-import { THEME_DARK, THEME_LIGHT } from '@ska-telescope/ska-javascript-components';
-
-const THEME = [THEME_DARK, THEME_LIGHT];
 
 const DUMMY_COLUMNS = [
   { field: 'execution_block', headerName: 'HEADER 1', width: 200 },
@@ -45,7 +41,7 @@ describe('DataGrid', () => {
         height={400}
         onRowClick={null}
         rows={DUMMY_ROWS}
-        showBorder={true}
+        // showBorder={true}
         showMild={false}
         testId="testId"
       />,

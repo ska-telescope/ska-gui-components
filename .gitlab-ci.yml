@@ -45,7 +45,6 @@ install_dependencies:
 
 # run the test coverage reports
 test_and_coverage:
-  image: cypress/browsers:22.11.0
   stage: test
   tags:
     - k8srunner
@@ -69,7 +68,6 @@ test_and_coverage:
       - build/
 
 test-counts:
-  image: cypress/browsers:22.11.0
   stage: test
   tags:
     - k8srunner

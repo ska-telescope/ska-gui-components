@@ -7,9 +7,9 @@ import { LABEL_POSITION } from '../EntryField/EntryField';
 
 const theValue = '';
 const DUMMY_OPTIONS = [
-  { label: 'Option 1', value: '1' },
-  { label: 'Option 2', value: '2' },
-  { label: 'Option 3', value: '3' },
+  { label: 'Option 1', value: '1', disabled: false },
+  { label: 'Option 2', value: '2', disabled: false },
+  { label: 'Option 3', value: '3', disabled: false },
 ];
 
 describe('DropDown', () => {

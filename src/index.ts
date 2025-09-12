@@ -33,6 +33,15 @@ export { TickBox } from './components/TickBox/TickBox';
 export { GUI_COMPONENTS_VERSION } from './components/version';
 
 export {
+  ACCESSIBILITY_DEFAULT,
+  ACCESSIBILITY_PROTANOPIA,
+  ACCESSIBILITY_PROTANOMALY,
+  ACCESSIBILITY_DEUTERANOPIA,
+  ACCESSIBILITY_DEUTERANOMALY,
+  ACCESSIBILITY_TRITANOPIA,
+  ACCESSIBILITY_TRITANOMALY,
+  ACCESSIBILITY_ACHROMATOMALY,
+  ACCESSIBILITY_ACHROMATOPSIA,
   Colors,
   Logo,
   LOGO_DEFAULT_HEIGHT,
@@ -51,3 +60,5 @@ export {
   Theme,
   JAVASCRIPT_COMPONENTS_VERSION,
 } from '@ska-telescope/ska-javascript-components';
+
+export type { AccessibilityMode, ThemeMode } from '@ska-telescope/ska-javascript-components';

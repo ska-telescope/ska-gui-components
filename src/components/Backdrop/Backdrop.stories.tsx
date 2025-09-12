@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { SKAOBackdrop as Backdrop } from './Backdrop';
 import { Typography } from '@mui/material';
 
@@ -9,9 +9,9 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof Backdrop>;
+} as Meta<typeof Backdrop>;
 
-const Template: ComponentStory<typeof Backdrop> = (args) => {
+const Template: StoryFn<typeof Backdrop> = (args) => {
   return (
     <Backdrop {...args}>
       <Typography variant="h4" component="div">

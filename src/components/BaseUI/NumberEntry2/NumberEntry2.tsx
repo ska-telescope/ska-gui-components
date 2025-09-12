@@ -4,7 +4,7 @@ import { NumberField as BaseNumberField } from '@base-ui-components/react/number
 import { PopperPlacementType, useTheme } from '@mui/material';
 import styles from './NumberEntry2.module.css';
 import { Tooltip } from '@mui/material';
-import { fontWeight, Stack } from '@mui/system';
+import { Stack } from '@mui/system';
 
 interface NumberEntry2Props {
   ariaDescription?: string;
