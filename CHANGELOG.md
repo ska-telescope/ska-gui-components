@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+2.3.30
+******
+
+Color updates coming thru from the ska-javascript-components
+Updated the footer so that content can specifically target the middle
+
 2.3.29
 ******
 

@@ -12,6 +12,7 @@ export const Default = {
   args: {
     mainChildren: 'MAIN CHILD',
     footerChildren: 'FOOTER CHILD',
+    footerChildrenMiddle: 'FOOTER MIDDLE CHILD',
     application: 'Application',
     headerChildren: 'HEADER CHILD',
     loginComponent: 'LOGIN COMPONENT',
@@ -31,6 +32,7 @@ export const Dark = {
   args: {
     mainChildren: 'MAIN CHILD',
     footerChildren: 'FOOTER CHILD',
+    footerChildrenMiddle: 'FOOTER MIDDLE CHILD',
     application: 'Application',
     headerChildren: 'HEADER CHILD',
     loginComponent: 'LOGIN COMPONENT',
@@ -50,6 +52,7 @@ export const light = {
   args: {
     mainChildren: 'MAIN CHILD',
     footerChildren: 'FOOTER CHILD',
+    footerChildrenMiddle: 'FOOTER MIDDLE CHILD',
     application: 'Application',
     headerChildren: 'HEADER CHILD',
     loginComponent: 'LOGIN COMPONENT',
