@@ -39,6 +39,7 @@ export type Storage = {
 export type AppWrapperProperties = {
   application?: string;
   footerChildren?: Children;
+  footerChildrenMiddle?: Children;
   headerChildren?: Children;
   iconDocsToolTip?: string;
   iconDocsURL: string;
@@ -108,9 +109,9 @@ export function TheFooter(properties: AppWrapperProperties): React.JSX.Element {
         testId="footerId"
         version={properties.version}
         versionTooltip={properties.versionTooltip}
-      >
-        {properties.footerChildren}
-      </Footer>
+        children={properties.footerChildren}
+        childrenMiddle={properties.footerChildrenMiddle}
+      />
     </>
   );
 }

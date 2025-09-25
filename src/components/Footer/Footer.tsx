@@ -19,6 +19,7 @@ export interface FooterProps {
   ariaDescription?: string;
   ariaTitle?: string;
 
+  childrenMiddle?: Children;
   children?: Children;
   copyrightFunc?: Function;
   toolTipPlacement?: string;
@@ -41,6 +42,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export function Footer({
   ariaDescription = 'Sticky Panel at the bottom of the page',
   ariaTitle = 'SKAOFooter',
+  childrenMiddle,
   children,
   copyrightFunc,
   testId = 'footer-testId',
@@ -83,6 +85,7 @@ export function Footer({
             </Tooltip>
           </Stack>
         </Item>
+        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{childrenMiddle}</Item>
         <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>
       </Grid>
     </AppBar>

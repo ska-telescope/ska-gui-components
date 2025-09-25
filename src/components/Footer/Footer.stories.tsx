@@ -14,5 +14,7 @@ export const Default = {
     ariaDescription: 'aria Description',
     testId: 'testId',
     versionTooltip: 'Version tooltip',
+    childrenMiddle: 'Footer middle',
+    children: 'Footer right',
   },
 };
