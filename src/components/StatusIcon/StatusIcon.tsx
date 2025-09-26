@@ -13,7 +13,6 @@ interface StatusProps {
   children?: React.ReactElement | string;
   icon?: boolean;
   level?: number;
-  noBorder?: boolean;
   softColors?: boolean;
   size?: number;
   testId: string;
@@ -33,6 +32,7 @@ function iconFontSize(value: number) {
 }
 
 function getColor(level: number, col: number, soft: boolean) {
+  console.log(Colors());
   switch (level) {
     case 0:
       return soft ? Colors().SOFT_SUCCESS[col] : Colors().SUCCESS[col];
@@ -149,7 +149,6 @@ export function StatusIcon({
   children,
   icon = false,
   level = 9,
-  noBorder = false,
   softColors = false,
   size = DEFAULT_SIZE,
   testId,
@@ -164,9 +163,7 @@ export function StatusIcon({
   const setAriaDesc =
     ariaTitle.length > 0 ? ariaTitle + ariaDescription : DEF_TITLE + ' ' + ariaDescription;
 
-  const strokeProps = noBorder
-    ? { stroke: 'none', strokeWidth: 0 }
-    : { stroke: 'black', strokeWidth: STROKE_WIDTH };
+  const strokeProps = { stroke: fillColor(level, softColors), strokeWidth: STROKE_WIDTH };
 
   return (
     <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
