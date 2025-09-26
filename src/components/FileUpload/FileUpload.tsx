@@ -220,7 +220,7 @@ export function FileUpload({
         testId="statusId"
         icon
         level={status ? status : state}
-        size={isMinimal ? 20 : 14}
+        size={isMinimal ? 26 : 20}
       />
     );
   };
