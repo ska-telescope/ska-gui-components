@@ -29,14 +29,11 @@ export interface FooterProps {
 }
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
+  backgroundColor: 'transparent',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
-  }),
 }));
 
 export function Footer({
@@ -85,8 +82,10 @@ export function Footer({
             </Tooltip>
           </Stack>
         </Item>
-        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{childrenMiddle}</Item>
-        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>
+        {childrenMiddle && (
+          <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{childrenMiddle}</Item>
+        )}
+        {children && <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>}
       </Grid>
     </AppBar>
   );

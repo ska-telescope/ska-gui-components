@@ -171,7 +171,7 @@ export function Header({
             )}
           </Box>
         </Item>
-        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>
+        {children && <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>}
         <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
           <Box mr={1} display="flex" justifyContent="flex-end">
             <Box mr={1} display="flex" justifyContent="flex-end">

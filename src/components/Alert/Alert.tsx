@@ -36,7 +36,7 @@ export function SKAOAlert({
   testId = 'alert-testId',
 }: AlertProps) {
   return (
-    <Box m={1}>
+    <Box>
       <Paper
         elevation={2}
         sx={{

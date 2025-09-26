@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.32
+******
+
+Tweaks to AppWrapper and status
+
 2.3.30
 ******
 
