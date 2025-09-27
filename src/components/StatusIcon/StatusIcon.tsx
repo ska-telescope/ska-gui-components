@@ -21,8 +21,6 @@ interface StatusProps {
   toolTipPlacement?: string;
 }
 
-const colors = Colors();
-
 function fontSize(value: number) {
   return `${value * 3.5}%`;
 }
@@ -33,17 +31,18 @@ function iconFontSize(value: number) {
 
 function getColor(level: number, col: number, soft: boolean) {
   const theme = useTheme();
+  const colors = Colors();
   switch (level) {
     case 0:
-      return soft ? Colors().SOFT_SUCCESS[col] : Colors().SUCCESS[col];
+      return soft ? colors.SOFT_SUCCESS[col] : colors.SUCCESS[col];
     case 1:
-      return soft ? Colors().SOFT_ERROR_1[col] : Colors().ERROR_1[col];
+      return soft ? colors.SOFT_ERROR_1[col] : colors.ERROR_1[col];
     case 2:
-      return soft ? Colors().SOFT_ERROR_2[col] : Colors().ERROR_2[col];
+      return soft ? colors.SOFT_ERROR_2[col] : colors.ERROR_2[col];
     case 3:
-      return soft ? Colors().SOFT_ERROR_3[col] : Colors().ERROR_3[col];
+      return soft ? colors.SOFT_ERROR_3[col] : colors.ERROR_3[col];
     case 4:
-      return soft ? Colors().SOFT_ERROR_4[col] : Colors().ERROR_4[col];
+      return soft ? colors.SOFT_ERROR_4[col] : colors.ERROR_4[col];
     default:
       return soft ? theme.palette.primary.light : theme.palette.primary.main;
   }

@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.34
+******
+
+Needed to make the color theme aware
+
 2.3.33
 ******
 
