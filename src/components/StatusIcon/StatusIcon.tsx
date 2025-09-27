@@ -2,7 +2,7 @@ import React from 'react';
 import ClearIcon from '../Icons/classic/ClearIcon';
 import TickIcon from '../Icons/classic/TickIcon';
 import { Colors } from '@ska-telescope/ska-javascript-components';
-import { PopperPlacementType, Tooltip } from '@mui/material';
+import { PopperPlacementType, Tooltip, useTheme } from '@mui/material';
 
 const DEFAULT_SIZE = 60;
 const STROKE_WIDTH = 2;
@@ -32,7 +32,7 @@ function iconFontSize(value: number) {
 }
 
 function getColor(level: number, col: number, soft: boolean) {
-  console.log(Colors());
+  const theme = useTheme();
   switch (level) {
     case 0:
       return soft ? Colors().SOFT_SUCCESS[col] : Colors().SUCCESS[col];
@@ -45,7 +45,7 @@ function getColor(level: number, col: number, soft: boolean) {
     case 4:
       return soft ? Colors().SOFT_ERROR_4[col] : Colors().ERROR_4[col];
     default:
-      return soft ? Colors().DARK_PRIMARY_CONTRAST : Colors().DARK_PRIMARY_CONTRAST;
+      return soft ? theme.palette.primary.light : theme.palette.primary.main;
   }
 }
 
