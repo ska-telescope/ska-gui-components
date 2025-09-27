@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.33
+******
+
+Changed the color for an invalid Status icon
+
 2.3.32
 ******
 

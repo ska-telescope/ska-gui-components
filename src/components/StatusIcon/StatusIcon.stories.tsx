@@ -14,6 +14,6 @@ export const Default = {
     icon: true,
     softColors: false,
     size: 30,
-    level: 1,
+    level: 5,
   },
 };
