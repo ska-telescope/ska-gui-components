@@ -99,7 +99,7 @@ function showIconText(level: number, size: number, text: string, soft: boolean) 
       y={iconTextHeight(level)}
       alignmentBaseline="central"
       dominantBaseline="central"
-      fontSize={iconFontSize(size ? size : DEFAULT_SIZE)}
+      fontSize={level === 3 ? '16px' : iconFontSize(size ? size : DEFAULT_SIZE)}
       textAnchor="middle"
       textLength={size ? size / 3 : DEFAULT_SIZE}
       lengthAdjust="spacingAndGlyphs"
