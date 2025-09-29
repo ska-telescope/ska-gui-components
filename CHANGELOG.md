@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.36
+******
+
+Reduced the sizing of the icons in the StatusIcon, and made text bold
+
 2.3.35
 ******
 

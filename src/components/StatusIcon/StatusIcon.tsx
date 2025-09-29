@@ -6,6 +6,7 @@ import { PopperPlacementType, Tooltip, useTheme } from '@mui/material';
 
 const DEFAULT_SIZE = 60;
 const STROKE_WIDTH = 2;
+const OFFSET_0 = 20;
 
 interface StatusProps {
   ariaDescription?: string;
@@ -100,6 +101,7 @@ function showIconText(level: number, size: number, text: string, soft: boolean) 
       alignmentBaseline="central"
       dominantBaseline="central"
       fontSize={level === 3 ? '16px' : iconFontSize(size ? size : DEFAULT_SIZE)}
+      fontWeight={'bold'}
       textAnchor="middle"
       textLength={size ? size / 3 : DEFAULT_SIZE}
       lengthAdjust="spacingAndGlyphs"
@@ -111,13 +113,25 @@ function showIconText(level: number, size: number, text: string, soft: boolean) 
 }
 
 function showIcon(level: number, size: number, soft: boolean) {
+  const iconSize = size * 0.6;
+  const textSize = size * 0.7;
+  const offset = (size - iconSize - 1) / 2;
+
   return (
     <>
-      {level === 0 && <TickIcon colorFG={'#FFFFFF'} size={size * 0.9} />}
-      {level === 1 && <ClearIcon colorFG={'#FFFFFF'} size={size} />}
-      {level === 2 && showIconText(level, size, '!', soft)}
-      {level === 3 && showIconText(level, size * 0.7, '?', soft)}
-      {level === 4 && showIconText(level, size, 'i', soft)}
+      {level === 0 && (
+        <foreignObject x={offset} y={offset} width={iconSize} height={iconSize}>
+          <TickIcon colorFG={'#FFFFFF'} size={iconSize} />
+        </foreignObject>
+      )}
+      {level === 1 && (
+        <foreignObject x={offset} y={offset} width={iconSize} height={iconSize}>
+          <ClearIcon colorFG={'#FFFFFF'} size={iconSize} />
+        </foreignObject>
+      )}
+      {level === 2 && showIconText(level, textSize, '!', soft)}
+      {level === 3 && showIconText(level, textSize, '?', soft)}
+      {level === 4 && showIconText(level, textSize, 'i', soft)}
     </>
   );
 }
