@@ -14,7 +14,6 @@ interface StatusProps {
   children?: React.ReactElement | string;
   icon?: boolean;
   level?: number;
-  maxIcon?: boolean;
   softColors?: boolean;
   size?: number;
   testId: string;
@@ -113,8 +112,8 @@ function showIconText(level: number, size: number, text: string, soft: boolean) 
   );
 }
 
-function showIcon(level: number, maxIcon: boolean, size: number, soft: boolean) {
-  const iconSize = maxIcon && level <= 2 ? size : size * 0.6;
+function showIcon(level: number, size: number, soft: boolean) {
+  const iconSize = size < 30 && level <= 2 ? size : size * 0.6;
   const textSize = size * 0.7;
   const offset = (size - iconSize - 1) / 2;
 
@@ -163,7 +162,6 @@ export function StatusIcon({
   children,
   icon = false,
   level = 9,
-  maxIcon = false,
   softColors = false,
   size = DEFAULT_SIZE,
   testId,
@@ -230,7 +228,7 @@ export function StatusIcon({
             {...strokeProps}
           />
         )}
-        {icon && showIcon(level, maxIcon, size, softColors)}
+        {icon && showIcon(level, size, softColors)}
         {!icon && text && showText(level, size, text, softColors)}
         {children}
       </svg>
