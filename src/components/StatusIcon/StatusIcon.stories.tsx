@@ -12,8 +12,9 @@ export const Default = {
   args: {
     testId: 'StatusIconTestId',
     icon: true,
+    maxIcon: true,
     softColors: false,
     size: 30,
-    level: 4,
+    level: 1,
   },
 };

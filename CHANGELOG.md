@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.37
+******
+
+Made the reduction optional
+
 2.3.36
 ******
 
