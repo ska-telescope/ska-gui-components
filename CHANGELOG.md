@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.38
+******
+
+Added iconSizingFactor as an optional property
+
 2.3.37
 ******
 
