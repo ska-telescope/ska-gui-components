@@ -113,7 +113,7 @@ function showIconText(level: number, size: number, text: string, soft: boolean) 
 }
 
 function showIcon(level: number, size: number, soft: boolean) {
-  const iconSize = size * 0.6;
+  const iconSize = size < 30 && level <= 2 ? size : size * 0.6;
   const textSize = size * 0.7;
   const offset = (size - iconSize - 1) / 2;
 
