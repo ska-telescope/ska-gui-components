@@ -13,6 +13,7 @@ interface StatusProps {
   ariaTitle?: string;
   children?: React.ReactElement | string;
   icon?: boolean;
+  iconOffset?: number;
   iconSizingFactor?: number;
   level?: number;
   softColors?: boolean;
@@ -113,10 +114,10 @@ function showIconText(level: number, size: number, text: string, soft: boolean) 
   );
 }
 
-function showIcon(level: number, size: number, soft: boolean, iconSizingFactor: number) {
+function showIcon(level: number, size: number, soft: boolean, iconSizingFactor: number, iconOffset: number) {
   const iconSize = size * iconSizingFactor;
   const textSize = size * 0.7;
-  const offset = (size - iconSize - 1) / 2;
+  const offset = (iconOffset > 0 ? iconOffset : size - iconSize - 1) / 2;
 
   return (
     <>
@@ -162,6 +163,7 @@ export function StatusIcon({
   ariaTitle = 'Status Indicator',
   children,
   icon = false,
+  iconOffset = 0,
   iconSizingFactor = 0.6,
   level = 9,
   softColors = false,
@@ -230,7 +232,7 @@ export function StatusIcon({
             {...strokeProps}
           />
         )}
-        {icon && showIcon(level, size, softColors, iconSizingFactor)}
+        {icon && showIcon(level, size, softColors, iconSizingFactor, iconOffset)}
         {!icon && text && showText(level, size, text, softColors)}
         {children}
       </svg>
