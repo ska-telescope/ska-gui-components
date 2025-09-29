@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.39
+******
+
+Added iconOffset as an optional property
+
 2.3.38
 ******
 
