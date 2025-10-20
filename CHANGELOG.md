@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+
+2.3.41
+******
+
+Tweak of Status Icon placement
+
 2.3.40
 ******
 
