@@ -124,12 +124,12 @@ export function StatusIcon({
     return (
       <>
         {level === 0 && (
-          <foreignObject x={offset} y={offset - 2} width={iconSize} height={iconSize}>
+          <foreignObject x={offset} y={offset} width={iconSize} height={iconSize}>
             <TickIcon colorFG={'#FFFFFF'} size={iconSize} />
           </foreignObject>
         )}
         {level === 1 && (
-          <foreignObject x={offset} y={offset - 2} width={iconSize} height={iconSize}>
+          <foreignObject x={offset} y={offset} width={iconSize} height={iconSize}>
             <ClearIcon colorFG={'#FFFFFF'} size={iconSize} />
           </foreignObject>
         )}
