@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.3.40
+******
+
+Correction of hook placement
+
 2.3.39
 ******
 
