@@ -6,7 +6,6 @@ import { PopperPlacementType, Tooltip, useTheme } from '@mui/material';
 
 const DEFAULT_SIZE = 60;
 const STROKE_WIDTH = 2;
-const OFFSET_0 = 20;
 
 interface StatusProps {
   ariaDescription?: string;
@@ -30,33 +29,6 @@ function fontSize(value: number) {
 
 function iconFontSize(value: number) {
   return `${value * 5.5}%`;
-}
-
-function getColor(level: number, col: number, soft: boolean) {
-  const theme = useTheme();
-  const colors = Colors();
-  switch (level) {
-    case 0:
-      return soft ? colors.SOFT_SUCCESS[col] : colors.SUCCESS[col];
-    case 1:
-      return soft ? colors.SOFT_ERROR_1[col] : colors.ERROR_1[col];
-    case 2:
-      return soft ? colors.SOFT_ERROR_2[col] : colors.ERROR_2[col];
-    case 3:
-      return soft ? colors.SOFT_ERROR_3[col] : colors.ERROR_3[col];
-    case 4:
-      return soft ? colors.SOFT_ERROR_4[col] : colors.ERROR_4[col];
-    default:
-      return soft ? theme.palette.primary.light : theme.palette.primary.main;
-  }
-}
-
-function fillColor(level: number, soft: boolean) {
-  return getColor(level, 1, soft);
-}
-
-function textColor(level: number, soft: boolean) {
-  return getColor(level, 4, soft);
 }
 
 function textHeight(value: number) {
@@ -94,69 +66,7 @@ function points(level: number, size: number) {
   }
 }
 
-function showIconText(level: number, size: number, text: string, soft: boolean) {
-  return (
-    <text
-      aria-describedby={text}
-      x="50%"
-      y={iconTextHeight(level)}
-      alignmentBaseline="central"
-      dominantBaseline="central"
-      fontSize={level === 3 ? '16px' : iconFontSize(size ? size : DEFAULT_SIZE)}
-      fontWeight={'bold'}
-      textAnchor="middle"
-      textLength={size ? size / 3 : DEFAULT_SIZE}
-      lengthAdjust="spacingAndGlyphs"
-      fill={textColor(level, soft)}
-    >
-      {text}
-    </text>
-  );
-}
-
-function showIcon(level: number, size: number, soft: boolean, iconSizingFactor: number, iconOffset: number) {
-  const iconSize = size * iconSizingFactor;
-  const textSize = size * 0.7;
-  const offset = (iconOffset > 0 ? iconOffset : size - iconSize - 1) / 2;
-
-  return (
-    <>
-      {level === 0 && (
-        <foreignObject x={offset} y={offset} width={iconSize} height={iconSize}>
-          <TickIcon colorFG={'#FFFFFF'} size={iconSize} />
-        </foreignObject>
-      )}
-      {level === 1 && (
-        <foreignObject x={offset} y={offset} width={iconSize} height={iconSize}>
-          <ClearIcon colorFG={'#FFFFFF'} size={iconSize} />
-        </foreignObject>
-      )}
-      {level === 2 && showIconText(level, textSize, '!', soft)}
-      {level === 3 && showIconText(level, textSize, '?', soft)}
-      {level === 4 && showIconText(level, textSize, 'i', soft)}
-    </>
-  );
-}
-
 const theSize = (size: number | undefined) => size ?? DEFAULT_SIZE;
-
-function showText(level: number, size: number, text: string, soft: boolean) {
-  return (
-    <text
-      x="50%"
-      y={textHeight(level)}
-      alignmentBaseline="central"
-      dominantBaseline="central"
-      fontSize={fontSize(theSize(size))}
-      textAnchor="middle"
-      textLength={theSize(size) / 2}
-      lengthAdjust="spacingAndGlyphs"
-      fill={textColor(level, soft)}
-    >
-      {text}
-    </text>
-  );
-}
 
 export function StatusIcon({
   ariaDescription = 'Various shapes and colours to indicate the status',
@@ -174,11 +84,106 @@ export function StatusIcon({
   toolTipPlacement = 'bottom',
 }: StatusProps) {
   const componentClassNames = ['svg-content'];
+  const theme = useTheme();
+  const colors = Colors();
 
   const DEF_TITLE = 'Status Indicator' + ' ' + level;
   const setAriaLabel = ariaTitle.length > 0 ? ariaTitle : DEF_TITLE;
   const setAriaDesc =
     ariaTitle.length > 0 ? ariaTitle + ariaDescription : DEF_TITLE + ' ' + ariaDescription;
+
+  function showText(level: number, size: number, text: string, soft: boolean) {
+    return (
+      <text
+        x="50%"
+        y={textHeight(level)}
+        alignmentBaseline="central"
+        dominantBaseline="central"
+        fontSize={fontSize(theSize(size))}
+        textAnchor="middle"
+        textLength={theSize(size) / 2}
+        lengthAdjust="spacingAndGlyphs"
+        fill={textColor(level, soft)}
+      >
+        {text}
+      </text>
+    );
+  }
+
+  function showIcon(
+    level: number,
+    size: number,
+    soft: boolean,
+    iconSizingFactor: number,
+    iconOffset: number,
+  ) {
+    const iconSize = size * iconSizingFactor;
+    const textSize = size * 0.7;
+    const offset = (iconOffset > 0 ? iconOffset : size - iconSize - 1) / 2;
+
+    return (
+      <>
+        {level === 0 && (
+          <foreignObject x={offset} y={offset - 2} width={iconSize} height={iconSize}>
+            <TickIcon colorFG={'#FFFFFF'} size={iconSize} />
+          </foreignObject>
+        )}
+        {level === 1 && (
+          <foreignObject x={offset} y={offset - 2} width={iconSize} height={iconSize}>
+            <ClearIcon colorFG={'#FFFFFF'} size={iconSize} />
+          </foreignObject>
+        )}
+        {level === 2 && showIconText(level, textSize, '!', soft)}
+        {level === 3 && showIconText(level, textSize, '?', soft)}
+        {level === 4 && showIconText(level, textSize, 'i', soft)}
+      </>
+    );
+  }
+
+  function showIconText(level: number, size: number, text: string, soft: boolean) {
+    return (
+      <text
+        aria-describedby={text}
+        x="50%"
+        y={iconTextHeight(level)}
+        alignmentBaseline="central"
+        dominantBaseline="central"
+        fontSize={level === 3 ? '16px' : iconFontSize(size ? size : DEFAULT_SIZE)}
+        fontWeight={'bold'}
+        textAnchor="middle"
+        textLength={size ? size / 3 : DEFAULT_SIZE}
+        lengthAdjust="spacingAndGlyphs"
+        fill={textColor(level, soft)}
+      >
+        {text}
+      </text>
+    );
+  }
+
+  function getColor(level: number, col: number, soft: boolean) {
+    switch (level) {
+      case 0:
+        return soft ? colors.SOFT_SUCCESS[col] : colors.SUCCESS[col];
+      case 1:
+        return soft ? colors.SOFT_ERROR_1[col] : colors.ERROR_1[col];
+      case 2:
+        return soft ? colors.SOFT_ERROR_2[col] : colors.ERROR_2[col];
+      case 3:
+        return soft ? colors.SOFT_ERROR_3[col] : colors.ERROR_3[col];
+      case 4:
+        return soft ? colors.SOFT_ERROR_4[col] : colors.ERROR_4[col];
+      default:
+        return soft ? theme.palette.primary.light : theme.palette.primary.main;
+    }
+  }
+
+  function fillColor(level: number, soft: boolean) {
+    return getColor(level, 1, soft);
+  }
+
+  function textColor(level: number, soft: boolean) {
+    return getColor(level, 4, soft);
+  }
 
   const strokeProps = { stroke: fillColor(level, softColors), strokeWidth: STROKE_WIDTH };
 
