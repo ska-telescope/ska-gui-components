@@ -22,6 +22,7 @@ export { default as TickBox } from './TickBox/TickBox';
 export { default as TriStateCheckbox } from './TriStateCheckbox/TriStateCheckbox';
 //
 export { default as Backdrop } from './Backdrop/Backdrop';
+export { BorderedSection } from './BorderedSection/BorderedSection';
 export {
   default as Button,
   ButtonColorTypes,
