@@ -1,10 +1,10 @@
 Changelog
 ==========
 
-2.3.42
+2.3.43
 ******
 
-Updated to 7.1.11 of vite
+Add ability to suppress DataGrid footer and content
 
 2.3.41
 ******
