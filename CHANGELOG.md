@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.4.0
+*****
+
+Added the BorderedAection component to the library
+
 2.3.43
 ******
 
