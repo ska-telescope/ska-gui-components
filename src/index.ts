@@ -10,6 +10,7 @@ export {
   ButtonVariantTypes,
   OurButton as Button,
 } from './components/Button/Button';
+export { BorderedSection } from './components/BorderedSection/BorderedSection';
 export { ButtonToggle } from './components/ButtonToggle/ButtonToggle';
 export { CopyrightModal } from './components/CopyrightModal/CopyrightModal';
 export { SKAODataGrid as DataGrid } from './components/DataGrid/DataGrid';
