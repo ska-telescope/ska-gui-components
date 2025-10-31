@@ -2,6 +2,7 @@ import React from 'react';
 import { FormControl, FormLabel, Box, SxProps, Theme, useTheme } from '@mui/material';
 
 export interface BorderedSectionProps {
+  bold?: boolean;
   title?: string;
   icon?: React.ReactNode;
   iconAfter?: boolean;
@@ -18,6 +19,7 @@ export interface BorderedSectionProps {
 }
 
 export const BorderedSection: React.FC<BorderedSectionProps> = ({
+  bold = false,
   title,
   icon,
   iconAfter = false,
@@ -30,7 +32,7 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
   elevation = 0,
   className,
   sx,
-  testId = 'borderedSection'
+  testId = 'borderedSection',
 }) => {
   const theme = useTheme();
 
@@ -49,18 +51,7 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
         marginBottom: 2,
         position: 'relative',
         boxShadow: elevation ? theme.shadows[elevation] : 'none',
-        animation: 'fadeIn 0.5s ease-in',
-        transition: 'border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease',
-        '&:hover': {
-          borderColor: 'primary.main',
-          boxShadow: theme.shadows[elevation + 1] || theme.shadows[elevation],
-          transform: 'translateY(-2px)'
-        },
-        '@keyframes fadeIn': {
-          from: { opacity: 0 },
-          to: { opacity: 1 }
-        },
-        ...sx
+        ...sx,
       }}
     >
       {title && (
@@ -74,15 +65,15 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
             backgroundColor,
             paddingX: 1,
             color: borderColor,
-            fontWeight: 'bold',
+            fontWeight: bold ? 'bold' : 'normal',
             display: 'flex',
             alignItems: 'center',
             gap: 1,
             animation: 'slideIn 0.4s ease-out',
             '@keyframes slideIn': {
               from: { transform: 'translateX(-10px)', opacity: 0 },
-              to: { transform: 'translateX(0)', opacity: 1 }
-            }
+              to: { transform: 'translateX(0)', opacity: 1 },
+            },
           }}
         >
           {!iconAfter && icon}

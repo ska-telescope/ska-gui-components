@@ -16,8 +16,8 @@ export const Light = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
-    title: "Dummy title",
-    testId: 'testId'
+    title: 'Dummy title',
+    testId: 'testId',
   },
 };
 
@@ -28,7 +28,7 @@ export const Dark = {
   args: {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
-    title: "Dummy title",
-    testId: 'testId'
+    title: 'Dummy title',
+    testId: 'testId',
   },
 };
