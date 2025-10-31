@@ -11,6 +11,9 @@ export interface DataGridProps {
   filterModeServer?: boolean;
   getRowHeight?: Function;
   height?: number | string;
+  hideFooter?: boolean;
+  hideFooterPagination?: boolean;
+  hideFooterSelectedRowCount?: boolean;
   initialState?: object;
   loading?: any;
   onCellClick?: any;
@@ -37,6 +40,9 @@ export function SKAODataGrid({
   filterModeServer = false,
   getRowHeight,
   height = 400,
+  hideFooter = false,
+  hideFooterPagination = false,
+  hideFooterSelectedRowCount = false,
   initialState,
   loading,
   onCellClick,
@@ -79,6 +85,9 @@ export function SKAODataGrid({
         columnVisibilityModel={columnVisibilityModel}
         data-testid={testId}
         filterMode={filterModeServer ? 'server' : 'client'}
+        hideFooter={hideFooter}
+        hideFooterPagination={hideFooterPagination}
+        hideFooterSelectedRowCount={hideFooterSelectedRowCount}
         getRowHeight={getTheHeight}
         initialState={initialState}
         loading={loading}
