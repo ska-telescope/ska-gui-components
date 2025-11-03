@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, FormLabel, Box, SxProps, Theme, useTheme } from '@mui/material';
+import { Box, Typography, SxProps, Theme, useTheme } from '@mui/material';
 
 export interface BorderedSectionProps {
   bold?: boolean;
@@ -35,13 +35,14 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
   testId = 'borderedSection',
 }) => {
   const theme = useTheme();
+  const safeElevation = Math.min(Math.max(elevation, 0), 24);
 
   return (
-    <FormControl
-      aria-labelledby={`${testId}-label`}
-      component="fieldset"
+    <Box
       className={className}
       data-testid={testId}
+      role="region"
+      aria-label={title || undefined}
       sx={{
         backgroundColor,
         border: dashed ? '1px dashed' : '1px solid',
@@ -50,39 +51,37 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
         padding,
         marginBottom: 2,
         position: 'relative',
-        boxShadow: elevation ? theme.shadows[elevation] : 'none',
+        boxShadow: safeElevation ? theme.shadows[safeElevation] : 'none',
         ...sx,
       }}
     >
       {title && (
-        <FormLabel
-          component="legend"
+        <Typography
+          component="h2"
+          variant="h6"
           data-testid={`${testId}-label`}
           sx={{
             position: 'absolute',
             top: theme.spacing(-2),
             left: theme.spacing(2),
             backgroundColor,
-            paddingX: 1,
+            px: 1,
             color: borderColor,
             fontWeight: bold ? 'bold' : 'normal',
             display: 'flex',
             alignItems: 'center',
             gap: 1,
-            animation: 'slideIn 0.4s ease-out',
-            '@keyframes slideIn': {
-              from: { transform: 'translateX(-10px)', opacity: 0 },
-              to: { transform: 'translateX(0)', opacity: 1 },
-            },
           }}
         >
           {!iconAfter && icon}
           {title}
           {iconAfter && icon}
-        </FormLabel>
+        </Typography>
       )}
-      <Box mt={title ? 2 : 0}>{children}</Box>
-    </FormControl>
+      <Box mt={title ? 2 : 0} data-testid={`${testId}-content`}>
+        {children}
+      </Box>
+    </Box>
   );
 };
 

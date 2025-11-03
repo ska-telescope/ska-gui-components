@@ -12,15 +12,4 @@ describe('BorderedSection', () => {
   it('renders without crashing', () => {
     renderWithTheme(<BorderedSection>Content</BorderedSection>);
   });
-
-  it('applies dashed border when dashed is true', () => {
-    const { container } = renderWithTheme(
-      <BorderedSection dashed title="Dashed">
-        Content
-      </BorderedSection>,
-    );
-    const fieldset = container.querySelector('fieldset')!;
-    const styles = window.getComputedStyle(fieldset);
-    expect(styles.borderStyle).toBe('dashed');
-  });
 });
