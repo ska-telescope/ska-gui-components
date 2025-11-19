@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.4.3
+*****
+
+Updated junit-report-merger to version 7.
+
 2.4.2
 *****
 
