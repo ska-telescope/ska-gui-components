@@ -2,7 +2,7 @@
   "name": "@ska-telescope/ska-gui-components",
   "license": "BSD-3-Clause",
   "private": false,
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "module": "dist/ska-gui-components.min.mjs",
@@ -71,7 +71,7 @@
     "@ska-telescope/ska-javascript-components": "^2.3.12",
     "@types/uuid": "^9.0.4",
     "@typescript-eslint/parser": "^8.26.1",
-    "junit-report-merger": "^6.0.2",
+    "junit-report-merger": "^7.0.1",
     "path": "^0.12.7",
     "react-dropzone": "^14.3.5",
     "typescript": "5.5.3",
@@ -113,5 +113,8 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18"
+  },
+  "resolutions": {
+    "js-yaml": "3.14.2"
   }
 }
