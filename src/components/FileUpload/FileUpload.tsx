@@ -1,4 +1,4 @@
-import React, { JSX } from 'react';
+import React from 'react';
 import { Grid, Paper, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ClearIcon from '../Icons/classic/ClearIcon';
@@ -9,7 +9,7 @@ import { StatusIcon } from '../StatusIcon/StatusIcon';
 import OurIconButton from '../IconButton/IconButton';
 import SKAOAlert, { AlertColorTypes } from '../Alert/Alert';
 import DropZone from '../DropZone/DropZone';
-import { Accept } from 'react-dropzone/.';
+import { Accept } from 'react-dropzone/';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -40,33 +40,29 @@ interface FileUploadProps {
   direction?: 'row' | 'column';
   file?: File;
   isMinimal?: boolean;
-  //
   hideFileName?: boolean;
   maxFileWidth?: number;
   testId: string;
-  //
   clearLabel?: string;
   clearDisabled?: boolean;
   clearToolTip?: string;
   clearVariant?: ButtonVariantTypes;
-  setFile?: Function | null;
-  setStatus?: Function | null;
+  setFile?: (file: File | string) => void;
+  setStatus?: (status: FileUploadStatus) => void;
   status?: FileUploadStatus;
   uploadColor?: ButtonColorTypes;
   uploadDisabled?: boolean;
-  uploadFunction?: Function | null;
+  uploadFunction?: (file: File | string | null) => void;
   uploadLabel?: string;
   uploadToolTip?: string;
   uploadURL?: string;
   uploadVariant?: ButtonVariantTypes;
-  //
   dropzone?: boolean;
   dropzoneAccepted?: Accept;
   dropzoneIcons?: boolean;
-  dropzonePreview: boolean;
+  dropzonePreview?: boolean;
   dropzonePrompt?: string;
-  //
-  suffix?: JSX.Element | null;
+  suffix?: React.JSX.Element | null;
 }
 
 export function FileUpload({
@@ -79,7 +75,6 @@ export function FileUpload({
   direction = 'row',
   isMinimal = false,
   chooseVariant = isMinimal ? ButtonVariantTypes.Text : ButtonVariantTypes.Contained,
-  //
   file,
   hideFileName = false,
   maxFileWidth = 20,
@@ -87,9 +82,8 @@ export function FileUpload({
   setStatus,
   status,
   testId = 'fileUpload-testId',
-  //
   clearDisabled = false,
-  clearLabel = 'Upload',
+  clearLabel = 'Clear',
   clearToolTip = 'Clear the selected file',
   clearVariant = ButtonVariantTypes.Contained,
   uploadColor = ButtonColorTypes.Secondary,
@@ -99,15 +93,15 @@ export function FileUpload({
   uploadToolTip = 'Upload the selected file',
   uploadURL = 'https://httpbin.org/post',
   uploadVariant = ButtonVariantTypes.Contained,
-  //
   dropzone = false,
   dropzoneAccepted,
   dropzoneIcons = true,
   dropzonePreview = true,
   dropzonePrompt = '',
-  //
   suffix = null,
 }: FileUploadProps) {
+  const theme = useTheme();
+
   const [theFile, setTheFile] = React.useState<File | null>(null);
   const [name, setName] = React.useState('');
   const [state, setState] = React.useState(FileUploadStatus.INITIAL);
@@ -117,116 +111,65 @@ export function FileUpload({
       setTheFile(file);
       setName(file.name);
     }
-  }, []);
+  }, [file]);
 
   const setTheStatus = (e: FileUploadStatus) => {
-    if (setStatus) {
-      setStatus(e);
-    } else {
-      setState(e);
-    }
+    setStatus?.(e) ?? setState(e);
   };
-
-  /*
-  const handleDropdownFileChange = (e: any) => {
-    if (e.target.files) {
-      setTheFile(e.target.files[0]);
-      setName(e.target.files[0].name);
-      setTheStatus(FileUploadStatus.INITIAL);
-      if (setFile) {
-        setFile(e.target.files[0].name);
-      }
-      if (isMinimal) {
-        if (uploadFunction) {
-          uploadFunction(e.target.files[0].name);
-        } else {
-          handleUploadFunction(e.target.files[0].name);
-        }
-      }
-    }
-    e.target.value = null;
-  };
-  */
 
   const handleFileChange = (e: any) => {
     const inFiles = dropzone ? e : e.target.files;
-
-    if (inFiles) {
+    if (inFiles?.[0]) {
       setTheFile(inFiles[0]);
       setName(inFiles[0].name);
       setTheStatus(FileUploadStatus.INITIAL);
-      if (setFile) {
-        setFile(inFiles[0].name);
-      }
+      setFile?.(inFiles[0]);
       if (isMinimal) {
-        if (uploadFunction) {
-          uploadFunction(inFiles[0].name);
-        } else {
-          handleUploadFunction(inFiles[0].name);
-        }
+        uploadFunction?.(inFiles[0]) ?? handleUploadFunction(inFiles[0]);
       }
     }
-    // e.target.value = null;
   };
 
   const handleClear = () => {
     setTheFile(null);
     setName('');
     setTheStatus(FileUploadStatus.INITIAL);
-    if (setFile) {
-      setFile('');
-    }
+    setFile?.('');
   };
 
   const handleUpload = () => {
-    if (uploadFunction) {
-      uploadFunction(theFile);
-    } else {
-      handleUploadFunction(theFile);
-    }
+    uploadFunction?.(theFile) ?? handleUploadFunction(theFile);
   };
 
-  const handleUploadFunction = async (inFile: string | Blob | null) => {
-    if (inFile) {
-      const formData = new FormData();
-      formData.append('file', inFile);
-      setTheStatus(FileUploadStatus.PENDING);
-
-      try {
-        await fetch(uploadURL, {
-          method: 'POST',
-          body: formData,
-        });
-        setTheStatus(FileUploadStatus.OK);
-      } catch (error) {
-        setTheStatus(FileUploadStatus.ERROR);
-      }
+  const handleUploadFunction = async (inFile: File | string | null) => {
+    if (!inFile) return;
+    const formData = new FormData();
+    formData.append('file', inFile as Blob);
+    setTheStatus(FileUploadStatus.PENDING);
+    try {
+      await fetch(uploadURL!, { method: 'POST', body: formData });
+      setTheStatus(FileUploadStatus.OK);
+    } catch {
+      setTheStatus(FileUploadStatus.ERROR);
     }
   };
 
   const displayName = () =>
     name?.length > maxFileWidth ? name.substring(0, maxFileWidth) + '...' : name;
 
-  const getClearIcon = () => {
-    return <ClearIcon colorFG={useTheme().palette.secondary.main} />;
-  };
+  const getClearIcon = () => <ClearIcon colorFG={theme.palette.secondary.main} />;
 
   const getUploadIcon = () => {
-    const val = status ? status : state;
+    const val = status ?? state;
     return val === FileUploadStatus.INITIAL ? (
-      <FileUploadIcon colorFG={useTheme().palette.secondary.main} />
+      <FileUploadIcon colorFG={theme.palette.secondary.main} />
     ) : (
-      <StatusIcon
-        testId="statusId"
-        icon
-        level={status ? status : state}
-        size={isMinimal ? 26 : 20}
-      />
+      <StatusIcon testId="statusId" icon level={val} size={isMinimal ? 26 : 20} />
     );
   };
 
   const getAlertColor = () => {
-    const val = status ? status : state;
+    const val = status ?? state;
     switch (val) {
       case FileUploadStatus.PENDING:
         return AlertColorTypes.Warning;
@@ -256,7 +199,7 @@ export function FileUpload({
           isMinimal ? (
             getUploadIcon()
           ) : (
-            <SearchIcon colorFG={useTheme().palette.secondary.contrastText} />
+            <SearchIcon colorFG={theme.palette.secondary.contrastText} />
           )
         }
         label={isMinimal ? '' : chooseLabel}
@@ -274,63 +217,55 @@ export function FileUpload({
     </Typography>
   );
 
-  const UploadButton = () => (
-    <>
-      {dropzone && dropzoneIcons && (
-        <OurIconButton
-          ariaDescription={uploadToolTip}
-          icon={getUploadIcon()}
-          onClick={handleUpload}
-          testId={testId + 'UploadIcon'}
-          toolTip={uploadToolTip}
-        />
-      )}
-      {!(dropzone && dropzoneIcons) && (
-        <OurButton
-          ariaDescription={uploadToolTip}
-          color={state === FileUploadStatus.INITIAL ? uploadColor : ButtonColorTypes.Inherit}
-          component="span"
-          disabled={uploadDisabled || uploadURL.length === 0}
-          icon={getUploadIcon()}
-          label={uploadLabel}
-          onClick={handleUpload}
-          size={buttonSize}
-          testId={testId + 'UploadButton'}
-          toolTip={uploadToolTip}
-          variant={uploadVariant}
-        />
-      )}
-    </>
-  );
+  const UploadButton = () =>
+    dropzone && dropzoneIcons ? (
+      <OurIconButton
+        ariaDescription={uploadToolTip}
+        icon={getUploadIcon()}
+        onClick={handleUpload}
+        testId={testId + 'UploadIcon'}
+        toolTip={uploadToolTip}
+      />
+    ) : (
+      <OurButton
+        ariaDescription={uploadToolTip}
+        color={state === FileUploadStatus.INITIAL ? uploadColor : ButtonColorTypes.Inherit}
+        component="span"
+        disabled={uploadDisabled || !uploadURL}
+        icon={getUploadIcon()}
+        label={uploadLabel}
+        onClick={handleUpload}
+        size={buttonSize}
+        testId={testId + 'UploadButton'}
+        toolTip={uploadToolTip}
+        variant={uploadVariant}
+      />
+    );
 
-  const ClearButton = () => (
-    <>
-      {((dropzone && dropzoneIcons) || isMinimal) && (
-        <OurIconButton
-          ariaDescription={clearToolTip}
-          icon={getClearIcon()}
-          onClick={handleClear}
-          testId={testId + 'ClearIcon'}
-          toolTip={clearToolTip}
-        />
-      )}
-      {(!dropzone || !dropzoneIcons) && !isMinimal && (
-        <OurButton
-          ariaDescription={clearToolTip}
-          color={ButtonColorTypes.Inherit}
-          component="span"
-          disabled={clearDisabled}
-          icon={getClearIcon()}
-          label={isMinimal ? '' : clearLabel}
-          onClick={handleClear}
-          size={buttonSize}
-          testId={testId + 'ClearButton'}
-          toolTip={clearToolTip}
-          variant={clearVariant}
-        />
-      )}
-    </>
-  );
+  const ClearButton = () =>
+    (dropzone && dropzoneIcons) || isMinimal ? (
+      <OurIconButton
+        ariaDescription={clearToolTip}
+        icon={getClearIcon()}
+        onClick={handleClear}
+        testId={testId + 'ClearIcon'}
+        toolTip={clearToolTip}
+      />
+    ) : (
+      <OurButton
+        ariaDescription={clearToolTip}
+        color={ButtonColorTypes.Inherit}
+        component="span"
+        disabled={clearDisabled}
+        icon={getClearIcon()}
+        label={isMinimal ? '' : clearLabel}
+        onClick={handleClear}
+        size={buttonSize}
+        testId={testId + 'ClearButton'}
+        toolTip={clearToolTip}
+        variant={clearVariant}
+      />
+    );
 
   return (
     <>
@@ -372,15 +307,10 @@ export function FileUpload({
           </Grid>
         </>
       )}
+
       {!dropzone && isMinimal && (
         <SKAOAlert color={getAlertColor()} testId="testId">
-          <Grid
-            p={0}
-            container
-            direction={direction}
-            alignItems="baseline"
-            justifyContent={'center'}
-          >
+          <Grid p={0} container direction={direction} alignItems="baseline" justifyContent="center">
             <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{ChooseButton()}</Item>
             <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{showFileName()}</Item>
             {theFile && (
@@ -390,6 +320,7 @@ export function FileUpload({
           </Grid>
         </SKAOAlert>
       )}
+
       {!dropzone && !isMinimal && (
         <Grid p={0} container direction={direction} justifyContent="space-evenly" spacing={1}>
           <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{ChooseButton()}</Item>
