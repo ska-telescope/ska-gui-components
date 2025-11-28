@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.4.4
+*****
+
+Resolved issue with hook ordering
+
 2.4.3
 *****
 

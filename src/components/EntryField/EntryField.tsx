@@ -1,10 +1,17 @@
-import React, { FocusEventHandler, JSX } from 'react';
-import { InputAdornment, Paper, PopperPlacementType, TextField, Tooltip } from '@mui/material';
+import React, { JSX, FocusEventHandler } from 'react';
+import {
+  InputAdornment,
+  Paper,
+  PopperPlacementType,
+  TextField,
+  Tooltip,
+  FormControl,
+  FormControlLabel,
+  Grid,
+  InputLabel,
+  Typography,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { FormControlLabel } from '@mui/material';
-import { FormControl } from '@mui/material';
-import { Grid } from '@mui/material';
-import { InputLabel, Typography } from '@mui/material';
 import Children from '../../utils/types/types';
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -42,11 +49,9 @@ export enum TYPE {
 }
 
 export interface EntryFieldProps {
-  // required
   label: string;
   testId: string;
   value: string | number;
-  // optional
   ariaDescription?: string;
   ariaTitle?: string;
   children?: Children;
@@ -60,8 +65,8 @@ export interface EntryFieldProps {
   labelPosition?: LABEL_POSITION;
   labelWidth?: number;
   name?: string;
-  onBlur?: Function;
-  onFocus?: Function;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
+  onFocus?: FocusEventHandler<HTMLInputElement>;
   password?: boolean;
   prefix?: JSX.Element | string;
   required?: boolean;
@@ -71,7 +76,7 @@ export interface EntryFieldProps {
   suffix?: JSX.Element | string;
   toolTip?: string;
   toolTipPlacement?: string;
-  type?: TYPE.DATE | TYPE.FILE | TYPE.NUMBER | TYPE.PASSWORD | TYPE.TEXT;
+  type?: TYPE;
   numScroller?: boolean;
 }
 
@@ -105,48 +110,65 @@ export function EntryField({
   numScroller = true,
   value,
 }: EntryFieldProps): JSX.Element {
-  const theSuffix = suffix ? suffix : '';
-  const thePrefix = prefix ? prefix : '';
-  const updateValue = (e: any) => (typeof setValue !== 'function' ? null : setValue(e));
-  const displayLabel = label + (required ? ' *' : '');
+  const theSuffix = suffix ?? '';
+  const thePrefix = prefix ?? '';
+  const updateValue = (val: string | number) => setValue?.(val);
+  const displayLabel = `${label}${required ? ' *' : ''}`;
+
   const slotPropsSx = numScroller
     ? undefined
     : {
-        // Hide arrows for Chrome, Safari, Edge
-        '& input::-webkit-outer-spin-button': {
+        '& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button': {
           WebkitAppearance: 'none',
           margin: 0,
         },
-        '& input::-webkit-inner-spin-button': {
-          WebkitAppearance: 'none',
-          margin: 0,
-        },
-        // Hide arrows for Firefox
         '& input[type=number]': {
           MozAppearance: 'textfield',
         },
       };
 
+  const commonTextFieldProps = {
+    'aria-label': ariaTitle,
+    'aria-describedby': ariaDescription,
+    color: 'secondary' as const,
+    'data-testid': testId,
+    disabled,
+    error: !!errorText,
+    fullWidth: true,
+    helperText: errorText || helperText,
+    inputRef,
+    margin: 'none' as const,
+    minRows: type !== TYPE.TEXT || !rows ? 1 : rows,
+    maxRows: type !== TYPE.TEXT || !rows ? 1 : rows,
+    multiline: type === TYPE.TEXT && rows > 1,
+    name,
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => updateValue(e.target.value),
+    onBlur,
+    onFocus,
+    required,
+    select,
+    value,
+    variant: 'standard' as const,
+    type,
+    slotProps: {
+      input: {
+        startAdornment: thePrefix && <InputAdornment position="start">{thePrefix}</InputAdornment>,
+        endAdornment: theSuffix && <InputAdornment position="end">{theSuffix}</InputAdornment>,
+        disableUnderline: disabledUnderline,
+        sx: slotPropsSx,
+      },
+    },
+  };
+
   return (
     <>
       {(labelPosition === LABEL_POSITION.START || labelPosition === LABEL_POSITION.END) && (
-        <Grid
-          container
-          direction="row"
-          justifyContent="space-between"
-          sx={{ height: height, width: '100%' }}
-        >
+        <Grid container alignItems="center" sx={{ height, width: '100%' }}>
           {labelPosition === LABEL_POSITION.START && (
             <Grid size={{ xs: labelWidth }}>
-              <Item sx={{ float: 'left', backgroundColor: 'transparent', boxShadow: 0 }}>
+              <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
                 <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
-                  <Typography
-                    sx={{
-                      float: 'left',
-                      backgroundColor: 'transparent',
-                      fontWeight: !disabled && labelBold ? 'bold' : 'normal',
-                    }}
-                  >
+                  <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
                     {displayLabel}
                   </Typography>
                 </InputLabel>
@@ -156,45 +178,7 @@ export function EntryField({
           <Grid size={{ xs: 12 - labelWidth }}>
             <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
               <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
-                <TextField
-                  aria-label={ariaTitle}
-                  aria-describedby={ariaDescription}
-                  aria-hidden={false}
-                  color="secondary"
-                  data-testid={testId}
-                  disabled={disabled}
-                  error={errorText && errorText.length > 0 ? true : false}
-                  fullWidth
-                  helperText={errorText ? errorText : helperText ? helperText : ''}
-                  hiddenLabel
-                  id={testId}
-                  inputRef={inputRef}
-                  margin="none"
-                  minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-                  maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-                  multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
-                  name={name}
-                  onChange={(e: { target: { value: any } }) => {
-                    updateValue(e.target.value);
-                  }}
-                  onBlur={onBlur as FocusEventHandler}
-                  onFocus={onFocus as FocusEventHandler}
-                  required={required}
-                  select={select}
-                  value={value}
-                  variant="standard"
-                  type={type}
-                  slotProps={{
-                    input: {
-                      startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
-                      endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-                      disableUnderline: disabledUnderline,
-                      sx: slotPropsSx,
-                    },
-                  }}
-                >
-                  {children}
-                </TextField>
+                <TextField {...commonTextFieldProps}>{children}</TextField>
               </Tooltip>
             </Item>
           </Grid>
@@ -211,94 +195,25 @@ export function EntryField({
           )}
         </Grid>
       )}
+
       {(labelPosition === LABEL_POSITION.TOP || labelPosition === LABEL_POSITION.BOTTOM) && (
         <FormControl component="fieldset">
           <FormControlLabel
             disabled={disabled}
             labelPlacement={labelPosition}
-            label={label}
+            label={displayLabel}
             control={
               <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
-                <TextField
-                  aria-label={ariaTitle}
-                  aria-describedby={ariaDescription}
-                  aria-hidden={false}
-                  color="secondary"
-                  data-testid={testId}
-                  disabled={disabled}
-                  error={errorText && errorText.length > 0 ? true : false}
-                  onBlur={onBlur as FocusEventHandler}
-                  onFocus={onFocus as FocusEventHandler}
-                  fullWidth
-                  helperText={errorText ? errorText : helperText ? helperText : ''}
-                  inputRef={inputRef}
-                  margin="none"
-                  minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-                  maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-                  multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
-                  name={name}
-                  onChange={(e: { target: { value: any } }) => {
-                    updateValue(e.target.value);
-                  }}
-                  select={select}
-                  value={value}
-                  variant="standard"
-                  required={required}
-                  type={type}
-                  slotProps={{
-                    input: {
-                      startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
-                      endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-                      disableUnderline: disabledUnderline,
-                      sx: slotPropsSx,
-                    },
-                  }}
-                >
-                  {children}
-                </TextField>
+                <TextField {...commonTextFieldProps}>{children}</TextField>
               </Tooltip>
             }
           />
         </FormControl>
       )}
+
       {labelPosition === LABEL_POSITION.CONTAINED && (
         <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
-          <TextField
-            aria-label={ariaTitle}
-            aria-describedby={ariaDescription}
-            aria-hidden={false}
-            color="secondary"
-            data-testid={testId}
-            disabled={disabled}
-            error={errorText && errorText.length > 0 ? true : false}
-            onBlur={onBlur as FocusEventHandler}
-            onFocus={onFocus as FocusEventHandler}
-            fullWidth
-            helperText={errorText ? errorText : helperText ? helperText : ''}
-            inputRef={inputRef}
-            label={label}
-            margin="normal"
-            minRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-            maxRows={type !== TYPE.TEXT || !rows ? 1 : rows}
-            multiline={type === TYPE.TEXT && rows && rows > 1 ? true : false}
-            name={name}
-            onChange={(e: { target: { value: any } }) => {
-              updateValue(e.target.value);
-            }}
-            value={value}
-            variant="standard"
-            required={required}
-            select={select}
-            type={type}
-            slotProps={{
-              input: {
-                startAdornment: <InputAdornment position="start">{thePrefix}</InputAdornment>,
-                endAdornment: <InputAdornment position="end">{theSuffix}</InputAdornment>,
-                disableUnderline: disabledUnderline,
-                sx: slotPropsSx,
-              },
-            }}
-          >
+          <TextField {...commonTextFieldProps} label={label}>
             {children}
           </TextField>
         </Tooltip>
