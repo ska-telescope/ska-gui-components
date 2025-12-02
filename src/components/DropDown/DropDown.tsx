@@ -94,7 +94,11 @@ export function DropDown({
             <Grid size={{ xs: labelWidth }}>
               <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
                 <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
-                  <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                  <Typography
+                    pt={1}
+                    pb={1}
+                    sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}
+                  >
                     {displayLabel}
                   </Typography>
                 </InputLabel>

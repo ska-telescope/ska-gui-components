@@ -169,8 +169,8 @@ export function EntryField({
               <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
                 <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
                   <Typography
-                    pt={1}
-                    pb={1}
+                    pt={0.5}
+                    pb={0.5}
                     sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}
                   >
                     {displayLabel}
