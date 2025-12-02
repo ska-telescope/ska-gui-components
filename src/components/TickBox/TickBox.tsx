@@ -67,7 +67,10 @@ export function TickBox({
           {labelPosition === LABEL_POSITION.START && (
             <Grid size={{ xs: labelWidth }}>
               <InputLabel disabled={disabled} shrink={false} htmlFor={testId}>
-                <Typography sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}>
+                <Typography
+                  pt={0.5}
+                  sx={{ fontWeight: !disabled && labelBold ? 'bold' : 'normal' }}
+                >
                   {displayLabel}
                 </Typography>
               </InputLabel>
