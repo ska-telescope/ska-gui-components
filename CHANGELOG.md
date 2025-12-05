@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.4.7
+*****
+
+FrequencySpectrum Added 
+
 2.4.6
 *****
 
