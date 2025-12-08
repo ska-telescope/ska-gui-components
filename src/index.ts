@@ -19,6 +19,7 @@ export { DropDown } from './components/DropDown/DropDown';
 export { LABEL_POSITION, STATE, TYPE, EntryField } from './components/EntryField/EntryField';
 export { FileUpload, FileUploadStatus } from './components/FileUpload/FileUpload';
 export { Footer } from './components/Footer/Footer';
+export { FrequencySpectrum } from './components/FrequencySpectrum/FrequencySpectrum';
 export { Header } from './components/Header/Header';
 export { HelpModal } from './components/HelpModal/HelpModal';
 export { OurIconButton as IconButton } from './components/IconButton/IconButton';

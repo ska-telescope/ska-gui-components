@@ -14,6 +14,7 @@ export { default as DateEntry } from './DateEntry/DateEntry';
 export { default as DropDown } from './DropDown/DropDown';
 export { default as FileUpload, FileUploadStatus } from './FileUpload/FileUpload';
 export { LABEL_POSITION } from './EntryField/EntryField';
+export { default as FrequencySpectrum } from './FrequencySpectrum/FrequencySpectrum';
 export { default as NumberEntry } from './NumberEntry/NumberEntry';
 export { default as NumberEntry2 } from './BaseUI/NumberEntry2/NumberEntry2';
 export { default as SearchEntry } from './SearchEntry/SearchEntry';
