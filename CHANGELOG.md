@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.4.8
+*****
+
+Added getColors 
+
 2.4.7
 *****
 
