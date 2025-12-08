@@ -30,6 +30,7 @@ export { TelescopeSelector } from './components/TelescopeSelector/TelescopeSelec
 export { TextEntry } from './components/TextEntry/TextEntry';
 export { TickBox } from './components/TickBox/TickBox';
 export { GUI_COMPONENTS_VERSION } from './components/version';
+export { getColors } from '../src/utils/getColors/getColors';
 export {
   ACCESSIBILITY_DEFAULT,
   ACCESSIBILITY_PROTANOPIA,
@@ -40,9 +41,12 @@ export {
   ACCESSIBILITY_TRITANOMALY,
   ACCESSIBILITY_ACHROMATOMALY,
   ACCESSIBILITY_ACHROMATOPSIA,
+  COLOR_BLINDNESS_OPTIONS,
+  COLOR_PALETTE_SETS,
   Colors,
   Logo,
   LOGO_DEFAULT_HEIGHT,
+  PaletteSet,
   SPACER_HORIZONTAL,
   SPACER_VERTICAL,
   Spacer,
