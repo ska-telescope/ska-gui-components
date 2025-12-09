@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.4.9
+*****
+
+Update exports
+
 2.4.8
 *****
 
