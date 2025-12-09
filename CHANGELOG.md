@@ -1,7 +1,7 @@
 Changelog
 ==========
 
-2.4.9
+2.5.0
 *****
 
 Update exports
