@@ -49,8 +49,8 @@ describe('getColors', () => {
       paletteIndex: 1,
     });
     expect(result).toBeDefined();
-    expect(result!.low.bg).toContain('rgba(245, 124, 0, 1)');
-    expect(result!.mid.bg).toContain('rgba(2, 136, 209, 1)');
+    expect(result!.mid.bg).toContain('rgba(155, 96, 23, 1)');
+    expect(result!.low.bg).toContain('rgba(247, 190, 0, 1)');
   });
 
   it('should return boolean colors from Protanopia palette when paletteIndex=2', () => {

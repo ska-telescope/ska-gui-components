@@ -1,5 +1,5 @@
 import { alpha } from '@mui/material/styles';
-import { COLOR_PALETTE_SETS } from '@ska-telescope/ska-javascript-components';
+import { COLOR_PALETTE_SETS, Colors } from '@ska-telescope/ska-javascript-components';
 
 type ContentType = 'bg' | 'fg' | 'both';
 
@@ -38,10 +38,10 @@ export function getColors({
       2: [paletteSet.colors[2], paletteSet.textColors[2]],
     },
     telescope: {
-      low: [paletteSet.colors[1], paletteSet.textColors[1]],
-      mid: [paletteSet.colors[4], paletteSet.textColors[4]],
-      2: [paletteSet.colors[1], paletteSet.textColors[1]],
-      1: [paletteSet.colors[4], paletteSet.textColors[4]],
+      low: [Colors().SKAO_TELESCOPE_2, '#000000'],
+      mid: [Colors().SKAO_TELESCOPE_1, '#000000'],
+      1: [Colors().SKAO_TELESCOPE_2, '#000000'],
+      2: [Colors().SKAO_TELESCOPE_1, '#000000'],
     },
     boolean: {
       no: [paletteSet.colors[9], paletteSet.textColors[9]],
@@ -73,8 +73,16 @@ export function getColors({
   colorList.forEach((level) => {
     const palette = mapping[level] ?? ['#cccccc', '#000000'];
     result[level] = {};
-    if (content === 'bg' || content === 'both') result[level].bg = alpha(palette[0], dim);
-    if (content === 'fg' || content === 'both') result[level].fg = palette[1];
+
+    const bgColor = palette[0] ?? '#cccccc';
+    const fgColor = palette[1] ?? '#000000';
+
+    if (content === 'bg' || content === 'both') {
+      result[level].bg = alpha(bgColor, dim);
+    }
+    if (content === 'fg' || content === 'both') {
+      result[level].fg = fgColor;
+    }
   });
 
   if (asArray) {
