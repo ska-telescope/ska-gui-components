@@ -1,7 +1,12 @@
 Changelog
 ==========
 
-2.5.0
+2.5.2
+*****
+
+Updated telescope coloring
+
+2.5.1
 *****
 
 Update exports

@@ -1,5 +1,5 @@
 import { alpha } from '@mui/material/styles';
-import { COLOR_PALETTE_SETS } from '@ska-telescope/ska-javascript-components';
+import { COLOR_PALETTE_SETS, Colors } from '@ska-telescope/ska-javascript-components';
 
 type ContentType = 'bg' | 'fg' | 'both';
 
@@ -38,10 +38,10 @@ export function getColors({
       2: [paletteSet.colors[2], paletteSet.textColors[2]],
     },
     telescope: {
-      low: [paletteSet.colors[1], paletteSet.textColors[1]],
-      mid: [paletteSet.colors[4], paletteSet.textColors[4]],
-      2: [paletteSet.colors[1], paletteSet.textColors[1]],
-      1: [paletteSet.colors[4], paletteSet.textColors[4]],
+      low: [Colors.SKAO_TELESCOPE.low, '#000000'],
+      mid: [Colors.SKAO_TELESCOPE.mid, '#000000'],
+      1: [Colors.SKAO_TELESCOPE.low, '#000000'],
+      2: [Colors.SKAO_TELESCOPE.mid, '#000000'],
     },
     boolean: {
       no: [paletteSet.colors[9], paletteSet.textColors[9]],

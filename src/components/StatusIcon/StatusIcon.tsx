@@ -160,7 +160,7 @@ export function StatusIcon({
     );
   }
 
-  function getColor(level: number, col: number, soft: boolean) {
+  function getStatusColor(level: number, col: number, soft: boolean) {
     switch (level) {
       case 0:
         return soft ? colors.SOFT_SUCCESS[col] : colors.SUCCESS[col];
@@ -178,11 +178,11 @@ export function StatusIcon({
   }
 
   function fillColor(level: number, soft: boolean) {
-    return getColor(level, 1, soft);
+    return getStatusColor(level, 1, soft);
   }
 
   function textColor(level: number, soft: boolean) {
-    return getColor(level, 4, soft);
+    return getStatusColor(level, 4, soft);
   }
 
   const strokeProps = { stroke: fillColor(level, softColors), strokeWidth: STROKE_WIDTH };
