@@ -1,6 +1,6 @@
 import React, { JSX } from 'react';
-import { Field } from '@base-ui-components/react/field';
-import { NumberField as BaseNumberField } from '@base-ui-components/react/number-field';
+import { Field } from '@base-ui/react/field';
+import { NumberField as BaseNumberField } from '@base-ui/react/number-field';
 import styles from './NumberField.module.css';
 import { PopperPlacementType, Tooltip } from '@mui/material';
 

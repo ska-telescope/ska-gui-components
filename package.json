@@ -61,7 +61,7 @@
     ]
   },
   "dependencies": {
-    "@base-ui-components/react": "^1.0.0-alpha.6",
+    "@base-ui/react": "^1.0.0-alpha.6",
     "@fontsource/material-icons": "^5.2.5",
     "@fontsource/roboto": "^5.2.5",
     "@mui/material": "7.3.0",
