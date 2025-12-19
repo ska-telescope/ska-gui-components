@@ -10,6 +10,7 @@ export default {
 
 export const Default = {
   args: {
+    accessibility: true,
     mainChildren: 'MAIN CHILD',
     footerChildren: 'FOOTER CHILD',
     application: 'Application',

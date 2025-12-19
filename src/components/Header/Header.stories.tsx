@@ -19,6 +19,7 @@ const theStorage = {
 
 export const Default = {
   args: {
+    accessibility: true,
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
     docs: {
