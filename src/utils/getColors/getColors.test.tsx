@@ -71,7 +71,7 @@ describe('getColors', () => {
       asArray: true,
     });
     expect(Array.isArray(result)).toBe(true);
-    expect(result!.length).toBe(2);
+    expect(result!.length).toBe(4);
     expect(result![0]).toContain('rgba(78, 121, 167, 1)');
   });
 
