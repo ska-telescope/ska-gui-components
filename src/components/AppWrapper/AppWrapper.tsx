@@ -37,6 +37,7 @@ export type Storage = {
 };
 
 export type AppWrapperProperties = {
+  accessibility?: boolean;
   application?: string;
   footerChildren?: Children;
   footerChildrenMiddle?: Children;
@@ -63,6 +64,7 @@ export type AppWrapperProperties = {
 function TheHeader(properties: AppWrapperProperties): React.JSX.Element {
   return (
     <Header
+      accessibility={properties.accessibility ? properties.accessibility : false}
       docs={{
         tooltip: properties.iconDocsToolTip
           ? properties.iconDocsToolTip

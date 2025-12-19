@@ -1,5 +1,5 @@
-import { JSX, ReactNode } from 'react';
-import { AppBar, Box, Grid, Paper, Typography, useTheme } from '@mui/material';
+import { JSX, ReactNode, useState } from 'react';
+import { AppBar, Box, Grid, Paper, Typography, useTheme, Drawer } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import {
   Logo,
@@ -16,8 +16,10 @@ import LightModeIcon from '../Icons/classic/LightModeIcon';
 import DocumentIcon from '../Icons/classic/DocumentIcon';
 import FeedbackIcon from '../Icons/classic/FeedbackIcon';
 import HelpIcon from '../Icons/circle/HelpIcon';
+import PaletteIcon from '../Icons/classic/PaletteIcon';
 import { Help } from '../HelpModal/HelpModal';
 import Children from '../../utils/types/types';
+import ColorSchemeContent from '../ColorSchemeContent/ColorSchemeContent';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -41,6 +43,7 @@ export type Storage = {
 
 const LOGO_HEIGHT = 30;
 const SKAO_URL = 'https://www.skao.int/';
+const APP_BAR_HEIGHT = 64; // adjust if your AppBar height differs
 
 function openLink(link: string) {
   window.open(link, '_blank');
@@ -62,6 +65,7 @@ export interface HeaderProps {
   useBrowserStorage?: boolean;
   useSymbol?: Boolean;
   children?: Children;
+  accessibility?: boolean; // new prop, default false
 }
 
 export function Header({
@@ -79,6 +83,7 @@ export function Header({
   useBrowserStorage = false,
   useSymbol = false,
   children,
+  accessibility = false,
 }: HeaderProps): JSX.Element {
   const setThemeMode = () =>
     localStorage.setItem(
@@ -102,7 +107,7 @@ export function Header({
       ? storage.help.content
       : null;
   const getHelpBrowser = () => sessionStorage.getItem('skao_help_content');
-  const getHelp = () => (showHelp ? (useBrowserStorage ? getHelpBrowser() : '') : ''); // TREVOR getHelpStorage());
+  const getHelp = () => (showHelp ? (useBrowserStorage ? getHelpBrowser() : '') : '');
 
   const getTelescopeStorage = () => (storage?.telescope ? storage.telescope : TELESCOPE_LOW);
   const setTelescopeStorage = () => {
@@ -113,22 +118,6 @@ export function Header({
     }
   };
 
-  // const setTelescopeBrowser = () =>
-  //   localStorage.setItem(
-  //     'skao_telescope',
-  //     JSON.stringify(getTelescopeBrowser() === TELESCOPE_LOW ? TELESCOPE_MID : TELESCOPE_LOW),
-  //   );
-  // const setTelescope = () => (useBrowserStorage ? setTelescopeBrowser() : setTelescopeStorage());
-  // const getTelescopeBrowser = () => {
-  //   const obj = localStorage.getItem('skao_telescope');
-  //   if (!obj) {
-  //     localStorage.setItem('skao_telescope', JSON.stringify(TELESCOPE_LOW));
-  //     return TELESCOPE_LOW;
-  //   }
-  //   return JSON.parse(obj);
-  // };
-  // const getTelescope = () => (useBrowserStorage ? getTelescopeBrowser() : getTelescopeStorage());
-
   const isDarkTheme = getThemeMode() === THEME_DARK;
   const flatten = false; // TODO : Need to implement user preferences
 
@@ -136,90 +125,129 @@ export function Header({
     setTelescopeStorage();
   };
 
+  // Drawer state for accessibility panel
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const toggleDrawer = () => setOpenDrawer(!openDrawer);
+
   return (
-    <AppBar
-      aria-label={ariaTitle}
-      aria-describedby={ariaDescription}
-      aria-hidden={false}
-      data-testid={testId}
-      color="primary"
-      position="fixed"
-      enableColorOnDark
-      elevation={0}
-      sx={{ borderBottom: '1px solid darkgrey' }}
-    >
-      <Grid m={1} container alignItems="center" direction="row" justifyContent="space-between">
-        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
-          <Box display="flex" justifyContent="flex-start">
-            <OurIconButton
-              ariaTitle="skaWebsite"
-              onClick={() => openLink(SKAO_URL)}
-              icon={
-                useSymbol ? (
-                  <Symbol dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
-                ) : (
-                  <Logo dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
-                )
-              }
-              testId={'skaWebsite'}
-              toolTip={toolTip?.skao}
-            ></OurIconButton>
-            {title && (
-              <Typography mt={1} data-testid="headerTitleId" variant="h5">
-                | {title.toUpperCase()}
-              </Typography>
-            )}
-          </Box>
-        </Item>
-        {children && <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>}
-        <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
-          <Box mr={1} display="flex" justifyContent="flex-end">
-            <Box mr={1} display="flex" justifyContent="flex-end">
-              {loginComponent}
+    <>
+      <AppBar
+        aria-label={ariaTitle}
+        aria-describedby={ariaDescription}
+        aria-hidden={false}
+        data-testid={testId}
+        color="primary"
+        position="fixed"
+        enableColorOnDark
+        elevation={0}
+        sx={{ borderBottom: '1px solid darkgrey', height: APP_BAR_HEIGHT }}
+      >
+        <Grid m={1} container alignItems="center" direction="row" justifyContent="space-between">
+          <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
+            <Box display="flex" justifyContent="flex-start">
+              <OurIconButton
+                ariaTitle="skaWebsite"
+                onClick={() => openLink(SKAO_URL)}
+                icon={
+                  useSymbol ? (
+                    <Symbol dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
+                  ) : (
+                    <Logo dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
+                  )
+                }
+                testId={'skaWebsite'}
+                toolTip={toolTip?.skao}
+              ></OurIconButton>
+              {title && (
+                <Typography mt={1} data-testid="headerTitleId" variant="h5">
+                  | {title.toUpperCase()}
+                </Typography>
+              )}
             </Box>
-            {selectTelescope && getTelescopeStorage() && (
-              <TelescopeSelector telescope={getTelescopeStorage()} updateTelescope={updateTel} />
-            )}
-            {feedback?.url && (
-              <OurIconButton
-                ariaTitle="feedback icon"
-                onClick={() => openLink(feedback.url)}
-                icon={<FeedbackIcon colorFG={useTheme().palette.primary.contrastText} />}
-                toolTip={feedback?.tooltip}
-              />
-            )}
-            {docs?.url && (
-              <OurIconButton
-                ariaTitle="document icon"
-                onClick={() => openLink(docs.url)}
-                icon={<DocumentIcon colorFG={useTheme().palette.primary.contrastText} />}
-                toolTip={docs?.tooltip}
-              />
-            )}
-            {getHelp() && (
-              <OurIconButton
-                ariaTitle="help icon"
-                onClick={() => helpToggle()}
-                icon={<HelpIcon colorFG={useTheme().palette.primary.contrastText} />}
-                toolTip={getHelp() as ReactNode}
-              />
-            )}
-            <OurIconButton
-              ariaTitle="light/dark mode"
-              onClick={() => themeToggle()}
-              icon={
-                isDarkTheme ? (
-                  <DarkModeIcon colorFG={useTheme().palette.primary.contrastText} />
-                ) : (
-                  <LightModeIcon colorFG={useTheme().palette.primary.contrastText} />
-                )
-              }
-              toolTip={toolTip.mode}
-            />
-          </Box>
-        </Item>
-      </Grid>
-    </AppBar>
+          </Item>
+          {children && (
+            <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>
+          )}
+          <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
+            <Box mr={1} display="flex" justifyContent="flex-end">
+              <Box mr={1} display="flex" justifyContent="flex-end">
+                {loginComponent}
+              </Box>
+              {selectTelescope && getTelescopeStorage() && (
+                <TelescopeSelector telescope={getTelescopeStorage()} updateTelescope={updateTel} />
+              )}
+              {feedback?.url && (
+                <OurIconButton
+                  ariaTitle="feedback icon"
+                  onClick={() => openLink(feedback.url)}
+                  icon={<FeedbackIcon colorFG={useTheme().palette.primary.contrastText} />}
+                  toolTip={feedback?.tooltip}
+                />
+              )}
+              {docs?.url && (
+                <OurIconButton
+                  ariaTitle="document icon"
+                  onClick={() => openLink(docs.url)}
+                  icon={<DocumentIcon colorFG={useTheme().palette.primary.contrastText} />}
+                  toolTip={docs?.tooltip}
+                />
+              )}
+              {getHelp() && (
+                <OurIconButton
+                  ariaTitle="help icon"
+                  onClick={() => helpToggle()}
+                  icon={<HelpIcon colorFG={useTheme().palette.primary.contrastText} />}
+                  toolTip={getHelp() as ReactNode}
+                />
+              )}
+              {accessibility ? (
+                <OurIconButton
+                  ariaTitle="color settings"
+                  onClick={toggleDrawer}
+                  icon={<PaletteIcon colorFG={useTheme().palette.primary.contrastText} />}
+                  toolTip={toolTip.mode}
+                />
+              ) : (
+                <OurIconButton
+                  ariaTitle="light/dark mode"
+                  onClick={() => themeToggle()}
+                  icon={
+                    isDarkTheme ? (
+                      <DarkModeIcon colorFG={useTheme().palette.primary.contrastText} />
+                    ) : (
+                      <LightModeIcon colorFG={useTheme().palette.primary.contrastText} />
+                    )
+                  }
+                  toolTip={toolTip.mode}
+                />
+              )}
+            </Box>
+          </Item>
+        </Grid>
+      </AppBar>
+
+      {accessibility && (
+        <Drawer
+          variant="persistent"
+          anchor="right"
+          open={openDrawer}
+          onClose={toggleDrawer}
+          PaperProps={{
+            sx: {
+              width: 240,
+              top: APP_BAR_HEIGHT, // offset below header
+              height: `calc(100% - ${APP_BAR_HEIGHT}px)`,
+            },
+          }}
+        >
+          <ColorSchemeContent
+            storage={storage}
+            toolTip={toolTip}
+            useBrowserStorage={useBrowserStorage}
+          />
+        </Drawer>
+      )}
+    </>
   );
 }
 

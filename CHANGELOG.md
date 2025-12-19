@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.5.3
+*****
+
+Accessibility drawer added to the Header, accessed via a property
+
 2.5.2
 *****
 

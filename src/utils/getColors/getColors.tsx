@@ -38,10 +38,10 @@ export function getColors({
       2: [paletteSet.colors[2], paletteSet.textColors[2]],
     },
     telescope: {
-      low: [Colors().SKAO_TELESCOPE_2, '#000000'],
+      1: [Colors().SKAO_TELESCOPE_1, '#000000'],
+      2: [Colors().SKAO_TELESCOPE_2, '#000000'],
       mid: [Colors().SKAO_TELESCOPE_1, '#000000'],
-      1: [Colors().SKAO_TELESCOPE_2, '#000000'],
-      2: [Colors().SKAO_TELESCOPE_1, '#000000'],
+      low: [Colors().SKAO_TELESCOPE_2, '#000000'],
     },
     boolean: {
       no: [paletteSet.colors[9], paletteSet.textColors[9]],
@@ -87,7 +87,7 @@ export function getColors({
 
   if (asArray) {
     return Object.values(result)
-      .map((c) => c.bg)
+      .flatMap((c) => [c.bg, c.fg]) // include both
       .filter(Boolean) as string[];
   }
 
