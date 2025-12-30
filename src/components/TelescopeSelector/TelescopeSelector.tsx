@@ -56,6 +56,7 @@ export function TelescopeSelector({
     <ButtonToggle
       ariaDescription={ariaDescription}
       ariaTitle={ariaTitle}
+      color="telescope"
       current={telescope.code}
       disabled={disabled}
       options={getOptions(TelescopeList)}

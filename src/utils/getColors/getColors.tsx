@@ -38,9 +38,9 @@ export function getColors({
       2: [paletteSet.colors[2], paletteSet.textColors[2]],
     },
     telescope: {
-      1: [Colors().SKAO_TELESCOPE_1, '#000000'],
+      1: [Colors().SKAO_TELESCOPE_1, '#FFFFFF'],
       2: [Colors().SKAO_TELESCOPE_2, '#000000'],
-      mid: [Colors().SKAO_TELESCOPE_1, '#000000'],
+      mid: [Colors().SKAO_TELESCOPE_1, '#FFFFFF'],
       low: [Colors().SKAO_TELESCOPE_2, '#000000'],
     },
     boolean: {
@@ -49,16 +49,17 @@ export function getColors({
       false: [paletteSet.colors[9], paletteSet.textColors[9]],
       true: [paletteSet.colors[3], paletteSet.textColors[3]],
     },
+    logo: {
+      1: [Colors().SKAO_LOGO_PRIMARY, Colors().SKAO_LOGO_LIGHT],
+      2: [Colors().SKAO_LOGO_ACCENT, Colors().SKAO_LOGO_LIGHT],
+    },
   };
 
   const mapping =
     type && paletteMap[type]
       ? paletteMap[type]
       : Object.fromEntries(
-          paletteSet.colors.map((c: any, i: string | number) => [
-            String(i),
-            [c, paletteSet.textColors[i]],
-          ]),
+          paletteSet.colors.map((c: any, i: number) => [String(i), [c, paletteSet.textColors[i]]]),
         );
 
   const colorList =
@@ -72,10 +73,10 @@ export function getColors({
 
   colorList.forEach((level) => {
     const palette = mapping[level] ?? ['#cccccc', '#000000'];
-    result[level] = {};
+    const bgColor = palette[0];
+    const fgColor = palette[1];
 
-    const bgColor = palette[0] ?? '#cccccc';
-    const fgColor = palette[1] ?? '#000000';
+    result[level] = {};
 
     if (content === 'bg' || content === 'both') {
       result[level].bg = alpha(bgColor, dim);
@@ -85,10 +86,19 @@ export function getColors({
     }
   });
 
+  // --- FIXED ARRAY MODE ---
   if (asArray) {
-    return Object.values(result)
-      .flatMap((c) => [c.bg, c.fg]) // include both
-      .filter(Boolean) as string[];
+    if (content === 'bg') {
+      return Object.values(result).map((c) => c.bg);
+    }
+    if (content === 'fg') {
+      return Object.values(result).map((c) => c.fg);
+    }
+    // content === 'both'
+    return {
+      bg: Object.values(result).map((c) => c.bg),
+      fg: Object.values(result).map((c) => c.fg),
+    };
   }
 
   return result;

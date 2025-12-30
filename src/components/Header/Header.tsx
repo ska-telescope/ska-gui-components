@@ -234,7 +234,7 @@ export function Header({
           onClose={toggleDrawer}
           PaperProps={{
             sx: {
-              width: 240,
+              minWidth: 300,
               top: APP_BAR_HEIGHT, // offset below header
               height: `calc(100% - ${APP_BAR_HEIGHT}px)`,
             },

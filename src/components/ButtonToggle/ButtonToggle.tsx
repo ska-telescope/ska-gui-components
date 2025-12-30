@@ -1,5 +1,6 @@
 import React, { JSX } from 'react';
 import { PopperPlacementType, ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
+import { getColors } from '../../utils/getColors/getColors';
 
 export interface ButtonToggleProps {
   ariaDescription?: string;
@@ -12,6 +13,9 @@ export interface ButtonToggleProps {
   toolTip?: string;
   toolTipPlacement?: string;
   value: any;
+
+  /** NEW: optional palette type */
+  color?: string; // e.g. "telescope", "boolean", "chart"
 }
 
 export function ButtonToggle({
@@ -25,6 +29,7 @@ export function ButtonToggle({
   testId,
   toolTip = '',
   toolTipPlacement = 'bottom',
+  color = '', // NEW default
 }: ButtonToggleProps): JSX.Element {
   const fetchValue = (id: string) => {
     return options[options[0].id === id ? 0 : 1].value;
@@ -47,7 +52,20 @@ export function ButtonToggle({
         size="small"
         value={value}
       >
-        {options.map((option: { id: string; label: string; value: any }): JSX.Element => {
+        {options.map((option) => {
+          // If color type is provided, fetch bg/fg for this option
+          const colorPair = color
+            ? getColors({
+                type: color, // <-- palette type
+                colors: option.id, // <-- key for this button
+                content: 'both',
+                asArray: false,
+              })?.[option.id]
+            : undefined;
+
+          const selectedBG = colorPair?.bg;
+          const selectedFG = colorPair?.fg;
+
           return (
             <ToggleButton
               aria-label={option.id}
@@ -57,8 +75,8 @@ export function ButtonToggle({
               selected={option.id === current}
               sx={{
                 '&.Mui-selected': {
-                  color: 'primary.main',
-                  backgroundColor: 'secondary.main',
+                  color: selectedFG ?? 'primary.main',
+                  backgroundColor: selectedBG ?? 'secondary.main',
                   fontWeight: 'bold',
                   ':disabled': {
                     color: 'primary.contrastText',
@@ -66,12 +84,12 @@ export function ButtonToggle({
                   },
                 },
                 '&.Mui-focusVisible': {
-                  color: 'primary.main',
-                  backgroundColor: 'secondary.dark',
+                  color: selectedFG ?? 'primary.main',
+                  backgroundColor: selectedBG ?? 'secondary.dark',
                 },
                 ':hover': {
-                  color: 'primary.main',
-                  backgroundColor: 'secondary.dark',
+                  color: selectedFG ?? 'primary.main',
+                  backgroundColor: selectedBG ?? 'secondary.dark',
                 },
               }}
               value={option.id}

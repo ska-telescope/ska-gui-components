@@ -20,25 +20,31 @@ export type Storage = {
 };
 
 export interface ColorSchemeContent {
+  colors?: string[];
   storage: Storage;
   toolTip?: { skao: string; mode: string };
   useBrowserStorage?: boolean;
 }
 
 export default function ColorSchemeContent({
+  colors = [],
   storage,
   toolTip = { skao: 'SKAO', mode: '' },
   useBrowserStorage = false,
 }: ColorSchemeContent) {
   const theme = useTheme();
+
   const setThemeMode = () =>
     localStorage.setItem(
       'skao_theme_mode',
       getThemeMode() === THEME_DARK ? THEME_LIGHT : THEME_DARK,
     );
+
   const getThemeMode = () =>
     useBrowserStorage ? localStorage.getItem('skao_theme_mode') : storage.themeMode;
+
   const themeToggle = () => (useBrowserStorage ? setThemeMode() : storage.toggleTheme());
+
   const isDarkTheme = getThemeMode() === THEME_DARK;
 
   const colorBox = (bgColor: any, fgColor: any, label: string) => (
@@ -56,15 +62,46 @@ export default function ColorSchemeContent({
     </Box>
   );
 
-  const midBG =
-    getColors({ type: 'telescope', colors: '1', content: 'bg', asArray: true }) ?? '#000000';
-  const midFG =
-    getColors({ type: 'telescope', colors: '1', content: 'fg', asArray: true }) ?? '#000000';
+  // Helper: should a given section be shown?
+  // If colors is empty → show all sections
+  // If colors has values → show only when sectionId is in colors
+  const shouldShowSection = (sectionId: string) =>
+    colors.length === 0 || colors.includes(sectionId);
 
-  const lowBG =
-    getColors({ type: 'telescope', colors: '2', content: 'bg', asArray: true }) ?? '#000000';
-  const lowFG =
-    getColors({ type: 'telescope', colors: '2', content: 'fg', asArray: true }) ?? '#000000';
+  const telescopeColors = getColors({
+    type: 'telescope',
+    colors: ['low', 'mid'],
+    content: 'both',
+    asArray: false,
+  });
+
+  const observationTypeColors = getColors({
+    type: 'observationType',
+    colors: ['continuum', 'spectral', 'pst'],
+    content: 'both',
+    asArray: false,
+  });
+
+  const booleanTypeColors = getColors({
+    type: 'boolean',
+    colors: ['yes', 'no'],
+    content: 'both',
+    asArray: false,
+  });
+
+  const logoColors = getColors({
+    type: 'logo',
+    colors: ['1', '2'],
+    content: 'both',
+    asArray: false,
+  });
+
+  const chartColors = getColors({
+    type: 'chart',
+    colors: '*',
+    content: 'both',
+    asArray: false,
+  });
 
   return (
     <Grid
@@ -75,7 +112,7 @@ export default function ColorSchemeContent({
         bgcolor: theme.palette.background.default, // background reflects current scheme
       }}
     >
-      {/* Top section: Color Scheme toggle */}
+      {/* Top section: Color Scheme toggle (always shown) */}
       <Grid
         container
         direction="row"
@@ -88,9 +125,9 @@ export default function ColorSchemeContent({
         </Typography>
       </Grid>
 
-      {/* Additional drawer content can be added below */}
       <Grid container direction="column" sx={{ p: 2 }}>
-        <BorderedSection title="Mode Selection">
+        {/* Mode Selection: always visible */}
+        <BorderedSection title="Color Options" titleSize="subtitle1">
           <Stack direction="row" spacing={2} alignItems="center">
             <Typography variant="body2">Current Mode:</Typography>
             <OurIconButton
@@ -107,12 +144,66 @@ export default function ColorSchemeContent({
             />
           </Stack>
         </BorderedSection>
-        <BorderedSection title="Telescope colors">
-          <Stack direction="row" spacing={2} alignItems="center">
-            {colorBox(midBG, midFG, 'MID')}
-            {colorBox(lowBG, lowFG, 'LOW')}
-          </Stack>
-        </BorderedSection>
+
+        {/* Telescope colors section */}
+        {shouldShowSection('telescope') && (
+          <BorderedSection title="Telescope colors" titleSize="subtitle1">
+            <Stack direction="row" spacing={2} alignItems="center">
+              {telescopeColors &&
+                Object.entries(telescopeColors).map(([key, { bg, fg }]) =>
+                  colorBox(bg, fg, key.toUpperCase()),
+                )}
+            </Stack>
+          </BorderedSection>
+        )}
+
+        {/* Boolean colors section */}
+        {shouldShowSection('boolean') && (
+          <BorderedSection title="Boolean colors" titleSize="subtitle1">
+            <Stack direction="row" spacing={2} alignItems="center">
+              {booleanTypeColors &&
+                Object.entries(booleanTypeColors).map(([key, { bg, fg }]) =>
+                  colorBox(bg, fg, key.toUpperCase()),
+                )}
+            </Stack>
+          </BorderedSection>
+        )}
+
+        {/* Logo colors section */}
+        {shouldShowSection('logo') && (
+          <BorderedSection title="Logo colors" titleSize="subtitle1">
+            <Stack direction="row" spacing={2} alignItems="center">
+              {logoColors &&
+                Object.entries(logoColors).map(([key, { bg, fg }]) =>
+                  colorBox(bg, fg, key.toUpperCase()),
+                )}
+            </Stack>
+          </BorderedSection>
+        )}
+
+        {/* Observation Type colors section */}
+        {shouldShowSection('observationType') && (
+          <BorderedSection title="Observation Type colors" titleSize="subtitle1">
+            <Stack direction="row" spacing={2} alignItems="center">
+              {observationTypeColors &&
+                Object.entries(observationTypeColors).map(([key, { bg, fg }]) =>
+                  colorBox(bg, fg, key.toUpperCase()),
+                )}
+            </Stack>
+          </BorderedSection>
+        )}
+
+        {/* Chart colors section */}
+        {shouldShowSection('chart') && (
+          <BorderedSection title="Chart colors" titleSize="subtitle1">
+            <Stack direction="row" spacing={2} alignItems="center">
+              {chartColors &&
+                Object.entries(chartColors).map(([key, { bg, fg }]) =>
+                  colorBox(bg, fg, key.toUpperCase()),
+                )}
+            </Stack>
+          </BorderedSection>
+        )}
       </Grid>
     </Grid>
   );

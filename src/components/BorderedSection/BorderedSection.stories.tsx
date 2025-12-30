@@ -17,7 +17,9 @@ export const Light = {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
     title: 'Dummy title',
+    titleSize: 'subtitle1',
     testId: 'testId',
+    children: 'This is a light themed BorderedSection',
   },
 };
 
@@ -29,6 +31,8 @@ export const Dark = {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
     title: 'Dummy title',
+    titleSize: 'subtitle1',
     testId: 'testId',
+    children: 'This is a dark themed BorderedSection',
   },
 };

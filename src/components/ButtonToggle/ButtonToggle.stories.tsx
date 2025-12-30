@@ -12,8 +12,8 @@ export default {
 
 const telescope = { id: 'low', Label: 'SKA LOW' };
 const telescopeList = [
-  { id: 'low', label: 'SKA LOW', value: null },
-  { id: 'mid', label: 'SKA MID', value: null },
+  { id: 'low', label: 'SKA LOW', value: 'low' },
+  { id: 'mid', label: 'SKA MID', value: 'mid' },
 ];
 
 const Template: StoryFn<typeof ButtonToggle> = (args) => {
@@ -25,6 +25,7 @@ export const ButtonToggleDisplay = Template.bind({});
 ButtonToggleDisplay.args = {
   ariaTitle: 'aria Title',
   ariaDescription: 'aria Description',
+  color: 'telescope',
   current: telescope.id,
   value: telescope,
   options: telescopeList,

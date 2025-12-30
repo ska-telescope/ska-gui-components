@@ -4,6 +4,7 @@ import { Box, Typography, SxProps, Theme, useTheme } from '@mui/material';
 export interface BorderedSectionProps {
   bold?: boolean;
   title?: string;
+  titleSize?: string;
   icon?: React.ReactNode;
   iconAfter?: boolean;
   children: React.ReactNode;
@@ -21,6 +22,7 @@ export interface BorderedSectionProps {
 export const BorderedSection: React.FC<BorderedSectionProps> = ({
   bold = false,
   title,
+  titleSize = 'h6',
   icon,
   iconAfter = false,
   children,
@@ -57,8 +59,8 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
     >
       {title && (
         <Typography
-          component="h2"
-          variant="h6"
+          component={titleSize as any}
+          variant={titleSize as any}
           data-testid={`${testId}-label`}
           sx={{
             position: 'absolute',
@@ -78,9 +80,7 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
           {iconAfter && icon}
         </Typography>
       )}
-      <Box mt={title ? 2 : 0} data-testid={`${testId}-content`}>
-        {children}
-      </Box>
+      <Box data-testid={`${testId}-content`}>{children}</Box>
     </Box>
   );
 };

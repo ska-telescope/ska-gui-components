@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.5.4
+*****
+
+Accessibility drawer extended to show more color options
+
 2.5.3
 *****
 
