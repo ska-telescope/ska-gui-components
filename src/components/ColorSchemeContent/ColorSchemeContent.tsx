@@ -135,9 +135,9 @@ export default function ColorSchemeContent({
               onClick={() => themeToggle()}
               icon={
                 isDarkTheme ? (
-                  <DarkModeIcon colorFG={useTheme().palette.primary.main} />
+                  <DarkModeIcon colorFG={useTheme().palette.secondary.main} />
                 ) : (
-                  <LightModeIcon colorFG={useTheme().palette.primary.main} />
+                  <LightModeIcon colorFG={useTheme().palette.secondary.main} />
                 )
               }
               toolTip={toolTip.mode}

@@ -65,7 +65,8 @@ export interface HeaderProps {
   useBrowserStorage?: boolean;
   useSymbol?: Boolean;
   children?: Children;
-  accessibility?: boolean; // new prop, default false
+  accessibility?: boolean;
+  accessibilityColor?: string[];
 }
 
 export function Header({
@@ -84,6 +85,7 @@ export function Header({
   useSymbol = false,
   children,
   accessibility = false,
+  accessibilityColor = [],
 }: HeaderProps): JSX.Element {
   const setThemeMode = () =>
     localStorage.setItem(
@@ -241,6 +243,7 @@ export function Header({
           }}
         >
           <ColorSchemeContent
+            colors={accessibilityColor}
             storage={storage}
             toolTip={toolTip}
             useBrowserStorage={useBrowserStorage}

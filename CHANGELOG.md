@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.5.5
+*****
+
+Accessibility adjustments
+
 2.5.4
 *****
 

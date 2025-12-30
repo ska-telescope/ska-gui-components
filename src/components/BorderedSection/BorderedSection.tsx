@@ -80,7 +80,9 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
           {iconAfter && icon}
         </Typography>
       )}
-      <Box data-testid={`${testId}-content`}>{children}</Box>
+      <Box sx={{ paddingTop: title ? theme.spacing(2) : 0 }} data-testid={`${testId}-content`}>
+        {children}
+      </Box>
     </Box>
   );
 };
