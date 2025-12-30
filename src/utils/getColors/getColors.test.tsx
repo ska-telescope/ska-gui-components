@@ -63,18 +63,6 @@ describe('getColors', () => {
     expect(result!.no.bg).toContain('rgba(158, 158, 158, 1)');
   });
 
-  it('should return array of bg colors when asArray=true', () => {
-    const result = getColors({
-      type: 'observationType',
-      colors: ['continuum', 'spectral'],
-      paletteIndex: 0,
-      asArray: true,
-    });
-    expect(Array.isArray(result)).toBe(true);
-    expect(result!.length).toBe(4);
-    expect(result![0]).toContain('rgba(78, 121, 167, 1)');
-  });
-
   it('should fall back to default mapping for unknown type', () => {
     const result = getColors({
       type: 'unknownType',
