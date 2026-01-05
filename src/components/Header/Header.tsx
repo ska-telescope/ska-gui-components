@@ -33,6 +33,8 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export type Storage = {
+  accessibility?: number;
+  accessibilityUpdate?: (value: number) => void;
   help?: Help;
   helpToggle?: Function;
   telescope?: Telescope;
@@ -84,8 +86,8 @@ export function Header({
   useBrowserStorage = false,
   useSymbol = false,
   children,
-  accessibility = true,
-  accessibilityColor = ['telescope', 'observationType', 'boolean'],
+  accessibility = false,
+  accessibilityColor = [],
 }: HeaderProps): JSX.Element {
   const setThemeMode = () =>
     localStorage.setItem(
@@ -141,12 +143,12 @@ export function Header({
         color="primary"
         position="fixed"
         enableColorOnDark
-        elevation={100}
+        elevation={0}
         sx={{ borderBottom: '1px solid darkgrey', height: APP_BAR_HEIGHT }}
       >
         <Grid container alignItems="center" direction="row" justifyContent="space-between">
           <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
-            <Box display="flex" justifyContent="flex-start">
+            <Box display="flex" justifyContent="flex-start" alignItems="center">
               <OurIconButton
                 ariaTitle="skaWebsite"
                 onClick={() => openLink(SKAO_URL)}
@@ -161,7 +163,7 @@ export function Header({
                 toolTip={toolTip?.skao}
               ></OurIconButton>
               {title && (
-                <Typography mt={1} data-testid="headerTitleId" variant="h5">
+                <Typography data-testid="headerTitleId" variant="h5">
                   | {title.toUpperCase()}
                 </Typography>
               )}

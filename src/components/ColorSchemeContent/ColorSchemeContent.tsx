@@ -16,12 +16,12 @@ import { getColors } from '../../utils/getColors/getColors';
 import DropDown from '../DropDown/DropDown';
 
 export type Storage = {
+  accessibility?: number;
+  accessibilityUpdate?: (value: number) => void;
+
   help?: Help;
   helpToggle?: Function;
   telescope?: Telescope;
-
-  colorMode?: number;
-  updateColorMode?: (value: number) => void; // <-- added
 
   themeMode: string;
   toggleTheme: Function;
@@ -66,16 +66,18 @@ export default function ColorSchemeContent({
   const getColorMode = (): number =>
     parseInt(
       String(
-        useBrowserStorage ? localStorage.getItem('skao_color_mode') : (storage.colorMode ?? 0),
+        useBrowserStorage
+          ? localStorage.getItem('skao_accessibility_mode')
+          : (storage.accessibility ?? 0),
       ),
       10,
     );
 
   const setColorMode = (value: string) => {
     if (useBrowserStorage) {
-      localStorage.setItem('skao_color_mode', value);
-    } else if (storage.updateColorMode) {
-      storage.updateColorMode(Number(value));
+      localStorage.setItem('skao_accessibility_mode', value);
+    } else if (storage.accessibilityUpdate) {
+      storage.accessibilityUpdate(Number(value));
     }
   };
 

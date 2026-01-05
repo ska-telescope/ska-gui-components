@@ -62,7 +62,7 @@ export function Footer({
       color="primary"
       position="fixed"
       enableColorOnDark
-      elevation={100}
+      elevation={0}
       sx={{ borderTop: '1px solid darkgrey', bottom: 0, top: 'auto' }}
     >
       <Grid pr={1} container direction="row" justifyContent="space-between" alignItems="center">

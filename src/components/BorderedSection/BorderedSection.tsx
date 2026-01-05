@@ -73,6 +73,7 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
             display: 'flex',
             alignItems: 'center',
             gap: 1,
+            whiteSpace: 'nowrap',
           }}
         >
           {!iconAfter && icon}

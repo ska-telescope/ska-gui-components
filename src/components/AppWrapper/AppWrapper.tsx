@@ -28,6 +28,8 @@ export type Telescope = {
 };
 
 export type Storage = {
+  accessibility?: number;
+  accessibilityUpdate?: (value: number) => void;
   help?: Help;
   helpToggle?: Function;
   telescope?: Telescope;
@@ -52,6 +54,8 @@ export type AppWrapperProperties = {
   loginComponent?: JSX.Element | null;
   mainChildren?: Children;
   selectTelescope?: boolean;
+  storageAccessibility?: number;
+  storageAccessibilityUpdate?: (value: number) => void;
   storageHelp?: Help;
   storageHelpToggle?: Function;
   storageTelescope?: Telescope;
@@ -88,6 +92,8 @@ function TheHeader(properties: AppWrapperProperties): React.JSX.Element {
         mode: properties.iconThemeToolTip ? properties.iconThemeToolTip : 'Colour Mode Toggle',
       }}
       storage={{
+        accessibility: properties.storageAccessibility,
+        accessibilityUpdate: properties.storageAccessibilityUpdate,
         help: properties.storageHelp,
         helpToggle: properties.storageHelpToggle,
         telescope: properties.storageTelescope,

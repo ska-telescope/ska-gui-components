@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.5.7
+*****
+
+Some component adjustments
+
 2.5.6
 *****
 
