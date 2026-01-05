@@ -84,8 +84,8 @@ export function Header({
   useBrowserStorage = false,
   useSymbol = false,
   children,
-  accessibility = false,
-  accessibilityColor = [],
+  accessibility = true,
+  accessibilityColor = ['telescope', 'observationType', 'boolean'],
 }: HeaderProps): JSX.Element {
   const setThemeMode = () =>
     localStorage.setItem(
@@ -141,10 +141,10 @@ export function Header({
         color="primary"
         position="fixed"
         enableColorOnDark
-        elevation={0}
+        elevation={100}
         sx={{ borderBottom: '1px solid darkgrey', height: APP_BAR_HEIGHT }}
       >
-        <Grid m={1} container alignItems="center" direction="row" justifyContent="space-between">
+        <Grid container alignItems="center" direction="row" justifyContent="space-between">
           <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
             <Box display="flex" justifyContent="flex-start">
               <OurIconButton
@@ -171,8 +171,8 @@ export function Header({
             <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>
           )}
           <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
-            <Box mr={1} display="flex" justifyContent="flex-end">
-              <Box mr={1} display="flex" justifyContent="flex-end">
+            <Box mr={1} display="flex" justifyContent="flex-end" alignItems="center">
+              <Box mr={1} display="flex" justifyContent="flex-end" alignItems="center">
                 {loginComponent}
               </Box>
               {selectTelescope && getTelescopeStorage() && (
@@ -238,7 +238,7 @@ export function Header({
             sx: {
               minWidth: 300,
               top: APP_BAR_HEIGHT, // offset below header
-              height: `calc(100% - ${APP_BAR_HEIGHT}px)`,
+              height: `calc(100% - ${APP_BAR_HEIGHT * 2}px)`,
             },
           }}
         >

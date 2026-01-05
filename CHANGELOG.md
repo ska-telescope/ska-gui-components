@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.5.6
+*****
+
+Hooked real theme into storybook and extended accessibility further
+
 2.5.5
 *****
 
