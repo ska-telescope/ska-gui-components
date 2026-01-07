@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.6.0
+*****
+
+Normalize help information
+
 2.5.9
 *****
 

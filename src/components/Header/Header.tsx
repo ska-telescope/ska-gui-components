@@ -106,10 +106,6 @@ export function Header({
   const helpToggle = () =>
     useBrowserStorage ? setHelpMode() : storage.helpToggle ? storage.helpToggle() : null;
 
-  const getHelpStorage = () =>
-    storage.help && storage.help.hasOwnProperty('content') && storage.help.content
-      ? storage.help.content
-      : null;
   const getHelpBrowser = () => sessionStorage.getItem('skao_help_content');
   const getHelp = () => (showHelp ? (useBrowserStorage ? getHelpBrowser() : '') : '');
 

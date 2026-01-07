@@ -282,24 +282,9 @@ export default function ColorSchemeContent({
         {shouldShowSection('status') &&
           section('Application Status colors', applicationStatusColors)}
         <Grid container direction="row" spacing={2} justifyContent="space-between">
-          {shouldShowSection('observationType') && (
-            <BorderedSection title="Observation Type colors" titleSize="subtitle1">
-              <Stack direction="row" spacing={2} alignItems="center">
-                {Object.entries(observationTypeColors ?? {}).map(([key, { bg, fg }]) =>
-                  colorBox(bg, fg, key.toUpperCase()),
-                )}
-              </Stack>
-            </BorderedSection>
-          )}
-          {shouldShowSection('boolean') && (
-            <BorderedSection title="Boolean colors" titleSize="subtitle1">
-              <Stack direction="row" spacing={2} alignItems="center">
-                {Object.entries(booleanTypeColors ?? {}).map(([key, { bg, fg }]) =>
-                  colorBox(bg, fg, key.toUpperCase()),
-                )}
-              </Stack>
-            </BorderedSection>
-          )}
+          {shouldShowSection('observationType') &&
+            section('Observation Type colors', observationTypeColors)}
+          {shouldShowSection('boolean') && section('Boolean colors', booleanTypeColors)}
         </Grid>
         {shouldShowSection('proposalStatus') &&
           section('Proposal Status colors', proposalStatusColors)}
