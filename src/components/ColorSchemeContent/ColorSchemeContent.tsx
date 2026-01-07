@@ -180,9 +180,32 @@ export default function ColorSchemeContent({
     paletteIndex,
   });
 
+  const reviewStatusColors = getColors({
+    type: 'reviewStatus',
+    colors: '*',
+    content: 'both',
+    asArray: false,
+    paletteIndex,
+  });
+
+  const proposalStatusColors = getColors({
+    type: 'proposalStatus',
+    colors: '*',
+    content: 'both',
+    asArray: false,
+    paletteIndex,
+  });
+
+  const sbStatusColors = getColors({
+    type: 'sbStatus',
+    colors: '*',
+    content: 'both',
+    asArray: false,
+    paletteIndex,
+  });
+
   // -----------------------------
-  // RENDER
-  // -----------------------------
+
   return (
     <Grid
       container
@@ -192,63 +215,45 @@ export default function ColorSchemeContent({
         bgcolor: theme.palette.background.default,
       }}
     >
-      {/* Header */}
-      <Grid
-        container
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        sx={{ p: 2 }}
-      >
-        <Typography variant="h6" fontWeight={600}>
-          Color Scheme
-        </Typography>
-      </Grid>
-
       <Grid container direction="column" sx={{ p: 2 }}>
-        {/* Mode Selection */}
-        <BorderedSection title="Color Options" titleSize="subtitle1">
-          <Stack direction="row" spacing={2} alignItems="center">
-            <Typography variant="body2">Light / Dark:</Typography>
+        <Stack mb={4} direction="row" spacing={2} alignItems="center">
+          <Typography variant="body2">Light / Dark:</Typography>
 
-            <OurIconButton
-              ariaTitle="light/dark mode"
-              onClick={() => themeToggle()}
-              icon={
-                isDarkTheme ? (
-                  <DarkModeIcon colorFG={useTheme().palette.secondary.main} />
-                ) : (
-                  <LightModeIcon colorFG={useTheme().palette.secondary.main} />
-                )
-              }
-              toolTip={toolTip.mode}
-            />
+          <OurIconButton
+            ariaTitle="light/dark mode"
+            onClick={() => themeToggle()}
+            icon={
+              isDarkTheme ? (
+                <DarkModeIcon colorFG={useTheme().palette.secondary.main} />
+              ) : (
+                <LightModeIcon colorFG={useTheme().palette.secondary.main} />
+              )
+            }
+            toolTip={toolTip.mode}
+          />
 
-            <Typography variant="body2">Color Mode:</Typography>
+          <Typography variant="body2">Color Mode:</Typography>
 
-            <DropDown
-              ariaTitle="aria Title"
-              ariaDescription="aria Description"
-              disabled={false}
-              errorText=""
-              label=""
-              options={COLOR_PALETTE_SETS.map(
-                (set: { label: any }, index: { toString: () => any }) => ({
-                  label: set.label,
-                  value: index.toString(),
-                  disabled: false,
-                }),
-              )}
-              required={false}
-              value={getColorMode()}
-              setValue={(newValue: string) => setColorMode(newValue)}
-              testId="testId"
-              toolTip="tooltip"
-            />
-          </Stack>
-        </BorderedSection>
-
-        {/* Telescope + Logo */}
+          <DropDown
+            ariaTitle="aria Title"
+            ariaDescription="aria Description"
+            disabled={false}
+            errorText=""
+            label=""
+            options={COLOR_PALETTE_SETS.map(
+              (set: { label: any }, index: { toString: () => any }) => ({
+                label: set.label,
+                value: index.toString(),
+                disabled: false,
+              }),
+            )}
+            required={false}
+            value={getColorMode()}
+            setValue={(newValue: string) => setColorMode(newValue)}
+            testId="testId"
+            toolTip="tooltip"
+          />
+        </Stack>
         <Grid container direction="row" justifyContent="space-between">
           {shouldShowSection('telescope') && (
             <BorderedSection title="Telescope colors" titleSize="subtitle1">
@@ -269,10 +274,7 @@ export default function ColorSchemeContent({
               </Stack>
             </BorderedSection>
           )}
-        </Grid>
 
-        {/* Button + Boolean */}
-        <Grid container direction="row" justifyContent="space-between">
           {shouldShowSection('button') && (
             <BorderedSection title="Button colors" titleSize="subtitle1">
               <Stack direction="row" spacing={2} alignItems="center">
@@ -282,7 +284,26 @@ export default function ColorSchemeContent({
               </Stack>
             </BorderedSection>
           )}
-
+        </Grid>
+        {shouldShowSection('status') && (
+          <BorderedSection title="Application Status colors" titleSize="subtitle1">
+            <Stack direction="row" spacing={2} alignItems="center">
+              {Object.entries(applicationStatusColors ?? {}).map(([key, { bg, fg }]) =>
+                colorBox(bg, fg, key.toUpperCase()),
+              )}
+            </Stack>
+          </BorderedSection>
+        )}
+        <Grid container direction="row" justifyContent="space-between">
+          {shouldShowSection('observationType') && (
+            <BorderedSection title="Observation Type colors" titleSize="subtitle1">
+              <Stack direction="row" spacing={2} alignItems="center">
+                {Object.entries(observationTypeColors ?? {}).map(([key, { bg, fg }]) =>
+                  colorBox(bg, fg, key.toUpperCase()),
+                )}
+              </Stack>
+            </BorderedSection>
+          )}
           {shouldShowSection('boolean') && (
             <BorderedSection title="Boolean colors" titleSize="subtitle1">
               <Stack direction="row" spacing={2} alignItems="center">
@@ -293,30 +314,33 @@ export default function ColorSchemeContent({
             </BorderedSection>
           )}
         </Grid>
-
-        {/* Status */}
-        {shouldShowSection('status') && (
-          <BorderedSection title="Application Status colors" titleSize="subtitle1">
+        {shouldShowSection('proposalStatus') && (
+          <BorderedSection title="Proposal Status colors" titleSize="subtitle1">
             <Stack direction="row" spacing={2} alignItems="center">
-              {Object.entries(applicationStatusColors ?? {}).map(([key, { bg, fg }]) =>
+              {Object.entries(proposalStatusColors ?? {}).map(([key, { bg, fg }]) =>
                 colorBox(bg, fg, key.toUpperCase()),
               )}
             </Stack>
           </BorderedSection>
         )}
-
-        {/* Observation Type */}
-        {shouldShowSection('observationType') && (
-          <BorderedSection title="Observation Type colors" titleSize="subtitle1">
+        {shouldShowSection('reviewStatus') && (
+          <BorderedSection title="Review Status colors" titleSize="subtitle1">
             <Stack direction="row" spacing={2} alignItems="center">
-              {Object.entries(observationTypeColors ?? {}).map(([key, { bg, fg }]) =>
+              {Object.entries(reviewStatusColors ?? {}).map(([key, { bg, fg }]) =>
                 colorBox(bg, fg, key.toUpperCase()),
               )}
             </Stack>
           </BorderedSection>
         )}
-
-        {/* Chart */}
+        {shouldShowSection('sbStatus') && (
+          <BorderedSection title="Scheduling Block Status colors" titleSize="subtitle1">
+            <Stack direction="row" spacing={2} alignItems="center">
+              {Object.entries(sbStatusColors ?? {}).map(([key, { bg, fg }]) =>
+                colorBox(bg, fg, key.toUpperCase()),
+              )}
+            </Stack>
+          </BorderedSection>
+        )}
         {shouldShowSection('chart') && (
           <BorderedSection title="Chart colors" titleSize="subtitle1">
             <Stack direction="row" spacing={2} alignItems="center">

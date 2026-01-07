@@ -83,10 +83,20 @@ export function Footer({
             </Tooltip>
           </Stack>
         </Item>
+
         {childrenMiddle && (
-          <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{childrenMiddle}</Item>
+          <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
+            {/* Wrap to avoid list children → key warnings */}
+            <div>{childrenMiddle}</div>
+          </Item>
         )}
-        {children && <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{children}</Item>}
+
+        {children && (
+          <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
+            {/* Wrap to avoid list children → key warnings */}
+            <div>{children}</div>
+          </Item>
+        )}
       </Grid>
     </AppBar>
   );

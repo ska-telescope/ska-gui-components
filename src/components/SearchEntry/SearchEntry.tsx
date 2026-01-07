@@ -1,5 +1,5 @@
 import { FocusEventHandler, JSX } from 'react';
-import { InputAdornment, PopperPlacementType, TextField, Tooltip } from '@mui/material';
+import { InputAdornment, PopperPlacementType, TextField, Tooltip, useTheme } from '@mui/material';
 import SearchIcon from '../Icons/classic/SearchIcon';
 
 export enum STATE {
@@ -71,7 +71,7 @@ export function SearchEntry({
           input: {
             startAdornment: (
               <InputAdornment position="start">
-                <SearchIcon />
+                <SearchIcon colorFG={useTheme().palette.primary.contrastText} />
               </InputAdornment>
             ),
           },

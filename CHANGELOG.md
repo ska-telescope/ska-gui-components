@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.5.8
+*****
+
+Resolved a few dev tool warnings
+
 2.5.7
 *****
 

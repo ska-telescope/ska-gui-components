@@ -1253,10 +1253,10 @@
     argparse "~1.0.9"
     string-argv "~0.3.1"
 
-"@ska-telescope/ska-javascript-components@^2.3.15":
-  version "2.3.15"
-  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-2.3.15.tgz#e6ff530de9eaa29e7e9a576f81b5d06b66aeaa6f"
-  integrity sha512-PcOIHFiJD7E8tj/9lNglg736lLSpckiyfLReEBWij2vAkle/uVOaYdCh5beuU9f0Ejga8eNWcDx6WkyHzuLcLg==
+"@ska-telescope/ska-javascript-components@^2.3.16":
+  version "2.3.16"
+  resolved "https://artefact.skao.int/repository/npm-internal/@ska-telescope/ska-javascript-components/-/ska-javascript-components-2.3.16.tgz#9543a208ba614d102be1fd0c4d4936da86afdfe0"
+  integrity sha512-nKRHeiGQ5jiit0D1nPlo9uZfEuhCRukEHwB2rhkR0hvUdZuL0L3YoMeveQjWrI6/xlC1DZhQmwA0IM2Qr4clZw==
   dependencies:
     "@microsoft/api-extractor" "^7.48.1"
     "@typescript-eslint/parser" "^8.17.0"

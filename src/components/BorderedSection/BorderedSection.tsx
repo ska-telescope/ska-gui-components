@@ -59,7 +59,6 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
     >
       {title && (
         <Typography
-          component={titleSize as any}
           variant={titleSize as any}
           data-testid={`${testId}-label`}
           sx={{
