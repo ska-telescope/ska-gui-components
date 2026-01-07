@@ -1,4 +1,3 @@
-// src/components/layout/ColorSchemeContent.tsx
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import DarkModeIcon from '../Icons/classic/DarkModeIcon';
@@ -47,6 +46,7 @@ export default function ColorSchemeContent({
   // -----------------------------
   // THEME MODE (light/dark)
   // -----------------------------
+
   const getThemeMode = () =>
     useBrowserStorage ? localStorage.getItem('skao_theme_mode') : storage.themeMode;
 
@@ -63,6 +63,7 @@ export default function ColorSchemeContent({
   // -----------------------------
   // COLOR MODE (palette index)
   // -----------------------------
+
   const getColorMode = (): number =>
     parseInt(
       String(
@@ -81,9 +82,10 @@ export default function ColorSchemeContent({
     }
   };
 
-  // -----------------------------
+  // ------------------------------
   // Helper for color preview boxes
-  // -----------------------------
+  // ------------------------------
+
   const colorBox = (bgColor: any, fgColor: any, label: string) => (
     <Box
       sx={{
@@ -99,15 +101,17 @@ export default function ColorSchemeContent({
     </Box>
   );
 
-  // -----------------------------
+  // -------------------------
   // Section visibility helper
-  // -----------------------------
+  // -------------------------
+
   const shouldShowSection = (sectionId: string) =>
     colors.length === 0 || colors.includes(sectionId);
 
-  // -----------------------------
+  // ------------
   // Color groups
-  // -----------------------------
+  // ------------
+
   const paletteIndex = getColorMode();
 
   const telescopeColors = getColors({
@@ -206,6 +210,22 @@ export default function ColorSchemeContent({
 
   // -----------------------------
 
+  interface ColorObject {
+    bg: string;
+    fg: string;
+  }
+
+  const section = (title: string, colorList: any) => (
+    <BorderedSection title={title} titleSize="subtitle1">
+      <Stack direction="row" spacing={2} alignItems="center">
+        {Object.entries(colorList ?? {}).map(([key, colorValue]) => {
+          const { bg, fg } = colorValue as ColorObject;
+          return <div key={key}>{colorBox(bg, fg, key.toUpperCase())}</div>;
+        })}
+      </Stack>
+    </BorderedSection>
+  );
+
   return (
     <Grid
       container
@@ -254,47 +274,14 @@ export default function ColorSchemeContent({
             toolTip="tooltip"
           />
         </Stack>
-        <Grid container direction="row" justifyContent="space-between">
-          {shouldShowSection('telescope') && (
-            <BorderedSection title="Telescope colors" titleSize="subtitle1">
-              <Stack direction="row" spacing={2} alignItems="center">
-                {Object.entries(telescopeColors ?? {}).map(([key, { bg, fg }]) =>
-                  colorBox(bg, fg, key.toUpperCase()),
-                )}
-              </Stack>
-            </BorderedSection>
-          )}
-
-          {shouldShowSection('logo') && (
-            <BorderedSection title="Logo colors" titleSize="subtitle1">
-              <Stack direction="row" spacing={2} alignItems="center">
-                {Object.entries(logoColors ?? {}).map(([key, { bg, fg }]) =>
-                  colorBox(bg, fg, key.toUpperCase()),
-                )}
-              </Stack>
-            </BorderedSection>
-          )}
-
-          {shouldShowSection('button') && (
-            <BorderedSection title="Button colors" titleSize="subtitle1">
-              <Stack direction="row" spacing={2} alignItems="center">
-                {Object.entries(buttonColors).map(([key, { bg, fg }]) =>
-                  colorBox(bg, fg, key.toUpperCase()),
-                )}
-              </Stack>
-            </BorderedSection>
-          )}
+        <Grid container direction="row" spacing={2} justifyContent="space-between">
+          {shouldShowSection('telescope') && section('Telescope colors', telescopeColors)}
+          {shouldShowSection('logo') && section('Logo colors', logoColors)}
+          {shouldShowSection('button') && section('Button colors', buttonColors)}
         </Grid>
-        {shouldShowSection('status') && (
-          <BorderedSection title="Application Status colors" titleSize="subtitle1">
-            <Stack direction="row" spacing={2} alignItems="center">
-              {Object.entries(applicationStatusColors ?? {}).map(([key, { bg, fg }]) =>
-                colorBox(bg, fg, key.toUpperCase()),
-              )}
-            </Stack>
-          </BorderedSection>
-        )}
-        <Grid container direction="row" justifyContent="space-between">
+        {shouldShowSection('status') &&
+          section('Application Status colors', applicationStatusColors)}
+        <Grid container direction="row" spacing={2} justifyContent="space-between">
           {shouldShowSection('observationType') && (
             <BorderedSection title="Observation Type colors" titleSize="subtitle1">
               <Stack direction="row" spacing={2} alignItems="center">
@@ -314,42 +301,11 @@ export default function ColorSchemeContent({
             </BorderedSection>
           )}
         </Grid>
-        {shouldShowSection('proposalStatus') && (
-          <BorderedSection title="Proposal Status colors" titleSize="subtitle1">
-            <Stack direction="row" spacing={2} alignItems="center">
-              {Object.entries(proposalStatusColors ?? {}).map(([key, { bg, fg }]) =>
-                colorBox(bg, fg, key.toUpperCase()),
-              )}
-            </Stack>
-          </BorderedSection>
-        )}
-        {shouldShowSection('reviewStatus') && (
-          <BorderedSection title="Review Status colors" titleSize="subtitle1">
-            <Stack direction="row" spacing={2} alignItems="center">
-              {Object.entries(reviewStatusColors ?? {}).map(([key, { bg, fg }]) =>
-                colorBox(bg, fg, key.toUpperCase()),
-              )}
-            </Stack>
-          </BorderedSection>
-        )}
-        {shouldShowSection('sbStatus') && (
-          <BorderedSection title="Scheduling Block Status colors" titleSize="subtitle1">
-            <Stack direction="row" spacing={2} alignItems="center">
-              {Object.entries(sbStatusColors ?? {}).map(([key, { bg, fg }]) =>
-                colorBox(bg, fg, key.toUpperCase()),
-              )}
-            </Stack>
-          </BorderedSection>
-        )}
-        {shouldShowSection('chart') && (
-          <BorderedSection title="Chart colors" titleSize="subtitle1">
-            <Stack direction="row" spacing={2} alignItems="center">
-              {Object.entries(chartColors ?? {}).map(([key, { bg, fg }]) =>
-                colorBox(bg, fg, key.toUpperCase()),
-              )}
-            </Stack>
-          </BorderedSection>
-        )}
+        {shouldShowSection('proposalStatus') &&
+          section('Proposal Status colors', proposalStatusColors)}
+        {shouldShowSection('reviewStatus') && section('Review Status colors', reviewStatusColors)}
+        {shouldShowSection('sbStatus') && section('Scheduling Block Status colors', sbStatusColors)}
+        {shouldShowSection('chart') && section('Chart colors', chartColors)}
       </Grid>
     </Grid>
   );

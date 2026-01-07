@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.5.9
+*****
+
+Color spacing issue
+
 2.5.8
 *****
 
