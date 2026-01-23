@@ -2,7 +2,7 @@
   "name": "@ska-telescope/ska-gui-components",
   "license": "BSD-3-Clause",
   "private": false,
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "A Library of SKA GUI components using Material-UI",
   "author": "Trevor A Swain",
   "module": "dist/ska-gui-components.min.mjs",
@@ -107,7 +107,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "storybook": "^8.6.15",
     "vite": "^6.2.1",
-    "vite-plugin-dts": "^4.1.0",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.1.1"
   },
   "peerDependencies": {
