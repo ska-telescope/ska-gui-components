@@ -60,7 +60,7 @@ describe('getColors', () => {
       paletteIndex: 2,
     });
     expect(result!.yes.bg).toContain('rgba(56, 142, 60, 1)');
-    expect(result!.no.bg).toContain('rgba(158, 158, 158, 1)');
+    expect(result!.no.bg).toContain('rgba(66, 66, 66, 1)');
   });
 
   it('should fall back to default mapping for unknown type', () => {
