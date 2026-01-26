@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.6.2
+*****
+
+Updated colors for proposal status
+
 2.6.1
 *****
 
