@@ -13,6 +13,7 @@ import { Telescope } from '../TelescopeSelector/TelescopeSelector';
 import BorderedSection from '../BorderedSection/BorderedSection';
 import { getColors } from '../../utils/getColors/getColors';
 import DropDown from '../DropDown/DropDown';
+import { to } from '@react-spring/web';
 
 export type Storage = {
   accessibility?: number;
@@ -186,7 +187,7 @@ export default function ColorSchemeContent({
 
   const reviewStatusColors = getColors({
     type: 'reviewStatus',
-    colors: '*',
+    colors: ['to do', 'in progress', 'reviewed'],
     content: 'both',
     asArray: false,
     paletteIndex,
@@ -194,7 +195,15 @@ export default function ColorSchemeContent({
 
   const proposalStatusColors = getColors({
     type: 'proposalStatus',
-    colors: '*',
+    colors: [
+      'draft',
+      'under review',
+      'accepted',
+      'rejected',
+      'withdrawn',
+      'submitted',
+      'accepted with revision',
+    ],
     content: 'both',
     asArray: false,
     paletteIndex,
