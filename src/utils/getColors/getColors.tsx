@@ -75,7 +75,7 @@ export function getColors({
       2: [paletteSet.colors[3], paletteSet.textColors[3]],
       'to do': [paletteSet.colors[0], paletteSet.textColors[0]],
       'in progress': [paletteSet.colors[1], paletteSet.textColors[1]],
-      reviewed: [paletteSet.colors[3], paletteSet.textColors[3]]
+      reviewed: [paletteSet.colors[3], paletteSet.textColors[3]],
     },
     status: {
       0: [paletteSet.colors[0], paletteSet.textColors[0]],
