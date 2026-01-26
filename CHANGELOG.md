@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.6.3
+*****
+
+Refined the colors
+
 2.6.2
 *****
 
