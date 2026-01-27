@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.6.4
+*****
+
+Pulled in color mapping for Status
+
 2.6.3
 *****
 
