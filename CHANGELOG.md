@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.6.5
+*****
+
+Adjusted color display
+
 2.6.4
 *****
 

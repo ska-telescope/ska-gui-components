@@ -195,15 +195,15 @@ export default function ColorSchemeContent({
 
   const proposalStatusColors = getColors({
     type: 'proposalStatus',
-    colors: [
-      'draft',
-      'under review',
-      'accepted',
-      'rejected',
-      'withdrawn',
-      'submitted',
-      'accepted with revision',
-    ],
+    colors: ['draft', 'under review', 'withdrawn', 'submitted'],
+    content: 'both',
+    asArray: false,
+    paletteIndex,
+  });
+
+  const proposalStatusColors2 = getColors({
+    type: 'proposalStatus',
+    colors: ['accepted', 'rejected', 'accepted with revision'],
     content: 'both',
     asArray: false,
     paletteIndex,
@@ -224,13 +224,23 @@ export default function ColorSchemeContent({
     fg: string;
   }
 
-  const section = (title: string, colorList: any) => (
+  const section = (title: string, colorList: any, colorList2?: any) => (
     <BorderedSection title={title} titleSize="subtitle1">
-      <Stack direction="row" spacing={2} alignItems="center">
-        {Object.entries(colorList ?? {}).map(([key, colorValue]) => {
-          const { bg, fg } = colorValue as ColorObject;
-          return <div key={key}>{colorBox(bg, fg, key.toUpperCase())}</div>;
-        })}
+      <Stack direction="column" alignItems="center">
+        <Stack direction="row" spacing={2} alignItems="center">
+          {Object.entries(colorList ?? {}).map(([key, colorValue]) => {
+            const { bg, fg } = colorValue as ColorObject;
+            return <div key={key}>{colorBox(bg, fg, key.toUpperCase())}</div>;
+          })}
+        </Stack>
+        {colorList2 && (
+          <Stack direction="row" spacing={2} alignItems="center">
+            {Object.entries(colorList2 ?? {}).map(([key, colorValue]) => {
+              const { bg, fg } = colorValue as ColorObject;
+              return <div key={key}>{colorBox(bg, fg, key.toUpperCase())}</div>;
+            })}
+          </Stack>
+        )}
       </Stack>
     </BorderedSection>
   );
@@ -296,7 +306,7 @@ export default function ColorSchemeContent({
           {shouldShowSection('boolean') && section('Boolean colors', booleanTypeColors)}
         </Grid>
         {shouldShowSection('proposalStatus') &&
-          section('Proposal Status colors', proposalStatusColors)}
+          section('Proposal Status colors', proposalStatusColors, proposalStatusColors2)}
         {shouldShowSection('reviewStatus') && section('Review Status colors', reviewStatusColors)}
         {shouldShowSection('sbStatus') && section('Scheduling Block Status colors', sbStatusColors)}
         {shouldShowSection('chart') && section('Chart colors', chartColors)}
