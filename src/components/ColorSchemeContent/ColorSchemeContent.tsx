@@ -209,9 +209,24 @@ export default function ColorSchemeContent({
     paletteIndex,
   });
 
-  const sbStatusColors = getColors({
-    type: 'sbStatus',
-    colors: '*',
+  const statusColors = getColors({
+    type: 'status',
+    colors: [
+      'created',
+      'draft',
+      'submitted',
+      'ready',
+      'in progress',
+      'executing',
+      'observed',
+      'fully observed',
+      'complete',
+      'cancelled',
+      'out of time',
+      'suspended',
+      'failed',
+      'failed processing',
+    ],
     content: 'both',
     asArray: false,
     paletteIndex,
@@ -234,7 +249,7 @@ export default function ColorSchemeContent({
           })}
         </Stack>
         {colorList2 && (
-          <Stack direction="row" spacing={2} alignItems="center">
+          <Stack pt={2} direction="row" spacing={2} alignItems="center">
             {Object.entries(colorList2 ?? {}).map(([key, colorValue]) => {
               const { bg, fg } = colorValue as ColorObject;
               return <div key={key}>{colorBox(bg, fg, key.toUpperCase())}</div>;
@@ -308,7 +323,7 @@ export default function ColorSchemeContent({
         {shouldShowSection('proposalStatus') &&
           section('Proposal Status colors', proposalStatusColors, proposalStatusColors2)}
         {shouldShowSection('reviewStatus') && section('Review Status colors', reviewStatusColors)}
-        {shouldShowSection('sbStatus') && section('Scheduling Block Status colors', sbStatusColors)}
+        {shouldShowSection('status') && section('OSO Status colors', statusColors)}
         {shouldShowSection('chart') && section('Chart colors', chartColors)}
       </Grid>
     </Grid>

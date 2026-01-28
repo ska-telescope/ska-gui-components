@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.6.6
+*****
+
+Add in a bit of spacing
+
 2.6.5
 *****
 
