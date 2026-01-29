@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.6.7
+*****
+
+ska-javascript-components update
+
 2.6.6
 *****
 

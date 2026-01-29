@@ -211,22 +211,23 @@ export default function ColorSchemeContent({
 
   const statusColors = getColors({
     type: 'status',
-    colors: [
-      'created',
-      'draft',
-      'submitted',
-      'ready',
-      'in progress',
-      'executing',
-      'observed',
-      'fully observed',
-      'complete',
-      'cancelled',
-      'out of time',
-      'suspended',
-      'failed',
-      'failed processing',
-    ],
+    colors: ['created', 'draft', 'submitted', 'ready', 'in progress'],
+    content: 'both',
+    asArray: false,
+    paletteIndex,
+  });
+
+  const statusColors1 = getColors({
+    type: 'status',
+    colors: ['executing', 'observed', 'fully observed', 'complete'],
+    content: 'both',
+    asArray: false,
+    paletteIndex,
+  });
+
+  const statusColors2 = getColors({
+    type: 'status',
+    colors: ['suspended', 'cancelled', 'out of time', 'failed', 'failed processing'],
     content: 'both',
     asArray: false,
     paletteIndex,
@@ -239,7 +240,7 @@ export default function ColorSchemeContent({
     fg: string;
   }
 
-  const section = (title: string, colorList: any, colorList2?: any) => (
+  const section = (title: string, colorList: any, colorList2?: any, colorList3?: any) => (
     <BorderedSection title={title} titleSize="subtitle1">
       <Stack direction="column" alignItems="center">
         <Stack direction="row" spacing={2} alignItems="center">
@@ -251,6 +252,14 @@ export default function ColorSchemeContent({
         {colorList2 && (
           <Stack pt={2} direction="row" spacing={2} alignItems="center">
             {Object.entries(colorList2 ?? {}).map(([key, colorValue]) => {
+              const { bg, fg } = colorValue as ColorObject;
+              return <div key={key}>{colorBox(bg, fg, key.toUpperCase())}</div>;
+            })}
+          </Stack>
+        )}
+        {colorList3 && (
+          <Stack pt={2} direction="row" spacing={2} alignItems="center">
+            {Object.entries(colorList3 ?? {}).map(([key, colorValue]) => {
               const { bg, fg } = colorValue as ColorObject;
               return <div key={key}>{colorBox(bg, fg, key.toUpperCase())}</div>;
             })}
@@ -323,7 +332,8 @@ export default function ColorSchemeContent({
         {shouldShowSection('proposalStatus') &&
           section('Proposal Status colors', proposalStatusColors, proposalStatusColors2)}
         {shouldShowSection('reviewStatus') && section('Review Status colors', reviewStatusColors)}
-        {shouldShowSection('status') && section('OSO Status colors', statusColors)}
+        {shouldShowSection('status') &&
+          section('OSO Status colors', statusColors, statusColors1, statusColors2)}
         {shouldShowSection('chart') && section('Chart colors', chartColors)}
       </Grid>
     </Grid>

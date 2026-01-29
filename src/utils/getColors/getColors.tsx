@@ -3,6 +3,18 @@ import { COLOR_PALETTE_SETS, Colors } from '@ska-telescope/ska-javascript-compon
 
 type ContentType = 'bg' | 'fg' | 'both';
 
+// Colors based on the high contrast palette
+const COLOR_RED = 0;
+const COLOR_ORANGE = 1;
+const COLOR_YELLOW = 2;
+const COLOR_GREEN = 3;
+const COLOR_BLUE = 4;
+const COLOR_PURPLE = 5;
+const COLOR_PINK = 6;
+const COLOR_BROWN = 7;
+// const COLOR_GREY_DARK = 8;
+const COLOR_GREY_LIGHT = 9;
+
 interface GetColorsInput {
   type: string /* semantic type (observationType, telescope, boolean, etc.) */;
   colors: string | string[] /* keys to look up */;
@@ -30,12 +42,12 @@ export function getColors({
 
   const paletteMap: Record<string, Record<string, [string, string]>> = {
     observationType: {
-      continuum: [paletteSet.colors[5], paletteSet.textColors[5]],
-      spectral: [paletteSet.colors[6], paletteSet.textColors[6]],
-      pst: [paletteSet.colors[7], paletteSet.textColors[7]],
-      1: [paletteSet.colors[5], paletteSet.textColors[5]],
-      0: [paletteSet.colors[6], paletteSet.textColors[6]],
-      2: [paletteSet.colors[7], paletteSet.textColors[7]],
+      continuum: [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
+      spectral: [paletteSet.colors[COLOR_PINK], paletteSet.textColors[COLOR_PINK]],
+      pst: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
+      1: [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
+      0: [paletteSet.colors[COLOR_PINK], paletteSet.textColors[COLOR_PINK]],
+      2: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
     },
     telescope: {
       1: [Colors().SKAO_TELESCOPE_1, '#FFFFFF'],
@@ -44,54 +56,57 @@ export function getColors({
       low: [Colors().SKAO_TELESCOPE_2, '#000000'],
     },
     boolean: {
-      no: [paletteSet.colors[0], paletteSet.textColors[0]],
-      yes: [paletteSet.colors[3], paletteSet.textColors[3]],
-      false: [paletteSet.colors[0], paletteSet.textColors[0]],
-      true: [paletteSet.colors[3], paletteSet.textColors[3]],
+      no: [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],
+      yes: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
+      false: [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],
+      true: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
     },
     logo: {
       1: [Colors().SKAO_LOGO_PRIMARY, Colors().SKAO_LOGO_LIGHT],
       2: [Colors().SKAO_LOGO_ACCENT, Colors().SKAO_LOGO_LIGHT],
     },
     proposalStatus: {
-      0: [paletteSet.colors[3], paletteSet.textColors[3]],
-      1: [paletteSet.colors[4], paletteSet.textColors[4]],
-      2: [paletteSet.colors[0], paletteSet.textColors[0]],
-      3: [paletteSet.colors[2], paletteSet.textColors[2]],
-      4: [paletteSet.colors[9], paletteSet.textColors[9]],
-      5: [paletteSet.colors[5], paletteSet.textColors[5]],
-      6: [paletteSet.colors[1], paletteSet.textColors[1]],
-      accepted: [paletteSet.colors[3], paletteSet.textColors[3]],
-      draft: [paletteSet.colors[4], paletteSet.textColors[4]],
-      rejected: [paletteSet.colors[0], paletteSet.textColors[0]],
-      submitted: [paletteSet.colors[2], paletteSet.textColors[2]],
-      withdrawn: [paletteSet.colors[9], paletteSet.textColors[9]],
-      'under review': [paletteSet.colors[5], paletteSet.textColors[5]],
-      'accepted with revision': [paletteSet.colors[1], paletteSet.textColors[1]],
+      0: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
+      1: [paletteSet.colors[COLOR_BLUE], paletteSet.textColors[COLOR_BLUE]],
+      2: [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],
+      3: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
+      4: [paletteSet.colors[COLOR_GREY_LIGHT], paletteSet.textColors[COLOR_GREY_LIGHT]],
+      5: [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
+      6: [paletteSet.colors[COLOR_ORANGE], paletteSet.textColors[COLOR_ORANGE]],
+      accepted: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
+      draft: [paletteSet.colors[COLOR_BLUE], paletteSet.textColors[COLOR_BLUE]],
+      rejected: [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],
+      submitted: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
+      withdrawn: [paletteSet.colors[COLOR_GREY_LIGHT], paletteSet.textColors[COLOR_GREY_LIGHT]],
+      'under review': [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
+      'accepted with revision': [
+        paletteSet.colors[COLOR_ORANGE],
+        paletteSet.textColors[COLOR_ORANGE],
+      ],
     },
     reviewStatus: {
-      0: [paletteSet.colors[4], paletteSet.textColors[4]],
-      1: [paletteSet.colors[5], paletteSet.textColors[5]],
-      2: [paletteSet.colors[3], paletteSet.textColors[3]],
-      'to do': [paletteSet.colors[4], paletteSet.textColors[4]],
-      'in progress': [paletteSet.colors[5], paletteSet.textColors[5]],
-      reviewed: [paletteSet.colors[3], paletteSet.textColors[3]],
+      0: [paletteSet.colors[COLOR_BLUE], paletteSet.textColors[COLOR_BLUE]],
+      1: [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
+      2: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
+      'to do': [paletteSet.colors[COLOR_BLUE], paletteSet.textColors[COLOR_BLUE]],
+      'in progress': [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
+      reviewed: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
     },
     status: {
-      created: [paletteSet.colors[9], paletteSet.textColors[9]],
-      draft: [paletteSet.colors[1], paletteSet.textColors[1]],
-      submitted: [paletteSet.colors[0], paletteSet.textColors[0]],
-      ready: [paletteSet.colors[5], paletteSet.textColors[5]],
-      'in progress': [paletteSet.colors[6], paletteSet.textColors[6]],
-      executing: [paletteSet.colors[1], paletteSet.textColors[1]],
-      observed: [paletteSet.colors[4], paletteSet.textColors[4]],
-      'fully observed': [paletteSet.colors[4], paletteSet.textColors[4]],
-      complete: [paletteSet.colors[3], paletteSet.textColors[3]],
-      cancelled: [paletteSet.colors[2], paletteSet.textColors[2]],
-      'out of time': [paletteSet.colors[2], paletteSet.textColors[2]],
-      suspended: [paletteSet.colors[7], paletteSet.textColors[7]],
-      failed: [paletteSet.colors[2], paletteSet.textColors[2]],
-      'failed processing': [paletteSet.colors[2], paletteSet.textColors[2]],
+      created: [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],
+      draft: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
+      submitted: [paletteSet.colors[COLOR_BLUE], paletteSet.textColors[COLOR_BLUE]],
+      ready: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
+      'in progress': [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
+      executing: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
+      observed: [paletteSet.colors[COLOR_PINK], paletteSet.textColors[COLOR_PINK]],
+      'fully observed': [paletteSet.colors[COLOR_PINK], paletteSet.textColors[COLOR_PINK]],
+      complete: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
+      cancelled: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
+      'out of time': [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
+      suspended: [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
+      failed: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
+      'failed processing': [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
     },
   };
 
