@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.6.8
+*****
+
+Adjustments to the OSO status colors
+
 2.6.7
 *****
 
