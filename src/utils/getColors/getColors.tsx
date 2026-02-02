@@ -12,7 +12,7 @@ const COLOR_BLUE = 4;
 const COLOR_PURPLE = 5;
 const COLOR_PINK = 6;
 const COLOR_BROWN = 7;
-// const COLOR_GREY_DARK = 8;
+const COLOR_GREY_DARK = 8;
 const COLOR_GREY_LIGHT = 9;
 
 interface GetColorsInput {
@@ -93,20 +93,20 @@ export function getColors({
       reviewed: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
     },
     status: {
-      created: [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],
-      draft: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
+      created: [paletteSet.colors[COLOR_GREY_DARK], paletteSet.textColors[COLOR_GREY_DARK]],
+      draft: [paletteSet.colors[COLOR_GREY_DARK], paletteSet.textColors[COLOR_GREY_DARK]],
       submitted: [paletteSet.colors[COLOR_BLUE], paletteSet.textColors[COLOR_BLUE]],
-      ready: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
-      'in progress': [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
-      executing: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
+      ready: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
+      'in progress': [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
+      executing: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
       observed: [paletteSet.colors[COLOR_PINK], paletteSet.textColors[COLOR_PINK]],
       'fully observed': [paletteSet.colors[COLOR_PINK], paletteSet.textColors[COLOR_PINK]],
-      complete: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
-      cancelled: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
-      'out of time': [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
-      suspended: [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
-      failed: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
-      'failed processing': [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
+      complete: [paletteSet.colors[COLOR_ORANGE], paletteSet.textColors[COLOR_ORANGE]],
+      cancelled: [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],
+      'out of time': [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],
+      suspended: [paletteSet.colors[COLOR_PINK], paletteSet.textColors[COLOR_PINK]],
+      failed: [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],
+      'failed processing': [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],
     },
   };
 
