@@ -1,0 +1,23 @@
+export default [
+  {
+    ignores: [
+        'node_modules',
+        'build',
+        '**/*.css',
+        '**/*.scss',
+        '**/*.ttf',
+        '**/*.svg',
+        '**/*.html',
+        '**/index.ts',
+        '**.json',
+        '**.yml',
+        '**.lock',
+        '**./*.stories.*',
+        '**./*.d.ts',
+        '**/stories/*',
+        '*.json',
+        '*.ico',
+        '*.js',
+    ]
+  }
+];
