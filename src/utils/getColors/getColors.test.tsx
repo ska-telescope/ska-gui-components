@@ -37,9 +37,9 @@ describe('getColors', () => {
       paletteIndex: 0,
     });
     expect(result).toBeDefined();
-    expect(result!.continuum.bg).toContain('rgba(118, 184, 214, 1)');
-    expect(result!.spectral.bg).toContain('rgba(211, 114, 149, 1)');
-    expect(result!.pst.bg).toContain('rgba(160, 124, 94, 1)');
+    expect(result!.continuum.bg).toContain('rgba(118, 183, 178, 1)');
+    expect(result!.spectral.bg).toContain('rgba(255, 157, 167, 1)');
+    expect(result!.pst.bg).toContain('rgba(156, 117, 95, 1)');
   });
 
   it('should return semantic colors from Original Default palette when paletteIndex=1', () => {
