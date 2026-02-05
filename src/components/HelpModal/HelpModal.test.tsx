@@ -5,8 +5,8 @@ import HelpModal, { Help } from '././HelpModal';
 import '@testing-library/jest-dom';
 
 const help: Help = {
-  content: {},
-  component: {},
+  content: [],
+  component: [],
   showHelp: true,
 };
 
