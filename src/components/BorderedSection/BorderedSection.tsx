@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, SxProps, Theme, useTheme } from '@mui/material';
+import { Box, Typography, SxProps, Theme, useTheme, TypographyProps } from '@mui/material';
 
 export interface BorderedSectionProps {
   bold?: boolean;
@@ -59,7 +59,7 @@ export const BorderedSection: React.FC<BorderedSectionProps> = ({
     >
       {title && (
         <Typography
-          variant={titleSize as any}
+          variant={titleSize as TypographyProps['variant']}
           data-testid={`${testId}-label`}
           sx={{
             position: 'absolute',

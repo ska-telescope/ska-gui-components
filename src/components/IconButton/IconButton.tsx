@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import React, { JSX, ReactNode } from 'react';
 import { Tooltip, IconButton, PopperPlacementType } from '@mui/material';
 

@@ -3,7 +3,6 @@ import { describe, test } from 'vitest';
 import { render } from '@testing-library/react';
 import NumberEntry2 from './NumberEntry2';
 import '@testing-library/jest-dom';
-import { LABEL_POSITION } from '../../EntryField/EntryField';
 
 describe('NumberEntry2', () => {
   // const mockAction = vi.fn();

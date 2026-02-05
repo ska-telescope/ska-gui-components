@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import React, { JSX } from 'react';
 import { FormControlLabel, Checkbox, Tooltip, useTheme, PopperPlacementType } from '@mui/material';
 import { Grid, Typography } from '@mui/material';
@@ -15,7 +17,7 @@ export interface TickBoxProps {
   labelWidth?: number;
   onChange?: Function;
   onFocus?: Function;
-  required?: Boolean;
+  required?: boolean;
   testId?: string;
   toolTip?: string;
   toolTipPlacement?: string;

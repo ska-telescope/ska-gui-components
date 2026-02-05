@@ -6,8 +6,8 @@ import '@testing-library/jest-dom';
 import { Help } from '../HelpModal/HelpModal';
 
 const help: Help = {
-  content: 'CONTENT',
-  component: 'COMPONENT',
+  content: {},
+  component: {},
   showHelp: true,
 };
 describe('Header', () => {

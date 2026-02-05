@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import { JSX, ReactNode, useState } from 'react';
 import { AppBar, Box, Grid, Paper, Typography, useTheme, Drawer } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -65,7 +66,7 @@ export interface HeaderProps {
   toolTip?: { skao: string; mode: string };
   toolTipPlacement?: string;
   useBrowserStorage?: boolean;
-  useSymbol?: Boolean;
+  useSymbol?: boolean;
   children?: Children;
   accessibility?: boolean;
   accessibilityColor?: string[];
@@ -89,6 +90,7 @@ export function Header({
   accessibility = false,
   accessibilityColor = [],
 }: HeaderProps): JSX.Element {
+  const theme = useTheme();
   const setThemeMode = () =>
     localStorage.setItem(
       'skao_theme_mode',
@@ -180,7 +182,7 @@ export function Header({
                 <OurIconButton
                   ariaTitle="feedback icon"
                   onClick={() => openLink(feedback.url)}
-                  icon={<FeedbackIcon colorFG={useTheme().palette.primary.contrastText} />}
+                  icon={<FeedbackIcon colorFG={theme.palette.primary.contrastText} />}
                   toolTip={feedback?.tooltip}
                 />
               )}
@@ -188,7 +190,7 @@ export function Header({
                 <OurIconButton
                   ariaTitle="document icon"
                   onClick={() => openLink(docs.url)}
-                  icon={<DocumentIcon colorFG={useTheme().palette.primary.contrastText} />}
+                  icon={<DocumentIcon colorFG={theme.palette.primary.contrastText} />}
                   toolTip={docs?.tooltip}
                 />
               )}
@@ -196,7 +198,7 @@ export function Header({
                 <OurIconButton
                   ariaTitle="help icon"
                   onClick={() => helpToggle()}
-                  icon={<HelpIcon colorFG={useTheme().palette.primary.contrastText} />}
+                  icon={<HelpIcon colorFG={theme.palette.primary.contrastText} />}
                   toolTip={getHelp() as ReactNode}
                 />
               )}
@@ -204,7 +206,7 @@ export function Header({
                 <OurIconButton
                   ariaTitle="color settings"
                   onClick={toggleDrawer}
-                  icon={<PaletteIcon colorFG={useTheme().palette.primary.contrastText} />}
+                  icon={<PaletteIcon colorFG={theme.palette.primary.contrastText} />}
                   toolTip={toolTip.mode}
                 />
               ) : (
@@ -213,9 +215,9 @@ export function Header({
                   onClick={() => themeToggle()}
                   icon={
                     isDarkTheme ? (
-                      <DarkModeIcon colorFG={useTheme().palette.primary.contrastText} />
+                      <DarkModeIcon colorFG={theme.palette.primary.contrastText} />
                     ) : (
-                      <LightModeIcon colorFG={useTheme().palette.primary.contrastText} />
+                      <LightModeIcon colorFG={theme.palette.primary.contrastText} />
                     )
                   }
                   toolTip={toolTip.mode}

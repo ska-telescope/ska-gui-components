@@ -12,7 +12,7 @@ describe('COLOR_PALETTE_SETS', () => {
 
   it('each palette set should have 10 colors, textColors, and names', () => {
     COLOR_PALETTE_SETS.forEach(
-      (set: { colors: string | any[]; textColors: string | any[]; names: string | any[] }) => {
+      (set: { colors: string[]; textColors: string[]; names: string[] }) => {
         expect(set.colors.length).toBe(10);
         expect(set.textColors.length).toBe(10);
         expect(set.names.length).toBe(10);
@@ -22,7 +22,7 @@ describe('COLOR_PALETTE_SETS', () => {
 
   it('COLOR_BLINDNESS_OPTIONS should align with sets', () => {
     expect(COLOR_BLINDNESS_OPTIONS.length).toBe(COLOR_PALETTE_SETS.length);
-    COLOR_BLINDNESS_OPTIONS.forEach((opt: { label: any; value: any }, idx: number) => {
+    COLOR_BLINDNESS_OPTIONS.forEach((opt: { label: string; value: number }, idx: number) => {
       expect(opt.label).toBe(COLOR_PALETTE_SETS[idx].label);
       expect(opt.value).toBe(idx);
     });

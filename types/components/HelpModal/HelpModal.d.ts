@@ -1,7 +1,7 @@
 export type Help = {
-  content: Object;
-  component: Object;
-  showHelp: Boolean;
+  content: object;
+  component: object;
+  showHelp: boolean;
 };
 export interface HelpModalProps {
   ariaDescription?: string;

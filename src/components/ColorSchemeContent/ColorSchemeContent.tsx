@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import DarkModeIcon from '../Icons/classic/DarkModeIcon';
@@ -13,7 +15,6 @@ import { Telescope } from '../TelescopeSelector/TelescopeSelector';
 import BorderedSection from '../BorderedSection/BorderedSection';
 import { getColors } from '../../utils/getColors/getColors';
 import DropDown from '../DropDown/DropDown';
-import { to } from '@react-spring/web';
 
 export type Storage = {
   accessibility?: number;
@@ -287,9 +288,9 @@ export default function ColorSchemeContent({
             onClick={() => themeToggle()}
             icon={
               isDarkTheme ? (
-                <DarkModeIcon colorFG={useTheme().palette.secondary.main} />
+                <DarkModeIcon colorFG={theme.palette.secondary.main} />
               ) : (
-                <LightModeIcon colorFG={useTheme().palette.secondary.main} />
+                <LightModeIcon colorFG={theme.palette.secondary.main} />
               )
             }
             toolTip={toolTip.mode}

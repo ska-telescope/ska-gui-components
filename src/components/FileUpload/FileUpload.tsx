@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { Grid, Paper, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -114,7 +116,11 @@ export function FileUpload({
   }, [file]);
 
   const setTheStatus = (e: FileUploadStatus) => {
-    setStatus?.(e) ?? setState(e);
+    if (setStatus) {
+      setStatus(e);
+    } else {
+      setState(e);
+    }
   };
 
   const handleFileChange = (e: any) => {

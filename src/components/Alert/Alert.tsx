@@ -1,6 +1,7 @@
 import { Alert, Box, Paper } from '@mui/material';
 import StatusIcon from '../StatusIcon/StatusIcon';
 import Children from '../../utils/types/types';
+import { ReactNode } from 'react';
 
 export enum AlertColorTypes {
   Error = 'error',
@@ -16,7 +17,7 @@ export enum AlertVariantTypes {
 }
 
 export interface AlertProps {
-  action?: any;
+  action?: ReactNode;
   ariaDescription?: string;
   ariaTitle?: string;
   color?: AlertColorTypes;
@@ -54,7 +55,11 @@ export function SKAOAlert({
             data-testid={testId}
             icon={false}
             key="alerts"
-            severity={color as any}
+            severity={
+              color === AlertColorTypes.None
+                ? undefined
+                : (color as 'error' | 'info' | 'success' | 'warning')
+            }
           >
             {children}
           </Alert>
@@ -73,8 +78,18 @@ export function SKAOAlert({
               warning: <StatusIcon testId="statusId" icon level={2} size={20} />,
             }}
             key="alerts"
-            severity={color as any}
-            variant={variant as any}
+            severity={
+              color === AlertColorTypes.None
+                ? undefined
+                : (color as 'error' | 'info' | 'success' | 'warning')
+            }
+            variant={
+              variant === AlertVariantTypes.Filled
+                ? 'filled'
+                : variant === AlertVariantTypes.Outlined
+                  ? 'outlined'
+                  : 'standard'
+            }
           >
             {children}
           </Alert>
@@ -88,8 +103,18 @@ export function SKAOAlert({
             data-testid={testId}
             icon={false}
             key="alerts"
-            severity={color as any}
-            variant={variant as any}
+            severity={
+              color === AlertColorTypes.None
+                ? undefined
+                : (color as 'error' | 'info' | 'success' | 'warning')
+            }
+            variant={
+              variant === AlertVariantTypes.Filled
+                ? 'filled'
+                : variant === AlertVariantTypes.Outlined
+                  ? 'outlined'
+                  : 'standard'
+            }
           >
             {children}
           </Alert>

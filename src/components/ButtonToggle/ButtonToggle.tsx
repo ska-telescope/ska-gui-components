@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import React, { JSX } from 'react';
 import { PopperPlacementType, ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
 import { getColors } from '../../utils/getColors/getColors';

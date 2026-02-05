@@ -5,7 +5,6 @@ import DropDown from '././DropDown';
 import '@testing-library/jest-dom';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 
-const theValue = '';
 const DUMMY_OPTIONS = [
   { label: 'Option 1', value: '1', disabled: false },
   { label: 'Option 2', value: '2', disabled: false },
@@ -13,7 +12,6 @@ const DUMMY_OPTIONS = [
 ];
 
 describe('DropDown', () => {
-  // const mockAction = vi.fn();
   test('renders correctly', () => {
     render(
       <DropDown

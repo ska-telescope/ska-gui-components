@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import React, { FocusEventHandler, JSX } from 'react';
 import { EntryField, LABEL_POSITION, TYPE } from '../EntryField/EntryField';
 
