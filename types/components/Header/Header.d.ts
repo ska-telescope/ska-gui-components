@@ -26,7 +26,7 @@ export interface HeaderProps {
     mode: string;
   };
   useBrowserStorage?: boolean;
-  useSymbol?: Boolean;
+  useSymbol?: boolean;
   children?: Children;
 }
 export declare function Header({

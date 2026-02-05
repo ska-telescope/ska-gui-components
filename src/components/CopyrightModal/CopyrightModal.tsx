@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import React, { JSX } from 'react';
 import { Box, Card, CardContent, CardHeader, Modal, Typography, useTheme } from '@mui/material';
 import ClearIcon from '../Icons/circle/ClearIcon';

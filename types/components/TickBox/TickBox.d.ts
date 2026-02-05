@@ -10,7 +10,7 @@ export interface TickBoxProps {
   labelWidth?: number;
   onChange?: Function;
   onFocus?: Function;
-  required?: Boolean;
+  required?: boolean;
   testId?: string;
   toolTip?: string;
 }

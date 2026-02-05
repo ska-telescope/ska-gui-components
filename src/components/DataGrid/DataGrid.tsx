@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react';
 import { Box } from '@mui/material';
 import { DataGrid, GridEventListener } from '@mui/x-data-grid';
@@ -68,7 +70,9 @@ export function SKAODataGrid({
   testId = 'dataGrid-testId',
 }: DataGridProps) {
   const handleRowClick: GridEventListener<'rowClick'> = (params) => {
-    onRowClick ? onRowClick(params) : null;
+    if (onRowClick) {
+      onRowClick(params);
+    }
   };
 
   const getTheHeight = () => {

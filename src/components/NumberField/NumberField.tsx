@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import React, { JSX } from 'react';
 import { Field } from '@base-ui/react/field';
 import { NumberField as BaseNumberField } from '@base-ui/react/number-field';

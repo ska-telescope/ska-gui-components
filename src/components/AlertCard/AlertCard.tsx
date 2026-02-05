@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export interface AlertCardProps {
-  action?: any;
+  action?: ReactNode;
   ariaDescription?: string;
   ariaTitle?: string;
   array: {
@@ -28,7 +28,7 @@ export interface AlertCardProps {
     value: number;
     variant: AlertVariantTypes;
   }[];
-  clickFunction?: Function;
+  clickFunction?: () => void;
   variant?: AlertVariantTypes;
   showStatus?: boolean;
   showStatusIcon?: boolean;
@@ -51,7 +51,15 @@ function getLevel(color: AlertColorTypes): number {
 }
 
 // ORDERING - Error, Warning, Info, Success
-function getCardColor(arr: any[]): AlertColorTypes {
+function getCardColor(
+  arr: {
+    color: AlertColorTypes;
+    hideValue: boolean;
+    title: string;
+    value: number;
+    variant: AlertVariantTypes;
+  }[],
+): AlertColorTypes {
   let result = AlertColorTypes.Success;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].color === AlertColorTypes.Error) {
@@ -109,13 +117,15 @@ function AlertElement(
   // optional
   showStatus: boolean,
   showStatusIcon: boolean,
-  clickFunction?: Function,
+  clickFunction?: () => void,
 ) {
-  const buttonClick = () => (clickFunction ? clickFunction : null);
-
   return (
     <Box key={`AlertFilledBox${index}`}>
-      <Button key={`AlertFilledButton${index}`} onClick={buttonClick} data-testid={testId + 'Btn'}>
+      <Button
+        key={`AlertFilledButton${index}`}
+        onClick={clickFunction}
+        data-testid={testId + 'Btn'}
+      >
         <Alert
           key={`AlertFilled${index}`}
           color={color}

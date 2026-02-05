@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import { FocusEventHandler, JSX } from 'react';
 import { InputAdornment, PopperPlacementType, TextField, Tooltip, useTheme } from '@mui/material';
 import SearchIcon from '../Icons/classic/SearchIcon';

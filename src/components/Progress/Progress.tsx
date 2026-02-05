@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { JSX } from 'react';
 import { Box, CircularProgress, LinearProgress, Typography } from '@mui/material';
 

@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import React, { JSX, ReactNode } from 'react';
 import { Box, Card, CardContent, CardHeader, Modal, useTheme } from '@mui/material';
 import ClearIcon from '../Icons/circle/ClearIcon';
 import { OurIconButton } from '../IconButton/IconButton';
 
 export type Help = {
-  content: Object;
-  component: Object;
-  showHelp: Boolean;
+  content: object;
+  component: object;
+  showHelp: boolean;
 };
 export interface HelpModalProps {
   ariaDescription?: string;

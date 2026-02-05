@@ -26,7 +26,7 @@ interface NumberEntry2Props {
   minValue?: number | undefined;
   required?: boolean;
   scrubArea?: boolean;
-  setValue: Function;
+  setValue: (value: number) => void;
   step?: number;
   suffix?: string | JSX.Element;
   testId?: string;
@@ -137,7 +137,7 @@ export function NumberEntry2({
         largeStep={step * 10}
         max={maxValue}
         min={minValue}
-        onValueChange={(itemValue) => setValue(itemValue)}
+        onValueChange={(itemValue) => itemValue !== null && setValue(itemValue)}
         required={required}
         step={step}
         value={value}

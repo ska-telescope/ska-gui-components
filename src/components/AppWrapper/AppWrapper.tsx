@@ -11,9 +11,9 @@ export const SPACER_FOOTER = 0;
 export type Children = JSX.Element | JSX.Element[] | null;
 
 export type Help = {
-  content: Object;
-  component: Object;
-  showHelp: Boolean;
+  content: object;
+  component: object;
+  showHelp: boolean;
 };
 
 export type Telescope = {
@@ -31,11 +31,11 @@ export type Storage = {
   accessibility?: number;
   accessibilityUpdate?: (value: number) => void;
   help?: Help;
-  helpToggle?: Function;
+  helpToggle?: (value: boolean) => void;
   telescope?: Telescope;
   themeMode: string;
-  toggleTheme: Function;
-  updateTelescope?: Function;
+  toggleTheme: (mode: string) => void;
+  updateTelescope?: (telescope: Telescope) => void;
 };
 
 export type AppWrapperProperties = {
@@ -57,11 +57,11 @@ export type AppWrapperProperties = {
   storageAccessibility?: number;
   storageAccessibilityUpdate?: (value: number) => void;
   storageHelp?: Help;
-  storageHelpToggle?: Function;
+  storageHelpToggle?: (value: boolean) => void;
   storageTelescope?: Telescope;
   storageThemeMode: string;
-  storageToggleTheme: Function;
-  storageUpdateTelescope?: Function;
+  storageToggleTheme: (mode: string) => void;
+  storageUpdateTelescope?: (telescope: Telescope) => void;
   version?: string;
   versionTooltip?: string;
 };

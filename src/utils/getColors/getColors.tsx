@@ -27,7 +27,12 @@ interface GetColorsInput {
 export function getColors(
   args: GetColorsInput & { asArray?: false },
 ): Record<string, { bg?: string; fg?: string }> | undefined;
-export function getColors(args: GetColorsInput & { asArray: true }): string[] | undefined;
+export function getColors(
+  args: GetColorsInput & { asArray: true; content?: 'bg' | 'fg' },
+): string[] | undefined;
+export function getColors(
+  args: GetColorsInput & { asArray: true; content: 'both' },
+): { bg: string[]; fg: string[] } | undefined;
 
 export function getColors({
   type,
@@ -36,7 +41,11 @@ export function getColors({
   dim = 1,
   asArray = false,
   paletteIndex = 0,
-}: GetColorsInput): any {
+}: GetColorsInput):
+  | Record<string, { bg?: string; fg?: string }>
+  | string[]
+  | { bg: string[]; fg: string[] }
+  | undefined {
   const paletteSet = COLOR_PALETTE_SETS[paletteIndex];
   if (!paletteSet) return undefined;
 
@@ -97,8 +106,8 @@ export function getColors({
       draft: [paletteSet.colors[COLOR_GREY_DARK], paletteSet.textColors[COLOR_GREY_DARK]],
       submitted: [paletteSet.colors[COLOR_BLUE], paletteSet.textColors[COLOR_BLUE]],
       ready: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
-      'in progress': [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
-      executing: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
+      'in progress': [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
+      executing: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
       observed: [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
       'fully observed': [paletteSet.colors[COLOR_PURPLE], paletteSet.textColors[COLOR_PURPLE]],
       complete: [paletteSet.colors[COLOR_GREEN], paletteSet.textColors[COLOR_GREEN]],
@@ -114,7 +123,10 @@ export function getColors({
     type && paletteMap[type]
       ? paletteMap[type]
       : Object.fromEntries(
-          paletteSet.colors.map((c: any, i: number) => [String(i), [c, paletteSet.textColors[i]]]),
+          paletteSet.colors.map((c: string, i: number) => [
+            String(i),
+            [c, paletteSet.textColors[i]],
+          ]),
         );
 
   const colorList =
@@ -144,16 +156,24 @@ export function getColors({
   // --- FIXED ARRAY MODE ---
   if (asArray) {
     if (content === 'bg') {
-      return Object.values(result).map((c) => c.bg);
+      return Object.values(result)
+        .map((c) => c.bg)
+        .filter((c): c is string => c !== undefined);
     }
     if (content === 'fg') {
-      return Object.values(result).map((c) => c.fg);
+      return Object.values(result)
+        .map((c) => c.fg)
+        .filter((c): c is string => c !== undefined);
     }
     // content === 'both'
     return {
-      bg: Object.values(result).map((c) => c.bg),
-      fg: Object.values(result).map((c) => c.fg),
-    };
+      bg: Object.values(result)
+        .map((c) => c.bg)
+        .filter((c): c is string => c !== undefined),
+      fg: Object.values(result)
+        .map((c) => c.fg)
+        .filter((c): c is string => c !== undefined),
+    } as { bg: string[]; fg: string[] };
   }
 
   return result;

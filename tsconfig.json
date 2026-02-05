@@ -15,6 +15,6 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["src", "global.d.ts"],
+  "include": ["src", ".storybook", "global.d.ts"],
   "exclude": ["dist/**/*", "node_modules/**/*", "src/*.test.ts"]
 }

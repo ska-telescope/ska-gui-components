@@ -64,7 +64,7 @@ export interface ButtonProps {
   disabled?: boolean;
   icon?: JSX.Element | string;
   label: string;
-  onClick?: Function;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   ref?: string;
   size?: ButtonSizeTypes;
   testId: string;
@@ -73,28 +73,30 @@ export interface ButtonProps {
   variant?: ButtonVariantTypes;
 }
 
-export function OurButton(
-  this: any,
-  {
-    ariaDescription = 'Button',
-    color = ButtonColorTypes.Success,
-    component = 'button',
-    disabled = false,
-    icon,
-    label,
-    onClick,
-    ref,
-    size = ButtonSizeTypes.Medium,
-    testId = 'buttton-' + label,
-    toolTip = '',
-    toolTipPlacement = 'bottom',
-    variant = ButtonVariantTypes.Outlined,
-  }: ButtonProps,
-): JSX.Element {
-  const clicked = (e: any) => (typeof onClick !== 'undefined' ? onClick(e) : null);
+export function OurButton({
+  ariaDescription = 'Button',
+  color = ButtonColorTypes.Success,
+  component = 'button',
+  disabled = false,
+  icon,
+  label,
+  onClick,
+  ref,
+  size = ButtonSizeTypes.Medium,
+  testId = 'button-' + label,
+  toolTip = '',
+  toolTipPlacement = 'bottom',
+  variant = ButtonVariantTypes.Outlined,
+}: ButtonProps): JSX.Element {
+  const theme = useTheme();
 
-  const fetchColorFG = () => {
-    const theme = useTheme();
+  const clicked = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (onClick) {
+      onClick(e);
+    }
+  };
+
+  const fetchColorFG = (theme: import('@mui/material').Theme) => {
     switch (color) {
       case ButtonColorTypes.Error:
         return variant === ButtonVariantTypes.Contained
@@ -117,44 +119,43 @@ export function OurButton(
     }
   };
 
-  const fetchIcon = () => {
-    const theme = useTheme();
+  const fetchIcon = (theme: import('@mui/material').Theme) => {
     switch (icon) {
       case ButtonIcons.Add:
-        return <AddIcon colorFG={fetchColorFG()} />;
+        return <AddIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Cancel:
-        return <ClearIcon colorFG={fetchColorFG()} />;
+        return <ClearIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Confirm:
-        return <TickIcon colorFG={fetchColorFG()} />;
+        return <TickIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Delete:
-        return <DeleteIcon colorFG={fetchColorFG()} />;
+        return <DeleteIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Download:
-        return <DownloadIcon colorFG={fetchColorFG()} />;
+        return <DownloadIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Email:
-        return <EmailIcon colorFG={fetchColorFG()} />;
+        return <EmailIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Home:
-        return <HomeIcon colorFG={fetchColorFG()} />;
+        return <HomeIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Location:
-        return <CrosshairsIcon colorFG={fetchColorFG()} />;
+        return <CrosshairsIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Next:
-        return <ArrowForwardIcon colorFG={fetchColorFG()} />;
+        return <ArrowForwardIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.PDF:
-        return <PDFDocumentIcon colorFG={fetchColorFG()} />;
+        return <PDFDocumentIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Previous:
-        return <ArrowBackIcon colorFG={fetchColorFG()} />;
+        return <ArrowBackIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Save:
-        return <SaveIcon colorFG={fetchColorFG()} />;
+        return <SaveIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Submit:
-        return <PublishIcon colorFG={fetchColorFG()} />;
+        return <PublishIcon colorFG={fetchColorFG(theme)} />;
       case ButtonIcons.Validate:
-        return <FactCheckIcon colorFG={fetchColorFG()} />;
+        return <FactCheckIcon colorFG={fetchColorFG(theme)} />;
       default:
         return null;
     }
   };
 
   const getIcon = () => {
-    return typeof icon === 'string' ? fetchIcon() : icon;
+    return typeof icon === 'string' ? fetchIcon(theme) : icon;
   };
 
   return (
@@ -168,7 +169,7 @@ export function OurButton(
           component={component as ElementType}
           data-testid={testId.length > 0 ? testId : 'button-' + label}
           disabled={disabled}
-          onClick={(e: any) => clicked(e)}
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => clicked(e)}
           ref={ref}
           role="button"
           size={size}
