@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.7.1
+*****
+
+See about getting the chart colors to affect the MUI directly
+
 2.7.0
 *****
 
