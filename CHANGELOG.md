@@ -1,7 +1,7 @@
 Changelog
 ==========
 
-2.7.4
+2.7.5
 *****
 
 Update the index.ts
