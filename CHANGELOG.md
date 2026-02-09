@@ -1,7 +1,7 @@
 Changelog
 ==========
 
-2.7.2
+2.7.3
 *****
 
 Update the Theme.tsx to include the PaletteSets

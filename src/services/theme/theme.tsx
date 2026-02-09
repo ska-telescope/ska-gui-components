@@ -65,7 +65,6 @@ const theme = (input: ThemeInput) => {
       ? ACCESSIBILITY_DEFAULT
       : (input.accessibilityMode ?? ACCESSIBILITY_DEFAULT);
 
-  // ⭐ Build paletteSet manually — this is the missing piece
   const colors = getColorsForMode(themeMode, accessibilityMode);
   const textColors = getTextColorsForMode(themeMode, accessibilityMode);
 
