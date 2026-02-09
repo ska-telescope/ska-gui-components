@@ -1,7 +1,6 @@
-import { createTheme, PaletteOptions } from '@mui/material';
+import { createTheme, PaletteOptions, ThemeOptions } from '@mui/material';
 import {
-  getColorsForMode,
-  getTextColorsForMode,
+  Theme as RawTheme,
   THEME_LIGHT,
   THEME_DARK,
   ACCESSIBILITY_DEFAULT,
@@ -42,12 +41,23 @@ const COLOR_ORANGE = 1;
 const COLOR_GREEN = 3;
 const COLOR_BLUE = 4;
 
-const buildSemanticColors = (colors: string[], textColors: string[]): PaletteOptions => {
-  const make = (i: number) => ({
-    main: colors[i],
-    light: colors[i],
-    dark: colors[i],
-    contrastText: textColors[i],
+interface PaletteSet {
+  colors: string[];
+  textColors: string[];
+}
+
+interface RawThemeWithPaletteSet extends ThemeOptions {
+  paletteSet?: PaletteSet;
+}
+
+const buildSemanticColors = (set: PaletteSet): PaletteOptions => {
+  const { colors, textColors } = set;
+
+  const make = (index: number) => ({
+    main: colors[index],
+    light: colors[index],
+    dark: colors[index],
+    contrastText: textColors[index],
   });
 
   return {
@@ -58,21 +68,15 @@ const buildSemanticColors = (colors: string[], textColors: string[]): PaletteOpt
   };
 };
 
-const theme = (input: ThemeInput) => {
-  const themeMode = typeof input === 'string' ? input : input.themeMode;
-  const accessibilityMode =
-    typeof input === 'string'
-      ? ACCESSIBILITY_DEFAULT
-      : (input.accessibilityMode ?? ACCESSIBILITY_DEFAULT);
+const theme = (mode: ThemeInput) => {
+  const base = RawTheme(mode) as RawThemeWithPaletteSet;
 
-  const colors = getColorsForMode(themeMode, accessibilityMode);
-  const textColors = getTextColorsForMode(themeMode, accessibilityMode);
-
-  const semantic = buildSemanticColors(colors, textColors);
+  const semantic = base.paletteSet ? buildSemanticColors(base.paletteSet) : {};
 
   return createTheme({
+    ...base,
     palette: {
-      mode: themeMode === THEME_LIGHT ? 'light' : 'dark',
+      ...base.palette,
       ...semantic,
     },
   });
