@@ -38,6 +38,7 @@ export type ThemeInput =
 
 const COLOR_RED = 0;
 const COLOR_ORANGE = 1;
+//
 const COLOR_GREEN = 3;
 const COLOR_BLUE = 4;
 
