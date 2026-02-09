@@ -6,7 +6,7 @@ export interface SKAThemeOptions {
   accessibilityMode: number; // palette index
 }
 
-export function createSKATheme({ themeMode, accessibilityMode }: SKAThemeOptions) {
+export const theme = ({ themeMode, accessibilityMode }: SKAThemeOptions) => {
   const base = createTheme({
     palette: {
       mode: themeMode,
@@ -45,4 +45,6 @@ export function createSKATheme({ themeMode, accessibilityMode }: SKAThemeOptions
   // };
 
   return theme;
-}
+};
+
+export default theme;
