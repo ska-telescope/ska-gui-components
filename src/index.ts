@@ -35,6 +35,7 @@ export { TextEntry } from './components/TextEntry/TextEntry';
 export { TickBox } from './components/TickBox/TickBox';
 export { GUI_COMPONENTS_VERSION } from './components/version';
 
+// ⭐ KEEP these re‑exports from ska-javascript-components
 export {
   ACCESSIBILITY_DEFAULT,
   ACCESSIBILITY_PROTANOPIA,
@@ -60,8 +61,10 @@ export {
   TELESCOPE_MID,
   THEME_DARK,
   THEME_LIGHT,
-  Theme,
   JAVASCRIPT_COMPONENTS_VERSION,
 } from '@ska-telescope/ska-javascript-components';
 
 export type { AccessibilityMode, ThemeMode } from '@ska-telescope/ska-javascript-components';
+
+// ⭐ FIXED: Export YOUR theme implementation, not the JS-components one
+export { default as Theme } from './services/theme/theme';

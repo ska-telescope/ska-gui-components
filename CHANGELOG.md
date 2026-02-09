@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.7.4
+*****
+
+Update the index.ts
+
 2.7.3
 *****
 
