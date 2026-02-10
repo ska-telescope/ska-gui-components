@@ -4,16 +4,16 @@ import { COLOR_PALETTE_SETS, Colors } from '@ska-telescope/ska-javascript-compon
 type ContentType = 'bg' | 'fg' | 'both';
 
 // Colors based on the high contrast palette
-const COLOR_RED = 0;
-const COLOR_ORANGE = 1;
-const COLOR_YELLOW = 2;
-const COLOR_GREEN = 3;
-const COLOR_BLUE = 4;
-const COLOR_PURPLE = 5;
-const COLOR_PINK = 6;
-const COLOR_BROWN = 7;
-const COLOR_GREY_DARK = 8;
-const COLOR_GREY_LIGHT = 9;
+export const COLOR_RED = 0;
+export const COLOR_ORANGE = 1;
+export const COLOR_YELLOW = 2;
+export const COLOR_GREEN = 3;
+export const COLOR_BLUE = 4;
+export const COLOR_PURPLE = 5;
+export const COLOR_PINK = 6;
+export const COLOR_BROWN = 7;
+export const COLOR_GREY_DARK = 8;
+export const COLOR_GREY_LIGHT = 9;
 
 interface GetColorsInput {
   type: string /* semantic type (observationType, telescope, boolean, etc.) */;
