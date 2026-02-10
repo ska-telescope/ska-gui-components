@@ -1,7 +1,7 @@
 Changelog
 ==========
 
-2.7.8
+2.7.9
 *****
 
 Re-implement primary and secondary colors
