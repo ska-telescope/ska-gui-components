@@ -1,3 +1,4 @@
+import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { createSKATheme } from './createSKATheme';
 import { THEME_LIGHT, THEME_DARK } from '@ska-telescope/ska-javascript-components';
@@ -15,11 +16,20 @@ export function SKAThemeProvider({
   accessibilityMode,
   children,
 }: SKAThemeProviderProps) {
-  const theme = createSKATheme(themeMode, accessibilityMode);
+  // Memoize the theme so it only recalculates when inputs change
+  const theme = React.useMemo(
+    () => createSKATheme(themeMode, accessibilityMode),
+    [themeMode, accessibilityMode],
+  );
 
-  Object.entries(theme.skaVars).forEach(([key, value]) => {
-    document.documentElement.style.setProperty(key, String(value));
-  });
+  // Apply CSS variables once per theme change
+  React.useEffect(() => {
+    if (!theme.skaVars) return;
+
+    for (const [key, value] of Object.entries(theme.skaVars)) {
+      document.documentElement.style.setProperty(key, String(value));
+    }
+  }, [theme]);
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }
