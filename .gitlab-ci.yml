@@ -90,7 +90,6 @@ list_dependencies:
   stage: test
   tags:
     - k8srunner
-  allow_failure: true
   script:
     - npm list --depth=0 --json >> npm_deps.json
     - npm list --depth=0  >> npm_deps.txt
