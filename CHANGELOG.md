@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.7.6
+*****
+
+Added theme hook
+
 2.7.5
 *****
 
