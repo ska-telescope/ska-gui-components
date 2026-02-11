@@ -18,11 +18,9 @@ export function createSKATheme(themeMode: SKAThemeMode, accessibilityMode: numbe
   const skaColors = Colors();
   const isDark = themeMode === THEME_DARK;
 
-  // Fixed brand colors — never depend on accessibility
   const primary = isDark ? skaColors.DARK_PRIMARY : skaColors.LIGHT_PRIMARY;
   const secondary = isDark ? skaColors.DARK_SECONDARY : skaColors.LIGHT_SECONDARY;
 
-  // Accessibility‑aware semantic colors
   const paletteSet = COLOR_PALETTE_SETS[accessibilityMode] ?? COLOR_PALETTE_SETS[0];
 
   const semantic = {
@@ -32,12 +30,11 @@ export function createSKATheme(themeMode: SKAThemeMode, accessibilityMode: numbe
     info: String(paletteSet.colors[COLOR_PURPLE]),
   };
 
-  // ⭐ SINGLE createTheme call — prevents CSS variable mode
   const theme = createTheme({
     palette: {
       mode: themeMode,
-      primary: { main: primary },
-      secondary: { main: secondary },
+      primary: primary,
+      secondary: secondary,
       error: { main: semantic.error },
       warning: { main: semantic.warning },
       success: { main: semantic.success },
