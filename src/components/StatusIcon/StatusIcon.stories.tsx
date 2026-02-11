@@ -13,7 +13,7 @@ export const Default = {
     testId: 'StatusIconTestId',
     icon: true,
     softColors: false,
-    size: 20,
-    level: 0,
+    size: 50,
+    level: 5,
   },
 };

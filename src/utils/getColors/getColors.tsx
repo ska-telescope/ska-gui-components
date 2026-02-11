@@ -59,10 +59,10 @@ export function getColors({
       2: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
     },
     telescope: {
-      1: [Colors().SKAO_TELESCOPE_1, '#FFFFFF'],
-      2: [Colors().SKAO_TELESCOPE_2, '#000000'],
-      mid: [Colors().SKAO_TELESCOPE_1, '#FFFFFF'],
-      low: [Colors().SKAO_TELESCOPE_2, '#000000'],
+      1: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
+      2: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
+      mid: [paletteSet.colors[COLOR_BROWN], paletteSet.textColors[COLOR_BROWN]],
+      low: [paletteSet.colors[COLOR_YELLOW], paletteSet.textColors[COLOR_YELLOW]],
     },
     boolean: {
       no: [paletteSet.colors[COLOR_RED], paletteSet.textColors[COLOR_RED]],

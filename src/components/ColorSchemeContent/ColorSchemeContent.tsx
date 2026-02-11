@@ -148,14 +148,15 @@ export default function ColorSchemeContent({
     paletteIndex,
   });
 
+  // These are not from getColors since they use the theme directly
   const buttonColors = {
     primary: {
-      bg: theme.palette.primary.main,
-      fg: theme.palette.primary.contrastText,
-    },
-    secondary: {
       bg: theme.palette.secondary.main,
       fg: theme.palette.secondary.contrastText,
+    },
+    secondary: {
+      bg: theme.palette.primary.main,
+      fg: theme.palette.primary.contrastText,
     },
   };
 
