@@ -5,12 +5,7 @@ import {
   THEME_DARK,
   COLOR_PALETTE_SETS,
 } from '@ska-telescope/ska-javascript-components';
-import {
-  COLOR_RED,
-  COLOR_ORANGE,
-  COLOR_GREEN,
-  COLOR_PURPLE,
-} from '../../utils/getColors/getColors';
+import { COLOR_RED, COLOR_ORANGE, COLOR_GREEN, COLOR_BLUE } from '../../utils/getColors/getColors';
 
 export type SKAThemeMode = typeof THEME_LIGHT | typeof THEME_DARK;
 
@@ -27,7 +22,7 @@ export function createSKATheme(themeMode: SKAThemeMode, accessibilityMode: numbe
     error: String(paletteSet.colors[COLOR_RED]),
     warning: String(paletteSet.colors[COLOR_ORANGE]),
     success: String(paletteSet.colors[COLOR_GREEN]),
-    info: String(paletteSet.colors[COLOR_PURPLE]),
+    info: String(paletteSet.colors[COLOR_BLUE]),
   };
 
   const theme = createTheme({
