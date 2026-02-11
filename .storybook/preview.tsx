@@ -1,15 +1,11 @@
 import type { Preview } from "@storybook/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import themeFactory from "../src/components/theme/theme";
+import { createSKATheme } from "../src/services/theme/createSKATheme";
 import {
-  THEME_LIGHT,
-  ACCESSIBILITY_DEFAULT,
+  THEME_LIGHT
 } from "@ska-telescope/ska-javascript-components";
 
-const storybookTheme = themeFactory({
-  themeMode: THEME_LIGHT,
-  accessibilityMode: ACCESSIBILITY_DEFAULT,
-});
+const storybookTheme = createSKATheme(THEME_LIGHT, 0);
 
 const preview: Preview = {
   parameters: {
