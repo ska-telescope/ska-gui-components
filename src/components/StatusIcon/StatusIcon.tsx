@@ -160,29 +160,38 @@ export function StatusIcon({
     );
   }
 
-  function getStatusColor(level: number, col: number, soft: boolean) {
+  function fillColor(level: number, soft: boolean) {
     switch (level) {
       case 0:
-        return soft ? colors.SOFT_SUCCESS[col] : colors.SUCCESS[col];
+        return soft ? theme.palette.success.light : theme.palette.success.main;
       case 1:
-        return soft ? colors.SOFT_ERROR_1[col] : colors.ERROR_1[col];
+        return soft ? theme.palette.error.light : theme.palette.error.main;
       case 2:
-        return soft ? colors.SOFT_ERROR_2[col] : colors.ERROR_2[col];
+        return soft ? colors.SOFT_ERROR_2[1] : colors.ERROR_2[1];
       case 3:
-        return soft ? colors.SOFT_ERROR_3[col] : colors.ERROR_3[col];
+        return soft ? theme.palette.warning.light : theme.palette.warning.main;
       case 4:
-        return soft ? colors.SOFT_ERROR_4[col] : colors.ERROR_4[col];
+        return soft ? theme.palette.info.light : theme.palette.info.main;
       default:
         return soft ? theme.palette.primary.light : theme.palette.primary.main;
     }
   }
 
-  function fillColor(level: number, soft: boolean) {
-    return getStatusColor(level, 1, soft);
-  }
-
   function textColor(level: number, soft: boolean) {
-    return getStatusColor(level, 4, soft);
+    switch (level) {
+      case 0:
+        return soft ? theme.palette.success.contrastText : theme.palette.success.contrastText;
+      case 1:
+        return soft ? theme.palette.error.contrastText : theme.palette.error.contrastText;
+      case 2:
+        return soft ? colors.SOFT_ERROR_2[4] : colors.ERROR_2[4];
+      case 3:
+        return soft ? theme.palette.warning.contrastText : theme.palette.warning.contrastText;
+      case 4:
+        return soft ? theme.palette.info.contrastText : theme.palette.info.contrastText;
+      default:
+        return soft ? theme.palette.primary.contrastText : theme.palette.primary.contrastText;
+    }
   }
 
   const strokeProps = { stroke: fillColor(level, softColors), strokeWidth: STROKE_WIDTH };
