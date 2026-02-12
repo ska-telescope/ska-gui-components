@@ -11,7 +11,7 @@ export default {
 export const Default = {
   args: {
     ariaDescription: 'aria Description',
-    color: ButtonColorTypes.Success,
+    // color: ButtonColorTypes.Primary,
     icon: ButtonIcons.Add,
     label: 'OurButton Label',
     toolTip: 'Tool tip',
@@ -25,7 +25,7 @@ export const Dark = {
   },
   args: {
     ariaDescription: 'aria Description',
-    color: ButtonColorTypes.Error,
+    // color: ButtonColorTypes.Error,
     icon: ButtonIcons.Add,
     label: 'OurButton Label',
     testId: 'testId',

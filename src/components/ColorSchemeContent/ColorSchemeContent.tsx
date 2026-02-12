@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-function-type */
-import { Box, Grid, Stack, Typography } from '@mui/material';
+
+import { Box, Checkbox, Grid, Stack, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import DarkModeIcon from '../Icons/classic/DarkModeIcon';
 import LightModeIcon from '../Icons/classic/LightModeIcon';
@@ -10,24 +10,26 @@ import {
   THEME_DARK,
   THEME_LIGHT,
 } from '@ska-telescope/ska-javascript-components';
-import { Help } from '../HelpModal/HelpModal';
-import { Telescope } from '../TelescopeSelector/TelescopeSelector';
 import BorderedSection from '../BorderedSection/BorderedSection';
 import { getColors } from '../../utils/getColors/getColors';
 import DropDown from '../DropDown/DropDown';
+import { SKABrandColor } from '../../services/theme/createSKATheme';
+import { Help } from 'components/AppWrapper/AppWrapper';
+import { Telescope } from 'components/TelescopeSelector/TelescopeSelector';
 
 export type Storage = {
   accessibility?: number;
   accessibilityUpdate?: (value: number) => void;
-
   help?: Help;
-  helpToggle?: Function;
+  helpToggle?: () => void;
   telescope?: Telescope;
-
   themeMode: string;
-  toggleTheme: Function;
-
-  updateTelescope?: Function;
+  toggleTheme: () => void;
+  updateTelescope?: (telescope: Telescope) => void;
+  buttonVariant?: SKABrandColor;
+  setButtonVariant?: (value: SKABrandColor) => void;
+  flatten?: boolean;
+  setFlatten?: (value: boolean) => void;
 };
 
 export interface ColorSchemeContent {
@@ -271,6 +273,110 @@ export default function ColorSchemeContent({
     </BorderedSection>
   );
 
+  const lightDarkMode = () => {
+    return (
+      <>
+        <Typography variant="body2">Light / Dark:</Typography>
+        <OurIconButton
+          ariaTitle="light/dark mode"
+          onClick={() => themeToggle()}
+          icon={
+            isDarkTheme ? (
+              <DarkModeIcon colorFG={theme.palette.secondary.main} />
+            ) : (
+              <LightModeIcon colorFG={theme.palette.secondary.main} />
+            )
+          }
+          toolTip={toolTip.mode}
+        />
+      </>
+    );
+  };
+
+  const flatten = () => {
+    return (
+      <>
+        <Typography variant="body2">Flatten:</Typography>
+
+        <Checkbox
+          checked={storage.flatten}
+          onChange={(e) => (storage?.setFlatten ? storage.setFlatten(e.target.checked) : null)}
+          sx={{
+            color: theme.palette.secondary.main,
+            '&.Mui-checked': {
+              color: theme.palette.secondary.main,
+            },
+          }}
+        />
+      </>
+    );
+  };
+
+  const brandAccent = () => {
+    console.log('UI sees buttonVariant:', storage.buttonVariant);
+
+    return (
+      <>
+        <Typography variant="body2">Brand Accent:</Typography>
+
+        <Box
+          onClick={() => {
+            if (!storage?.setButtonVariant) return;
+
+            storage.setButtonVariant(
+              storage.buttonVariant === SKABrandColor.Blue
+                ? SKABrandColor.Pink
+                : SKABrandColor.Blue,
+            );
+          }}
+          sx={{
+            width: 32,
+            height: 32,
+            borderRadius: 1,
+            cursor: 'pointer',
+            bgcolor:
+              storage.buttonVariant === SKABrandColor.Pink
+                ? logoColors?.['2'].bg
+                : logoColors?.['1'].bg,
+            border: `2px solid ${theme.palette.text.primary}`,
+            transition: 'background-color 0.25s ease, transform 0.15s ease',
+            '&:active': {
+              transform: 'scale(0.92)',
+            },
+          }}
+        />
+      </>
+    );
+  };
+
+  const accessibilityMode = () => {
+    return (
+      <>
+        <Typography variant="body2">Color Mode:</Typography>
+
+        <DropDown
+          ariaTitle="aria Title"
+          ariaDescription="aria Description"
+          disabled={false}
+          errorText=""
+          label=""
+          options={COLOR_PALETTE_SETS.map(
+            (set: { label: any }, index: { toString: () => any }) => ({
+              label: set.label,
+              value: index.toString(),
+              disabled: false,
+            }),
+          )}
+          required={false}
+          value={getColorMode()}
+          setValue={(newValue: string) => setColorMode(newValue)}
+          testId="testId"
+          toolTip="tooltip"
+        />
+      </>
+    );
+  };
+
   return (
     <Grid
       container
@@ -282,42 +388,10 @@ export default function ColorSchemeContent({
     >
       <Grid container direction="column" sx={{ p: 2 }}>
         <Stack mb={4} direction="row" spacing={2} alignItems="center">
-          <Typography variant="body2">Light / Dark:</Typography>
-
-          <OurIconButton
-            ariaTitle="light/dark mode"
-            onClick={() => themeToggle()}
-            icon={
-              isDarkTheme ? (
-                <DarkModeIcon colorFG={theme.palette.secondary.main} />
-              ) : (
-                <LightModeIcon colorFG={theme.palette.secondary.main} />
-              )
-            }
-            toolTip={toolTip.mode}
-          />
-
-          <Typography variant="body2">Color Mode:</Typography>
-
-          <DropDown
-            ariaTitle="aria Title"
-            ariaDescription="aria Description"
-            disabled={false}
-            errorText=""
-            label=""
-            options={COLOR_PALETTE_SETS.map(
-              (set: { label: any }, index: { toString: () => any }) => ({
-                label: set.label,
-                value: index.toString(),
-                disabled: false,
-              }),
-            )}
-            required={false}
-            value={getColorMode()}
-            setValue={(newValue: string) => setColorMode(newValue)}
-            testId="testId"
-            toolTip="tooltip"
-          />
+          {lightDarkMode()}
+          {flatten()}
+          {brandAccent()}
+          {accessibilityMode()}
         </Stack>
         <Grid container direction="row" spacing={2} justifyContent="space-between">
           {shouldShowSection('telescope') && section('Telescope colors', telescopeColors)}

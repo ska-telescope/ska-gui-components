@@ -4,6 +4,7 @@ import { Spacer, SPACER_VERTICAL } from '@ska-telescope/ska-javascript-component
 import CopyrightModal from '../CopyrightModal/CopyrightModal';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import { SKABrandColor } from '../../services/theme/createSKATheme';
 
 export const SPACER_HEADER = 70;
 export const SPACER_FOOTER = 0;
@@ -31,11 +32,15 @@ export type Storage = {
   accessibility?: number;
   accessibilityUpdate?: (value: number) => void;
   help?: Help;
-  helpToggle?: (value: boolean) => void;
+  helpToggle?: () => void;
   telescope?: Telescope;
   themeMode: string;
-  toggleTheme: (mode: string) => void;
+  toggleTheme: () => void;
   updateTelescope?: (telescope: Telescope) => void;
+  buttonVariant?: SKABrandColor;
+  setButtonVariant?: (value: SKABrandColor) => void;
+  flatten?: boolean;
+  setFlatten?: (value: boolean) => void;
 };
 
 export type AppWrapperProperties = {
@@ -57,11 +62,15 @@ export type AppWrapperProperties = {
   storageAccessibility?: number;
   storageAccessibilityUpdate?: (value: number) => void;
   storageHelp?: Help;
-  storageHelpToggle?: (value: boolean) => void;
+  storageHelpToggle?: () => void;
   storageTelescope?: Telescope;
   storageThemeMode: string;
-  storageToggleTheme: (mode: string) => void;
+  storageToggleTheme: () => void;
   storageUpdateTelescope?: (telescope: Telescope) => void;
+  storageButtonVariant?: SKABrandColor;
+  storageSetButtonVariant: (value: SKABrandColor) => void;
+  storageFlatten: boolean;
+  storageSetFlatten: (value: boolean) => void;
   version?: string;
   versionTooltip?: string;
 };
@@ -100,6 +109,10 @@ function TheHeader(properties: AppWrapperProperties): React.JSX.Element {
         themeMode: properties.storageThemeMode,
         toggleTheme: properties.storageToggleTheme,
         updateTelescope: properties.storageUpdateTelescope,
+        buttonVariant: properties.storageButtonVariant,
+        setButtonVariant: properties.storageSetButtonVariant,
+        flatten: properties.storageFlatten,
+        setFlatten: properties.storageSetFlatten,
       }}
       useBrowserStorage={false}
     >

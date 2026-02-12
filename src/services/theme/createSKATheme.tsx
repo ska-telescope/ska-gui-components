@@ -8,13 +8,35 @@ import {
 import { COLOR_RED, COLOR_ORANGE, COLOR_GREEN, COLOR_BLUE } from '../../utils/getColors/getColors';
 
 export type SKAThemeMode = typeof THEME_LIGHT | typeof THEME_DARK;
+export enum SKABrandColor {
+  Blue = 'blue',
+  Pink = 'pink',
+}
 
-export function createSKATheme(themeMode: SKAThemeMode, accessibilityMode: number) {
+export function createSKATheme(
+  themeMode: SKAThemeMode,
+  accessibilityMode: number,
+  buttonVariant: SKABrandColor = SKABrandColor.Blue,
+) {
   const skaColors = Colors();
   const isDark = themeMode === THEME_DARK;
 
+  const SKAO_BLUE = {
+    main: skaColors.SKAO_LOGO_PRIMARY,
+    light: skaColors.SKAO_LOGO_PRIMARY,
+    dark: skaColors.SKAO_LOGO_PRIMARY,
+    contrastText: skaColors.SKAO_LOGO_LIGHT,
+  };
+
+  const SKAO_PINK = {
+    main: skaColors.SKAO_LOGO_ACCENT,
+    light: skaColors.SKAO_LOGO_ACCENT,
+    dark: skaColors.SKAO_LOGO_ACCENT,
+    contrastText: skaColors.SKAO_LOGO_LIGHT,
+  };
+
   const primary = isDark ? skaColors.DARK_PRIMARY : skaColors.LIGHT_PRIMARY;
-  const secondary = isDark ? skaColors.DARK_SECONDARY : skaColors.LIGHT_SECONDARY;
+  const secondary = buttonVariant === SKABrandColor.Blue ? SKAO_BLUE : SKAO_PINK;
 
   const paletteSet = COLOR_PALETTE_SETS[accessibilityMode] ?? COLOR_PALETTE_SETS[0];
 
