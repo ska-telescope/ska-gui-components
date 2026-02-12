@@ -67,5 +67,5 @@ export type { AccessibilityMode, ThemeMode } from '@ska-telescope/ska-javascript
 
 // Theme system
 export { SKAThemeProvider } from './services/theme/SKAThemeProvider';
-export { createSKATheme } from './services/theme/createSKATheme';
+export { createSKATheme, SKABrandColor } from './services/theme/createSKATheme';
 export type { SKAThemeMode } from './services/theme/createSKATheme';

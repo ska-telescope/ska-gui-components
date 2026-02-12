@@ -21,7 +21,6 @@ export function SKAThemeProvider({
   flatten,
   children,
 }: SKAThemeProviderProps) {
-
   const theme = React.useMemo(
     () => createSKATheme(themeMode, accessibilityMode, buttonVariant, flatten),
     [themeMode, accessibilityMode, buttonVariant, flatten],
