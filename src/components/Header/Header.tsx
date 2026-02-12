@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import { JSX, ReactNode, useState } from 'react';
 import { AppBar, Box, Grid, Paper, Typography, useTheme, Drawer } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -21,6 +20,7 @@ import PaletteIcon from '../Icons/classic/PaletteIcon';
 import { Help } from '../HelpModal/HelpModal';
 import Children from '../../utils/types/types';
 import ColorSchemeContent from '../ColorSchemeContent/ColorSchemeContent';
+import { SKABrandColor } from '../../services/theme/createSKATheme';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -37,11 +37,15 @@ export type Storage = {
   accessibility?: number;
   accessibilityUpdate?: (value: number) => void;
   help?: Help;
-  helpToggle?: Function;
+  helpToggle?: () => void;
   telescope?: Telescope;
   themeMode: string;
-  toggleTheme: Function;
-  updateTelescope?: Function;
+  toggleTheme: () => void;
+  updateTelescope?: (telescope: Telescope) => void;
+  buttonVariant?: SKABrandColor;
+  setButtonVariant?: (value: SKABrandColor) => void;
+  flatten?: boolean;
+  setFlatten?: (value: boolean) => void;
 };
 
 const LOGO_HEIGHT = 30;

@@ -1,14 +1,6 @@
 import { Telescope } from '../TelescopeSelector/TelescopeSelector';
 import { Help } from '../HelpModal/HelpModal';
 import Children from '../../utils/types/types';
-export type Storage = {
-  help?: Help;
-  helpToggle?: Function;
-  telescope?: Telescope;
-  themeMode: string;
-  toggleTheme: Function;
-  updateTelescope?: Function;
-};
 export interface HeaderProps {
   ariaDescription?: string;
   ariaTitle?: string;
