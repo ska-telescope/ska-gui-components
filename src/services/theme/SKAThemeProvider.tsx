@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createSKATheme } from './createSKATheme';
 import { THEME_LIGHT, THEME_DARK } from '@ska-telescope/ska-javascript-components';
 import { SKABrandColor } from './createSKATheme';
@@ -10,6 +10,7 @@ interface SKAThemeProviderProps {
   themeMode: SKAThemeMode;
   accessibilityMode: number;
   buttonVariant: SKABrandColor;
+  flatten: boolean;
   children: React.ReactNode;
 }
 
@@ -17,11 +18,13 @@ export function SKAThemeProvider({
   themeMode,
   accessibilityMode,
   buttonVariant,
+  flatten,
   children,
 }: SKAThemeProviderProps) {
+
   const theme = React.useMemo(
-    () => createSKATheme(themeMode, accessibilityMode, buttonVariant),
-    [themeMode, accessibilityMode, buttonVariant],
+    () => createSKATheme(themeMode, accessibilityMode, buttonVariant, flatten),
+    [themeMode, accessibilityMode, buttonVariant, flatten],
   );
 
   React.useEffect(() => {
@@ -32,5 +35,10 @@ export function SKAThemeProvider({
     }
   }, [theme]);
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline enableColorScheme />
+      {children}
+    </ThemeProvider>
+  );
 }

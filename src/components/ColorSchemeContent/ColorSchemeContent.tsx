@@ -152,11 +152,11 @@ export default function ColorSchemeContent({
 
   // These are not from getColors since they use the theme directly
   const buttonColors = {
-    primary: {
+    accent: {
       bg: theme.palette.secondary.main,
       fg: theme.palette.secondary.contrastText,
     },
-    secondary: {
+    primary: {
       bg: theme.palette.primary.main,
       fg: theme.palette.primary.contrastText,
     },
@@ -276,7 +276,7 @@ export default function ColorSchemeContent({
   const lightDarkMode = () => {
     return (
       <>
-        <Typography variant="body2">Light / Dark:</Typography>
+        <Typography variant="body2">Mode:</Typography>
         <OurIconButton
           ariaTitle="light/dark mode"
           onClick={() => themeToggle()}
@@ -294,13 +294,31 @@ export default function ColorSchemeContent({
   };
 
   const flatten = () => {
+    const getFlatten = () =>
+      useBrowserStorage
+        ? localStorage.getItem('skao_flatten') === 'true'
+        : Boolean(storage.flatten);
+
+    const setFlatten = (value: boolean) => {
+      if (useBrowserStorage) {
+        localStorage.setItem('skao_flatten', String(value));
+      } else if (storage.setFlatten) {
+        storage.setFlatten(value);
+      }
+    };
+
+    const flattenToggle = () => {
+      const newValue = !getFlatten();
+      setFlatten(newValue);
+    };
+
     return (
       <>
         <Typography variant="body2">Flatten:</Typography>
 
         <Checkbox
-          checked={storage.flatten}
-          onChange={(e) => (storage?.setFlatten ? storage.setFlatten(e.target.checked) : null)}
+          checked={getFlatten()}
+          onChange={flattenToggle}
           sx={{
             color: theme.palette.secondary.main,
             '&.Mui-checked': {
@@ -313,31 +331,29 @@ export default function ColorSchemeContent({
   };
 
   const brandAccent = () => {
-    console.log('UI sees buttonVariant:', storage.buttonVariant);
+    const brandVariantToggle = () => {
+      if (!storage?.setButtonVariant) return;
+
+      storage.setButtonVariant(
+        storage.buttonVariant === SKABrandColor.Blue ? SKABrandColor.Pink : SKABrandColor.Blue,
+      );
+    };
 
     return (
       <>
-        <Typography variant="body2">Brand Accent:</Typography>
+        <Typography variant="body2">Accent:</Typography>
 
         <Box
-          onClick={() => {
-            if (!storage?.setButtonVariant) return;
-
-            storage.setButtonVariant(
-              storage.buttonVariant === SKABrandColor.Blue
-                ? SKABrandColor.Pink
-                : SKABrandColor.Blue,
-            );
-          }}
+          onClick={brandVariantToggle}
           sx={{
             width: 32,
             height: 32,
             borderRadius: 1,
             cursor: 'pointer',
             bgcolor:
-              storage.buttonVariant === SKABrandColor.Pink
-                ? logoColors?.['2'].bg
-                : logoColors?.['1'].bg,
+              storage.buttonVariant === SKABrandColor.Blue
+                ? logoColors?.['1'].bg
+                : logoColors?.['2'].bg,
             border: `2px solid ${theme.palette.text.primary}`,
             transition: 'background-color 0.25s ease, transform 0.15s ease',
             '&:active': {
@@ -352,7 +368,7 @@ export default function ColorSchemeContent({
   const accessibilityMode = () => {
     return (
       <>
-        <Typography variant="body2">Color Mode:</Typography>
+        <Typography variant="body2">Color:</Typography>
 
         <DropDown
           ariaTitle="aria Title"

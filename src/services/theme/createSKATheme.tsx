@@ -17,6 +17,7 @@ export function createSKATheme(
   themeMode: SKAThemeMode,
   accessibilityMode: number,
   buttonVariant: SKABrandColor = SKABrandColor.Blue,
+  flatten: boolean = false,
 ) {
   const skaColors = Colors();
   const isDark = themeMode === THEME_DARK;
@@ -36,7 +37,11 @@ export function createSKATheme(
   };
 
   const primary = isDark ? skaColors.DARK_PRIMARY : skaColors.LIGHT_PRIMARY;
-  const secondary = buttonVariant === SKABrandColor.Blue ? SKAO_BLUE : SKAO_PINK;
+  const secondary = isDark
+    ? skaColors.DARK_SECONDARY
+    : buttonVariant === SKABrandColor.Blue
+      ? SKAO_BLUE
+      : SKAO_PINK;
 
   const paletteSet = COLOR_PALETTE_SETS[accessibilityMode] ?? COLOR_PALETTE_SETS[0];
 
@@ -47,7 +52,7 @@ export function createSKATheme(
     info: String(paletteSet.colors[COLOR_BLUE]),
   };
 
-  const theme = createTheme({
+  let theme = createTheme({
     palette: {
       mode: themeMode,
       primary: primary,
@@ -58,12 +63,25 @@ export function createSKATheme(
       info: { main: semantic.info },
     },
   });
+  theme = createTheme(theme, {
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          ':root': {
+            '--mui-label-color': theme.palette.text.secondary,
+            '--ska-flatten': flatten ? '1' : '0',
+          },
+        },
+      },
+    },
+  });
 
   theme.skaVars = {
     '--ska-color-error': semantic.error,
     '--ska-color-warning': semantic.warning,
     '--ska-color-success': semantic.success,
     '--ska-color-info': semantic.info,
+    '--ska-flatten': flatten ? '1' : '0',
   };
 
   return theme;
