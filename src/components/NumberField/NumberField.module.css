@@ -1,8 +1,9 @@
 .Field {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     width: 100%;
+    flex: 1 1 auto;
     gap: 0;
   }
 
@@ -16,24 +17,26 @@
     filter: drop-shadow(0 1px 1px #0008);
   }
   
-  .Label {
-    cursor: ew-resize;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 500;
-    color: var(--color-gray-900);
-  }
+.Label {
+  cursor: default;
+  font-size: 0.875rem;
+  line-height: 1.4375rem;
+  font-weight: 500;
+  color: var(--mui-label-color);
+}
   
-  .Group {
-    display: flex;
-  }
+.Group {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--mui-label-color);
+}
   
   .Input {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     border-top: none;
-    border-bottom: 1px solid 'palette.secondary.light';
+    border-bottom: none;
     border-left: none;
     border-right: none;
     width: 6rem;
@@ -41,7 +44,7 @@
     font-family: inherit;
     font-size: 1rem;
     font-weight: normal;
-  
+    flex: 1 1 auto;
     text-align: center;
     font-variant-numeric: tabular-nums;
   
@@ -88,6 +91,7 @@
     border: 'none';
     background-clip: padding-box;
     user-select: none;
+    flex: 0 0 auto;
   }
 
   .Decrement,
