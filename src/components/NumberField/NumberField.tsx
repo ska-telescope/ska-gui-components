@@ -29,6 +29,10 @@ interface NumberFieldProps {
   toolTip?: string;
   toolTipPlacement?: string;
   value: number | undefined;
+
+  // ⭐ NEW
+  fullWidth?: boolean;
+  sx?: React.CSSProperties;
 }
 
 export function NumberField({
@@ -53,16 +57,26 @@ export function NumberField({
   toolTip = '',
   toolTipPlacement = 'bottom',
   value,
+
+  // ⭐ NEW
+  fullWidth = false,
+  sx = {},
 }: NumberFieldProps) {
   const id = React.useId();
+
   return (
-    <Field.Root className={styles.Field}>
+    <Field.Root
+      className={styles.Field}
+      style={{
+        width: fullWidth ? '100%' : undefined,
+        ...sx,
+      }}
+    >
       <BaseNumberField.Root
         allowWheelScrub
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
         id={id}
-        className={styles.Field}
         data-testid={testId}
         defaultValue={value}
         disabled={disabled}
@@ -73,21 +87,18 @@ export function NumberField({
         required={required}
         step={step}
         value={value}
+        className={styles.InnerField} // ⭐ NEW: separate class for inner container
       >
-        {scrubArea && (
+        {scrubArea ? (
           <BaseNumberField.ScrubArea className={styles.ScrubArea}>
             <label htmlFor={id} className={styles.Label}>
               {title}
             </label>
-            {scrubArea && (
-              <BaseNumberField.ScrubAreaCursor className={styles.ScrubAreaCursor}>
-                <CursorGrowIcon />
-              </BaseNumberField.ScrubAreaCursor>
-            )}
+            <BaseNumberField.ScrubAreaCursor className={styles.ScrubAreaCursor}>
+              <CursorGrowIcon />
+            </BaseNumberField.ScrubAreaCursor>
           </BaseNumberField.ScrubArea>
-        )}
-
-        {!scrubArea && (
+        ) : (
           <label htmlFor={id} data-testid={testId + 'Title'} className={styles.Label}>
             {title}
           </label>
@@ -102,12 +113,15 @@ export function NumberField({
               <MinusIcon />
             </BaseNumberField.Decrement>
           )}
+
           {prefix && <div className={styles.Prefix}>{prefix}</div>}
+
           <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
             <BaseNumberField.Input className={disabledUnderline ? styles.Clear : styles.Input} />
           </Tooltip>
 
           {suffix && <div className={styles.Suffix}>{suffix}</div>}
+
           {icon && (
             <BaseNumberField.Increment
               data-testid={testId + 'Addition'}
@@ -118,9 +132,11 @@ export function NumberField({
           )}
         </BaseNumberField.Group>
       </BaseNumberField.Root>
+
       <Field.Error data-testid={testId + 'Error'} className={styles.Error}>
         {errorText}
       </Field.Error>
+
       <Field.Description data-testid={testId + 'Prompt'} className={styles.Description}>
         {prompt}
       </Field.Description>
@@ -130,15 +146,7 @@ export function NumberField({
 
 function CursorGrowIcon(props: React.ComponentProps<'svg'>) {
   return (
-    <svg
-      width="26"
-      height="14"
-      viewBox="0 0 24 14"
-      fill="black"
-      stroke="white"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="26" height="14" viewBox="0 0 24 14" fill="black" stroke="white" {...props}>
       <path d="M19.5 5.5L6.49737 5.51844V2L1 6.9999L6.5 12L6.49737 8.5L19.5 8.5V12L25 6.9999L19.5 2V5.5Z" />
     </svg>
   );
@@ -153,7 +161,6 @@ function PlusIcon(props: React.ComponentProps<'svg'>) {
       fill="none"
       stroke="currentcolor"
       strokeWidth="1.6"
-      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path d="M0 5H5M10 5H5M5 5V0M5 5V10" />
@@ -170,7 +177,6 @@ function MinusIcon(props: React.ComponentProps<'svg'>) {
       fill="none"
       stroke="currentcolor"
       strokeWidth="1.6"
-      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path d="M0 5H10" />
