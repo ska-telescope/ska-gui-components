@@ -1,7 +1,7 @@
 Changelog
 ==========
 
-2.8.11
+2.8.12
 ******
 
 Update NumberField to look consistent
