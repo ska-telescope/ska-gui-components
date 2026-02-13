@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'path';
 import dts from 'vite-plugin-dts';
+import libCss from 'vite-plugin-libcss';
 
 export default defineConfig({
   build: {
@@ -22,5 +23,9 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), dts({ rollupTypes: true })],
+    plugins: [
+    react(),
+    dts({ rollupTypes: true }),
+    libCss()
+  ],
 });
