@@ -1,18 +1,13 @@
-// SKACreateScheme.tsx
-
-import { extendTheme, PaletteOptions } from '@mui/material/styles';
-
+import { createTheme } from '@mui/material';
 import {
   Colors,
   THEME_LIGHT,
   THEME_DARK,
   COLOR_PALETTE_SETS,
 } from '@ska-telescope/ska-javascript-components';
-
 import { COLOR_RED, COLOR_ORANGE, COLOR_GREEN, COLOR_BLUE } from '../../utils/getColors/getColors';
 
 export type SKAThemeMode = typeof THEME_LIGHT | typeof THEME_DARK;
-
 export enum SKABrandColor {
   Blue = 'blue',
   Pink = 'pink',
@@ -27,9 +22,6 @@ export function createSKATheme(
   const skaColors = Colors();
   const isDark = themeMode === THEME_DARK;
 
-  // -----------------------------
-  // Brand Colors
-  // -----------------------------
   const SKAO_BLUE = {
     main: skaColors.SKAO_LOGO_PRIMARY,
     light: skaColors.SKAO_LOGO_PRIMARY,
@@ -44,20 +36,13 @@ export function createSKATheme(
     contrastText: skaColors.SKAO_LOGO_LIGHT,
   };
 
-  // -----------------------------
-  // Primary / Secondary
-  // -----------------------------
   const primary = isDark ? skaColors.DARK_PRIMARY : skaColors.LIGHT_PRIMARY;
-
   const secondary = isDark
     ? skaColors.DARK_SECONDARY
     : buttonVariant === SKABrandColor.Blue
       ? SKAO_BLUE
       : SKAO_PINK;
 
-  // -----------------------------
-  // Accessibility Semantic Colors
-  // -----------------------------
   const paletteSet = COLOR_PALETTE_SETS[accessibilityMode] ?? COLOR_PALETTE_SETS[0];
 
   const semantic = {
@@ -67,42 +52,23 @@ export function createSKATheme(
     info: String(paletteSet.colors[COLOR_BLUE]),
   };
 
-  // -----------------------------
-  // THE FIX:
-  // Use extendTheme() instead of createTheme()
-  // This enables MUI CSS Variable Mode
-  // -----------------------------
-  const theme = extendTheme({
-    colorSchemes: {
-      light: {
-        palette: {
-          mode: 'light',
-          primary,
-          secondary,
-          error: { main: semantic.error },
-          warning: { main: semantic.warning },
-          success: { main: semantic.success },
-          info: { main: semantic.info },
-        } as PaletteOptions,
-      },
-      dark: {
-        palette: {
-          mode: 'dark',
-          primary,
-          secondary,
-          error: { main: semantic.error },
-          warning: { main: semantic.warning },
-          success: { main: semantic.success },
-          info: { main: semantic.info },
-        } as PaletteOptions,
-      },
+  let theme = createTheme({
+    palette: {
+      mode: themeMode,
+      primary: primary,
+      secondary: secondary,
+      error: { main: semantic.error },
+      warning: { main: semantic.warning },
+      success: { main: semantic.success },
+      info: { main: semantic.info },
     },
-
+  });
+  theme = createTheme(theme, {
     components: {
       MuiCssBaseline: {
         styleOverrides: {
           ':root': {
-            '--mui-label-color': primary.contrastText,
+            '--mui-label-color': theme.palette.text.secondary,
             '--ska-flatten': flatten ? '1' : '0',
           },
         },
@@ -110,19 +76,14 @@ export function createSKATheme(
     },
   });
 
-  // -----------------------------
-  // Custom SKA Vars
-  // -----------------------------
-  const themeWithSkaVars = theme as typeof theme & {
-    skaVars: Record<string, string>;
-  };
-  themeWithSkaVars.skaVars = {
+  theme.skaVars = {
     '--ska-color-error': semantic.error,
     '--ska-color-warning': semantic.warning,
     '--ska-color-success': semantic.success,
     '--ska-color-info': semantic.info,
     '--ska-flatten': flatten ? '1' : '0',
+    '--ska-secondary': theme.palette.secondary.main,
   };
 
-  return themeWithSkaVars;
+  return theme;
 }
