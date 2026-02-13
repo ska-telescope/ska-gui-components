@@ -1,3 +1,5 @@
+import './components/BaseUI/NumberEntry2/NumberEntry2.module.css';
+//
 export { AlertColorTypes, AlertVariantTypes, SKAOAlert as Alert } from './components/Alert/Alert';
 export { AlertCard } from './components/AlertCard/AlertCard';
 export { ALERT_DATA } from './components/AlertCard/AlertData';
