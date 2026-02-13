@@ -19,13 +19,15 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
         },
       },
+      plugins: [
+        libCss()
+      ],
     },
     sourcemap: true,
     emptyOutDir: true,
   },
-    plugins: [
+  plugins: [
     react(),
     dts({ rollupTypes: true }),
-    libCss()
   ],
 });

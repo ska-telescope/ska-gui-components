@@ -1,20 +1,25 @@
 import { defineConfig } from 'rollup'
-
-// We'll use this plugin to generate the .d.ts files
 import dts from 'rollup-plugin-dts'
-
-// We'll use this plugin to transpile our TypeScript code
 import pluginTs from '@rollup/plugin-typescript'
-
-// Add support for CSS
-import postcss from 'rollup-plugin-postcss';
-
-// We'll use this plugin to minify our code
+import postcss from 'rollup-plugin-postcss'
 import terser from '@rollup/plugin-terser'
 
-// Some constants that we'll use later
 const input = 'src/index.ts'
-const external = ['react', 'react-dom', 'react/jsx-runtime']
+
+const external = [
+  'react',
+  'react-dom',
+  'react/jsx-runtime',
+  '@mui/material',
+  '@mui/material/styles',
+  '@mui/system',
+  '@mui/x-data-grid',
+  '@base-ui/react/field',
+  '@base-ui/react/number-field',
+  '@ska-telescope/ska-javascript-components',
+  'react-dropzone',
+]
+
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
@@ -22,6 +27,9 @@ const globals = {
 }
 
 export default defineConfig([
+  // ------------------------------------------------------------
+  // JS BUNDLE (handles CSS modules)
+  // ------------------------------------------------------------
   {
     input,
     output: [
@@ -33,14 +41,44 @@ export default defineConfig([
       },
     ],
     external,
-    plugins: [postcss(), pluginTs(), terser()],
+    plugins: [
+      postcss({
+        modules: true,
+        extract: true,
+        minimize: true,
+      }),
+      pluginTs(),
+      terser(),
+    ],
   },
+
+  // ------------------------------------------------------------
+  // DTS BUNDLE (ignore ALL .css and ALL .d.ts imports)
+  // ------------------------------------------------------------
   {
     input,
-    output: [
-      { format: 'es', file: 'dist/ska-gui-components.d.mts' },
+    output: [{ format: 'es', file: 'dist/ska-gui-components.d.mts' }],
+
+    // ⭐ Ignore CSS and ALL .d.ts imports
+    external: [
+      /\.css$/,
+      /\.d\.ts$/,
+      'react',
+      'react-dom',
+      'react/jsx-runtime',
+      '@types/react',
+      '@types/react-dom',
+      '@types/prop-types',
+      '@types/*',
     ],
-    external,
-    plugins: [dts()],
+
+    plugins: [
+      dts({
+        respectExternal: true,
+        compilerOptions: {
+          skipLibCheck: true,
+        },
+      }),
+    ],
   },
 ])
