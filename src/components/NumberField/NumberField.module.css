@@ -39,13 +39,13 @@
 }
 
 .Group:focus-within {
-  border-bottom-color: var(--mui-palette-secondary-main);
+  border-bottom-color: var(--ska-secondary);
 }
 .Group:focus-within [data-slot="input"] {
-  color: var(--mui-palette-secondary-main);
+  color: var(--ska-secondary);
 }
 .Field:focus-within .Label {
-  color: var(--mui-palette-secondary-main);
+  color: var(--ska-secondary);
 }
 
 
@@ -71,7 +71,7 @@
 
 .Input:focus {
   z-index: 1;
-  outline: 2px solid var(--color-blue);
+  outline: 2px solid var(--ska-secondary);
   outline-offset: -1px;
 }
 
@@ -92,7 +92,7 @@
 
 .Clear:focus {
   z-index: 1;
-  outline: 2px solid var(--color-blue);
+  outline: 2px solid var(--ska-secondary);
   outline-offset: -1px;
 }
 
@@ -129,9 +129,9 @@
   height: 0.9rem;                       /* slightly taller to keep icon centered */
   margin: 0;
   padding: 0;
-  border: 1px solid var(--color-gray-200);
+  border: 1px solid transparent;
   border-radius: 0.375rem;
-  background-color: var(--color-gray-50);
+  background-color: transparent;
   color: var(--mui-label-color);
   user-select: none;
   line-height: 0;
