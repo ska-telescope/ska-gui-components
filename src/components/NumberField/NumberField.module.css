@@ -1,10 +1,12 @@
 .Field {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
-  flex: 1 1 auto;
   gap: 0;
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  flex: 1 1 auto;
 }
 
 .ScrubArea {
@@ -19,32 +21,51 @@
 
 .Label {
   cursor: default;
-  font-size: 0.875rem;
-  line-height: 1.4375rem;
-  font-weight: 500;
+  /* match input font more closely */
+  font-size: 0.75rem;          /* 12px — smaller and cleaner */
+  line-height: 1.2;            /* tighter vertical rhythm */
+  font-weight: 400;            /* lighter, matches input weight */
   color: var(--mui-label-color);
+  margin-bottom: 2px;          /* optional: tighten spacing above the field */
 }
 
 .Group {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid var(--mui-label-color);
   align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  border-bottom: 1px solid var(--mui-label-color);
 }
+
+.Group:focus-within {
+  border-bottom-color: var(--mui-palette-secondary-main);
+}
+.Group:focus-within [data-slot="input"] {
+  color: var(--mui-palette-secondary-main);
+}
+.Field:focus-within .Label {
+  color: var(--mui-palette-secondary-main);
+}
+
+
+/* ------------------------- */
+/* INPUT                     */
+/* ------------------------- */
 
 .Input {
   box-sizing: border-box;
+  background: transparent;
   margin: 0;
   padding: 0;
   border: none;
   width: 100%;
   min-width: 0;
-  flex: 1 1 0; 
+  flex: 1 1 0;
   height: 1.5rem;
   font-family: inherit;
   font-size: 1rem;
   font-weight: normal;
-  text-align: center;
   font-variant-numeric: tabular-nums;
 }
 
@@ -75,6 +96,10 @@
   outline-offset: -1px;
 }
 
+/* ------------------------- */
+/* PREFIX + SUFFIX           */
+/* ------------------------- */
+
 .Prefix,
 .Suffix {
   box-sizing: border-box;
@@ -89,39 +114,83 @@
   flex: 0 0 auto;
 }
 
+/* ------------------------- */
+/* ARROW BUTTONS             */
+/* ------------------------- */
+
+/* Base arrow button appearance (compact footprint) */
 .Decrement,
 .Increment {
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;                       /* slightly narrower */
+  height: 0.9rem;                       /* slightly taller to keep icon centered */
   margin: 0;
   padding: 0;
   border: 1px solid var(--color-gray-200);
   border-radius: 0.375rem;
   background-color: var(--color-gray-50);
-  color: var(--color-gray-900);
+  color: var(--mui-label-color);
   user-select: none;
+  line-height: 0;
+  transition: color 120ms ease, opacity 120ms ease, transform 120ms ease;
+  opacity: 0;                            /* hidden by default */
+  pointer-events: none;                  /* disabled by default */
 }
 
-.Decrement:hover,
-.Increment:hover {
-  background-color: var(--color-gray-100);
+/* Arrow column container — moved lower and to the left */
+.ArrowColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: flex-start;    /* keep baseline alignment control */
+  gap: 0;
+  line-height: 0;
+  position: relative;        /* allow transforms */
+  transform: translateY(-2px) translateX(-6px); /* move down 6px and left 6px */
 }
+
+/* show arrows when field is focused */
+.Group:focus-within .Decrement,
+.Group:focus-within .Increment {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* hover / active color behavior */
+.Decrement:hover,
+.Increment:hover { color: var(--mui-label-color); }
 
 .Decrement:active,
-.Increment:active {
-  background-color: var(--color-gray-100);
+.Increment:active { color: var(--mui-label-color); }
+
+/* shape tweaks for stacked look */
+.Increment {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin: 0;
 }
 
 .Decrement {
+  border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  margin: 0;
 }
 
-.Increment {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+/* overlap so arrows sit close but not cramped */
+.ArrowColumn > * + * {
+  margin-top: -8px;          /* moderate overlap for a compact stack */
+}
+
+/* reduce double-border visual artifacts when overlapped */
+.ArrowColumn > * {
+  box-shadow: 0 0 0 1px transparent;
+}
+
+/* optional: subtle lift on press for tactile feedback */
+.Decrement:active,
+.Increment:active {
+  transform: translateY(1px);
 }

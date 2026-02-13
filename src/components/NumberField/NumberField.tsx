@@ -15,6 +15,8 @@ interface NumberFieldProps {
   icon?: boolean;
   iconColor?: string;
   iconSize?: number;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  plusMinus?: boolean;
   prefix?: string | JSX.Element;
   prompt?: string;
   maxValue?: number;
@@ -30,7 +32,6 @@ interface NumberFieldProps {
   toolTipPlacement?: string;
   value: number | undefined;
 
-  // ⭐ NEW
   fullWidth?: boolean;
   sx?: React.CSSProperties;
 }
@@ -45,6 +46,8 @@ export function NumberField({
   icon = true,
   maxValue = 9999999,
   minValue = 0,
+  onFocus,
+  plusMinus = false,
   prefix = '',
   prompt = '',
   required = false,
@@ -58,7 +61,6 @@ export function NumberField({
   toolTipPlacement = 'bottom',
   value,
 
-  // ⭐ NEW
   fullWidth = false,
   sx = {},
 }: NumberFieldProps) {
@@ -87,7 +89,6 @@ export function NumberField({
         required={required}
         step={step}
         value={value}
-        className={styles.InnerField} // ⭐ NEW: separate class for inner container
       >
         {scrubArea ? (
           <BaseNumberField.ScrubArea className={styles.ScrubArea}>
@@ -105,7 +106,7 @@ export function NumberField({
         )}
 
         <BaseNumberField.Group className={styles.Group}>
-          {icon && (
+          {icon && plusMinus && (
             <BaseNumberField.Decrement
               data-testid={testId + 'Subtraction'}
               className={styles.Decrement}
@@ -113,16 +114,29 @@ export function NumberField({
               <MinusIcon />
             </BaseNumberField.Decrement>
           )}
-
           {prefix && <div className={styles.Prefix}>{prefix}</div>}
 
           <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
-            <BaseNumberField.Input className={disabledUnderline ? styles.Clear : styles.Input} />
+            <BaseNumberField.Input
+              className={disabledUnderline ? styles.Clear : styles.Input}
+              onFocus={onFocus}
+            />
           </Tooltip>
 
+          {icon && !plusMinus && (
+            <div className={styles.ArrowColumn}>
+              <BaseNumberField.Increment className={styles.Increment}>
+                <UpArrowIcon />
+              </BaseNumberField.Increment>
+
+              <BaseNumberField.Decrement className={styles.Decrement}>
+                <DownArrowIcon />
+              </BaseNumberField.Decrement>
+            </div>
+          )}
           {suffix && <div className={styles.Suffix}>{suffix}</div>}
 
-          {icon && (
+          {icon && plusMinus && (
             <BaseNumberField.Increment
               data-testid={testId + 'Addition'}
               className={styles.Increment}
@@ -180,6 +194,22 @@ function MinusIcon(props: React.ComponentProps<'svg'>) {
       {...props}
     >
       <path d="M0 5H10" />
+    </svg>
+  );
+}
+
+function UpArrowIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 10 10" {...props}>
+      <path d="M5 2 L2 6 H8 Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function DownArrowIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 10 10" {...props}>
+      <path d="M5 8 L2 4 H8 Z" fill="currentColor" />
     </svg>
   );
 }
