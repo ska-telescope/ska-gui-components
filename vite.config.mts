@@ -19,9 +19,7 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
         },
       },
-      plugins: [
-        libCss()
-      ],
+      plugins: [],
     },
     sourcemap: true,
     emptyOutDir: true,
