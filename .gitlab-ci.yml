@@ -114,7 +114,7 @@ distribution:
   tags:
     - k8srunner
   script:
-    - yarn rollup
+    - yarn build
   artifacts:
     paths:
       - dist/
