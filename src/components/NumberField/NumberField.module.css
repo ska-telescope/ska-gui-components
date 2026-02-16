@@ -2,7 +2,7 @@
 .Field {
   display: flex;
   flex-direction: column;
-  width: 100%;                 /* ensures fullWidth works in library */
+  width: 100%;
 }
 
 /* Label */
@@ -17,7 +17,7 @@
 .Group {
   display: flex;
   align-items: center;
-  width: 100%;                 /* critical for fullWidth */
+  width: 100%;
   border-bottom: 1px solid var(--mui-label-color);
   padding-bottom: 2px;
   transition: border-color 120ms ease;
@@ -38,7 +38,8 @@
 
 /* Input */
 .Input {
-  flex: 1;
+  flex: 1 !important;
+  min-width: 0;
   border: none;
   outline: none;
   background: transparent;
@@ -56,8 +57,23 @@
 /* Prefix / Suffix */
 .Prefix,
 .Suffix {
+  display: flex;
+  align-items: center;
   margin: 0 0.25rem;
   color: var(--mui-label-color);
+}
+
+/* Fix MUI Select / FormControl inside suffix */
+.Suffix :global(.MuiFormControl-root),
+.Suffix :global(.MuiInputBase-root),
+.Suffix :global(.MuiInputBase-input),
+.Suffix :global(.MuiSelect-select) {
+  margin: 0;
+  padding: 0;
+  min-width: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 /* Increment / Decrement buttons */
@@ -72,7 +88,6 @@
   margin: 0;
   padding: 0;
 
-  /* Clean, minimal look */
   background-color: transparent;
   border: none;
   color: var(--mui-label-color);
@@ -81,8 +96,8 @@
   line-height: 0;
   transition: opacity 120ms ease, transform 120ms ease;
 
-  opacity: 0;           /* hidden until focus */
-  pointer-events: none; /* disabled until focus */
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Show arrows on focus */
