@@ -32,14 +32,11 @@
   border-bottom-color: var(--ska-secondary, var(--mui-palette-secondary-main));
 }
 
-.Group:focus-within [data-slot="input"] {
-  color: var(--ska-secondary, var(--mui-palette-secondary-main));
-}
-
 /* Input */
 .Input {
   flex: 1 !important;
-  min-width: 0;
+  min-width: 0 !important;
+  width: 100% !important; /* override Base UI inline width */
   border: none;
   outline: none;
   background: transparent;
@@ -61,19 +58,28 @@
   align-items: center;
   margin: 0 0.25rem;
   color: var(--mui-label-color);
+  min-width: 0;
 }
 
-/* Fix MUI Select / FormControl inside suffix */
+/* Reset MUI Select / FormControl inside suffix */
 .Suffix :global(.MuiFormControl-root),
 .Suffix :global(.MuiInputBase-root),
 .Suffix :global(.MuiInputBase-input),
-.Suffix :global(.MuiSelect-select) {
-  margin: 0;
-  padding: 0;
-  min-width: auto;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+.Suffix :global(.MuiSelect-select),
+.Suffix :global(.MuiNativeSelect-select),
+.Suffix :global(.MuiSelect-icon) {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  width: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure MUI Select does not force full width */
+.Suffix :global(.MuiFormControl-root.MuiFormControl-fullWidth) {
+  width: auto !important;
 }
 
 /* Increment / Decrement buttons */
@@ -125,4 +131,11 @@
   color: var(--mui-label-color);
   font-size: 0.75rem;
   margin-top: 0.25rem;
+}
+
+/* Propagate focus from MUI Select to Group */
+.Group :global(.Mui-focused),
+.Group :global(.MuiInputBase-root.Mui-focused),
+.Group :global(.MuiSelect-select:focus) {
+  border-bottom-color: var(--ska-secondary) !important;
 }
