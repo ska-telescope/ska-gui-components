@@ -1,3 +1,4 @@
+import React from 'react';
 import NumberEntry2 from './NumberEntry2';
 
 export default {
@@ -13,21 +14,23 @@ export const Default = {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
     disabled: false,
+    disabledUnderline: false,
+    icon: true,
     errorText: '',
-    prompt: 'Prompt',
-    icon: 'classic',
-    labelWidth: 4,
+    helperText: 'HELPER TEXT',
     minValue: 0,
     maxValue: 2,
+    plusMinus: false,
+    prompt: '',
     step: 0.1,
     password: false,
-    prefix: '!',
+    // prefix: '!',
     onFocus: undefined,
     required: false,
-    suffix: '?',
-    title: 'Label',
-    value: 1,
+    // suffix: '?',
+    title: 'Title',
+    value: '123',
     setValue: undefined,
-    width: 300,
+    width: 200,
   },
 };

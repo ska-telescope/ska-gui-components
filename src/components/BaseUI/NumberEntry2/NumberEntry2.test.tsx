@@ -10,20 +10,16 @@ describe('NumberEntry2', () => {
     render(
       <NumberEntry2
         disabled={false}
+        icon
         prompt="HELPER TEXT"
         title="LABEL"
-        width={200}
+        // width={200}
         fieldName={''}
         setValue={() => {}}
         toolTip="TOOLTIP"
         ariaTitle="aria Title"
         ariaDescription="aria Description"
         errorText=""
-        // helperText="HELPER TEXT"
-        // label="LABEL"
-        // labelPosition={LABEL_POSITION.CONTAINED}
-        // labelWidth={4}
-        // onFocus={undefined}
         required={false}
         testId="testId"
         value={0}

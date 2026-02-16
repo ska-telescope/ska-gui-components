@@ -1,126 +1,141 @@
+/* Root container */
 .Field {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  width: '100%';
-  gap: 0;
+  width: 100%;
 }
 
-.ScrubArea {
-  cursor: ew-resize;
-  font-weight: bold;
-  user-select: none;
-}
-
-.ScrubAreaCursor {
-  filter: drop-shadow(0 1px 1px #0008);
-}
-
+/* Label */
 .Label {
-  cursor: ew-resize;
-  line-height: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--mui-label-color);
+  margin-bottom: 0.25rem;
+  transition: color 120ms ease;
 }
 
+/* Group wrapper (input + arrows + prefix/suffix) */
 .Group {
   display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid var(--mui-label-color);
+  padding-bottom: 2px;
+  transition: border-color 120ms ease;
 }
 
+/* Focus underline + focus text color */
+.Field:focus-within .Label {
+  color: var(--ska-secondary, var(--mui-palette-secondary-main));
+}
+
+.Group:focus-within {
+  border-bottom-color: var(--ska-secondary, var(--mui-palette-secondary-main));
+}
+
+/* Input */
 .Input {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border-top: none;
-  border-bottom: 0.1px solid 'palette.secondary.main';
-  border-left: none;
-  border-right: none;
-  height: 2rem;
-  font-family: inherit;
+  flex: 1 !important;
+  min-width: 0 !important;
+  width: 100% !important; /* override Base UI inline width */
+  border: none;
+  outline: none;
+  background: transparent;
   font-size: 1rem;
-  font-weight: normal;
-  text-align: left;
-  font-variant-numeric: tabular-nums;
-  background-color: 'transparent';
-
-  &:focus {
-    z-index: 1;
-    outline: 2px solid var(--color-blue);
-    outline-offset: -1px;
-  }
+  padding: 0.25rem 0;
+  color: var(--mui-label-color);
 }
 
+/* Clear underline version */
+.Clear {
+  composes: Input;
+  border-bottom: none;
+}
+
+/* Prefix / Suffix */
 .Prefix,
 .Suffix {
-  box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 2rem;
-  margin: 0 5px;
-  outline: 0;
-  padding: 0;
-  border: 'none';
-  background-clip: padding-box;
-  user-select: none;
+  margin: 0 0.25rem;
+  color: var(--mui-label-color);
+  min-width: 0;
 }
 
+/* Reset MUI Select / FormControl inside suffix */
+.Suffix :global(.MuiFormControl-root),
+.Suffix :global(.MuiInputBase-root),
+.Suffix :global(.MuiInputBase-input),
+.Suffix :global(.MuiSelect-select),
+.Suffix :global(.MuiNativeSelect-select),
+.Suffix :global(.MuiSelect-icon) {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  width: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure MUI Select does not force full width */
+.Suffix :global(.MuiFormControl-root.MuiFormControl-fullWidth) {
+  width: auto !important;
+}
+
+/* Increment / Decrement buttons */
 .Decrement,
 .Increment {
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.5rem;
-  height: 2rem;
+  width: 1.25rem;
+  height: 0.9rem;
   margin: 0;
-  outline: 0;
   padding: 0;
-  border-radius: 0.375rem;
-  background-clip: padding-box;
+
+  background-color: transparent;
+  border: none;
+  color: var(--mui-label-color);
+
   user-select: none;
+  line-height: 0;
+  transition: opacity 120ms ease, transform 120ms ease;
 
-  @media (hover: hover) {
-    &:hover {
-      background-color: 'var(--color-gray-100)';
-    }
-  }
-
-  &:active {
-    background-color: var(--color-gray-100);
-  }
+  opacity: 0;
+  pointer-events: none;
 }
 
-.Down,
-.Up {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1rem;
-  height: 1rem;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  border: 'none';
-  background-clip: padding-box;
-  user-select: none;
-
-  @media (hover: hover) {
-    &:hover {
-      background-color: 'var(--color-gray-100)';
-    }
-  }
-
-  &:active {
-    background-color: var(--color-gray-100);
-  }
+/* Show arrows on focus */
+.Group:focus-within .Decrement,
+.Group:focus-within .Increment {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.Decrement {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+/* Hover effect */
+.Decrement:hover,
+.Increment:hover {
+  transform: scale(1.1);
 }
 
-.Increment {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+/* Error text */
+.Error {
+  color: var(--ska-color-error);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Description text */
+.Description {
+  color: var(--mui-label-color);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Propagate focus from MUI Select to Group */
+.Group :global(.Mui-focused),
+.Group :global(.MuiInputBase-root.Mui-focused),
+.Group :global(.MuiSelect-select:focus) {
+  border-bottom-color: var(--ska-secondary) !important;
 }
