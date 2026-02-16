@@ -5,11 +5,14 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   build: {
+    cssCodeSplit: true,
+
     lib: {
       entry: resolve(__dirname, './src/index.ts'),
       name: 'ska-gui-components',
       fileName: (format) => `ska-gui-components.${format}.js`,
     },
+
     rollupOptions: {
       external: [
         'react',
@@ -28,10 +31,18 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
+        assetFileNames: 'assets/[name].[ext]', // <-- ensures CSS is emitted
       },
     },
+
     sourcemap: true,
     emptyOutDir: true,
+  },
+
+  css: {
+    modules: {
+      localsConvention: 'camelCase',
+    },
   },
 
   plugins: [
