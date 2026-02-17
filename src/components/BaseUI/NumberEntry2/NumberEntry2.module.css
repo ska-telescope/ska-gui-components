@@ -19,8 +19,8 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 45px;              /* NEW: matches old EntryField */
-  min-height: 45px;          /* NEW */
+  height: 40px;              /* NEW: matches old EntryField */
+  min-height: 40px;          /* NEW */
   border-bottom: 1px solid var(--mui-label-color);
   padding-bottom: 2px;
   transition: border-color 120ms ease;
@@ -46,7 +46,7 @@
 
   font-size: 16px;           /* NEW: MUI default */
   line-height: 1.4375em;     /* NEW: MUI default */
-  padding: 8.5px 0;          /* NEW: MUI default */
+  padding: 4px 0;          /* NEW: MUI default */
 
   color: var(--mui-label-color);
 }
@@ -71,7 +71,6 @@
   color: var(--mui-label-color);
 }
 
-/* Reset MUI Select / FormControl inside suffix */
 .Suffix :global(.MuiFormControl-root),
 .Suffix :global(.MuiInputBase-root),
 .Suffix :global(.MuiInputBase-input),
