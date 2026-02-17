@@ -4,6 +4,11 @@ Changelog
 2.8.22
 ******
 
+Sorting out the difference in height
+
+2.8.18
+******
+
 Update NumberField to look consistent
 
 2.8.7
