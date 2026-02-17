@@ -10,6 +10,27 @@
   transition: border-color 120ms ease;
 }
 
+.Label {
+  font-size: 12px !important;     /* MUI’s computed 0.75rem */
+  line-height: 1.66 !important;
+  font-weight: normal !important;
+}
+
+.Field:focus-within .Label {
+  color: var(--ska-secondary) !important;
+}
+
+.Group:focus-within {
+  border-bottom-color: var(--ska-secondary) !important;
+}
+
+.Group > div:nth-child(2) {
+  gap: 0px !important;            /* remove excess vertical spacing */
+  margin: 0 2px !important;       /* bring arrows closer to input */
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
 /* Input */
 .Input {
   flex: 1;
