@@ -103,6 +103,7 @@ export function NumberEntry2({
         ) : (
           <label htmlFor={id} data-testid={testId + 'Title'} className={styles.Label}>
             {title}
+            {required && <span className={styles.Required}>*</span>}
           </label>
         )}
 
