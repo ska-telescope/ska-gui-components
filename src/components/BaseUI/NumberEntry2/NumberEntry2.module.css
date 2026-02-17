@@ -6,13 +6,13 @@
   height: 34px;
   min-height: 34px  ;
   border-bottom: 1px solid var(--mui-label-color);
-  padding-bottom: 2px;
+  padding-bottom: 1px;
   transition: border-color 120ms ease;
 }
 
 .Label {
   font-size: 13px !important; 
-  line-height: 1.2 !important;
+  line-height: 1.1 !important;
   font-weight: normal !important;
 }
 
@@ -54,7 +54,7 @@
 .Increment {
   width: 1.25rem;
   height: 0.9rem;
-  margin: -2px 0;
+  margin: -3px 0;
   display: flex;
   align-items: center;
   justify-content: center;
