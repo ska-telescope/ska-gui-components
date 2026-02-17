@@ -11,7 +11,7 @@
 }
 
 .Label {
-  font-size: 12px !important;     /* MUI’s computed 0.75rem */
+  font-size: 13px !important; 
   line-height: 1.66 !important;
   font-weight: normal !important;
 }
@@ -47,7 +47,7 @@
 .ArrowColumn {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   margin: 0 4px;
 }
 
@@ -56,6 +56,7 @@
 .Increment {
   width: 1.25rem;
   height: 0.9rem;
+  margin: -1px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,6 +65,7 @@
   color: var(--mui-label-color);
   opacity: 0;
   pointer-events: none;
+  transform: translateY(2px);
   transition: opacity 120ms ease, transform 120ms ease;
 }
 
