@@ -1,165 +1,73 @@
-/* Root container */
-.Field {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-/* Label — match MUI standard TextField */
-.Label {
-  font-size: 0.75rem;
-  font-weight: normal;
-  line-height: 1.66;
-  color: var(--mui-label-color);
-  margin-bottom: 0.25rem;
-  transition: color 120ms ease;
-}
-
 /* Group wrapper */
 .Group {
-  position: relative;        /* allow arrows to float without affecting height */
   display: flex;
   align-items: center;
   width: 100%;
-  height: 36px;              /* match MUI */
+  height: 36px;
   min-height: 36px;
   border-bottom: 1px solid var(--mui-label-color);
   padding-bottom: 2px;
   transition: border-color 120ms ease;
 }
 
-/* Focus underline + focus text color */
-.Field:focus-within .Label {
-  color: var(--ska-secondary, var(--mui-palette-secondary-main));
-}
-
-.Group:focus-within {
-  border-bottom-color: var(--ska-secondary, var(--mui-palette-secondary-main));
-}
-
-/* Input — match MUI input metrics */
+/* Input */
 .Input {
-  flex: 1 !important;
-  min-width: 0 !important;
-  width: 100% !important;
+  flex: 1;
+  min-width: 0;
   border: none;
   outline: none;
   background: transparent;
-
-  font: inherit;             /* EXACT match to MUI */
+  font: inherit;
   padding: 4px 0;
   color: var(--mui-label-color);
 }
 
-/* Clear underline version */
-.Clear {
-  composes: Input;
-  border-bottom: none;
-}
-
-/* Prefix / Suffix — match MUI InputAdornment */
-.Prefix,
-.Suffix {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 6px;
-  margin: 0;
-  flex-shrink: 0;
-  color: var(--mui-label-color);
-}
-
-/* Reset MUI Select internals without breaking layout */
-.Suffix :global(.MuiFormControl-root),
-.Suffix :global(.MuiInputBase-root),
-.Suffix :global(.MuiInputBase-input),
-.Suffix :global(.MuiSelect-select),
-.Suffix :global(.MuiNativeSelect-select),
-.Suffix :global(.MuiSelect-icon) {
-  margin: 0 !important;
-  padding: 0 !important;
-  min-width: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Critical: allow Select arrow to position correctly */
-.Suffix :global(.MuiInputBase-root) {
-  position: relative !important;
-  width: auto !important;
-}
-
-/* Ensure Select does not force full width */
-.Suffix :global(.MuiFormControl-root.MuiFormControl-fullWidth) {
-  width: auto !important;
-}
-
-/* Arrow column — FLOAT it so it does NOT affect height */
-.Group > div:nth-child(2) {
-  position: absolute;
-  right: 36px;               /* leave room for suffix */
-  top: 50%;
-  transform: translateY(-50%);
+/* Arrow container — IN NORMAL FLOW */
+.ArrowColumn {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  justify-content: center;
+  margin: 0 4px;
 }
 
 /* Increment / Decrement buttons */
 .Decrement,
 .Increment {
-  box-sizing: border-box;
+  width: 1.25rem;
+  height: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 1.25rem;
-  height: 0.9rem;
-  margin: 0;
-  padding: 0;
-
-  background-color: transparent;
+  background: transparent;
   border: none;
   color: var(--mui-label-color);
-
-  user-select: none;
-  line-height: 0;
-  transition: opacity 120ms ease, transform 120ms ease;
-
   opacity: 0;
   pointer-events: none;
+  transition: opacity 120ms ease, transform 120ms ease;
 }
 
-/* Show arrows on focus */
 .Group:focus-within .Decrement,
 .Group:focus-within .Increment {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Hover effect */
-.Decrement:hover,
-.Increment:hover {
-  transform: scale(1.1);
-}
-
-/* Error text */
-.Error {
-  color: var(--ska-color-error);
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-}
-
-/* Description text */
-.Description {
+/* Suffix — allow natural width */
+.Suffix {
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  margin: 0;
+  flex-shrink: 1;   /* IMPORTANT: allow shrinking */
   color: var(--mui-label-color);
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
 }
 
-/* Propagate focus from MUI Select to Group */
-.Group :global(.Mui-focused),
-.Group :global(.MuiInputBase-root.Mui-focused),
-.Group :global(.MuiSelect-select:focus) {
-  border-bottom-color: var(--ska-secondary) !important;
+/* Reset MUI Select internals */
+.Suffix :global(.MuiInputBase-root) {
+  position: relative !important;
+  width: auto !important;
+}
+
+.Suffix :global(.MuiFormControl-root.MuiFormControl-fullWidth) {
+  width: auto !important;
 }

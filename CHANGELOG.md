@@ -1,7 +1,7 @@
 Changelog
 ==========
 
-2.8.23
+2.8.24
 ******
 
 Sorting out the difference in height
