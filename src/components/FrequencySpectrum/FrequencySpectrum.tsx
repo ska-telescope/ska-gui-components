@@ -42,6 +42,7 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
   let usedColor = bandColor === '' ? theme.palette.primary.light : bandColor;
   let usedColorContrast =
     bandColorContrast === '' ? theme.palette.primary.contrastText : bandColorContrast;
+
   if (bandStartFreq < minFreq || bandEndFreq > maxFreq) {
     usedColor = theme.palette.error.main;
     usedColorContrast = theme.palette.error.contrastText;
@@ -50,98 +51,110 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
     usedColorContrast = theme.palette.error.contrastText;
   }
 
+  // --- NEW: measure label width ---
+  const labelRef = React.useRef<HTMLSpanElement>(null);
+  const [labelWidth, setLabelWidth] = React.useState(0);
+
+  React.useLayoutEffect(() => {
+    if (labelRef.current) {
+      setLabelWidth(labelRef.current.offsetWidth);
+    }
+  }, [centerFreq, unit]);
+
   return (
     <Box sx={{ width: boxWidth, textAlign: 'center' }}>
-      {/* Horizontal layout: minFreq | slider | maxFreq */}
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
         {/* Min Frequency */}
         <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
           {minFreq} {unit}
         </Typography>
 
-        {/* Spectrum Bar */}
-        <Box
-          sx={{
-            position: 'relative',
-            flexGrow: 1,
-            height: 48,
-            backgroundColor: theme.palette.divider,
-            overflow: 'hidden',
-            borderTopLeftRadius: minEdge !== minFreq ? 24 : 0,
-            borderBottomLeftRadius: minEdge !== minFreq ? 24 : 0,
-            borderTopRightRadius: maxEdge !== maxFreq ? 24 : 0,
-            borderBottomRightRadius: maxEdge !== maxFreq ? 24 : 0,
-          }}
-        >
-          {/* Highlighted Band */}
-          <Box
-            data-testid="frequencySpectrum-highlighted-band"
-            sx={{
-              position: 'absolute',
-              left: `${bandOffsetPercent}%`,
-              width: `${bandPercent}%`,
-              height: '100%',
-              backgroundColor: usedColor,
-            }}
-          />
-
-          {/* Central Frequency Marker */}
-          <Box
-            sx={{
-              position: 'absolute',
-              left: `${centerPercent}%`,
-              top: 0,
-              bottom: 0,
-              width: 2,
-              backgroundColor: usedColorContrast,
-              transform: 'translateX(-1px)',
-            }}
-          />
-
-          {/* Central Frequency Label - vertically centered */}
+        {/* Wrapper for label + bar */}
+        <Box sx={{ flexGrow: 1, position: 'relative' }}>
+          {/* Central Frequency Label ABOVE the bar */}
           <Typography
+            ref={labelRef}
             variant="caption"
             sx={{
               position: 'absolute',
-              left: `calc(${centerPercent}% + 4px)`,
-              top: '50%',
-              transform: 'translateY(-50%)',
+              bottom: '100%',
+              marginBottom: '4px',
               whiteSpace: 'nowrap',
               color: usedColorContrast,
+              left: `calc(${centerPercent}% - ${labelWidth / 2}px)`,
             }}
           >
             {centerFreq} {unit}
           </Typography>
 
-          {/* Min Edge Marker */}
-          {minEdge !== minFreq && (
+          {/* Spectrum Bar */}
+          <Box
+            sx={{
+              position: 'relative',
+              height: 48,
+              backgroundColor: theme.palette.divider,
+              overflow: 'hidden',
+              borderTopLeftRadius: minEdge !== minFreq ? 24 : 0,
+              borderBottomLeftRadius: minEdge !== minFreq ? 24 : 0,
+              borderTopRightRadius: maxEdge !== maxFreq ? 24 : 0,
+              borderBottomRightRadius: maxEdge !== maxFreq ? 24 : 0,
+            }}
+          >
+            {/* Highlighted Band */}
             <Box
+              data-testid="frequencySpectrum-highlighted-band"
               sx={{
                 position: 'absolute',
-                left: `${minEdgePercent}%`,
-                top: 0,
-                bottom: 0,
-                width: 2,
-                backgroundColor: theme.palette.warning.light,
-                transform: 'translateX(-1px)',
+                left: `${bandOffsetPercent}%`,
+                width: `${bandPercent}%`,
+                height: '100%',
+                backgroundColor: usedColor,
               }}
             />
-          )}
 
-          {/* Max Edge Marker */}
-          {maxEdge !== maxFreq && (
+            {/* Central Frequency Marker */}
             <Box
               sx={{
                 position: 'absolute',
-                left: `${maxEdgePercent}%`,
+                left: `${centerPercent}%`,
                 top: 0,
                 bottom: 0,
                 width: 2,
-                backgroundColor: theme.palette.warning.light,
+                backgroundColor: usedColorContrast,
                 transform: 'translateX(-1px)',
               }}
             />
-          )}
+
+            {/* Min Edge Marker */}
+            {minEdge !== minFreq && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  left: `${minEdgePercent}%`,
+                  top: 0,
+                  bottom: 0,
+                  width: 2,
+                  backgroundColor: theme.palette.warning.light,
+                  transform: 'translateX(-1px)',
+                }}
+              />
+            )}
+
+            {/* Max Edge Marker */}
+            {maxEdge !== maxFreq && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  left: `${maxEdgePercent}%`,
+                  top: 0,
+                  bottom: 0,
+                  width: 2,
+                  backgroundColor: theme.palette.warning.light,
+                  transform: 'translateX(-1px)',
+                }}
+              />
+            )}
+          </Box>
         </Box>
 
         {/* Max Frequency */}

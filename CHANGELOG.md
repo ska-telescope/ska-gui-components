@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.8.29
+******
+
+Moved the label above the Frequencyspectrum component
+
 2.8.28
 ******
 
