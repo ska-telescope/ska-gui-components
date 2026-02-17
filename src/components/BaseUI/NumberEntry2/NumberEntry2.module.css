@@ -5,22 +5,24 @@
   width: 100%;
 }
 
-/* Label */
+/* Label — match MUI standard TextField */
 .Label {
-  font-size: 0.875rem;
+  font-size: 0.75rem;        /* MUI standard */
+  font-weight: normal;
+  line-height: 1.66;         /* MUI standard */
   color: var(--mui-label-color);
   margin-bottom: 0.25rem;
   transition: color 120ms ease;
 }
 
 /* Group wrapper (input + arrows + prefix/suffix)
-   Match MUI TextField height (≈45px total) */
+   Match MUI TextField height (~36px) */
 .Group {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 40px;              /* NEW: matches old EntryField */
-  min-height: 40px;          /* NEW */
+  height: 36px;              /* corrected */
+  min-height: 36px;          /* corrected */
   border-bottom: 1px solid var(--mui-label-color);
   padding-bottom: 2px;
   transition: border-color 120ms ease;
@@ -44,10 +46,9 @@
   outline: none;
   background: transparent;
 
-  font-size: 16px;           /* NEW: MUI default */
-  line-height: 1.4375em;     /* NEW: MUI default */
-  padding: 4px 0;          /* NEW: MUI default */
-
+  font-size: 16px;           /* MUI default */
+  line-height: 1.4375em;     /* MUI default */
+  padding: 4px 0;            /* corrected */
   color: var(--mui-label-color);
 }
 
@@ -60,17 +61,15 @@
 /* Prefix / Suffix — match MUI InputAdornment spacing */
 .Prefix,
 .Suffix {
-  display: flex;
+  display: inline-flex;      /* allow Select to size naturally */
   align-items: center;
-
-  padding: 0 8px;            /* NEW: MUI spacing */
-  margin: 0;                 /* REPLACES margin: 0 0.25rem */
-  flex-shrink: 0;            /* NEW: prevents squashing */
-  white-space: nowrap;       /* NEW: prevents wrapping */
-
+  padding: 0 8px;
+  margin: 0;
+  flex-shrink: 0;
   color: var(--mui-label-color);
 }
 
+/* Reset MUI Select internals without breaking layout */
 .Suffix :global(.MuiFormControl-root),
 .Suffix :global(.MuiInputBase-root),
 .Suffix :global(.MuiInputBase-input),
@@ -80,10 +79,15 @@
   margin: 0 !important;
   padding: 0 !important;
   min-width: 0 !important;
-  width: auto !important;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+/* Restore required positioning for the Select arrow */
+.Suffix :global(.MuiInputBase-root) {
+  position: relative !important;   /* critical */
+  width: auto !important;
 }
 
 /* Ensure MUI Select does not force full width */
