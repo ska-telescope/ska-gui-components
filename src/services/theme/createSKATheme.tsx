@@ -37,11 +37,12 @@ export function createSKATheme(
   };
 
   const primary = isDark ? skaColors.DARK_PRIMARY : skaColors.LIGHT_PRIMARY;
-  const secondary = isDark
-    ? skaColors.DARK_SECONDARY
-    : buttonVariant === SKABrandColor.Blue
-      ? SKAO_BLUE
-      : SKAO_PINK;
+  const secondary =
+    buttonVariant === SKABrandColor.Pink
+      ? SKAO_PINK
+      : isDark
+        ? skaColors.DARK_SECONDARY
+        : SKAO_BLUE;
 
   const paletteSet = COLOR_PALETTE_SETS[accessibilityMode] ?? COLOR_PALETTE_SETS[0];
 

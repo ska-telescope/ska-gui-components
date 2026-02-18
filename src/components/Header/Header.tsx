@@ -115,6 +115,8 @@ export function Header({
   const getHelpBrowser = () => sessionStorage.getItem('skao_help_content');
   const getHelp = () => (showHelp ? (useBrowserStorage ? getHelpBrowser() : '') : '');
 
+  const getFlatten = () => (storage?.flatten ? storage.flatten : false);
+
   const getTelescopeStorage = () => (storage?.telescope ? storage.telescope : TELESCOPE_LOW);
   const setTelescopeStorage = () => {
     const currentTelescope = getTelescopeStorage();
@@ -125,8 +127,6 @@ export function Header({
   };
 
   const isDarkTheme = getThemeMode() === THEME_DARK;
-  const flatten = false; // TODO : Need to implement user preferences
-
   const updateTel = () => {
     setTelescopeStorage();
   };
@@ -156,9 +156,9 @@ export function Header({
                 onClick={() => openLink(SKAO_URL)}
                 icon={
                   useSymbol ? (
-                    <Symbol dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
+                    <Symbol dark={isDarkTheme} flatten={getFlatten} height={LOGO_HEIGHT} />
                   ) : (
-                    <Logo dark={isDarkTheme} flatten={flatten} height={LOGO_HEIGHT} />
+                    <Logo dark={isDarkTheme} flatten={getFlatten} height={LOGO_HEIGHT} />
                   )
                 }
                 testId={'skaWebsite'}

@@ -34,8 +34,8 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
   const totalWidth = maxFreq - minFreq;
 
   // Actual min/max
-  const actualMin = centerFreq - bandWidth / 2;
-  const actualMax = centerFreq + bandWidth / 2;
+  const actualMin = Number((centerFreq - bandWidth / 2).toFixed(2));
+  const actualMax = Number((centerFreq + bandWidth / 2).toFixed(2));
 
   // Normal-mode geometry
   const bandStartFreq = centerFreq - bandWidth / 2;
@@ -180,7 +180,7 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
                   top: '50%',
                   transform: 'translate(-50%, -50%)',
                   left: `${centerPercent}%`,
-                  backgroundColor: usedColor,
+                  backgroundColor: 'transparent',
                   color: usedColorContrast,
                   padding: '2px 6px',
                   borderRadius: '4px',
