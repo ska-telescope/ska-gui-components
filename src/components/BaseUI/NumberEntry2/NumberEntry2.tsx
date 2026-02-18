@@ -69,7 +69,7 @@ export function NumberEntry2({
 
   return (
     <Field.Root
-      className={styles.Field}
+      className={`${styles.Field} ${errorText ? styles.ErrorState : ''}`}
       style={{
         width: fullWidth ? '100%' : undefined,
         ...sx,
@@ -116,10 +116,12 @@ export function NumberEntry2({
               <MinusIcon />
             </BaseNumberEntry2.Decrement>
           )}
+
           {prefix && <div className={styles.Prefix}>{prefix}</div>}
 
           <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
             <BaseNumberEntry2.Input
+              aria-invalid={!!errorText}
               className={disabledUnderline ? styles.Clear : styles.Input}
               onFocus={onFocus}
             />
@@ -136,6 +138,7 @@ export function NumberEntry2({
               </BaseNumberEntry2.Decrement>
             </div>
           )}
+
           {suffix && <div className={styles.Suffix}>{suffix}</div>}
 
           {icon && plusMinus && (
@@ -149,9 +152,12 @@ export function NumberEntry2({
         </BaseNumberEntry2.Group>
       </BaseNumberEntry2.Root>
 
-      <Field.Error data-testid={testId + 'Error'} className={styles.Error}>
-        {errorText}
-      </Field.Error>
+      {/* Manual error text — reliable with custom controls */}
+      {errorText && (
+        <div data-testid={testId + 'Error'} className={styles.Error}>
+          {errorText}
+        </div>
+      )}
 
       <Field.Description data-testid={testId + 'Prompt'} className={styles.Description}>
         {prompt}

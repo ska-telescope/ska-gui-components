@@ -70,6 +70,12 @@ export function createSKATheme(
           ':root': {
             '--mui-label-color': theme.palette.text.secondary,
             '--ska-flatten': flatten ? '1' : '0',
+            '--mui-input-label-font-size': theme.typography.body2.fontSize,
+            '--mui-input-label-font-weight': theme.typography.body2.fontWeight,
+            '--mui-input-label-line-height': theme.typography.body2.lineHeight,
+            '--mui-input-label-letter-spacing': theme.typography.body2.letterSpacing,
+            '--mui-input-helper-text-font-size': theme.typography.caption.fontSize,
+            '--mui-input-helper-text-line-height': theme.typography.caption.lineHeight,
           },
         },
       },

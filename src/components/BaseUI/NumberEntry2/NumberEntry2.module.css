@@ -4,12 +4,13 @@
   align-items: center;
   width: 100%;
   height: 34px;
-  min-height: 34px  ;
+  min-height: 34px;
   border-bottom: 1px solid var(--mui-label-color);
   padding-bottom: 1px;
   transition: border-color 120ms ease;
 }
 
+/* Label */
 .Label {
   font-size: var(--mui-input-label-font-size) !important;
   font-weight: var(--mui-input-label-font-weight) !important;
@@ -18,14 +19,33 @@
   font-family: var(--mui-font-family) !important;
 }
 
+/* Field layout */
+.Field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Focus label color */
 .Field:focus-within .Label {
   color: var(--ska-secondary) !important;
 }
 
+/* Error text */
+.Error {
+  color: var(--ska-color-error);
+  font-size: var(--mui-input-helper-text-font-size);
+  line-height: var(--mui-input-helper-text-line-height);
+  margin-top: 3px;
+  display: block;
+  min-height: 1em;
+}
+
+/* Focus underline */
 .Group:focus-within {
   border-bottom-color: var(--ska-secondary) !important;
 }
 
+/* Prefix spacing */
 .Group > div:nth-child(2) {
   gap: 0px !important;
   margin: 0 2px !important;
@@ -43,7 +63,7 @@
   color: var(--mui-label-color);
 }
 
-/* Arrow container — IN NORMAL FLOW */
+/* Arrow container */
 .ArrowColumn {
   display: flex;
   flex-direction: column;
@@ -75,13 +95,13 @@
   pointer-events: auto;
 }
 
-/* Suffix — allow natural width */
+/* Suffix */
 .Suffix {
   display: flex;
   align-items: center;
   padding: 0 6px;
   margin: 0;
-  flex-shrink: 1;   /* IMPORTANT: allow shrinking */
+  flex-shrink: 1;
   color: var(--mui-label-color);
 }
 
@@ -93,4 +113,34 @@
 
 .Suffix :global(.MuiFormControl-root.MuiFormControl-fullWidth) {
   width: auto !important;
+}
+
+/* -------------------------------------------------- */
+/* ⭐ ERROR STATE — FULL RED COLORING */
+/* -------------------------------------------------- */
+
+.ErrorState .Label {
+  color: var(--ska-color-error) !important;
+}
+
+.ErrorState .Group {
+  border-bottom-color: var(--ska-color-error) !important;
+}
+
+.ErrorState .Input {
+  color: var(--ska-color-error) !important;
+}
+
+.ErrorState .Prefix,
+.ErrorState .Suffix {
+  color: var(--ska-color-error) !important;
+}
+
+.ErrorState .Increment,
+.ErrorState .Decrement {
+  color: var(--ska-color-error) !important;
+}
+
+.ErrorState .ScrubArea .Label {
+  color: var(--ska-color-error) !important;
 }
