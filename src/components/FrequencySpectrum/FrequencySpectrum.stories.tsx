@@ -20,5 +20,6 @@ export const Default = {
     bandColor: '#f2ca00',
     bandColorContrast: '#000000',
     boxWidth: '600px',
+    actual: false,
   },
 };

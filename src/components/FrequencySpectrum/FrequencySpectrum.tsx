@@ -12,6 +12,8 @@ export interface FrequencySpectrumProps {
   bandColor?: string;
   bandColorContrast?: string;
   boxWidth?: string;
+
+  actual?: boolean; // NEW
 }
 
 export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
@@ -25,10 +27,17 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
   bandColor = '',
   bandColorContrast = '',
   boxWidth = '400px',
+
+  actual = false, // NEW default
 }) => {
   const theme = useTheme();
   const totalWidth = maxFreq - minFreq;
 
+  // Actual min/max
+  const actualMin = centerFreq - bandWidth / 2;
+  const actualMax = centerFreq + bandWidth / 2;
+
+  // Normal-mode geometry
   const bandStartFreq = centerFreq - bandWidth / 2;
   const bandEndFreq = centerFreq + bandWidth / 2;
 
@@ -51,41 +60,48 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
     usedColorContrast = theme.palette.error.contrastText;
   }
 
-  // --- NEW: measure label width ---
+  // Label width measurement (only used when actual === false)
   const labelRef = React.useRef<HTMLSpanElement>(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
 
   React.useLayoutEffect(() => {
-    if (labelRef.current) {
+    if (!actual && labelRef.current) {
       setLabelWidth(labelRef.current.offsetWidth);
     }
-  }, [centerFreq, unit]);
+  }, [centerFreq, unit, actual]);
+
+  // --- ACTUAL MODE OVERRIDES ---
+  // In actual mode, the band fills the entire bar
+  const displayOffset = actual ? 0 : bandOffsetPercent;
+  const displayWidth = actual ? 100 : bandPercent;
 
   return (
     <Box sx={{ width: boxWidth, textAlign: 'center' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
         {/* Min Frequency */}
         <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
-          {minFreq} {unit}
+          {actual ? `${actualMin} ${unit}` : `${minFreq} ${unit}`}
         </Typography>
 
         {/* Wrapper for label + bar */}
         <Box sx={{ flexGrow: 1, position: 'relative' }}>
-          {/* Central Frequency Label ABOVE the bar */}
-          <Typography
-            ref={labelRef}
-            variant="caption"
-            sx={{
-              position: 'absolute',
-              bottom: '100%',
-              marginBottom: '4px',
-              whiteSpace: 'nowrap',
-              color: usedColorContrast,
-              left: `calc(${centerPercent}% - ${labelWidth / 2}px)`,
-            }}
-          >
-            {centerFreq} {unit}
-          </Typography>
+          {/* CENTRAL LABEL ABOVE BAR (only when NOT actual) */}
+          {!actual && (
+            <Typography
+              ref={labelRef}
+              variant="caption"
+              sx={{
+                position: 'absolute',
+                bottom: '100%',
+                marginBottom: '4px',
+                whiteSpace: 'nowrap',
+                color: usedColorContrast,
+                left: `calc(${centerPercent}% - ${labelWidth / 2}px)`,
+              }}
+            >
+              {centerFreq} {unit}
+            </Typography>
+          )}
 
           {/* Spectrum Bar */}
           <Box
@@ -105,28 +121,30 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
               data-testid="frequencySpectrum-highlighted-band"
               sx={{
                 position: 'absolute',
-                left: `${bandOffsetPercent}%`,
-                width: `${bandPercent}%`,
+                left: `${displayOffset}%`,
+                width: `${displayWidth}%`,
                 height: '100%',
                 backgroundColor: usedColor,
               }}
             />
 
-            {/* Central Frequency Marker */}
-            <Box
-              sx={{
-                position: 'absolute',
-                left: `${centerPercent}%`,
-                top: 0,
-                bottom: 0,
-                width: 2,
-                backgroundColor: usedColorContrast,
-                transform: 'translateX(-1px)',
-              }}
-            />
+            {/* CENTRAL MARKER (only when NOT actual) */}
+            {!actual && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  left: `${centerPercent}%`,
+                  top: 0,
+                  bottom: 0,
+                  width: 2,
+                  backgroundColor: usedColorContrast,
+                  transform: 'translateX(-1px)',
+                }}
+              />
+            )}
 
-            {/* Min Edge Marker */}
-            {minEdge !== minFreq && (
+            {/* EDGE MARKERS (only when NOT actual) */}
+            {!actual && minEdge !== minFreq && (
               <Box
                 sx={{
                   position: 'absolute',
@@ -140,8 +158,7 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
               />
             )}
 
-            {/* Max Edge Marker */}
-            {maxEdge !== maxFreq && (
+            {!actual && maxEdge !== maxFreq && (
               <Box
                 sx={{
                   position: 'absolute',
@@ -154,12 +171,33 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
                 }}
               />
             )}
+
+            {/* CENTRAL VALUE BOX (only when actual === true) */}
+            {actual && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  left: `${centerPercent}%`,
+                  backgroundColor: usedColor,
+                  color: usedColorContrast,
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {centerFreq} {unit}
+              </Box>
+            )}
           </Box>
         </Box>
 
         {/* Max Frequency */}
         <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
-          {maxFreq} {unit}
+          {actual ? `${actualMax} ${unit}` : `${maxFreq} ${unit}`}
         </Typography>
       </Box>
     </Box>

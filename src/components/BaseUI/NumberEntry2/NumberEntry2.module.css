@@ -11,9 +11,11 @@
 }
 
 .Label {
-  font-size: 13px !important; 
-  line-height: 1.1 !important;
-  font-weight: normal !important;
+  font-size: var(--mui-input-label-font-size) !important;
+  font-weight: var(--mui-input-label-font-weight) !important;
+  line-height: var(--mui-input-label-line-height) !important;
+  letter-spacing: var(--mui-input-label-letter-spacing) !important;
+  font-family: var(--mui-font-family) !important;
 }
 
 .Field:focus-within .Label {
