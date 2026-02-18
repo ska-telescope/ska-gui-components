@@ -156,7 +156,7 @@ export function Header({
                 onClick={() => openLink(SKAO_URL)}
                 icon={
                   useSymbol ? (
-                    <Symbol dark={isDarkTheme} flatten={getFlatten} height={LOGO_HEIGHT} />
+                    <Symbol dark={isDarkTheme} flatten={getFlatten()} height={LOGO_HEIGHT} />
                   ) : (
                     <Logo dark={isDarkTheme} flatten={getFlatten} height={LOGO_HEIGHT} />
                   )

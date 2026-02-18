@@ -1,7 +1,7 @@
 Changelog
 ==========
 
-2.8.31
+2.8.32
 ******
 
 Extend FrequencySpectrum to add an 'actual' property 
