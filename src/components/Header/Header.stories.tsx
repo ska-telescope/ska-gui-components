@@ -15,6 +15,7 @@ const theStorage = {
   },
   toggleTheme: null,
   updateTelescope: null,
+  flatten: true,
 };
 
 export const Default = {

@@ -158,7 +158,7 @@ export function Header({
                   useSymbol ? (
                     <Symbol dark={isDarkTheme} flatten={getFlatten()} height={LOGO_HEIGHT} />
                   ) : (
-                    <Logo dark={isDarkTheme} flatten={getFlatten} height={LOGO_HEIGHT} />
+                    <Logo dark={isDarkTheme} flatten={getFlatten()} height={LOGO_HEIGHT} />
                   )
                 }
                 testId={'skaWebsite'}
