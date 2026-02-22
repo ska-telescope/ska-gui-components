@@ -1,17 +1,14 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "2.8.33",
+  "version": "2.8.34",
   "description": "A Library of SKA GUI components using Material-UI",
   "license": "BSD-3-Clause",
   "private": false,
   "author": "Trevor A Swain",
-
   "type": "module",
-
   "main": "./dist/ska-gui-components.umd.js",
   "module": "./dist/ska-gui-components.es.js",
   "types": "./dist/ska-gui-components.d.mts",
-
   "exports": {
     ".": {
       "import": "./dist/ska-gui-components.es.js",
@@ -19,10 +16,11 @@
     },
     "./dist/assets/index.css": "./dist/assets/index.css"
   },
-
-  "files": ["dist"],
-
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "audit": "yarn audit --groups dependencies",
     "browserList": "npx browserslist@latest --update-db",
     "build": "tsc && vite build",
     "build-storybook": "storybook build",
@@ -42,7 +40,6 @@
     "test:unit": "vitest --typecheck --coverage.enabled=true  --reporter=default",
     "test:unit:ui": "vitest --typecheck  --coverage.enabled=true  --reporter=default --ui"
   },
-
   "dependencies": {
     "@base-ui/react": "^1.0.0-alpha.6",
     "@fontsource/material-icons": "^5.2.5",
@@ -51,20 +48,20 @@
     "@mui/system": "7.3.0",
     "@mui/x-data-grid": "^7.28.0",
     "@react-spring/web": "^9.7.3",
-    "@ska-telescope/ska-javascript-components": "^2.3.19",
+    "@ska-telescope/ska-javascript-components": "^2.3.21",
     "@types/uuid": "^9.0.4",
-    "@typescript-eslint/parser": "^8.26.1",
+    "@typescript-eslint/parser": "^8",
     "junit-report-merger": "^7.0.1",
     "path": "^0.12.7",
     "react-dropzone": "^14.3.5",
     "typescript": "5.5.3",
     "uuid": "^11.1.0"
   },
-
   "devDependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@eslint/compat": "^2.0.2",
+    "@eslint/js": "^10",
     "@storybook/addon-themes": "^8.6.12",
     "@storybook/react": "^8.2.9",
     "@storybook/react-vite": "^8.4.7",
@@ -73,33 +70,33 @@
     "@testing-library/react": "^16.2.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
+    "@typescript-eslint/eslint-plugin": "^8",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "@vitest/coverage-v8": "^3.1.1",
     "@vitest/ui": "^3.1.1",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-prettier": "^5",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-hooks": "^7",
     "jsdom": "^26.0.0",
-    "prettier": "^3.2.5",
+    "prettier": "^3",
     "react": "^18",
     "react-dom": "^18",
     "storybook": "^8.6.15",
+    "tsup": "^8.5.0",
     "typescript-eslint": "^8.54.0",
     "vite": "^6.2.1",
-    "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.1.1"
   },
-
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18"
   },
-
   "resolutions": {
-    "js-yaml": "3.14.2"
+    "js-yaml": "^3.14.2",
+    "minimatch": "^10.2.1"
   }
 }
