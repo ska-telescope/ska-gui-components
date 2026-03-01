@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.8.35
+******
+
+Add labels to icons
+
 2.8.34
 ******
 

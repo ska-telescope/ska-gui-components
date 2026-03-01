@@ -36,7 +36,9 @@ const Item = styled(Paper)(({ theme }) => ({
 export type Storage = {
   accessibility?: number;
   accessibilityUpdate?: (value: number) => void;
+  colorLabel?: string;
   help?: Help;
+  helpLabel?: string;
   helpToggle?: () => void;
   telescope?: Telescope;
   themeMode: string;
@@ -59,8 +61,9 @@ function openLink(link: string) {
 export interface HeaderProps {
   ariaDescription?: string;
   ariaTitle?: string;
-  docs?: { tooltip: string; url: string };
-  feedback?: { tooltip: string; url: string };
+  docs?: { label: string; tooltip: string; url: string };
+  feedback?: { label: string; tooltip: string; url: string };
+  help?: { label: string; tooltip: string };
   loginComponent?: JSX.Element | null;
   selectTelescope?: boolean;
   showHelp?: boolean;
@@ -79,8 +82,8 @@ export interface HeaderProps {
 export function Header({
   ariaDescription = 'Sticky Panel at the top of the page',
   ariaTitle = 'SKAOHeader',
-  docs = { tooltip: '', url: '' },
-  feedback = { tooltip: '', url: '' },
+  docs = { label: '', tooltip: '', url: '' },
+  feedback = { label: '', tooltip: '', url: '' },
   loginComponent = null,
   selectTelescope = true,
   storage,
@@ -179,14 +182,21 @@ export function Header({
               <Box mr={1} display="flex" justifyContent="flex-end" alignItems="center">
                 {loginComponent}
               </Box>
+
               {selectTelescope && getTelescopeStorage() && (
-                <TelescopeSelector telescope={getTelescopeStorage()} updateTelescope={updateTel} />
+                <Box mr={1} display="flex" justifyContent="flex-end" alignItems="center">
+                  <TelescopeSelector
+                    telescope={getTelescopeStorage()}
+                    updateTelescope={updateTel}
+                  />
+                </Box>
               )}
               {feedback?.url && (
                 <OurIconButton
                   ariaTitle="feedback icon"
                   onClick={() => openLink(feedback.url)}
                   icon={<FeedbackIcon colorFG={theme.palette.primary.contrastText} />}
+                  label={feedback?.label}
                   toolTip={feedback?.tooltip}
                 />
               )}
@@ -195,6 +205,7 @@ export function Header({
                   ariaTitle="document icon"
                   onClick={() => openLink(docs.url)}
                   icon={<DocumentIcon colorFG={theme.palette.primary.contrastText} />}
+                  label={docs?.label}
                   toolTip={docs?.tooltip}
                 />
               )}
@@ -203,6 +214,7 @@ export function Header({
                   ariaTitle="help icon"
                   onClick={() => helpToggle()}
                   icon={<HelpIcon colorFG={theme.palette.primary.contrastText} />}
+                  label={storage.helpLabel}
                   toolTip={getHelp() as ReactNode}
                 />
               )}
@@ -211,6 +223,7 @@ export function Header({
                   ariaTitle="color settings"
                   onClick={toggleDrawer}
                   icon={<PaletteIcon colorFG={theme.palette.primary.contrastText} />}
+                  label={storage.colorLabel}
                   toolTip={toolTip.mode}
                 />
               ) : (
@@ -224,6 +237,7 @@ export function Header({
                       <LightModeIcon colorFG={theme.palette.primary.contrastText} />
                     )
                   }
+                  label={storage.colorLabel}
                   toolTip={toolTip.mode}
                 />
               )}

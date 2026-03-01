@@ -8,6 +8,8 @@ export default {
 
 const theStorage = {
   help: null,
+  helpLabel: 'Help',
+  colorLabel: 'Color',
   helpToggle: null,
   telescope: TELESCOPE_LOW,
   themeMode: {
@@ -15,7 +17,7 @@ const theStorage = {
   },
   toggleTheme: null,
   updateTelescope: null,
-  flatten: true,
+  flatten: false,
 };
 
 export const Default = {
@@ -24,10 +26,12 @@ export const Default = {
     ariaTitle: 'aria Title',
     ariaDescription: 'aria Description',
     docs: {
+      label: 'Docs',
       tooltip: 'THIS IS A TOOLTIP',
       url: 'https://www.bbc.co.uk/',
     },
     feedback: {
+      label: 'Feedback',
       tooltip: 'THIS IS A TOOLTIP',
       url: 'https://www.bbc.co.uk/',
     },

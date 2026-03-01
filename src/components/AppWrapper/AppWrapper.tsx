@@ -50,8 +50,10 @@ export type AppWrapperProperties = {
   footerChildren?: Children;
   footerChildrenMiddle?: Children;
   headerChildren?: Children;
+  iconDocsLabel?: string;
   iconDocsToolTip?: string;
   iconDocsURL: string;
+  iconFeedbackLabel?: string;
   iconFeedbackToolTip?: string;
   iconFeedbackURL: string;
   iconSKAOToolTip?: string;
@@ -61,7 +63,9 @@ export type AppWrapperProperties = {
   selectTelescope?: boolean;
   storageAccessibility?: number;
   storageAccessibilityUpdate?: (value: number) => void;
+  storageColorLabel?: string;
   storageHelp?: Help;
+  storageHelpLabel?: string;
   storageHelpToggle?: () => void;
   storageTelescope?: Telescope;
   storageThemeMode: string;
@@ -81,12 +85,14 @@ function TheHeader(properties: AppWrapperProperties): React.JSX.Element {
       accessibility={properties.accessibility ? properties.accessibility : false}
       accessibilityColor={properties.accessibilityColor ? properties.accessibilityColor : []}
       docs={{
+        label: properties.iconDocsLabel ? properties.iconDocsLabel : '',
         tooltip: properties.iconDocsToolTip
           ? properties.iconDocsToolTip
           : 'Click here for SKAO documentation',
         url: properties.iconDocsURL,
       }}
       feedback={{
+        label: properties.iconFeedbackLabel ? properties.iconFeedbackLabel : '',
         tooltip: properties.iconFeedbackToolTip
           ? properties.iconFeedbackToolTip
           : 'Click here to provide SKAO with feedback',
@@ -103,7 +109,9 @@ function TheHeader(properties: AppWrapperProperties): React.JSX.Element {
       storage={{
         accessibility: properties.storageAccessibility,
         accessibilityUpdate: properties.storageAccessibilityUpdate,
+        colorLabel: properties.storageColorLabel ? properties.storageColorLabel : '',
         help: properties.storageHelp,
+        helpLabel: properties.storageHelpLabel ? properties.storageHelpLabel : '',
         helpToggle: properties.storageHelpToggle,
         telescope: properties.storageTelescope,
         themeMode: properties.storageThemeMode,
