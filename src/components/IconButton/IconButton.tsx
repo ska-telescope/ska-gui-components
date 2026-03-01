@@ -27,7 +27,7 @@ export function OurIconButton({
   const buttonClick = (e: any) => (onClick ? onClick(e) : null);
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center">
+    <Box mr={1} display="flex" flexDirection="column" alignItems="center">
       <Tooltip
         placement={toolTipPlacement as PopperPlacementType}
         data-testid={testId}
