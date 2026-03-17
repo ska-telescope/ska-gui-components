@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
 import { Grid, Paper, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import React from 'react';
+import { Accept } from 'react-dropzone/';
+import SKAOAlert, { AlertColorTypes } from '../Alert/Alert';
+import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton } from '../Button/Button';
+import DropZone from '../DropZone/DropZone';
+import OurIconButton from '../IconButton/IconButton';
 import ClearIcon from '../Icons/classic/ClearIcon';
 import FileUploadIcon from '../Icons/classic/FileUploadIcon';
 import SearchIcon from '../Icons/classic/SearchIcon';
-import { ButtonColorTypes, ButtonSizeTypes, ButtonVariantTypes, OurButton } from '../Button/Button';
 import { StatusIcon } from '../StatusIcon/StatusIcon';
-import OurIconButton from '../IconButton/IconButton';
-import SKAOAlert, { AlertColorTypes } from '../Alert/Alert';
-import DropZone from '../DropZone/DropZone';
-import { Accept } from 'react-dropzone/';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -47,6 +47,7 @@ interface FileUploadProps {
   testId: string;
   clearLabel?: string;
   clearDisabled?: boolean;
+  hideClearAfterUpload?: boolean;
   clearToolTip?: string;
   clearVariant?: ButtonVariantTypes;
   setFile?: (file: File | string) => void;
@@ -85,6 +86,7 @@ export function FileUpload({
   status,
   testId = 'fileUpload-testId',
   clearDisabled = false,
+  hideClearAfterUpload = false,
   clearLabel = 'Clear',
   clearToolTip = 'Clear the selected file',
   clearVariant = ButtonVariantTypes.Contained,
@@ -107,6 +109,20 @@ export function FileUpload({
   const [theFile, setTheFile] = React.useState<File | null>(null);
   const [name, setName] = React.useState('');
   const [state, setState] = React.useState(FileUploadStatus.INITIAL);
+  const [hasUploaded, setHasUploaded] = React.useState(false);
+  const prevStatusRef = React.useRef<FileUploadStatus | undefined>(undefined);
+
+  React.useEffect(() => {
+    const current = status ?? state;
+    if (
+      prevStatusRef.current !== undefined &&
+      prevStatusRef.current !== FileUploadStatus.OK &&
+      current === FileUploadStatus.OK
+    ) {
+      setHasUploaded(true);
+    }
+    prevStatusRef.current = current;
+  }, [status, state]);
 
   React.useEffect(() => {
     if (file) {
@@ -128,6 +144,7 @@ export function FileUpload({
     if (inFiles?.[0]) {
       setTheFile(inFiles[0]);
       setName(inFiles[0].name);
+      setHasUploaded(false);
       setTheStatus(FileUploadStatus.INITIAL);
       setFile?.(inFiles[0]);
       if (isMinimal) {
@@ -186,6 +203,11 @@ export function FileUpload({
     }
   };
 
+  const uploadedAndHidden = hideClearAfterUpload && hasUploaded;
+
+  const showClearButton = !!theFile && !uploadedAndHidden;
+  const showUploadButton = !!theFile && !uploadedAndHidden;
+
   const ChooseButton = () => (
     <label htmlFor={testId}>
       <input
@@ -194,6 +216,9 @@ export function FileUpload({
         name="chooseFileInput"
         type="file"
         accept={chooseFileTypes}
+        onClick={(e) => {
+          (e.target as HTMLInputElement).value = '';
+        }}
         onChange={handleFileChange}
       />
       <OurButton
@@ -302,10 +327,10 @@ export function FileUpload({
                 justifyContent="center"
               >
                 <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
-                  {theFile && ClearButton()}
+                  {showClearButton && ClearButton()}
                 </Item>
                 <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
-                  {theFile && UploadButton()}
+                  {showUploadButton && UploadButton()}
                 </Item>
               </Grid>
             </Item>
@@ -318,8 +343,10 @@ export function FileUpload({
         <SKAOAlert color={getAlertColor()} testId="testId">
           <Grid p={0} container direction={direction} alignItems="baseline" justifyContent="center">
             <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{ChooseButton()}</Item>
-            <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{showFileName()}</Item>
-            {theFile && (
+            {!uploadedAndHidden && (
+              <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{showFileName()}</Item>
+            )}
+            {showClearButton && (
               <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{ClearButton()}</Item>
             )}
             {suffix && <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{suffix}</Item>}
@@ -330,13 +357,13 @@ export function FileUpload({
       {!dropzone && !isMinimal && (
         <Grid p={0} container direction={direction} justifyContent="space-evenly" spacing={1}>
           <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{ChooseButton()}</Item>
-          {!hideFileName && (
+          {!hideFileName && !uploadedAndHidden && (
             <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{showFileName()}</Item>
           )}
-          {theFile && (
+          {showClearButton && (
             <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{ClearButton()}</Item>
           )}
-          {theFile && (
+          {showUploadButton && (
             <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{UploadButton()}</Item>
           )}
           {suffix && <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>{suffix}</Item>}

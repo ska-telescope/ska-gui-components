@@ -21,6 +21,7 @@ export const Light = {
     theFile: 'filename.pdf',
     clearLabel: 'Clear',
     clearToolTip: 'Clear tooltip',
+    hideClearAfterUpload: false,
     dropzone: true,
     dropzonePreview: true,
     dropzonePrompt: 'DROP HERE',
@@ -45,9 +46,22 @@ export const Dark = {
     direction: 'row',
     maxFileWidth: 20,
     theFile: 'filename.pdf',
+    hideClearAfterUpload: false,
     uploadDisabled: false,
     uploadLabel: 'Upload',
     uploadURL: 'https://httpbin.org/post',
     uploadToolTip: 'Upload tooltip',
+  },
+};
+
+export const HideClearAfterUpload = {
+  args: {
+    dropzone: false,
+    dropzonePreview: false,
+    chooseLabel: 'Choose',
+    uploadLabel: 'Upload',
+    uploadURL: 'https://httpbin.org/post',
+    clearLabel: 'Clear',
+    hideClearAfterUpload: true,
   },
 };
