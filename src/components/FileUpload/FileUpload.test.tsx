@@ -15,7 +15,21 @@ describe('FileUpload', () => {
   test('hides clear button after successful upload when hideClearAfterUpload is true', () => {
     const file = new File(['content'], 'test.txt', { type: 'text/plain' });
 
-    render(
+    const { rerender } = render(
+      <FileUpload
+        file={file}
+        status={FileUploadStatus.INITIAL}
+        hideClearAfterUpload
+        dropzonePreview={false}
+        testId="fileUpload"
+      />,
+    );
+
+    // Clear button visible before upload
+    expect(screen.queryByTestId('fileUploadClearButton')).toBeInTheDocument();
+
+    // Simulate upload completing — status transitions to OK
+    rerender(
       <FileUpload
         file={file}
         status={FileUploadStatus.OK}
@@ -25,6 +39,7 @@ describe('FileUpload', () => {
       />,
     );
 
+    // Clear button hidden after upload
     expect(screen.queryByTestId('fileUploadClearButton')).not.toBeInTheDocument();
   });
 });
