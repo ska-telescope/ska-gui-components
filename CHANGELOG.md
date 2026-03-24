@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.8.37
+******
+
+Add hideClearAfterUpload prop to FileUpload component
+
 2.8.36
 ******
 
