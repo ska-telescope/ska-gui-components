@@ -1,5 +1,4 @@
-import { JSX, ReactNode, useState } from 'react';
-import { AppBar, Box, Grid, Paper, Typography, useTheme, Drawer } from '@mui/material';
+import { AppBar, Box, Drawer, Grid, Paper, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import {
   Logo,
@@ -9,18 +8,20 @@ import {
   THEME_DARK,
   THEME_LIGHT,
 } from '@ska-telescope/ska-javascript-components';
-import { OurIconButton } from '../IconButton/IconButton';
-import { Telescope, TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
-import DarkModeIcon from '../Icons/classic/DarkModeIcon';
-import LightModeIcon from '../Icons/classic/LightModeIcon';
-import DocumentIcon from '../Icons/classic/DocumentIcon';
-import FeedbackIcon from '../Icons/classic/FeedbackIcon';
-import HelpIcon from '../Icons/circle/HelpIcon';
-import PaletteIcon from '../Icons/classic/PaletteIcon';
-import { Help } from '../HelpModal/HelpModal';
+import { JSX, ReactNode, useState } from 'react';
+import { SKABrandColor } from '../../services/theme/createSKATheme';
 import Children from '../../utils/types/types';
 import ColorSchemeContent from '../ColorSchemeContent/ColorSchemeContent';
-import { SKABrandColor } from '../../services/theme/createSKATheme';
+import { Help } from '../HelpModal/HelpModal';
+import { OurIconButton } from '../IconButton/IconButton';
+import HelpIcon from '../Icons/circle/HelpIcon';
+import DarkModeIcon from '../Icons/classic/DarkModeIcon';
+import DocumentIcon from '../Icons/classic/DocumentIcon';
+import FeedbackIcon from '../Icons/classic/FeedbackIcon';
+import LightModeIcon from '../Icons/classic/LightModeIcon';
+import NotificationIcon from '../Icons/classic/NotificationIcon';
+import PaletteIcon from '../Icons/classic/PaletteIcon';
+import { Telescope, TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -65,6 +66,7 @@ export interface HeaderProps {
   feedback?: { label: string; tooltip: string; url: string };
   help?: { label: string; tooltip: string };
   loginComponent?: JSX.Element | null;
+  notification?: { label: string; tooltip: string; onClick: () => void; count?: number };
   selectTelescope?: boolean;
   showHelp?: boolean;
   storage: Storage;
@@ -85,6 +87,7 @@ export function Header({
   docs = { label: '', tooltip: '', url: '' },
   feedback = { label: '', tooltip: '', url: '' },
   loginComponent = null,
+  notification,
   selectTelescope = true,
   storage,
   showHelp = false,
@@ -190,6 +193,16 @@ export function Header({
                     updateTelescope={updateTel}
                   />
                 </Box>
+              )}
+              {notification && (
+                <OurIconButton
+                  ariaTitle="notification icon"
+                  onClick={notification.onClick}
+                  count={notification?.count}
+                  icon={<NotificationIcon colorFG={theme.palette.primary.contrastText} />}
+                  label={notification?.label}
+                  toolTip={notification?.tooltip}
+                />
               )}
               {feedback?.url && (
                 <OurIconButton

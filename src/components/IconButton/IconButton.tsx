@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
-import React, { JSX, ReactNode } from 'react';
-import { Box, IconButton, PopperPlacementType, Tooltip, Typography } from '@mui/material';
+import { Badge, Box, IconButton, PopperPlacementType, Tooltip, Typography } from '@mui/material';
+import { JSX, ReactNode } from 'react';
 
 export interface IconButtonProps {
   ariaDescription?: string;
   ariaTitle?: string;
+  count?: number;
   icon: JSX.Element;
   label?: string;
   onClick?: Function;
@@ -17,6 +18,7 @@ export interface IconButtonProps {
 export function OurIconButton({
   ariaDescription = 'Icon button providing some functionality',
   ariaTitle = 'IconButton',
+  count,
   onClick,
   icon,
   label = '',
@@ -40,7 +42,13 @@ export function OurIconButton({
           onClick={(e: any) => buttonClick(e)}
           style={{ cursor: 'pointer' }}
         >
-          {icon}
+          {count !== undefined && count > 0 ? (
+            <Badge badgeContent={count} color="error">
+              {icon}
+            </Badge>
+          ) : (
+            icon
+          )}
         </IconButton>
       </Tooltip>
       {label && label.length > 0 && <Typography variant="caption">{label}</Typography>}

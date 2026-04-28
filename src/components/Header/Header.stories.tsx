@@ -35,6 +35,12 @@ export const Default = {
       tooltip: 'THIS IS A TOOLTIP',
       url: 'https://www.bbc.co.uk/',
     },
+    notification: {
+      label: 'Notifications',
+      tooltip: 'View notifications',
+      onClick: () => console.log('Notification clicked'),
+      count: 3,
+    },
     selectTelescope: true,
     storage: theStorage,
     showHelp: true,
@@ -44,5 +50,28 @@ export const Default = {
     useSymbol: false,
     useBrowserStorage: false,
     children: ['HERE ', 'ARE ', 'SOME ', 'CHILDREN'],
+  },
+};
+
+export const WithNotifications = {
+  args: {
+    ...Default.args,
+    notification: {
+      label: 'Notifications',
+      tooltip: 'You have 5 new notifications',
+      onClick: () => alert('Opening notifications panel'),
+      count: 5,
+    },
+  },
+};
+
+export const WithoutNotificationCount = {
+  args: {
+    ...Default.args,
+    notification: {
+      label: 'Notifications',
+      tooltip: 'View notifications',
+      onClick: () => console.log('Notification clicked'),
+    },
   },
 };
