@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.8.38
+******
+
+Header updated with optional notification icon and notification count
+
 2.8.37
 ******
 
