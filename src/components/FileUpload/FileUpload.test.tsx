@@ -42,4 +42,20 @@ describe('FileUpload', () => {
     // Clear button hidden after upload
     expect(screen.queryByTestId('fileUploadClearButton')).not.toBeInTheDocument();
   });
+
+  test('renders spinner icon on upload button when status is pending', () => {
+    const file = new File(['content'], 'test.txt', { type: 'text/plain' });
+
+    render(
+      <FileUpload
+        file={file}
+        status={FileUploadStatus.PENDING}
+        dropzone={false}
+        dropzonePreview={false}
+        testId="fileUpload"
+      />,
+    );
+
+    expect(screen.getByTestId('fileUploadLoadingSpinner')).toBeInTheDocument();
+  });
 });
