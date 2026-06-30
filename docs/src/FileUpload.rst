@@ -62,6 +62,12 @@ It is provided in two forms, which are governed by the isMinimal boolean
    Ths component provides a simple upload function that makes use of the uploadURL property to upload the
    selected file. The uploadFunction has been provided so that can be completely replaced.
 
+.. admonition:: Upload pending indicator
+
+   During upload pending state (FileUploadStatus.PENDING), the Upload button icon is shown as a loading
+   spinner to indicate progress. This behavior is local to FileUpload and does not change StatusIcon
+   behavior in other components.
+
 .. admonition:: Testing Identifier
 
    Provided by the property *testId*
