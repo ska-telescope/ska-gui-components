@@ -184,6 +184,8 @@ export function FileUpload({
 
   const getUploadIcon = () => {
     const val = status ?? state;
+    const uploadIconSize = isMinimal ? 26 : 20;
+
     if (val === FileUploadStatus.INITIAL) {
       return <FileUploadIcon colorFG={theme.palette.secondary.main} />;
     }
@@ -192,7 +194,7 @@ export function FileUpload({
       return (
         <CircularProgress
           data-testid="fileUploadLoadingSpinner"
-          size={isMinimal ? 26 : 20}
+          size={uploadIconSize}
           sx={{
             color: theme.palette.common.white,
             filter: 'drop-shadow(0 0 1px rgba(0,0,0,0.8))',
@@ -201,7 +203,7 @@ export function FileUpload({
       );
     }
 
-    return <StatusIcon testId="statusId" icon level={val} size={isMinimal ? 26 : 20} />;
+    return <StatusIcon testId="statusId" icon level={val} size={uploadIconSize} />;
   };
 
   const getAlertColor = () => {
