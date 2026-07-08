@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.8.39
+******
+
+FileUpload: show loading spinner icon while upload is pending
+
 2.8.38
 ******
 
