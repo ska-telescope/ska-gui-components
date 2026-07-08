@@ -11,8 +11,8 @@ This can be configured via a number of properties, which are listed later on thi
    The component has been provided all the defaults needed to work within a standard SKA application.
 
 
-.. figure:: /_static/img/components/appwrapper.png
-   :width: 90%
+.. .. figure:: /_static/img/components/appwrapper.png
+..    :width: 90%
 
 .. code-block:: sh
    :caption: Example : Default usage
