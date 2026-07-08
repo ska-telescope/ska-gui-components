@@ -27,7 +27,7 @@ as well as implementation of standard properties to allow for maximum accessibil
    JavascriptComponents
    Alert
    AlertCard
-   AppWrapper
+   authWrapper
    Backdrop
    Button
    ButtonToggle

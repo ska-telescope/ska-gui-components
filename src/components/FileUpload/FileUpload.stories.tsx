@@ -1,5 +1,6 @@
+import React from 'react';
 import { ButtonSizeTypes } from '../Button/Button';
-import { FileUpload } from './FileUpload';
+import { FileUpload, FileUploadStatus } from './FileUpload';
 
 export default {
   title: 'Example/FileUpload',
@@ -55,6 +56,37 @@ export const Dark = {
 };
 
 export const HideClearAfterUpload = {
+  args: {
+    dropzone: false,
+    dropzonePreview: false,
+    chooseLabel: 'Choose',
+    uploadLabel: 'Upload',
+    uploadURL: 'https://httpbin.org/post',
+    clearLabel: 'Clear',
+    hideClearAfterUpload: true,
+  },
+};
+
+export const SlowUploadSpinner = {
+  render: (args: any) => {
+    const [status, setStatus] = React.useState(FileUploadStatus.INITIAL);
+
+    const delayedUpload = async () => {
+      setStatus(FileUploadStatus.PENDING);
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      setStatus(FileUploadStatus.OK);
+    };
+
+    return (
+      <FileUpload
+        {...args}
+        dropzone={false}
+        status={status}
+        setStatus={setStatus}
+        uploadFunction={delayedUpload}
+      />
+    );
+  },
   args: {
     dropzone: false,
     dropzonePreview: false,

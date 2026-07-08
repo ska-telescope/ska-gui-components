@@ -26,10 +26,10 @@ This also will provide fixed symbol display for the icons
    "icon", "boolean", "No", "false", "Option to display the fixed symbol upon the Object"
    "level","number", "No", "9", "Valid range is 0 - 5. Anything outside that range is empty. Success = 0."
    "size","number", "No", "12", "This provides both height & width"
-   "testId","string", "Yes", , "Unique identifier used for testing"
+   "testId","string", "Yes", "", "Unique identifier used for testing"
    "text","string", "No", "", "String that will be displayed upon the shape.  Single character only recommended"
    "toolTip", "string", "No", "", "Text displayed when the cursor is hovered over the button"
-   "toolTipPlacement". "string", "No", "bottom", "Allows for the positioning of the tooltip to be moved from the default"
+   "toolTipPlacement", "string", "No", "bottom", "Allows for the positioning of the tooltip to be moved from the default"
 
 .. admonition:: Constants
       

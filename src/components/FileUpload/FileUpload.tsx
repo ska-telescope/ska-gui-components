@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Grid, Paper, Typography, useTheme } from '@mui/material';
+import { CircularProgress, Grid, Paper, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import React from 'react';
 import { Accept } from 'react-dropzone/';
@@ -184,11 +184,26 @@ export function FileUpload({
 
   const getUploadIcon = () => {
     const val = status ?? state;
-    return val === FileUploadStatus.INITIAL ? (
-      <FileUploadIcon colorFG={theme.palette.secondary.main} />
-    ) : (
-      <StatusIcon testId="statusId" icon level={val} size={isMinimal ? 26 : 20} />
-    );
+    const uploadIconSize = isMinimal ? 26 : 20;
+
+    if (val === FileUploadStatus.INITIAL) {
+      return <FileUploadIcon colorFG={theme.palette.secondary.main} />;
+    }
+
+    if (val === FileUploadStatus.PENDING) {
+      return (
+        <CircularProgress
+          data-testid="fileUploadLoadingSpinner"
+          size={uploadIconSize}
+          sx={{
+            color: theme.palette.common.white,
+            filter: 'drop-shadow(0 0 1px rgba(0,0,0,0.8))',
+          }}
+        />
+      );
+    }
+
+    return <StatusIcon testId="statusId" icon level={val} size={uploadIconSize} />;
   };
 
   const getAlertColor = () => {
