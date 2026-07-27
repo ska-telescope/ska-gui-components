@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+2.8.40
+******
+
+FrequencySpectrum: Display rounded values instead of exact frequencies
+
 2.8.39
 ******
 
