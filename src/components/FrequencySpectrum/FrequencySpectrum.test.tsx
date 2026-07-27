@@ -41,6 +41,6 @@ describe('FrequencySpectrum', () => {
     });
 
     const band = screen.getByTestId('frequencySpectrum-highlighted-band');
-    expect(band).toHaveStyle(`background-color: ${theme.palette.warning.main}`);
+    expect(band).toHaveStyle(`background-color: ${theme.palette.warning.light}`);
   });
 });
