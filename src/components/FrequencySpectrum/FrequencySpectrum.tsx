@@ -9,11 +9,11 @@ export interface FrequencySpectrumProps {
   minEdge?: number;
   maxEdge?: number;
   unit?: string;
+  displayBoundaryInUnits?: number;
   bandColor?: string;
   bandColorContrast?: string;
   boxWidth?: string;
-
-  actual?: boolean; // NEW
+  actual?: boolean;
 }
 
 export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
@@ -24,24 +24,26 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
   minEdge = minFreq,
   maxEdge = maxFreq,
   unit = 'MHz',
+  displayBoundaryInUnits = 5,
   bandColor = '',
   bandColorContrast = '',
   boxWidth = '400px',
-
-  actual = false, // NEW default
+  actual = false,
 }) => {
   const theme = useTheme();
-  const totalWidth = maxFreq - minFreq;
 
-  // Actual min/max
-  const actualMin = Number((centerFreq - bandWidth / 2).toFixed(2));
-  const actualMax = Number((centerFreq + bandWidth / 2).toFixed(2));
-
-  // Normal-mode geometry
   const bandStartFreq = centerFreq - bandWidth / 2;
   const bandEndFreq = centerFreq + bandWidth / 2;
 
-  const bandOffsetPercent = ((bandStartFreq - minFreq) / totalWidth) * 100;
+  // Display bounds for min and max of band
+  const displayGeometryMin = actual
+    ? Number(bandStartFreq.toFixed(2))
+    : Number(minFreq.toFixed()) - displayBoundaryInUnits;
+  const displayGeometryMax = actual
+    ? Number(bandEndFreq.toFixed(2))
+    : Number(maxFreq.toFixed()) + displayBoundaryInUnits;
+  const totalWidth = displayGeometryMax - displayGeometryMin;
+
   const bandPercent = (bandWidth / totalWidth) * 100;
   const centerPercent = ((centerFreq - minFreq) / totalWidth) * 100;
   const minEdgePercent = ((minEdge - minFreq) / totalWidth) * 100;
@@ -52,11 +54,20 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
   let usedColorContrast =
     bandColorContrast === '' ? theme.palette.primary.contrastText : bandColorContrast;
 
-  if (bandStartFreq < minFreq || bandEndFreq > maxFreq) {
+  // Apply a tolerance to the boundary checks, so that a value that's genuinely exactly at the
+  // boundary (but which may differ from min/max by a fraction of a Hz due to rounding/fp
+  // arithmetic) isn't flagged as a breach. 1 Hz, converted into whatever display unit this
+  // instance uses - matches the tolerance isCentralFrequencyOnChannelGrid/isCentralFrequencyDivisible
+  // use for the same reason, rather than a flat value that's wrong for GHz-scale MID bands.
+  const BOUNDARY_TOLERANCE = 1 / (unit === 'GHz' ? 1e9 : 1e6);
+  if (bandStartFreq < minFreq - BOUNDARY_TOLERANCE || bandEndFreq > maxFreq + BOUNDARY_TOLERANCE) {
     usedColor = theme.palette.error.main;
     usedColorContrast = theme.palette.error.contrastText;
-  } else if (bandStartFreq < minEdge || bandEndFreq > maxEdge) {
-    usedColor = theme.palette.warning.main;
+  } else if (
+    bandStartFreq < minEdge - BOUNDARY_TOLERANCE ||
+    bandEndFreq > maxEdge + BOUNDARY_TOLERANCE
+  ) {
+    usedColor = theme.palette.warning.light;
     usedColorContrast = theme.palette.error.contrastText;
   }
 
@@ -72,7 +83,7 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
 
   // --- ACTUAL MODE OVERRIDES ---
   // In actual mode, the band fills the entire bar
-  const displayOffset = actual ? 0 : bandOffsetPercent;
+  const displayOffset = actual ? 0 : centerPercent;
   const displayWidth = actual ? 100 : bandPercent;
 
   return (
@@ -80,7 +91,7 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
         {/* Min Frequency */}
         <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
-          {actual ? `${actualMin} ${unit}` : `${minFreq} ${unit}`}
+          {`${displayGeometryMin} ${unit}`}
         </Typography>
 
         {/* Wrapper for label + bar */}
@@ -125,20 +136,23 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
                 width: `${displayWidth}%`,
                 height: '100%',
                 backgroundColor: usedColor,
+                minWidth: '3px',
+                transform: actual ? 'none' : 'translateX(-50%)',
               }}
             />
 
             {/* CENTRAL MARKER (only when NOT actual) */}
             {!actual && (
               <Box
+                data-testid="frequencySpectrum-center-marker"
                 sx={{
                   position: 'absolute',
                   left: `${centerPercent}%`,
                   top: 0,
                   bottom: 0,
-                  width: 2,
-                  backgroundColor: usedColorContrast,
-                  transform: 'translateX(-1px)',
+                  width: '1px',
+                  backgroundColor: 'black',
+                  transform: 'translateX(-0.5px)',
                 }}
               />
             )}
@@ -197,7 +211,7 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
 
         {/* Max Frequency */}
         <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
-          {actual ? `${actualMax} ${unit}` : `${maxFreq} ${unit}`}
+          {`${displayGeometryMax} ${unit}`}
         </Typography>
       </Box>
     </Box>
