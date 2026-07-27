@@ -56,6 +56,9 @@ export type AppWrapperProperties = {
   iconFeedbackLabel?: string;
   iconFeedbackToolTip?: string;
   iconFeedbackURL: string;
+  iconSensCalcLabel?: string;
+  iconSensCalcToolTip?: string;
+  iconSensCalcURL?: string;  
   iconSKAOToolTip?: string;
   iconThemeToolTip?: string;
   loginComponent?: JSX.Element | null;
@@ -97,6 +100,13 @@ function TheHeader(properties: AppWrapperProperties): React.JSX.Element {
           ? properties.iconFeedbackToolTip
           : 'Click here to provide SKAO with feedback',
         url: properties.iconFeedbackURL,
+      }}
+      sensCalc={{
+        label: properties.iconSensCalcLabel ? properties.iconSensCalcLabel : '',
+        tooltip: properties.iconSensCalcToolTip
+          ? properties.iconSensCalcToolTip
+          : 'Click here to open the SKA Sensitivity Calculator',
+        url: properties.iconSensCalcURL ?? '',
       }}
       loginComponent={properties.loginComponent}
       selectTelescope={properties.selectTelescope}
