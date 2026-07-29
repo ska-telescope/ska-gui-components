@@ -3,7 +3,7 @@ Changelog
 
 Unreleased
 **********
-Added: CalculatorIcon and options ability for header to display a Sensivity Calculator button.
+Added: CalculatorIcon and options ability for header to display a Sensitivity Calculator button.
 
 2.8.39
 ******
