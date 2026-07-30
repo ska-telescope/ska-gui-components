@@ -5,6 +5,11 @@ Unreleased
 **********
 Added: CalculatorIcon and options ability for header to display a Sensitivity Calculator button.
 
+2.8.40
+******
+
+FrequencySpectrum: Display rounded values instead of exact frequencies
+
 2.8.39
 ******
 
