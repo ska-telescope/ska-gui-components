@@ -136,6 +136,23 @@ publish-to-car:
     # Publish from a tag for a release
     - if: $CI_COMMIT_TAG
 
+# Verify CAR npm credentials without publishing a package.
+car-npm-auth-check:
+  stage: publish
+  image: node:lts-alpine
+  tags:
+    - ${SKA_K8S_RUNNER}
+  before_script:
+    - test -n "$CAR_NPM_REPOSITORY_URL" || { echo "CAR_NPM_REPOSITORY_URL is missing"; exit 1; }
+    - test -n "$CAR_NPM_TOKEN" || { echo "CAR_NPM_TOKEN is missing"; exit 1; }
+    - npm config set registry "$CAR_NPM_REPOSITORY_URL"
+    - echo "$CAR_NPM_REPOSITORY_URL" | awk -F '://' '{ cmd="npm config set -- //"$2":_auth \"${CAR_NPM_TOKEN}\" ";system(cmd) }'
+  script:
+    - npm whoami --registry="$CAR_NPM_REPOSITORY_URL"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "sts-3112-investigation"'
+      when: manual
+
 # Publish the artifacts to gitlab registry
 publish-to-gitlab:
   image: node:lts-alpine
