@@ -35,19 +35,25 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
   const bandStartFreq = centerFreq - bandWidth / 2;
   const bandEndFreq = centerFreq + bandWidth / 2;
 
-  // Display bounds for min and max of band
-  const displayGeometryMin = actual
+  // The min and max frequency to display as the edges of the visualiser
+  const displayMin = actual
     ? Number(bandStartFreq.toFixed(2))
     : Number(minFreq.toFixed()) - displayBoundaryInUnits;
-  const displayGeometryMax = actual
+  const displayMax = actual
     ? Number(bandEndFreq.toFixed(2))
     : Number(maxFreq.toFixed()) + displayBoundaryInUnits;
-  const totalWidth = displayGeometryMax - displayGeometryMin;
+  const totalWidth = displayMax - displayMin;
+
+  // Display bounds for min and max of band
+  const displayGeometryMin = Number(minFreq.toFixed(2));
+  const displayGeometryMax = Number(maxFreq.toFixed(2));
 
   const bandPercent = (bandWidth / totalWidth) * 100;
-  const centerPercent = ((centerFreq - minFreq) / totalWidth) * 100;
-  const minEdgePercent = ((minEdge - minFreq) / totalWidth) * 100;
-  const maxEdgePercent = ((maxEdge - minFreq) / totalWidth) * 100;
+  const centerPercent = ((centerFreq - displayMin) / totalWidth) * 100;
+  const minFreqPercent = ((displayGeometryMin - displayMin) / totalWidth) * 100;
+  const maxFreqPercent = ((displayGeometryMax - displayMin) / totalWidth) * 100;
+  const minEdgePercent = ((minEdge - displayMin) / totalWidth) * 100;
+  const maxEdgePercent = ((maxEdge - displayMin) / totalWidth) * 100;
 
   // Determine band color
   let usedColor = bandColor === '' ? theme.palette.primary.light : bandColor;
@@ -72,12 +78,18 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
   // Label width measurement (only used when actual === false)
   const labelRef = React.useRef<HTMLSpanElement>(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
+  const minFreqLabelRef = React.useRef<HTMLSpanElement>(null);
+  const [minFreqLabelWidth, setMinFreqLabelWidth] = React.useState(0);
+  const maxFreqLabelRef = React.useRef<HTMLSpanElement>(null);
+  const [maxFreqLabelWidth, setMaxFreqLabelWidth] = React.useState(0);
 
   React.useLayoutEffect(() => {
-    if (!actual && labelRef.current) {
-      setLabelWidth(labelRef.current.offsetWidth);
+    if (!actual) {
+      if (labelRef.current) setLabelWidth(labelRef.current.offsetWidth);
+      if (minFreqLabelRef.current) setMinFreqLabelWidth(minFreqLabelRef.current.offsetWidth);
+      if (maxFreqLabelRef.current) setMaxFreqLabelWidth(maxFreqLabelRef.current.offsetWidth);
     }
-  }, [centerFreq, unit, actual]);
+  }, [centerFreq, minFreq, maxFreq, unit, actual]);
 
   // --- ACTUAL MODE OVERRIDES ---
   // In actual mode, the band fills the entire bar
@@ -89,7 +101,7 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
         {/* Min Frequency */}
         <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
-          {`${displayGeometryMin} ${unit}`}
+          {`${displayMin} ${unit}`}
         </Typography>
 
         {/* Wrapper for label + bar */}
@@ -109,6 +121,41 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
               }}
             >
               {centerFreq} {unit}
+            </Typography>
+          )}
+
+          {/* ACTUAL FREQUENCY EDGE LABELS BELOW BAR (only when NOT actual) */}
+          {!actual && (
+            <Typography
+              ref={minFreqLabelRef}
+              variant="caption"
+              sx={{
+                position: 'absolute',
+                top: '100%',
+                marginTop: '4px',
+                whiteSpace: 'nowrap',
+                color: theme.palette.text.secondary,
+                left: `calc(${minFreqPercent}% - ${minFreqLabelWidth / 2}px)`,
+              }}
+            >
+              {displayGeometryMin} {unit}
+            </Typography>
+          )}
+
+          {!actual && (
+            <Typography
+              ref={maxFreqLabelRef}
+              variant="caption"
+              sx={{
+                position: 'absolute',
+                top: '100%',
+                marginTop: '4px',
+                whiteSpace: 'nowrap',
+                color: theme.palette.text.secondary,
+                left: `calc(${maxFreqPercent}% - ${maxFreqLabelWidth / 2}px)`,
+              }}
+            >
+              {displayGeometryMax} {unit}
             </Typography>
           )}
 
@@ -151,6 +198,51 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
                   width: '1px',
                   backgroundColor: 'black',
                   transform: 'translateX(-0.5px)',
+                }}
+              />
+            )}
+
+            {/* Actual frequency edge markers (not just display edges) */}
+            {!actual && (
+              <>
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    left: `${minFreqPercent}%`,
+                    top: 0,
+                    bottom: 0,
+                    width: 2,
+                    backgroundColor: theme.palette.divider,
+                    transform: 'translateX(-1px)',
+                  }}
+                />
+                <Typography
+                  ref={labelRef}
+                  variant="caption"
+                  sx={{
+                    position: 'absolute',
+                    bottom: '100%',
+                    marginBottom: '4px',
+                    whiteSpace: 'nowrap',
+                    color: usedColorContrast,
+                    left: `${minFreqPercent}%`,
+                  }}
+                >
+                  {displayGeometryMin} {unit}
+                </Typography>
+              </>
+            )}
+
+            {!actual && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  left: `${maxFreqPercent}%`,
+                  top: 0,
+                  bottom: 0,
+                  width: 2,
+                  backgroundColor: theme.palette.divider,
+                  transform: 'translateX(-1px)',
                 }}
               />
             )}
@@ -209,11 +301,11 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
 
         {/* Max Frequency */}
         <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
-          {`${displayGeometryMax} ${unit}`}
+          {`${displayMax} ${unit}`}
         </Typography>
       </Box>
     </Box>
   );
-};
+};;
 
 export default FrequencySpectrum;
