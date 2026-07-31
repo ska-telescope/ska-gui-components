@@ -35,25 +35,25 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
   const bandStartFreq = centerFreq - bandWidth / 2;
   const bandEndFreq = centerFreq + bandWidth / 2;
 
-  // The min and max frequency to display as the edges of the visualiser
-  const displayMin = actual
+  // Define the edges of the display - this adds padding to the given min/max frequencies
+  const displayBorderMin = actual
     ? Number(bandStartFreq.toFixed(2))
     : Number(minFreq.toFixed()) - displayBoundaryInUnits;
-  const displayMax = actual
+  const displayBorderMax = actual
     ? Number(bandEndFreq.toFixed(2))
     : Number(maxFreq.toFixed()) + displayBoundaryInUnits;
-  const totalWidth = displayMax - displayMin;
+  const totalWidth = displayBorderMax - displayBorderMin;
 
   // Display bounds for min and max of band
   const displayGeometryMin = Number(minFreq.toFixed(2));
   const displayGeometryMax = Number(maxFreq.toFixed(2));
 
   const bandPercent = (bandWidth / totalWidth) * 100;
-  const centerPercent = ((centerFreq - displayMin) / totalWidth) * 100;
-  const minFreqPercent = ((displayGeometryMin - displayMin) / totalWidth) * 100;
-  const maxFreqPercent = ((displayGeometryMax - displayMin) / totalWidth) * 100;
-  const minEdgePercent = ((minEdge - displayMin) / totalWidth) * 100;
-  const maxEdgePercent = ((maxEdge - displayMin) / totalWidth) * 100;
+  const centerPercent = ((centerFreq - displayBorderMin) / totalWidth) * 100;
+  const minFreqPercent = ((displayGeometryMin - displayBorderMin) / totalWidth) * 100;
+  const maxFreqPercent = ((displayGeometryMax - displayBorderMin) / totalWidth) * 100;
+  const minEdgePercent = ((minEdge - displayBorderMin) / totalWidth) * 100;
+  const maxEdgePercent = ((maxEdge - displayBorderMin) / totalWidth) * 100;
 
   // Determine band color
   let usedColor = bandColor === '' ? theme.palette.primary.light : bandColor;
