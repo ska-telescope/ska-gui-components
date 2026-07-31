@@ -100,9 +100,9 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
     <Box sx={{ width: boxWidth, textAlign: 'center' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
         {/* Min Frequency */}
-        <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
-          {`${displayMin} ${unit}`}
-        </Typography>
+        {/*<Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>*/}
+        {/*  {`${displayMin} ${unit}`}*/}
+        {/*</Typography>*/}
 
         {/* Wrapper for label + bar */}
         <Box sx={{ flexGrow: 1, position: 'relative' }}>
@@ -208,10 +208,10 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
                 <Box
                   sx={{
                     position: 'absolute',
-                    left: `${minFreqPercent}%`,
+                    left: 0,
                     top: 0,
                     bottom: 0,
-                    width: 2,
+                    width: `${minFreqPercent}%`,
                     backgroundColor: theme.palette.divider,
                     transform: 'translateX(-1px)',
                   }}
@@ -237,10 +237,10 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
               <Box
                 sx={{
                   position: 'absolute',
-                  left: `${maxFreqPercent}%`,
+                  right: 0,
                   top: 0,
                   bottom: 0,
-                  width: 2,
+                  width: `${minFreqPercent}%`,
                   backgroundColor: theme.palette.divider,
                   transform: 'translateX(-1px)',
                 }}
@@ -300,12 +300,12 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
         </Box>
 
         {/* Max Frequency */}
-        <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
-          {`${displayMax} ${unit}`}
-        </Typography>
+        {/*<Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>*/}
+        {/*  {`${displayMax} ${unit}`}*/}
+        {/*</Typography>*/}
       </Box>
     </Box>
   );
-};;
+};
 
 export default FrequencySpectrum;
