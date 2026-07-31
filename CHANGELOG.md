@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Unreleased
+**********
+
+[BUGFIX] FrequencySpectrum: Fix minimum frequency display 
+
 2.8.40
 ******
 
