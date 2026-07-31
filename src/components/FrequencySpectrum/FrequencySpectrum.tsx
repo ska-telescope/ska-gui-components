@@ -99,11 +99,6 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
   return (
     <Box sx={{ width: boxWidth, textAlign: 'center' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
-        {/* Min Frequency */}
-        {/*<Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>*/}
-        {/*  {`${displayMin} ${unit}`}*/}
-        {/*</Typography>*/}
-
         {/* Wrapper for label + bar */}
         <Box sx={{ flexGrow: 1, position: 'relative' }}>
           {/* CENTRAL LABEL ABOVE BAR (only when NOT actual) */}
@@ -298,11 +293,6 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
             )}
           </Box>
         </Box>
-
-        {/* Max Frequency */}
-        {/*<Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>*/}
-        {/*  {`${displayMax} ${unit}`}*/}
-        {/*</Typography>*/}
       </Box>
     </Box>
   );
