@@ -82,6 +82,8 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
   const [minFreqLabelWidth, setMinFreqLabelWidth] = React.useState(0);
   const maxFreqLabelRef = React.useRef<HTMLSpanElement>(null);
   const [maxFreqLabelWidth, setMaxFreqLabelWidth] = React.useState(0);
+  const minEdgeLabelRef = React.useRef<HTMLSpanElement>(null);
+  const maxEdgeLabelRef = React.useRef<HTMLSpanElement>(null);
 
   React.useLayoutEffect(() => {
     if (!actual) {
@@ -212,7 +214,7 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
                   }}
                 />
                 <Typography
-                  ref={labelRef}
+                  ref={minEdgeLabelRef}
                   variant="caption"
                   sx={{
                     position: 'absolute',
@@ -229,17 +231,33 @@ export const FrequencySpectrum: React.FC<FrequencySpectrumProps> = ({
             )}
 
             {!actual && (
-              <Box
-                sx={{
-                  position: 'absolute',
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                  width: `${minFreqPercent}%`,
-                  backgroundColor: theme.palette.divider,
-                  transform: 'translateX(-1px)',
-                }}
-              />
+              <>
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    right: 0,
+                    top: 0,
+                    bottom: 0,
+                    width: `${100 - maxFreqPercent}%`,
+                    backgroundColor: theme.palette.divider,
+                    transform: 'translateX(-1px)',
+                  }}
+                />
+                <Typography
+                  ref={maxEdgeLabelRef}
+                  variant="caption"
+                  sx={{
+                    position: 'absolute',
+                    bottom: '100%',
+                    marginBottom: '4px',
+                    whiteSpace: 'nowrap',
+                    color: usedColorContrast,
+                    right: `${100 - maxFreqPercent}%`,
+                  }}
+                >
+                  {displayGeometryMax} {unit}
+                </Typography>
+              </>
             )}
 
             {/* EDGE MARKERS (only when NOT actual) */}
