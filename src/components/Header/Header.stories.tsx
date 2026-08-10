@@ -35,6 +35,11 @@ export const Default = {
       tooltip: 'THIS IS A TOOLTIP',
       url: 'https://www.bbc.co.uk/',
     },
+    sensCalc: {
+      label: 'Sens Calc',
+      tooltip: 'Open the SKA Sensitivity Calculator',
+      url: 'https://sensitivity-calculator.skao.int/',
+    },
     notification: {
       label: 'Notifications',
       tooltip: 'View notifications',
@@ -73,5 +78,23 @@ export const WithoutNotificationCount = {
       tooltip: 'View notifications',
       onClick: () => console.log('Notification clicked'),
     },
+  },
+};
+
+export const WithSensitivityCalculator = {
+  args: {
+    ...Default.args,
+    sensCalc: {
+      label: 'Sens Calc',
+      tooltip: 'Open the SKA Sensitivity Calculator',
+      url: 'https://sensitivity-calculator.skao.int/',
+    },
+  },
+};
+
+export const WithoutSensitivityCalculator = {
+  args: {
+    ...Default.args,
+    sensCalc: { label: '', tooltip: '', url: '' }, // no url → button hidden
   },
 };

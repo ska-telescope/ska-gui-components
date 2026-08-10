@@ -19,6 +19,7 @@ import DarkModeIcon from '../Icons/classic/DarkModeIcon';
 import DocumentIcon from '../Icons/classic/DocumentIcon';
 import FeedbackIcon from '../Icons/classic/FeedbackIcon';
 import LightModeIcon from '../Icons/classic/LightModeIcon';
+import CalculatorIcon from '../Icons/classic/CalculatorIcon';
 import NotificationIcon from '../Icons/classic/NotificationIcon';
 import PaletteIcon from '../Icons/classic/PaletteIcon';
 import { Telescope, TelescopeSelector } from '../TelescopeSelector/TelescopeSelector';
@@ -68,6 +69,7 @@ export interface HeaderProps {
   loginComponent?: JSX.Element | null;
   notification?: { label: string; tooltip: string; onClick: () => void; count?: number };
   selectTelescope?: boolean;
+  sensCalc?: { label: string; tooltip: string; url: string };
   showHelp?: boolean;
   storage: Storage;
   testId?: string;
@@ -89,6 +91,7 @@ export function Header({
   loginComponent = null,
   notification,
   selectTelescope = true,
+  sensCalc = { label: '', tooltip: '', url: '' },
   storage,
   showHelp = false,
   testId = 'header-testId',
@@ -211,6 +214,15 @@ export function Header({
                   icon={<FeedbackIcon colorFG={theme.palette.primary.contrastText} />}
                   label={feedback?.label}
                   toolTip={feedback?.tooltip}
+                />
+              )}
+              {sensCalc?.url && (
+                <OurIconButton
+                  ariaTitle="calculator icon"
+                  onClick={() => openLink(sensCalc.url)}
+                  icon={<CalculatorIcon colorFG={theme.palette.primary.contrastText} />}
+                  label={sensCalc?.label}
+                  toolTip={sensCalc?.tooltip}
                 />
               )}
               {docs?.url && (
