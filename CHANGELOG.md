@@ -1,8 +1,8 @@
 Changelog
 ==========
 
-Unreleased
-**********
+2.8.41
+******
 
 [BUGFIX] FrequencySpectrum: Fix minimum frequency display 
 Added: CalculatorIcon and options ability for header to display a Sensitivity Calculator button.
