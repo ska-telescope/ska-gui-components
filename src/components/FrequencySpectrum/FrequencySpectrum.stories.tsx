@@ -10,10 +10,10 @@ export default {
 
 export const Default = {
   args: {
-    minFreq: 50,
-    maxFreq: 350,
-    centerFreq: 200,
-    bandWidth: 100,
+    minFreq: 49.609375,
+    maxFreq: 349.609375,
+    centerFreq: 199.609375,
+    bandWidth: 75,
     // minEdge: 75,
     // maxEdge: 325,
     unit: 'MHz',
