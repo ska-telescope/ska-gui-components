@@ -1,6 +1,10 @@
 Changelog
 ==========
 
+2.8.42
+******
+FrequencySpectrum: Formatting updates
+
 2.8.41
 ******
 
