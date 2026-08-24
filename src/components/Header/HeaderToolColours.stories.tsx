@@ -1,8 +1,10 @@
 import { ThemeProvider, CssBaseline, createTheme } from "@mui/material";
+import type { Decorator } from '@storybook/react';
 import { THEME_LIGHT, THEME_DARK, TELESCOPE_LOW } from "@ska-telescope/ska-javascript-components";
 import Header from './Header';
-import { createSKATheme } from '../../services/theme/createSKATheme';
+import { createSKATheme, SKAThemeMode } from '../../services/theme/createSKATheme';
 import { getAppBarOverride } from '../../services/theme/appBarColours';
+import type { SKATool } from '../../services/theme/appBarColours';
 
 export default {
     title: 'Example/Header/Tool Colours',
@@ -31,7 +33,7 @@ const baseArgs = {
     docs: { label: 'Docs', tooltip: 'Docs', url: 'https://www.skao.int/' },
 };
 
-const withToolTheme = (tool, mode) => (Story) => {
+const withToolTheme = (tool: SKATool, mode: SKAThemeMode): Decorator => (Story) => {
     const theme = createTheme(createSKATheme(mode, 0), getAppBarOverride(tool, mode));
     return (
         <ThemeProvider theme={theme}>
