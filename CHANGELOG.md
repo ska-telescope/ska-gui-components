@@ -1,6 +1,10 @@
 Changelog
 ==========
 
+UNRELEASED
+******
+Added: App Bar colour overrides for OSO tool themeing.
+
 2.8.42
 ******
 FrequencySpectrum: Formatting updates
