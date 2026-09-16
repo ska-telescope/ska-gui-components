@@ -58,7 +58,7 @@ export type AppWrapperProperties = {
   iconFeedbackURL: string;
   iconSensCalcLabel?: string;
   iconSensCalcToolTip?: string;
-  iconSensCalcURL?: string;  
+  iconSensCalcURL?: string;
   iconSKAOToolTip?: string;
   iconThemeToolTip?: string;
   loginComponent?: JSX.Element | null;

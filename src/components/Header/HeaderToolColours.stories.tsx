@@ -11,27 +11,25 @@ export default {
     component: Header,
 };
 
-const theStorage ={
+const makeStorage = (mode: SKAThemeMode) => ({
     help: null,
     helpLabel: 'Help',
     colorLabel: 'Colour',
     helpToggle: null,
     telescope: TELESCOPE_LOW,
-    themeMode: { 
-        mode: THEME_LIGHT 
-    },
+    themeMode: mode,
     toggleTheme: null,
     updateTelescope: null,
     flatten: false,
-};
+});
 
-const baseArgs = {
+const makeArgs = (mode: SKAThemeMode) => ({
     title: 'ska-gui-components',
-    storage: theStorage,
+    storage: makeStorage(mode),
     selectTelescope: false,
     toolTip: { skao: 'SKAO Website', mode: 'Light / Dark Mode' },
     docs: { label: 'Docs', tooltip: 'Docs', url: 'https://www.skao.int/' },
-};
+});
 
 const withToolTheme = (tool: SKATool, mode: SKAThemeMode): Decorator => (Story) => {
     const theme = createTheme(createSKATheme(mode, 0), getAppBarOverride(tool, mode));
@@ -43,13 +41,17 @@ const withToolTheme = (tool: SKATool, mode: SKAThemeMode): Decorator => (Story) 
     );
 };
 
-export const ODT = { args: baseArgs, decorators: [withToolTheme('odt', THEME_LIGHT)] };
-export const OST = { args: baseArgs, decorators: [withToolTheme('ost', THEME_LIGHT)] };
-export const PTT = { args: baseArgs, decorators: [withToolTheme('ptt', THEME_LIGHT)] };
-export const SLT = { args: baseArgs, decorators: [withToolTheme('slt', THEME_LIGHT)] };
+const makeStory = (tool: SKATool, mode: SKAThemeMode) => ({
+    args: makeArgs(mode),
+    decorators: [withToolTheme(tool, mode)],
+})
 
+export const ODT = makeStory('odt', THEME_LIGHT)
+export const OST = makeStory('ost', THEME_LIGHT)
+export const PTT = makeStory('ptt', THEME_LIGHT)
+export const SLT = makeStory('slt', THEME_LIGHT)
 
-export const ODTDark = { args: baseArgs, decorators: [withToolTheme('odt', THEME_DARK)] };
-export const OSTDark = { args: baseArgs, decorators: [withToolTheme('ost', THEME_DARK)] };
-export const PTTDark = { args: baseArgs, decorators: [withToolTheme('ptt', THEME_DARK)] };
-export const SLTDark = { args: baseArgs, decorators: [withToolTheme('slt', THEME_DARK)] };
+export const ODTDark = makeStory('odt', THEME_DARK)
+export const OSTDark = makeStory('ost', THEME_DARK)
+export const PTTDark = makeStory('ptt', THEME_DARK)
+export const SLTDark = makeStory('slt', THEME_DARK)

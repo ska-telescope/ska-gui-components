@@ -70,6 +70,6 @@ export type { AccessibilityMode, ThemeMode } from '@ska-telescope/ska-javascript
 // Theme system
 export { SKAThemeProvider } from './services/theme/SKAThemeProvider';
 export { createSKATheme, SKABrandColor } from './services/theme/createSKATheme';
-export { getAppBarOverride, SKA_TOOL_BAR_COLOURS} from './services/theme/appBarColours';
+export { getAppBarOverride, SKA_TOOL_BAR_COLOURS } from './services/theme/appBarColours';
 export type { SKAThemeMode } from './services/theme/createSKATheme';
 export type { SKATool } from './services/theme/appBarColours';

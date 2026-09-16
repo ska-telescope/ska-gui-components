@@ -11,20 +11,6 @@ export default {
     component: Footer,
 };
 
-const theStorage ={
-    help: null,
-    helpLabel: 'Help',
-    colorLabel: 'Colour',
-    helpToggle: null,
-    telescope: TELESCOPE_LOW,
-    themeMode: { 
-        mode: THEME_LIGHT 
-    },
-    toggleTheme: null,
-    updateTelescope: null,
-    flatten: false,
-};
-
 const baseArgs = { version: "1.0.0"};
 
 const withToolTheme = (tool: SKATool, mode: SKAThemeMode): Decorator => (Story) => {
