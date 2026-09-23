@@ -3,6 +3,7 @@
 -include .make/base.mk
 
 -include .make/docs.mk
+-include .make/release.mk
 
 DOCS_SPHINXOPTS = -W --keep-going
 

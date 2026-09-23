@@ -1,7 +1,7 @@
 Changelog
 ==========
 
-UNRELEASED
+2.9.0
 ******
 Added: App Bar colour overrides for OSO tool themeing.
 
