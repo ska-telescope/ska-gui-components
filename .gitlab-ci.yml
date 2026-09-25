@@ -1,12 +1,15 @@
 default:
-  image: node:22
+  # This variable is overridden in the repository CI settings
+  # Remove that override once System Team updates the
+  # JS_BUILD_IMAGE at the groupwide SKAO level.
+  # ~ bjmc, September 2026
+  image: ${JS_BUILD_IMAGE}
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
   a11y_urls: $CAR_NPM_REPOSITORY_URL
 
 stages:
-  - dependencies
   - lint
   - build
   - test
@@ -16,80 +19,14 @@ stages:
   - scan
   - publish
 
-#Install basic dependencies using yarn
-install_dependencies:
-  stage: dependencies
-  tags:
-    - ${SKA_K8S_RUNNER}
-  script:
-    - rm -rf node_modules && yarn install
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - node_modules/
-
-#Run the static code analysis   ( TREVOR - PUT BACK IN LATER )
-# code_analysis:
-#  stage: lint
-#  tags:
-#    - ${SKA_K8S_RUNNER}
-#  before_script:
-#    - mkdir -p build/reports
-#  script:
-#    - yarn install
-#    - yarn run code-analysis
-#    - mv linting.xml build/reports/linting.xml
-#  artifacts:
-#    paths:
-#      - build/
-
-# run the test coverage reports
-test_and_coverage:
-  stage: test
-  tags:
-    - ${SKA_K8S_RUNNER}
-  before_script:
-    - mkdir -p build/reports
-    - mkdir -p build/.nyc_output
-    - yarn 
-  script:
-    - yarn storybook &
-    - yarn test:unit
-    - yarn test:coverage:report:ci
-    - cp build/reports/cobertura-coverage.xml build/reports/code-coverage.xml
-
-  coverage: /All\sfiles.*?\s+(\d+.\d+)/
-  artifacts:
-    reports:
-      coverage_report:
-        coverage_format: cobertura
-        path: build/reports/cobertura-coverage.xml
-    paths:
-      - build/
-
-test-counts:
-  stage: test
-  tags:
-    - ${SKA_K8S_RUNNER}
-  cache:
-    paths:
-      - node_modules/
-    policy: pull
-  before_script:
-    - mkdir -p build/tests
-    - yarn install --immutable
-  script:
-    - yarn test:unit
-    # yarn merge-reports   ( TREVOR - PUT BACK IN LATER )
-  artifacts:
-    paths:
-      - build/
-
 # list the current top level dependencies for the project
 list_dependencies:
   stage: test
   tags:
     - ${SKA_K8S_RUNNER}
+  before_script:
+    - corepack enable
+    - make js-install
   script:
     - npm list --depth=0 --json >> npm_deps.json
     - npm list --depth=0  >> npm_deps.txt
@@ -105,6 +42,9 @@ build:
   stage: build
   tags:
     - ${SKA_K8S_RUNNER}
+  before_script:
+    - corepack enable
+    - make js-install
   script:
     - yarn build
 
@@ -113,6 +53,9 @@ distribution:
   stage: build
   tags:
     - ${SKA_K8S_RUNNER}
+  before_script:
+    - corepack enable
+    - make js-install
   script:
     - yarn build
   artifacts:
@@ -122,7 +65,7 @@ distribution:
 # Publish the artifacts to CAR
 publish-to-car:
   stage: publish
-  image: node:lts-alpine
+  image: artefact.skao.int/ska-node-ubuntu26:1.0.2
   tags:
     - ${SKA_K8S_RUNNER}
   before_script:
@@ -138,7 +81,7 @@ publish-to-car:
 
 # Publish the artifacts to gitlab registry
 publish-to-gitlab:
-  image: node:lts-alpine
+  image: artefact.skao.int/ska-node-ubuntu26:1.0.2
   stage: publish
   tags:
     - ${SKA_K8S_RUNNER}
@@ -149,7 +92,7 @@ publish-to-gitlab:
     - npm version --no-git-tag-version $(npm show latest version)-dev.$CI_COMMIT_SHORT_SHA
     - npm publish
   rules:
-    # Do not publish on a tag pipeline, note this shouldn't transfer over to SKAO templates
+    # Do not publish on a tag pipeline, note this shouldn't transfer over to SKAO templates
     - if: $CI_COMMIT_TAG
       when: never
 
@@ -159,8 +102,7 @@ pages:
   tags:
     - ${SKA_K8S_RUNNER}
   dependencies:
-    - test_and_coverage
-    - test-counts
+    - js-test
     - list_dependencies
     - code_quality
   script:
@@ -175,6 +117,10 @@ pages:
 include:
   - template: Code-Quality.gitlab-ci.yml
   - template: "Verify/Accessibility.gitlab-ci.yml"
+
+  # Javascript packages lint, test and audit
+  - project: 'ska-telescope/templates-repository'
+    file: 'gitlab-ci/includes/js.gitlab-ci.yml'
 
   # documentation pages pipeline
   - project: 'ska-telescope/templates-repository'

@@ -2,12 +2,14 @@
 # dependancies
 dist
 node_modules
+.yarn
 
 # testing
 /coverage
 
 # production
 /build
+/storybook-static
 
 # misc
 *.log
