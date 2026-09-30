@@ -17,7 +17,7 @@ FrequencySpectrum: Formatting updates
 2.8.41
 ******
 
-[BUGFIX] FrequencySpectrum: Fix minimum frequency display 
+[BUGFIX] FrequencySpectrum: Fix minimum frequency display
 Added: CalculatorIcon and options ability for header to display a Sensitivity Calculator button.
 
 2.8.40
@@ -48,17 +48,17 @@ Add labels to icons
 2.8.34
 ******
 
-Audit update 
+Audit update
 
 2.8.33
 ******
 
-Extend FrequencySpectrum to add an 'actual' property 
+Extend FrequencySpectrum to add an 'actual' property
 
 2.8.32
 ******
 
-Extend FrequencySpectrum to add an 'actual' property 
+Extend FrequencySpectrum to add an 'actual' property
 
 2.8.29
 ******
@@ -193,22 +193,22 @@ Update exports
 2.4.8
 *****
 
-Added getColors 
+Added getColors
 
 2.4.7
 *****
 
-FrequencySpectrum Added 
+FrequencySpectrum Added
 
 2.4.6
 *****
 
-Interim 
+Interim
 
 2.4.5
 *****
 
-Interim 
+Interim
 
 2.4.4
 *****
@@ -263,7 +263,7 @@ Reduced the sizing of the icons in the StatusIcon, and made text bold
 2.3.35
 ******
 
-Icon tweak for ? 
+Icon tweak for ?
 
 2.3.34
 ******
@@ -369,7 +369,7 @@ Ability to suppress scroller
 2.3.12
 ******
 
-Removed tags failing SemVer 
+Removed tags failing SemVer
 
 2.3.10
 ******
@@ -394,12 +394,12 @@ Updated NumberEntry2
 2.3.6
 *****
 
-Added aria to the new component 
+Added aria to the new component
 
 2.3.5
 *****
 
-Tweaking the up/down arrow display 
+Tweaking the up/down arrow display
 
 2.3.4
 *****
@@ -460,7 +460,7 @@ Reduced babel dependancies
 2.2.9
 *****
 
-Exported the NumberEntry2 component 
+Exported the NumberEntry2 component
 
 2.2.8
 *****
@@ -497,7 +497,7 @@ added ability to add ref to a standard button
 *****
 
 Reset to a good version
-ButtonLogin & ButtonLogout code added for later use 
+ButtonLogin & ButtonLogout code added for later use
 Updated so that all components use the SKA IconButton
 Added useBrowserStorage to the Header
 Updated to Node v22
@@ -632,7 +632,7 @@ Updated version from ska-javascript-components
 Added minHeight & maxHeight as an additional property to the InfoCard
 Updated dependency to ska-javascript-components to provide SKAO Symbol
 
-2.0.12 
+2.0.12
 
 ******
 
