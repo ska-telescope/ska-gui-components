@@ -1,6 +1,10 @@
 # SKA GUI Components
 
-This library contains standard GUI components, written in TypeScript.  
+| :warning: WARNING          |
+|:---------------------------|
+| This repository follows [Continuous Deployment](https://www.ibm.com/topics/continuous-deployment) merging to `main` will trigger a deployment.|
+
+This library contains standard GUI components, written in TypeScript.
 Their usage is able to be viewed by use of Storybook.
 They have been tested using Cypress.
 SKAO Theme has been implemented and has been imported from ska-javascript-components.

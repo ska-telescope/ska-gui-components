@@ -7,12 +7,10 @@ import path from "path";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Normalize plugin imports (ESM vs CJS)
-import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import prettierPlugin from "eslint-plugin-prettier";
 
-const react = reactPlugin?.default ?? reactPlugin;
 const reactHooks = reactHooksPlugin?.default ?? reactHooksPlugin;
 const a11y = jsxA11yPlugin?.default ?? jsxA11yPlugin;
 const prettier = prettierPlugin?.default ?? prettierPlugin;
@@ -64,7 +62,6 @@ export default [
     },
 
     plugins: {
-      react,
       "react-hooks": reactHooks,
       "jsx-a11y": a11y,
       prettier
@@ -73,10 +70,6 @@ export default [
     rules: {
       // Prettier
       "prettier/prettier": "error",
-
-      // React
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off",
 
       // Hooks
       "react-hooks/rules-of-hooks": "error",
@@ -90,9 +83,5 @@ export default [
       "linebreak-style": 0,
       "jest/expect-expect": "off"
     },
-
-    settings: {
-      react: { version: "detect" }
-    }
   }
 ];

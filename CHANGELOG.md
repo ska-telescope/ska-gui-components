@@ -1,6 +1,20 @@
 Changelog
 ==========
 
+UNRELEASED
+******
+- Dependency updates to clear known security vulnerabilities (no functional changes).
+- CI now runs on the SKAO-provided Node images (Node 22.22.3) instead of Docker Hub Node/Alpine images.
+- Migrated from yarn classic (1.22.22) to yarn 4.12.0, and moved CI onto the shared SKAO JS templates and `.make/js.mk` targets.
+- Moved `typescript`, `@typescript-eslint/parser` and `junit-report-merger` from `dependencies` to `devDependencies`, and removed the unused `path` and `@types/uuid` dependencies.
+- Widened the `react` and `react-dom` peer dependency ranges to admit React 19.
+- `@base-ui/react` moved off the alpha range to `^1.8.0`.
+- Removed unused dependencies: `uuid`, `@fontsource/roboto`, `@fontsource/material-icons`, `@eslint/compat`, `eslint-config-prettier`, `@storybook/addon-themes`, `@typescript-eslint/parser` and `@typescript-eslint/eslint-plugin`.
+- Pinned `eslint` to the 9.x line, which `eslint-plugin-react` and `eslint-plugin-jsx-a11y` still require.
+- Upgraded `vitest`, `@vitest/coverage-v8` and `@vitest/ui` to 4.1.11 (GHSA-82fw-gwwq-j7x9), `@testing-library/jest-dom` to 7.x and `jsdom` to 30.x, and pinned `glob` to 13.x via resolutions.
+- Removed the unused `tsup` dependency and its config, which was the only consumer of a vulnerable `esbuild` (GHSA-g7r4-m6w7-qqqr).
+- Removed `eslint-plugin-react`; both rules it configured were disabled, so linting is unchanged.
+
 2.9.0
 ******
 Added: App Bar colour overrides for OSO tool themeing.
