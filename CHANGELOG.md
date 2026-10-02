@@ -3,6 +3,8 @@ Changelog
 
 UNRELEASED
 ******
+- Develops and tests against React 19. The peer range still accepts React 18.
+- Removes the bare CSS side-effect imports from the shipped type declarations. These failed type-checking in consumers using TypeScript 6 with `skipLibCheck` disabled. The emitted CSS is unchanged.
 - Absorbs `@ska-telescope/ska-javascript-components`, which is no longer a dependency. `Colors`, `Logo`, `Spacer`, `Status`, `Styling`, `Symbol`, the telescope and theme-mode constants, their tests, stories and documentation now live in this library, and are exported under the same names. Consumers no longer install that package's build tooling (Vite 7, svgo, PostCSS and others), which it listed as runtime dependencies.
 - **Breaking:** removes the `JAVASCRIPT_COMPONENTS_VERSION` export.
 - Removes `resolutions` entries that no longer match any installed package (`svgo`, `uuid`, `vitest/vite`, `vite-node/vite`), and the unused `src/components/index.ts`.
