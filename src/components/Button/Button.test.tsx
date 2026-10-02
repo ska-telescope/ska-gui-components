@@ -2,7 +2,6 @@ import React from 'react';
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Button, { ButtonColorTypes, ButtonIcons } from '././Button';
-import '@testing-library/jest-dom';
 
 describe('Button', () => {
   // const mockAction = vi.fn();

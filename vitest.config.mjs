@@ -8,6 +8,7 @@ export default defineConfig({
     include: ['**/*.test.tsx'],
     includeTaskLocation: true,
     globals: true,
+    setupFiles: ['./vitest.setup.ts'],
     coverage: {
         exclude: ['**/index.ts', '*.t.ts', '*.d.ts', 'rollup.*', 'vite.*', 'vitest.*', '.make/*', '.storybook/*', 'dist/*', 'types/*', 'src/utils/types/*', 'src/services/*', 'src/components/version/*', '**/*.stories.tsx']
       },

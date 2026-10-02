@@ -2,7 +2,6 @@ import React from 'react';
 import { describe, test } from 'vitest';
 import { render } from '@testing-library/react';
 import Header from '././Header';
-import '@testing-library/jest-dom';
 import { Help } from '../HelpModal/HelpModal';
 
 const help: Help = {

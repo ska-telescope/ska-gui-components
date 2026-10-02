@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2023",
-    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
@@ -13,6 +17,15 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["src", ".storybook", "global.d.ts"],
-  "exclude": ["dist", "node_modules", "src/*.test.ts"]
+  "include": [
+    "src",
+    ".storybook",
+    "global.d.ts",
+    "vitest.setup.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "src/*.test.ts"
+  ]
 }

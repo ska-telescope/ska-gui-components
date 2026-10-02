@@ -2,7 +2,6 @@ import React from 'react';
 import { describe, test } from 'vitest';
 import { render } from '@testing-library/react';
 import DropDown from '././DropDown';
-import '@testing-library/jest-dom';
 import { LABEL_POSITION } from '../EntryField/EntryField';
 
 const DUMMY_OPTIONS = [

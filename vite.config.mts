@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'path';
-import pkg from './package.json';
+import pkg from './package.json' with { type: 'json' };
 
 const external = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)];
 
@@ -10,12 +10,12 @@ export default defineConfig({
     cssCodeSplit: true,
 
     lib: {
-      entry: resolve(__dirname, './src/index.ts'),
+      entry: resolve(import.meta.dirname, './src/index.ts'),
       formats: ['es'],
       fileName: (format) => `ska-gui-components.${format}.js`,
     },
 
-    rollupOptions: {
+    rolldownOptions: {
       external: (id) => external.some((dep) => id === dep || id.startsWith(`${dep}/`)),
       output: {
         assetFileNames: 'assets/[name].[ext]', // <-- ensures CSS is emitted
