@@ -1,10 +1,7 @@
 import { createTheme } from '@mui/material';
-import {
-  Colors,
-  THEME_LIGHT,
-  THEME_DARK,
-  COLOR_PALETTE_SETS,
-} from '@ska-telescope/ska-javascript-components';
+import { Colors } from './colors';
+import { THEME_LIGHT, THEME_DARK } from './themeModes';
+import { COLOR_PALETTE_SETS } from './palette';
 import { COLOR_RED, COLOR_ORANGE, COLOR_GREEN, COLOR_BLUE } from '../../utils/getColors/getColors';
 
 export type SKAThemeMode = typeof THEME_LIGHT | typeof THEME_DARK;

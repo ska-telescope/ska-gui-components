@@ -1,4 +1,4 @@
-import { TELESCOPE_LOW } from '@ska-telescope/ska-javascript-components';
+import { TELESCOPE_LOW } from '../../utils/telescopes';
 import TelescopeSelector from './TelescopeSelector';
 
 export default {

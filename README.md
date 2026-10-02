@@ -7,7 +7,7 @@
 This library contains standard GUI components, written in TypeScript.
 Their usage is able to be viewed by use of Storybook.
 They have been tested using Cypress.
-SKAO Theme has been implemented and has been imported from ska-javascript-components.
+SKAO Theme has been implemented.
 
 ## Adding library to your application
 

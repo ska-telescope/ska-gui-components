@@ -5,11 +5,8 @@ import { useTheme } from '@mui/material/styles';
 import DarkModeIcon from '../Icons/classic/DarkModeIcon';
 import LightModeIcon from '../Icons/classic/LightModeIcon';
 import { OurIconButton } from '../IconButton/IconButton';
-import {
-  COLOR_PALETTE_SETS,
-  THEME_DARK,
-  THEME_LIGHT,
-} from '@ska-telescope/ska-javascript-components';
+import { COLOR_PALETTE_SETS } from '../../services/theme/palette';
+import { THEME_DARK, THEME_LIGHT } from '../../services/theme/themeModes';
 import BorderedSection from '../BorderedSection/BorderedSection';
 import { getColors } from '../../utils/getColors/getColors';
 import DropDown from '../DropDown/DropDown';

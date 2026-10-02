@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { JSX } from 'react';
 import { ButtonToggle } from '../ButtonToggle/ButtonToggle';
-import { TelescopeList } from '@ska-telescope/ska-javascript-components';
+import { TelescopeList } from '../../utils/telescopes';
 
 export type Telescope = {
   code: string;
