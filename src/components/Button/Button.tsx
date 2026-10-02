@@ -1,7 +1,6 @@
-import React, { JSX } from 'react';
+import React, { ElementType, JSX } from 'react';
 import { Button, PopperPlacementType, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material';
-import { ElementType } from '@react-spring/web';
 //
 import AddIcon from '../Icons/classic/AddIcon';
 import ClearIcon from '../Icons/classic/ClearIcon';
