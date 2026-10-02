@@ -15,6 +15,10 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/ska-gui-components.es.js"
     },
+    "./controlled": {
+      "types": "./dist/controlled.d.ts",
+      "import": "./dist/controlled.es.js"
+    },
     "./dist/assets/index.css": "./dist/assets/index.css"
   },
   "files": [
@@ -53,6 +57,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.5.2",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^6.1.1",
@@ -69,6 +74,7 @@
     "prettier": "^3",
     "react": "^19",
     "react-dom": "^19",
+    "react-hook-form": "^7.0.0",
     "storybook": "^10.6.1",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.71.0",
@@ -79,7 +85,13 @@
     "@mui/material": "^7.3.0",
     "@mui/system": "^7.3.0",
     "react": "^18.2.0 || ^19",
-    "react-dom": "^18 || ^19"
+    "react-dom": "^18 || ^19",
+    "react-hook-form": "^7.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-hook-form": {
+      "optional": true
+    }
   },
   "resolutions": {
     "js-yaml": "^3.15.2",
