@@ -10,15 +10,19 @@ export default defineConfig({
     cssCodeSplit: true,
 
     lib: {
-      entry: resolve(__dirname, './src/index.ts'),
+      entry: {
+        'ska-gui-components': resolve(__dirname, './src/index.ts'),
+        controlled: resolve(__dirname, './src/controlled.ts'),
+      },
       formats: ['es'],
-      fileName: (format) => `ska-gui-components.${format}.js`,
+      fileName: (format, entryName) => `${entryName}.${format}.js`,
     },
 
     rollupOptions: {
       external: (id) => external.some((dep) => id === dep || id.startsWith(`${dep}/`)),
       output: {
-        assetFileNames: 'assets/[name].[ext]', // <-- ensures CSS is emitted
+        assetFileNames: (asset) =>
+          asset.names.some((name) => name.endsWith('.css')) ? 'assets/index.css' : 'assets/[name].[ext]',
       },
     },
 
@@ -33,7 +37,5 @@ export default defineConfig({
     },
   },
 
-  plugins: [
-    react()
-  ],
+  plugins: [react()],
 });

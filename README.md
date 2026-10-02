@@ -12,6 +12,20 @@ SKAO Theme has been implemented and has been imported from ska-javascript-compon
 ## Adding library to your application
 
 See /docs/src/usage.rst
+
+### Controlled components
+
+The React Hook Form controlled components are available from a separate entry point, so React Hook Form is only required when using them:
+
+```tsx
+import {
+  ControlledSelect,
+  ControlledTextField,
+} from '@ska-telescope/ska-gui-components/controlled';
+```
+
+Install `react-hook-form` in applications that use this entry point and render the components inside a `FormProvider`. The standard package entry point does not export or require the controlled components.
+
 ## Updating the CI/CD processor
 
 See /docs/src/usage.rst
