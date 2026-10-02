@@ -35,6 +35,15 @@ export { StatusIcon } from './components/StatusIcon/StatusIcon';
 export { TelescopeSelector } from './components/TelescopeSelector/TelescopeSelector';
 export { TextEntry } from './components/TextEntry/TextEntry';
 export { TickBox } from './components/TickBox/TickBox';
+export {
+  ControlledCheckbox,
+  ControlledNumberField,
+  ControlledRadioButtonGroup,
+  ControlledSelect,
+  ControlledTextField,
+  ControlledTimeField,
+  createSelectOptions,
+} from './components/controlled';
 export { GUI_COMPONENTS_VERSION } from './components/version';
 
 export {

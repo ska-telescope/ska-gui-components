@@ -24,6 +24,7 @@ export default defineConfig({
         '@base-ui/react/number-field',
         '@ska-telescope/ska-javascript-components',
         'react-dropzone',
+        'react-hook-form',
       ],
       output: {
         globals: {
@@ -44,7 +45,5 @@ export default defineConfig({
     },
   },
 
-  plugins: [
-    react()
-  ],
+  plugins: [react()],
 });

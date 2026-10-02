@@ -5,6 +5,7 @@ UNRELEASED
 ******
 - Dependency updates to clear known security vulnerabilities (no functional changes).
 - Migrated from yarn classic (1.22.22) to yarn 4.12.0, and moved CI onto the shared SKAO JS templates and `.make/js.mk` targets.
+- Added React Hook Form controlled components.
 
 2.9.0
 ******
