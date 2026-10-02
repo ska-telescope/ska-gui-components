@@ -1,8 +1,8 @@
-import '@mui/material/styles';
+import type {} from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   interface Theme {
-    skaVars: Record<string, string>;
+    skaVars?: Record<string, string>;
   }
 
   interface ThemeOptions {
