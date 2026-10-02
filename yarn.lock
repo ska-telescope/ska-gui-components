@@ -1774,6 +1774,9 @@ __metadata:
     react: ^18.2.0 || ^19
     react-dom: ^18 || ^19
     react-hook-form: ^7.0.0
+  peerDependenciesMeta:
+    react-hook-form:
+      optional: true
   languageName: unknown
   linkType: soft
 
