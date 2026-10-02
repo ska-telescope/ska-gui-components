@@ -21,22 +21,17 @@
     "dist"
   ],
   "scripts": {
-    "browserList": "npx browserslist@latest --update-db",
     "build": "vite build && tsc -p tsconfig.build.json",
     "build-storybook": "storybook build",
     "code-analysis": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 -f junit -o linting.xml",
     "checker": "yarn build && yarn prettier:fix && yarn lint:fix",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
-    "trevor": "eslint --print-config .storybook/main.ts",
     "merge-reports": "jrm build/reports/unit-tests.xml \"build/tests/*.xml\"",
     "prettier:fix": "prettier src/**/*.{ts,tsx} --write",
     "preview": "vite preview",
-    "skao:update": "yarn add @ska-telescope/ska-javascript-components@latest",
     "storybook": "storybook dev -p 6006",
     "storybook:update": "npx storybook@latest upgrade",
-    "test:coverage:report": "npx nyc report --report-dir=build/reports --reporter=html",
-    "test:coverage:report:ci": "npx nyc report --report-dir=build/reports",
     "test:unit": "vitest --typecheck --coverage.enabled=true  --reporter=default",
     "test:unit:ui": "vitest --typecheck  --coverage.enabled=true  --reporter=default --ui"
   },
