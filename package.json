@@ -8,13 +8,12 @@
   "engines": {
     "node": ">=22"
   },
-  "main": "./dist/ska-gui-components.umd.js",
-  "module": "./dist/ska-gui-components.es.js",
-  "types": "./dist/ska-gui-components.d.mts",
+  "main": "./dist/ska-gui-components.es.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/ska-gui-components.es.js",
-      "require": "./dist/ska-gui-components.umd.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ska-gui-components.es.js"
     },
     "./dist/assets/index.css": "./dist/assets/index.css"
   },
@@ -23,7 +22,7 @@
   ],
   "scripts": {
     "browserList": "npx browserslist@latest --update-db",
-    "build": "tsc && vite build",
+    "build": "vite build && tsc -p tsconfig.build.json",
     "build-storybook": "storybook build",
     "code-analysis": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 -f junit -o linting.xml",
     "checker": "yarn build && yarn prettier:fix && yarn lint:fix",
@@ -46,7 +45,6 @@
     "@mui/material": "7.3.0",
     "@mui/system": "7.3.0",
     "@mui/x-data-grid": "^7.28.0",
-    "@react-spring/web": "^9.7.3",
     "@ska-telescope/ska-javascript-components": "^2.3.21",
     "react-dropzone": "^14.3.5"
   },

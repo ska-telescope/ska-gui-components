@@ -14,8 +14,8 @@ import BorderedSection from '../BorderedSection/BorderedSection';
 import { getColors } from '../../utils/getColors/getColors';
 import DropDown from '../DropDown/DropDown';
 import { SKABrandColor } from '../../services/theme/createSKATheme';
-import { Help } from 'components/AppWrapper/AppWrapper';
-import { Telescope } from 'components/TelescopeSelector/TelescopeSelector';
+import { Help } from '../AppWrapper/AppWrapper';
+import { Telescope } from '../TelescopeSelector/TelescopeSelector';
 
 export type Storage = {
   accessibility?: number;

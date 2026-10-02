@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "typeRoots": ["./node_modules/@types", "./src/types"],
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ES2020",
-    "moduleResolution": "node",
+    "target": "ES2023",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "jsx": "react-jsx",
-    "baseUrl": "./src",
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -16,5 +14,5 @@
     "skipLibCheck": true
   },
   "include": ["src", ".storybook", "global.d.ts"],
-  "exclude": ["dist/**/*", "node_modules/**/*", "src/*.test.ts"]
+  "exclude": ["dist", "node_modules", "src/*.test.ts"]
 }
