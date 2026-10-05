@@ -1,13 +1,9 @@
 import { AppBar, Box, Drawer, Grid, Paper, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import {
-  Logo,
-  Symbol,
-  TELESCOPE_LOW,
-  TELESCOPE_MID,
-  THEME_DARK,
-  THEME_LIGHT,
-} from '@ska-telescope/ska-javascript-components';
+import { Logo } from '../Logo/Logo';
+import { Symbol } from '../Symbol/Symbol';
+import { TELESCOPE_LOW, TELESCOPE_MID } from '../../utils/telescopes';
+import { THEME_DARK, THEME_LIGHT } from '../../services/theme/themeModes';
 import { JSX, ReactNode, useState } from 'react';
 import { SKABrandColor } from '../../services/theme/createSKATheme';
 import Children from '../../utils/types/types';

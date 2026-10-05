@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createSKATheme } from './createSKATheme';
-import { THEME_LIGHT, THEME_DARK } from '@ska-telescope/ska-javascript-components';
+import { THEME_LIGHT, THEME_DARK } from './themeModes';
 import { SKABrandColor } from './createSKATheme';
 
 export type SKAThemeMode = typeof THEME_LIGHT | typeof THEME_DARK;

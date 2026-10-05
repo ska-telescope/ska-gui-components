@@ -17,7 +17,7 @@ import PublishIcon from '../Icons/classic/PublishIcon';
 import EmailIcon from '../Icons/classic/EmailIcon';
 import FactCheckIcon from '../Icons/classic/FactCheckIcon';
 
-import { Colors } from '@ska-telescope/ska-javascript-components';
+import { Colors } from '../../services/theme/colors';
 
 export enum ButtonColorTypes {
   Error = 'error',

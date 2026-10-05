@@ -1,6 +1,5 @@
 import './theme';
 
-import './components/BaseUI/NumberEntry2/NumberEntry2.module.css';
 //
 export { AlertColorTypes, AlertVariantTypes, SKAOAlert as Alert } from './components/Alert/Alert';
 export { AlertCard } from './components/AlertCard/AlertCard';
@@ -49,25 +48,18 @@ export {
   ACCESSIBILITY_TRITANOMALY,
   ACCESSIBILITY_ACHROMATOMALY,
   ACCESSIBILITY_ACHROMATOPSIA,
-  Colors,
-  Logo,
-  LOGO_DEFAULT_HEIGHT,
-  SPACER_HORIZONTAL,
-  SPACER_VERTICAL,
-  Spacer,
-  Status,
-  Styling,
-  Symbol,
-  SYMBOL_DEFAULT_HEIGHT,
-  TelescopeList,
-  TELESCOPE_LOW,
-  TELESCOPE_MID,
   THEME_DARK,
   THEME_LIGHT,
-  JAVASCRIPT_COMPONENTS_VERSION,
-} from '@ska-telescope/ska-javascript-components';
+} from './services/theme/themeModes';
+export { Colors } from './services/theme/colors';
+export { Logo, LOGO_DEFAULT_HEIGHT } from './components/Logo/Logo';
+export { SPACER_HORIZONTAL, SPACER_VERTICAL, Spacer } from './components/Spacer/Spacer';
+export { Status } from './components/Status/Status';
+export { Styling } from './services/theme/styling';
+export { Symbol, SYMBOL_DEFAULT_HEIGHT } from './components/Symbol/Symbol';
+export { TelescopeList, TELESCOPE_LOW, TELESCOPE_MID } from './utils/telescopes';
 
-export type { AccessibilityMode, ThemeMode } from '@ska-telescope/ska-javascript-components';
+export type { AccessibilityMode, ThemeMode } from './services/theme/themeModes';
 
 // Theme system
 export { SKAThemeProvider } from './services/theme/SKAThemeProvider';

@@ -1,6 +1,7 @@
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import type { Decorator } from '@storybook/react-vite';
-import { THEME_LIGHT, THEME_DARK, TELESCOPE_LOW } from '@ska-telescope/ska-javascript-components';
+import { THEME_LIGHT, THEME_DARK } from '../../services/theme/themeModes';
+import { TELESCOPE_LOW } from '../../utils/telescopes';
 import Header from './Header';
 import { createSKATheme, SKAThemeMode } from '../../services/theme/createSKATheme';
 import { getAppBarOverride } from '../../services/theme/appBarColours';

@@ -4,11 +4,7 @@ Welcome to ska-gui-components documentation!
 This is a JavaScript library contained low level components and utilities for use within SKAO GUI applications.
 It makes use of the following:
 
-Material-UI ( version 5 ) - Ensures that the SKAO theme is implemented in a consistent manner
-ska-javascript-components - JavaScript library containing functionality that does not require Material-UI
-
-Note that functionality that is available from the ska-javascript-components library has been made available via this library
-so that separate inclusion is not required.
+Material-UI ( version 7 ) - Ensures that the SKAO theme is implemented in a consistent manner
 
 Every effort has been made to ensure that all components have a unique means of identification for testing purposes,
 as well as implementation of standard properties to allow for maximum accessibility for those that have access limitations
@@ -24,13 +20,13 @@ as well as implementation of standard properties to allow for maximum accessibil
 
    Usage
    Functionality
-   JavascriptComponents
    Alert
    AlertCard
    authWrapper
    Backdrop
    Button
    ButtonToggle
+   Colors
    DataGrid
    DataTree
    DateEntry
@@ -42,11 +38,17 @@ as well as implementation of standard properties to allow for maximum accessibil
    IconButton
    Icons
    InfoCard
+   Logo
    NumberEntry
    Progress
+   SearchEntry
+   Spacer
+   Status
+   StatusIcon
+   Styling
+   Symbol
+   Telescope
    TelescopeSelector
    TextEntry
    TickBox
-   SearchEntry
-   StatusIcon
    version

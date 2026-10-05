@@ -1,7 +1,7 @@
 import React from 'react';
 import ClearIcon from '../Icons/classic/ClearIcon';
 import TickIcon from '../Icons/classic/TickIcon';
-import { Colors } from '@ska-telescope/ska-javascript-components';
+import { Colors } from '../../services/theme/colors';
 import { PopperPlacementType, Tooltip, useTheme } from '@mui/material';
 
 const DEFAULT_SIZE = 60;

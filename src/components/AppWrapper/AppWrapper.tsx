@@ -1,6 +1,6 @@
 import React, { JSX } from 'react';
 import { Paper } from '@mui/material';
-import { Spacer, SPACER_VERTICAL } from '@ska-telescope/ska-javascript-components';
+import { Spacer, SPACER_VERTICAL } from '../Spacer/Spacer';
 import CopyrightModal from '../CopyrightModal/CopyrightModal';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';

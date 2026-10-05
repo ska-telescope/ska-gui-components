@@ -1,5 +1,6 @@
 import { alpha } from '@mui/material/styles';
-import { COLOR_PALETTE_SETS, Colors } from '@ska-telescope/ska-javascript-components';
+import { COLOR_PALETTE_SETS } from '../../services/theme/palette';
+import { Colors } from '../../services/theme/colors';
 
 type ContentType = 'bg' | 'fg' | 'both';
 

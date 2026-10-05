@@ -1,9 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { getColors } from './getColors';
-import {
-  COLOR_PALETTE_SETS,
-  COLOR_BLINDNESS_OPTIONS,
-} from '@ska-telescope/ska-javascript-components';
+import { COLOR_PALETTE_SETS, COLOR_BLINDNESS_OPTIONS } from '../../services/theme/palette';
 
 describe('COLOR_PALETTE_SETS', () => {
   it('should contain 9 palette sets', () => {

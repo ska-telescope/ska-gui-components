@@ -23,8 +23,6 @@ Usage
 
     - `yarn add @ska-telescope/ska-gui-components`   ( npm can be used as an alternative )
 
-    Note that this will additionally provide access to all functionality within the `ska-javascript-components`
-
 .. admonition:: Addition into the JS/TS code
 
     Implementation of the specific components vary and are detailed in later documentation, 

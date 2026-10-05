@@ -1,9 +1,7 @@
 import type { Preview } from "@storybook/react-vite";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { createSKATheme } from "../src/services/theme/createSKATheme";
-import {
-  THEME_LIGHT
-} from "@ska-telescope/ska-javascript-components";
+import { THEME_LIGHT } from "../src/services/theme/themeModes";
 
 const storybookTheme = createSKATheme(THEME_LIGHT, 0);
 

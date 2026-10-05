@@ -3,7 +3,6 @@ import React, { JSX } from 'react';
 import { Field } from '@base-ui/react/field';
 import { NumberField as BaseNumberEntry2 } from '@base-ui/react/number-field';
 import styles from './NumberEntry2.module.css';
-import './NumberEntry2.module.css';
 import { PopperPlacementType, Tooltip } from '@mui/material';
 
 interface NumberEntry2Props {

@@ -1,4 +1,5 @@
-import { TELESCOPE_LOW, THEME_LIGHT } from '@ska-telescope/ska-javascript-components';
+import { TELESCOPE_LOW } from '../../utils/telescopes';
+import { THEME_LIGHT } from '../../services/theme/themeModes';
 import Header from './Header';
 
 export default {
