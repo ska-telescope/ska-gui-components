@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-vite';
 import { SKAOBackdrop as Backdrop } from './Backdrop';
 import { Typography } from '@mui/material';
 

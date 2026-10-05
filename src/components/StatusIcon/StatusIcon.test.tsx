@@ -2,7 +2,6 @@ import React from 'react';
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import StatusIcon from '././StatusIcon';
-import '@testing-library/jest-dom';
 
 describe('StatusIcon', () => {
   test('renders correctly', () => {

@@ -1,5 +1,5 @@
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
-import type { Decorator } from '@storybook/react';
+import type { Decorator } from '@storybook/react-vite';
 import { THEME_LIGHT, THEME_DARK, TELESCOPE_LOW } from '@ska-telescope/ska-javascript-components';
 import Header from './Header';
 import { createSKATheme, SKAThemeMode } from '../../services/theme/createSKATheme';

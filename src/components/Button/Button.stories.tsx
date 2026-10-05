@@ -20,8 +20,8 @@ export const Default = {
 };
 
 export const Dark = {
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
   args: {
     ariaDescription: 'aria Description',

@@ -2,7 +2,6 @@ import React from 'react';
 import { describe, test } from 'vitest';
 import { render } from '@testing-library/react';
 import DataGrid from '././DataGrid';
-import '@testing-library/jest-dom';
 
 const DUMMY_COLUMNS = [
   { field: 'execution_block', headerName: 'HEADER 1', width: 200 },

@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Normalize plugin imports (ESM vs CJS)
 import reactHooksPlugin from "eslint-plugin-react-hooks";
-import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
+import jsxA11yPlugin from "eslint-plugin-jsx-a11y-x";
 import prettierPlugin from "eslint-plugin-prettier";
 
 const reactHooks = reactHooksPlugin?.default ?? reactHooksPlugin;

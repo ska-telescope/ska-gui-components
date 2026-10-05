@@ -3,7 +3,6 @@ import React from 'react';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import FrequencySpectrum from './FrequencySpectrum';
-import '@testing-library/jest-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 describe('FrequencySpectrum', () => {

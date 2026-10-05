@@ -2,7 +2,6 @@ import React from 'react';
 import { describe, test } from 'vitest';
 import { render } from '@testing-library/react';
 import NumberEntry2 from './NumberEntry2';
-import '@testing-library/jest-dom';
 
 describe('NumberEntry2', () => {
   // const mockAction = vi.fn();

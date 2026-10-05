@@ -105,6 +105,7 @@ pages:
     - js-test
     - list_dependencies
     - code_quality
+  before_script: []
   script:
     - mv public/* .
     - cp -r build/* public
@@ -113,6 +114,11 @@ pages:
     paths:
       - public
     expire_in: 30 days
+
+docs-build:
+  image: artefact.skao.int/ska-build-python-ubuntu26:1.0.2
+  variables:
+    PIP_BREAK_SYSTEM_PACKAGES: "1"
 
 include:
   - template: Code-Quality.gitlab-ci.yml

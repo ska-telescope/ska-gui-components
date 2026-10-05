@@ -2,7 +2,6 @@ import React from 'react';
 import { describe, test } from 'vitest';
 import { render } from '@testing-library/react';
 import ButtonToggle from '././ButtonToggle';
-import '@testing-library/jest-dom';
 
 const telescope = { id: 'low', Label: 'SKA LOW' };
 const telescopeList = [
