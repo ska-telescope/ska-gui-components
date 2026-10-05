@@ -35,8 +35,8 @@ export const Light = {
 };
 
 export const Dark = {
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
   args: {
     chooseSize: ButtonSizeTypes.Medium,
