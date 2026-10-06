@@ -1,7 +1,11 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
+import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig({
+  define: {
+    __GUI_COMPONENTS_VERSION__: JSON.stringify(pkg.version),
+  },
   plugins: [react()],
   test: {
     environment: 'jsdom',

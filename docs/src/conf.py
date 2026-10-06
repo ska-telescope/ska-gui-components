@@ -6,9 +6,9 @@ copyright = '2023, SKAO'
 author = 'SKAO, (Trevor A Swain)'
 
 # The short X.Y version
-version = '2.9.0'
+version = '3.0.0'
 # The full version, including alpha/beta/rc tags
-release = '2.9.0'
+release = '3.0.0'
 
 # -- General configuration ---------------------------------------------------
 
@@ -22,11 +22,12 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    'myst_parser',
 ]
 
 templates_path = []
 
-source_suffix = '.rst'
+source_suffix = ['.rst', '.md']
 
 master_doc = 'index'
 

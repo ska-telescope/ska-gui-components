@@ -1,9 +1,9 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "2.9.0",
+  "version": "3.0.0",
   "description": "A Library of SKA GUI components using Material-UI",
   "license": "BSD-3-Clause",
-  "author": "Trevor A Swain",
+  "author": "SKAO Software Team",
   "type": "module",
   "engines": {
     "node": ">=22"
