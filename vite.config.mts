@@ -6,6 +6,10 @@ import pkg from './package.json' with { type: 'json' };
 const external = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)];
 
 export default defineConfig({
+  define: {
+    __GUI_COMPONENTS_VERSION__: JSON.stringify(pkg.version),
+  },
+
   build: {
     cssCodeSplit: true,
 
