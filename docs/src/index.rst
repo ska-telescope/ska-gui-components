@@ -15,6 +15,13 @@ as well as implementation of standard properties to allow for maximum accessibil
      a number of options that will help to achieve that requirement
 
 .. toctree::
+   :maxdepth: 1
+   :caption: Releases
+   :hidden:
+
+   CHANGELOG
+
+.. toctree::
    :maxdepth: 2
    :caption: Contents:
 
