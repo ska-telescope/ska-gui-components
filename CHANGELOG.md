@@ -4,6 +4,8 @@ Changelog
 UNRELEASED
 ----------
 
+- Fixes a moderate `sprintf-js` advisory (GHSA-hp3w-g68c-fv3c) in the development dependencies, by removing the `js-yaml` 3 pin that forced it in.
+- Removes the remaining `resolutions` pins, which are no longer needed, and refreshes the lockfile. The published code is unchanged.
 
 3.0.0
 -----
