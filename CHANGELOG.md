@@ -4,9 +4,12 @@ Changelog
 UNRELEASED
 ----------
 
+3.1.0
+-----
+
 - Fixes a moderate `sprintf-js` advisory (GHSA-hp3w-g68c-fv3c) in the development dependencies, by removing the `js-yaml` 3 pin that forced it in.
 - Removes the remaining `resolutions` pins, which are no longer needed, and refreshes the lockfile. The published code is unchanged.
-- Exposes helperText in controlled components but displays the error message from fieldState if available, without a client having to pass this.
+- Exposes `helperText` prop in the controlled components but displays the error message from fieldState if available, without a client having to pass this.
 
 3.0.0
 -----

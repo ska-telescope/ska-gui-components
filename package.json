@@ -1,6 +1,6 @@
 {
   "name": "@ska-telescope/ska-gui-components",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A Library of SKA GUI components using Material-UI",
   "license": "BSD-3-Clause",
   "author": "SKAO Software Team",
