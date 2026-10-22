@@ -12,10 +12,12 @@ const TestForm = ({
   onChange,
   rules,
   placeholder,
+  helperText,
 }: {
   onChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  rules?: { required: string };
+  rules?: { required: string | boolean };
   placeholder?: string;
+  helperText?: string;
 }) => {
   const methods = useForm<FormValues>({ defaultValues: { name: 'Ada' }, mode: 'onChange' });
   return (
@@ -26,6 +28,7 @@ const TestForm = ({
         onChange={onChange}
         rules={rules}
         placeholder={placeholder}
+        helperText={helperText}
         slotProps={{ htmlInput: { maxLength: 20 } }}
       />
       <output data-testid="form-value">{methods.watch('name')}</output>
@@ -62,6 +65,31 @@ describe('ControlledTextField', () => {
     await user.clear(screen.getByRole('textbox', { name: 'Name' }));
 
     expect(await screen.findByText('Name is required')).toBeInTheDocument();
+  });
+
+  test('shows the helper text when there is no error', () => {
+    render(<TestForm helperText="Your full name" />);
+
+    expect(screen.getByText('Your full name')).toBeInTheDocument();
+  });
+
+  test('replaces the helper text with the validation message when invalid', async () => {
+    render(<TestForm helperText="Your full name" rules={{ required: 'Name is required' }} />);
+
+    await user.clear(screen.getByRole('textbox', { name: 'Name' }));
+
+    expect(await screen.findByText('Name is required')).toBeInTheDocument();
+    expect(screen.queryByText('Your full name')).not.toBeInTheDocument();
+  });
+
+  test('falls back to the helper text when the validation message is empty', async () => {
+    render(<TestForm helperText="Your full name" rules={{ required: true }} />);
+
+    const input = screen.getByRole('textbox', { name: 'Name' });
+    await user.clear(input);
+
+    expect(await screen.findByText('Your full name')).toBeInTheDocument();
+    expect(input).toHaveAttribute('aria-invalid', 'true');
   });
 
   test('keeps caller htmlInput props while shrinking the label for a placeholder', () => {

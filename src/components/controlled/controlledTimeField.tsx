@@ -66,9 +66,9 @@ export const ControlledTimeField = <
             slotProps={{
               htmlInput: { step: stepSize, min: min, max: max },
             }}
-            error={!!fieldState.error}
             {...otherProps}
-            helperText={fieldState.error?.message ?? helperText}
+            error={!!fieldState.error}
+            helperText={fieldState.error?.message || helperText}
             onChange={(evt) => {
               field.onChange(evt); // RHF manages its own onChange to track the form field value so need to call that here
               if (onChange) {

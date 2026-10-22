@@ -30,6 +30,7 @@ export const ControlledTextField = <
   type = 'text',
   rules = undefined,
   onChange = undefined,
+  helperText = undefined,
   ...otherProps
 }: ControlledTextFieldProps<TFieldValues, TName>): JSX.Element => {
   const { control } = useFormContext<TFieldValues>();
@@ -64,8 +65,6 @@ export const ControlledTextField = <
           type={type}
           variant={variant}
           fullWidth={fullWidth}
-          helperText={fieldState.error?.message ?? null}
-          error={!!fieldState.error}
           onChange={(evt) => {
             field.onChange(evt); // RHF manages its own onChange to track the form field value so need to call that here
             if (onChange) {
@@ -73,6 +72,10 @@ export const ControlledTextField = <
             }
           }}
           {...otherProps}
+          // Validation error takes precedence over the caller's helper text. `||` (not `??`) so an
+          // empty error message (e.g. `required: true`) still falls back to the helper text.
+          helperText={fieldState.error?.message || helperText}
+          error={!!fieldState.error}
         />
       )}
     />

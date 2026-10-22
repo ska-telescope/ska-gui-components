@@ -95,9 +95,9 @@ export const ControlledNumberField = <
                 max: max,
               },
             }}
-            error={!!fieldState.error}
             {...otherProps}
-            helperText={fieldState.error?.message ?? helperText}
+            error={!!fieldState.error}
+            helperText={fieldState.error?.message || helperText}
             onChange={(evt: ChangeEvent) => {
               if (decimalPlaces !== undefined) {
                 const raw = (evt.target as HTMLInputElement).value;
