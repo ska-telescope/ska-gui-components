@@ -41,6 +41,7 @@ type ControlledSelectProps<
   // This flag decides whether the change should call the RHF change handler and cause the form to update. It should only be set to false
   // if an onChange is provided that will handle the form update within the component (for example after a confirmation dialog has been clicked).
   withFormUpdate?: boolean;
+  helperText?: string;
   // The Omit here clarifies that we are always expecting SelectChangeEvent rather than
   // a merge of SelectChangeEvent and the onChange type defined by FormControlProps
 } & Omit<FormControlProps, 'onChange'>;
@@ -58,6 +59,7 @@ export const ControlledSelect = <
   fullWidth = true,
   value = undefined,
   withFormUpdate = true,
+  helperText = undefined,
   ...otherProps
 }: ControlledSelectProps<TFieldValues, TName, TValue>): JSX.Element => {
   const { control } = useFormContext<TFieldValues>();
@@ -96,7 +98,9 @@ export const ControlledSelect = <
               </MenuItem>
             ))}
           </Select>
-          <FormHelperText error={true}>{fieldState.error?.message}</FormHelperText>
+          <FormHelperText error={!!fieldState.error}>
+            {fieldState.error?.message || helperText}
+          </FormHelperText>
         </FormControl>
       )}
     />
