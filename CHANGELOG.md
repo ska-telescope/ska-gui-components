@@ -3,12 +3,14 @@ Changelog
 
 UNRELEASED
 ----------
+
+3.2.0
+-----
 - Changes the default variant from `outlined` to `standard` for `TextField`, `Select`, `NumberField` and `TimeField` in `components/controlled`
 - Overwrites the checked/focus style in the `SKATheme` for `MuiCheckbox`, `MuiRadio` and `MuiFormLabel` to `primary.dark` to make fields more visible
 
 3.1.0
 -----
-
 - Fixes a moderate `sprintf-js` advisory (GHSA-hp3w-g68c-fv3c) in the development dependencies, by removing the `js-yaml` 3 pin that forced it in.
 - Removes the remaining `resolutions` pins, which are no longer needed, and refreshes the lockfile. The published code is unchanged.
 - Exposes `helperText` prop in the controlled components but displays the error message from fieldState if available, without a client having to pass this.
@@ -36,7 +38,6 @@ Various security/maintenance/housekeeping fixes...
 - Removes the unused `@react-spring/web` dependency, the stale committed `types/` directory and unused declaration files, and stops publishing `index.html`.
 - Dependency updates to clear known security vulnerabilities (no functional changes).
 - Migrated from yarn classic (1.22.22) to yarn 4.12.0, and moved CI onto the shared SKAO JS templates and `.make/js.mk` targets.
-
 
 2.9.0
 -----
