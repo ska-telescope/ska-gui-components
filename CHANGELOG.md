@@ -3,6 +3,8 @@ Changelog
 
 UNRELEASED
 ----------
+- Changes the default variant from `outlined` to `standard` for `TextField`, `Select`, `NumberField` and `TimeField` in `components/controlled`
+- Overwrites the checked/focus style in the `SKATheme` for `MuiCheckbox`, `MuiRadio` and `MuiFormLabel` to `primary.dark` to make fields more visible
 
 3.1.0
 -----
