@@ -57,6 +57,7 @@ export const ControlledSelect = <
   onChange = undefined,
   defaultValue = '',
   fullWidth = true,
+  variant = 'standard',
   value = undefined,
   withFormUpdate = true,
   helperText = undefined,
@@ -74,7 +75,7 @@ export const ControlledSelect = <
       control={control}
       name={name}
       render={({ field, fieldState }) => (
-        <FormControl fullWidth={fullWidth} {...otherProps}>
+        <FormControl fullWidth={fullWidth} variant={variant} {...otherProps}>
           <InputLabel id={labelId}>{label}</InputLabel>
           <Select
             {...field}

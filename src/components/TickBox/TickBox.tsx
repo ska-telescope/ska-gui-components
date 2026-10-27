@@ -90,16 +90,7 @@ export function TickBox({
               onFocus={(e) => onFocusFunction(e)}
               control={
                 <Tooltip placement={toolTipPlacement as PopperPlacementType} title={toolTip} arrow>
-                  <Checkbox
-                    sx={{
-                      '&.Mui-checked': {
-                        color: theme.palette.secondary.main,
-                        '&.Mui-disabled': {
-                          color: theme.palette.primary.dark,
-                        },
-                      },
-                    }}
-                  />
+                  <Checkbox />
                 </Tooltip>
               }
               sx={{ '& .MuiSvgIcon-root': { fontSize: { fontSize } } }}
