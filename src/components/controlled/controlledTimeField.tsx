@@ -36,7 +36,7 @@ export const ControlledTimeField = <
   label,
   sx = {},
   type = 'time',
-  variant = 'outlined',
+  variant = 'standard',
   onChange,
   stepSize = 1,
   min = 0,

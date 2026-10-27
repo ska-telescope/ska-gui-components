@@ -51,7 +51,7 @@ export const ControlledNumberField = <
   label,
   sx = {},
   type = 'number',
-  variant = 'outlined',
+  variant = 'standard',
   disabled = false,
   stepSize = 1,
   min = 0,

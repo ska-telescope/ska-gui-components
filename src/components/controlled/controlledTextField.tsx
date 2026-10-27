@@ -25,7 +25,7 @@ export const ControlledTextField = <
 >({
   name,
   label,
-  variant = 'outlined',
+  variant = 'standard',
   fullWidth = true,
   type = 'text',
   rules = undefined,

@@ -77,6 +77,21 @@ export function createSKATheme(
           },
         },
       },
+      MuiCheckbox: {
+        styleOverrides: {
+          root: { '&.Mui-checked': { color: theme.palette.primary.dark } },
+        },
+      },
+      MuiRadio: {
+        styleOverrides: {
+          root: { '&.Mui-checked': { color: theme.palette.primary.dark } },
+        },
+      },
+      MuiFormLabel: {
+        styleOverrides: {
+          root: { '&.Mui-focused': { color: theme.palette.primary.dark } },
+        },
+      },
     },
   });
 
