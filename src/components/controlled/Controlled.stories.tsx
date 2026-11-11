@@ -11,7 +11,7 @@ import { ControlledTimeField } from './controlledTimeField';
 
 type ControlledFormValues = {
   enabled: boolean;
-  count: number;
+  count: number | null;
   choice: string;
   name: string;
   startTime: string;
@@ -23,7 +23,7 @@ const ControlledForm = ({ children }: { children: ReactNode }) => {
   const methods = useForm<ControlledFormValues>({
     defaultValues: {
       enabled: true,
-      count: 12,
+      count: 12.74,
       choice: 'option-a',
       name: 'Sample value',
       startTime: '09:30',
@@ -67,8 +67,11 @@ export const NumberField = {
       <ControlledNumberField<ControlledFormValues, 'count'>
         name="count"
         label="Count"
-        min={0}
-        max={100}
+        decimalPlaces={3}
+        stepSize={0.84934656}
+        min={0.84934656}
+        max={20 * 0.84934656}
+        showArrows
       />
     </ControlledForm>
   ),

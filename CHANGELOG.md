@@ -3,6 +3,9 @@ Changelog
 
 UNRELEASED
 ----------
+- **Breaking:** `ControlledNumberField` now always stores a number, or `null` while the input is empty. `name` only accepts a form field typed `number | null` to make this a compilation-time check
+- **Breaking:** the minimum `react-hook-form` version updated to 7.35.0
+- `ControlledNumberField` now accepts `decimalPlaces` and `showArrows` fields together
 - Adds `ControlledCheckboxGroup` to `components/controlled`
 
 3.2.0
