@@ -1,5 +1,6 @@
 export {
   ControlledCheckbox,
+  ControlledCheckboxGroup,
   ControlledNumberField,
   ControlledRadioButtonGroup,
   ControlledSelect,
@@ -8,4 +9,5 @@ export {
   createSelectOptions,
 } from './components/controlled';
 
+export type { CheckboxOption } from './components/controlled/controlledCheckboxGroup';
 export type { SelectOption, SelectOptionType } from './components/controlled/controlledSelect';

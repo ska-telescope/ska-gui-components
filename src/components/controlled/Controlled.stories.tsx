@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Stack } from '@mui/material';
 import { ControlledCheckbox } from './controlledCheckBox';
+import { ControlledCheckboxGroup } from './controlledCheckboxGroup';
 import { ControlledNumberField } from './controlledNumberField';
 import { ControlledRadioButtonGroup } from './controlledRadioGroup';
 import { ControlledSelect } from './controlledSelect';
@@ -15,6 +16,7 @@ type ControlledFormValues = {
   name: string;
   startTime: string;
   mode: string;
+  polarisations: string[];
 };
 
 const ControlledForm = ({ children }: { children: ReactNode }) => {
@@ -26,6 +28,7 @@ const ControlledForm = ({ children }: { children: ReactNode }) => {
       name: 'Sample value',
       startTime: '09:30',
       mode: 'standard',
+      polarisations: ['I'],
     },
   });
 
@@ -113,6 +116,19 @@ export const RadioButtonGroup = {
           { label: 'Advanced', value: 'advanced' },
         ]}
         showBorder
+      />
+    </ControlledForm>
+  ),
+};
+
+export const CheckboxGroup = {
+  render: () => (
+    <ControlledForm>
+      <ControlledCheckboxGroup
+        name="polarisations"
+        label="Polarisations"
+        columns={2}
+        options={['I', 'Q', 'U', 'V'].map((value) => ({ label: value, value }))}
       />
     </ControlledForm>
   ),
