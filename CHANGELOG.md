@@ -3,6 +3,7 @@ Changelog
 
 UNRELEASED
 ----------
+- Adds `ControlledCheckboxGroup` to `components/controlled`
 
 3.2.0
 -----
