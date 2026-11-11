@@ -207,4 +207,18 @@ describe('ControlledNumberField', () => {
     const step = 0.5;
     expect(stepOnGrid(steps * step, step, 0, direction as 1 | -1)).toBe(expected * step);
   });
+
+  // A step too small for rounding to fixed decimal places, which skipped or stalled on it
+  test('stepOnGrid moves one step at a time with a small step size', () => {
+    const step = 0.001 / 3;
+    let value = 0;
+    for (let i = 1; i <= 100; i++) {
+      value = stepOnGrid(value, step, 0, 1);
+      expect(value / step).toBeCloseTo(i, 6);
+    }
+    for (let i = 99; i >= 0; i--) {
+      value = stepOnGrid(value, step, 0, -1);
+      expect(value / step).toBeCloseTo(i, 6);
+    }
+  });
 });

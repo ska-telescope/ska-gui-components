@@ -36,7 +36,7 @@ const getDecimalDisplayValue = (
   return '';
 };
 
-// How close a value must be to a step to count as on it, in the units of the value
+// How close a value must be to a step to count as on it, as a fraction of a step
 const STEP_EPSILON = 1e-6;
 
 export const stepOnGrid = (
@@ -48,7 +48,7 @@ export const stepOnGrid = (
   const steps = (value - min) / stepSize;
   const next =
     direction === 1 ? Math.floor(steps + STEP_EPSILON) + 1 : Math.ceil(steps - STEP_EPSILON) - 1;
-  return Math.round((min + next * stepSize) * 1e9) / 1e9;
+  return Number((min + next * stepSize).toPrecision(15));
 };
 
 const cssHideArrows = {
