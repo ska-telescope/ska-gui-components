@@ -65,7 +65,7 @@ distribution:
 # Publish the artifacts to CAR
 publish-to-car:
   stage: publish
-  image: artefact.skao.int/ska-node-ubuntu26:1.0.2
+  image: ${JS_BUILD_IMAGE}
   tags:
     - ${SKA_K8S_RUNNER}
   before_script:
@@ -81,20 +81,24 @@ publish-to-car:
 
 # Publish the artifacts to gitlab registry
 publish-to-gitlab:
-  image: artefact.skao.int/ska-node-ubuntu26:1.0.2
+  image: ${JS_BUILD_IMAGE}
   stage: publish
   tags:
     - ${SKA_K8S_RUNNER}
   before_script:
-    - npm config set @ska-telescope:registry https://${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/
+    # --location=project: the repo .npmrc points this scope at CAR and would otherwise override user-level config
+    - npm config set --location=project @ska-telescope:registry https://${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/
     - npm config set -- '//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken' "${CI_JOB_TOKEN}"
   script:
-    - npm version --no-git-tag-version $(npm show latest version)-dev.$CI_COMMIT_SHORT_SHA
-    - npm publish
+    # Dev build version: <package.json version>-dev.<short sha>
+    - npm version --no-git-tag-version "$(node -p "require('./package.json').version")-dev.${CI_COMMIT_SHORT_SHA}"
+    - npm publish --tag dev
   rules:
     # Do not publish on a tag pipeline, note this shouldn't transfer over to SKAO templates
     - if: $CI_COMMIT_TAG
       when: never
+    - exists:
+      - package.json
 
 # export the report
 pages:
