@@ -39,7 +39,7 @@ export interface DataGridProps {
 export function SKAODataGrid({
   ariaTitle = 'DataGrid',
   ariaDescription = 'Information provided in a tabular form',
-  autoHeight = false;
+  autoHeight = false,
   checkboxSelection = false,
   columns,
   columnHeaderHeight = 56,
