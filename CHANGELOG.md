@@ -3,6 +3,7 @@ Changelog
 
 UNRELEASED
 ----------
+- Fixes: Remove `width` from `AppWrapper` to avoid oversizing the browser window vertically
 - Adds: DataGrid now includes `autoHeight`, `density`, `pageSize` and `pageSizeOptions` pass-through props, and a configurable default page size, so consumers can control row density and rows-per-page.
 
 4.0.0

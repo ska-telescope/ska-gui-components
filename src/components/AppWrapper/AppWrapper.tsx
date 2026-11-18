@@ -165,7 +165,6 @@ export function AppWrapper(properties: AppWrapperProperties) {
         elevation={0}
         sx={{
           backgroundColor: 'secondary.contrastText',
-          width: '100vw',
           minHeight: '100vh',
         }}
       >
