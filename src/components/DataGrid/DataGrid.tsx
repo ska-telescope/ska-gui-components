@@ -12,6 +12,10 @@ export interface DataGridProps {
   columnVisibilityModel?: any;
   filterModeServer?: boolean;
   getRowHeight?: Function;
+  autoHeight?: boolean;
+  density?: 'compact' | 'standard' | 'comfortable';
+  pageSize?: number;
+  pageSizeOptions?: (number | { value: number; label: string })[];
   height?: number | string;
   hideFooter?: boolean;
   hideFooterPagination?: boolean;
@@ -35,10 +39,12 @@ export interface DataGridProps {
 export function SKAODataGrid({
   ariaTitle = 'DataGrid',
   ariaDescription = 'Information provided in a tabular form',
+  autoHeight = false,
   checkboxSelection = false,
   columns,
   columnHeaderHeight = 56,
   columnVisibilityModel,
+  density = 'standard',
   filterModeServer = false,
   getRowHeight,
   height = 400,
@@ -52,6 +58,8 @@ export function SKAODataGrid({
   onFilterModelChange,
   onRowClick,
   onRowSelectionModelChange,
+  pageSize,
+  pageSizeOptions = [25, 50, 100],
   rows,
   rowHeight,
   rowSelectionModel,
@@ -75,31 +83,49 @@ export function SKAODataGrid({
     }
   };
 
+  const mergedInitialState = {
+    ...initialState,
+    ...(pageSize
+      ? {
+          pagination: {
+            ...(initialState as any)?.pagination,
+            paginationModel: {
+              ...(initialState as any)?.pagination?.paginationModel,
+              pageSize,
+            },
+          },
+        }
+      : {}),
+  };
+
   const getTheHeight = () => {
     return getRowHeight ? getRowHeight() : 52;
   };
 
   return (
-    <Box sx={{ height, width: '100%' }}>
+    <Box sx={{ height: autoHeight ? 'auto' : height, width: '100%' }}>
       <DataGrid
         aria-label={ariaTitle}
         aria-describedby={ariaDescription}
+        autoHeight={autoHeight}
         checkboxSelection={checkboxSelection}
         columnHeaderHeight={columnHeaderHeight}
         columnVisibilityModel={columnVisibilityModel}
         data-testid={testId}
+        density={density}
         filterMode={filterModeServer ? 'server' : 'client'}
         hideFooter={hideFooter}
         hideFooterPagination={hideFooterPagination}
         hideFooterSelectedRowCount={hideFooterSelectedRowCount}
         getRowHeight={getTheHeight}
-        initialState={initialState}
+        initialState={mergedInitialState}
         loading={loading}
         onCellClick={onCellClick}
         onColumnVisibilityModelChange={onColumnVisibilityModelChange}
         onFilterModelChange={onFilterModelChange}
         onRowClick={handleRowClick}
         onRowSelectionModelChange={onRowSelectionModelChange}
+        pageSizeOptions={pageSizeOptions}
         rowHeight={rowHeight}
         rowSelectionModel={rowSelectionModel}
         style={style}
